@@ -1,0 +1,467 @@
+@font-face {
+    font-family: montserrat;
+    src: url(../asset/font/Montserrat-Regular.ttf);
+}
+
+* {
+    font-family: montserrat;
+    scroll-behavior: smooth;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #fff; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3b72ff; 
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FBBB00; 
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+
+/* 
+
+Root 
+
+*/
+
+:root{
+    --blue-1: #3b72ff;
+    --blue-2: #040505;
+    --orange-1: #FBBB00;
+    --black-1: #3a3a3a;
+    --black-2: #7a7a7a;
+    --white-1: #fff;
+
+    --red-1: #F44336;
+    --green-1: #28B446;
+
+    --dark-1: #0c131b;
+    --dark-2: #222948;
+}
+
+/* 
+
+CSS Customization 
+
+*/
+
+.color-blue-1{
+    color: var(--blue-1);
+}
+
+.color-red-1{
+    color: var(--red-1);
+}
+
+.color-orange-1{
+    color: var(--orange-1);
+}
+
+.color-black-1{
+    color: var(--black-1);
+}
+
+.color-green-1{
+    color: var(--green-1);
+}
+
+.bg-white-1{
+    background-color: var(--white-1);
+}
+
+.bg-blue-1{
+    background-color: var(--blue-1);
+}
+
+.bg-orange-1{
+    background-color: var(--orange-1);
+}
+
+.bg-green-1{
+    background-color: var(--green-1);
+}
+
+        /* 
+
+        Secondary Color 
+
+        */
+
+        .color-black-2{
+            color: var(--black-2);
+        }
+
+        .bg-black-2{
+            background-color: var(--black-2);
+        }
+
+        .bg-green-1-10{
+            background-color: rgba(40, 180, 70, 0.1);
+        }
+
+        .bg-red-1-10{
+            background-color: rgba(244, 67, 54, 0.1)
+        }
+
+        .bg-blue-2{
+            background-color: #ebf0ff;
+        }
+
+        .bg-blue-3{
+            background-color: #abc2fc;
+        }
+
+        .bg-red-1{
+            background-color: var(--red-1);
+        }
+
+        .bg-brown-1-10{
+            background-color: rgba(189, 147, 84, 0.1)
+        }
+
+        .bg-orange-1-10{
+            background-color: rgba(251, 187, 0, 0.1)
+        }
+
+        .bg-black-2-10{
+            background-color: rgba(122, 122, 122, 0.822);
+        }
+
+        .bg-dark-1{
+            background-color: var(--dark-2);
+        }
+
+.shadow-black{
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+
+Accessories 
+
+*/
+
+.minor{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.underline_anim::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #3b72ff;
+    transition: width .3s;
+}
+
+.underline_anim:hover::after{
+    width: 100%;
+    transition: width .3s;
+}
+
+#darkMode {
+    background: transparent url("../asset/icon/moon.svg") no-repeat center;
+    background-size: 30px 30px;
+    width: 45px;
+    height: 45px;
+    filter: grayscale(100%);
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* 
+
+Navbar 
+
+*/
+
+.navbar_active, .logo:hover {
+    color: #3b72ff;
+}
+
+.navbar p:hover, .help:hover{
+    color: #3b72ff;
+}
+
+.navbar-mobile p{
+    padding: 5px 10px;
+}
+
+.navbar-mobile p:hover{
+    background-color: #3b72ff;
+    color: white;
+    border-radius: .75rem;
+}
+
+.dropdown-tutorial-box p:hover{
+    color: #3b72ff;
+}
+
+.dropdown-tutorial-box p:not(:first-child){
+    font-size: .875rem;
+    margin: .5rem 0
+}
+
+.course:hover .course-box {display: flex;}
+
+.login:hover{
+    background-color: #0250bd;
+    transition: 200ms;
+}
+
+/* 
+
+Login page, Register Page 
+
+*/
+
+.login-box input, .register-box input{
+    width: 15rem;
+    padding: .275rem 1rem;
+    font-size: .875rem;
+    border: 2px solid var(--blue-1);
+    border-radius: 5px;
+    outline: none;
+    color: var(--black-2);
+}
+
+.login-box input::placeholder, .register-box input::placeholder{
+    color: var(--black-2);
+    font-size: .7rem;
+}
+
+@media screen and (min-width: 440px){
+    .login-box input, .register-box input{
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .login-box input, .register-box input{
+        width: 25rem;
+    }
+}
+
+.password-hint-box{
+    display: none;
+}
+
+.info:hover + .password-hint-box{
+    display: block;
+}
+
+/* 
+
+Homepage 
+
+*/
+
+.headerheader{
+    z-index: -100;
+}
+
+.change-text-anim::before{
+    content: "";
+    animation: changeTextAnim infinite 17.5s;
+}
+
+@keyframes changeTextAnim{
+    0%{
+        content: "Gain invaluable skills for your future career in software development";
+    }
+    14.5%{
+        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond";
+    }
+    29%{
+        content: "Learn the value of sharing knowledge and experiences among peers";
+    }
+    43.5%{
+        content: "Keep up with the latest app development tools and technology";
+    }
+    58%{
+        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest";
+    }
+    72.5%{
+        content: "Learning to code is more fun if you choose what you want to learn and make it interesting";
+    }
+    87%{
+        content: "Learn new skills through the certificate program and by meeting others who are training with you";
+    }
+    100%{
+        content: "Gain invaluable skills for your future career in software development";
+    }
+}
+
+.cta img{
+    transform: rotate(90deg);
+}
+
+@media (min-width: 775px) {
+    .cta img{
+        transform: rotate(0deg);
+    }
+}
+
+
+.feature-box div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.feature-box p:first-child{
+    font-weight: 500;
+    text-align: center;
+}
+
+.feature-box p:nth-of-type(2){
+    font-size: .875rem;
+    text-align: center;
+}
+
+.plan-box p{
+    margin: 1rem 0;
+}
+
+/* 
+
+Payment 
+
+*/
+
+tr td{
+    padding: .7rem 4rem;
+}
+
+tr td:first-child{
+    width: 500px;
+}
+
+tr td:nth-child(2){
+    font-weight: 600;
+}
+
+.payment-confirm-container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.payment-confirm-box{
+    width: 500px;
+    margin: 15% auto;
+    background-color: white;
+}
+
+/* 
+
+Roadmap 
+
+*/
+
+.roadmap-box p{
+    width: 300px;
+    padding: 25px 0;
+    border-radius: .75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.roadmap-box p:hover{
+    color: white;
+    background-color: #3b72ff;
+    transition: 200ms;
+}
+
+.roadmap{
+    border: 2rem solid white;
+    border-radius: 1.5rem;
+}
+
+.swiper-button-prev-container, .swiper-button-next-container{
+    background-color: #FBBB00;
+    color: white;
+    border-radius: 50%;
+}
+
+.swiper-button-prev-container:hover, .swiper-button-next-container:hover{
+    border: 1px solid #0250bd;
+    background-color: #0250bd;
+}
+
+.swiper-button-next{
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    transform: translate(-5%, -50%);
+}
+
+.swiper-button-prev{
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+}
+
+/* 
+
+Pricing 
+
+*/
+
+.information p{
+    width: 500px;
+}
+
+/* 
+
+Tutorial 
+
+*/
+
+.tutorial-box{
+    width: 300px;
+}
+
+
+/* width */
+.swiper-pagination::-webkit-scrollbar {
+    height: 5px;
+}
+
+.swiper-pagination p{
+    cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+    color: #fff;
+    background: #3b72ff;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+}
