@@ -54,11 +54,10 @@ export default function NavbarLogin() {
                             onClick={() => setOpen(state => !state)} 
                             initial={false} 
                             animate={open ? "opened" : "closed"}>
-                                    <NavLink to="/tutorial"
-                                    activeClassName="navbar_active" 
-                                    className="navbar__link">
-                                    <p className="navbar_btn underline_anim">Tutorial</p>
-                            </NavLink>
+                                <div
+                                    className="navbar__link navbar_active">
+                                    <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
+                                </div>
                             </motion.div>
 
                             <NavLink to="/course"
@@ -119,7 +118,7 @@ export default function NavbarLogin() {
                 variants={menuVariants}
                 animate={open ? "opened" : "closed"} className="dropdown-tutorial fixed top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl z-10 bg-white">
                     <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
-                        <p className="font-medium hover:underline text-white">Tutorials overview</p>
+                        <Link to="/tutorial" className="font-medium hover:underline text-white">Tutorials overview</Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                     <div className="dropdown-tutorial-box flex flex-col gap-5 py-5 px-5">

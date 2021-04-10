@@ -1,0 +1,69 @@
+import React, { Component } from 'react'
+import Footer from '../../../../major/Footer'
+import NavbarLogin from '../../../../major/NavbarLogin'
+import NavbarMobile from '../../../../major/NavbarMobile'
+import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
+import SidebarInternet from '../SidebarInternet'
+
+import internetschema1 from '../../../../../asset/photo/Tutorial/internet/internetschema1.png'
+import internetschema2 from '../../../../../asset/photo/Tutorial/internet/internetschema2.png'
+import internetschema3 from '../../../../../asset/photo/Tutorial/internet/internetschema3.png'
+import internetschema4 from '../../../../../asset/photo/Tutorial/internet/internetschema4.png'
+import internetschema5 from '../../../../../asset/photo/Tutorial/internet/internetschema5.png'
+
+export class InternetWork extends Component {
+    render() {
+        return (
+            <>
+                <NavbarLogin/>
+                <NavbarMobile/>
+                <div id="tutorial" className="internet-header w-full pt-48 pb-40 text-white">
+                    <div className="flex flex-col items-center text-center gap-2">
+                        <h1 className="text-4xl font-semibold">Internet</h1>
+                        <p className="font-medium">How does internet work</p>
+                        <p className="text-sm">10 min</p>
+                    </div>
+                </div>
+                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                    <SidebarInternet/>
+                    <div className="w-4/5 py-5">
+                        <p className="text-xl font-semibold">How does Internet Work</p>
+                        <div className="flex flex-col gap-20 my-5 mr-56">
+                            <div className="flex flex-col gap-5">
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7_LPdttKXPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <p>When two computers want to communicate, we have to connect them, either physically (usually using an Ethernet cable) or wireless (such as a WiFi or Bluetooth system). All modern computers can allow this connection.</p>
+                                <img src={internetschema1} alt="" width="400" className="mx-auto"/>
+                                <p>The network is not only on two computers but can connect as many computers as you wish.</p>
+                                <img src={internetschema2} alt="" width="400" className="mx-auto"/>
+                                <p>See the picture above, computers are interconnected in complex ways. To fix this, every computer on the network must be connected to a router. A router is a device for connecting multiple networks. After adding a router, the previously complex wiring has become tidier.</p>
+                                <img src={internetschema3} alt="" width="400" className="mx-auto"/>
+                                <p>If you want to connect hundreds, thousands, billions of computers, you can connect a router to another router.</p>
+                                <img src={internetschema4} alt="" width="400" className="mx-auto"/>
+                            </div>
+                            <div className="flex flex-col gap-5">
+                                <p>In the previous explanation is a network that is only for 1 room only. what if we are connected to a network that is outside such as a neighbor's house, a friend's house or other things in accordance with the basic functions of the internet?</p>
+                                <p>To connect, we need a special device called a modem .This modem converts information from our network into information that can be managed by the telephone infrastructure. Telephone infrastructure means cables that connect from your home to anyone.</p>
+                                <p>After that, if we want to connect and communicate, we need an ISP (Internet service provider). An ISP is a company that manages several special routers that all connect together and can also access other ISP routers. There is a message from our network that is carried through the ISP network to the destination network. The Internet consists of the entire infrastructure of this network.</p>
+                                <img src={internetschema5} alt="" width="400" className="mx-auto"/>
+                            </div>
+                            <div className="flex flex-col gap-5">
+                                <p>If you want to send a message to a computer, you must specify which computer it is. So every computer connected to the network has a unique address to identify it, which is called an "IP address" (where IP stands for Internet Protocol). It is an address made up of a series of four numbers separated by dots, for example: 192.168.2.10.</p>
+                                <p>That's fine for computers, but we humans have a hard time remembering those kinds of addresses. To make things easier, we can change the IP address to a human readable name called a domain name. For example, google.com is the domain name used over the IP address 173.194.121.32. So using a domain name is the easiest way for us to reach computers via the Internet.</p>
+                            </div>
+                        </div>
+                            <p>https://www.youtube.com/watch?v=7_LPdttKXPc</p>
+                            <p>https://developer.mozilla.org/id/docs/Learn/Common_questions/How_does_the_Internet_work</p>
+                            <p>https://en.wikipedia.org/wiki/Router_(computing)</p>
+                        <NextPrevBtnTutorial
+                            back="/internet"
+                            next="/what-is-http"
+                        />
+                    </div>
+                </div>
+                <Footer/>
+            </>
+        )
+    }
+}
+
+export default InternetWork

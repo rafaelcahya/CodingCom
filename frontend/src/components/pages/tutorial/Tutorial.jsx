@@ -33,6 +33,7 @@ import go from "../../../asset/photo/Tutorial/go.png"
 import postgre from "../../../asset/photo/Tutorial/postgre.png"
 import mongodb from "../../../asset/photo/Tutorial/mongodb.png"
 import mysql from "../../../asset/photo/Tutorial/mysql.png"
+import { Link } from 'react-router-dom'
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -58,23 +59,16 @@ export class Tutorial extends Component {
                                     return '<p class="' + className + '">' + (menu[index]) + '</p>';
                                 },
                             }}
-                            navigation= {{
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev'
-                            }}
                         >
-                            <div className="swiper-button-prev swiper-button-prev-container p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left "><polyline points="15 18 9 12 15 6"></polyline></svg>
-                            </div>
                             <SwiperSlide>
-                                <div className="flex justify-center gap-10 my-10">
+                                <Link to="/internet" className="flex justify-center gap-10 my-10">
                                     <TutorialComp
                                     image={internet}
                                     title="Basic Internet"
                                     desc="In this tutorial, you will learn the internet from understanding the internet to internet crimes."
                                     status="available"
                                     />
-                                </div>
+                                </Link>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="flex flex-wrap justify-center gap-10 mx-0 sm:mx-20 my-10">
@@ -228,9 +222,6 @@ export class Tutorial extends Component {
                                     />
                                 </div>
                             </SwiperSlide>
-                            <div className="swiper-button-next swiper-button-next-container p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right "><polyline points="9 18 15 12 9 6"></polyline></svg>
-                            </div>
                         </Swiper>
                     </div>
                 </div>
@@ -241,57 +232,3 @@ export class Tutorial extends Component {
 }
 
 export default Tutorial
-
-
-// import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-// import Footer from '../../major/Footer'
-
-// import NavbarLogin from "../../major/NavbarLogin"
-// import NavbarMobile from "../../major/NavbarMobile"
-
-// export class Tutorial extends Component {
-//     render() {
-//         return (
-//             <>
-//                 <NavbarLogin/>
-//                 <NavbarMobile/>
-
-//                 <section className="roadmap-header w-full text-white">
-//                     <div className="flex flex-col items-center text-center gap-2 pt-48 pb-32">
-//                         <h1 className="text-4xl font-semibold">Basic Internet</h1>
-//                         <p>Introduction</p>
-//                         <p className="text-sm my-2">1 min</p>
-//                     </div>
-//                 </section>
-
-//                 <section className="mx-10 lg:mx-20 xl:mx-56 my-10">
-//                     <a href="https://roadmap.sh/frontend/resources" className="flex items-center gap-2 cursor-pointer w-max">
-//                         <p className="text-xl md:text-3xl font-bold hover:underline">Introduction</p>
-//                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-//                     </a>
-//                     <div className="my-5 leading-8">
-//                         <p>In this tutorial, you will learn the  internet, from the definition of the internet to internet crimes. Here are the contents of this tutorial: </p>
-//                         <ol className="list-decimal mx-10">
-//                             <li>What is the Internet?</li>
-//                             <li>How does the information move on the internet?</li>
-//                             <li>How do the networks talk to each other and the protocols involved?</li>
-//                             <li>What's the relationship between packets, routers, and reliability?</li>
-//                             <li>HTTP and the HTML – How are you viewing this webpage in your browser?</li>
-//                             <li>How is the information transfer on the internet made secure?</li>
-//                             <li>What is cybersecurity and what are some common internet crimes?</li>
-//                         </ol>
-//                     </div>
-                
-//                     <Link className="flex items-center gap-1 mr-20 bg-blue-1 text-white rounded-lg px-4 py-2 w-max">
-//                         <p>Next</p>
-//                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-//                     </Link>
-//                 </section>
-//                 <Footer/>
-//             </>
-//         )
-//     }
-// }
-
-// export default Tutorial

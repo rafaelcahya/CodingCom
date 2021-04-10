@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
         transition: all .5s linear;
     }
 
-    .roadmap-header{
+    .roadmap-header, .internet-header{
         background: ${({theme}) => theme.foreground3};
         transition: all .5s linear;
     }
@@ -96,7 +96,7 @@ export const lightTheme={
     foreground2: '#f2f4fb',
     foreground3: '#3b72ff',
     foreground4: '#3b72ff',
-    foreground5: '#3b72ff'
+    foreground5: '#abc2fc'
 }
 
 export const darkTheme={
