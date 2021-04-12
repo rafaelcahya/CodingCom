@@ -10,6 +10,8 @@ import MentorComp from './MentorComp'
 import PlanComp from './PlanComp'
 import Footer from '../../major/Footer'
 
+import header from "../../../asset/photo/backgroundheader.jpg"
+
 import learning_path from "../../../asset/icon/learningpath.svg"
 import challenge from "../../../asset/icon/challenge.svg"
 import forum from "../../../asset/icon/forum.svg"
@@ -38,16 +40,21 @@ export default function Homepage() {
 
     return (
         <Fragment>
-            <div>
+            <div className="overflow-x-hidden">
                 <NavbarLogin /> 
                 <NavbarMobile /> 
-                <header className="headerheader flex flex-col items-center gap-1 mx-10 lg:mx-20 mt-20 py-32">
-                    <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">Coding.com</p>
-                    <div className="change-text-anim text-sm lg:text-base text-center mt-2 color-blue-1 mx-20 md:mx-32"></div>
-                    <p className="bg-blue-1 text-white text-sm px-8 py-2 rounded-xl mt-10">Start learning today</p>
+                <header className="headerheader flex justify-center lg:justify-between items-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-32 mt-32 lg:mt-0 rounded-xl">
+                    <div className="flex flex-col items-center lg:items-start gap-2">
+                        <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">Coding.com</p>
+                        <div className="change-text-anim text-center lg:text-left text-sm lg:text-base px-14 lg:px-0"></div>
+                        <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
+                    </div>
+                    <div className="hidden lg:block">
+                        <img src={header} alt="" width="400" className="rounded-3xl"/>
+                    </div>
                 </header>
 
-                <section className="mx-8 md:mx-16 lg:mx-64 my-20 lg:my-32">
+                <section className="mx-8 md:mx-16 lg:mx-64 my-20 lg:mb-44">
                     <p className="text-center text-2xl md:text-4xl font-semibold py-10">Our Popular Tutorials</p>
                     <div className="cta flex flex-wrap justify-center items-center gap-5">
                         <p>Web Design</p>
@@ -61,7 +68,7 @@ export default function Homepage() {
                 <section data-aos="fade-up"
                         data-aos-offset="150"
                         data-aos-duration="500"
-                        data-aos-easing="ease-in-out" className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold mx-8 md:mx-16 lg:mx-64 my-20 lg:my-44">
+                        data-aos-easing="ease-in-out" className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold mx-8 md:mx-16 lg:mx-64 mt-20 mb-10">
                     <p>Anytime, anywhere <span className="color-blue-1">learn on your schedule</span> from any device</p>
                 </section>
 
@@ -176,50 +183,8 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className="flex flex-col items-center my-20 lg:my-44">
-                    <p className="color-blue-1 text-xl md:text-4xl">With a Profesional Mentors</p>
-                    <article className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 grid-rows-3 gap-20 mx-4 md:mx-8 lg:mx-44 my-10 text-center">
-                        <MentorComp
-                            img={jessica}
-                            name="Jessica"
-                            subject="UI/UX Designer Expert" 
-                            exp="With 3 years of experience in the world of design and have worked in Google Singapore"
-                        />
-                        <MentorComp
-                            img={irene}
-                            name="Irene"
-                            subject="UI/UX Designer Expert" 
-                            exp="With 3 years of experience in the world of design and have worked in Google Singapore"
-                        />
-                        <MentorComp
-                            img={anastasiaclara}
-                            name="Anastasia Clara"
-                            subject="Frontend Developer Expert" 
-                            exp="With 5 years of web programming experience and has worked in one of 5 startups in Indonesia"
-                        />
-                        <MentorComp
-                            img={angelica}
-                            name="Angelica"
-                            subject="Fullstack Developer Expert" 
-                            exp="With 5 years of web programming experience and has worked in one of 5 startups in Indonesia"
-                        />
-                        <MentorComp
-                            img={toby}
-                            name="Toby"
-                            subject="Fullstack Developer Expert" 
-                            exp="With 5 years of web programming experience and has worked in one of 5 startups in Indonesia"
-                        />
-                        <MentorComp
-                            img={joe}
-                            name="Joe"
-                            subject="Backend Developer Expert" 
-                            exp="With 5 years of web programming experience and has worked in one of 5 startups in Indonesia"
-                        />
-                    </article>
-                </section>
-
-                <section className="flex flex-col items-center">
-                    <p className="color-blue-1 text-xl md:text-4xl text-center my-10">Get your Premium Plan with life-time access</p>
+                {/* <section className="flex flex-col items-center my-32">
+                    <p className="text-center text-2xl md:text-4xl font-semibold py-10">Get your Premium Plan with life-time access</p>
                     <section data-aos="zoom-in"
                         data-aos-offset="150"
                         data-aos-duration="500"
@@ -281,6 +246,12 @@ export default function Homepage() {
                             <p>*Get future update means you will always get all updates from the features and courses.</p>
                         </article>
                     </section>
+                </section> */}
+
+                <section className="flex flex-col items-center gap-5 mt-32">
+                    <p className="text-center text-2xl md:text-4xl font-semibold">Start learning today</p>
+                    <p className="text-center" style={{width: "500px"}}>Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
+                    <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
                 </section>
             </div>
             <Footer/>

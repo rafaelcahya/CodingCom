@@ -25,7 +25,7 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden lg:fixed top-0 w-full text-sm lg:flex justify-between shadow-lg z-50 bg-white px-16 xl:px-32">
+                <div className="navbar hidden text-sm lg:flex justify-between px-16 xl:px-32">
                     <div className=" flex items-center py-5">
                         <NavLink to="/"
                             exact 
@@ -116,10 +116,10 @@ export default function NavbarLogin() {
             <motion.div
                 initial= {false}
                 variants={menuVariants}
-                animate={open ? "opened" : "closed"} className="dropdown-tutorial fixed top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl z-10 bg-white">
+                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl z-10 bg-white">
                     <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
-                        <Link to="/tutorial" className="font-medium hover:underline text-white">Tutorials overview</Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        <Link to="/tutorial" className="font-semibold hover:underline">Tutorials overview</Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                     <div className="dropdown-tutorial-box flex flex-col gap-5 py-5 px-5">
                         <div className="flex gap-10">

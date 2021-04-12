@@ -12,14 +12,10 @@ export const GlobalStyle = createGlobalStyle`
         transition: all .5s linear;
     }
 
-    .tutorials-overview{
-        background: ${({theme}) => theme.foreground5};
-        color: ${({theme}) => theme.text};
-    }
-
     .navbar{
-        background: ${({theme}) => theme.foreground2};
+        background-color: ${({theme}) => theme.body};
         color: ${({theme}) => theme.text};
+        transition: all .5s linear;
     }
 
     .navbar-mobile-container, .navbar-mobile{
@@ -28,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
 
     .dropdown-tutorial{
         background: ${({theme}) => theme.foreground2};
+    }
+
+    .headerheader{
+        background: ${({theme}) => theme.foreground3};
+        transition: all .5s linear;
     }
 
     .course-box{
@@ -80,11 +81,6 @@ export const GlobalStyle = createGlobalStyle`
     .tutorial-box, .tutorial-paid-box{
         background: ${({theme}) => theme.foreground2};
         transition: all .2s linear
-    }
-
-    .footer-box{
-        background: ${({theme}) => theme.foreground3};
-        transition: all .5s linear;
     }
 `;
 

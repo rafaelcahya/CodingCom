@@ -293,6 +293,10 @@ Homepage
     z-index: -100;
 }
 
+.change-text-anim{
+    width: 500px;
+}
+
 .change-text-anim::before{
     content: "";
     animation: changeTextAnim infinite 17.5s;

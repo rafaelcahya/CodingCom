@@ -13,11 +13,11 @@ export class WhatisInternet extends Component {
             <>
                 <NavbarLogin/>
                 <NavbarMobile/>
-                <div id="tutorial" className="internet-header w-full pt-48 pb-40 text-white">
+                <div id="tutorial" className="internet-header w-full py-40 text-white">
                     <div className="flex flex-col items-center text-center gap-2">
                         <h1 className="text-4xl font-semibold">Internet</h1>
                         <p className="font-medium">What is Internet?</p>
-                        <p className="text-sm">1 min</p>
+                        <p className="text-sm">15 min</p>
                     </div>
                 </div>
                 <div className="flex gap-10 mt-20 mx-32 leading-7">

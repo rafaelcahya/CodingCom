@@ -11,7 +11,7 @@ export class SidebarInternet extends Component {
                         <Link to="/internet">Introduction</Link>
                         <Link to="/what-is-internet">What is internet</Link>
                         <Link to="/how-does-internet-work">How does internet work</Link>
-                        <Link to="/what-is-http">What is HTTP</Link>
+                        <Link to="/what-is-http">What is HTTP & HTTPS</Link>
                     </div>
                 </div>
             </>
