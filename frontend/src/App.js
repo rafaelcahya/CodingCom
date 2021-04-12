@@ -21,6 +21,7 @@ import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
 import WhatisInternet from "./components/pages/tutorial/course/internet/WhatisInternet.jsx"
 import InternetWork from "./components/pages/tutorial/course/internet/InternetWork.jsx"
 import Whatishttp from "./components/pages/tutorial/course/internet/Whatishttp.jsx"
+import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
 
 const Container = styled.div`
 `;
@@ -51,6 +52,7 @@ function App() {
             <Route path="/what-is-internet" component={WhatisInternet} />
             <Route path="/how-does-internet-work" component={InternetWork} />
             <Route path="/what-is-http" component={Whatishttp} />
+            <Route path="/browser" component={Browser} />
             <Route path="/help" component={Help} />
           </Switch>
         </Container>

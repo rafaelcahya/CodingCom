@@ -31,7 +31,7 @@ export class Whatishttp extends Component {
                         <div>
                             <p className="text-xl font-semibold">What is HTTPS?</p>
                             <div className="flex flex-col gap-5 my-5">
-                                <p>HTTPS(Hypertext Transfer Protocol Secure) merupakan hasil pengembangan dari versi HTTP sebelumnya, HTTPS memiliki fungsi keamanan yang lebih ketat sehingga membuat client merasa aman dalam mengakses berbagai konten web. Protokol https ini dikembangkan langsung oleh perusahaan berbasis IT Netscape Communication Corp.</p>
+                                <p>HTTPS (Hypertext Transfer Protocol Secure) is the result of the development of the previous HTTP version, HTTPS has a tighter security function so that it makes clients feel safe in accessing various web content. The https protocol was developed directly by the IT-based company Netscape Communication Corp.</p>
                             </div>
                         </div>
                         <div>

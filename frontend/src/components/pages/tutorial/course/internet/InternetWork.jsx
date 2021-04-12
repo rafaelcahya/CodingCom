@@ -26,9 +26,9 @@ export class InternetWork extends Component {
                 </div>
                 <div className="flex gap-10 mt-20 mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="w-4/5 py-5">
+                    <div className="w-3/5 py-5">
                         <p className="text-xl font-semibold">How does Internet Work</p>
-                        <div className="flex flex-col gap-20 my-5 mr-56">
+                        <div className="flex flex-col gap-20 my-5">
                             <div className="flex flex-col gap-5">
                                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7_LPdttKXPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <p>When two computers want to communicate, we have to connect them, either physically (usually using an Ethernet cable) or wireless (such as a WiFi or Bluetooth system). All modern computers can allow this connection.</p>
