@@ -11,8 +11,6 @@ router.post("/register", (req, res) => {
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
     
-
-
     if(fullname.length<=0){
         res.send({message:"Fullname can not be empty"})
     }else if(name.length <=0){
