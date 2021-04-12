@@ -44,17 +44,28 @@ export default function Homepage() {
                 <header className="headerheader flex flex-col items-center gap-1 mx-10 lg:mx-20 mt-20 py-32">
                     <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">Coding.com</p>
                     <div className="change-text-anim text-sm lg:text-base text-center mt-2 color-blue-1 mx-20 md:mx-32"></div>
-                    <p className="bg-blue-1 text-white text-sm px-8 py-2 rounded-xl mt-10">Web Development</p>
+                    <p className="bg-blue-1 text-white text-sm px-8 py-2 rounded-xl mt-10">Start learning today</p>
                 </header>
+
+                <section className="mx-8 md:mx-16 lg:mx-64 my-20 lg:my-32">
+                    <p className="text-center text-2xl md:text-4xl font-semibold py-10">Our Popular Tutorials</p>
+                    <div className="cta flex flex-wrap justify-center items-center gap-5">
+                        <p>Web Design</p>
+                        <p>Frontend</p>
+                        <p>Backend</p>
+                        <p>Database</p>
+                        <p>DevOps</p>
+                    </div>
+                </section>
 
                 <section data-aos="fade-up"
                         data-aos-offset="150"
                         data-aos-duration="500"
-                        data-aos-easing="ease-in-out" className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold mx-8 md:mx-16 lg:mx-64">
+                        data-aos-easing="ease-in-out" className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold mx-8 md:mx-16 lg:mx-64 my-20 lg:my-44">
                     <p>Anytime, anywhere <span className="color-blue-1">learn on your schedule</span> from any device</p>
                 </section>
 
-                <section className="feature-box grid grid-flow-row grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-10 mx-4 md:mx-8 lg:mx-44 my-32">
+                <section className="feature-box grid grid-flow-row grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-10 mx-4 md:mx-8 lg:mx-44">
                     <div data-aos="fade-up"
                         data-aos-offset="150"
                         data-aos-duration="500"
@@ -165,7 +176,7 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className="flex flex-col items-center sm:my-20 md:my-32">
+                <section className="flex flex-col items-center my-20 lg:my-44">
                     <p className="color-blue-1 text-xl md:text-4xl">With a Profesional Mentors</p>
                     <article className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 grid-rows-3 gap-20 mx-4 md:mx-8 lg:mx-44 my-10 text-center">
                         <MentorComp

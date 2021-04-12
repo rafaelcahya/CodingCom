@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
         transition: all .5s linear;
     }
 
-    .cta{
+    .cta p{
         background: ${({theme}) => theme.foreground2};
         transition: all .5s linear;
     }
