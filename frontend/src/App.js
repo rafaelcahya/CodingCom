@@ -22,6 +22,10 @@ import WhatisInternet from "./components/pages/tutorial/course/internet/WhatisIn
 import InternetWork from "./components/pages/tutorial/course/internet/InternetWork.jsx"
 import Whatishttp from "./components/pages/tutorial/course/internet/Whatishttp.jsx"
 import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
+import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
+import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
+import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
+import Closing from "./components/pages/tutorial/course/internet/Closing.jsx"
 
 const Container = styled.div`
 `;
@@ -53,6 +57,10 @@ function App() {
             <Route path="/how-does-internet-work" component={InternetWork} />
             <Route path="/what-is-http" component={Whatishttp} />
             <Route path="/browser" component={Browser} />
+            <Route path="/DNS" component={DNS} />
+            <Route path="/domain" component={Domain} />
+            <Route path="/hosting" component={Hosting} />
+            <Route path="/closing" component={Closing} />
             <Route path="/help" component={Help} />
           </Switch>
         </Container>

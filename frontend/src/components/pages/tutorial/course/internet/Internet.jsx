@@ -32,6 +32,9 @@ export class Internet extends Component {
                                         <li>How does internet work?</li>
                                         <li>What is HTTP & HTTPS?</li>
                                         <li>Browse and how browser work?</li>
+                                        <li>DNS Server</li>
+                                        <li>Domain</li>
+                                        <li>Hosting</li>
                                     </div>
                                 </ol>
                             </div>

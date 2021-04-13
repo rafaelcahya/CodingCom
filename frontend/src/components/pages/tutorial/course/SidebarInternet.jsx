@@ -13,6 +13,10 @@ export class SidebarInternet extends Component {
                         <Link to="/how-does-internet-work">How does internet work</Link>
                         <Link to="/what-is-http">What is HTTP & HTTPS</Link>
                         <Link to="/browser">Browser</Link>
+                        <Link to="/DNS">DNS Server</Link>
+                        <Link to="/domain">Domain</Link>
+                        <Link to="/hosting">Hosting</Link>
+                        <Link to="/closing">Closing</Link>
                     </div>
                 </div>
             </>

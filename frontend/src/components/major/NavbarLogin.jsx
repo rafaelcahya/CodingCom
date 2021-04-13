@@ -143,7 +143,11 @@ export default function NavbarLogin() {
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Internet</p>
-                                <p>Basic Internet</p>
+                                <div className="flex flex-col gap-2 text-sm mt-2">
+                                    <Link to="/internet">
+                                        <p>Basic Internet</p>
+                                    </Link>
+                                </div>
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Web design</p>

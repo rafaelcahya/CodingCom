@@ -45,7 +45,7 @@ export class Tutorial extends Component {
             <div>
                 <NavbarLogin/>
                 <NavbarMobile/>
-                <div className="flex flex-col gap-10 mt-44">
+                <div className="flex flex-col gap-10 mt-20">
                     <p className="color-blue-1 text-xl md:text-3xl text-center font-bold">Choose What You Want to Learn</p>
                     <div className="swiper-pagination flex justify-start md:justify-center items-center text-sm text-center gap-8 container mx-auto overflow-x-auto w-5/6 md:w-full"></div>
                     

@@ -15,7 +15,7 @@ export class Whatishttp extends Component {
                     <div className="flex flex-col items-center text-center gap-2">
                         <h1 className="text-4xl font-semibold">Internet</h1>
                         <p className="font-medium">What is HTTP & HTTPS</p>
-                        <p className="text-sm">10 min</p>
+                        <p className="text-sm">15 min</p>
                     </div>
                 </div>
                 <div className="flex gap-10 mt-20 mx-32 leading-7">
@@ -58,7 +58,7 @@ export class Whatishttp extends Component {
                         </div>
                         <NextPrevBtnTutorial
                             back="/how-does-internet-work"
-                            next="/what-is-internet"
+                            next="/browser"
                         />
                     </div>
                 </div>
