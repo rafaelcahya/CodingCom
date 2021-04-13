@@ -66,7 +66,7 @@ export default function NavbarLogin() {
                                     <p className="navbar_btn underline_anim">Deployment</p>
                             </NavLink>
 
-                            <NavLink to="/course"
+                            <NavLink to="/challenge"
                                 activeClassName="navbar_active" 
                                 className="navbar__link">
                                     <p className="navbar_btn underline_anim">Challenges</p>
