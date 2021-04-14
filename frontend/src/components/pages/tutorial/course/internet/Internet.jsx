@@ -4,6 +4,7 @@ import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class Internet extends Component {
     render() {
@@ -18,13 +19,14 @@ export class Internet extends Component {
                         <p className="text-sm">1 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="w-3/5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="w-full lg:w-3/5 py-5">
                         <p className="text-xl font-semibold">Introduction</p>
                         <div className="flex flex-col gap-5 my-5">
                             <p>According to the <a href="https://dictionary.cambridge.org/dictionary/english/" className="underline">Cambridge Academic Content Dictionary</a>, internet is a large system of connected computers around the world which people use to communicate with each other.</p>
-                            <div className="border-left-orange-1 bg-orange-2 px-4 py-4">
+                            <div className="border-left-orange-1 bg-orange-2 px-4 py-4 text-black">
                                 <p>Before further learning, here are some of the learning paths that you will learn:</p>
                                 <ol className="list-decimal">
                                     <div className="mx-10">

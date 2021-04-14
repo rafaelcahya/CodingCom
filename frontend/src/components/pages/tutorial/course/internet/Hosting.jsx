@@ -4,6 +4,7 @@ import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternet from '../SidebarInternet'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class Hosting extends Component {
     render() {
@@ -18,9 +19,10 @@ export class Hosting extends Component {
                         <p className="text-sm">10 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="flex flex-col gap-10 w-3/5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="flex flex-col gap-10 w-full lg:w-3/5 py-5">
                         <div>
                             <p className="text-xl font-semibold">What is Hosting?</p>
                             <div className="flex flex-col gap-5 my-5">

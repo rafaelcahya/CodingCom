@@ -466,6 +466,56 @@ Tutorial
 
 */
 
+#sidebarmobile {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+    z-index: 20;
+}
+
+#sidebarmobile p{
+    padding: 6px;
+    border-radius: 10px;
+}
+
+
+#sidebarmobile p:hover{
+    background-color: #3b72ff;
+    color: white;
+}
+
+#sidebarmobile.visible {
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+#sidebarbtn{
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    background-color: var(--orange-1);
+    color: white;
+    border-radius: 100%;
+    padding: 4px;
+}
+
+iframe{
+    width: 360px;
+    height: 200px;
+}
+
+@media screen and (min-width: 560px) {
+    iframe{
+        width: 560px;
+        height: 400px;
+    }
+}
+
 .tutorial-box{
     width: 300px;
 }

@@ -5,7 +5,7 @@ export class SidebarInternet extends Component {
     render() {
         return (
             <>
-                <div className="w-1/5 flex flex-col border-r-2 border-black p-5">
+                <div className="w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
                     <p className="text-lg font-semibold">Internet Tutorial</p>
                     <div className="flex flex-col gap-2 my-5">
                         <Link to="/internet">Introduction</Link>

@@ -4,6 +4,7 @@ import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternet from '../SidebarInternet'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class Domain extends Component {
     render() {
@@ -18,9 +19,10 @@ export class Domain extends Component {
                         <p className="text-sm">15 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="flex flex-col gap-10 w-3/5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="flex flex-col gap-10 w-full lg:w-3/5 py-5">
                         <div>
                             <p className="text-xl font-semibold">What is Domain?</p>
                             <div className="flex flex-col gap-5 my-5">
@@ -32,7 +34,7 @@ export class Domain extends Component {
                             <div className="flex flex-col gap-5 my-5">
                                 <p>For example, Hostinger.com is a domain name. Let's just say our IP address is 100.90.80.70. This IP address points to a server, but cannot be used to access our website if a visitor tries to open it. Because, in order for the IP address to be used to access the website, the remote server must use port 80 with the default page (index.html) stored in the web application directory.</p>
                             </div>
-                            <div className="border-left-orange-1 bg-orange-2 px-4 py-4">
+                            <div className="border-left-orange-1 bg-orange-2 text-black px-4 py-4">
                                 <p>Domains can also take advantage of redirects or redirects that help you determine whether a visitor to your site will be automatically redirected to another site.</p>
                             </div>
                         </div>
@@ -55,13 +57,13 @@ export class Domain extends Component {
                                     </div>
                                 </ol>
                             </div>
-                            <div className="border-left-orange-1 bg-orange-2 px-4 py-4">
+                            <div className="border-left-orange-1 bg-orange-2 text-black px-4 py-4">
                                 <p>An example of a second level domain is .co.uk, which is used by several company websites in the UK. Or, .gov.uk, which is used by British government institutions, and .ac.uk, which is used by academic institutions and universities in the kingdom.</p>
                             </div>
                         </div>
                         <NextPrevBtnTutorial
                             back="/DNS"
-                            next="/domain"
+                            next="/hosting"
                         />
                     </div>
                 </div>

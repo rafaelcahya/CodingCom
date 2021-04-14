@@ -10,6 +10,7 @@ import internetschema2 from '../../../../../asset/photo/Tutorial/internet/intern
 import internetschema3 from '../../../../../asset/photo/Tutorial/internet/internetschema3.png'
 import internetschema4 from '../../../../../asset/photo/Tutorial/internet/internetschema4.png'
 import internetschema5 from '../../../../../asset/photo/Tutorial/internet/internetschema5.png'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class InternetWork extends Component {
     render() {
@@ -24,13 +25,14 @@ export class InternetWork extends Component {
                         <p className="text-sm">25 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="w-3/5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="w-full lg:w-3/5 py-5">
                         <p className="text-xl font-semibold">How does Internet Work</p>
                         <div className="flex flex-col gap-20 my-5">
                             <div className="flex flex-col gap-5">
-                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7_LPdttKXPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube-nocookie.com/embed/7_LPdttKXPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <p>When two computers want to communicate, we have to connect them, either physically (usually using an Ethernet cable) or wireless (such as a WiFi or Bluetooth system). All modern computers can allow this connection.</p>
                                 <img src={internetschema1} alt="" width="400" className="mx-auto"/>
                                 <p>The network is not only on two computers but can connect as many computers as you wish.</p>
@@ -51,9 +53,6 @@ export class InternetWork extends Component {
                                 <p>That's fine for computers, but we humans have a hard time remembering those kinds of addresses. To make things easier, we can change the IP address to a human readable name called a domain name. For example, google.com is the domain name used over the IP address 173.194.121.32. So using a domain name is the easiest way for us to reach computers via the Internet.</p>
                             </div>
                         </div>
-                            <p>https://www.youtube.com/watch?v=7_LPdttKXPc</p>
-                            <p>https://developer.mozilla.org/id/docs/Learn/Common_questions/How_does_the_Internet_work</p>
-                            <p>https://en.wikipedia.org/wiki/Router_(computing)</p>
                         <NextPrevBtnTutorial
                             back="/internet"
                             next="/what-is-http"

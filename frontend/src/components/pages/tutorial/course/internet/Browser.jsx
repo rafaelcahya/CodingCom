@@ -4,6 +4,7 @@ import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class Browser extends Component {
     render() {
@@ -18,9 +19,10 @@ export class Browser extends Component {
                         <p className="text-sm">10 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="w-3/5 flex flex-col gap-5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="w-full lg:w-3/5 flex flex-col gap-5 py-5">
                         <div>
                             <p className="text-xl font-semibold">What is Browser</p>
                             <div className="my-5">

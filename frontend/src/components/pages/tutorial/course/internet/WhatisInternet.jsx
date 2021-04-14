@@ -6,6 +6,7 @@ import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternet from '../SidebarInternet'
 
 import osimodel from '../../../../../asset/photo/Tutorial/internet/osimodel.png'
+import SidebarInternetMobile from '../SidebarInternetMobile'
 
 export class WhatisInternet extends Component {
     render() {
@@ -20,9 +21,10 @@ export class WhatisInternet extends Component {
                         <p className="text-sm">15 min</p>
                     </div>
                 </div>
-                <div className="flex gap-10 mt-20 mx-32 leading-7">
+                <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
                     <SidebarInternet/>
-                    <div className="w-3/5 py-5">
+                    <SidebarInternetMobile/>
+                    <div className="w-full lg:w-3/5 py-5">
                         <p className="text-xl font-semibold">What is Internet?</p>
                         <div className="flex flex-col gap-5 my-5">
                             <p>The internet is a network or computer connection that is very extensive throughout the world so that people can share information and communicate from anywhere. The network or connection makes use of communication devices such as telephones and satellites which also use standard protocols for communication, namely the TCP / IP (Transmission Control / Internet Protocol) protocol.</p>

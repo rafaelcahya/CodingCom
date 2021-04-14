@@ -78,6 +78,10 @@ export const GlobalStyle = createGlobalStyle`
         transition: all .5s linear;
     }
 
+    #sidebarmobile{
+        background-color: ${({theme}) => theme.foreground};
+    }
+
     .tutorial-box, .tutorial-paid-box{
         background: ${({theme}) => theme.foreground2};
         transition: all .2s linear
@@ -92,7 +96,8 @@ export const lightTheme={
     foreground2: '#f2f4fb',
     foreground3: '#3b72ff',
     foreground4: '#3b72ff',
-    foreground5: '#abc2fc'
+    foreground5: '#abc2fc',
+    foreground6: '#eaeefc'
 }
 
 export const darkTheme={
@@ -103,5 +108,6 @@ export const darkTheme={
     foreground2: '#222948',
     foreground3: '#222948',
     foreground4: '#ffffff',
-    foreground5: '#222948'
+    foreground5: '#222948',
+    foreground6: '#222948'
 }
