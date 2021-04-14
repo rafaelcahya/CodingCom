@@ -1,0 +1,10 @@
+Your challenge is to create a Codecareer Jobs and make it look as close to the design as possible.
+
+You can use any tool you like to help you complete the challenge. So if you have something you want to put into practice, feel free to give it a try
+
+We have provided whatever assets are needed, feel free for those of you who want to replace them
+
+Here are other assets:
+1. Montserrat 400 Regular
+2. Primary Color: #F5F5FF #185FE1 #000000 #fff
+3. Secondary Color: #6B6B6B

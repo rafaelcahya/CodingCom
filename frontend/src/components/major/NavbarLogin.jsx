@@ -25,7 +25,7 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden text-sm lg:flex justify-between px-16 xl:px-32">
+                <div className="navbar hidden relative z-20 text-sm lg:flex justify-between px-16 xl:px-32 z-50">
                     <div className=" flex items-center py-5">
                         <NavLink to="/"
                             exact 
@@ -59,12 +59,6 @@ export default function NavbarLogin() {
                                     <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
                                 </div>
                             </motion.div>
-
-                            <NavLink to="/course"
-                                activeClassName="navbar_active" 
-                                className="navbar__link">
-                                    <p className="navbar_btn underline_anim">Deployment</p>
-                            </NavLink>
 
                             <NavLink to="/challenge"
                                 activeClassName="navbar_active" 
@@ -116,7 +110,7 @@ export default function NavbarLogin() {
             <motion.div
                 initial= {false}
                 variants={menuVariants}
-                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl z-10 bg-white">
+                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white" style={{zIndex: "1"}}>
                     <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
                         <Link to="/tutorial" className="font-semibold hover:underline">Tutorials overview</Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -192,6 +186,10 @@ export default function NavbarLogin() {
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">DevOps</p>
+                                <p>Overview</p>
+                            </div>
+                            <div>
+                                <p className="font-semibold color-blue-1">Deployment</p>
                                 <p>Overview</p>
                             </div>
                         </div>
