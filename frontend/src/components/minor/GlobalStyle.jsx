@@ -82,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.foreground};
     }
 
-    .tutorial-box, .tutorial-paid-box{
+    .tutorial-box, .tutorial-paid-box, .challenge-box, .certificate-box div{
         background: ${({theme}) => theme.foreground2};
         transition: all .2s linear
     }

@@ -520,7 +520,6 @@ iframe{
     width: 300px;
 }
 
-/* width */
 .swiper-pagination::-webkit-scrollbar {
     height: 5px;
 }
@@ -534,4 +533,22 @@ iframe{
     background: #3b72ff;
     border-radius: .5rem;
     padding: .5rem 1rem;
+}
+
+/* 
+
+Challenge 
+
+*/
+
+.certificate-box div{
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.certificate-box div:hover{
+    transform: scale(1.05);
+    background-color: #3b72ff;
+    color: white;
 }
