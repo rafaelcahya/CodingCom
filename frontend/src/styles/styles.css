@@ -341,8 +341,6 @@ Homepage
     transition: 100ms;
 }
 
-
-
 .feature-box div{
     display: flex;
     flex-direction: column;
@@ -382,7 +380,7 @@ tr td:nth-child(2){
     font-weight: 600;
 }
 
-.payment-confirm-container{
+.payment-confirm-container, .register-popup-container{
     position: fixed;
     height: 100%;
     width: 100%;
@@ -392,10 +390,24 @@ tr td:nth-child(2){
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.payment-confirm-box{
+.payment-confirm-box, .register-popup-box{
     width: 500px;
     margin: 15% auto;
     background-color: white;
+}
+
+.register-popup-box{
+    animation: cssAnimation 300ms ease forwards;
+}
+
+
+@keyframes cssAnimation {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 /* 

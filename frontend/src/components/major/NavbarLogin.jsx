@@ -41,7 +41,7 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32">
+                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20">
                     <div className=" flex items-center py-5">
                         <NavLink to="/"
                             exact 
@@ -108,23 +108,12 @@ export default function NavbarLogin() {
                             <p className="help">Help</p>
                         </NavLink>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="rotate(90)" className="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        <motion.div className="flex items-center gap-1"
+                        <motion.div className="flex items-center gap-1 cursor-pointer"
                             onClick={() => setOpenProfile(state => !state)} 
                             initial={false} 
                             animate={openProfile ? "opened" : "closed"}>
                             <div id="demo"></div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            {/* {loggedIn ? (
-                                <>
-                                    <Link to="/login" className="logout bg-blue-2 color-blue-1 px-8 py-2 rounded-xl">
-                                        Logout
-                                    </Link>
-                                </>
-                            ) : (
-                                <>
-                                    <Link to="/login"  className="login bg-blue-1 text-white px-8 py-2 rounded-xl">login</Link>
-                                </>
-                            )} */}
                         </motion.div>
                     </div>
                 </div>
@@ -218,11 +207,19 @@ export default function NavbarLogin() {
                 <motion.div
                     initial= {false}
                     variants={menuVariantsa}
-                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
-                    <p>Change Password</p>
-                    <Link to="/login" className="logout bg-blue-2 color-blue-1 px-8 py-2 rounded-xl">
-                        Logout
-                    </Link>
+                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-5 px-5 hidden lg:flex flex-col gap-4 rounded-xl bg-white z-10">
+                    <p className="text-sm">Change Password</p>
+                    {loggedIn ? (
+                        <>
+                            <Link to="/login" className="bg-blue-100 hover:bg-blue-50 color-blue-1 text-sm py-2 text-center rounded-lg">
+                                Logout
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login"  className="login bg-blue-1 text-white px-8 py-2 rounded-xl">login</Link>
+                        </>
+                    )}
                 </motion.div>
             </nav>
         </>

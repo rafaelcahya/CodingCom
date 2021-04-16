@@ -11,7 +11,6 @@ import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import Help from "./components/pages/help/Help";
 import PremiumPlan from "./components/pages/homepage/payment/PremiumPlan";
-import PremiumPlanPlus from "./components/pages/homepage/payment/PremiumPlanPlus";
 import { ScrollToTop } from "./components/minor/scroll to top/ScrollToTop.jsx"
 import Homepage from "./components/pages/homepage/Homepage.jsx"
 import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
@@ -50,7 +49,6 @@ function App() {
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
             <Route path="/payment-confirmation-premium" component={PremiumPlan} />
-            <Route path="/payment-confirmation-premiumplus" component={PremiumPlanPlus} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/tutorial" component={Tutorial} />

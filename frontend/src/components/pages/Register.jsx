@@ -6,8 +6,7 @@ import Particles from "react-particles-js"
 import particlesConfig from '../background/ParticlesConfig'
 
 import info from "../../asset/icon/info.svg"
-import Popup from "./Popup"
-import './Popup.css'
+import Popup from "./RegisterPopup"
 
 function Register() {
     const [fullname, setFullname] = useState("")
@@ -163,14 +162,15 @@ function Register() {
                     </Link>
                     <p onClick={register} className="bg-blue-1 text-white px-7 py-2 rounded-lg cursor-pointer">Register</p>
                     <Popup trigger={buttonPopup}>
-                        <h3 className="Judul">Register Success</h3>
-                        <br></br>
-                        <p className="isi">Your account is successfully created, please click this button below and go to login page</p>
+                        <p className="text-lg font-bold py-5">Register Success</p>
+                        <p className="text-sm font-medium">Your account is successfully created, please click this button below and go to login page</p>
                         <br></br>
                         <Link to="/login">
-                        <button className="button">
-                                Login Now
-                        </button>
+                        <div className="flex justify-end">
+                            <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                    Login Now
+                            </button>
+                        </div>
                         </Link>
 
                     </Popup>
