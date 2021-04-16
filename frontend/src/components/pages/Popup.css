@@ -1,0 +1,44 @@
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-inner{
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: white;
+    border-radius: 20px;
+    
+}
+
+.button{
+    color: white;
+    align-self: center;
+    background-color:blue;
+    padding: 10px;
+    margin-left: 230px;
+    border-radius: 10px;
+}
+
+.Judul{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.isi{
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}

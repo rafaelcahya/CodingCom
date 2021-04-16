@@ -27,7 +27,7 @@ router.post("/register", (req, res) => {
         res.send({message:"Email is invalid"})
     }else if(password <=0){
         res.send({message:"Password can not be empty"})
-    }else if(password.length <= 8){
+    }else if(password.length < 8){
         res.send({message:"Password must be at least 8 character"})
     }else if(password.length >= 20){
         res.send({message:"Password must be less than 20 character"})
@@ -37,6 +37,8 @@ router.post("/register", (req, res) => {
         res.send({message:"Password must has 1 lowecase"})
     }else if(password.match(/[0-9]/) == null){
         res.send({message:"Password must has 1 number"})
+    }else if(confirmpassword<=0){
+        res.send({message:"Confirm password can not be empty"})
     }else if(confirmpassword != password){
         res.send({message:"Confirm password must be same as password"})
     }else {
