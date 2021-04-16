@@ -54,7 +54,7 @@ export default function Login() {
                 <div className="absolute">
                     <Particles height="100vh" width="100vw" params={particlesConfig}/>
                 </div>
-                <div className="login-container my-10 bg-white rounded-xl p-5 shadow-xl" style={{ zIndex: "1" }}>
+                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl" style={{ zIndex: "1" }}>
                     <div className="text-lg">
                         <p className="color-blue-1">Hello,</p>
                         <p>Welcome to Coding.com</p>

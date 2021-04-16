@@ -21,61 +21,37 @@ export class Pricing extends Component {
                         <p className="mt-10">Access to all our tutorials and features</p>
                     </div>
                 </div>
-                <section data-aos="zoom-in"
-                        data-aos-offset="150"
-                        data-aos-duration="500"
-                        data-aos-easing="ease-in-out" className="plan-box flex flex-col justify-center shadow-2xl mx-10 lg:mx-20 xl:mx-56 px-12 py-2 pb-20 rounded-xl">
-                    <div className="flex flex-col md:flex-row justify-center gap-x-24 gap-y-10 md:gap-y-0 text-center md:text-left">
-                        <div className="flex flex-col justify-between">
-                            <PlanComp
-                                planName="Starter Plan"
-                                currency="Rp"
-                                price="0"
-                                get1="No ads"
-                                get2="Unlimited course"
-                                get3="Live Compiler tool"
-                                get4="Career access"
-                                get5="News access"
-                                get6="Get certificate"
-                                get7="Get future updates"
-                            />
-                        </div>
-                        <div className="flex flex-col justify-between">
-                            <PlanComp
-                                planName="Premium plan"
-                                currency="Rp"
-                                price="286,000"
-                                access="/month"
-                                get1="No ads"
-                                get2="Unlimited course"
-                                get3="Live Compiler tool"
-                                get4="Career access"
-                                get5="News access"
-                                get6="Get certificate"
-                                get7="Get future updates"
-                                get8="DevOps course"
-                                get10="Class session access"
-                            />
-                            <Link to="/payment-confirmation-premium" className="bg-blue-1 text-white text-sm text-center py-2 rounded-xl cursor-pointer">Get started</Link>
-                        </div>
-                        <div className="flex flex-col justify-between">
-                            <PlanComp
-                                planName="Premium plan plus"
-                                currency="Rp"
-                                price="430,000"
-                                get1="No ads"
-                                get2="Unlimited course"
-                                get3="Live Compiler tool"
-                                get4="Career access"
-                                get5="News access"
-                                get6="Get certificate"
-                                get7="Get future updates"
-                                get8="DevOps course"
-                                get10="Class session access"
-                                get11="Life-time access"
-                            />
-                            <Link to="/payment-confirmation-premiumplus" className="bg-blue-1 text-white text-sm text-center py-2 rounded-xl cursor-pointer">Get started</Link>
-                        </div>
+                <section className="flex justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
+                    <div className="plan-box pl-10 py-5 pr-20 rounded-xl shadow-xl flex flex-col justify-between">
+                        <PlanComp
+                            planName="Starter Plan"
+                            currency="Rp"
+                            price="0"
+                            get1="No ads"
+                            get2="Unlimited course"
+                            get3="Live Compiler tool"
+                            get4="Career access"
+                            get5="News access"
+                            get6="Get certificate"
+                            get7="Get future updates"
+                        />
+                    </div>
+                    <div className="plan-box pl-10 py-5 pr-20 rounded-xl shadow-xl flex flex-col justify-between">
+                        <PlanComp
+                            planName="Premium plan"
+                            currency="Rp"
+                            price="286,000"
+                            get1="No ads"
+                            get2="Unlimited course"
+                            get3="Live Compiler tool"
+                            get4="Career access"
+                            get5="News access"
+                            get6="Get certificate"
+                            get7="Get future updates"
+                            get8="DevOps course"
+                            get10="Class session access"
+                        />
+                        <Link to="/payment-confirmation-premium" className="bg-blue-1 text-white text-sm text-center py-2 my-10 rounded-xl cursor-pointer">Get started</Link>
                     </div>
                 </section>
 

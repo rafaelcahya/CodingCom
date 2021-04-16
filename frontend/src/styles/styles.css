@@ -250,9 +250,8 @@ Login page, Register Page
 
 .login-box input, .register-box input{
     width: 15rem;
-    padding: .275rem 1rem;
-    font-size: .875rem;
-    border: 2px solid var(--blue-1);
+    padding: .375rem 1rem;
+    border: 1.6px solid var(--blue-1);
     border-radius: 5px;
     outline: none;
     color: var(--black-2);
@@ -260,7 +259,7 @@ Login page, Register Page
 
 .login-box input::placeholder, .register-box input::placeholder{
     color: var(--black-2);
-    font-size: .7rem;
+    font-size: .875rem;
 }
 
 @media screen and (min-width: 440px){

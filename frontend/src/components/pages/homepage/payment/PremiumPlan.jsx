@@ -33,10 +33,6 @@ export default function Payment() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>DevOps Course</td>
-                                    <td className="color-green-1">Available</td>
-                                </tr>
-                                <tr>
                                     <td>NoSQL Course</td>
                                     <td className="color-green-1">Available</td>
                                 </tr>
