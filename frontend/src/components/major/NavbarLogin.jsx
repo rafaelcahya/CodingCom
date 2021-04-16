@@ -25,7 +25,7 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden relative z-20 text-sm lg:flex justify-between px-16 xl:px-32 z-50">
+                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32">
                     <div className=" flex items-center py-5">
                         <NavLink to="/"
                             exact 
@@ -110,14 +110,13 @@ export default function NavbarLogin() {
             <motion.div
                 initial= {false}
                 variants={menuVariants}
-                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white" style={{zIndex: "1"}}>
-                    <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
+                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
+                    <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl hover:bg-gray-300">
                         <Link to="/tutorial" className="font-semibold hover:underline">Tutorials overview</Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                     <div className="dropdown-tutorial-box flex flex-col gap-5 py-5 px-5">
                         <div className="flex gap-10">
-                            
                             <div>
                                 <p className="font-semibold color-blue-1">Roadmap</p>
                                 <div className="flex flex-col gap-2 text-sm mt-2">

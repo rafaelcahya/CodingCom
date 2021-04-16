@@ -12,19 +12,19 @@ export class Pricing extends Component {
             <>
                 <NavbarLogin/>
                 <NavbarMobile/>
-                <div className="mt-20">
+                <div className="mt-20 md:mt-10">
                     <div className="leading-8 text-center py-20">
-                        <div className="color-blue-1 text-xl md:text-3xl lg:text-5xl xl:text:5xl font-bold">
+                        <div className="color-blue-1 text-2xl md:text-3xl lg:text-5xl xl:text:5xl font-bold">
                             <p>Get Started Now,</p>
-                            <p>Pick a Plan Later</p>
+                            <p>Pick a Bundle Later</p>
                         </div>
                         <p className="mt-10">Access to all our tutorials and features</p>
                     </div>
                 </div>
-                <section className="flex justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
-                    <div className="plan-box pl-10 py-5 pr-20 rounded-xl shadow-xl flex flex-col justify-between">
+                <section className="flex flex-col sm:flex-row justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
+                    <div className="plan-box pl-10 py-5 pr-24 rounded-xl shadow-xl flex flex-col justify-between">
                         <PlanComp
-                            planName="Starter Plan"
+                            planName="Starter Bundle"
                             currency="Rp"
                             price="0"
                             get1="No ads"
@@ -36,9 +36,9 @@ export class Pricing extends Component {
                             get7="Get future updates"
                         />
                     </div>
-                    <div className="plan-box pl-10 py-5 pr-20 rounded-xl shadow-xl flex flex-col justify-between">
+                    <div className="plan-box pl-10 py-5 pr-24 rounded-xl shadow-xl flex flex-col justify-between">
                         <PlanComp
-                            planName="Premium plan"
+                            planName="Premium Bundle"
                             currency="Rp"
                             price="286,000"
                             get1="No ads"
