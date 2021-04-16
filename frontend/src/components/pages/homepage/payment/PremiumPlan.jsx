@@ -5,6 +5,7 @@ import NavbarLogin from '../../../major/NavbarLogin'
 import NavbarMobile from '../../../major/NavbarMobile'
 
 import logobca from "../../../../asset/photo/logo_bca.png"
+import { Link } from 'react-router-dom'
 
 export default function Payment() {
     const modal = useRef()
@@ -71,7 +72,7 @@ export default function Payment() {
                         <p>CodingPaymentCom</p>
                         <p className="font-semibold">82709xxxxx</p>
                     </div>
-                    <p className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-3" onClick={() => modal.current.open()}>Payment confirmation via Email</p>
+                    <p className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-3 cursor-pointer" onClick={() => modal.current.open()}>Payment confirmation via Email</p>
                     <p className="color-black-2 text-xs mt-10 mb-5 mx-20">*Please complete the transfer payment process first before confirming the payment.</p>
                 </div>
             </section>
@@ -97,10 +98,12 @@ const Modal = forwardRef((props, ref) => {
         return(
             <>
                 <div className="flex justify-between items-center gap-10 my-5">
-                    <p className="color-black-2 text-xs underline">Help</p>
+                    <Link to="/help">
+                        <p className="color-black-2 text-xs underline">Help</p>
+                    </Link>
                     <div className="flex gap-5">
-                        <p className="text-sm rounded-lg py-2 px-4" onClick={() => setOpen(false)}>Cancel</p>
-                        <a href="mailto:codingpaymentcom@gmail.com?subject=Payment Confirmation&body=hello coding.com, I've done the payment transfer process for Rp. 286,000." className="bg-green-1 text-white text-sm rounded-lg py-2 px-4">Sure</a>
+                        <p className="text-sm rounded-lg py-2 px-4 cursor-pointer" onClick={() => setOpen(false)}>Cancel</p>
+                        <a href="mailto:codingpaymentcom@gmail.com?subject=Payment Confirmation&body=hello coding.com, I've done the payment transfer process for Rp. 286,000." className="bg-green-1 text-white text-sm rounded-lg py-2 px-4 cursor-pointer">Sure</a>
                     </div>
                 </div>
             </>

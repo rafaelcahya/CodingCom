@@ -20,10 +20,10 @@ export class PlanComp extends Component {
                             <p>{this.props.get6}</p>
                             <p>{this.props.get7}</p>
                         </div>
-                        <p className="color-blue-1">{this.props.get8}</p>
-                        <p className="color-blue-1">{this.props.get9}</p>
-                        <p className="color-blue-1">{this.props.get10}</p>
-                        <p className="color-blue-1">{this.props.get11}</p>
+                        <p className="color-blue-1 font-medium">{this.props.get8}</p>
+                        <p className="color-blue-1 font-medium">{this.props.get9}</p>
+                        <p className="color-blue-1 font-medium">{this.props.get10}</p>
+                        <p className="color-blue-1 font-medium">{this.props.get11}</p>
                     </div>
                 </article>
             </Fragment>

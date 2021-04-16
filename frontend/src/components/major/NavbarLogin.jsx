@@ -9,7 +9,11 @@ export default function NavbarLogin() {
         setLoggedIn(localStorage.getItem("loggedIn"));
     }, [localStorage.getItem("loggedIn")]); 
 
-    
+    window.onload = function () {
+        var x = localStorage.getItem("name");
+        document.getElementById("demo").innerHTML = x;
+    }
+
     const [open, setOpen] = useState(false)
     const menuVariants = {
         opened: {
@@ -105,6 +109,7 @@ export default function NavbarLogin() {
                                 </>
                             )}
                         </div>
+                        <div id="demo"></div>
                     </div>
                 </div>
             <motion.div
