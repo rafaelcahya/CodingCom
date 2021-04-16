@@ -9,13 +9,25 @@ export default function NavbarLogin() {
         setLoggedIn(localStorage.getItem("loggedIn"));
     }, [localStorage.getItem("loggedIn")]); 
 
-    window.onload = function () {
+    window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
+    }, 500)
+
+    const [openTutorial, setOpenTutorial] = useState(false)
+    const [openProfile, setOpenProfile] = useState(false)
+    const menuVariants = {
+        opened: {
+            top: "12vh",
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+        },
+        closed: {
+            top: "-100vh",
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0), 0 10px 10px -5px rgba(0, 0, 0, 0)"
+        }
     }
 
-    const [open, setOpen] = useState(false)
-    const menuVariants = {
+    const menuVariantsa = {
         opened: {
             top: "12vh",
             boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
@@ -55,9 +67,9 @@ export default function NavbarLogin() {
                                 <p>Pricing</p>
                             </NavLink>
                             <motion.div className="course"
-                            onClick={() => setOpen(state => !state)} 
+                            onClick={() => setOpenTutorial(state => !state)} 
                             initial={false} 
-                            animate={open ? "opened" : "closed"}>
+                            animate={openTutorial ? "opened" : "closed"}>
                                 <div
                                     className="navbar__link navbar_active">
                                     <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
@@ -96,8 +108,13 @@ export default function NavbarLogin() {
                             <p className="help">Help</p>
                         </NavLink>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="rotate(90)" className="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        <div className="">
-                            {loggedIn ? (
+                        <motion.div className="flex items-center gap-1"
+                            onClick={() => setOpenProfile(state => !state)} 
+                            initial={false} 
+                            animate={openProfile ? "opened" : "closed"}>
+                            <div id="demo"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            {/* {loggedIn ? (
                                 <>
                                     <Link to="/login" className="logout bg-blue-2 color-blue-1 px-8 py-2 rounded-xl">
                                         Logout
@@ -107,16 +124,15 @@ export default function NavbarLogin() {
                                 <>
                                     <Link to="/login"  className="login bg-blue-1 text-white px-8 py-2 rounded-xl">login</Link>
                                 </>
-                            )}
-                        </div>
-                        <div id="demo"></div>
+                            )} */}
+                        </motion.div>
                     </div>
                 </div>
             <motion.div
                 initial= {false}
                 variants={menuVariants}
-                animate={open ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
-                    <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl hover:bg-gray-300">
+                animate={openTutorial ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
+                    <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
                         <Link to="/tutorial" className="font-semibold hover:underline">Tutorials overview</Link>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
@@ -198,6 +214,15 @@ export default function NavbarLogin() {
                             </div>
                         </div>
                     </div>
+                </motion.div>
+                <motion.div
+                    initial= {false}
+                    variants={menuVariantsa}
+                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
+                    <p>Change Password</p>
+                    <Link to="/login" className="logout bg-blue-2 color-blue-1 px-8 py-2 rounded-xl">
+                        Logout
+                    </Link>
                 </motion.div>
             </nav>
         </>
