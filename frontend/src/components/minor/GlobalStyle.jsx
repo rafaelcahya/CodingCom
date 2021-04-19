@@ -19,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .navbar{
         background-color: ${({theme}) => theme.body};
-        color: ${({theme}) => theme.text};
         transition: all .5s linear;
     }
 

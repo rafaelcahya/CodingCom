@@ -5,7 +5,7 @@ import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternetMobile from '../SidebarInternetMobile'
-import Comment from '../Comment'
+import Comment from '../../../../major/Comment'
 
 export class Internet extends Component {
     render() {
