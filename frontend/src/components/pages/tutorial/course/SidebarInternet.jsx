@@ -1,11 +1,11 @@
 import React from 'react'
-import StickyBox from "react-sticky-box";
+
 import { Link } from 'react-router-dom'
 
 export const SidebarInternet = () => {
         return (
             <>
-                <StickyBox offsetTop={20} className="sticky w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
+                <div className="sticky w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
                     <p className="text-lg font-semibold">Internet Tutorial</p>
                     <div className="flex flex-col gap-2 my-5">
                         <Link to="/internet">Introduction</Link>
@@ -18,7 +18,7 @@ export const SidebarInternet = () => {
                         <Link to="/hosting">Hosting</Link>
                         <Link to="/closing">Closing</Link>
                     </div>
-                </StickyBox>
+                </div>
             </>
         )
     }

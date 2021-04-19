@@ -12,6 +12,7 @@ router.post("/register", (req, res) => {
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
+    let textbody = 'Welcome, ' + fullname +"<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
     if (fullname.length <= 0) {
         res.send({ message: "Fullname can not be empty" })
@@ -50,17 +51,18 @@ router.post("/register", (req, res) => {
             }
             if (!results.length) {
                 var transporter = nodemailer.createTransport({
-                    service:'gmail',
+                    host:'smtp.gmail.com',
                     auth:{
-                        user:'codingcomnoreply@gmail.com',
-                        pass:'coding123'
+                        type:'login',
+                        user:'codingpaymentcom@gmail.com',
+                        pass:'Codingcom01'
                     }
                 })
                 var mailOption = {
-                    from:'codingcomnoreply@gmail.com',
+                    from:'codingpaymentcom@gmail.com',
                     to:email,
                     subject:'Register Successfully',
-                    text:'Welcome,'+fullname+'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
+                    text:textbody
                 }
                 transporter.sendMail(mailOption,function(err,info){
                     if(err){
