@@ -52,6 +52,7 @@ function App() {
             <Route path="/pricing" component={Pricing} />
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/tutorial" component={Tutorial} />
+
             <Route path="/internet" component={Internet} />
             <Route path="/what-is-internet" component={WhatisInternet} />
             <Route path="/how-does-internet-work" component={InternetWork} />
@@ -61,6 +62,7 @@ function App() {
             <Route path="/domain" component={Domain} />
             <Route path="/hosting" component={Hosting} />
             <Route path="/closing" component={Closing} />
+
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
             <Route path="/help" component={Help} />

@@ -11,8 +11,8 @@ export class Certificate1 extends Component {
                 <NavbarMobile/>
                 <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-20">
                     <p className="text-3xl font-semibold text-center">Challenge</p>
-                    <p className="text-center my-2"></p>
-                    
+                    <p className="text-center my-2"></p>                   
+
                 </div>
             </>
         )

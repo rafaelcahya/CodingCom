@@ -29,7 +29,7 @@ export default function ForgotPassword() {
     
     return (
         <Fragment>
-            <div className="relative flex justify-center" onFocus={focus}>
+            <div className="relative flex justify-center overflow-hidden" onFocus={focus}>
                 <div className="absolute">
                     <Particles height="100vh" width="100vw" params={particlesConfig} />
                 </div>
