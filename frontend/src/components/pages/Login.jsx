@@ -85,7 +85,7 @@ export default function Login() {
                                 </Link>
                             </div>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-2">{errorMessage}</p>
+                        <p className="text-sm color-red-1 text-center mt-2 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex justify-end items-center gap-5 text-sm">
                         <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>

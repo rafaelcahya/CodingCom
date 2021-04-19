@@ -12,6 +12,11 @@ export const GlobalStyle = createGlobalStyle`
         transition: all .5s linear;
     }
 
+    .register-popup-container{
+        background: ${({theme}) => theme.foreground2};
+        color: ${({theme}) => theme.text};
+    }
+
     .navbar{
         background-color: ${({theme}) => theme.body};
         color: ${({theme}) => theme.text};

@@ -134,7 +134,7 @@ function Register() {
                             </div>
                             <input
                                 type="password"
-                                placeholder="input your password"
+                                placeholder="Input your password"
                                 className="input-password"
                                 onChange={(event) => {
                                     setPassword(event.target.value)
@@ -151,7 +151,7 @@ function Register() {
                                 }} />
                         </div>
                     </div>
-                    <p className="text-sm color-red-1 text-center mt-2">{errorMessage}</p>
+                    <p className="text-sm color-red-1 text-center mt-2 font-medium">{errorMessage}</p>
                 </div>
                 <div className="flex justify-end items-center gap-5 text-sm">
                     <Link to="/login">
