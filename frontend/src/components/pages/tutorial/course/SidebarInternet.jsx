@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
+import StickyBox from "react-sticky-box";
 import { Link } from 'react-router-dom'
 
-export class SidebarInternet extends Component {
-    render() {
+export const SidebarInternet = () => {
         return (
             <>
-                <div className="w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
+                <StickyBox offsetTop={20} className="sticky w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
                     <p className="text-lg font-semibold">Internet Tutorial</p>
                     <div className="flex flex-col gap-2 my-5">
                         <Link to="/internet">Introduction</Link>
@@ -18,10 +18,10 @@ export class SidebarInternet extends Component {
                         <Link to="/hosting">Hosting</Link>
                         <Link to="/closing">Closing</Link>
                     </div>
-                </div>
+                </StickyBox>
             </>
         )
     }
-}
 
 export default SidebarInternet
+

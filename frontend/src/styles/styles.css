@@ -546,6 +546,29 @@ iframe{
     padding: .5rem 1rem;
 }
 
+.textarea {
+    padding: 1rem;
+    border: 2px solid var(--black-2);
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    color: var(--black-1);
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    min-height: 120px;
+    line-height: 20px;
+}
+  
+.textarea[contenteditable]:empty::before {
+    content: "Add a discussion";
+    color: gray;
+}
+
+.textarea:focus{
+    border: 2px solid var(--blue-1);
+}
+
 /* 
 
 Challenge 

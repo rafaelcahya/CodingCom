@@ -5,6 +5,7 @@ import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternetMobile from '../SidebarInternetMobile'
+import Comment from '../Comment'
 
 export class Internet extends Component {
     render() {
@@ -45,6 +46,7 @@ export class Internet extends Component {
                             back="/tutorial"
                             next="/what-is-internet"
                         />
+                        <Comment/>
                     </div>
                 </div>
                 <Footer/>
