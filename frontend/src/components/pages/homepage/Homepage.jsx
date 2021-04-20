@@ -72,7 +72,7 @@ export default function Homepage() {
                     <p>Anytime, anywhere <span className="color-blue-1">learn on your schedule</span> from any device</p>
                 </section>
 
-                <section className="feature-box grid grid-flow-row grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-10 mx-4 md:mx-8 lg:mx-44">
+                <section className="feature-box grid grid-flow-row grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-5 lg:gap-10 mx-4 md:mx-8 lg:mx-44">
                     <div data-aos="fade-up"
                         data-aos-offset="150"
                         data-aos-duration="500"
@@ -248,9 +248,9 @@ export default function Homepage() {
                     </section>
                 </section> */}
 
-                <section className="flex flex-col items-center gap-5 mt-32">
+                <section className="flex flex-col items-center gap-5 mt-32 mx-20">
                     <p className="text-center text-2xl md:text-4xl font-semibold">Start learning today</p>
-                    <p className="text-center" style={{width: "500px"}}>Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
+                    <p className="text-center mx-20" style={{width: "500px"}}>Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
                 </section>
             </div>

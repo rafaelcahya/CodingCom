@@ -45,6 +45,9 @@ export default function NavbarMobile() {
                     <Link to="/">
                         <p>Home</p>
                     </Link>
+                    <Link to="/pricing">
+                        <p>Pricing</p>
+                    </Link>
                     <Link to="/roadmap">
                         <p>Roadmap</p>
                     </Link>

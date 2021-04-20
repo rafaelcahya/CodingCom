@@ -330,6 +330,8 @@ Homepage
 
 .cta p{
     padding: 1.5rem 5rem;
+    text-align: center;
+    width: 300px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     border-radius: 0.75rem;
     transition: 100ms;
@@ -585,4 +587,15 @@ Challenge
     transform: scale(1.05);
     background-color: #3b72ff;
     color: white;
+}
+
+.submit-box input, .submit-box textarea{
+    padding: .375rem 1rem;
+    border: 1.6px solid var(--black-2);
+    border-radius: 10px;
+    outline: none;
+}
+
+.submit-box input:focus, .submit-box textarea:focus{
+    border: 1.6px solid var(--blue-1);
 }
