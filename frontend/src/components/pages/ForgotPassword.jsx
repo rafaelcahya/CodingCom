@@ -33,7 +33,7 @@ export default function ForgotPassword() {
                 <div className="absolute">
                     <Particles height="100vh" width="100vw" params={particlesConfig} />
                 </div>
-                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl" style={{ zIndex: "1" }}>
+                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
                     <div className="text-lg">
                         <p className="color-blue-1">Hello,</p>
                         <p>Create your best password again</p>
@@ -71,7 +71,7 @@ export default function ForgotPassword() {
                                     className="input-confirmpass"/>
                             </div>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-2 font-medium">errorMessage</p>
+                        <p className="text-sm color-red-1 text-center mt-8 font-medium">errorMessage</p>
                     </div>
                     <div className="flex justify-end items-center gap-5 text-sm">
                         <Link to="/login">

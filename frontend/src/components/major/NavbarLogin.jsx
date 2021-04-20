@@ -43,7 +43,7 @@ export default function NavbarLogin() {
             <nav id="top">
                 <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20">
                     <div className=" flex items-center py-5">
-                        <NavLink to="/"
+                        <NavLink to=""
                             exact 
                             className="logo">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"

@@ -50,11 +50,10 @@ export default function Login() {
     return (
         <Fragment>
             <div className="relative flex justify-center" onFocus={focus}>
-                
                 <div className="absolute">
                     <Particles height="100vh" width="100vw" params={particlesConfig}/>
                 </div>
-                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl" style={{ zIndex: "1" }}>
+                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
                     <div className="text-lg">
                         <p className="color-blue-1">Hello,</p>
                         <p>Welcome to Coding.com</p>
@@ -85,7 +84,7 @@ export default function Login() {
                                 </Link>
                             </div>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-2 font-medium">{errorMessage}</p>
+                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex justify-end items-center gap-5 text-sm">
                         <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>
@@ -94,7 +93,7 @@ export default function Login() {
                     <div className="text-sm flex flex-col justify-center items-center gap-2 mt-20">
                         <p>Don't have an account?</p>
                         <Link to="/register">
-                            <p className="color-blue-1 underline">Register here</p>
+                            <p className="color-blue-1 underline font-medium">Register here</p>
                         </Link>
                     </div>
 

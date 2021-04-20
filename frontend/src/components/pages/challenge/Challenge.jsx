@@ -18,20 +18,20 @@ export class Challenge extends Component {
             <>
                 <NavbarLogin/>
                 <NavbarMobile/>
-                <div className="flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-20">
+                <div className="flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-32 lg:mt-20">
                     <div>
                         <p className="text-3xl font-semibold text-center">For Certificate</p>
                         <div className="flex flex-wrap justify-center gap-10 my-10">
                                 <div className="challenge-box p-5 w-96 rounded-lg shadow-xl transform hover:scale-105">
                                     <Link>
                                         <p className="color-blue-1 font-semibold">UI/UX Exercise</p>
-                                        <p className="text-sm mt-5">Get UI/UX certificates by solving 10 problems</p>
+                                        <p className="text-sm mt-5">Get UI/UX Certificate by working on big project based on real project</p>
                                     </Link>
                                 </div>
                                 <div className="challenge-box p-5 w-96 rounded-lg shadow-xl transform hover:scale-105">
                                     <Link to="/html-css-js-exercise">
                                         <p className="color-blue-1 font-semibold">HTML, CSS and Javascript Exercise</p>
-                                        <p className="text-sm mt-5">Get HTML, CSS and Javascript certificates by solving 10 problems</p>
+                                        <p className="text-sm mt-5">Get HTML, CSS, and Javascript Certificate by working on big project based on real project</p>
                                     </Link>
                                 </div>
                         </div>
