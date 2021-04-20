@@ -28,6 +28,7 @@ import Closing from "./components/pages/tutorial/course/internet/Closing.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import Certificate1 from "./components/pages/challenge/Certificate/HTML CSS JS/Certificate1.jsx"
 import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+import Certificate2 from "./components/pages/challenge/Certificate/Certificate2.jsx"
 
 const Container = styled.div`
 `;
@@ -66,6 +67,7 @@ function App() {
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
+            <Route path="/react-exercise" component={Certificate2} />
             <Route path="/submit-solution" component={Submit} />
             <Route path="/help" component={Help} />
           </Switch>

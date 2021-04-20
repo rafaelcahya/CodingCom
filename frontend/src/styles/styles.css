@@ -589,6 +589,10 @@ Challenge
     color: white;
 }
 
+.challenge-box{
+    width: 21rem;
+}
+
 .submit-box input, .submit-box textarea{
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);

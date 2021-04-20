@@ -22,18 +22,60 @@ export class Challenge extends Component {
                     <div>
                         <p className="text-3xl font-semibold text-center">For Certificate</p>
                         <div className="flex flex-wrap justify-center gap-10 my-10">
-                                <div className="challenge-box p-5 w-96 rounded-lg shadow-xl transform hover:scale-105">
-                                    <Link>
-                                        <p className="color-blue-1 font-semibold">UI/UX Exercise</p>
-                                        <p className="text-sm mt-5">Get UI/UX Certificate by working on big project based on real project</p>
-                                    </Link>
-                                </div>
-                                <div className="challenge-box p-5 w-96 rounded-lg shadow-xl transform hover:scale-105">
-                                    <Link to="/html-css-js-exercise">
-                                        <p className="color-blue-1 font-semibold">HTML, CSS and Javascript Exercise</p>
-                                        <p className="text-sm mt-5">Get HTML, CSS, and Javascript Certificate by working on big project based on real project</p>
-                                    </Link>
-                                </div>
+                            <div className="challenge-box p-5 rounded-lg shadow-xl transform hover:scale-105">
+                                <Link>
+                                    <p className="color-blue-1 font-semibold">UI/UX Exercise</p>
+                                    <p className="text-sm mt-5">Get UI/UX Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5  rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/html-css-js-exercise">
+                                    <p className="color-blue-1 font-semibold">HTML, CSS and Javascript Exercise</p>
+                                    <p className="text-sm mt-5">Get HTML, CSS, and Javascript Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">React Exercise</p>
+                                    <p className="text-sm mt-5">Get React Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">VUE Exercise</p>
+                                    <p className="text-sm mt-5">Get VUE Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">Angular Exercise</p>
+                                    <p className="text-sm mt-5">Get Angular Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">NodeJS Exercise</p>
+                                    <p className="text-sm mt-5">Get NodeJS Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">PHP Exercise</p>
+                                    <p className="text-sm mt-5">Get PHP Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">Laravel Exercise</p>
+                                    <p className="text-sm mt-5">Get Laravel Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                                <Link to="/react-exercise">
+                                    <p className="color-blue-1 font-semibold">Golang Exercise</p>
+                                    <p className="text-sm mt-5">Get Golang Certificate by working on big project based on real project</p>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <div>
