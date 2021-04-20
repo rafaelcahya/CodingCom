@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 export class Comment extends Component {
     render() {
@@ -7,6 +7,19 @@ export class Comment extends Component {
             document.getElementById("name").innerHTML = x;
         }, 500)
 
+        // const [comment, setComment] = useState("")
+        // const comment = () => {
+            
+        //     Axios.post("http://localhost:3001/comment/comment", { password: comment }).then((response) => {
+        //         if (response.data.loggedIn) {
+        //             localStorage.setItem("loggedIn", true)
+        //             localStorage.setItem("name", response.data.name)
+        //             history.push("/")
+        //         } else {
+        //             setErrorMessage(response.data.message)
+        //         }
+        //     })
+        // }
         return (
             <>  
                 <div className="mt-32">
