@@ -6,6 +6,10 @@ import ClassComp from './ClassComp'
 
 export class Class extends Component {
     render() {
+        const zoom = () => {
+            alert(document.getElementsByClassName("zoom")[0].getAttribute("href"));
+            return false;
+        }
         return (
             <>
                 <NavbarLogin/>
@@ -17,13 +21,15 @@ export class Class extends Component {
                         <p>Here you can learn directly with a mentor via zoom. Just ask your question without hesitation according to the topic you choose. Mentors will be ready to help your learning process anytime and anywhere.</p>
                     </div>
                     <div>
-                        <p>Create Zoom</p>
+                        <a href="http://meet.google.com/new" className="zoom" onClick={zoom}>Create Zoom</a>
+                        <p className="zoomlink">show link</p>
                     </div>
                     <div className="flex flex-col gap-10 my-10">
                         <ClassComp
                             class="UI/UX Consultation Class"
                             desc="Ask your questions about UI/UX. Select the class you want below"
                             classname1="Consultation Class 1"
+                            zoom1="https://zoom.us/wc/73419167552/start"
                             classname2="Consultation Class 2"
                             classname3="Consultation Class 3"
                         />
