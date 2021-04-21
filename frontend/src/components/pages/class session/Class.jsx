@@ -5,11 +5,19 @@ import NavbarMobile from '../../major/NavbarMobile'
 import ClassComp from './ClassComp'
 
 export class Class extends Component {
+    copyToClipboard() {
+        const str = document.getElementById('item-to-copy').innerText;
+        const el = document.createElement('textarea');
+        el.value = str;
+        el.setAttribute('readonly', '');
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
     render() {
-        const zoom = () => {
-            alert(document.getElementsByClassName("zoom")[0].getAttribute("href"));
-            return false;
-        }
         return (
             <>
                 <NavbarLogin/>
@@ -21,8 +29,10 @@ export class Class extends Component {
                         <p>Here you can learn directly with a mentor via zoom. Just ask your question without hesitation according to the topic you choose. Mentors will be ready to help your learning process anytime and anywhere.</p>
                     </div>
                     <div>
-                        <a href="http://meet.google.com/new" className="zoom" onClick={zoom}>Create Zoom</a>
-                        <p className="zoomlink">show link</p>
+                    <div>
+                        <p id="item-to-copy" className="hidden">http://meet.google.com/new</p>
+                        <button onClick={this.copyToClipboard}>Copy</button>
+                    </div>
                     </div>
                     <div className="flex flex-col gap-10 my-10">
                         <ClassComp

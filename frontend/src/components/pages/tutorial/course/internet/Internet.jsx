@@ -14,7 +14,7 @@ function Internet() {
     const [comment, setComment] = useState("")
     const [name,setName] = useState("")
     const [createAt,setCreateAt] = useState("")
-    const [commentlist,setCommentList] = useState("")
+    const [commentlist,setCommentList] = useState([])
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
@@ -29,14 +29,12 @@ function Internet() {
 
     useEffect(()=>{
         Axios.get("http://localhost:3001/comment/commentList").then((response)=>{
-        console.log(response.data)
+            setCommentList(response.data)
         })
     },[]);
-    
+
     const commentInternet = () => {
-        Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then((response) => {
-            console.log(response)
-        })
+        Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then(() => {})
     }
     return (
         <>
@@ -84,16 +82,18 @@ function Internet() {
                         <div className="flex justify-end items-center gap-10 my-5">
                             <p className="bg-gray-200 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
                             <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
+                            
                         </div>
-                    </div>
-                    <div>
-                    {/* {commentlist.map((val)=>{
-                            return <h3>{val.comment}</h3>
-                        })} */}
+                        {
+                            commentlist.map(
+                                (val)=> {
+                                    return <h1>Comment: {val.comment} | Date : {val.createAt}</h1>
+                                }
+                            )
+                        }
                     </div>
                 </div>
             </div>
-            
             <Footer />
         </>
     )
