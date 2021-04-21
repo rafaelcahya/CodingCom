@@ -31,6 +31,7 @@ import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
 import ReactCerti from "./components/pages/challenge/Certificate/ReactCerti.jsx"
 import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
+import Class from "./components/pages/class session/Class.jsx"
 
 const Container = styled.div`
 `;
@@ -73,6 +74,8 @@ function App() {
             <Route path="/vue-exercise" component={VueCerti} />
             <Route path="/angular-exercise" component={AngularCerti} />
             <Route path="/submit-solution" component={Submit} />
+            
+            <Route path="/class-session" component={Class} />
             <Route path="/help" component={Help} />
           </Switch>
         </Container>

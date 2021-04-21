@@ -82,7 +82,7 @@ export default function NavbarLogin() {
                                     <p className="navbar_btn underline_anim">Challenges</p>
                             </NavLink>
 
-                            <NavLink to="/course"
+                            <NavLink to="/class-session"
                                 activeClassName="navbar_active" 
                                 className="navbar__link">
                                     <p className="navbar_btn underline_anim">Class Session</p>
