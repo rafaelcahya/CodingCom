@@ -3,23 +3,23 @@ import NavbarLogin from '../../../major/NavbarLogin'
 import NavbarMobile from '../../../major/NavbarMobile'
 import Footer from "../../../major/Footer"
 
-import instagramui from "../../../../asset/photo/challenge/certificate/react.png"
+import angularui from "../../../../asset/photo/challenge/certificate/angular.png"
 import { Link } from 'react-router-dom'
 
-export class Certificate2 extends Component {
+export class AngularCerti extends Component {
     render() {
         return (
             <>
                 <NavbarLogin/>
                 <NavbarMobile/>
                 <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-72 mt-32 lg:mt-20">
-                    <p className="text-3xl font-semibold text-center my-10">React Certificate</p>
+                    <p className="text-3xl font-semibold text-center my-10">Angular Certificate</p>
                     <div className="flex justify-center">
-                        <img src={instagramui} alt="" width="750" className="rounded-3xl"/>
+                        <img src={angularui} alt="" width="750" className="rounded-3xl"/>
                     </div>
                     <div className="flex flex-col gap-2 my-10">
                         <p className="font-semibold text-xl">Brief</p>
-                        <p>Welcome to theReact Challenge. In this challenge, you must create a Instagram Clone. Make it as close to the original as possible. You can use any tools you like to help you complete the challenge but you have to use React only. Download the project and go through the PDF file. This will provide further details about the project and help you get set up.</p>
+                        <p>Welcome to the Angular Challenge. In this challenge, you must create a Kanban App. Make it as close to the original as possible. You can use any tools you like to help you complete the challenge but you have to use Angular only. Download the project and go through the PDF file. This will provide further details about the project and help you get set up.</p>
                     </div> 
                     <div className="flex flex-col gap-2 my-20">
                     <p className="font-semibold text-xl">Getting Started</p>
@@ -67,4 +67,4 @@ export class Certificate2 extends Component {
     }
 }
 
-export default Certificate2
+export default AngularCerti

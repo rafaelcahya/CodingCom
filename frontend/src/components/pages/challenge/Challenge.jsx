@@ -41,13 +41,13 @@ export class Challenge extends Component {
                                 </Link>
                             </div>
                             <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
-                                <Link to="/react-exercise">
+                                <Link to="/vue-exercise">
                                     <p className="color-blue-1 font-semibold">VUE Exercise</p>
                                     <p className="text-sm mt-5">Get VUE Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
                             <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
-                                <Link to="/react-exercise">
+                                <Link to="/angular-exercise">
                                     <p className="color-blue-1 font-semibold">Angular Exercise</p>
                                     <p className="text-sm mt-5">Get Angular Certificate by working on big project based on real project</p>
                                 </Link>
