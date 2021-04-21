@@ -28,6 +28,10 @@ import Closing from "./components/pages/tutorial/course/internet/Closing.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import Certificate1 from "./components/pages/challenge/Certificate/HTML CSS JS/Certificate1.jsx"
 import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+import ReactCerti from "./components/pages/challenge/Certificate/ReactCerti.jsx"
+import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
+import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
+import Class from "./components/pages/class session/Class.jsx"
 
 const Container = styled.div`
 `;
@@ -66,7 +70,12 @@ function App() {
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
+            <Route path="/react-exercise" component={ReactCerti} />
+            <Route path="/vue-exercise" component={VueCerti} />
+            <Route path="/angular-exercise" component={AngularCerti} />
             <Route path="/submit-solution" component={Submit} />
+            
+            <Route path="/class-session" component={Class} />
             <Route path="/help" component={Help} />
           </Switch>
         </Container>

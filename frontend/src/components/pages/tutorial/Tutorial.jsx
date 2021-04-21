@@ -38,6 +38,7 @@ import { Link } from 'react-router-dom'
 SwiperCore.use([Navigation, Pagination]);
 
 export class Tutorial extends Component {
+
     render() {
         var menu = ['Internet', 'Web Design', 'Frontend', 'CSS Frameworks', 'JS Frameworks & Libraries', 'Backend', 'Database', 'DevOps']
         
@@ -61,14 +62,16 @@ export class Tutorial extends Component {
                             }}
                         >
                             <SwiperSlide>
-                                <Link to="/internet" className="flex justify-center gap-10 my-10">
-                                    <TutorialComp
-                                    image={internet}
-                                    title="Basic Internet"
-                                    desc="In this tutorial, you will learn the internet from understanding the internet to internet crimes."
-                                    status="available"
-                                    />
-                                </Link>
+                                <div className="flex justify-center gap-10 my-10" >
+                                    <Link to="/internet">
+                                        <TutorialComp
+                                        image={internet}
+                                        title="Basic Internet"
+                                        desc="In this tutorial, you will learn the internet from understanding the internet to internet crimes."
+                                        status="available"
+                                        />
+                                    </Link>
+                                </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="flex flex-wrap justify-center gap-10 mx-0 sm:mx-20 my-10">
