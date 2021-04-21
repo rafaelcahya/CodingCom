@@ -29,4 +29,11 @@ router.post("/commentInternet", (req, res) => {
     
 })
 
+router.get("/commentList",(req,res)=>{
+    db.query("SELECT * from comment",(err,results)=>{
+        res.send(results)
+        console.log(results)
+    })
+})
+
 module.exports = router 
