@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
@@ -14,6 +14,8 @@ function Internet() {
     const [comment, setComment] = useState("")
     const [name,setName] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [commentlist,setCommentList] = useState("")
+
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
         document.getElementById("name").innerHTML = x;
@@ -24,6 +26,12 @@ function Internet() {
         var dateTime = time + ' ' + date;
         setCreateAt(dateTime)
     }, 500)
+
+    useEffect(()=>{
+        Axios.get("http://localhost:3001/comment/commentList").then((response)=>{
+        console.log(response.data)
+        })
+    },[]);
     
     const commentInternet = () => {
         Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then((response) => {
@@ -70,7 +78,7 @@ function Internet() {
                     <div className="mt-32">
                         <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
-                        <textarea className="textarea resize-none cursor-text" contentEditable onChange={(event) => {
+                        <textarea className="textarea resize-none cursor-text" onChange={(event) => {
                             setComment(event.target.value)
                         }} ></textarea>
                         <div className="flex justify-end items-center gap-10 my-5">
@@ -78,8 +86,14 @@ function Internet() {
                             <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
                         </div>
                     </div>
+                    <div>
+                    {/* {commentlist.map((val)=>{
+                            return <h3>{val.comment}</h3>
+                        })} */}
+                    </div>
                 </div>
             </div>
+            
             <Footer />
         </>
     )
