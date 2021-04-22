@@ -14,6 +14,7 @@ function Internet() {
     const [comment, setComment] = useState("")
     const [name,setName] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
     const [commentlist,setCommentList] = useState([])
 
     window.onload = setTimeout(function () {
@@ -28,13 +29,15 @@ function Internet() {
     }, 500)
 
     useEffect(()=>{
-        Axios.get("http://localhost:3001/comment/commentList").then((response)=>{
+        Axios.get("http://localhost:3001/comment/commentListInternet").then((response)=>{
             setCommentList(response.data)
         })
     },[]);
 
     const commentInternet = () => {
-        Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then(() => {})
+        Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then((response) => {
+            setErrorMessage(response.data.message)
+        })
     }
     return (
         <>
@@ -76,9 +79,10 @@ function Internet() {
                     <div className="mt-32">
                         <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
-                        <textarea className="textarea resize-none cursor-text" onChange={(event) => {
+                        <textarea placeholder="add your discussion here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
                             setComment(event.target.value)
                         }} ></textarea>
+                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                         <div className="flex justify-end items-center gap-10 my-5">
                             <p className="bg-gray-200 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
                             <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
