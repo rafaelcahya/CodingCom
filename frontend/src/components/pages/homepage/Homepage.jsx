@@ -27,6 +27,8 @@ import consultation from "../../../asset/photo/homepage/feature/consultation.jpg
 import textEditor from "../../../asset/photo/homepage/feature/text-editor.jpg"
 import certificate from "../../../asset/photo/homepage/feature/certificate.jpg"
 
+import bootcamp from "../../../asset/photo/homepage/bootcamp/bootcamp3.jfif"
+
 SwiperCore.use([Navigation, Pagination]);
 
 export default function Homepage() {
@@ -37,7 +39,6 @@ export default function Homepage() {
             localStorage.setItem("loggedIn", false);
             }
         }, []);
-
     return (
         <Fragment>
             <div className="overflow-x-hidden">
@@ -92,7 +93,15 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className="my-32 lg:my-64">
+                <section className="mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl">
+                    <p className="text-2xl text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
+                    <div className="flex items-center gap-28">
+                        <p className="font-semibold">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
+                        <img src={bootcamp} alt="" width={450} className="rounded-xl"/>
+                    </div>
+                </section>
+
+                <section className="my-32 lg:my-48">
                     <p className="text-center text-2xl md:text-4xl font-semibold py-10">What do we provide</p>
                     <Swiper
                         slidesPerView= {1}
@@ -144,17 +153,17 @@ export default function Homepage() {
                         </SwiperSlide>
                     </Swiper>
                     <div className="">
-                        <div className="swiper-paginationn flex gap-4 items-center justify-center my-10 cursor-pointer"></div>
+                        <div className="swiper-paginationn flex gap-4 items-center justify-center my-10 cursor-default"></div>
                     </div>
                 </section>
-
+                
                 <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl" >
                     <img src="https://cdn.discordapp.com/attachments/414258067870449665/445736475158380544/discord.gif" alt="discord" width={100}/>
                     <div className="flex flex-col gap-5">
                         <p className="text-xl font-semibold">Join us in our community.</p>
                         <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
                     </div>
-                    <p className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</p>
+                    <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
                 </section>
 
                 {/* <section data-aos="fade-up"
