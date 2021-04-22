@@ -30,8 +30,8 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground2};
     }
 
-    .headerheader{
-        background: ${({theme}) => theme.foreground3};
+    .cta div{
+        background: ${({theme}) => theme.foreground2};
         transition: all .5s linear;
     }
 
