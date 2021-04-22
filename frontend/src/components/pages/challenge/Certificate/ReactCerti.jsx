@@ -6,6 +6,8 @@ import Footer from "../../../major/Footer"
 import instagramui from "../../../../asset/photo/challenge/certificate/react.png"
 import { Link } from 'react-router-dom'
 
+import file from "../../../../asset/file/Challenge.docx"
+
 export class ReactCerti extends Component {
     render() {
         return (
@@ -37,7 +39,7 @@ export class ReactCerti extends Component {
                         <div className="flex flex-col gap-2 my-10">
                             <p className="font-semibold text-xl">Download Starter File</p>
                             <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
-                            <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download starter file</p>
+                            <a href={file} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
                         </div> 
                         <div className="flex flex-col gap-2 my-10">
                             <p className="font-semibold text-xl">Submit Solution</p>

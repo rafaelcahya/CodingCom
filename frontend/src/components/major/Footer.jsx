@@ -26,7 +26,7 @@ function Footer() {
                             <p>Tutorial</p>
                             <p>Deployment</p>
                             <p>Challenge</p>
-                            <p>Class session</p>
+                            <p>Class</p>
                             <p>News</p>
                             <p>Career</p>
                         </div>

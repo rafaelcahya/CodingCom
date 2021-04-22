@@ -56,7 +56,7 @@ export default function NavbarMobile() {
                     </Link>
                     <p>Deployment</p>
                     <p>Challenge</p>
-                    <p>Class session</p>
+                    <p>Class</p>
                     <p>News</p>
                     <p>Career</p>
                     <p>Help</p>

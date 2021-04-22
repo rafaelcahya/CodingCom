@@ -4,7 +4,7 @@ import Footer from '../../major/Footer'
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
-import PlanComp from '../homepage/PlanComp'
+import PlanComp from './PlanComp'
 
 export class Pricing extends Component {
     render() {
@@ -32,8 +32,7 @@ export class Pricing extends Component {
                             get3="Live Compiler tool"
                             get4="Career access"
                             get5="News access"
-                            get6="Get certificate"
-                            get7="Get future updates"
+                            get6="Get future updates"
                         />
                     </div>
                     <div className="plan-box pl-10 py-5 pr-24 rounded-xl shadow-xl flex flex-col justify-between">
@@ -46,10 +45,10 @@ export class Pricing extends Component {
                             get3="Live Compiler tool"
                             get4="Career access"
                             get5="News access"
-                            get6="Get certificate"
-                            get7="Get future updates"
-                            get8="DevOps course"
-                            get10="Class session access"
+                            get6="Get future updates"
+                            get7="DevOps course"
+                            get8="Certificate"
+                            get9="Class session access"
                         />
                         <Link to="/payment-confirmation-premium" className="bg-blue-1 text-white text-sm text-center py-2 my-10 rounded-xl cursor-pointer">Get started</Link>
                     </div>

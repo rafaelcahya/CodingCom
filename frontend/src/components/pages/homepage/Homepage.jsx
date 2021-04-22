@@ -24,6 +24,7 @@ import tutorial5 from "../../../asset/icon/Homepage/devops.svg"
 import learningPath from "../../../asset/photo/homepage/feature/learning-path.jpg"
 import challenge from "../../../asset/photo/homepage/feature/challenge.jpg"
 import consultation from "../../../asset/photo/homepage/feature/consultation.jpg"
+import bootcamp2 from "../../../asset/photo/homepage/feature/bootcamp.jfif"
 import textEditor from "../../../asset/photo/homepage/feature/text-editor.jpg"
 import certificate from "../../../asset/photo/homepage/feature/certificate.jpg"
 
@@ -49,7 +50,7 @@ export default function Homepage() {
                         <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">Coding.com</p>
                         <div className="change-text-anim text-center lg:text-left text-sm lg:text-base px-14 lg:px-0"></div>
                         <Link to="/tutorial">
-                            <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
+                            <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max hover:bg-yellow-300">Start learning today</p>
                         </Link>
                     </div>
                     <div className="hidden lg:block">
@@ -93,10 +94,18 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className="mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl">
+                <section className=" mx-8 md:mx-16 lg:mx-64 py-20 mt-32 lg:mt-0 rounded-xl">
                     <p className="text-2xl text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
                     <div className="flex items-center gap-28">
-                        <p className="font-semibold">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
+                        <div>
+                            <p className="font-medium">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
+                            <p className="bg-blue-1 text-white w-max font-medium px-8 py-2 mt-5 mb-16 rounded-xl hover:bg-blue-400">Join now</p>
+                            <div className="flex gap-5">
+                                <p className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Classroom</p>
+                                <p className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Online</p>
+                                <p className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Fullstack</p>
+                            </div>
+                        </div>
                         <img src={bootcamp} alt="" width={450} className="rounded-xl"/>
                     </div>
                 </section>
@@ -135,6 +144,13 @@ export default function Homepage() {
                                 title= "Consultation"
                                 desc="Learn directly with a professional mentor and receive a customized, professional consultation in this exciting industry. Learn from home or anywhere on your schedule."
                                 image={consultation}
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <FeatureComp
+                                title= "Bootcamp"
+                                desc="At bootcamp, we help you develop your skills in programming and design to work on a professional project, right from the first day!"
+                                image={bootcamp2}
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -241,7 +257,9 @@ export default function Homepage() {
                 <section className="flex flex-col items-center gap-5 mt-32 mx-20">
                     <p className="text-center text-2xl md:text-4xl font-semibold">Start learning today</p>
                     <p className="text-center mx-20" style={{width: "500px"}}>Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
-                    <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
+                    <Link to="/tutorial">
+                        <p className="bg-orange-1 hover:bg-yellow-300 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
+                    </Link>
                 </section>
             </div>
             <Footer/>

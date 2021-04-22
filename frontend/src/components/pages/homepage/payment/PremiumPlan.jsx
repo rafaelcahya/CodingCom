@@ -22,7 +22,7 @@ export default function Payment() {
                             <tbody>
                                 <tr>
                                     <td>Access time</td>
-                                    <td>1 month</td>
+                                    <td>Forever</td>
                                 </tr>
                             </tbody>
                         </table>
