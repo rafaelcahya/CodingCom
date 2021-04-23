@@ -99,7 +99,9 @@ export default function Homepage() {
                     <div className="flex items-center gap-28">
                         <div>
                             <p className="font-medium">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
-                            <p className="bg-blue-1 text-white w-max font-medium px-8 py-2 mt-5 mb-16 rounded-xl hover:bg-blue-400">Join now</p>
+                            <Link to="/bootcamp">
+                                <p className="bg-blue-1 text-white w-max font-medium px-8 py-2 mt-5 mb-16 rounded-xl hover:bg-blue-400">Join now</p>
+                            </Link>
                             <div className="flex gap-5">
                                 <p className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Classroom</p>
                                 <p className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Online</p>

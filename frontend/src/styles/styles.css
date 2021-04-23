@@ -584,3 +584,47 @@ class session
     background-position: center;
     background-size: cover;
 }
+
+
+
+/* 
+
+Bootcamp 
+
+*/
+
+
+.header-bootcamp{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+    animation: animate alternate-reverse 45s forwards infinite running ease-in-out;
+}
+
+@keyframes animate {
+    0%{
+        background-image: url(../bootcamp/asset/heylagostechie-YgOCJz9uGMk-unsplash.png);
+    }
+    20%{
+        background-image: url(../bootcamp/asset/le-wagon-0ECDm8h-4Hg-unsplash.png);
+    }
+    40%{
+        background-image: url(../bootcamp/asset/le-wagon-ateSfr0d0yc-unsplash.png);
+    }
+    60%{
+        background-image: url(../bootcamp/asset/le-wagon-ofeO3-rfaAo-unsplash.png);
+    }
+    80%{
+        background-image: url(../bootcamp/asset/le-wagon-QyAAIKO-AzI-unsplash.png);
+    }
+    100%{
+        background-image: url(../bootcamp/asset/le-wagon-XXMK5V_bbms-unsplash.png);
+    }
+}
+
+.header-bootcamp div{
+    background-color: #000000a9;
+    width: 100%;
+}
