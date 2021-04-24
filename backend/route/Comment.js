@@ -37,7 +37,7 @@ router.post("/commentInternet", (req, res) => {
 
 router.get("/commentListInternet", (req, res) => {
     let topik = "Internet"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -73,7 +73,7 @@ router.post("/commentInternetWork", (req, res) => {
 
 router.get("/commentListInternetWork", (req, res) => {
     let topik = "Internet Work"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -110,7 +110,7 @@ router.post("/commentWhatishttp", (req, res) => {
 
 router.get("/commentListWhatishttp", (req, res) => {
     let topik = "What is http"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -146,7 +146,7 @@ router.post("/commentWhatisInternet", (req, res) => {
 
 router.get("/commentListWhatisInternet", (req, res) => {
     let topik = "What is internet"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -181,7 +181,7 @@ router.post("/commentBrowser", (req, res) => {
 
 router.get("/commentListBrowser", (req, res) => {
     let topik = "Browser"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -216,7 +216,7 @@ router.post("/commentDNS", (req, res) => {
 
 router.get("/commentListDNS", (req, res) => {
     let topik = "DNS"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -251,7 +251,7 @@ router.post("/commentDomain", (req, res) => {
 
 router.get("/commentListDomain", (req, res) => {
     let topik = "Domain"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -286,7 +286,7 @@ router.post("/commentHosting", (req, res) => {
 
 router.get("/commentListHosting", (req, res) => {
     let topik = "Hosting"
-    db.query("SELECT * from comment WHERE topik = ?", topik, (err, results) => {
+    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND topik = ?", topik, (err, results) => {
         res.send(results)
         console.log(results)
     })
