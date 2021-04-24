@@ -83,25 +83,32 @@ function InternetWork() {
                         </div>
                     </div>
                     <NextPrevBtnTutorial
-                        back="/internet"
+                        back="/what-is-internet"
                         next="/what-is-http"
                     />
                     <div className="mt-32">
-                        <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
+                        <p className="font-semibold text-2xl my-5">Discussion</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
-                        <textarea placeholder="add your discussion here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
-                            setComment(event.target.value)
-                        }} ></textarea>
-                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
-                        <div className="flex justify-end items-center gap-10 my-5">
-                            <p className="bg-gray-200 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
-                            <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
-
-                        </div>
+                        <form className="mb-16 pb-10 border-b-2 border-gray-300">
+                            <textarea placeholder="add your discussion here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
+                                setComment(event.target.value)
+                            }} ></textarea>
+                            <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                            <div className="flex justify-end items-center gap-10 my-5">
+                                <input type="reset" defaultValue="Reset" className="bg-gray-200 text-black px-4 py-1 rounded-lg cursor-pointer" />  
+                                <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Post discussion</p>
+                            </div>
+                        </form>
                         {
                             commentlist.map(
-                                (val) => {
-                                    return <h1>Comment: {val.comment} | Date : {val.createAt}</h1>
+                                (val)=> {
+                                    return <div className="bg-white p-4 my-5 flex flex-col rounded-xl">
+                                                <div className="flex justify-between mb-1">
+                                                    <p className="color-blue-1 font-semibold text-sm">William Kosasie</p>
+                                                    <p className="text-gray-400 text-sm">{val.createAt}</p>
+                                                </div>
+                                                <p className="text-sm">{val.comment}</p>
+                                            </div>
                                 }
                             )
                         }

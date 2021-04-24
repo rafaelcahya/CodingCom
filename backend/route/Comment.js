@@ -50,10 +50,9 @@ router.post("/commentInternetWork", (req, res) => {
     let user_id = 0
     let topik = "Internet Work"
 
-    if(comment.length<=0){
+    if(comment.length <= 0){
         res.send({ message: "comment can not be empty" })
     }else{
-
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
             console.log(err)

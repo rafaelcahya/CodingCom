@@ -4,12 +4,10 @@ export const GlobalStyle = createGlobalStyle`
     body{
         background-color: ${({theme}) => theme.body};
         color: ${({theme}) => theme.text};
-        transition: all .5s linear;
     }
 
     .login-container{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .register-popup-box{
@@ -19,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .navbar{
         background-color: ${({theme}) => theme.body};
-        transition: all .5s linear;
     }
 
     .navbar-mobile-container, .navbar-mobile{
@@ -32,12 +29,10 @@ export const GlobalStyle = createGlobalStyle`
 
     .cta div{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .course-box{
         background: ${({theme}) => theme.foreground};
-        transition: all .5s linear;
     }
 
     .course-box p{
@@ -46,22 +41,18 @@ export const GlobalStyle = createGlobalStyle`
 
     .logout{
         background: ${({theme}) => theme.foreground};
-        transition: all .5s linear;
     }
 
     .cta p{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .plan-box{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .payment-container{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .payment-confirm-box{
@@ -74,12 +65,10 @@ export const GlobalStyle = createGlobalStyle`
 
     .roadmap-box p{
         background: ${({theme}) => theme.foreground2};
-        transition: all .5s linear;
     }
 
     .roadmap-header, .internet-header{
         background: ${({theme}) => theme.foreground3};
-        transition: all .5s linear;
     }
 
     #sidebarmobile{
@@ -88,7 +77,17 @@ export const GlobalStyle = createGlobalStyle`
 
     .tutorial-box, .tutorial-paid-box, .challenge-box, .certificate-box div{
         background: ${({theme}) => theme.foreground2};
-        transition: all .2s linear
+    }
+
+    .accordion_internet{
+        background-color: ${({theme}) => theme.foreground6};
+    } 
+
+    .accordion__button:hover{
+        background-color: ${({theme}) => theme.hoverforeground};
+    }
+    .accordion__content{
+        background-color: ${({theme}) => theme.foreground7};
     }
 `;
 
@@ -101,7 +100,9 @@ export const lightTheme={
     foreground3: '#3b72ff',
     foreground4: '#3b72ff',
     foreground5: '#abc2fc',
-    foreground6: '#eaeefc'
+    foreground6: '#eaeefc',
+    foreground7: 'rgb(219, 234, 254)',
+    hoverforeground: 'rgb(219, 234, 254)'
 }
 
 export const darkTheme={
@@ -113,5 +114,7 @@ export const darkTheme={
     foreground3: '#222948',
     foreground4: '#ffffff',
     foreground5: '#222948',
-    foreground6: '#222948'
+    foreground6: '#222948',
+    foreground7: '#3b72ff',
+    hoverforeground: '#3b72ff'
 }
