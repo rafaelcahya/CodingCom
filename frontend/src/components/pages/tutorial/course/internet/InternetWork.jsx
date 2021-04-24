@@ -47,7 +47,7 @@ function InternetWork() {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div id="tutorial" className="internet-header w-full py-40 text-white">
+            <div id="tutorial" className="internet-header w-full py-20 text-white">
                 <div className="flex flex-col items-center text-center gap-2">
                     <h1 className="text-4xl font-semibold">Internet</h1>
                     <p className="font-medium">How does internet work</p>
