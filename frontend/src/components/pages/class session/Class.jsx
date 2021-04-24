@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
@@ -15,6 +16,9 @@ export class Class extends Component {
                     <div className="class-header">
                         <p className="color-blue-1 font-semibold text-3xl mb-5">Class Consultation</p>
                         <p>Here you can learn directly with a mentor via zoom. Just ask your question without hesitation according to the topic you choose. Mentors will be ready to help your learning process anytime and anywhere.</p>
+                        <Link to="/class-creation">
+                            <p className="color-blue-1 underline font-medium">Request Create Class Here</p>
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-10 my-10">
                         <ClassComp

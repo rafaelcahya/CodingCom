@@ -32,6 +32,7 @@ import ReactCerti from "./components/pages/challenge/Certificate/ReactCerti.jsx"
 import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
 import Class from "./components/pages/class session/Class.jsx"
+import ClassCreation from "./components/pages/class session/ClassCreation"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 
 const Container = styled.div`
@@ -77,6 +78,7 @@ function App() {
             <Route path="/submit-solution" component={Submit} />
             
             <Route path="/class-session" component={Class} />
+            <Route path="/class-creation" component={ClassCreation} />
             <Route path="/help" component={Help} />
 
             <Route path="/bootcamp" component={BootcampHome}/>
