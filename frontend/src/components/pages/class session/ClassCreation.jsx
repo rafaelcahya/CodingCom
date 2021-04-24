@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
-import ClassComp from './ClassComp'
+import Axios from 'axios'
 
 function ClassCreation() {
     const [mentorName, setMentorName] = useState("")
@@ -13,7 +12,24 @@ function ClassCreation() {
     const [date, setDate] = useState("")
     const [email, setEmail] = useState("")
     const [url, setUrl] = useState("")
+    const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = time + ' ' + date;
+        setCreateAt(dateTime)
+    }, 500)
+
+    const createClass = () => {
+        Axios.post("http://localhost:3001/class/createClass", { mentorName: mentorName, className: className, email: email, time: time, date: date, month: month, url: url, createAt: createAt }).then((response) => {
+            console.log(response)
+            setErrorMessage(response.data.message)
+
+        })
+    }
 
     return (
         <>
@@ -70,8 +86,9 @@ function ClassCreation() {
                     <div>
                         <p className="Waktu text-xs mb-1">What time do you want ?</p>
                         <select id="dropdown" onChange={(event) => {
-                                setTime(event.target.value)
-                            }}>
+                            setTime(event.target.value)
+                        }}>
+                            <option value="">Choose time</option>
                             <option value="00:00">00:00</option>
                             <option value="01:00">01:00</option>
                             <option value="02:00">02:00</option>
@@ -99,7 +116,7 @@ function ClassCreation() {
                         </select>
                     </div>
                     <div>
-                        <p className="Url text-xs mb-1">Url ?</p>
+                        <p className="Url text-xs mb-1">Url ?(optional)</p>
                         <input
                             type="text"
                             placeholder="Input Url"
@@ -107,6 +124,8 @@ function ClassCreation() {
                                 setUrl(event.target.value)
                             }} />
                     </div>
+                    <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                    <p onClick={createClass} className="bg-blue-1 text-white px-7 py-2 rounded-lg cursor-pointer">Submit</p>
                 </div>
             </div>
 

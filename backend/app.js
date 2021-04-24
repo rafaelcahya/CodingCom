@@ -13,6 +13,9 @@ app.use("/user", userRoute)
 const commentRoute = require('./route/Comment')
 app.use("/comment", commentRoute)
 
+const classRoute = require('./route/Class')
+app.use("/class", classRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });
