@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 
 $(document).ready(function() {
     $('#sidebarbtn').on('click', function() {
-      $('#sidebarmobile').toggleClass('visible');
+        $('#sidebarmobile').toggleClass('visible');
     });
-  });
+});
 export default function SidebarInternetMobile() {
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
+    }
     return (
         <>
             <nav id="sidebarmobile" className="block lg:hidden">
@@ -28,15 +31,15 @@ export default function SidebarInternetMobile() {
                             </g>
                         </svg>
                     </div>
-                    <Link to="/internet"><p>Introduction</p></Link>
-                    <Link to="/what-is-internet"><p>What is internet</p></Link>
-                    <Link to="/how-does-internet-work"><p>How does internet work</p></Link>
-                    <Link to="/what-is-http"><p>What is HTTP & HTTPS</p></Link>
-                    <Link to="/browser"><p>Browser</p></Link>
-                    <Link to="/DNS"><p>DNS Server</p></Link>
-                    <Link to="/domain"><p>Domain</p></Link>
-                    <Link to="/hosting"><p>Hosting</p></Link>
-                    <Link to="/closing"><p>Closing</p></Link>
+                    <p onClick={scrollToTop}><Link to="/internet"><p>Introduction</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/what-is-internet"><p>What is internet</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/how-does-internet-work"><p>How does internet work</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/what-is-http"><p>What is HTTP & HTTPS</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/browser"><p>Browser</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/DNS"><p>DNS Server</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/domain"><p>Domain</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/hosting"><p>Hosting</p></Link></p>
+                    <p onClick={scrollToTop}><Link to="/closing"><p>Closing</p></Link></p>
                 </div>
                 <div id="sidebarbtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
