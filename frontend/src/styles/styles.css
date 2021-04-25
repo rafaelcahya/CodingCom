@@ -338,15 +338,15 @@ Payment
 
 */
 
-tr td{
+.payment-table tr td{
     padding: .7rem 4rem;
 }
 
-tr td:first-child{
+.payment-table tr td:first-child{
     width: 500px;
 }
 
-tr td:nth-child(2){
+.payment-table tr td:nth-child(2){
     font-weight: 600;
 }
 

@@ -18,7 +18,7 @@ export default function Payment() {
                 <div className="flex flex-col justify-center items-center">
                     <p className="text-2xl font-semibold mb-10">Premium Plan</p>
                     <div className="flex flex-col justify-start gap-10">
-                        <table>
+                        <table className="payment-table">
                             <tbody>
                                 <tr>
                                     <td>Access time</td>
@@ -26,7 +26,7 @@ export default function Payment() {
                                 </tr>
                             </tbody>
                         </table>
-                        <table>
+                        <table className="payment-table">
                             <thead>
                                 <tr className="text-lg px-16 pt-8 font-semibold">
                                     <td>Main benefits</td>
@@ -43,7 +43,7 @@ export default function Payment() {
                                 </tr>
                             </tbody>
                         </table>
-                        <table>
+                        <table className="payment-table">
                             <thead>
                                 <tr className="text-lg px-16 pt-8 font-semibold">
                                     <td>Payment Details</td>
