@@ -6,6 +6,9 @@ import {DarkMode} from "./components/minor/DarkMode.jsx"
 import {Toggle} from "../src/components/minor/Toggle.jsx"
 import {GlobalStyle, lightTheme, darkTheme} from "../src/components/minor/GlobalStyle.jsx"
 
+
+import Admin from "./admin/Dashboard"
+
 import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
@@ -52,6 +55,7 @@ function App() {
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />
+            <Route path="/admin" exact component={Admin} />
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
