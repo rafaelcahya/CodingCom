@@ -629,3 +629,15 @@ Bootcamp
     background-color: #000000a9;
     width: 100%;
 }
+
+.bootcamp-schedule tr td{
+    padding: .5rem 0;
+}
+
+.bootcamp-schedule tr td:nth-child(1){
+    font-weight: 600;
+}
+
+.bootcamp-schedule tr td:nth-child(2){
+    padding-left: 5rem;
+}

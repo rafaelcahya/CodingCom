@@ -22,55 +22,55 @@ export class Challenge extends Component {
                     <div>
                         <p className="text-3xl font-semibold text-center">For Certificate</p>
                         <div className="flex flex-wrap justify-center gap-10 my-10">
-                            <div className="challenge-box p-5 rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5 rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link>
                                     <p className="color-blue-1 font-semibold">UI/UX Exercise</p>
                                     <p className="text-sm mt-5">Get UI/UX Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5  rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5  rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/html-css-js-exercise">
                                     <p className="color-blue-1 font-semibold">HTML, CSS and Javascript Exercise</p>
                                     <p className="text-sm mt-5">Get HTML, CSS, and Javascript Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/react-exercise">
                                     <p className="color-blue-1 font-semibold">React Exercise</p>
                                     <p className="text-sm mt-5">Get React Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/vue-exercise">
                                     <p className="color-blue-1 font-semibold">VUE Exercise</p>
                                     <p className="text-sm mt-5">Get VUE Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/angular-exercise">
                                     <p className="color-blue-1 font-semibold">Angular Exercise</p>
                                     <p className="text-sm mt-5">Get Angular Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/react-exercise">
                                     <p className="color-blue-1 font-semibold">NodeJS Exercise</p>
                                     <p className="text-sm mt-5">Get NodeJS Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/react-exercise">
                                     <p className="color-blue-1 font-semibold">PHP Exercise</p>
                                     <p className="text-sm mt-5">Get PHP Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/react-exercise">
                                     <p className="color-blue-1 font-semibold">Laravel Exercise</p>
                                     <p className="text-sm mt-5">Get Laravel Certificate by working on big project based on real project</p>
                                 </Link>
                             </div>
-                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105">
+                            <div className="challenge-box p-5   rounded-lg shadow-xl transform hover:scale-105 transition duration-200">
                                 <Link to="/react-exercise">
                                     <p className="color-blue-1 font-semibold">Golang Exercise</p>
                                     <p className="text-sm mt-5">Get Golang Certificate by working on big project based on real project</p>
@@ -135,6 +135,14 @@ export class Challenge extends Component {
                         </div>
                     </div>
                 </div>
+                <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 rounded-xl" >
+                    <img src="https://cdn.discordapp.com/attachments/414258067870449665/445736475158380544/discord.gif" alt="discord" width={100}/>
+                    <div className="flex flex-col gap-5">
+                        <p className="text-xl font-semibold">Join us in our community.</p>
+                        <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
+                    </div>
+                    <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
+                </section>
                 <Footer/>
             </>
         )

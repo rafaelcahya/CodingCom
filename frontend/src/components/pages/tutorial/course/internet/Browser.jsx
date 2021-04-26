@@ -72,6 +72,7 @@ function Browser() {
                         back="/what-is-http"
                         next="/DNS"
                     />
+                    
                     <div className="mt-32">
                         <p className="font-semibold text-2xl my-5">Discussion</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
