@@ -89,6 +89,16 @@ export const GlobalStyle = createGlobalStyle`
     .accordion__content{
         background-color: ${({theme}) => theme.foreground7};
     }
+
+    /* 
+    
+    ADMIN
+    
+    */
+
+    .sidebar, .table-request-class{
+        background-color: ${({theme}) => theme.foreground9};
+    }
 `;
 
 export const lightTheme={
@@ -102,7 +112,8 @@ export const lightTheme={
     foreground5: '#abc2fc',
     foreground6: '#eaeefc',
     foreground7: 'rgb(219, 234, 254)',
-    hoverforeground: 'rgb(219, 234, 254)'
+    hoverforeground: 'rgb(219, 234, 254)',
+    foreground9: '#fff'
 }
 
 export const darkTheme={
@@ -116,5 +127,6 @@ export const darkTheme={
     foreground5: '#222948',
     foreground6: '#222948',
     foreground7: '#3b72ff',
-    hoverforeground: '#3b72ff'
+    hoverforeground: '#3b72ff',
+    foreground9: '#222948'
 }
