@@ -16,9 +16,9 @@ router.post("/submit", (req, res) => {
     let user_id = 0
     
     if (title.length <= 0) {
-        res.send({ message: "You must fill the title" })
+        res.send({ message: "Please add the project title" })
     } else if (url.length <= 0) {
-        res.send({ message: "You must fill repository url" })
+        res.send({ message: "Please add the repository URL" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {

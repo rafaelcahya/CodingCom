@@ -37,10 +37,10 @@ function Submit() {
             <NavbarLogin />
             <NavbarMobile />
             <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-72 mt-20">
-                <p className="font-semibold text-2xl text-center my-5">Submit Solution</p>
+                <p className="font-semibold text-2xl text-center my-5">Submit Project</p>
                 <div className="submit-box flex flex-col gap-10">
                     <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Solution title</p>
+                        <p className="text-sm font-semibold">Project title</p>
                         <input type="text" onChange={(event) => {
                             setTitle(event.target.value)
                         }}/>
@@ -62,14 +62,17 @@ function Submit() {
                         }}/>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Description</p>
+                        <div className="flex items-center gap-1 text-sm font-semibold">
+                            <p>Description</p>
+                            <p className="text-xs color-black-2 font-medium">(Optional)</p>
+                        </div>
                         <p className="text-xs color-black-2 font-medium">You can enter any information such as tools, how to open github, feedback and anything</p>
                         <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" onChange={(event) => {
                             setDescription(event.target.value)
                         }}></textarea>
                     </div>
-                    <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
-                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" onClick={submit}>Submit solution</p>
+                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                    <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer" onClick={submit}>Submit solution</p>
                 </div>
             </div>
             <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 rounded-xl" >
