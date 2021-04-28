@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Sidebar from './admin-major/Sidebar';
 
 export default function Class() {
     const [reqList, setReqList] = useState([])
@@ -11,7 +12,10 @@ export default function Class() {
     }, []);
 
     return (
-        <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl" >
+        <>
+        <div className="flex h-screen overflow-hidden">
+        <Sidebar/>
+            <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl" >
             <p className="text-lg font-semibold pb-8">Class Requisition</p>
             <div className="overflow-x-auto">
                 <div className="align-middle inline-block min-w-full">
@@ -45,10 +49,10 @@ export default function Class() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <p className="px-4 py-3 inline-flex text-sm leading-5 font-medium rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <a href={"/edit-request-class/" + val.id} className="px-4 py-3 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</a>
+                                                            <a href={"/edit-request-class/" + val.id} className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</a>
                                                         </td>
                                                     </tr>
                                         }
@@ -59,6 +63,8 @@ export default function Class() {
                     </div>
                 </div>
             </div>
+            </div>
         </div>
+        </>
     )
 }
