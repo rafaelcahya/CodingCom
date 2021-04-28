@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Sidebar from './admin-major/Sidebar';
 
 export default function UserList() {
     const [userList, setUserList] = useState([])
@@ -11,7 +12,10 @@ export default function UserList() {
     }, []);
 
     return (
-        <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl" >
+        <>
+        <div className="flex h-screen overflow-hidden">
+        <Sidebar/>
+        <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
             <p className="text-lg font-semibold pb-8">User List</p>
             <div className="overflow-x-auto">
                 <div className="align-middle inline-block min-w-full">
@@ -44,5 +48,7 @@ export default function UserList() {
                 </div>
             </div>
         </div>
+        </div>
+        </>
     )
 }

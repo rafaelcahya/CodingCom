@@ -37,4 +37,11 @@ router.post("/submit", (req, res) => {
     }
 })
 
+router.get("/submitList", (req, res) => {
+    db.query("SELECT submit.id, submit.title, submit.url, submit.live_site_url, submit.description, submit.createAt, user.name from submit,user WHERE submit.user_id=user.id",(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 module.exports = router;
