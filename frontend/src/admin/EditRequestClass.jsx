@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function EditRequestClass() {
     const [id, setId] = useState("")
@@ -39,7 +40,10 @@ function EditRequestClass() {
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
-                    <p className="text-lg font-semibold pb-8">Class Request</p>
+                    <div className="flex flex-col gap-1 pb-8">
+                        <p className="text-lg font-semibold">Class Request</p>
+                        <p className="text-xs font-medium text-gray-400 w-3/4">For Mentor name, Email, Class name, Month, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
+                    </div>
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
                             <div className="request-class-container flex flex-col gap-10">
@@ -64,7 +68,7 @@ function EditRequestClass() {
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <p className="ClassName text-sm font-semibold">Class Name</p>
+                                    <p className="ClassName text-sm font-semibold">Class name</p>
                                     <input
                                         type="text"
                                         placeholder="Input Classname"
@@ -125,10 +129,7 @@ function EditRequestClass() {
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="url flex items-center gap-1 text-sm font-semibold">
-                                        <p>Meeting URL</p>
-                                        <p className="text-xs color-black-2 font-medium">(Optional)</p>
-                                    </div>
+                                    <p className="url flex items-center gap-1 text-sm font-semibold">Meeting URL</p>
                                     <input
                                         type="text"
                                         placeholder="Input Url"
@@ -136,8 +137,8 @@ function EditRequestClass() {
                                             setUrl(event.target.value)
                                         }} />
                                 </div>
-                                <div>
-                                    <p className="Waktu text-xs mb-1">Do you want to approve or reject</p>
+                                <div className="flex flex-col gap-2 w-56">
+                                    <p className="Waktu text-sm font-semibold">Change status*</p>
                                     <select id="dropdown" onChange={(event) => {
                                         setStatus(event.target.value)
                                     }}>
@@ -147,7 +148,12 @@ function EditRequestClass() {
                                     </select>
                                 </div>
                                 <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                                <p onClick={updateClass} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
+                                <div className="flex gap-10">
+                                    <p className="bg-gray-200 hover:bg-gray-300 w-1/5 text-center px-7 py-2 rounded-lg cursor-pointer">
+                                        <Link to="/admin/class-requisition">Back</Link>
+                                    </p>
+                                    <p onClick={updateClass} className="bg-blue-1 w-4/5  text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
+                                </div>
                             </div>
                         </div>
                     </div>

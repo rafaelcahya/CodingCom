@@ -6,7 +6,6 @@ import {DarkMode} from "./components/minor/DarkMode.jsx"
 import {Toggle} from "../src/components/minor/Toggle.jsx"
 import {GlobalStyle, lightTheme, darkTheme} from "../src/components/minor/GlobalStyle.jsx"
 
-
 import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
@@ -33,7 +32,6 @@ import ReactCerti from "./components/pages/challenge/Certificate/ReactCerti.jsx"
 import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
 import Class from "./components/pages/class session/Class.jsx"
-import ClassCreation from "./components/pages/class session/ClassCreation"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 
 const Container = styled.div`
@@ -79,7 +77,6 @@ function App() {
             <Route path="/submit-solution" component={Submit} />
             
             <Route path="/class-session" component={Class} />
-            <Route path="/class-creation" component={ClassCreation} />
             <Route path="/help" component={Help} />
 
             <Route path="/bootcamp" component={BootcampHome}/>
