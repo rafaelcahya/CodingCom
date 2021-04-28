@@ -35,7 +35,6 @@ import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.
 import Class from "./components/pages/class session/Class.jsx"
 import ClassCreation from "./components/pages/class session/ClassCreation"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
-import EditRequestClass from "./admin/EditRequestClass"
 
 const Container = styled.div`
 `;
@@ -81,7 +80,6 @@ function App() {
             
             <Route path="/class-session" component={Class} />
             <Route path="/class-creation" component={ClassCreation} />
-            <Route path="/edit-request-class/:id" component={EditRequestClass} />
             <Route path="/help" component={Help} />
 
             <Route path="/bootcamp" component={BootcampHome}/>
