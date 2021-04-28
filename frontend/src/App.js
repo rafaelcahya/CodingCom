@@ -38,6 +38,8 @@ import Class from "./components/pages/class session/Class.jsx"
 import ClassCreation from "./components/pages/class session/ClassCreation"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import EditRequestClass from "./admin/EditRequestClass"
+import ClassReq from "./admin/Class.jsx"
+import Payment from "./admin/Payment.jsx"
 
 const Container = styled.div`
 `;
@@ -56,7 +58,10 @@ function App() {
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />
-            <Route path="/admin/class-requisition" exact component={Admin} />
+            
+            <Route path="/admin/class-requisition" exact component={ClassReq} />
+            <Route path="/admin/payment-requisition" component={Payment} />
+
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
