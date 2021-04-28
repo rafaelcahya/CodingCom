@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Sidebar from './admin-major/Sidebar';
 
 export default function Class() {
@@ -52,7 +53,10 @@ export default function Class() {
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <a href={"/edit-request-class/" + val.id} className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</a>
+                                                            <Link to={"/edit-request-class/" + val.id}>
+                                                                
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
+                                                            </Link>
                                                         </td>
                                                     </tr>
                                         }
