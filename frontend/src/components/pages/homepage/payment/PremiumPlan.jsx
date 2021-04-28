@@ -1,5 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
+import Axios from 'axios'
 
 import NavbarLogin from '../../../major/NavbarLogin'
 import NavbarMobile from '../../../major/NavbarMobile'
@@ -87,6 +88,18 @@ export default function Payment() {
 
 const Modal = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false)
+    const [name,setName] = useState("")
+    let x
+
+    window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
+    }, 500)
+
+    Axios.post("http://localhost:3001/user/updateStatus",{name:name}).then((response) => {
+            console.log(response)
+        })
+
     useImperativeHandle(ref, () => {
         return {
             open: () => setOpen(true),
