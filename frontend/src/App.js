@@ -7,8 +7,6 @@ import {Toggle} from "../src/components/minor/Toggle.jsx"
 import {GlobalStyle, lightTheme, darkTheme} from "../src/components/minor/GlobalStyle.jsx"
 
 
-import Admin from "./admin/Dashboard"
-
 import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
@@ -38,10 +36,6 @@ import Class from "./components/pages/class session/Class.jsx"
 import ClassCreation from "./components/pages/class session/ClassCreation"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import EditRequestClass from "./admin/EditRequestClass"
-import ClassReq from "./admin/Class.jsx"
-import Payment from "./admin/Payment.jsx"
-import UserList from "./admin/UserList"
-import ProjectList from "./admin/ProjectList"
 
 const Container = styled.div`
 `;
@@ -60,12 +54,6 @@ function App() {
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />
-            
-            <Route path="/admin/class-requisition" exact component={ClassReq} />
-            <Route path="/admin/payment-requisition" component={Payment} />
-            <Route path="/admin/user-list" component={UserList} />
-            <Route path="/mentor/project-list" component={ProjectList} />
-
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
