@@ -124,6 +124,15 @@ router.post("/login", (req, res) => {
     })
 })
 
+router.post("/updateStatus", (req, res) => {
+    let status = "PENDING"
+    const name = req.body.name
+
+    console.log(name)
+    
+    
+})
+
 router.get("/userList", (req, res) => {
     db.query("SELECT * FROM user", (err, results) => {
         res.send(results)
