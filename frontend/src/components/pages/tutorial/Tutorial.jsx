@@ -48,7 +48,10 @@ export class Tutorial extends Component {
                 <NavbarMobile/>
                 <div className="flex flex-col gap-10 mt-20">
                     <p className="color-blue-1 text-xl md:text-3xl text-center font-bold">Choose What You Want to Learn</p>
-                    <div className="swiper-pagination flex justify-start md:justify-center items-center text-sm text-center gap-8 container mx-auto overflow-x-auto w-5/6 md:w-full"></div>
+                    <div className="flex flex-col justify-center items-center">
+                        <p className="text-gray-400 font-medium text-sm">Filter by:</p>
+                        <div className="swiper-pagination flex justify-start md:justify-center items-center text-sm text-center gap-8 overflow-x-auto w-5/6 md:w-full my-3"></div>
+                    </div>
                     
                     <div>
                         <Swiper

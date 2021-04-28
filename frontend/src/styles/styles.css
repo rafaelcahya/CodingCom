@@ -203,6 +203,20 @@ Accessories
     transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
+.tab-header li{
+    padding: .5rem 1rem;
+    background-color: white;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.tab-header li.active{
+    background-color: var(--blue-1);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
 /* 
 
 Navbar 

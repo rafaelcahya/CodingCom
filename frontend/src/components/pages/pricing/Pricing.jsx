@@ -47,8 +47,9 @@ export class Pricing extends Component {
                             get5="News access"
                             get6="Get future updates"
                             get7="DevOps course"
-                            get8="Certificate"
-                            get9="Class session access"
+                            get8="Class session access"
+                            get9="Class consultation access"
+                            get10="Certificate"
                         />
                         <Link to="/payment-confirmation-premium" className="bg-blue-1 text-white text-sm text-center py-2 my-10 rounded-xl cursor-pointer">Get started</Link>
                     </div>
