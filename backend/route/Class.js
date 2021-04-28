@@ -80,27 +80,14 @@ router.post("/updateClass", (req, res) => {
                 date = results[0].date
                 
             }if (time.length <= 0) {
-                url = results[0].url
+                time = results[0].time
                 
             }
             
-            db.query("UPDATE class SET mentorName = ?, email = ?, className = ?, month = ?, date = ?, time = ?, url = ?, status =?, createAt=?  WHERE id=?;", [mentorName, email, className, month, date, time, url, status, createAt,id], (err, results) => {
+            db.query("UPDATE class SET mentorName = ?, email = ?, className = ?, month = ?, date = ?, time = ?, url = ?, status =?, createAt=?  WHERE id=?;", [mentorName, email, className, month, date, time, url, status, createAt, id], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
-
-            console.log(mentorName)
-            console.log(email)
-            console.log(className)
-            console.log(month)
-            console.log(date)
-            console.log(url)
-            // } else {
-            //     db.query("UPDATE class SET (mentorName, email, className, month, date, time, url, status, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [mentorName, email, className, month, date, time, url, status, createAt], (err, results) => {
-            //         console.log(err)
-            //         res.send(results)
-            //     })
-            // }
         }
     })
 

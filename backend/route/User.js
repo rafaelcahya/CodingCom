@@ -124,5 +124,10 @@ router.post("/login", (req, res) => {
     })
 })
 
+router.get("/userList", (req, res) => {
+    db.query("SELECT * FROM user", (err, results) => {
+        res.send(results)
+    })
+})
 
 module.exports = router;
