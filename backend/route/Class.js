@@ -3,7 +3,6 @@ const { Router } = require('express')
 const express = require('express')
 const { type } = require('os')
 const router = express.Router()
-
 const db = require('../config/db')
 
 router.post("/createClass", (req, res) => {
@@ -39,6 +38,74 @@ router.post("/createClass", (req, res) => {
             res.send(results)
         })
     }
+})
+
+router.get("/classList", (req, res) => {
+    db.query("SELECT * FROM class", (err, results) => {
+        res.send(results)
+    })
+})
+
+router.post("/updateClass", (req, res) => {
+    const id = req.body.id
+    let mentorName = req.body.mentorName
+    let email = req.body.email
+    let className = req.body.className
+    let month = req.body.month
+    let date = req.body.date
+    let time = req.body.time
+    let url = req.body.url
+    let status = req.body.status
+    let createAt = req.body.createAt
+
+    db.query("SELECT * From class WHERE id = ?", id, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            if (mentorName.length <= 0) {
+                mentorName = results[0].mentorName
+                
+            }if (email.length <= 0) {
+                email = results[0].email
+                
+            }if (className.length <= 0) {
+                className = results[0].className
+                
+            }if (month.length <= 0) {
+                month = results[0].month
+                
+            }if (date.length <= 0) {
+                date = results[0].date
+                
+            }if (time.length <= 0) {
+                url = results[0].url
+                
+            }
+            
+            db.query("UPDATE class SET mentorName = ?, email = ?, className = ?, month = ?, date = ?, time = ?, url = ?, status =?, createAt=?  WHERE id=?;", [mentorName, email, className, month, date, time, url, status, createAt,id], (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+
+            console.log(mentorName)
+            console.log(email)
+            console.log(className)
+            console.log(month)
+            console.log(date)
+            console.log(url)
+            // } else {
+            //     db.query("UPDATE class SET (mentorName, email, className, month, date, time, url, status, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [mentorName, email, className, month, date, time, url, status, createAt], (err, results) => {
+            //         console.log(err)
+            //         res.send(results)
+            //     })
+            // }
+        }
+    })
+
+    console.log(id)
+    console.log(createAt)
 })
 
 module.exports = router;
