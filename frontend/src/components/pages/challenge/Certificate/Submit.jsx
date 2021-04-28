@@ -41,13 +41,13 @@ function Submit() {
                 <div className="submit-box flex flex-col gap-10">
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Project title</p>
-                        <input type="text" onChange={(event) => {
+                        <input type="text" placeholder="Input project title" onChange={(event) => {
                             setTitle(event.target.value)
                         }}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Repository URL</p>
-                        <input type="text" onChange={(event) => {
+                        <input type="text" placeholder="Input repository URL" onChange={(event) => {
                             setUrl(event.target.value)
                         }}/>
                     </div>
@@ -57,7 +57,7 @@ function Submit() {
                             <p className="text-xs color-black-2 font-medium">(Optional)</p>
                         </div>
                         <p className="text-xs color-black-2 font-medium underline cursor-pointer">Recommended</p>
-                        <input type="text" onChange={(event) => {
+                        <input type="text"  placeholder="Input live site URL" onChange={(event) => {
                             setLiveSiteUrl(event.target.value)
                         }}/>
                     </div>

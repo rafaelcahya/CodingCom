@@ -56,7 +56,7 @@ function App() {
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />
-            <Route path="/admin" exact component={Admin} />
+            <Route path="/admin/class-requisition" exact component={Admin} />
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />

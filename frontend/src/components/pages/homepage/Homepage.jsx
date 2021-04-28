@@ -52,7 +52,7 @@ export default function Homepage() {
                         <Link to="/tutorial">
                             <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max hover:bg-yellow-300">Start learning today</p>
                         </Link>
-                        <Link to="/admin">
+                        <Link to="/admin/class-requisition">
                             <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max hover:bg-yellow-300">Admin</p>
                         </Link>
                     </div>

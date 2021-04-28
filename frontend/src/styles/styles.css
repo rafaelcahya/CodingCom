@@ -347,6 +347,13 @@ Homepage
     }
 }
 
+.discord{
+    background-image: url(../asset/photo/homepage/feature/Rectangle\ 103.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 /* 
 
 Payment 
@@ -583,6 +590,10 @@ Challenge
     outline: none;
 }
 
+.submit-box input::placeholder, .submit-box textarea::placeholder{
+    font-size: .875rem;
+}
+
 .submit-box input:focus, .submit-box textarea:focus{
     border: 1.6px solid var(--blue-1);
 }
@@ -593,14 +604,28 @@ class session
 
 */
 
-.discord{
-    background-image: url(../asset/photo/homepage/feature/Rectangle\ 103.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+
+.request-class-container input{
+    padding: .375rem 1rem;
+    border: 1.6px solid var(--black-2);
+    border-radius: 10px;
+    outline: none;
 }
 
+.request-class-container input::placeholder{
+    font-size: .875rem;
+}
 
+.request-class-container select{
+    padding: .5rem 1rem;
+    border: 1.6px solid var(--black-2);
+    border-radius: 10px;
+    outline: none;
+}
+
+.request-class-container input:focus, .request-class-container select:focus{
+    border: 1.6px solid var(--blue-1);
+}
 
 /* 
 
