@@ -58,11 +58,13 @@ router.post("/updateClass", (req, res) => {
     let status = req.body.status
     let createAt = req.body.createAt
 
+    if(status.length<=0){
+        res.send({message: "You must choose status"})
+    }else{
     db.query("SELECT * From class WHERE id = ?", id, (err, results) => {
         if (err) {
             console.log(err)
         }
-
         if (results.length > 0) {
             if (mentorName.length <= 0) {
                 mentorName = results[0].mentorName
@@ -90,9 +92,7 @@ router.post("/updateClass", (req, res) => {
             })
         }
     })
-
-    console.log(id)
-    console.log(createAt)
+    }
 })
 
 module.exports = router;
