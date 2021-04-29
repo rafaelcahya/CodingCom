@@ -71,7 +71,7 @@ export default function NavbarLogin() {
                             initial={false} 
                             animate={openTutorial ? "opened" : "closed"}>
                                 <div
-                                    className="navbar__link navbar_active">
+                                    className="navbar__link">
                                     <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
                                 </div>
                             </motion.div>

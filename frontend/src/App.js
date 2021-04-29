@@ -24,7 +24,6 @@ import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
 import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
 import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
 import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
-import Closing from "./components/pages/tutorial/course/internet/Closing.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import Certificate1 from "./components/pages/challenge/Certificate/HTML CSS JS/Certificate1.jsx"
 import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
@@ -67,7 +66,6 @@ function App() {
             <Route path="/DNS" component={DNS} />
             <Route path="/domain" component={Domain} />
             <Route path="/hosting" component={Hosting} />
-            <Route path="/closing" component={Closing} />
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />

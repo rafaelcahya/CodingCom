@@ -41,50 +41,53 @@ function Whatishttp() {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="internet-header w-full py-20 text-white">
-                <div className="flex flex-col items-center text-center gap-2">
-                    <h1 className="text-4xl font-semibold">Internet</h1>
-                    <p className="font-medium">What is HTTP & HTTPS</p>
-                    <p className="text-sm">15 min</p>
-                </div>
-            </div>
-            <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
+            <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <SidebarInternet />
                 <SidebarInternetMobile />
-                <div className="flex flex-col gap-10 w-full lg:w-3/5 py-5">
-                    <div>
-                        <p className="text-xl font-semibold">What is HTTP?</p>
-                        <div className="flex flex-col gap-5 my-5">
-                            <p>HTTP(Hypertext Transfer Protocol) is a network application protocol for communication between the server and the client. communication between the server and the client aims to display information on the website. However, if the website uses the http network protocol, the information obtained from the browser to the server is not encrypted, so it is very dangerous if it is misused by users. Moreover, the website contains payment transactions that require information security.</p>
-                            <p>To overcome this, you can use a more secure version, namely HTTPS, where S represents the word secure, which means safe.</p>
+                <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
+                    <div className="flex justify-between border-b border-gray-300 pb-10">
+                        <div>
+                            <p className="text-2xl lg:text-5xl font-semibold">What is HTTP & HTTPS</p>
+                            <p className="text-gray-400 text-sm mt-2">This page discusses what HTTP & HTTPS is and its differences.</p>
                         </div>
+                        <p className="text-gray-400 text-sm">12 min</p>
                     </div>
-                    <div>
-                        <p className="text-xl font-semibold">What is HTTPS?</p>
-                        <div className="flex flex-col gap-5 my-5">
-                            <p>HTTPS (Hypertext Transfer Protocol Secure) is the result of the development of the previous HTTP version, HTTPS has a tighter security function so that it makes clients feel safe in accessing various web content. The https protocol was developed directly by the IT-based company Netscape Communication Corp.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p className="text-xl font-semibold">Difference between HTTP and HTTPS</p>
-                        <div className="flex flex-col gap-5 my-5">
-                            <p>Benefits for clients and explorers of cyberspace are slightly different from HTTP with HTTPS. The difference is only through the development of security in the network protocol system. Here are the differences between the two protocols:</p>
+                    <div className="flex flex-col gap-10 pt-10 pb-20">
+                        <div className="flex flex-col gap-5">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/eesqK59rhGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p className="text-xl font-semibold">What is HTTP?</p>
+                            <div className="flex flex-col gap-5 my-5">
+                                <p>HTTP(Hypertext Transfer Protocol) is a network application protocol for communication between the server and the client. communication between the server and the client aims to display information on the website. However, if the website uses the http network protocol, the information obtained from the browser to the server is not encrypted, so it is very dangerous if it is misused by users. Moreover, the website contains payment transactions that require information security.</p>
+                                <p>To overcome this, you can use a more secure version, namely HTTPS, where S represents the word secure, which means safe.</p>
+                            </div>
                         </div>
                         <div>
-                            <ol className="flex flex-col gap-5 list-decimal mx-10">
-                                <div>
-                                    <li>Data Security</li>
-                                    <p>The HTTP protocol does not guarantee security between the client and the server, so there are many crime issues in the form of data hackers. Meanwhile, HTTPS has a collaborative protocol in the form of security for transmitted data. This facility makes HTTPS widely used by web developers.</p>
-                                </div>
-                                <div>
-                                    <li>SSL (Secure Socket Layers)</li>
-                                    <p>If a website wants to use the HTTPS protocol, it requires a certificate in the form of SSL (Secure Socket Layers). Using this will display a padlock on the URL address bar of the website. So that visitors will trust the website is safe to use for providing sensitive information or transactions. SSL is very useful for keeping important information secret such as e-banking passwords, e-money, identity and so on.</p>
-                                </div>
-                                <div>
-                                    <li>Port</li>
-                                    <p>The HTTP port used is port type 80. This type of port is useful for general web server connectivity with clients. Meanwhile, to be able to access HTTPS via SSL, port 443 is needed as a network connectivity.</p>
-                                </div>
-                            </ol>
+                            <p className="text-xl font-semibold">What is HTTPS?</p>
+                            <div className="flex flex-col gap-5 my-5">
+                                <p>HTTPS (Hypertext Transfer Protocol Secure) is the result of the development of the previous HTTP version, HTTPS has a tighter security function so that it makes clients feel safe in accessing various web content. The https protocol was developed directly by the IT-based company Netscape Communication Corp.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-xl font-semibold">Difference between HTTP and HTTPS</p>
+                            <div className="flex flex-col gap-5 my-5">
+                                <p>Benefits for clients and explorers of cyberspace are slightly different from HTTP with HTTPS. The difference is only through the development of security in the network protocol system. Here are the differences between the two protocols:</p>
+                            </div>
+                            <div>
+                                <ol className="flex flex-col gap-5 list-decimal mx-10">
+                                    <div>
+                                        <li>Data Security</li>
+                                        <p>The HTTP protocol does not guarantee security between the client and the server, so there are many crime issues in the form of data hackers. Meanwhile, HTTPS has a collaborative protocol in the form of security for transmitted data. This facility makes HTTPS widely used by web developers.</p>
+                                    </div>
+                                    <div>
+                                        <li>SSL (Secure Socket Layers)</li>
+                                        <p>If a website wants to use the HTTPS protocol, it requires a certificate in the form of SSL (Secure Socket Layers). Using this will display a padlock on the URL address bar of the website. So that visitors will trust the website is safe to use for providing sensitive information or transactions. SSL is very useful for keeping important information secret such as e-banking passwords, e-money, identity and so on.</p>
+                                    </div>
+                                    <div>
+                                        <li>Port</li>
+                                        <p>The HTTP port used is port type 80. This type of port is useful for general web server connectivity with clients. Meanwhile, to be able to access HTTPS via SSL, port 443 is needed as a network connectivity.</p>
+                                    </div>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                     <NextPrevBtnTutorial

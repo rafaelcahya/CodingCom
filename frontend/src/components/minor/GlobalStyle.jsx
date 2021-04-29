@@ -102,11 +102,11 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const lightTheme={
-    body: 'rgb(240, 242, 250)',
+    body: '#f6f8fd',
     text: '#3a3a3a',
     text2: '#3a3a3a',
-    foreground: '#f2f4fb',
-    foreground2: '#f2f4fb',
+    foreground: '#f6f8fd',
+    foreground2: '#fff',
     foreground3: '#3b72ff',
     foreground4: '#3b72ff',
     foreground5: '#abc2fc',
