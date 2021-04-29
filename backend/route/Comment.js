@@ -14,7 +14,8 @@ router.post("/commentInternet", (req, res) => {
     let topik = "Internet"
 
     if (comment.length <= 0) {
-        res.send({ message: "comment can not be empty" })
+        // res.send({ message: "comment can not be empty" })
+        document.getElementById('submitComment').disabled = true; 
     } else {
 
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {

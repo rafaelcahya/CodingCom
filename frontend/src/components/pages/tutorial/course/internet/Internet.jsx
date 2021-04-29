@@ -37,6 +37,7 @@ function Internet() {
     const commentInternet = () => {
         Axios.post("http://localhost:3001/comment/commentInternet", {name: name, comment: comment, createAt:createAt}).then((response) => {
             setErrorMessage(response.data.message)
+            window.location.reload()
         })
     }
     return (
@@ -84,7 +85,7 @@ function Internet() {
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                         <div className="flex justify-end items-center gap-10 my-5">
                             <p className="bg-gray-200 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
-                            <p onClick={commentInternet} className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
+                            <p onClick={commentInternet} id="submitComment" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
                             
                         </div>
                         {
