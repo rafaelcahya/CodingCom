@@ -12,6 +12,7 @@ router.post("/register", (req, res) => {
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
+    let status = "FREE"
     let textbody = 'Welcome, ' + fullname +"<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
     if (fullname.length <= 0) {
@@ -71,7 +72,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:'+ info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword) VALUES (?, ?, ?, MD5(?), MD5(?));", [fullname, name, email, password, confirmpassword], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status) VALUES (?, ?, ?, MD5(?), MD5(?), ?);", [fullname, name, email, password, confirmpassword, status], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -121,6 +122,16 @@ router.post("/login", (req, res) => {
             res.json({ loggedIn: false, message: "Wrong Username / Password" })
 
         }
+    })
+})
+
+router.post("/updateStatus", (req, res) => {
+    let status = "PENDING"
+    const name = req.body.name
+
+    db.query("UPDATE user SET status = ? WHERE name=?;", [status, name], (err, results) => {
+        console.log(err)
+        res.send(results)
     })
 })
 
