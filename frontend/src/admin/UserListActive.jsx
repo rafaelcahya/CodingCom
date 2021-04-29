@@ -6,7 +6,7 @@ export default function UserList() {
     const [userList, setUserList] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3001/user/userList").then((response) => {
+        axios.get("http://localhost:3001/user/userListActive").then((response) => {
             setUserList(response.data)
         })
     }, []);
@@ -16,7 +16,7 @@ export default function UserList() {
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
-                    <p className="text-lg font-semibold pb-8">List of Registered User</p>
+                    <p className="text-lg font-semibold pb-8">List of Actived User</p>
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
                             <div className="overflow-hidden">

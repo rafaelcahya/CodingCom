@@ -32,6 +32,7 @@ export default function Class() {
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Time</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">URL</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Created</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
                                 </tr>
@@ -49,6 +50,7 @@ export default function Class() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.date}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>

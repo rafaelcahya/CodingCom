@@ -135,8 +135,32 @@ router.post("/updateStatus", (req, res) => {
     })
 })
 
+router.post("/updatePayment", (req, res) => {
+    const id = req.body.id
+    const status = req.body.status
+
+    db.query("UPDATE user SET status = ? WHERE id = ?;", [status, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
 router.get("/userList", (req, res) => {
     db.query("SELECT * FROM user", (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/userListActive", (req, res) => {
+    let status = "ACTIVED"
+    db.query("SELECT * FROM user WHERE status = ?",status, (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/userListPayment", (req, res) => {
+    let status = "PENDING"
+    db.query("SELECT * FROM user WHERE status = ?",status, (err, results) => {
         res.send(results)
     })
 })
