@@ -23,7 +23,6 @@ export class Class extends Component {
                 <NavbarMobile/>
                 
                 <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72 mt-20">
-                    <p className="flex justify-center text-gray-400 text-sm font-medium mb-5">Filter By</p>
                     <Tabs>
                         <TabPan name="Class Consultation" key="1">
                             <div className="class-header mt-20">

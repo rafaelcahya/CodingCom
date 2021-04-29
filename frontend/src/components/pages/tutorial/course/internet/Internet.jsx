@@ -43,19 +43,18 @@ function Internet() {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="internet-header w-full py-20 text-white">
-                <div className="flex flex-col items-center text-center gap-2">
-                    <h1 className="text-4xl font-semibold">Internet</h1>
-                    <p className="font-medium">Introduction</p>
-                    <p className="text-sm">1 min</p>
-                </div>
-            </div>
-            <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
+            <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <SidebarInternet />
                 <SidebarInternetMobile />
-                <div className="w-full lg:w-3/5 py-5">
-                    <p className="text-xl font-semibold">Introduction</p>
-                    <div className="flex flex-col gap-5 my-5">
+                <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
+                    <div className="flex justify-between border-b border-gray-300 pb-10">
+                        <div>
+                            <p className="text-2xl lg:text-5xl font-semibold">Introduction</p>
+                            <p className="text-gray-400 text-sm mt-2">This page is an opening for learning the basics of the internet.</p>
+                        </div>
+                        <p className="text-gray-400 text-sm">1 min</p>
+                    </div>
+                    <div className="flex flex-col gap-5 my-5 pt-5">
                         <p>According to the <a href="https://dictionary.cambridge.org/dictionary/english/" className="underline">Cambridge Academic Content Dictionary</a>, internet is a large system of connected computers around the world which people use to communicate with each other.</p>
                         <div className="border-left-orange-1 bg-orange-2 px-4 py-4 text-black">
                             <p>Before further learning, here are some of the learning paths that you will learn:</p>
@@ -104,6 +103,7 @@ function Internet() {
                     </div>
                 </div>
             </div>
+            
             <Footer />
         </>
     )

@@ -8,7 +8,7 @@ export const SidebarInternet = () => {
     }
         return (
             <>
-                <div className="sticky w-1/5 hidden lg:flex flex-col border-r-2 border-gray-300 p-5">
+                <div className="hidden lg:block sticky self-start top-0 pl-5 pt-6 w-1/5">
                     <p className="text-lg font-semibold">Internet Tutorial</p>
                     <div className="flex flex-col gap-2 my-5"> 
                         <p onClick={scrollToTop}><Link to="/internet">Introduction</Link></p>
@@ -19,7 +19,6 @@ export const SidebarInternet = () => {
                         <p onClick={scrollToTop}><Link to="/DNS">DNS Server</Link></p>
                         <p onClick={scrollToTop}><Link to="/domain">Domain</Link></p>
                         <p onClick={scrollToTop}><Link to="/hosting">Hosting</Link></p>
-                        <p onClick={scrollToTop}><Link to="/closing">Closing</Link></p>
                     </div>
                 </div>
             </>

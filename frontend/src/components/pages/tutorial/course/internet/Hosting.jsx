@@ -41,26 +41,25 @@ function Hosting() {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="internet-header w-full py-20 text-white">
-                <div className="flex flex-col items-center text-center gap-2">
-                    <h1 className="text-4xl font-semibold">Internet</h1>
-                    <p className="font-medium">Hosting</p>
-                    <p className="text-sm">10 min</p>
-                </div>
-            </div>
-            <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
+            <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <SidebarInternet />
                 <SidebarInternetMobile />
-                <div className="flex flex-col gap-10 w-full lg:w-3/5 py-5">
-                    <div>
-                        <p className="text-xl font-semibold">What is Hosting?</p>
-                        <div className="flex flex-col gap-5 my-5">
+                <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
+                    <div className="flex justify-between border-b border-gray-300 pb-10">
+                        <div>
+                            <p className="text-2xl lg:text-5xl font-semibold">Hosting</p>
+                            <p className="text-gray-400 text-sm mt-2">This page discusses the definition of hosting and its types.</p>
+                        </div>
+                        <p className="text-gray-400 text-sm">5 min</p>
+                    </div>
+                    <div className="flex flex-col gap-10 pt-10 pb-20">
+                        <div className="flex flex-col gap-5">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0hGK7qiQ6WA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p className="text-xl font-semibold">What is Hosting?</p>
                             <p>A simple way of hosting is a service for storing data, images, and files on a website. Another definition is a service that allows users to publish a website to the internet.</p>
                         </div>
-                    </div>
-                    <div>
-                        <p className="text-xl font-semibold">Type of Hosting</p>
-                        <div className="flex flex-col gap-5 my-5">
+                        <div className="flex flex-col gap-5">
+                            <p className="text-xl font-semibold">Type of Hosting</p>
                             <p>here are the types of hosting that you need to know:</p>
                             <ol className="list-decimal mx-10 flex flex-col gap-5">
                                 <div>
