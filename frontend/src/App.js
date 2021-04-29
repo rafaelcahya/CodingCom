@@ -32,6 +32,8 @@ import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
 import Class from "./components/pages/class session/Class.jsx"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
+import News from "./components/pages/news/News.jsx"
+import { NewsContextProvider } from "./components/pages/news/NewsContext.jsx"
 
 const Container = styled.div`
 `;
@@ -50,11 +52,13 @@ function App() {
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />
+            <Route path="/help" component={Help} />
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
             <Route path="/payment-confirmation-premium" component={PremiumPlan} />
             <Route path="/pricing" component={Pricing} />
+            <Route path="/bootcamp" component={BootcampHome}/>
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/tutorial" component={Tutorial} />
 
@@ -75,9 +79,9 @@ function App() {
             <Route path="/submit-solution" component={Submit} />
             
             <Route path="/class-session" component={Class} />
-            <Route path="/help" component={Help} />
-
-            <Route path="/bootcamp" component={BootcampHome}/>
+            <NewsContextProvider>
+              <Route path="/news" component={News}/>
+            </NewsContextProvider>
           </Switch>
         </Container>
       </ThemeProvider>
