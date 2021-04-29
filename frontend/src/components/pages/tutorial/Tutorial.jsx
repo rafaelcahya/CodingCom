@@ -72,6 +72,7 @@ export class Tutorial extends Component {
                                         title="Basic Internet"
                                         desc="In this tutorial, you will learn the internet from understanding the internet to internet crimes."
                                         status="available"
+                                        time="56 min"
                                         />
                                     </Link>
                                 </div>

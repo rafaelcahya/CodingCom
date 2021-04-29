@@ -84,7 +84,7 @@ function Hosting() {
                     </div>
                     <NextPrevBtnTutorial
                         back="/DNS"
-                        next="/closing"
+                        next="/"
                     />
                     <div className="mt-32">
                         <p className="font-semibold text-2xl my-5">Discussion</p>

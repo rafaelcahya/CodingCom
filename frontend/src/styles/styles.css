@@ -557,6 +557,11 @@ iframe{
     border: 2px solid var(--blue-1);
 }
 
+.sidebar-tutorial div:hover p{
+    display: flex;
+
+}
+
 /* 
 
 Challenge 

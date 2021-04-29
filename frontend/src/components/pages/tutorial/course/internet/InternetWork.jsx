@@ -48,7 +48,7 @@ function InternetWork() {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="flex gap-10 mt-20 mx-10 md:mx-20 lg:mx-32 leading-7">
+            <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <SidebarInternet />
                 <SidebarInternetMobile />
                 <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
