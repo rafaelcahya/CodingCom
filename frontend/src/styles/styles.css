@@ -22,18 +22,14 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(209, 213, 219); 
+    background: #9CA3AF; 
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    background-clip: padding-box;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #FBBB00; 
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    background-clip: padding-box;
 }
 
 /* 
