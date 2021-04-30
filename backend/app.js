@@ -19,6 +19,9 @@ app.use("/class", classRoute)
 const submitRoute = require('./route/Submit')
 app.use("/submit", submitRoute)
 
+const subscribeRoute = require('./route/Subscribe')
+app.use("/subscribe", subscribeRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });
