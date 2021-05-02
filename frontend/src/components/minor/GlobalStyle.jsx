@@ -90,6 +90,10 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.foreground7};
     }
 
+    .consultation-box{
+        background-color: ${({theme}) => theme.foreground2};
+    }
+
     /* 
     
     ADMIN

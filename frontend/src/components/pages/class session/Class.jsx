@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, {Navigation, Pagination} from 'swiper';
+import "../../../../node_modules/swiper/swiper.min.css"
 
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import Tabs from '../../minor/tab/Tab'
 import TabPan from '../../minor/tab/TabPan'
-import ClassComp from './ClassComp'
+import ClassComp from './ClassComp';
+
+SwiperCore.use([Navigation, Pagination]);
 
 export class Class extends Component {
     tab(){
@@ -17,6 +22,7 @@ export class Class extends Component {
         }
     }
     render() {
+        var menu = ['Web Design', 'Frontend', 'CSS Frameworks', 'JS Frameworks & Libraries', 'Backend', 'Database']
         return (
             <>
                 <NavbarLogin/>
@@ -28,59 +34,155 @@ export class Class extends Component {
                             <div className="class-header mt-20">
                                 <p className="color-blue-1 font-semibold text-3xl mb-5">Class Consultation</p>
                                 <p>Here you can learn directly with a mentor via zoom. Just ask your question without hesitation according to the topic you choose. Mentors will be ready to help your learning process anytime and anywhere.</p>
+                                <div className="flex flex-col justify-center items-center mt-10">
+                                    <p className="text-gray-400 font-medium text-sm">Filter by:</p>
+                                    <div className="swiper-pagination flex justify-start md:justify-center items-center text-sm text-center gap-8 overflow-x-auto w-5/6 md:w-full my-3"></div>
+                                </div>
                             </div>
-                            <div className="flex flex-col gap-10 my-10">
-                                <ClassComp
-                                    class="UI/UX Consultation Class"
-                                    desc="Ask your questions about UI/UX. Select the class you want below"
-                                    classname1="Consultation Class 1"
-                                    classname2="Consultation Class 2"
-                                    classname3="Consultation Class 3"
-                                    link1="https://meet.google.com/sja-ydxs-ezi"
-                                    link2="https://meet.google.com/tsk-zdtw-ibu"
-                                    link3="https://meet.google.com/qfy-rdne-whj"
-                                />
-                                <ClassComp
-                                    class="Frontend Consultation Class"
-                                    desc="Ask your questions about HTML, CSS, and Javascript. Select the class you want below"
-                                    classname1="Consultation Class 1"
-                                    classname2="Consultation Class 2"
-                                    classname3="Consultation Class 3"
-                                    link1="https://meet.google.com/sja-ydxs-ezi"
-                                    link2="https://meet.google.com/tsk-zdtw-ibu"
-                                    link3="https://meet.google.com/qfy-rdne-whj"
-                                />
-                                <ClassComp
-                                    class="CSS Framework Consultation Class"
-                                    desc="Ask your questions about CSS Framework. Select the class you want below"
-                                    classname1="Consultation Class 1"
-                                    classname2="Consultation Class 2"
-                                    classname3="Consultation Class 3"
-                                    link1="https://meet.google.com/sja-ydxs-ezi"
-                                    link2="https://meet.google.com/tsk-zdtw-ibu"
-                                    link3="https://meet.google.com/qfy-rdne-whj"
-                                />
-                                <ClassComp
-                                    class="Javascript Library and Framework Consultation Class"
-                                    desc="Ask your questions about Javascript Library and Framework. Select the class you want below"
-                                    classname1="Consultation Class 1"
-                                    classname2="Consultation Class 2"
-                                    classname3="Consultation Class 3"
-                                    link1="https://meet.google.com/sja-ydxs-ezi"
-                                    link2="https://meet.google.com/tsk-zdtw-ibu"
-                                    link3="https://meet.google.com/qfy-rdne-whj"
-                                />
-                                <ClassComp
-                                    class="Backend Consultation Class"
-                                    desc="Ask your questions about Backend. Select the class you want below"
-                                    classname1="Consultation Class 1"
-                                    classname2="Consultation Class 2"
-                                    classname3="Consultation Class 3"
-                                    link1="https://meet.google.com/sja-ydxs-ezi"
-                                    link2="https://meet.google.com/tsk-zdtw-ibu"
-                                    link3="https://meet.google.com/qfy-rdne-whj"
-                                />
-                            </div>
+                            <Swiper
+                                slidesPerView= {1} 
+                                spaceBetween={100}
+                                pagination= {{
+                                    el: '.swiper-pagination',
+                                    clickable: true,
+                                    renderBullet: function (index, className) {
+                                        return '<p class="' + className + '">' + (menu[index]) + '</p>';
+                                    },
+                                }}
+                            >
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Marco Nadalio"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Shiva Camila"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Samuel Miron"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Muhammed Niclas"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Thelma Isi"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Tomi Natanhiel"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Tomi Natanhiel"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Samuel Miron"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Shiva Camila"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Muhammed Niclas"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Tomi Natanhiel"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Shiva Camila"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Marco Nadalio"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Samuel Miron"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Muhammed Niclas"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="flex flex-col justify-center gap-8 my-10">
+                                        <ClassComp
+                                            name="Shiva Camila"
+                                            time="09:00 - 19:00"
+                                            button="Class A"
+                                            link="https://meet.google.com/psc-xujk-dmk"
+                                        />
+                                        <ClassComp
+                                            name="Marco Nadalio"
+                                            time="09:00 - 19:00"
+                                            button="Class B"
+                                            link="https://meet.google.com/bcm-gkid-hhx"
+                                        />
+                                        <ClassComp
+                                            name="Tomi Natanhiel"
+                                            time="09:00 - 19:00"
+                                            button="Class C"
+                                            link="https://meet.google.com/wim-pxuu-vkt"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                            </Swiper>
                         </TabPan>
                         <TabPan name="Class Session" key="2">
                             <div className="mt-20 h-full">

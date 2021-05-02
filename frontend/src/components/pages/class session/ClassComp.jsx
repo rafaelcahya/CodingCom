@@ -4,14 +4,10 @@ export class ClassComp extends Component {
     render() {
         return (
             <>
-                <div>
-                    <p className="text-lg font-semibold">{this.props.class}</p>
-                    <p className="color-black-2 text-sm font-medium">{this.props.desc}</p>
-                    <div className="flex gap-10 my-5">
-                        <a href={this.props.link1} className="bg-blue-1 text-white px-4 py-2 text-sm rounded-lg">{this.props.classname1}</a>
-                        <a href={this.props.link2} className="bg-blue-1 text-white px-4 py-2 text-sm rounded-lg">{this.props.classname2}</a>
-                        <a href={this.props.link3} className="bg-blue-1 text-white px-4 py-2 text-sm rounded-lg">{this.props.classname3}</a>
-                    </div>
+                <div className="consultation-box flex justify-between items-center px-8 py-4 rounded-xl hover:bg-blue-100">
+                    <p className="my-1 font-semibold">{this.props.name}</p>
+                    <p className="font-medium text-gray-400 text-sm">{this.props.time}</p>
+                    <a href={this.props.link} className="bg-blue-50 hover:bg-blue-600 text-sm text-blue-700 hover:text-blue-50 font-medium py-2 px-8 rounded-xl">{this.props.button}</a>
                 </div>
             </>
         )

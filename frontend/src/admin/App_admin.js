@@ -6,6 +6,7 @@ import EditRequestClass from "./EditRequestClass"
 import UserList from "./UserList"
 import UserListActive from "./UserListActive"
 import EditPayment from "./EditPayment"
+import ProjectList from "./ProjectList"
 
 function App_admin() {
     return (
@@ -17,6 +18,7 @@ function App_admin() {
             <Route path={"/edit-payment/:id"} component={EditPayment} />
             <Route path="/admin/user-list" component={UserList} />
             <Route path="/admin/user-list-active" component={UserListActive} />
+            <Route path="/admin/project-list" component={ProjectList} />
           </Switch>
         </Router>
     );

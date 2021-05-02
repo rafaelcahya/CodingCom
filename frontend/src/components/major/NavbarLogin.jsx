@@ -99,6 +99,13 @@ export default function NavbarLogin() {
                                 className="navbar__link">
                                     <p className="navbar_btn underline_anim">Career</p>
                             </NavLink>
+
+                            <NavLink to="/bootcamp"
+                                activeClassName="navbar_active" 
+                                className="navbar__link">
+                                    <p className="navbar_btn underline_anim">Bootcamp</p>
+                            </NavLink>
+
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
