@@ -4,12 +4,21 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function UserList() {
     const [userList, setUserList] = useState([])
+    const [newStatus, setNewStatus] = useState("")
 
     useEffect(() => {
         axios.get("http://localhost:3001/user/userList").then((response) => {
             setUserList(response.data)
         })
     }, []);
+
+    const updateUser = (id) => {
+        axios.put("http://localhost:3001/user/updateUser", {
+            id: id,
+            status: newStatus,
+        })
+        setNewStatus("")
+    }
 
     return (
         <>
@@ -28,6 +37,7 @@ export default function UserList() {
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,6 +51,18 @@ export default function UserList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <div className="flex flex-col gap-2 w-56">
+                                                                <select id="dropdown" onChange={(event) => {
+                                                                    setNewStatus(event.target.value)
+                                                                }}>
+                                                                    <option value="">Choose Status</option>
+                                                                    <option value="ACTIVED">Approve</option>
+                                                                    <option value="REJECT">Reject</option>
+                                                                </select>
+                                                            </div>
+                                                            <button onClick={() => { updateUser(val.id) }}>Update</button>
                                                         </td>
                                                     </tr>
                                                 }

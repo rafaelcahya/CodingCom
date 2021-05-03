@@ -165,4 +165,14 @@ router.get("/userListPayment", (req, res) => {
     })
 })
 
+router.put("/updateUser", (req, res) => {
+    const id = req.body.id
+    const status = req.body.status
+
+    db.query("UPDATE user SET status = ? WHERE id = ?;", [status, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
 module.exports = router;
