@@ -21,10 +21,18 @@ function EditRequestClass() {
         var idurl = url1.substring(url1.lastIndexOf('/') + 1);
         setId(idurl)
         var today = new Date();
-        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        if(today.getMonth()+1<=10 && today.getDate()<=10){
+        var date = today.getFullYear() + '-' + "0" +(today.getMonth() + 1) + '-' + "0" +today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = time + ' ' + date;
         setCreateAt(dateTime)
+        }else {
+        var date = today.getFullYear() + '-' +(today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = time + ' ' + date;
+        setCreateAt(dateTime)
+        }
+        
     }, 500)
 
     const updateClass = () => {
@@ -89,7 +97,7 @@ function EditRequestClass() {
                                     <div className="flex flex-col gap-2 w-32">
                                         <p className="Date text-sm font-semibold">Date</p>
                                         <input
-                                            type="text"
+                                            type="date"
                                             placeholder="Input Date"
                                             onChange={(event) => {
                                                 setDate(event.target.value)

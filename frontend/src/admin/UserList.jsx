@@ -4,7 +4,16 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function UserList() {
     const [userList, setUserList] = useState([])
-    const [newStatus, setNewStatus] = useState("")
+    const [newRole, setNewRole] = useState("")
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = time + ' ' + date;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/user/userList").then((response) => {
@@ -15,9 +24,16 @@ export default function UserList() {
     const updateUser = (id) => {
         axios.put("http://localhost:3001/user/updateUser", {
             id: id,
-            status: newStatus,
+            role: newRole,
+            updateAt : updateAt
         })
-        setNewStatus("")
+        setNewRole("")
+    }
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/user/deleteUser", {
+            id: id,
+            updateAt: updateAt
+        })
     }
 
     return (
@@ -34,9 +50,12 @@ export default function UserList() {
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Id</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Full Name</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Username</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Role</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">CreateAt</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">UpdateAt</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
                                         </tr>
                                     </thead>
@@ -53,16 +72,22 @@ export default function UserList() {
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.role}</p>
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.updateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
                                                             <div className="flex flex-col gap-2 w-56">
                                                                 <select id="dropdown" onChange={(event) => {
-                                                                    setNewStatus(event.target.value)
+                                                                    setNewRole(event.target.value)
                                                                 }}>
                                                                     <option value="">Choose Status</option>
-                                                                    <option value="ACTIVED">Approve</option>
-                                                                    <option value="REJECT">Reject</option>
+                                                                    <option value="Admin">Admin</option>
+                                                                    <option value="Mentor">Mentor</option>
                                                                 </select>
                                                             </div>
                                                             <button onClick={() => { updateUser(val.id) }}>Update</button>
+                                                            <button onClick={() => { deleteUser(val.id) }}>Delete</button>
                                                         </td>
                                                     </tr>
                                                 }

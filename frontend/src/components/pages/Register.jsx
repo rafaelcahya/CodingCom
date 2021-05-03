@@ -15,11 +15,20 @@ function Register() {
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmpassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [createAt,setCreateAt] = useState("")
     const [buttonPopup, setButtonPopup] = useState(false)
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = time + ' ' + date;
+        setCreateAt(dateTime)
+    }, 500)
 
     const register = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, email: email, password: password, confirmpassword: confirmpassword }).then((response) => {
+        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
             console.log(response)
             if (response.data.message) {
                 setErrorMessage(response.data.message)
