@@ -103,18 +103,36 @@ export const GlobalStyle = createGlobalStyle`
     .sidebar, .table-request-class{
         background-color: ${({theme}) => theme.foreground9};
     }
+
+    /* 
+    
+    BOOTCAMP 
+    
+    */
+
+    .bootcamp-navbar{
+        background-color: ${({theme}) => theme.foreground2};
+    }
+
+    .req-box{
+        background-color: ${({theme}) => theme.foreground6};
+    }
+
+    .bootcamp-package{
+        background-color: ${({theme}) => theme.foreground6};
+    }
 `;
 
 export const lightTheme={
-    body: '#f6f8fd',
+    body: '#eff3fc',
     text: '#3a3a3a',
     text2: '#3a3a3a',
-    foreground: '#f6f8fd',
+    foreground: '#eff3fc',
     foreground2: '#fff',
     foreground3: '#3b72ff',
     foreground4: '#3b72ff',
     foreground5: '#abc2fc',
-    foreground6: '#eaeefc',
+    foreground6: '#fff',
     foreground7: 'rgb(219, 234, 254)',
     hoverforeground: 'rgb(219, 234, 254)',
     foreground9: '#fff'

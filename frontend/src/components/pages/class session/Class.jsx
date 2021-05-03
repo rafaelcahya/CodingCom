@@ -54,19 +54,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Marco Nadalio"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Shiva Camila"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Samuel Miron"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />
@@ -76,19 +76,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Muhammed Niclas"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Thelma Isi"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Tomi Natanhiel"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />
@@ -98,19 +98,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Tomi Natanhiel"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Samuel Miron"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Shiva Camila"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />
@@ -120,19 +120,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Muhammed Niclas"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Tomi Natanhiel"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Shiva Camila"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />
@@ -142,19 +142,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Marco Nadalio"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Samuel Miron"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Muhammed Niclas"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />
@@ -164,19 +164,19 @@ export class Class extends Component {
                                     <div className="flex flex-col justify-center gap-8 my-10">
                                         <ClassComp
                                             name="Shiva Camila"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class A"
                                             link="https://meet.google.com/psc-xujk-dmk"
                                         />
                                         <ClassComp
                                             name="Marco Nadalio"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class B"
                                             link="https://meet.google.com/bcm-gkid-hhx"
                                         />
                                         <ClassComp
                                             name="Tomi Natanhiel"
-                                            time="09:00 - 19:00"
+                                            time="09:00 - 17:00"
                                             button="Class C"
                                             link="https://meet.google.com/wim-pxuu-vkt"
                                         />

@@ -52,14 +52,14 @@ function Submit() {
                         }}/>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-1 text-sm font-semibold">
-                            <p>Live site URL</p>
-                            <p className="text-xs color-black-2 font-medium">(Optional)</p>
-                        </div>
-                        <p className="text-xs color-black-2 font-medium underline cursor-pointer">Recommended</p>
+                            <p className="text-sm font-semibold">Live site URL</p>
                         <input type="text"  placeholder="Input live site URL" onChange={(event) => {
                             setLiveSiteUrl(event.target.value)
                         }}/>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-sm font-semibold">Attachment</p>
+                        <input type="file"/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-1 text-sm font-semibold">
