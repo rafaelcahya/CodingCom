@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @font-face {
     font-family: montserrat;
     src: url(../asset/font/Montserrat-Regular.ttf);
@@ -17,18 +24,18 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #fff; 
+    background: #fff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #9CA3AF; 
+    background: #9CA3AF;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #FBBB00; 
+    background: #FBBB00;
     border-radius: 10px;
 }
 
@@ -38,7 +45,7 @@ Root
 
 */
 
-:root{
+:root {
     --blue-1: #3b72ff;
     --blue-2: #040505;
     --orange-1: #FBBB00;
@@ -60,105 +67,106 @@ CSS Customization
 
 */
 
-.color-blue-1{
+.color-blue-1 {
     color: var(--blue-1);
 }
 
-.color-red-1{
+.color-red-1 {
     color: var(--red-1);
 }
 
-.color-orange-1{
+.color-orange-1 {
     color: var(--orange-1);
 }
 
-.color-black-1{
+.color-black-1 {
     color: var(--black-1);
 }
 
-.color-green-1{
+.color-green-1 {
     color: var(--green-1);
 }
 
-.bg-white-1{
+.bg-white-1 {
     background-color: var(--white-1);
 }
 
-.bg-blue-1{
+.bg-blue-1 {
     background-color: var(--blue-1);
 }
 
-.bg-orange-1{
+.bg-orange-1 {
     background-color: var(--orange-1);
 }
 
-.bg-orange-2{
+.bg-orange-2 {
     background-color: var(--orange-2);
 }
 
-.bg-green-1{
+.bg-green-1 {
     background-color: var(--green-1);
 }
 
-        /* 
+/* 
 
         Secondary Color 
 
         */
 
-        .color-black-2{
-            color: var(--black-2);
-        }
-
-        .bg-black-2{
-            background-color: var(--black-2);
-        }
-
-        .bg-green-1-10{
-            background-color: rgba(40, 180, 70, 0.1);
-        }
-
-        .bg-red-1-10{
-            background-color: rgba(244, 67, 54, 0.1)
-        }
-
-        .bg-blue-1-10{
-            background-color: rgba(59, 114, 255, 0.1)
-        }
-
-        .bg-blue-2{
-            background-color: #ebf0ff;
-        }
-
-        .bg-blue-3{
-            background-color: #abc2fc;
-        }
-
-        .bg-red-1{
-            background-color: var(--red-1);
-        }
-
-        .bg-brown-1-10{
-            background-color: rgba(189, 147, 84, 0.1)
-        }
-
-        .bg-orange-1-10{
-            background-color: rgba(251, 187, 0, 0.1)
-        }
-
-        .bg-black-2-10{
-            background-color: rgba(122, 122, 122, 0.822);
-        }
-
-        .bg-dark-1{
-            background-color: var(--dark-2);
-        }
-
-.shadow-black{
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+.color-black-2 {
+    color: var(--black-2);
 }
 
-.border-left-orange-1{
+.bg-black-2 {
+    background-color: var(--black-2);
+}
+
+.bg-green-1-10 {
+    background-color: rgba(40, 180, 70, 0.1);
+}
+
+.bg-red-1-10 {
+    background-color: rgba(244, 67, 54, 0.1)
+}
+
+.bg-blue-1-10 {
+    background-color: rgba(59, 114, 255, 0.1)
+}
+
+.bg-blue-2 {
+    background-color: #ebf0ff;
+}
+
+.bg-blue-3 {
+    background-color: #abc2fc;
+}
+
+.bg-red-1 {
+    background-color: var(--red-1);
+}
+
+.bg-brown-1-10 {
+    background-color: rgba(189, 147, 84, 0.1)
+}
+
+.bg-orange-1-10 {
+    background-color: rgba(251, 187, 0, 0.1)
+}
+
+.bg-black-2-10 {
+    background-color: rgba(122, 122, 122, 0.822);
+}
+
+.bg-dark-1 {
+    background-color: var(--dark-2);
+}
+
+.shadow-black {
+    -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.border-left-orange-1 {
     border-left: 5px solid var(--orange-1);
 }
 
@@ -168,23 +176,27 @@ Accessories
 
 */
 
-.minor{
+.minor {
     position: fixed;
     bottom: 50px;
     right: 50px;
 }
 
-.underline_anim::after{
+.underline_anim::after {
     content: "";
     display: block;
     width: 0;
     height: 2px;
     background-color: #3b72ff;
+    -webkit-transition: width .3s;
+    -o-transition: width .3s;
     transition: width .3s;
 }
 
-.underline_anim:hover::after{
+.underline_anim:hover::after {
     width: 100%;
+    -webkit-transition: width .3s;
+    -o-transition: width .3s;
     transition: width .3s;
 }
 
@@ -193,24 +205,98 @@ Accessories
     background-size: 30px 30px;
     width: 45px;
     height: 45px;
-    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
     border: none;
     border-radius: 50%;
+    -webkit-transition: background-color 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
 }
 
-.tab-header li{
+.tab-header li {
     padding: .5rem 1rem;
     background-color: white;
     border-radius: .5rem;
     cursor: pointer;
 }
 
-.tab-header li.active{
+.tab-header li.active {
     background-color: var(--blue-1);
     color: white;
     padding: .5rem 1rem;
     border-radius: .5rem;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #222948;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 12px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 50px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 50px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 50px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 50px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 /* 
@@ -219,37 +305,45 @@ Navbar
 
 */
 
-.navbar_active, .logo:hover {
+.navbar_active,
+.logo:hover {
     color: #3b72ff;
 }
 
-.navbar p:hover, .help:hover{
+.navbar p:hover,
+.help:hover {
     color: #3b72ff;
 }
 
-.navbar-mobile p{
+.navbar-mobile p {
     padding: 8px 12px;
 }
 
-.navbar-mobile p:hover{
+.navbar-mobile p:hover {
     background-color: #3b72ff;
     color: white;
     border-radius: .75rem;
 }
 
-.dropdown-tutorial-box p:hover{
+.dropdown-tutorial-box p:hover {
     color: #3b72ff;
 }
 
-.dropdown-tutorial-box p:not(:first-child){
+.dropdown-tutorial-box p:not(:first-child) {
     font-size: .875rem;
     margin: .5rem 0
 }
 
-.course:hover .course-box {display: flex;}
+.course:hover .course-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
 
-.login:hover{
+.login:hover {
     background-color: #0250bd;
+    -webkit-transition: 200ms;
+    -o-transition: 200ms;
     transition: 200ms;
 }
 
@@ -259,7 +353,8 @@ Login page, Register Page
 
 */
 
-.login-box input, .register-box input{
+.login-box input,
+.register-box input {
     width: 15rem;
     padding: .375rem 1rem;
     border: 1.6px solid var(--blue-1);
@@ -268,28 +363,53 @@ Login page, Register Page
     color: var(--black-2);
 }
 
-.login-box input::placeholder, .register-box input::placeholder{
+.login-box input::-webkit-input-placeholder, .register-box input::-webkit-input-placeholder {
     color: var(--black-2);
     font-size: .875rem;
 }
 
-@media screen and (min-width: 440px){
-    .login-box input, .register-box input{
+.login-box input::-moz-placeholder, .register-box input::-moz-placeholder {
+    color: var(--black-2);
+    font-size: .875rem;
+}
+
+.login-box input:-ms-input-placeholder, .register-box input:-ms-input-placeholder {
+    color: var(--black-2);
+    font-size: .875rem;
+}
+
+.login-box input::-ms-input-placeholder, .register-box input::-ms-input-placeholder {
+    color: var(--black-2);
+    font-size: .875rem;
+}
+
+.login-box input::placeholder,
+.register-box input::placeholder {
+    color: var(--black-2);
+    font-size: .875rem;
+}
+
+@media screen and (min-width: 440px) {
+
+    .login-box input,
+    .register-box input {
         width: 20rem;
     }
 }
 
-@media screen and (min-width: 768px){
-    .login-box input, .register-box input{
+@media screen and (min-width: 768px) {
+
+    .login-box input,
+    .register-box input {
         width: 25rem;
     }
 }
 
-.password-hint-box{
+.password-hint-box {
     display: none;
 }
 
-.info:hover + .password-hint-box{
+.info:hover+.password-hint-box {
     display: block;
 }
 
@@ -299,7 +419,7 @@ Homepage
 
 */
 
-.headerheader{
+.headerheader {
     background-image: url(../asset/photo/homepage/feature/Rectangle\ 104.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -307,43 +427,85 @@ Homepage
     z-index: -100;
 }
 
-.change-text-anim{
+.change-text-anim {
     width: 500px;
 }
 
-.change-text-anim::before{
+.change-text-anim::before {
     content: "";
-    animation: changeTextAnim infinite 17.5s;
+    -webkit-animation: changeTextAnim infinite 17.5s;
+            animation: changeTextAnim infinite 17.5s;
 }
 
-@keyframes changeTextAnim{
-    0%{
+@-webkit-keyframes changeTextAnim {
+    0% {
         content: "Gain invaluable skills for your future career in software development";
     }
-    14.5%{
+
+    14.5% {
         content: "Beautiful, well-designed courses that interactively teach you the basics and beyond";
     }
-    29%{
+
+    29% {
         content: "Learn the value of sharing knowledge and experiences among peers";
     }
-    43.5%{
+
+    43.5% {
         content: "Keep up with the latest app development tools and technology";
     }
-    58%{
+
+    58% {
         content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest";
     }
-    72.5%{
+
+    72.5% {
         content: "Learning to code is more fun if you choose what you want to learn and make it interesting";
     }
-    87%{
+
+    87% {
         content: "Learn new skills through the certificate program and by meeting others who are training with you";
     }
-    100%{
+
+    100% {
         content: "Gain invaluable skills for your future career in software development";
     }
 }
 
-.discord{
+@keyframes changeTextAnim {
+    0% {
+        content: "Gain invaluable skills for your future career in software development";
+    }
+
+    14.5% {
+        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond";
+    }
+
+    29% {
+        content: "Learn the value of sharing knowledge and experiences among peers";
+    }
+
+    43.5% {
+        content: "Keep up with the latest app development tools and technology";
+    }
+
+    58% {
+        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest";
+    }
+
+    72.5% {
+        content: "Learning to code is more fun if you choose what you want to learn and make it interesting";
+    }
+
+    87% {
+        content: "Learn new skills through the certificate program and by meeting others who are training with you";
+    }
+
+    100% {
+        content: "Gain invaluable skills for your future career in software development";
+    }
+}
+
+.discord {
     background-image: url(../asset/photo/homepage/feature/Rectangle\ 103.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -356,19 +518,21 @@ Payment
 
 */
 
-.payment-table tr td{
+.payment-table tr td {
     padding: .7rem 4rem;
 }
 
-.payment-table tr td:first-child{
+.payment-table tr td:first-child {
     width: 500px;
 }
 
-.payment-table tr td:nth-child(2){
+.payment-table tr td:nth-child(2) {
     font-weight: 600;
 }
 
-.payment-confirm-container, .register-popup-container{
+.payment-confirm-container,
+.register-popup-container,
+.darkmode-container {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -378,23 +542,46 @@ Payment
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.payment-confirm-box, .register-popup-box{
+.darkmode-container {
+    z-index: 100;
+}
+
+.payment-confirm-box,
+.register-popup-box,
+.darkmode-box {
     width: 500px;
     margin: 15% auto;
     background-color: white;
 }
 
-.register-popup-box{
-    animation: cssAnimation 300ms ease forwards;
+.register-popup-box {
+    -webkit-animation: cssAnimation 300ms ease forwards;
+            animation: cssAnimation 300ms ease forwards;
+}
+
+
+@-webkit-keyframes cssAnimation {
+    from {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+
+    to {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 
 @keyframes cssAnimation {
     from {
-        transform: scale(0);
+        -webkit-transform: scale(0);
+                transform: scale(0);
     }
+
     to {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
@@ -404,49 +591,58 @@ Roadmap
 
 */
 
-.roadmap-box p{
+.roadmap-box p {
     width: 300px;
     padding: 25px 0;
     border-radius: .75rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-.roadmap-box p:hover{
+.roadmap-box p:hover {
     color: white;
     background-color: #3b72ff;
+    -webkit-transition: 200ms;
+    -o-transition: 200ms;
     transition: 200ms;
 }
 
-.roadmap{
+.roadmap {
     border: 2rem solid white;
     border-radius: 1.5rem;
 }
 
-.swiper-button-prev-container, .swiper-button-next-container{
+.swiper-button-prev-container,
+.swiper-button-next-container {
     background-color: #FBBB00;
     color: white;
     border-radius: 50%;
 }
 
-.swiper-button-prev-container:hover, .swiper-button-next-container:hover{
+.swiper-button-prev-container:hover,
+.swiper-button-next-container:hover {
     border: 1px solid #0250bd;
     background-color: #0250bd;
 }
 
-.swiper-button-next{
+.swiper-button-next {
     z-index: 10;
     position: fixed;
     top: 50%;
     right: 5%;
-    transform: translate(-5%, -50%);
+    -webkit-transform: translate(-5%, -50%);
+        -ms-transform: translate(-5%, -50%);
+            transform: translate(-5%, -50%);
 }
 
-.swiper-button-prev{
+.swiper-button-prev {
     z-index: 10;
     position: fixed;
     top: 50%;
     left: 5%;
-    transform: translate(-5%, -50%);
+    -webkit-transform: translate(-5%, -50%);
+        -ms-transform: translate(-5%, -50%);
+            transform: translate(-5%, -50%);
 }
 
 /* 
@@ -455,7 +651,7 @@ Pricing
 
 */
 
-.information p{
+.information p {
     width: 500px;
 }
 
@@ -471,27 +667,31 @@ Tutorial
     height: 100%;
     top: 0;
     left: -250px;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
     transition: left 0.3s ease;
     z-index: 20;
 }
 
-#sidebarmobile p{
+#sidebarmobile p {
     padding: 6px;
     border-radius: 10px;
 }
 
 
-#sidebarmobile p:hover{
+#sidebarmobile p:hover {
     background-color: #3b72ff;
     color: white;
 }
 
 #sidebarmobile.visible {
     left: 0;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
     transition: left 0.3s ease;
 }
 
-#sidebarbtn{
+#sidebarbtn {
     cursor: pointer;
     margin: 20px;
     position: absolute;
@@ -503,19 +703,19 @@ Tutorial
     padding: 4px;
 }
 
-iframe{
+iframe {
     width: 360px;
     height: 200px;
 }
 
 @media screen and (min-width: 560px) {
-    iframe{
+    iframe {
         width: 660px;
         height: 350px;
     }
 }
 
-.tutorial-box{
+.tutorial-box {
     width: 300px;
 }
 
@@ -523,7 +723,7 @@ iframe{
     height: 5px;
 }
 
-.swiper-pagination p{
+.swiper-pagination p {
     cursor: pointer;
 }
 
@@ -547,17 +747,19 @@ iframe{
     min-height: 120px;
     line-height: 20px;
 }
-  
+
 .textarea[contenteditable]:empty::before {
     content: "Add a discussion";
     color: gray;
 }
 
-.textarea:focus{
+.textarea:focus {
     border: 2px solid var(--blue-1);
 }
 
-.sidebar-tutorial div:hover p{
+.sidebar-tutorial div:hover p {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
 }
@@ -568,34 +770,56 @@ Challenge
 
 */
 
-.certificate-box div{
+.certificate-box div {
     padding: 1.25rem;
     border-radius: 0.75rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.certificate-box div:hover{
-    transform: scale(1.05);
+.certificate-box div:hover {
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
     background-color: #3b72ff;
     color: white;
 }
 
-.challenge-box{
+.challenge-box {
     width: 21rem;
 }
 
-.submit-box input, .submit-box textarea{
+.submit-box input,
+.submit-box textarea {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
 }
 
-.submit-box input::placeholder, .submit-box textarea::placeholder{
+.submit-box input::-webkit-input-placeholder, .submit-box textarea::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.submit-box input:focus, .submit-box textarea:focus{
+.submit-box input::-moz-placeholder, .submit-box textarea::-moz-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input:-ms-input-placeholder, .submit-box textarea:-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input::-ms-input-placeholder, .submit-box textarea::-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input::placeholder,
+.submit-box textarea::placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input:focus,
+.submit-box textarea:focus {
     border: 1.6px solid var(--blue-1);
 }
 
@@ -606,25 +830,42 @@ class session
 */
 
 
-.request-class-container input{
+.request-class-container input {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
 }
 
-.request-class-container input::placeholder{
+.request-class-container input::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.request-class-container select{
+.request-class-container input::-moz-placeholder {
+    font-size: .875rem;
+}
+
+.request-class-container input:-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.request-class-container input::-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.request-class-container input::placeholder {
+    font-size: .875rem;
+}
+
+.request-class-container select {
     padding: .5rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
 }
 
-.request-class-container input:focus, .request-class-container select:focus{
+.request-class-container input:focus,
+.request-class-container select:focus {
     border: 1.6px solid var(--blue-1);
 }
 
@@ -635,49 +876,82 @@ Bootcamp
 */
 
 
-.header-bootcamp{
+.header-bootcamp {
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    -webkit-transition: 5s;
+    -o-transition: 5s;
     transition: 5s;
     animation: animate alternate-reverse 45s forwards infinite running ease-in-out;
 }
 
-@keyframes animate {
-    0%{
+@-webkit-keyframes animate {
+    0% {
         background-image: url(../bootcamp/asset/heylagostechie-YgOCJz9uGMk-unsplash.png);
     }
-    20%{
+
+    20% {
         background-image: url(../bootcamp/asset/le-wagon-0ECDm8h-4Hg-unsplash.png);
     }
-    40%{
+
+    40% {
         background-image: url(../bootcamp/asset/le-wagon-ateSfr0d0yc-unsplash.png);
     }
-    60%{
+
+    60% {
         background-image: url(../bootcamp/asset/le-wagon-ofeO3-rfaAo-unsplash.png);
     }
-    80%{
+
+    80% {
         background-image: url(../bootcamp/asset/le-wagon-QyAAIKO-AzI-unsplash.png);
     }
-    100%{
+
+    100% {
         background-image: url(../bootcamp/asset/le-wagon-XXMK5V_bbms-unsplash.png);
     }
 }
 
-.header-bootcamp div{
+@keyframes animate {
+    0% {
+        background-image: url(../bootcamp/asset/heylagostechie-YgOCJz9uGMk-unsplash.png);
+    }
+
+    20% {
+        background-image: url(../bootcamp/asset/le-wagon-0ECDm8h-4Hg-unsplash.png);
+    }
+
+    40% {
+        background-image: url(../bootcamp/asset/le-wagon-ateSfr0d0yc-unsplash.png);
+    }
+
+    60% {
+        background-image: url(../bootcamp/asset/le-wagon-ofeO3-rfaAo-unsplash.png);
+    }
+
+    80% {
+        background-image: url(../bootcamp/asset/le-wagon-QyAAIKO-AzI-unsplash.png);
+    }
+
+    100% {
+        background-image: url(../bootcamp/asset/le-wagon-XXMK5V_bbms-unsplash.png);
+    }
+}
+
+.header-bootcamp div {
     background-color: #000000a9;
     width: 100%;
 }
 
-.bootcamp-schedule tr td{
+.bootcamp-schedule tr td {
     padding: .5rem 0;
 }
 
-.bootcamp-schedule tr td:nth-child(1){
+.bootcamp-schedule tr td:nth-child(1) {
     font-weight: 600;
 }
 
-.bootcamp-schedule tr td:nth-child(2){
+.bootcamp-schedule tr td:nth-child(2) {
     padding-left: 5rem;
 }
