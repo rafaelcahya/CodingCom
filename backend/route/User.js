@@ -132,6 +132,7 @@ router.post("/login", (req, res) => {
 router.post("/updateStatus", (req, res) => {
     let status = "PENDING"
     const name = req.body.name
+    const updateAt = req.body.updateAt
 
     db.query("UPDATE user SET status = ? WHERE name=?;", [status, name], (err, results) => {
         console.log(err)
@@ -139,11 +140,12 @@ router.post("/updateStatus", (req, res) => {
     })
 })
 
-router.post("/updatePayment", (req, res) => {
+router.put("/updatePayment", (req, res) => {
     const id = req.body.id
     const status = req.body.status
+    const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET status = ? WHERE id = ?;", [status, id], (err, results) => {
+    db.query("UPDATE user SET status = ?, updateAt = ? WHERE id = ?;", [status, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })
@@ -166,6 +168,7 @@ router.get("/userListActive", (req, res) => {
 
 router.get("/userListPayment", (req, res) => {
     let status = "PENDING"
+    let isDeleted = "NO"
     db.query("SELECT * FROM user WHERE status = ? AND isDeleted = ?",[status,isDeleted], (err, results) => {
         res.send(results)
     })
