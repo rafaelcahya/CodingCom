@@ -1,29 +1,22 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import Axios from 'axios'
-
-import NavbarLogin from '../../../major/NavbarLogin'
-import NavbarMobile from '../../../major/NavbarMobile'
-
 import logobca from "../../../../asset/photo/logo_bca.png"
 import { Link } from 'react-router-dom'
 
-export default function Payment() {
+export default function Payment(props) {
     const modal = useRef()
     return (
         <>
-            <NavbarLogin/>
-            <NavbarMobile/>
-
             <section className="payment-container bg-blue-2 mt-32 lg:mt-20 mb-40 mx-5 xs:mx-10 sm:mx-24 md:mx-32 lg:mx-52 xl:mx-96 py-10 rounded-3xl">
                 <div className="flex flex-col justify-center items-center">
-                    <p className="text-2xl font-semibold mb-10">Premium Plan</p>
+                    <p className="text-2xl font-semibold mb-10">{props.plan}</p>
                     <div className="flex flex-col justify-start gap-10">
                         <table className="payment-table">
                             <tbody>
                                 <tr>
                                     <td>Access time</td>
-                                    <td>Forever</td>
+                                    <td>{props.time}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -35,12 +28,20 @@ export default function Payment() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>NoSQL Course</td>
-                                    <td className="color-green-1">Available</td>
+                                    <td>{props.benefit1}</td>
+                                    <td className="color-green-1">{props.available1}</td>
                                 </tr>
                                 <tr>
-                                    <td>Class Session</td>
-                                    <td className="color-green-1">Available</td>
+                                    <td>{props.benefit2}</td>
+                                    <td className="color-green-1">{props.available2}</td>
+                                </tr>
+                                <tr>
+                                    <td>{props.benefit3}</td>
+                                    <td className="color-green-1">{props.available3}</td>
+                                </tr>
+                                <tr>
+                                    <td>{props.benefit4}</td>
+                                    <td className="color-green-1">{props.available4}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,15 +54,15 @@ export default function Payment() {
                             <tbody>
                                 <tr>
                                     <td>Price</td>
-                                    <td>Rp. 286,000</td>
+                                    <td>{props.price}</td>
                                 </tr>
                                 <tr>
                                     <td>Discount</td>
-                                    <td className="color-green-1">- Rp. 0</td>
+                                    <td className="color-green-1">{props.discount}</td>
                                 </tr>
                                 <tr>
                                     <td>Total payment</td>
-                                    <td>Rp. 286,000</td>
+                                    <td>{props.total}</td>
                                 </tr>
                             </tbody>
                         </table>

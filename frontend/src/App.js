@@ -10,7 +10,7 @@ import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import Help from "./components/pages/help/Help";
-import PremiumPlan from "./components/pages/homepage/payment/PremiumPlan";
+import PaymentVerif from "./components/pages/pricing/payment/PaymentVerif";
 import { ScrollToTop } from "./components/minor/scroll to top/ScrollToTop.jsx"
 import Homepage from "./components/pages/homepage/Homepage.jsx"
 import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
@@ -35,6 +35,9 @@ import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import News from "./components/pages/news/News.jsx"
 import { NewsContextProvider } from "./components/pages/news/NewsContext.jsx"
 import RegisterBootcamp from "./bootcamp/RegisterBootcamp.jsx"
+import PremiumPlanPay from "./components/pages/pricing/PremiumPlanPay.jsx"
+import ConsultationPay from "./components/pages/pricing/ConsultationPay.jsx"
+import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 
 const Container = styled.div`
 `;
@@ -57,8 +60,11 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword" component={ForgotPassword} />
             <Route path="/register" component={Register} />
-            <Route path="/payment-confirmation-premium" component={PremiumPlan} />
             <Route path="/pricing" component={Pricing} />
+            <Route path="/payment-confirmation-premium" component={PaymentVerif} />
+            <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
+            <Route path="/payment-confirmation-class-consultation-quota" component={ConsultationPay} />
+            <Route path="/payment-confirmation-class-session-quota" component={SessionPay} />
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/tutorial" component={Tutorial} />
 

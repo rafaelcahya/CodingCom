@@ -150,7 +150,7 @@ export class Pricing extends Component {
                                 </div>
                             </div>
                         </article>
-                        <Link to="/payment-confirmation-premium" className="bg-blue-1 hover:bg-blue-400 text-white text-sm flex justify-center items-center gap-2 py-3 mt-10 rounded-xl cursor-pointer">
+                        <Link to="/payment-confirmation-premium-plan" className="bg-blue-1 hover:bg-blue-400 text-white text-sm flex justify-center items-center gap-2 py-3 mt-10 rounded-xl cursor-pointer">
                             <p className="font-medium">Get started</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </Link>
@@ -163,14 +163,18 @@ export class Pricing extends Component {
                             <p className="text-lg font-semibold">Class Consultation Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for class consultation access</p>
                         </div>
-                        <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
+                        <Link to="/payment-confirmation-class-consultation-quota">
+                            <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
+                        </Link>
                     </div>
                     <div className="plan-box px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500">
                         <div>
                             <p className="text-lg font-semibold">Class Session Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for class session access</p>
                         </div>
-                        <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>
+                        <Link to="/payment-confirmation-class-session-quota">
+                            <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>
+                        </Link>
                     </div>
                 </section>
 
