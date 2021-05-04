@@ -38,6 +38,8 @@ import RegisterBootcamp from "./bootcamp/RegisterBootcamp.jsx"
 import PremiumPlanPay from "./components/pages/pricing/PremiumPlanPay.jsx"
 import ConsultationPay from "./components/pages/pricing/ConsultationPay.jsx"
 import SessionPay from "./components/pages/pricing/SessionPay.jsx"
+import FeedbackBtn from "./components/major/Feedback/FeedbackBtn.jsx"
+import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 
 const Container = styled.div`
 `;
@@ -54,6 +56,7 @@ function App() {
             <Toggle theme={theme} toggleTheme={toggleTheme} />
             <ScrollToTop/>
           </div>
+          <FeedbackBtn/>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/help" component={Help} />
@@ -88,6 +91,8 @@ function App() {
             <Route path="/submit-solution" component={Submit} />
             
             <Route path="/class-session" component={Class} />
+
+            <Route path="/feedback" component={FeedbackForm} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>
