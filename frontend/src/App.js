@@ -34,6 +34,7 @@ import Class from "./components/pages/class session/Class.jsx"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import News from "./components/pages/news/News.jsx"
 import { NewsContextProvider } from "./components/pages/news/NewsContext.jsx"
+import RegisterBootcamp from "./bootcamp/RegisterBootcamp.jsx"
 
 const Container = styled.div`
 `;
@@ -58,9 +59,11 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/payment-confirmation-premium" component={PremiumPlan} />
             <Route path="/pricing" component={Pricing} />
-            <Route path="/bootcamp" component={BootcampHome}/>
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/tutorial" component={Tutorial} />
+
+            <Route path="/bootcamp" component={BootcampHome}/>
+            <Route path="/register-bootcamp" component={RegisterBootcamp}/>
 
             <Route path="/internet" component={Internet} />
             <Route path="/what-is-internet" component={WhatisInternet} />
@@ -79,6 +82,7 @@ function App() {
             <Route path="/submit-solution" component={Submit} />
             
             <Route path="/class-session" component={Class} />
+
             <NewsContextProvider>
               <Route path="/news" component={News}/>
             </NewsContextProvider>

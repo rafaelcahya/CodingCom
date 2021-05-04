@@ -39,13 +39,15 @@ export class Certificate1 extends Component {
                         <li>Start coding!</li>
                     </ol>
                     </div>   
-                    <div className="flex flex-col md:flex-row gap-10 my-20">
-                        <div className="flex flex-col gap-2 my-10">
-                            <p className="font-semibold text-xl">Download Starter File</p>
-                            <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
+                    <div className="flex flex-col md:flex-row justify-between gap-10 my-20">
+                        <div className="flex flex-col justify-between gap-2 my-10">
+                            <div className="flex flex-col gap-2">
+                                <p className="font-semibold text-xl">Download Starter File</p>
+                                <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
+                            </div>
                             <a href={file} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
                         </div> 
-                        <div className="flex flex-col gap-2 my-10">
+                        <div className="flex flex-col justify-between gap-2 my-10">
                             <p className="font-semibold text-xl">Submit Solution</p>
                             <p>Once you've completed the challenge, you can submit your solution.</p>
                             <p onClick={scrollToTop}>
@@ -53,6 +55,15 @@ export class Certificate1 extends Component {
                                     <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
                                 </Link>
                             </p>
+                        </div>
+                        <div className="flex flex-col justify-between gap-2 my-10">
+                            <div className="flex flex-col gap-2">
+                                <p className="font-semibold text-xl">Download Certificate</p>
+                                <p>If your project meets the conditions, you can download your certificate.</p>
+                            </div>
+                            <Link>
+                                <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                            </Link>
                         </div>
                     </div>    
                     <div>

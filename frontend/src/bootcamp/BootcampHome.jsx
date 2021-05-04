@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import {motion} from "framer-motion"
+
 import BenefitComp from './BenefitComp';
 import StageComp from './StageComp';
 
@@ -80,7 +82,9 @@ function BootcampHome() {
                     <p className="text-4xl font-semibold text-center">Fulltime Coding Bootcamp</p>
                     <p className="text-xl font-medium w-3/5 text-center mt-5 mb-10">Be a part of coding.com and show your skills and creativity to impact others in an affordable time. Gain a knowledge base for the future and learn how to build a website for yourself or even your business.</p>
                     <p>Prepare yourself to be the next tech leaders!</p>
-                    <p className="bg-yellow-600 px-8 py-3 mt-5 mb-10 rounded-xl">Register Now</p>
+                    <Link to="/register-bootcamp">
+                        <p className="bg-yellow-600 px-8 py-3 mt-5 mb-10 rounded-xl">Register Now</p>
+                    </Link>
                 </div>
             </header>
 
