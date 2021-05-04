@@ -79,17 +79,6 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground2};
     }
 
-    .accordion_internet{
-        background-color: ${({theme}) => theme.foreground6};
-    } 
-
-    .accordion__button:hover{
-        background-color: ${({theme}) => theme.hoverforeground};
-    }
-    .accordion__content{
-        background-color: ${({theme}) => theme.foreground7};
-    }
-
     .consultation-box{
         background-color: ${({theme}) => theme.foreground2};
     }

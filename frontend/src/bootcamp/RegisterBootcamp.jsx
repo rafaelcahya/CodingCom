@@ -116,8 +116,8 @@ function RegisterBootcamp() {
                             <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
                             <select name="" id="">
                                 <option>Choose program</option>
-                                <option value="Facebook">Batch 1 : 1 August 2020 - 15 October 2020</option>
-                                <option value="Facebook">Batch 2 : 25 October 2020 - 21 Januari 2021</option>
+                                <option value="Facebook">Batch 1 : 30 August 2021 - 12 November 2021</option>
+                                <option value="Facebook">Batch 2 : 29 November 2021 - 25 February 2022</option>
                             </select>
                         </div>
                         <div className="flex flex-col gap-2">
