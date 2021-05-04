@@ -299,6 +299,43 @@ Accessories
     }
 }
 
+.accordion__button {
+    border-bottom: 1px solid rgb(209, 213, 219);
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.accordion__button span {
+    height: 30px;
+    width: 30px;
+}
+
+.accordion__button:focus {
+    outline: none;
+}
+
+.accordion__content {
+    color: var(--dark-1);
+    background-color: #FDE68A;
+    padding: 5px 20px;
+    opacity: 0;
+    transition: all .25s;
+    height: 0;
+    margin: 0;
+    margin-top: -10px;
+    border-top: 0;
+}
+
+.accordion__content.active {
+    height: auto;
+    opacity: 1;
+    padding: 20px;
+}
+
 /* 
 
 Navbar 
