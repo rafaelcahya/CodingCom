@@ -4,26 +4,31 @@ import Axios from 'axios'
 import Sidebar from './major/Sidebar'
 
 function ClassReq() {
-    const [mentorName, setMentorName] = useState("")
+    const [name, setName] = useState("")
     const [className, setClassName] = useState("")
     const [time, setTime] = useState("")
-    const [month, setMonth] = useState("")
     const [date, setDate] = useState("")
-    const [email, setEmail] = useState("")
     const [url, setUrl] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
-
+    let x
     window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
         var today = new Date();
-        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        if(today.getMonth()+1<=10){
+        var date = today.getFullYear() + '-' + "0" +(today.getMonth() + 1) + '-' +today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        }else {
+        var date = today.getFullYear() + '-' +(today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        }
         var dateTime = time + ' ' + date;
         setCreateAt(dateTime)
     }, 500)
 
     const createClass = () => {
-        Axios.post("http://localhost:3001/class/createClass", { mentorName: mentorName, className: className, email: email, time: time, date: date, month: month, url: url, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/class/createClass", { name:name, className: className, time: time, date: date, url: url, createAt: createAt }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
 
@@ -37,26 +42,6 @@ function ClassReq() {
                 <div className="0verflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full">
                     <p className="text-lg font-semibold pb-8">Request Class for Mentor</p>
                     <div className="request-class-container flex flex-col gap-10">
-                        <div className="flex justify-between gap-10">
-                            <div className="flex flex-col gap-2 w-1/2">
-                                <p className="MentorName text-sm font-semibold">Mentor Name</p>
-                                <input
-                                    type="text"
-                                    placeholder="Input Mentor name"
-                                    onChange={(event) => {
-                                        setMentorName(event.target.value)
-                                    }} />
-                            </div>
-                            <div className="flex flex-col gap-2 w-1/2">
-                                <p className="Email text-sm font-semibold">Email</p>
-                                <input
-                                    type="text"
-                                    placeholder="Input Email"
-                                    onChange={(event) => {
-                                        setEmail(event.target.value)
-                                    }} />
-                            </div>
-                        </div>
                         <div className="flex flex-col gap-2">
                             <p className="ClassName text-sm font-semibold">Class Name</p>
                             <input
@@ -68,18 +53,9 @@ function ClassReq() {
                         </div>
                         <div className="flex gap-10">
                             <div className="flex flex-col gap-2">
-                                <p className="Month text-sm font-semibold">Month</p>
-                                <input
-                                    type="text"
-                                    placeholder="Input Month"
-                                    onChange={(event) => {
-                                        setMonth(event.target.value)
-                                    }} />
-                            </div>
-                            <div className="flex flex-col gap-2 w-32">
                                 <p className="Date text-sm font-semibold">Date</p>
                                 <input
-                                    type="text"
+                                    type="date"
                                     placeholder="Input Date"
                                     onChange={(event) => {
                                         setDate(event.target.value)

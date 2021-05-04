@@ -6,57 +6,55 @@ const router = express.Router()
 const db = require('../config/db')
 
 router.post("/createClass", (req, res) => {
-    const mentorName = req.body.mentorName
-    const email = req.body.email
+    const name = req.body.name
     const className = req.body.className
-    const month = req.body.month
     const date = req.body.date
     const time = req.body.time
     const url = req.body.url
     const createAt = req.body.createAt
     let status = "Pending"
+    let user_id = 0;
+    let updateAt = " "
 
-    if (mentorName.length <= 0) {
-        res.send({ message: "Mentor name can not be empty" })
-    } else if (email.length <= 0) {
-        res.send({ message: "Email can not be empty" })
-    } else if (email.match(/[@]/) == null) {
-        res.send({ message: "Email is invalid" })
-    } else if (email.match(/[.]/) == null) {
-        res.send({ message: "Email is invalid" })
-    } else if (className.length <= 0) {
+    if (className.length <= 0) {
         res.send({ message: "Class name can not be empty" })
-    } else if (month.length <= 0) {
-        res.send({ message: "Month can not be empty" })
     } else if (date.length <= 0) {
         res.send({ message: "Date can not be empty" })
     } else if (time.length <= 0) {
         res.send({ message: "Time can not be empty" })
     } else {
-        db.query("INSERT INTO class (mentorName, email, className, month, date, time, url, status, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [mentorName, email, className, month, date, time, url, status, createAt], (err, results) => {
-            console.log(err)
-            res.send(results)
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+
+            if (results.length > 0) {
+                user_id = results[0].id
+                db.query("INSERT INTO class (className, date, time, url, status, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [className, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
+                    console.log(err)
+                    res.send(results)
+                })
+                console.log(user_id)
+            }
         })
     }
 })
 
 router.get("/classList", (req, res) => {
-    db.query("SELECT * FROM class", (err, results) => {
+    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.id",(err, results) => {
         res.send(results)
+        console.log(results)
     })
 })
 
 router.post("/updateClass", (req, res) => {
     const id = req.body.id
-    let mentorName = req.body.mentorName
-    let email = req.body.email
     let className = req.body.className
-    let month = req.body.month
     let date = req.body.date
     let time = req.body.time
     let url = req.body.url
     let status = req.body.status
-    let createAt = req.body.createAt
+    let updateAt = req.body.updateAt
 
     if(status.length<=0){
         res.send({message: "You must choose status"})
@@ -66,17 +64,8 @@ router.post("/updateClass", (req, res) => {
             console.log(err)
         }
         if (results.length > 0) {
-            if (mentorName.length <= 0) {
-                mentorName = results[0].mentorName
-                
-            }if (email.length <= 0) {
-                email = results[0].email
-                
-            }if (className.length <= 0) {
+            if (className.length <= 0) {
                 className = results[0].className
-                
-            }if (month.length <= 0) {
-                month = results[0].month
                 
             }if (date.length <= 0) {
                 date = results[0].date
@@ -86,7 +75,7 @@ router.post("/updateClass", (req, res) => {
                 
             }
             
-            db.query("UPDATE class SET mentorName = ?, email = ?, className = ?, month = ?, date = ?, time = ?, url = ?, status =?, createAt=?  WHERE id=?;", [mentorName, email, className, month, date, time, url, status, createAt, id], (err, results) => {
+            db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, updateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
                 console.log(err)
                 res.send(results)
             })

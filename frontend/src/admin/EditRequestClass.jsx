@@ -5,14 +5,11 @@ import { Link } from 'react-router-dom'
 
 function EditRequestClass() {
     const [id, setId] = useState("")
-    const [mentorName, setMentorName] = useState("")
     const [className, setClassName] = useState("")
     const [time, setTime] = useState("")
-    const [month, setMonth] = useState("")
     const [date, setDate] = useState("")
-    const [email, setEmail] = useState("")
     const [url, setUrl] = useState("")
-    const [createAt, setCreateAt] = useState("")
+    const [updateAt, setUpdateAt] = useState("")
     const [status, setStatus] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
 
@@ -21,22 +18,20 @@ function EditRequestClass() {
         var idurl = url1.substring(url1.lastIndexOf('/') + 1);
         setId(idurl)
         var today = new Date();
-        if(today.getMonth()+1<=10 && today.getDate()<=10){
+        if(today.getMonth()+1<=10){
         var date = today.getFullYear() + '-' + "0" +(today.getMonth() + 1) + '-' + "0" +today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = time + ' ' + date;
-        setCreateAt(dateTime)
         }else {
         var date = today.getFullYear() + '-' +(today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = time + ' ' + date;
-        setCreateAt(dateTime)
         }
+        var dateTime = time + ' ' + date;
+        setUpdateAt(dateTime)
         
     }, 500)
 
     const updateClass = () => {
-        Axios.post("http://localhost:3001/class/updateClass", { id: id, mentorName: mentorName, className: className, email: email, time: time, date: date, month: month, url: url, createAt: createAt, status: status }).then((response) => {
+        Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, time: time, date: date, url: url, updateAt: updateAt, status: status }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
 
@@ -50,31 +45,11 @@ function EditRequestClass() {
                 <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
                     <div className="flex flex-col gap-1 pb-8">
                         <p className="text-lg font-semibold">Class Request</p>
-                        <p className="text-xs font-medium text-gray-400 w-3/4">For Mentor name, Email, Class name, Month, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
+                        <p className="text-xs font-medium text-gray-400 w-3/4">For Class name, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
                     </div>
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
                             <div className="request-class-container flex flex-col gap-10">
-                                <div className="flex justify-between gap-10">
-                                    <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="MentorName text-sm font-semibold">Mentor Name</p>
-                                        <input
-                                            type="text"
-                                            placeholder="Input Mentor name"
-                                            onChange={(event) => {
-                                                setMentorName(event.target.value)
-                                            }} />
-                                    </div>
-                                    <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="Email text-sm font-semibold">Email</p>
-                                        <input
-                                            type="text"
-                                            placeholder="Input Email"
-                                            onChange={(event) => {
-                                                setEmail(event.target.value)
-                                            }} />
-                                    </div>
-                                </div>
                                 <div className="flex flex-col gap-2">
                                     <p className="ClassName text-sm font-semibold">Class name</p>
                                     <input
@@ -85,15 +60,6 @@ function EditRequestClass() {
                                         }} />
                                 </div>
                                 <div className="flex gap-10">
-                                    <div className="flex flex-col gap-2">
-                                        <p className="Month text-sm font-semibold">Month</p>
-                                        <input
-                                            type="text"
-                                            placeholder="Input Month"
-                                            onChange={(event) => {
-                                                setMonth(event.target.value)
-                                            }} />
-                                    </div>
                                     <div className="flex flex-col gap-2 w-32">
                                         <p className="Date text-sm font-semibold">Date</p>
                                         <input
