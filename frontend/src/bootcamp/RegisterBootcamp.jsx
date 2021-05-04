@@ -26,7 +26,7 @@ function RegisterBootcamp() {
                 </svg>
             </nav>
             <section className="py-20 md:py-28">
-                <p className="text-4xl font-semibold text-center">Registration Form</p>
+                <p className="text-2xl font-semibold text-center">Registration Form</p>
                 <div className="flex flex-col items-center">
                     <form className="reg-bootcamp-box w-3/4 md:w-1/2 lg:w-2/5 py-10 flex flex-col gap-10">
                         <div className="flex flex-col gap-2">

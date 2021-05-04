@@ -827,11 +827,16 @@ Challenge
 }
 
 .submit-box input,
-.submit-box textarea {
+.submit-box textarea,
+.submit-box select {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
+}
+
+.submit-box select{
+    padding: .4rem 1rem;
 }
 
 .submit-box input::-webkit-input-placeholder, .submit-box textarea::-webkit-input-placeholder {
@@ -856,7 +861,8 @@ Challenge
 }
 
 .submit-box input:focus,
-.submit-box textarea:focus {
+.submit-box textarea:focus,
+.submit-box select:focus{
     border: 1.6px solid var(--blue-1);
 }
 

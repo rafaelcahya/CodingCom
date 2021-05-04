@@ -46,6 +46,14 @@ function Submit() {
                         }}/>
                     </div>
                     <div className="flex flex-col gap-2">
+                        <p className="text-sm font-semibold">Project title</p>
+                        <select name="" id="">
+                            <option value="">Select project type</option>
+                            <option value="Certificate">Certificate</option>
+                            <option value="Challenge">Challenge</option>
+                        </select>
+                    </div>
+                    <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Repository URL</p>
                         <input type="text" placeholder="Input repository URL" onChange={(event) => {
                             setUrl(event.target.value)

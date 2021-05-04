@@ -406,8 +406,10 @@ function BootcampHome() {
                 <div className="flex flex-col lg:flex-row gap-32 text-sm text-center lg:text-left mt-10">
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold my-2">Navigation</p>
+                        <p>About</p>
                         <p>Benefit</p>
                         <p>Program</p>
+                        <p>Syllabus</p>
                         <p>Pricing</p>
                         <p>FAQ</p>
                     </div>
