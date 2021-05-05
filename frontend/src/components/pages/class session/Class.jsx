@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import "../../../../node_modules/swiper/swiper.min.css"
@@ -10,7 +10,6 @@ import NavbarMobile from '../../major/NavbarMobile'
 import Tabs from '../../minor/tab/Tab'
 import TabPan from '../../minor/tab/TabPan'
 import ClassComp from './ClassComp';
-import { Link } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -203,7 +202,7 @@ function Class() {
                                                    <b><p>{val.fullname}</p></b>
                                                    <p>{val.className}</p>
                                                    <p>Date: {val.date} || Time: {val.time}</p>
-                                                   <a href={val.url} target="_blank">Join Room</a>
+                                                   <a href={val.url} target="_blank" rel="noreferrer">Join Room</a>
                                                 </div>
                                     }
                                 )

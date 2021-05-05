@@ -1,3 +1,5 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-useless-concat */
 import React, { useState } from 'react'
 import Axios from 'axios'
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-useless-concat */
 import React, { useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
@@ -19,11 +21,11 @@ function EditRequestClass() {
         setId(idurl)
         var today = new Date();
         if(today.getMonth()+1<=10){
-        var date = today.getFullYear() + '-' + "0" +(today.getMonth() + 1) + '-' + "0" +today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var date = today.getFullYear() + '-' + "0" +(today.getMonth() + 1) + '-' + "0" +today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         }else {
-        var date = today.getFullYear() + '-' +(today.getMonth() + 1) + '-' + today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var date = today.getFullYear() + '-' +(today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         }
         var dateTime = time + ' ' + date;
         setUpdateAt(dateTime)
