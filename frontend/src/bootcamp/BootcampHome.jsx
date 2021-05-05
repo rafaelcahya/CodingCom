@@ -7,6 +7,8 @@ import Accordion from "../components/minor/accordion/Accordion"
 import BenefitComp from './BenefitComp';
 import StageComp from './StageComp';
 
+import Syllabus from '../asset/file/Silabus-Update2021-.pdf'
+
 function BootcampHome() {
     const [open, setOpen] = useState(false)
     const menuVariants = {
@@ -23,6 +25,10 @@ function BootcampHome() {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
     }, 500)
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
+    }
 
     const hiddenTexts = [{
         label: 'What will I get from the program?',
@@ -234,7 +240,7 @@ function BootcampHome() {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <p className="w-max bg-yellow-500 text-white font-medium px-8 py-3 mt-10 rounded-xl">Download syllabus</p>
+                    <a href={Syllabus} className="w-max bg-yellow-500 text-white font-medium px-8 py-3 mt-10 rounded-xl" download>Download syllabus</a>
                 </div>
             </section>
 
@@ -371,9 +377,11 @@ function BootcampHome() {
                             <p>Career Opportunity</p>
                             <p>Certificate</p>
                         </div>
-                        <Link to="/register-bootcamp">
-                            <p className="bg-yellow-500 text-white font-medium mt-20 px-6 py-2 rounded-xl">Register Now</p>
-                        </Link>
+                        <div onClick={scrollToTop}>
+                            <Link to="/register-bootcamp">
+                                <p className="bg-yellow-500 text-white font-medium mt-20 px-6 py-2 rounded-xl">Register Now</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
