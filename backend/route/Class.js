@@ -73,6 +73,8 @@ router.post("/updateClass", (req, res) => {
             }if (time.length <= 0) {
                 time = results[0].time
                 
+            }if(url.length <= 0 ){
+                url = results[0].url
             }
             
             db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, updateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
@@ -82,6 +84,14 @@ router.post("/updateClass", (req, res) => {
         }
     })
     }
+})
+
+router.get("/classListUser", (req, res) => {
+    let status = "Approve"
+    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.id AND class.status = ?",status,(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
 })
 
 module.exports = router;
