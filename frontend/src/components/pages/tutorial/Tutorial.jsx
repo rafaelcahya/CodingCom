@@ -101,11 +101,13 @@ export class Tutorial extends Component {
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="flex justify-center flex-wrap gap-10 mx-0 sm:mx-20 xl:mx-32 my-10">
-                                    <TutorialComp
-                                    image={html}
-                                    title="Basic web programming : HTML"
-                                    desc="HypertText Markup Language is the standard markup language for documents designed to be displayed in a web browser."
-                                    />
+                                    <Link to="/html">
+                                        <TutorialComp
+                                        image={html}
+                                        title="Basic web programming : HTML"
+                                        desc="HypertText Markup Language is the standard markup language for documents designed to be displayed in a web browser."
+                                        />
+                                    </Link>
                                     <TutorialComp
                                     image={css}
                                     title="Basic web programming : CSS"

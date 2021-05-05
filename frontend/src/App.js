@@ -40,6 +40,7 @@ import ConsultationPay from "./components/pages/pricing/ConsultationPay.jsx"
 import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackBtn from "./components/major/Feedback/FeedbackBtn.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
+import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
 
 const Container = styled.div`
 `;
@@ -82,6 +83,8 @@ function App() {
             <Route path="/DNS" component={DNS} />
             <Route path="/domain" component={Domain} />
             <Route path="/hosting" component={Hosting} />
+
+            <Route path="/html" component={HTML} />
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
