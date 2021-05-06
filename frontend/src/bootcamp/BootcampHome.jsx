@@ -7,7 +7,7 @@ import Accordion from "../components/minor/accordion/Accordion"
 import BenefitComp from './BenefitComp';
 import StageComp from './StageComp';
 
-import Syllabus from '../asset/file/Silabus-Update2021-.pdf'
+import Syllabus from '../asset/file/Silabus-Update2021.pdf'
 
 function BootcampHome() {
     const [open, setOpen] = useState(false)
