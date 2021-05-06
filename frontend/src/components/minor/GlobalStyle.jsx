@@ -79,8 +79,9 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground2};
     }
 
-    .consultation-box{
+    .consultation-box tr{
         background-color: ${({theme}) => theme.foreground2};
+        color: ${({theme}) => theme.text};
     }
 
     /* 
