@@ -179,6 +179,7 @@ router.put("/updatePayment", (req, res) => {
 
 router.put("/addeditKuota", (req, res) => {
     const id = req.body.id
+    const paket_id = req.body.paket_id
     const status = req.body.status
     const createAt = req.body.createAt
     const updateAt = req.body.updateAt
@@ -196,34 +197,18 @@ router.put("/addeditKuota", (req, res) => {
             if (results.length > 0) {
                 kuotaConsultation = results[0].classConsultation + 5
                 kuotaSession = results[0].classSession + 5
-                // db.query("SELECT * From user WHERE id = ?", id, (err, results) => {
-                //     if (err) {
-                //         console.log(err)
-                //     }
-                //     if (results.length > 0) {
-                //        paket = results[0].paket_id
-                //        if(paket==2){
-                //         db.query("UPDATE userkuota SET classSession = ?, updateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
-                //             console.log(err)
-                //             res.send(results)
-                //         })
-                //        }else if(paket == 3){
-                //         db.query("UPDATE userkuota SET classConsultation = ?, updateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
-                //             console.log(err)
-                //             res.send(results)
-                //         })
-                //        }
-                //     }
-                // })
+                if(paket_id == 2){
                     db.query("UPDATE userkuota SET classSession = ?, updateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
-                
-                    // db.query("UPDATE userkuota SET classConsultation = ?, updateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
-                    //     console.log(err)
-                    //     res.send(results)
-                    // })
+                }else if(paket_id == 3){
+                    db.query("UPDATE userkuota SET classConsultation = ?, updateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                }
+                    
             } else {
                 db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
                     console.log(err)
@@ -256,7 +241,7 @@ router.get("/userListActive", (req, res) => {
 router.get("/userListPayment", (req, res) => {
     let status = "PENDING"
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.paket_id ,user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
     })
 })

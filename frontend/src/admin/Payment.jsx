@@ -24,7 +24,7 @@ export default function Payment() {
         })
     }, []);
 
-    const updatePayment = (id) => {
+    const updatePayment = (id,paket_id) => {
         axios.all([
             axios.put("http://localhost:3001/user/updatePayment", {
             id: id,
@@ -33,6 +33,7 @@ export default function Payment() {
         }),
         axios.put("http://localhost:3001/user/addeditKuota", {
             id: id,
+            paket_id: paket_id,
             status: newStatus,
             createAt : createAt,
             updateAt : updateAt
@@ -91,7 +92,7 @@ export default function Payment() {
                                                                     <option value="REJECTED">Reject</option>
                                                                 </select>
                                                             </div>
-                                                            <button onClick={() => { updatePayment(val.id) }}>Update</button>
+                                                            <button onClick={() => { updatePayment(val.id,val.paket_id) }}>Update</button>
                                                         </td>
                                                     </tr>
                                                 }
