@@ -4,6 +4,7 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function Payment() {
     const [payList, setPayList] = useState([])
+    const [createAt, setCreateAt] = useState("")
     const [updateAt, setUpdateAt] = useState("")
     const [newStatus, setNewStatus] = useState("")
 
@@ -12,6 +13,7 @@ export default function Payment() {
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = time + ' ' + date;
+        setCreateAt(dateTime)
         setUpdateAt(dateTime)
     }, 500)
 
@@ -22,12 +24,21 @@ export default function Payment() {
         })
     }, []);
 
-    const updatePayment = (id) => {
-        axios.put("http://localhost:3001/user/updatePayment", {
+    const updatePayment = (id,paket_id) => {
+        axios.all([
+            axios.put("http://localhost:3001/user/updatePayment", {
             id: id,
             status: newStatus,
             updateAt : updateAt
+        }),
+        axios.put("http://localhost:3001/user/addeditKuota", {
+            id: id,
+            paket_id: paket_id,
+            status: newStatus,
+            createAt : createAt,
+            updateAt : updateAt
         })
+    ])
         setNewStatus("")
     }
 
@@ -81,7 +92,7 @@ export default function Payment() {
                                                                     <option value="REJECTED">Reject</option>
                                                                 </select>
                                                             </div>
-                                                            <button onClick={() => { updatePayment(val.id) }}>Update</button>
+                                                            <button onClick={() => { updatePayment(val.id,val.paket_id) }}>Update</button>
                                                         </td>
                                                     </tr>
                                                 }

@@ -96,11 +96,19 @@ const Modal = forwardRef((props, ref) => {
         x = localStorage.getItem("name");
         setName(x)
     }, 500)
-
+    if(props.plan === "Class Session Quota"){
+        Axios.post("http://localhost:3001/user/updateStatusClassSession",{name:name}).then((response) => {
+            console.log(response)
+        }) 
+    }else if(props.plan === "Class Consultation Quota"){
+        Axios.post("http://localhost:3001/user/updateStatusClassConsultation",{name:name}).then((response) => {
+            console.log(response)
+        }) 
+    }else{
     Axios.post("http://localhost:3001/user/updateStatus",{name:name}).then((response) => {
             console.log(response)
         })
-
+    }
     useImperativeHandle(ref, () => {
         return {
             open: () => setOpen(true),
