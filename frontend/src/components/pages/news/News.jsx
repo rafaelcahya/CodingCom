@@ -9,7 +9,7 @@ function News(props) {
     return (
         <div>
             <h1>News App 👋</h1>
-            <div>
+            <div className="grid grid-cols-3">
                 {data
                     ? data.articles.map((news) => (
                         <NewsArticle data={news} key={news.url} />
