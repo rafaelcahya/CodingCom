@@ -21,14 +21,14 @@ export default function UserList() {
         })
     }, []);
 
-    const updateUser = (id) => {
-        axios.put("http://localhost:3001/user/updateUser", {
-            id: id,
-            role: newRole,
-            updateAt : updateAt
-        })
-        setNewRole("")
-    }
+    // const updateUser = (id) => {
+    //     axios.put("http://localhost:3001/user/updateUser", {
+    //         id: id,
+    //         role: newRole,
+    //         updateAt : updateAt
+    //     })
+    //     setNewRole("")
+    // }
     const deleteUser = (id) => {
         axios.put("http://localhost:3001/user/deleteUser", {
             id: id,
@@ -77,16 +77,6 @@ export default function UserList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.updateAt}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <div className="flex flex-col gap-2 w-56">
-                                                                <select id="dropdown" onChange={(event) => {
-                                                                    setNewRole(event.target.value)
-                                                                }}>
-                                                                    <option value="">Choose Status</option>
-                                                                    <option value="Admin">Admin</option>
-                                                                    <option value="Mentor">Mentor</option>
-                                                                </select>
-                                                            </div>
-                                                            <button onClick={() => { updateUser(val.id) }}>Update</button>
                                                             <button onClick={() => { deleteUser(val.id) }}>Delete</button>
                                                         </td>
                                                     </tr>

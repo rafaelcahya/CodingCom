@@ -15,7 +15,7 @@ router.post("/register", (req, res) => {
     const createAt = req.body.createAt
     let updateAt = " "
     let status = "FREE"
-    let role = "Member"
+    let role = 3
     let isDeleted = "NO"
     let textbody = 'Welcome, ' + fullname +"<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
@@ -76,7 +76,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:'+ info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status, role, createAt, updateAt, isDeleted) VALUES (?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?);", [fullname, name, email, password, confirmpassword, status, role, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status, roleId, createAt, updateAt, isDeleted) VALUES (?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?);", [fullname, name, email, password, confirmpassword, status, role, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -153,23 +153,25 @@ router.put("/updatePayment", (req, res) => {
 
 router.get("/userList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT * FROM user WHERE isDeleted = ?",isDeleted, (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
+        console.log(results)
     })
 })
 
 router.get("/userListActive", (req, res) => {
     let status = "ACTIVED"
     let isDeleted = "NO"
-    db.query("SELECT * FROM user WHERE status = ? AND isDeleted = ?",[status,isDeleted],(err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?",[status,isDeleted],(err, results) => {
         res.send(results)
+        console.log(results)
     })
 })
 
 router.get("/userListPayment", (req, res) => {
     let status = "PENDING"
     let isDeleted = "NO"
-    db.query("SELECT * FROM user WHERE status = ? AND isDeleted = ?",[status,isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?",[status,isDeleted], (err, results) => {
         res.send(results)
     })
 })
@@ -179,7 +181,7 @@ router.put("/updateUser", (req, res) => {
     const role = req.body.role
     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET role = ?, updateAt = ? WHERE id = ?;", [role, updateAt, id], (err, results) => {
+    db.query("UPDATE user SET roleId = ?, updateAt = ? WHERE id = ?;", [role, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })

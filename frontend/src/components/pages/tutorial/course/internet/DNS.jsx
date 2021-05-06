@@ -107,7 +107,7 @@ function DNS() {
                                 (val)=> {
                                     return <div className="bg-white p-4 my-5 rounded-xl">
                                                 <div className="flex justify-between mb-1">
-                                                    <p className="color-blue-1 font-semibold text-sm">William Kosasie</p>
+                                                    <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
                                                     <p className="text-gray-400 text-sm">{val.createAt}</p>
                                                 </div>
                                                 <p className="text-sm">{val.comment}</p>
