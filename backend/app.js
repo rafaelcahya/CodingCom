@@ -23,7 +23,7 @@ const subscribeRoute = require('./route/Subscribe')
 app.use("/subscribe", subscribeRoute)
 
 const bootcampUserRoute = require('./route/BootcampUser')
-app.use("/bootcampUser", bootcampUserRoute)
+app.use("/bootcampuser", bootcampUserRoute)
 
 app.listen(3001, (req, res) => {
     console.log("Server running...")

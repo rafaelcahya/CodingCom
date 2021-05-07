@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
 
 function RegisterBootcamp() {
+    const [fullname, setFullname] = useState("")
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [gender, setGender] = useState("")
+    const [BoD, setBoD] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [postalCode, setPostalCode] = useState("")
+    const [phonenumber, setPhonenumber] = useState("")
+    const [cphonenumber, setCphonenumber] = useState("")
+    const [emergency, setEmergency] = useState("")
+    const [cemergency, setCemergency] = useState("")
+    const [education, setEducation] = useState("")
+    const [program, setProgram] = useState("")
+    const [batch, setBatch] = useState("")
+    const [motivation, setMotivation] = useState("")
+    const [busy, setBusy] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+    const [createAt,setCreateAt] = useState("")
+    let x
+
+    window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        setCreateAt(date)
+    }, 500)
+
+    const submit = () => {
+        console.log(name)
+        Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { fullname : fullname, email:email, gender:gender, BoD:BoD, address:address, city:city, postalCode:postalCode, phonenumber:phonenumber, cphonenumber:cphonenumber, emergency:emergency, cemergency:cemergency, education:education, program:program, batch:batch, motivation:motivation, busy:busy, createAt:createAt, name:name }).then((response) => {
+            console.log(response)
+            setErrorMessage(response.data.message)
+        })
+    }
+
     return (
         <>
             <nav className="flex justify-between items-center px-16 xl:px-32 py-5 border-b-2 border-yellow-400">
@@ -31,16 +69,22 @@ function RegisterBootcamp() {
                     <form className="reg-bootcamp-box w-3/4 md:w-1/2 lg:w-2/5 py-10 flex flex-col gap-10">
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Fullname</p>
-                            <input type="text" placeholder="Fullname"/>
+                            <input type="text" placeholder="Fullname"  onChange={(event) => {
+                                    setFullname(event.target.value)
+                                }} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Email</p>
-                            <input type="text" placeholder="Email"/>
+                            <input type="text" placeholder="Email"  onChange={(event) => {
+                                    setEmail(event.target.value)
+                                }} />
                         </div>
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Gender</p>
-                                <select name="" id="">
+                                <select name="" id=""  onChange={(event) => {
+                                    setGender(event.target.value)
+                                }} >
                                     <option value="Gender">Choose gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -48,46 +92,64 @@ function RegisterBootcamp() {
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Birth date</p>
-                                <input type="date"/>
+                                <input type="date"  onChange={(event) => {
+                                    setBoD(event.target.value)
+                                }} />
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Home address</p>
-                            <textarea placeholder="Home address"/>
+                            <textarea placeholder="Home address"  onChange={(event) => {
+                                    setAddress(event.target.value)
+                                }} />
                         </div>
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">City</p>
-                                <input type="text" placeholder="City"/>
+                                <input type="text" placeholder="City"  onChange={(event) => {
+                                    setCity(event.target.value)
+                                }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Postal Code</p>
-                                <input type="text" placeholder="Postal Code"/>
+                                <input type="text" placeholder="Postal Code"  onChange={(event) => {
+                                    setPostalCode(event.target.value)
+                                }} />
                             </div>
                         </div>
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Phone number</p>
-                                <input type="text" placeholder="Phone number"/>
+                                <input type="text" placeholder="Phone number"  onChange={(event) => {
+                                    setPhonenumber(event.target.value)
+                                }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Confirm phone number</p>
-                                <input type="text" placeholder="Confirm phone number"/>
+                                <input type="text" placeholder="Confirm phone number"  onChange={(event) => {
+                                    setCphonenumber(event.target.value)
+                                }} />
                             </div>
                         </div>
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Emergency phone number</p>
-                                <input type="text" placeholder="Emergency phone number"/>
+                                <input type="text" placeholder="Emergency phone number"  onChange={(event) => {
+                                    setEmergency(event.target.value)
+                                }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Confirm emergency phone number</p>
-                                <input type="text" placeholder="Confirm emergency phone number"/>
+                                <input type="text" placeholder="Confirm emergency phone number"  onChange={(event) => {
+                                    setCemergency(event.target.value)
+                                }} />
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Last education</p>
-                            <select name="" id="">
+                            <select name="" id=""  onChange={(event) => {
+                                    setEducation(event.target.value)
+                                }} >
                                 <option value="Gender">Choose education level</option>
                                 <option value="Male">Elementary school</option>
                                 <option value="Junior">Junior high school</option>
@@ -100,7 +162,9 @@ function RegisterBootcamp() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">How did you know this program?</p>
-                            <select name="" id="">
+                            <select name="" id=""  onChange={(event) => {
+                                    setProgram(event.target.value)
+                                }} >
                                 <option>Select source</option>
                                 <option value="Facebook">Facebook</option>
                                 <option value="Google">Google</option>
@@ -114,27 +178,33 @@ function RegisterBootcamp() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
-                            <select name="" id="">
+                            <select name="" id=""  onChange={(event) => {
+                                    setBatch(event.target.value)
+                                }} >
                                 <option>Choose program</option>
-                                <option value="Facebook">Batch 1 : 30 August 2021 - 12 November 2021</option>
-                                <option value="Facebook">Batch 2 : 29 November 2021 - 25 February 2022</option>
+                                <option value="Batch 1 : 30 August 2021 - 12 November 2021">Batch 1 : 30 August 2021 - 12 November 2021</option>
+                                <option value="Batch 2 : 29 November 2021 - 25 February 2022">Batch 2 : 29 November 2021 - 25 February 2022</option>
                             </select>
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Motivation for joining Fulltime Coding Bootcamp</p>
-                            <textarea placeholder="Write your motivation to join Fulltime Coding Bootcamp"/>
+                            <textarea placeholder="Write your motivation to join Fulltime Coding Bootcamp" onChange={(event) => {
+                                    setMotivation(event.target.value)
+                                }} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Are you currently busy?</p>
-                            <select name="" id="">
+                            <select name="" id="" onChange={(event) => {
+                                    setBusy(event.target.value)
+                                }} >
                                 <option>Select one</option>
                                 <option value="Student">Student</option>
                                 <option value="Work">Work</option>
                                 <option value="Graduate">Fresh graduate</option>
                             </select>
                         </div>
-                        <p className="color-red-1 text-center font-medium">errorMessage</p>
-                        <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
+                        <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                        <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                     </form>
                 </div>
             </section>
