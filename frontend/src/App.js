@@ -25,11 +25,13 @@ import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
 import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
 import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
-import Certificate1 from "./components/pages/challenge/Certificate/HTML CSS JS/Certificate1.jsx"
-import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
-import ReactCerti from "./components/pages/challenge/Certificate/ReactCerti.jsx"
-import VueCerti from "./components/pages/challenge/Certificate/VueCerti.jsx"
-import AngularCerti from "./components/pages/challenge/Certificate/AngularCerti.jsx"
+
+import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
+import Submit from "./components/pages/challenge/certificate/Submit.jsx"
+import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
+import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
+import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
+
 import Class from "./components/pages/class session/Class.jsx"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import News from "./components/pages/news/News.jsx"
@@ -41,6 +43,11 @@ import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackBtn from "./components/major/Feedback/FeedbackBtn.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
+
+import CertificateHTML from "./components/pages/challenge/certificate/Download Certificate/CertiHTML/CertificateHTML.jsx"
+import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
+import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
+import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
 
 const Container = styled.div`
 `;
@@ -92,6 +99,11 @@ function App() {
             <Route path="/vue-exercise" component={VueCerti} />
             <Route path="/angular-exercise" component={AngularCerti} />
             <Route path="/submit-solution" component={Submit} />
+
+            <Route path="/CertificateHTMLCSSJS" component={CertificateHTML} />
+            <Route path="/CertificateAngular" component={CertificateAngular} />
+            <Route path="/CertificateReact" component={CertificateReact} />
+            <Route path="/CertificateVue" component={CertificateVue} />
             
             <Route path="/class-session" component={Class} />
 

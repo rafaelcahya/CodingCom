@@ -54,6 +54,17 @@ export class AngularCerti extends Component {
                                 </Link>
                             </p>
                         </div>
+                        <div className="flex flex-col justify-between gap-2 my-10">
+                            <div className="flex flex-col gap-2">
+                                <p className="font-semibold text-xl">Download Certificate</p>
+                                <p>If your project meets the conditions, you can download your certificate.</p>
+                            </div>
+                            <div onClick={scrollToTop}>
+                                <Link to="/CertificateAngular">
+                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                                </Link>
+                            </div>
+                        </div>
                     </div>    
                     <div>
                         <p className="text-center text-lg font-semibold">FAQs</p>

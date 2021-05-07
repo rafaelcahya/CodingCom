@@ -12,7 +12,7 @@ export default function NavbarLogin() {
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
-    }, 500)
+    }, 100)
 
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)

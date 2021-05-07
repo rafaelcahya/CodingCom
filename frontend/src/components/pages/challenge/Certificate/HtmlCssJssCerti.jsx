@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import NavbarLogin from '../../../../major/NavbarLogin'
-import NavbarMobile from '../../../../major/NavbarMobile'
-import Footer from "../../../../major/Footer"
+import NavbarLogin from '../../../major/NavbarLogin'
+import NavbarMobile from '../../../major/NavbarMobile'
+import Footer from "../../../major/Footer"
 
-import facebookui from "../../../../../asset/photo/challenge/certificate/facebook.PNG"
+import facebookui from "../../../../asset/photo/challenge/certificate/facebook.PNG"
 import { Link } from 'react-router-dom'
 
-import file from "../../../../../asset/file/Challenge.docx"
+import file from "../../../../asset/file/Challenge.docx"
 
-export class Certificate1 extends Component {
+export class HtmlCssJssCerti extends Component {
     render() {
 
         const scrollToTop = () => {
@@ -61,9 +61,11 @@ export class Certificate1 extends Component {
                                 <p className="font-semibold text-xl">Download Certificate</p>
                                 <p>If your project meets the conditions, you can download your certificate.</p>
                             </div>
-                            <Link>
-                                <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
-                            </Link>
+                            <div onClick={scrollToTop}>
+                                <Link to="/CertificateHTMLCSSJS">
+                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                                </Link>
+                            </div>
                         </div>
                     </div>    
                     <div>
@@ -94,4 +96,4 @@ export class Certificate1 extends Component {
     }
 }
 
-export default Certificate1
+export default HtmlCssJssCerti  

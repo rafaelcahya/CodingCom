@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
     .logout,
     .register-popup-box,
     .navbar-mobile-container, .navbar-mobile,
-    .dropdown-tutorial,
     .course-box,
     #sidebarmobile,
     .reg-bootcamp-box input,
@@ -22,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground};
     }
 
+    .dropdown-tutorial,
     .cta div,
     .plan-box,
     .payment-container,
