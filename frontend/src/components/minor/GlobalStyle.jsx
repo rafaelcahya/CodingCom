@@ -31,7 +31,8 @@ export const GlobalStyle = createGlobalStyle`
     .tutorial-paid-box, 
     .challenge-box, 
     .certificate-box div,
-    .comment-box textarea{
+    .comment-box textarea,
+    .news-box{
         background: ${({theme}) => theme.foreground2};
     }
 
