@@ -23,7 +23,7 @@ router.post("/createClass", (req, res) => {
     } else if (time.length <= 0) {
         res.send({ message: "Time can not be empty" })
     } else {
-        db.query("SELECT * From mentor WHERE name = ?", name, (err, results) => {
+        db.query("SELECT * From mentor WHERE username = ?", name, (err, results) => {
             if (err) {
                 console.log(err)
             }
@@ -34,7 +34,6 @@ router.post("/createClass", (req, res) => {
                     console.log(err)
                     res.send(results)
                 })
-                console.log(user_id)
             }
         })
     }
