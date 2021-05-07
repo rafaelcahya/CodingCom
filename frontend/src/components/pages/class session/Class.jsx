@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import "../../../../node_modules/swiper/swiper.min.css"
 import axios from 'axios';
 
 import Footer from '../../major/Footer'
@@ -9,9 +6,6 @@ import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import Tabs from '../../minor/tab/Tab'
 import TabPan from '../../minor/tab/TabPan'
-import ClassComp from './ClassComp';
-
-SwiperCore.use([Navigation, Pagination]);
 
 function Class() {
     const [listClass,SetListClass] = useState([])
@@ -24,14 +18,14 @@ function Class() {
     //     }
     // }
 
+    var hours = new Date().getHours()
+
     useEffect(() => {
         axios.get("http://localhost:3001/class/classListUser").then((response) => {
         SetListClass(response.data)
         //console.log(response.data)
         })
     }, []);
-
-    var menu = ['Web Design', 'Frontend', 'CSS Frameworks', 'JS Frameworks & Libraries', 'Backend', 'Database']
     return (
         <>
             <NavbarLogin />
@@ -43,155 +37,279 @@ function Class() {
                         <div className="class-header mt-20">
                             <p className="color-blue-1 font-semibold text-3xl mb-5">Class Consultation</p>
                             <p>Here you can learn directly with a mentor via zoom. Just ask your question without hesitation according to the topic you choose. Mentors will be ready to help your learning process anytime and anywhere.</p>
-                            <div className="flex flex-col justify-center items-center mt-10">
-                                <p className="text-gray-400 font-medium text-sm">Filter by:</p>
-                                <div className="swiper-pagination flex justify-start md:justify-center items-center text-sm text-center gap-8 overflow-x-auto w-5/6 md:w-full my-3"></div>
+                        </div>
+                        <div className="flex flex-col my-10">
+                            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table className="min-w-full divide-y divide-gray-200">
+                                            <thead className="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Consultation Class
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Time
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Status
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Button
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                                Day Consultation Class A
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                    </td>
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                                Day Consultation Class B
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                    </td>
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                                Day Consultation Class C
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                    </td>
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <Swiper
-                            slidesPerView={1}
-                            spaceBetween={100}
-                            pagination={{
-                                el: '.swiper-pagination',
-                                clickable: true,
-                                renderBullet: function (index, className) {
-                                    return '<p class="' + className + '">' + (menu[index]) + '</p>';
-                                },
-                            }}
-                        >
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Marco Nadalio"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Shiva Camila"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Samuel Miron"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
+                        <div className="flex flex-col my-10">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                        <table className="min-w-full divide-y divide-gray-200 ">
+                                            <thead className="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Consultation Class
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Time
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Status
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Button
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="bg-white divide-y divide-gray-200">
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                            Night Consultation Class A
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                    </td>
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                            <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                            Night Consultation Class B
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                    </td>
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                            <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="flex items-center">
+                                                            <div className="text-sm font-semibold text-gray-900">
+                                                                Night Consultation Class C
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                    </td>
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
+                                                                Close
+                                                                </span>
+                                                            </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap" id="status">
+                                                                <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800">
+                                                                Available
+                                                                </span>
+                                                            </td>
+                                                        )
+                                                    }
+                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                            <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        </td>
+                                                        ) : (
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                                <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                            </td>
+                                                        )
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Muhammed Niclas"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Thelma Isi"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Tomi Natanhiel"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Tomi Natanhiel"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Samuel Miron"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Shiva Camila"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Muhammed Niclas"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Tomi Natanhiel"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Shiva Camila"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Marco Nadalio"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Samuel Miron"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Muhammed Niclas"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="flex flex-col justify-center gap-8 my-10">
-                                    <ClassComp
-                                        name="Shiva Camila"
-                                        time="09:00 - 17:00"
-                                        button="Class A"
-                                        link="https://meet.google.com/psc-xujk-dmk"
-                                    />
-                                    <ClassComp
-                                        name="Marco Nadalio"
-                                        time="09:00 - 17:00"
-                                        button="Class B"
-                                        link="https://meet.google.com/bcm-gkid-hhx"
-                                    />
-                                    <ClassComp
-                                        name="Tomi Natanhiel"
-                                        time="09:00 - 17:00"
-                                        button="Class C"
-                                        link="https://meet.google.com/wim-pxuu-vkt"
-                                    />
-                                </div>
-                            </SwiperSlide>
-                        </Swiper>
+                            </div>
+                        </div>
                     </TabPan>
                     <TabPan name="Class Session" key="2">
                         <div className="mt-20 h-full">
@@ -199,10 +317,10 @@ function Class() {
                                 listClass.map(
                                     (val)=> {
                                         return <div className="bg-white p-4 my-5 rounded-xl">
-                                                   <b><p>{val.fullname}</p></b>
-                                                   <p>{val.className}</p>
-                                                   <p>Date: {val.date} || Time: {val.time}</p>
-                                                   <a href={val.url} target="_blank" rel="noreferrer">Join Room</a>
+                                                    <b><p>{val.fullname}</p></b>
+                                                    <p>{val.className}</p>
+                                                    <p>Date: {val.date} || Time: {val.time}</p>
+                                                    <a href={val.url} target="_blank" rel="noreferrer">Join Room</a>
                                                 </div>
                                     }
                                 )

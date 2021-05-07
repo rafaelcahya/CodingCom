@@ -21,7 +21,7 @@ function Footer() {
                     <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-x-10 gap-y-10 lg:gap-y-0">
                         <p className="font-semibold text-xl text-white w-80">Want Us to Email you About Special Offers & Updates?</p>
                         <div className="flex flex-col md:flex-row items-center">
-                            <input type="text" placeholder="Enter your email" className="subscribe font-size-base px-5 py-4 w-64 rounded-xl md:rounded-none md:rounded-tl-xl md:rounded-bl-xl outline-none" onChange={(event) => {
+                            <input type="text" placeholder="Enter your email" className="color-black-1 font-size-base px-5 py-4 w-64 rounded-xl md:rounded-none md:rounded-tl-xl md:rounded-bl-xl outline-none" onChange={(event) => {
                             setEmail(event.target.value)
                         }}/>
                             <input onClick={subscribe} type="submit" value="Subscribe" className="bg-blue-1 font-size-base text-white px-5 py-4 w-full md:w-auto rounded-xl md:rounded-none md:rounded-tr-xl md:rounded-br-xl outline-none" onChange={(event) => {

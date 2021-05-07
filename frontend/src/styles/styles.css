@@ -227,6 +227,7 @@ Accessories
     background-color: white;
     border-radius: .5rem;
     cursor: pointer;
+    color: var(--black-1);
 }
 
 .tab-header li.active {
@@ -419,35 +420,30 @@ Login page, Register Page
 .register-box input {
     width: 15rem;
     padding: .375rem 1rem;
-    border: 1.6px solid var(--blue-1);
+    border: 1.6px solid var(--black-2);
     border-radius: 5px;
     outline: none;
-    color: var(--black-2);
 }
 
+
 .login-box input::-webkit-input-placeholder, .register-box input::-webkit-input-placeholder {
-    color: var(--black-2);
     font-size: .875rem;
 }
 
 .login-box input::-moz-placeholder, .register-box input::-moz-placeholder {
-    color: var(--black-2);
     font-size: .875rem;
 }
 
 .login-box input:-ms-input-placeholder, .register-box input:-ms-input-placeholder {
-    color: var(--black-2);
     font-size: .875rem;
 }
 
 .login-box input::-ms-input-placeholder, .register-box input::-ms-input-placeholder {
-    color: var(--black-2);
     font-size: .875rem;
 }
 
 .login-box input::placeholder,
 .register-box input::placeholder {
-    color: var(--black-2);
     font-size: .875rem;
 }
 

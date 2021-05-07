@@ -181,7 +181,7 @@ function BootcampHome() {
                 </div>
             </section>
 
-            <section className="bg-yellow-200 px-8 md:px-16 lg:px-40 py-20 my-20 md:my-28" id="syllabus">
+            <section className="color-black-1 bg-yellow-200 px-8 md:px-16 lg:px-40 py-20 my-20 md:my-28" id="syllabus">
                 <p className="text-center text-3xl font-semibold mb-10">Syllabus Fulltime Coding Bootcamp</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-32 gap-y-12 py-10">
                     <div className="flex items-center gap-8">
