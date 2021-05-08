@@ -32,13 +32,15 @@ export const GlobalStyle = createGlobalStyle`
     .challenge-box, 
     .certificate-box div,
     .comment-box textarea,
-    .news-box{
+    .news-box,
+    .comment-container textarea,
+    .comment-box{
         background: ${({theme}) => theme.foreground2};
     }
 
     .register-popup-box,
     .course-box p,
-    .comment-box textarea{
+    .comment-container textarea{
         color: ${({theme}) => theme.primarytext};
     }
 

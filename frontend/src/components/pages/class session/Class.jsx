@@ -19,6 +19,7 @@ function Class() {
     // }
 
     var hours = new Date().getHours()
+    var dayOfWeek = new Date().getDay();
 
     useEffect(() => {
         axios.get("http://localhost:3001/class/classListUser").then((response) => {
@@ -49,6 +50,9 @@ function Class() {
                                                         Consultation Class
                                                     </th>
                                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Day
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Time
                                                     </th>
                                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -69,9 +73,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">09:00 - 17:00</div>
                                                     </td>
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -85,7 +92,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                                 <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                             </td>
@@ -105,9 +112,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">09:00 - 17:00</div>
                                                     </td>
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -121,7 +131,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                                 <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                             </td>
@@ -141,9 +151,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">09:00 - 17:00</div>
                                                     </td>
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -157,7 +170,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 9 || hours >= 17 ? ( 
+                                                    {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                                 <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                             </td>
@@ -185,6 +198,9 @@ function Class() {
                                                         Consultation Class
                                                     </th>
                                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        day
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Time
                                                     </th>
                                                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -205,9 +221,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">18:00 - 23:00</div>
                                                     </td>
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -221,7 +240,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                             <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                         </td>
@@ -241,9 +260,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">18:00 - 23:00</div>
                                                     </td>
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -257,7 +279,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                             <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                         </td>
@@ -277,9 +299,12 @@ function Class() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
                                                         <div className="text-sm text-gray-900">18:00 - 23:00</div>
                                                     </td>
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                             <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                                 <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
                                                                 Close
@@ -293,7 +318,7 @@ function Class() {
                                                             </td>
                                                         )
                                                     }
-                                                    {hours <= 18 || hours >= 23 ? ( 
+                                                    {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                             <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
                                                         </td>

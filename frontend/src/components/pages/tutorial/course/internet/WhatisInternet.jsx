@@ -84,7 +84,7 @@ function WhatisInternet() {
                                 setComment(event.target.value)
                             }} ></textarea>
                             <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
-                            <div className="flex justify-end items-center gap-10 my-5">
+                            <div className="flex justify-end items-center gap-10 my-5 mb-20">
                                 <input type="reset" defaultValue="Reset" className="bg-gray-200 text-black px-4 py-1 rounded-lg cursor-pointer" />  
                                 <p onClick={commentInternet} id="submitComment" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Post discussion</p>
                             </div>
@@ -92,7 +92,7 @@ function WhatisInternet() {
                         {
                             commentlist.map(
                                 (val)=> {
-                                    return <div className="bg-white p-4 my-5 rounded-xl">
+                                    return <div className="comment-box p-4 my-5 rounded-xl">
                                                 <div className="flex justify-between mb-1">
                                                     <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
                                                     <p className="text-gray-400 text-sm">{val.createAt}</p>

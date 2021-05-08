@@ -76,22 +76,21 @@ function Internet() {
                         back="/tutorial"
                         next="/what-is-internet"
                     />
-                    <div className="comment-box mt-32">
+                    <div className="comment-container mt-32">
                         <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
                         <textarea placeholder="add your discussion here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
                             setComment(event.target.value)
                         }} ></textarea>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
-                        <div className="flex justify-end items-center gap-10 my-5">
+                        <div className="flex justify-end items-center gap-10 my-5 mb-20">
                             <p className="bg-gray-200 color-black-1 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
                             <p onClick={commentInternet} id="submitComment" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
-                            
                         </div>
                         {
                             commentlist.map(
                                 (val)=> {
-                                    return <div className="bg-white p-4 my-5 rounded-xl">
+                                    return <div className="comment-box p-4 my-5 rounded-lg">
                                                 <div className="flex justify-between mb-1">
                                                     <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
                                                     <p className="text-gray-400 text-sm">{val.createAt}</p>
