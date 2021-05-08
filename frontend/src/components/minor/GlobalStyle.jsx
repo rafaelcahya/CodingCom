@@ -1,7 +1,7 @@
 import {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-    body,
+    body:not(.certification),
     .navbar{
         background-color: ${({theme}) => theme.background};
         color: ${({theme}) => theme.primarytext};
@@ -14,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
     #sidebarmobile,
+    .submit-box input,
+    .submit-box select,
+    .submit-box textarea,
     .reg-bootcamp-box input,
     .reg-bootcamp-box select,
     .reg-bootcamp-box textarea
@@ -67,12 +70,14 @@ export const lightTheme={
     background: '#eff3fc',
     primarytext: '#3a3a3a',
     foreground: '#eff3fc',
-    foreground2: '#fff'
+    foreground2: '#fff',
+    foreground3: '#eff3fc'
 }
 
 export const darkTheme={
     background: '#16141f',
     primarytext: '#fff',
     foreground: '#1f1d28',
-    foreground2: '#1f1d28'
+    foreground2: '#1f1d28',
+    foreground3: '#eff3fc'
 }

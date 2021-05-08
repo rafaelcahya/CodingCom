@@ -106,7 +106,7 @@ class ImageUpload extends React.Component {
         return (
             <div className="previewComponent">
                 <form onSubmit={(e)=>this._handleSubmit(e)}>
-                    <input className="w-full mb-5" 
+                    <input className="w-full mb-5"
                     type="file" 
                     onChange={(e)=>this._handleImageChange(e)} />
                 </form>

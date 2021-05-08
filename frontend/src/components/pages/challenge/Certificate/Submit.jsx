@@ -67,7 +67,8 @@ function Submit() {
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Attachment</p>
-                        <input type="file"/>
+                        <p className="text-xs color-black-2 font-medium">Only supports .zip, .rar and .7zip extensions</p>
+                        <input type="file" accept=".zip,.rar,.7zip" />
                     </div>
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-1 text-sm font-semibold">

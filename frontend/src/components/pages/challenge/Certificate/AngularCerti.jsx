@@ -21,7 +21,7 @@ export class AngularCerti extends Component {
                 <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-72 mt-32 lg:mt-20">
                     <p className="text-3xl font-semibold text-center my-10">Angular Certificate</p>
                     <div className="flex justify-center">
-                        <img src={angularui} alt="" width="750" className="rounded-3xl"/>
+                        <img src={angularui} alt="" width="750" className="rounded-xl"/>
                     </div>
                     <div className="flex flex-col gap-2 my-10">
                         <p className="font-semibold text-xl">Brief</p>

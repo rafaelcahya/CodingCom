@@ -865,7 +865,7 @@ Challenge
 .submit-box select {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
-    border-radius: 10px;
+    border-radius: 8px;
     outline: none;
 }
 
