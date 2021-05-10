@@ -208,17 +208,8 @@ export class Pricing extends Component {
                     </div>
                 </section>
 
-                <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="faq">
-                    <p className="text-center text-3xl font-semibold mb-10">Frequently Asked Questions</p>
-                    <div className="flex justify-center">
-                        <div className="w-full sm:w-3/4">
-                            <Accordion hiddenTexts={hiddenTexts}/>
-                        </div>
-                    </div>
-                </section>
-
-                {/* <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
-                    <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">How to Purchase</p>
+                <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
+                    <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">Steps to make the payment</p>
                     <div className="my-10">
                         <p>Here are some steps for how to make a payment:</p>
                         <ol className="list-decimal m-5 leading-8">
@@ -226,7 +217,7 @@ export class Pricing extends Component {
                             <li>Click Get Started button.</li>
                             <li>Fill your name and email and click the buy button.</li>
                             <li>Please transfer to the account below.</li>
-                            <div className="card bg-blue-1 w-max p-5 m-5 text-white rounded-xl">
+                            <div className="card bg-blue-100 w-max p-5 m-5 text-blue-500 rounded-xl">
                                 <p>Bank BCA</p>
                                 <p>8888897689</p>
                                 <p>CodingPaymentCom</p>
@@ -237,20 +228,14 @@ export class Pricing extends Component {
                     </div>
                 </section>
 
-                <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
-                    <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">Instructions</p>
-                    <ol className="flex flex-col gap-5 list-decimal mx-5 my-10">
-                        <li>Be careful when making transactions, do the transfer process correctly by looking at the transaction process above. besides the transfer process above, we make sure it is a scam.</li>
-                        <li>At this time, we only accept payments via transfer. Other than that, we could be considered a scam. We'll be expanding payment transactions soon, making it even easier for you to learn</li>
-                        <li>We will process the transaction if it is read in the system</li>
-                        <li>Look at the third step. If you have clicked the buy button, that means you will buy the Premium Plan and it will be read in our system. So don't worry, if your purchase is not confirmed by us. </li>
-                    </ol>
+                <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="faq">
+                    <p className="text-center text-3xl font-semibold mb-10">Frequently Asked Questions</p>
+                    <div className="flex justify-center">
+                        <div className="w-full sm:w-3/4">
+                            <Accordion hiddenTexts={hiddenTexts}/>
+                        </div>
+                    </div>
                 </section>
-
-                <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
-                    <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold" id="refund">Refund</p>
-                    <p className="my-10">For the time being, you cannot refund what you have bought in any form, so you have to make sure whether you intend to buy or not.</p>
-                </section> */}
                 <Footer/>
             </>
         )
