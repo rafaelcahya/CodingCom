@@ -35,6 +35,11 @@ export default function Sidebar() {
                     <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
                         <p>Transaction</p>
                     </div>
+                    <Link to="/admin/input-jobs">
+                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
+                            <p>Input jobs</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </>
