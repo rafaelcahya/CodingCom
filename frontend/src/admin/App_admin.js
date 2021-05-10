@@ -7,6 +7,8 @@ import UserList from "./UserList"
 import UserListActive from "./UserListActive"
 import EditPayment from "./EditPayment"
 import ProjectList from "./ProjectList"
+import AddCourse from "./AddCourse"
+import Course from "./Course"
 import InputJobs from "./InputJobs.jsx"
 
 function App_admin() {
@@ -20,6 +22,8 @@ function App_admin() {
             <Route path="/admin/user-list" component={UserList} />
             <Route path="/admin/user-list-active" component={UserListActive} />
             <Route path="/admin/project-list" component={ProjectList} />
+            <Route path="/admin/add-course" component={AddCourse} />
+            <Route path="/admin/course" component={Course} />
             <Route path="/admin/input-jobs" component={InputJobs} />
           </Switch>
         </Router>
