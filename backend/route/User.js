@@ -268,4 +268,24 @@ router.put("/deleteUser", (req, res) => {
     })
 })
 
+router.post("/test", (req, res) => {
+    const judul = req.body.judul
+    const content = req.body.content
+    const createAt = req.body.createAt
+    let mentorId = 1
+    let status = "Pending"
+    
+    db.query("INSERT INTO course (judul, content, mentorId, status, createAt) VALUES (?, ?, ?, ?, ?);", [judul, content, mentorId, status,createAt], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
+router.get("/test1", (req, res) => {
+    let id = 1
+    db.query("SELECT * FROM course WHERE id = ?", id, (err, results) => {
+        res.send(results)
+    })
+})
+
 module.exports = router;
