@@ -1,3 +1,5 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-undef */
 import React, { useState } from 'react'
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
