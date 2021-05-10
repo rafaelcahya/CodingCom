@@ -101,25 +101,13 @@ router.post("/login", (req, res) => {
         }
         if (results.length > 0) {
             if (hash.match(results[0].password) != null) {
-                res.json({ loggedIn: true, name: name })
+                res.json({ loggedIn: true, name: name})
 
             } else if (name.length <= 0) {
                 res.send({ message: "You must fill username" })
             } else if (password.length <= 0) {
                 res.send({ message: "You must fill password" })
-            }
-            // else if (password.length <= 8) {
-            //     res.json({ loggedIn: true, message: "Password at least has 8 character" })
-            // } else if (password.length >= 20) {
-            //     res.json({ loggedIn: true, message: "Password must be less than 20 character" })
-            // } else if (password.match(/[A-Z]/) == null) {
-            //     res.json({ loggedIn: true, message: "Password at least 1 uppercase" })
-            // } else if (password.match(/[a-z]/) == null) {
-            //     res.json({ loggedIn: true, message: "Password at least 1 lowercase" })
-            // } else if (password.match(/[0-9]/) == null) {
-            //     res.json({ loggedIn: true, message: "Password at least 1 number" })
-            // }
-            else {
+            }else {
                 res.json({ loggedIn: false, message: "Wrong Username / Password" })
 
             }
