@@ -93,4 +93,12 @@ router.get("/classListUser", (req, res) => {
     })
 })
 
+router.get("/classById/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT * from class WHERE id = ?",id,(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 module.exports = router;
