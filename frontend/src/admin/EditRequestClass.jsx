@@ -1,11 +1,12 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable no-useless-concat */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 
-function EditRequestClass() {
+function EditRequestClass(props) {
+    const urlid = props.match.params.id
     const [id, setId] = useState("")
     const [className, setClassName] = useState("")
     const [time, setTime] = useState("")
@@ -14,7 +15,7 @@ function EditRequestClass() {
     const [updateAt, setUpdateAt] = useState("")
     const [status, setStatus] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
-
+    const [valueList,setValueList] = useState([])
     window.onload = setTimeout(function () {
         var url1 = window.location.pathname;
         var idurl = url1.substring(url1.lastIndexOf('/') + 1);
@@ -31,6 +32,20 @@ function EditRequestClass() {
         setUpdateAt(dateTime)
         
     }, 500)
+
+    useEffect(() => {
+       const test = Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
+            setValueList(response.data)
+
+            {
+                valueList.map(
+                    (val) => {
+                        return 
+                    }
+                )
+            }
+        })
+    }, []);
 
     const updateClass = () => {
         Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, time: time, date: date, url: url, updateAt: updateAt, status: status }).then((response) => {
@@ -49,6 +64,7 @@ function EditRequestClass() {
                         <p className="text-lg font-semibold">Class Request</p>
                         <p className="text-xs font-medium text-gray-400 w-3/4">For Class name, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
                     </div>
+                    
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
                             <div className="request-class-container flex flex-col gap-10">
