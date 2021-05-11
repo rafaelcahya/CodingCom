@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Sidebar() {
     return (
         <>
-            <div className="sidebar fixed w-64 m-5 p-8 flex flex-col gap-2 bg-white rounded-2xl " style={{height: "750px"}}>
+            <div className="sidebar fixed w-64 m-5 p-8 flex flex-col gap-2 bg-white rounded-2xl border border-gray-300" style={{height: "750px"}}>
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-2">Dashboard</p>
                 <div className="flex flex-col" style={{fontSize: "16px"}}>
                     <Link to="/admin/user-list">

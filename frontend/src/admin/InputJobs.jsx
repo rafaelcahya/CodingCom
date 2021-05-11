@@ -6,33 +6,38 @@ function InputJobs() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar/>
-                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
+                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-2/5" >
                     <section>
                         <div className="submit-box flex flex-col gap-10">
-                            <div className="flex flex-col gap-3">
+                            {/* <div className="flex flex-col gap-3">
                                 <p className="font-semibold text-3xl">Give us your feedback</p>
                                 <p className="font-medium text-sm">Tell us what you love, tell us what you hate, and tell us what you want to see in the next update.</p>
+                            </div> */}
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Company logo</p>
+                                <ImageUpload/>
                             </div>
-                            <div className="flex gap-10 w-full">
-                                <div className="w-1/4 flex flex-col gap-2">
-                                    <p className="text-sm font-semibold">Company logo</p>
-                                    <ImageUpload/>
-                                </div>
-                                <div className="w-3/4 flex flex-col gap-2">
-                                    <p className="text-sm font-semibold">Company name</p>
-                                    <input type="text" placeholder="Input Job title"/>
-                                </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Company name</p>
+                                <input type="text" placeholder="Input Job title"/>
                             </div>
-                            <div className="flex gap-10 w-full">
-                                <div className="w-1/2 flex flex-col gap-2">
-                                    <p className="text-sm font-semibold">Job title</p>
-                                    <input type="text" placeholder="Input Job title"/>
-                                </div>
-                                
-                                <div className="w-1/2 flex flex-col gap-2">
-                                    <p className="text-sm font-semibold">Job location</p>
-                                    <input type="text" placeholder="Input Job title"/>
-                                </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Job title</p>
+                                <input type="text" placeholder="Input Job title"/>
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Job location</p>
+                                <input type="text" placeholder="Input Job location"/>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Employment type</p>
+                                <select name="" id="">
+                                    <option value="">Select employment type</option>
+                                    <option value="Fulltime">Fulltime</option>
+                                    <option value="Parttime">Parttime</option>
+                                    <option value="Internship">Internship</option>
+                                </select>
                             </div>
                             <p className="color-red-1 text-center font-medium">errorMessage</p>
                             <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit feedback</p>
@@ -89,7 +94,7 @@ class ImageUpload extends React.Component {
                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                     onChange={(e)=>this._handleImageChange(e)} />
                 </form>
-                <div style={{width: "400px"}}>
+                <div style={{width: "300px"}}>
                     {$imagePreview}
                 </div>
             </div>

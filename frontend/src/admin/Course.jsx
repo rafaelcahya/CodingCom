@@ -20,7 +20,7 @@ function InputJobs() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar/>
-                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
+                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-full" >
                 {
                                     value.map(
                                         (val) => {

@@ -26,7 +26,7 @@ function EditPayment() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full" >
+                <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-2xl w-full" >
                     <div className="flex flex-col gap-1 pb-8">
                         <p className="text-lg font-semibold">Payment Edit</p>
                         <p className="text-xs font-medium text-gray-400 w-3/4">This is for payment verification user, Admin can choose what to do here</p>
