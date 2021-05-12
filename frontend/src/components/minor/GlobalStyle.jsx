@@ -30,15 +30,24 @@ export const GlobalStyle = createGlobalStyle`
     .payment-container,
     .payment-confirm-box,
     .roadmap-header, 
-    .tutorial-box, 
     .tutorial-paid-box, 
     .challenge-box, 
     .certificate-box div,
     .comment-box textarea,
     .news-box,
     .comment-container textarea,
-    .comment-box{
+    .comment-box,
+    .sidebar,
+    .table-request-class,
+    .table-request-class select,
+    .jobform{
         background: ${({theme}) => theme.foreground2};
+    }
+    
+    .sidebar,
+    .table-request-class,
+    .jobform{
+        border: ${({theme}) => theme.border};
     }
 
     .register-popup-box,
@@ -71,7 +80,8 @@ export const lightTheme={
     primarytext: '#3a3a3a',
     foreground: '#eff3fc',
     foreground2: '#fff',
-    foreground3: '#eff3fc'
+    foreground3: '#eff3fc',
+    border: '1px solid rgb(209, 213, 219)'
 }
 
 export const darkTheme={
@@ -79,5 +89,6 @@ export const darkTheme={
     primarytext: '#fff',
     foreground: '#1f1d28',
     foreground2: '#1f1d28',
-    foreground3: '#eff3fc'
+    foreground3: '#eff3fc',
+    border: 'none'
 }

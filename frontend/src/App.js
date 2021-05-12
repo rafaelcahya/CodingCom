@@ -48,6 +48,7 @@ import CertificateHTML from "./components/pages/challenge/certificate/Download C
 import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
 import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
 import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
+import Career from "./components/pages/career/Career.jsx"
 
 const Container = styled.div`
 `;
@@ -108,6 +109,8 @@ function App() {
             <Route path="/class-session" component={Class} />
 
             <Route path="/feedback" component={FeedbackForm} />
+
+            <Route path="/career" component={Career} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>

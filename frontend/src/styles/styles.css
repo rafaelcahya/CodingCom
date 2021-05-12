@@ -719,6 +719,31 @@ Tutorial
 
 */
 
+
+#tutorial-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    height: 225px;
+    transition: 200ms;
+}
+
+#tutorial-box:hover{
+    transform: scale(1.05);
+    transition: 200ms;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.category-btn{
+    background-color: white;
+    color: black;
+    padding: 5px 20px;
+    border-radius: 6px;
+}
+
 #sidebarmobile {
     width: 250px;
     position: fixed;
@@ -1067,4 +1092,24 @@ Bootcamp
 .reg-bootcamp-box textarea:focus,
 .reg-bootcamp-box select:focus {
     border: 1.6px solid var(--blue-1);
+}
+
+/* 
+
+Career 
+
+*/
+
+.cv-form input,
+.cv-form button,
+.cv-form textarea
+{
+    width: 500px;
+    padding: .375rem 1rem;
+    border: 1.6px solid var(--black-2);
+    border-radius: 8px;
+    outline: none;
+}
+.cv-form button{
+    border: none;
 }

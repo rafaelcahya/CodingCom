@@ -10,12 +10,6 @@ function InputJobs() {
         })
     }, []);
 
-        const content = document.getElementsByClassName(".content").innerHTML;
-
-    
-    
-    
-
     return (
         <>
             <div className="flex h-screen overflow-hidden">
@@ -24,11 +18,10 @@ function InputJobs() {
                 {
                                     value.map(
                                         (val) => {
-                                            return <div className="content">{val.content}</div>
+                                            return <div dangerouslySetInnerHTML={{__html:val.content}}/>
                                         }
                                     )
                                 }
-                    <div><p>{content}</p></div>
                 </div>
             </div>
         </>
