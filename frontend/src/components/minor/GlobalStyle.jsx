@@ -30,7 +30,6 @@ export const GlobalStyle = createGlobalStyle`
     .payment-container,
     .payment-confirm-box,
     .roadmap-header, 
-    .tutorial-box, 
     .tutorial-paid-box, 
     .challenge-box, 
     .certificate-box div,
