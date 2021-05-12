@@ -1,66 +1,45 @@
-import React, { Component } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation} from 'swiper';
-import "../../../../../../node_modules/swiper/swiper.min.css"
-
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Footer from '../../../../major/Footer'
 import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
-import RoadmapComp from './RoadmapComp'
 
-import frontend from "../../../../../asset/photo/Roadmap/frontend.png"
-import backend from "../../../../../asset/photo/Roadmap/backend.png"
-import devops from "../../../../../asset/photo/Roadmap/devops.png"
-import react from "../../../../../asset/photo/Roadmap/react.png"
-
-SwiperCore.use([Navigation]);
-export class Roadmap extends Component {
-    render() {
-        return (
-            <>
-                <NavbarLogin/>
-                <NavbarMobile/> 
-                <Swiper
-                slidesPerView={1}
-                loop= "true"
-                navigation= {{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                }}
-                    >
-                    <div className="swiper-button-prev swiper-button-prev-container p-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left "><polyline points="15 18 9 12 15 6"></polyline></svg>
+export default function Roadmap() {
+    return (
+        <>
+            <NavbarLogin/>
+            <NavbarMobile/>
+            <div className="flex flex-col items-center gap-2 mx-8 sm:mx-24 mt-32 lg:mt-20">
+                <p className="text-4xl font-bold">Web Developer Roadmap</p>
+                <p className="text-gray-500 font-medium">Step by step guides and paths to learn different tools or technologies</p>
+            </div>
+            <div className="roadmap-box flex flex-wrap justify-center gap-10 py-20">
+                <Link to="/roadmap-frontend">
+                    <div className="p-5 shadow rounded-lg hover:shadow-xl transform hover:scale-110 duration-200">
+                        <p className="text-lg font-semibold">Frontend</p>
+                        <p className="text-sm">Step by step to learn Frontend</p>
                     </div>
-                    <SwiperSlide>
-                        <RoadmapComp
-                            header="Frontend Development Roadmap"
-                            image={frontend}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <RoadmapComp
-                            header="Backend Development Roadmap"
-                            image={backend}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <RoadmapComp
-                            header="DevOps Roadmap"
-                            image={devops}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <RoadmapComp
-                            header="Javascript Library React Roadmap"
-                            image={react}
-                        />
-                    </SwiperSlide>
-                    <div className="swiper-button-next swiper-button-next-container p-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right "><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </Link>
+                <Link to="/roadmap-backend">
+                    <div className="p-5 shadow rounded-lg hover:shadow-xl transform hover:scale-110 duration-200">
+                        <p className="text-lg font-semibold">Backend</p>
+                        <p className="text-sm">Step by step to learn Backend</p>
                     </div>
-                </Swiper>
-            </>
-        )
-    }
+                </Link>
+                <Link to="/roadmap-react">
+                    <div className="p-5 shadow rounded-lg hover:shadow-xl transform hover:scale-110 duration-200">
+                        <p className="text-lg font-semibold">React</p>
+                        <p className="text-sm">Step by step to learn React</p>
+                    </div>
+                </Link>
+                <Link to="/roadmap-devops">
+                    <div className="p-5 shadow rounded-lg hover:shadow-xl transform hover:scale-110 duration-200">
+                        <p className="text-lg font-semibold">DevOps</p>
+                        <p className="text-sm">Step by step to learn DevOps</p>
+                    </div>
+                </Link>
+            </div>
+            <Footer/>
+        </>
+    )
 }
-
-export default Roadmap

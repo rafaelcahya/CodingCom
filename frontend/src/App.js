@@ -26,6 +26,11 @@ import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
 import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 
+import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
+import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/RoadmapBackend.jsx"
+import RoadmapReact from "./components/pages/tutorial/course/roadmap/content/RoadmapReact.jsx"
+import RoadmapDevops from "./components/pages/tutorial/course/roadmap/content/RoadmapDevops.jsx"
+
 import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
 import Submit from "./components/pages/challenge/certificate/Submit.jsx"
 import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
@@ -77,7 +82,13 @@ function App() {
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
             <Route path="/payment-confirmation-class-consultation-quota" component={ConsultationPay} />
             <Route path="/payment-confirmation-class-session-quota" component={SessionPay} />
+
             <Route path="/roadmap" component={Roadmap} />
+            <Route path="/roadmap-frontend" component={RoadmapFrontend} />
+            <Route path="/roadmap-backend" component={RoadmapBackend} />
+            <Route path="/roadmap-react" component={RoadmapReact} />
+            <Route path="/roadmap-devops" component={RoadmapDevops} />
+
             <Route path="/tutorial" component={Tutorial} />
 
             <Route path="/bootcamp" component={BootcampHome}/>

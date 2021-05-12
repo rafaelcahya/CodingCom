@@ -137,16 +137,16 @@ export default function NavbarLogin() {
                             <div>
                                 <p className="font-semibold color-blue-1">Roadmap</p>
                                 <div className="flex flex-col gap-2 text-sm mt-2">
-                                    <Link to="/roadmap">
+                                    <Link to="/roadmap-frontend">
                                         <p>Frontend</p>
                                     </Link>
-                                    <Link to="/roadmap">
+                                    <Link to="/roadmap-backend">
                                         <p>Backend</p>
                                     </Link>
-                                    <Link to="/roadmap">
+                                    <Link to="/roadmap-devops">
                                         <p>DevOps</p>
                                     </Link>
-                                    <Link to="/roadmap">
+                                    <Link to="/roadmap-react">
                                         <p>ReactJs</p>
                                     </Link>
                                 </div>

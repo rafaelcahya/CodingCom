@@ -10,7 +10,7 @@ import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import Footer from '../../major/Footer'
 import items from './Data'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const allCategories = ['All', ...new Set(items.map(item => item.category))];
 console.log(allCategories);
