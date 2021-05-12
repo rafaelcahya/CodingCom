@@ -55,10 +55,12 @@ export default function Class() {
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/edit-request-class/" + val.id}>
+                                                            {val.status == "Pending" ?(
+                                                                <Link to={"/edit-request-class/" + val.id}>
                                                                 
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
-                                                            </Link>
+                                                                <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
+                                                                </Link>):(<p>{val.status}</p>)}
+                                                            
                                                         </td>
                                                     </tr>
                                         }

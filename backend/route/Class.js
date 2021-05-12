@@ -23,17 +23,19 @@ router.post("/createClass", (req, res) => {
     } else if (time.length <= 0) {
         res.send({ message: "Time can not be empty" })
     } else {
+        console.log(name)
         db.query("SELECT * From mentor WHERE username = ?", name, (err, results) => {
             if (err) {
                 console.log(err)
             }
 
             if (results.length > 0) {
-                mentor_id = results[0].id
+                mentor_id = results[0].mentorId
                 db.query("INSERT INTO class (className, date, time, url, status, mentor_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [className, date, time, url, status, mentor_id, createAt, updateAt], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
+                console.log(mentor_id)
             }
         })
     }

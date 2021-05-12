@@ -1,11 +1,8 @@
 import React, { Fragment, useState } from 'react'
-import Particles from "react-particles-js"
 
 import Axios from "axios"
 import { Link } from 'react-router-dom'
 import { useHistory } from "react-router-dom"
-
-import particlesConfig from '../background/ParticlesConfig'
 
 export default function Login() {
     const [name, setName] = useState("")
@@ -17,11 +14,11 @@ export default function Login() {
 
     const login = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/login", { name: name, password: password }).then((response) => {
+        Axios.post("http://localhost:3001/mentor/login", { name: name, password: password }).then((response) => {
             if (response.data.loggedIn) {
                 localStorage.setItem("loggedIn", true)
                 localStorage.setItem("name", response.data.name)
-                history.push("/")
+                history.push("/mentor/class-request")
             } else {
                 setErrorMessage(response.data.message)
             }
@@ -50,12 +47,9 @@ export default function Login() {
     return (
         <Fragment>
             <div className="relative flex justify-center" onFocus={focus}>
-                <div className="absolute">
-                    <Particles height="100vh" width="100vw" params={particlesConfig}/>
-                </div>
                 <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
                     <div className="text-lg">
-                        <p className="color-blue-1">Hello,</p>
+                        <p className="color-blue-1">Hello Mentor,</p>
                         <p>Welcome to Coding.com</p>
                     </div>
                     <div className="login-box flex flex-col my-10">
@@ -82,23 +76,12 @@ export default function Login() {
                                 <Link to="/forgotPassword">
                                     <p className="text-xs mt-1 underline text-right">Forgot password?</p>
                                 </Link>
-
-                                <Link to="/mentor/login">
-                                    <p className="text-xs mt-1 underline text-right">Login as Mentor</p>
-                                </Link>
                             </div>
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex justify-end items-center gap-5 text-sm">
                         <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>
-                    </div>
-                    
-                    <div className="text-sm flex flex-col justify-center items-center gap-2 mt-20">
-                        <p>Don't have an account?</p>
-                        <Link to="/register">
-                            <p className="color-blue-1 underline font-medium">Register here</p>
-                        </Link>
                     </div>
 
                 </div>
