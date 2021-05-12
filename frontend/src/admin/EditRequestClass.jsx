@@ -34,16 +34,8 @@ function EditRequestClass(props) {
     }, 500)
 
     useEffect(() => {
-       const test = Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
+        Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
             setValueList(response.data)
-
-            {
-                valueList.map(
-                    (val) => {
-                        return 
-                    }
-                )
-            }
         })
     }, []);
 
@@ -64,8 +56,10 @@ function EditRequestClass(props) {
                         <p className="text-lg font-semibold">Class Request</p>
                         <p className="text-xs font-medium text-gray-400 w-3/4">For Class name, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
                     </div>
-                    
-                    <div className="overflow-x-auto">
+                    {
+                valueList.map(
+                    (val) => {
+                        return <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
                             <div className="request-class-container flex flex-col gap-10">
                                 <div className="flex flex-col gap-2">
@@ -73,6 +67,7 @@ function EditRequestClass(props) {
                                     <input
                                         type="text"
                                         placeholder="Input Classname"
+                                        defaultValue = {val.className}
                                         onChange={(event) => {
                                             setClassName(event.target.value)
                                         }} />
@@ -83,6 +78,7 @@ function EditRequestClass(props) {
                                         <input
                                             type="date"
                                             placeholder="Input Date"
+                                            defaultValue = {val.date}
                                             onChange={(event) => {
                                                 setDate(event.target.value)
                                             }} />
@@ -92,7 +88,7 @@ function EditRequestClass(props) {
                                         <select id="dropdown" onChange={(event) => {
                                             setTime(event.target.value)
                                         }}>
-                                            <option value="" selected>Choose time</option>
+                                            <option defaultValue={val.time}>{val.time}</option>
                                             <option value="00:00">00:00</option>
                                             <option value="01:00">01:00</option>
                                             <option value="02:00">02:00</option>
@@ -124,6 +120,7 @@ function EditRequestClass(props) {
                                     <p className="url flex items-center gap-1 text-sm font-semibold">Meeting URL</p>
                                     <input
                                         type="text"
+                                        defaultValue = {val.url}
                                         placeholder="Input Url"
                                         onChange={(event) => {
                                             setUrl(event.target.value)
@@ -134,7 +131,7 @@ function EditRequestClass(props) {
                                     <select id="dropdown" onChange={(event) => {
                                         setStatus(event.target.value)
                                     }}>
-                                        <option value="">Choose Status</option>
+                                        <option value={val.status}>{val.status}</option>
                                         <option value="Approve">Approve</option>
                                         <option value="Reject">Reject</option>
                                     </select>
@@ -149,6 +146,10 @@ function EditRequestClass(props) {
                             </div>
                         </div>
                     </div>
+                    }
+                )
+            }
+                    
                 </div>
             </div>
         </>
