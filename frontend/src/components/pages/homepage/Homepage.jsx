@@ -24,6 +24,7 @@ import tutorial5 from "../../../asset/icon/Homepage/devops.svg"
 import learningPath from "../../../asset/photo/homepage/feature/learning-path.jpg"
 import challenge from "../../../asset/photo/homepage/feature/challenge.jpg"
 import consultation from "../../../asset/photo/homepage/feature/consultation.jpg"
+import session from "../../../asset/photo/homepage/feature/session.jpg"
 import bootcamp2 from "../../../asset/photo/homepage/feature/bootcamp.jfif"
 import textEditor from "../../../asset/photo/homepage/feature/text-editor.jpg"
 import certificate from "../../../asset/photo/homepage/feature/certificate.jpg"
@@ -58,7 +59,7 @@ export default function Homepage() {
                     </div>
                 </header>
 
-                <section className="mx-8 md:mx-16 lg:mx-20 my-20 lg:mb-32">
+                <section className="mx-8 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
                     <p className="text-center text-2xl md:text-4xl font-semibold py-10">Our Tutorials</p>
                     <div className="cta flex flex-wrap justify-center gap-10">
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl">
@@ -94,7 +95,7 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className=" mx-10 md:mx-16 lg:mx-20 py-20 mt-32 lg:mt-0 rounded-xl">
+                <section className=" mx-10 md:mx-16 lg:mx-20 xl:mx-64 py-20 mt-32 lg:mt-0 rounded-xl">
                     <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl text-left md:text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
                     <div className="block md:flex items-center gap-28">
                         <div>
@@ -146,6 +147,13 @@ export default function Homepage() {
                                 title= "Consultation"
                                 desc="Learn directly with a professional mentor and receive a customized, professional consultation in this exciting industry. Learn from home or anywhere on your schedule."
                                 image={consultation}
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <FeatureComp
+                                title= "Coding Class"
+                                desc="You can study together with professional mentors to guest stars in Coding Class. improve knowledge with coding class"
+                                image={session}
                             />
                         </SwiperSlide>
                         <SwiperSlide>

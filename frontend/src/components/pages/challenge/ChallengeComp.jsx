@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class ChallengeComp extends Component {
     render() {
         return (
-            <div className="tutorial-box flex flex-col justify-between rounded-xl shadow transform hover:scale-105 hover:shadow-lg transition duration-200" style={{width: "300px"}}>
+            <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="tutorial-box flex flex-col justify-between rounded-xl shadow transform hover:scale-105 hover:shadow-lg transition duration-200" style={{width: "300px"}}>
                 <img src={this.props.image} alt="" className="rounded-tl-xl rounded-tr-xl"/>
                 <div className="flex flex-col justify-between p-5 h-64">
                     <div>
