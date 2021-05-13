@@ -45,7 +45,6 @@ import RegisterBootcamp from "./bootcamp/RegisterBootcamp.jsx"
 import PremiumPlanPay from "./components/pages/pricing/PremiumPlanPay.jsx"
 import ConsultationPay from "./components/pages/pricing/ConsultationPay.jsx"
 import SessionPay from "./components/pages/pricing/SessionPay.jsx"
-import FeedbackBtn from "./components/major/Feedback/FeedbackBtn.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
 
@@ -70,7 +69,6 @@ function App() {
             <Toggle theme={theme} toggleTheme={toggleTheme} />
             <ScrollToTop/>
           </div>
-          <FeedbackBtn/>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/help" component={Help} />
@@ -96,7 +94,7 @@ function App() {
 
             <Route path="/internet" component={Internet} />
             <Route path="/what-is-internet" component={WhatisInternet} />
-            <Route path="/how-does-internet-work" component={InternetWork} />
+            <Route path="/how-internet-work" component={InternetWork} />
             <Route path="/what-is-http" component={Whatishttp} />
             <Route path="/browser" component={Browser} />
             <Route path="/DNS" component={DNS} />

@@ -378,16 +378,6 @@ Navbar
     color: #3b72ff;
 }
 
-.navbar-mobile p {
-    padding: 8px 12px;
-}
-
-.navbar-mobile p:hover {
-    background-color: #3b72ff;
-    color: white;
-    border-radius: .75rem;
-}
-
 .dropdown-tutorial-box p:hover {
     color: #3b72ff;
 }
@@ -396,6 +386,29 @@ Navbar
     font-size: .875rem;
     margin: .5rem 0
 }
+
+
+.navbar-mobile-dropdown {
+    display: none;
+  }
+  .navbar-mobile ul li:hover .navbar-mobile-dropdown {
+    display: block;
+  }
+  .navbar-mobile ul li {
+    display: inline-block;
+    position: relative;
+  }
+  .navbar-mobile ul li:hover .navbar-mobile-dropdown {
+    display: block;
+  }
+  .navbar-mobile-dropdown {
+    padding-top: 20px;
+    display: none;
+    position: absolute;
+    left: -40px;
+    width: 250px;
+    height: 750px;
+  }
 
 .course:hover .course-box {
     display: -webkit-box;
@@ -732,47 +745,23 @@ Tutorial
     border-radius: 6px;
 }
 
-#sidebarmobile {
+.sidebar-mobile-dropdown {
+    display: none;
+  }
+  .sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
+    display: block;
+  }
+  .sidebar-mobile ul li {
+    display: inline-block;
+    position: relative;
+  }
+  .sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
+    display: block;
+  }
+  .sidebar-mobile-dropdown {
+    display: none;
     width: 250px;
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: -250px;
-    -webkit-transition: left 0.3s ease;
-    -o-transition: left 0.3s ease;
-    transition: left 0.3s ease;
-    z-index: 20;
-}
-
-#sidebarmobile p {
-    padding: 6px;
-    border-radius: 10px;
-}
-
-
-#sidebarmobile p:hover {
-    background-color: #3b72ff;
-    color: white;
-}
-
-#sidebarmobile.visible {
-    left: 0;
-    -webkit-transition: left 0.3s ease;
-    -o-transition: left 0.3s ease;
-    transition: left 0.3s ease;
-}
-
-#sidebarbtn {
-    cursor: pointer;
-    margin: 20px;
-    position: absolute;
-    right: -60px;
-    top: 50%;
-    background-color: var(--orange-1);
-    color: white;
-    border-radius: 100%;
-    padding: 4px;
-}
+  }
 
 iframe {
     width: 360px;

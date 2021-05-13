@@ -9,7 +9,7 @@ export default function Roadmap() {
         <>
             <NavbarLogin/>
             <NavbarMobile/>
-            <div className="flex flex-col items-center gap-2 mx-8 sm:mx-24 mt-32 lg:mt-20">
+            <div className="flex flex-col items-center mx-10 sm:mx-20 mt-32 lg:mt-20">
                 <p className="text-4xl font-bold">Web Developer Roadmap</p>
                 <p className="text-gray-500 font-medium">Step by step guides and paths to learn different tools or technologies</p>
             </div>

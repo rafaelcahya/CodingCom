@@ -1,49 +1,69 @@
 import React from "react";
-import $ from "jquery"
-
 import { Link } from "react-router-dom";
 
-$(document).ready(function() {
-    $('#sidebarbtn').on('click', function() {
-        $('#sidebarmobile').toggleClass('visible');
-    });
-});
 export default function SidebarInternetMobile() {
-    const scrollToTop = () => {
-        window.scrollTo(0, 0)
-    }
     return (
         <>
-            <nav id="sidebarmobile" className="block lg:hidden">
-                <div className="flex flex-col px-6">
-                    <div className="py-6">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            width="40" height="40" viewBox="0 0 44 59"
-                            preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0,59) scale(0.1,-0.1)"
-                            fill="#3b72ff" stroke="0">
-                            <path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
-                            80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
-                            -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
-                            153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
-                            13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
-                            -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <p onClick={scrollToTop}><Link to="/internet"><p>Introduction</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/what-is-internet"><p>What is internet</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/how-does-internet-work"><p>How does internet work</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/what-is-http"><p>What is HTTP & HTTPS</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/browser"><p>Browser</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/DNS"><p>DNS Server</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/domain"><p>Domain</p></Link></p>
-                    <p onClick={scrollToTop}><Link to="/hosting"><p>Hosting</p></Link></p>
-                </div>
-                <div id="sidebarbtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </div>
-            </nav>
+            <nav className="sidebar-mobile block lg:hidden fixed top-16 right-2 z-10">
+                <ul>
+                    <li>
+                        <div className="flex items-center px-8 py-4 gap-2 shadow rounded-lg">
+                            <p className="uppercase font-semibold text-xs tracking-wider">Internet Tutorial</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                        <Submenu />
+                    </li>
+                </ul>
+            </nav> 
+        </>
+    )
+}
+
+function Submenu() {
+    return (
+        <>
+            <div className="sidebar-mobile-dropdown bg-red-100 absolute right-0 text-right shadow rounded-lg px-4">
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/internet">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Introduction</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/what-is-internet">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">What is internet</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/how-internet-work">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">How internet works</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/what-is-http">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">HTTP & HTTPS</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/browser">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Browser</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/dns">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">DNS Server</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/domain">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Domain</p>
+                    </Link>
+                </p>
+                <p onClick={window.scrollTo(0, 0)}>
+                    <Link to="/hosting">
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Hosting</p>
+                    </Link>
+                </p>
+            </div>
         </>
     )
 }

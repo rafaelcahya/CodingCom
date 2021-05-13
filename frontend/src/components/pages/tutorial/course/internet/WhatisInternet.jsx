@@ -8,6 +8,7 @@ import SidebarInternet from '../SidebarInternet'
 import osimodel from '../../../../../asset/photo/Tutorial/internet/osimodel.png'
 import SidebarInternetMobile from '../SidebarInternetMobile'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function WhatisInternet() {
     let x
@@ -45,19 +46,21 @@ function WhatisInternet() {
             <NavbarLogin />
             <NavbarMobile />
             <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
-                <SidebarInternet />
+                <div className="hidden lg:block lg:w-1/5">
+                    <SidebarInternet />
+                </div>
                 <SidebarInternetMobile />
-                <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
-                    <div className="flex justify-between border-b border-gray-300 pb-10">
+                <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
+                    <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                         <div>
                             <p className="text-2xl lg:text-5xl font-semibold">What is internet</p>
                             <p className="text-gray-400 text-sm mt-2">This page discusses the meaning of the internet.</p>
                         </div>
-                        <p className="text-gray-400 text-sm">5 min</p>
+                        <p className="text-gray-400 text-sm mt-5 sm:mt-0">5 min</p>
                     </div>
                     <div className="flex flex-col gap-10 pt-10 pb-20">
                         <div className="flex flex-col gap-5 my-5">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Dxcc6ycZ73M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe className="w-full h-80" src="https://www.youtube.com/embed/Dxcc6ycZ73M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <p className="text-xl font-semibold">What is Internet?</p>
                             <div className="flex flex-col gap-5 my-5">
                                 <p>The internet is a network or computer connection that is very extensive throughout the world so that people can share information and communicate from anywhere. The network or connection makes use of communication devices such as telephones and satellites which also use standard protocols for communication, namely the TCP / IP (Transmission Control / Internet Protocol) protocol.</p>
@@ -103,6 +106,13 @@ function WhatisInternet() {
                             )
                         }
                     </div>
+                </div>
+                <div className="hidden lg:block sticky self-start top-6 p-6 mt-6 bg-white rounded-lg shadow" style={{width: "18%"}}>
+                    <p className="text-lg font-semibold">Consultation class</p>
+                    <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                    <Link to="/class-session">
+                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                    </Link>
                 </div>
             </div>
             <Footer />

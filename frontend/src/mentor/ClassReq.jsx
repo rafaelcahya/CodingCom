@@ -41,7 +41,7 @@ function ClassReq() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar/>
-                <div className="0verflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl w-full">
+                <div className="0verflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-2xl w-full">
                     <p className="text-lg font-semibold pb-8">Request Class for Mentor</p>
                     <div className="request-class-container flex flex-col gap-10">
                         <div className="flex flex-col gap-2">

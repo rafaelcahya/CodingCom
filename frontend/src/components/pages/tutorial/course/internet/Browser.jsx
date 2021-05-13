@@ -6,6 +6,7 @@ import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternetMobile from '../SidebarInternetMobile'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function Browser() {
     let x
@@ -43,19 +44,21 @@ function Browser() {
             <NavbarLogin />
             <NavbarMobile />
             <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
-                <SidebarInternet />
+                <div className="hidden lg:block lg:w-1/5">
+                    <SidebarInternet />
+                </div>
                 <SidebarInternetMobile />
-                <div className="w-4/5 pl-20 pr-0 pt-5 lg:pr-32 border-l border-gray-300">
-                    <div className="flex justify-between border-b border-gray-300 pb-10">
+                <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
+                    <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                         <div>
                             <p className="text-2xl lg:text-5xl font-semibold">Browser</p>
                             <p className="text-gray-400 text-sm mt-2">This page discusses what the browser is and how it works.</p>
                         </div>
-                        <p className="text-gray-400 text-sm">10 min</p>
+                        <p className="text-gray-400 text-sm mt-5 sm:mt-0">10 min</p>
                     </div>
-                    <div className="flex flex-col gap-10 pt-10 pb-20">
+                    <div className="flex flex-col gap-5 my-5 pt-5">
                         <div className="flex flex-col gap-5">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QzohDuGk4mM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/QzohDuGk4mM" title="YouTube video player" className="w-full h-80" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <p className="text-xl font-semibold">What is browser?</p>
                             <p>Browser is an application for accessing a website. Usually the purpose of the browser is to find and get information from websites. Fundamentally, browsers have the ability to display the semantic code (programming language) of web pages such as HTML, CSS, JS, and others into pages that are understandable to everyone. Google Chrome, Mozilla, Internet Explorer are just a few of the existing browsers.</p>
                         </div>
@@ -100,6 +103,13 @@ function Browser() {
                             )
                         }
                     </div>
+                </div>
+                <div className="hidden lg:block sticky self-start top-6 p-6 mt-6 bg-white rounded-lg shadow" style={{width: "18%"}}>
+                    <p className="text-lg font-semibold">Consultation class</p>
+                    <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                    <Link to="/class-session">
+                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                    </Link>
                 </div>
             </div>
             <Footer />

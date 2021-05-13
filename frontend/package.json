@@ -31,6 +31,7 @@
     "react-sticky": "^6.0.3",
     "react-sticky-box": "^0.9.3",
     "react-to-pdf": "0.0.13",
+    "react-tooltip": "^4.2.19",
     "styled-components": "^5.2.3",
     "swiper": "^6.5.4",
     "web-vitals": "^1.1.1"

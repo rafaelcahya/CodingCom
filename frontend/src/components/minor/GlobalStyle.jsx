@@ -24,6 +24,10 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground};
     }
 
+    .navbar-mobile,
+    .navbar-mobile-dropdown,
+    .sidebar-mobile,
+    .sidebar-mobile-dropdown,
     .dropdown-tutorial,
     .cta div,
     .plan-box,

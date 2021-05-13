@@ -46,6 +46,12 @@ export default function Login() {
             passwordpassword.style.fontWeight = "normal"
         }
     }
+
+    function refreshPage() {
+        setTimeout(()=>{
+            window.location.reload(true);
+        }, 100);
+    }
     
     return (
         <Fragment>
@@ -82,10 +88,6 @@ export default function Login() {
                                 <Link to="/forgotPassword">
                                     <p className="text-xs mt-1 underline text-right">Forgot password?</p>
                                 </Link>
-
-                                <Link to="/mentor/login">
-                                    <p className="text-xs mt-1 underline text-right">Login as Mentor</p>
-                                </Link>
                             </div>
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
@@ -94,13 +96,15 @@ export default function Login() {
                         <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>
                     </div>
                     
-                    <div className="text-sm flex flex-col justify-center items-center gap-2 mt-20">
+                    <div className="text-sm flex flex-col justify-center items-center gap-2 my-10">
                         <p>Don't have an account?</p>
                         <Link to="/register">
                             <p className="color-blue-1 underline font-medium">Register here</p>
                         </Link>
                     </div>
-
+                    <Link to="/mentor/login" onClick={refreshPage}>
+                        <p className="text-xs underline text-center my-2 rounded-md">Login as Mentor</p>
+                    </Link>
                 </div>
             </div>
         </Fragment>
