@@ -56,7 +56,7 @@ function Submenu() {
                 </p>
                 <p onClick={window.scrollTo(0, 0)}>
                     <Link to="/class-session">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Class</p>
+                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Coding Class</p>
                     </Link>
                 </p>
                 <p onClick={window.scrollTo(0, 0)}>

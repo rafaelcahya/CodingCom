@@ -53,6 +53,7 @@ import CertificateAngular from "./components/pages/challenge/certificate/Downloa
 import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
 import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
 import Career from "./components/pages/career/Career.jsx"
+import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
 
 const Container = styled.div`
 `;
@@ -115,6 +116,7 @@ function App() {
             <Route path="/CertificateReact" component={CertificateReact} />
             <Route path="/CertificateVue" component={CertificateVue} />
             
+            <Route path="/consultation-class" component={ConsultationClass} />
             <Route path="/class-session" component={Class} />
 
             <Route path="/feedback" component={FeedbackForm} />

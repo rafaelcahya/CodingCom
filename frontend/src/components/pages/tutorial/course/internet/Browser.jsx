@@ -107,7 +107,7 @@ function Browser() {
                 <div className="hidden lg:block sticky self-start top-6 p-6 mt-6 bg-white rounded-lg shadow" style={{width: "18%"}}>
                     <p className="text-lg font-semibold">Consultation class</p>
                     <p className="text-sm pt-2">Consult with a professional mentor.</p>
-                    <Link to="/class-session">
+                    <Link to="/consultation-class">
                         <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
                     </Link>
                 </div>
