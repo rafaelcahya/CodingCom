@@ -7,12 +7,12 @@ export class FeatureComp extends Component {
     render() {
         return (
             <>
-                <div className="flex justify-center items-center gap-28 mx-8 md:mx-16 lg:mx-64">
+                <div className="flex justify-center items-center gap-28 mx-10 md:mx-16 lg:mx-20 xl:mx-64">
                     <div data-aos="fade-right" data-aos-easing="ease-in-out" className="flex flex-col gap-3">
                         <p className="font-semibold text-lg">{this.props.title}</p>
                         <p className="">{this.props.desc}</p>
                     </div>
-                    <img data-aos="zoom-in" data-aos-easing="ease-in-out" src={this.props.image} alt="" width={400} className="hidden md:block h-64 rounded-xl"/>
+                    <img data-aos="zoom-in" data-aos-easing="ease-in-out" src={this.props.image} alt="" width={400} className="hidden lg:block h-64 rounded-xl"/>
                 </div>
             </>
         )

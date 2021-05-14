@@ -12,7 +12,7 @@ export default function NavbarLogin() {
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
-    }, 100)
+    }, 10)
 
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
@@ -85,7 +85,7 @@ export default function NavbarLogin() {
                             <NavLink to="/class-session"
                                 activeClassName="navbar_active" 
                                 className="navbar__link">
-                                    <p className="navbar_btn underline_anim">Class</p>
+                                    <p className="navbar_btn underline_anim">Coding Class</p>
                             </NavLink>
 
                             <NavLink to="/news"
@@ -216,6 +216,9 @@ export default function NavbarLogin() {
                     variants={menuVariantsa}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-5 px-5 hidden lg:flex flex-col gap-4 rounded-xl bg-white z-10">
                     <p className="text-sm">Change Password</p>
+                    <Link to="/feedback">
+                        <p className="text-sm">Feedback</p>
+                    </Link>
                     {loggedIn ? (
                         <>
                             <Link to="/login" className="bg-blue-100 hover:bg-blue-50 color-blue-1 text-sm py-2 text-center rounded-lg">

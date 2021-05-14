@@ -1,7 +1,34 @@
+/* eslint-disable import/no-anonymous-default-export */
 // eslint-disable-next-line import/no-anonymous-default-export
+import internet from '../../../asset/photo/Tutorial/internet.svg';
+import webdesign from '../../../asset/photo/Tutorial/webdesign.svg';
+import ux from '../../../asset/photo/Tutorial/ux.svg';
+import cx from '../../../asset/photo/Tutorial/cx.svg';
+import html from '../../../asset/photo/Tutorial/html.svg';
+import css from '../../../asset/photo/Tutorial/css-3.svg';
+import sass from '../../../asset/photo/Tutorial/sass.svg';
+import js from '../../../asset/photo/Tutorial/js.svg';
+import bootstrap from '../../../asset/photo/Tutorial/bootstrap.svg';
+import tailwind from '../../../asset/photo/Tutorial/tailwind.svg';
+import foundation from '../../../asset/photo/Tutorial/foundation.svg';
+import semantic from '../../../asset/photo/Tutorial/semantic.svg';
+import react from '../../../asset/photo/Tutorial/react.svg';
+import vue from '../../../asset/photo/Tutorial/vue.svg';
+import angular from '../../../asset/photo/Tutorial/angular.svg';
+import jquery from '../../../asset/photo/Tutorial/jquery.svg';
+import nodejs from '../../../asset/photo/Tutorial/nodejs.svg';
+import nextjs from '../../../asset/photo/Tutorial/nextjs.svg';
+import laravel from '../../../asset/photo/Tutorial/laravel.svg';
+import php from '../../../asset/photo/Tutorial/php.svg';
+import go from '../../../asset/photo/Tutorial/go.svg';
+import postgresql from '../../../asset/photo/Tutorial/postgresql.svg';
+import mysql from '../../../asset/photo/Tutorial/mysql.svg';
+import mongodb from '../../../asset/photo/Tutorial/mongodb.svg';
+
 export default [
 	{
         id: 1,
+        image: internet,
         url: "/internet",
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         title: "Basic Internet",
@@ -12,6 +39,7 @@ export default [
     },
     {
         id: 2,
+        image: webdesign,
         url: "/internet",
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         title: "User Interface (UI)",
@@ -22,6 +50,7 @@ export default [
     },
     {
         id: 3,
+        image: ux,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "User Experience (UX)",
@@ -32,6 +61,7 @@ export default [
     },
     {
         id: 4,
+        image: cx,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "Customer Experience (CX)",
@@ -42,6 +72,7 @@ export default [
     },
     {
         id: 5,
+        image: html,
         color: "bg-gradient-to-r from-red-500 to-red-400",
         url: "/internet",
         title: "HTML",
@@ -52,6 +83,7 @@ export default [
     },
     {
         id: 6,
+        image: css,
         color: "bg-gradient-to-r from-red-500 to-red-400",
         url: "/internet",
         title: "CSS",
@@ -62,6 +94,7 @@ export default [
     },
     {
         id: 7,
+        image: sass,
         color: "bg-gradient-to-r from-red-500 to-red-400",
         url: "/internet",
         title: "SASS",
@@ -72,6 +105,7 @@ export default [
     },
     {
         id: 8,
+        image: js,
         color: "bg-gradient-to-r from-red-500 to-red-400",
         url: "/internet",
         title: "Javascript",
@@ -82,6 +116,7 @@ export default [
     },
     {
         id: 9,
+        image: bootstrap,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
         url: "/internet",
         title: "Bootstrap",
@@ -92,6 +127,7 @@ export default [
     },
     {
         id: 10,
+        image: tailwind,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
         url: "/internet",
         title: "TailwindCSS",
@@ -102,6 +138,7 @@ export default [
     },
     {
         id: 11,
+        image: foundation,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
         url: "/internet",
         title: "Foundation",
@@ -112,6 +149,7 @@ export default [
     },
     {
         id: 12,
+        image: semantic,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
         url: "/internet",
         title: "Semantic UI",
@@ -122,6 +160,7 @@ export default [
     },
     {
         id: 13,
+        image: react,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "ReactJS",
@@ -132,6 +171,7 @@ export default [
     },
     {
         id: 14,
+        image: vue,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "Vue",
@@ -142,6 +182,7 @@ export default [
     },
     {
         id: 15,
+        image: angular,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "Angular",
@@ -152,6 +193,7 @@ export default [
     },
     {
         id: 16,
+        image: jquery,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         url: "/internet",
         title: "JQuery",
@@ -162,6 +204,7 @@ export default [
     },
     {
         id: 17,
+        image: nodejs,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/internet",
         title: "NodeJS",
@@ -172,6 +215,7 @@ export default [
     },
     {
         id: 18,
+        image: nextjs,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/internet",
         title: "NextJS",
@@ -182,6 +226,7 @@ export default [
     },
     {
         id: 19,
+        image: laravel,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/internet",
         title: "Laravel",
@@ -192,6 +237,7 @@ export default [
     },
     {
         id: 20,
+        image: php,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/internet",
         title: "PHP",
@@ -202,6 +248,7 @@ export default [
     },
     {
         id: 21,
+        image: go,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/internet",
         title: "Go",
@@ -212,6 +259,7 @@ export default [
     },
     {
         id: 22,
+        image: postgresql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         url: "/internet",
         title: "PostgreSQL",
@@ -222,6 +270,7 @@ export default [
     },
     {
         id: 22,
+        image: mysql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         url: "/internet",
         title: "MySQL",
@@ -232,6 +281,7 @@ export default [
     },
     {
         id: 22,
+        image: mongodb,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         url: "/internet",
         title: "MongoDB",

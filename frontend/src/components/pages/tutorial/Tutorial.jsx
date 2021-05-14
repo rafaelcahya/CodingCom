@@ -6,17 +6,21 @@
 //                                         desc2="In this course, you will learn a complete explanation of DevOps, operating system concepts, networking, security and protocol, web servers and infrastructure such as docker, ansible, kubernetes, terraform, and prometheus. besides that, you will learn about cloud servers such as AWS, google cloud, Heroku, and Amazon Cloud."
 
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import AOS from "aos"
+import "../../../../node_modules/aos/dist/aos.css"
+
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import Footer from '../../major/Footer'
 import items from './Data'
-import { Link } from 'react-router-dom'
 
 const allCategories = ['All', ...new Set(items.map(item => item.category))];
-console.log(allCategories);
+
 export default function Tutorial() {
+    AOS.init();
     const [menuItem, setMenuItem] = useState(items);
-    const [buttons, setButtons] = useState(allCategories);
+    const [buttons] = useState(allCategories);
 
   //Filter Function
     const filter = (button) =>{
@@ -70,12 +74,13 @@ function Menu({menuItem}) {
             {
                 menuItem.map((item) =>{
                     return <Link to={item.url}>
-                        <div className={item.color} id="tutorial-box" key={item.id}>
+                        <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" className={item.color} id="tutorial-box" key={item.id}>
                             <div className="flex flex-col gap-3">
                                 <p className="text-xs tracking-wider uppercase font-medium text-white">Design</p>
                                 <div>
                                     <p className="text-xl text-white font-semibold mb-2">{item.title}</p>
                                     <p className="text-sm text-white tracking-wide w-64">{item.total}</p>
+                                    <img data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="300" data-aos-delay="200" src={item.image} width={70} alt="#" className="absolute right-10 bottom-10" style={{filter: "drop-shadow(10px 10px 8px rgb(34, 34, 34, 0.3))"}} />
                                 </div>
                             </div>
                             <p className="text-white text-sm font-semibold tracking-wider">{item.time}</p>

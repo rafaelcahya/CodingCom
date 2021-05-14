@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react'
+import Particles from "react-particles-js"
+import particlesConfig from '../components/background/ParticlesConfig'
 
 import Axios from "axios"
 import { Link } from 'react-router-dom'
@@ -47,6 +49,9 @@ export default function Login() {
     return (
         <Fragment>
             <div className="relative flex justify-center" onFocus={focus}>
+                <div className="absolute">
+                    <Particles height="100vh" width="100vw" params={particlesConfig}/>
+                </div>
                 <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
                     <div className="text-lg">
                         <p className="color-blue-1">Hello Mentor,</p>
@@ -83,7 +88,6 @@ export default function Login() {
                     <div className="flex justify-end items-center gap-5 text-sm">
                         <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>
                     </div>
-
                 </div>
             </div>
         </Fragment>

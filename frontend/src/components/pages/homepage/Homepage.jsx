@@ -24,6 +24,7 @@ import tutorial5 from "../../../asset/icon/Homepage/devops.svg"
 import learningPath from "../../../asset/photo/homepage/feature/learning-path.jpg"
 import challenge from "../../../asset/photo/homepage/feature/challenge.jpg"
 import consultation from "../../../asset/photo/homepage/feature/consultation.jpg"
+import session from "../../../asset/photo/homepage/feature/session.jpg"
 import bootcamp2 from "../../../asset/photo/homepage/feature/bootcamp.jfif"
 import textEditor from "../../../asset/photo/homepage/feature/text-editor.jpg"
 import certificate from "../../../asset/photo/homepage/feature/certificate.jpg"
@@ -58,7 +59,7 @@ export default function Homepage() {
                     </div>
                 </header>
 
-                <section className="mx-8 md:mx-16 lg:mx-64 my-20 lg:mb-32">
+                <section className="mx-8 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
                     <p className="text-center text-2xl md:text-4xl font-semibold py-10">Our Tutorials</p>
                     <div className="cta flex flex-wrap justify-center gap-10">
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl">
@@ -94,9 +95,9 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className=" mx-8 md:mx-16 lg:mx-64 py-20 mt-32 lg:mt-0 rounded-xl">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
-                    <div className="flex items-center gap-28">
+                <section className=" mx-10 md:mx-16 lg:mx-20 xl:mx-64 py-20 mt-32 lg:mt-0 rounded-xl">
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl text-left md:text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
+                    <div className="block md:flex items-center gap-28">
                         <div>
                             <p data-aos="fade-right" data-aos-easing="ease-in-out" className="font-medium">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
                             <Link to="/bootcamp">
@@ -108,7 +109,7 @@ export default function Homepage() {
                                 <p data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="200" className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Fullstack</p>
                             </div>
                         </div>
-                        <img src={bootcamp} alt="" width={450} data-aos="zoom-in" data-aos-easing="ease-in-out" className="rounded-xl"/>
+                        <img src={bootcamp} alt="" width={450} data-aos="zoom-in" data-aos-easing="ease-in-out" className="hidden md:block rounded-xl"/>
                     </div>
                 </section>
 
@@ -150,6 +151,13 @@ export default function Homepage() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <FeatureComp
+                                title= "Coding Class"
+                                desc="You can study together with professional mentors to guest stars in Coding Class. improve knowledge with coding class"
+                                image={session}
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <FeatureComp
                                 title= "Bootcamp"
                                 desc="At bootcamp, we help you develop your skills in programming and design to work on a professional project, right from the first day!"
                                 image={bootcamp2}
@@ -184,9 +192,9 @@ export default function Homepage() {
                     <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
                 </section>
 
-                <section className="flex flex-col items-center gap-5 mt-32 mx-20">
+                <section className="flex flex-col items-center gap-5 mt-32 mx-10">
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-2xl md:text-4xl font-semibold">Start learning today</p>
-                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-center mx-20" style={{width: "500px"}}>Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
+                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <Link to="/tutorial">
                         <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 hover:bg-yellow-300 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
                     </Link>

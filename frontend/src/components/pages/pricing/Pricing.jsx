@@ -43,14 +43,14 @@ export class Pricing extends Component {
                 <NavbarMobile/>
                 <div className="mt-20 md:mt-10">
                     <div className="leading-8 text-center py-20">
-                        <div className="color-blue-1 text-2xl md:text-3xl lg:text-5xl xl:text:5xl font-bold">
+                        <div className="color-blue-1 text-3xl lg:text-5xl xl:text:5xl font-bold">
                             <p>Get Started Now,</p>
                             <p>Pick a Bundle Later</p>
                         </div>
                         <p className="mt-10">Access to all our tutorials and features</p>
                     </div>
                 </div>
-                <section className="flex flex-col sm:flex-row justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
+                <section className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
                     <div className="plan-box w-72 px-10 py-8 rounded-xl shadow-xl flex flex-col justify-between">
                         <article>
                             <div className="flex flex-col gap-2">
@@ -187,8 +187,8 @@ export class Pricing extends Component {
                     </div>
                 </section>
 
-                <section className="flex flex-col sm:flex-row justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
-                    <div className="plan-box px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500">
+                <section className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center mx-10 lg:mx-20 pb-20 gap-20">
+                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500 w-max">
                         <div>
                             <p className="text-lg font-semibold">Consultation Class Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for  consultation class access</p>
@@ -197,7 +197,7 @@ export class Pricing extends Component {
                             <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
                         </Link>
                     </div>
-                    <div className="plan-box px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500">
+                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500 w-max">
                         <div>
                             <p className="text-lg font-semibold">Session Class Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>
