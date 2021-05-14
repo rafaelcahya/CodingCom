@@ -43,11 +43,11 @@ export class Pricing extends Component {
                 <NavbarMobile/>
                 <div className="mt-20 md:mt-10">
                     <div className="leading-8 text-center py-20">
-                        <div className="color-blue-1 text-3xl lg:text-5xl xl:text:5xl font-bold">
+                        <div className="text-2xl sm:text-3xl md:text-5xl font-bold">
                             <p>Get Started Now,</p>
                             <p>Pick a Bundle Later</p>
                         </div>
-                        <p className="mt-10">Access to all our tutorials and features</p>
+                        <p className="text-base sm:text-xl font-medium text-gray-500 mt-10">Access to all our tutorials and features</p>
                     </div>
                 </div>
                 <section className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">

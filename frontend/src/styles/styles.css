@@ -490,18 +490,6 @@ Homepage
 
 */
 
-.headerheader {
-    background-image: url(../asset/photo/homepage/feature/Rectangle\ 104.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: -100;
-}
-
-.change-text-anim {
-    width: 500px;
-}
-
 .change-text-anim::before {
     content: "";
     -webkit-animation: changeTextAnim infinite 17.5s;
@@ -510,69 +498,69 @@ Homepage
 
 @-webkit-keyframes changeTextAnim {
     0% {
-        content: "Gain invaluable skills for your future career in software development";
+        content: "Gain invaluable skills for your future career in software development.";
     }
 
     14.5% {
-        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond";
+        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond.";
     }
 
     29% {
-        content: "Learn the value of sharing knowledge and experiences among peers";
+        content: "Learn the value of sharing knowledge and experiences among peers.";
     }
 
     43.5% {
-        content: "Keep up with the latest app development tools and technology";
+        content: "Keep up with the latest app development tools and technology.";
     }
 
     58% {
-        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest";
+        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest.";
     }
 
     72.5% {
-        content: "Learning to code is more fun if you choose what you want to learn and make it interesting";
+        content: "Learning to code is more fun if you choose what you want to learn and make it interesting.";
     }
 
     87% {
-        content: "Learn new skills through the certificate program and by meeting others who are training with you";
+        content: "Learn new skills through the certificate program and by meeting others who are training with you.";
     }
 
     100% {
-        content: "Gain invaluable skills for your future career in software development";
+        content: "Gain invaluable skills for your future career in software development.";
     }
 }
 
 @keyframes changeTextAnim {
     0% {
-        content: "Gain invaluable skills for your future career in software development";
+        content: "Gain invaluable skills for your future career in software development.";
     }
 
     14.5% {
-        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond";
+        content: "Beautiful, well-designed courses that interactively teach you the basics and beyond.";
     }
 
     29% {
-        content: "Learn the value of sharing knowledge and experiences among peers";
+        content: "Learn the value of sharing knowledge and experiences among peers.";
     }
 
     43.5% {
-        content: "Keep up with the latest app development tools and technology";
+        content: "Keep up with the latest app development tools and technology.";
     }
 
     58% {
-        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest";
+        content: "If you are looking to kickstart your career, why not get ahead of the curve? Share your work with us and we’ll do the rest.";
     }
 
     72.5% {
-        content: "Learning to code is more fun if you choose what you want to learn and make it interesting";
+        content: "Learning to code is more fun if you choose what you want to learn and make it interesting.";
     }
 
     87% {
-        content: "Learn new skills through the certificate program and by meeting others who are training with you";
+        content: "Learn new skills through the certificate program and by meeting others who are training with you.";
     }
 
     100% {
-        content: "Gain invaluable skills for your future career in software development";
+        content: "Gain invaluable skills for your future career in software development.";
     }
 }
 

@@ -19,8 +19,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-to-pdf": "0.0.13",
+    "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.2.3",
     "swiper": "^6.5.4",
+    "vanilla-tilt": "^1.4.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
