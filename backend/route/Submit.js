@@ -45,7 +45,7 @@ router.post("/submit", (req, res) => {
                             file.mv('/Skripsi/CodingCom/frontend/src/asset/fileUpload/' + file.name)
                         })
                     } else {
-                        res.send({ message: "This format is not allowed. Format allowed is JPG,DIF,PNG" })
+                        res.send({ message: "This format is not allowed. Format allowed is RAR,ZIP,7Z" })
                     }
                 }
                 // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
