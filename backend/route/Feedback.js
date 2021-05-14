@@ -8,36 +8,53 @@ const router = express.Router()
 const db = require('../config/db')
 
 router.post("/feedback", (req, res) => {
-    
-    if(!req.files){
-        return res.status(400).send("No files uploaded.")
+    const name = req.body.name
+    let fullname = req.body.fullname
+    let email = req.body.email
+    const about = req.body.about
+    const des = req.body.des
+    let namefile = ""
+    const createAt = req.body.createAt
+    let user_id = 0
+
+    if (about.length <= 0) {
+        res.send({ message: "You must fill about" })
+    } else if (des.length <= 0) {
+        res.send({ message: "You must fill description" })
+    } else {
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                user_id = results[0].id
+                if (fullname.length <= 0) {
+                    fullname = results[0].fullname
+
+                } if (email.length <= 0) {
+                    email = results[0].email
+                }
+                if (!req.files) {
+                    db.query("INSERT INTO feedback (fullname, email, about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?);", [fullname, email, about, namefile, des, user_id, createAt], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                } else {
+                    const file = req.files.fileUpload
+                    const filename = file.name
+                    if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
+                        db.query("INSERT INTO feedback (fullname, email, about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?);", [fullname, email, about, filename, des, user_id, createAt], (err, results) => {
+                            console.log(err)
+                            res.send(results)
+                            file.mv('/Skripsi/CodingCom/frontend/src/asset/upload/' + file.name)
+                        })
+                    } else {
+                        res.send({ message: "This format is not allowed. Format allowed is JPG,DIF,PNG" })
+                    }
+                }
+            }
+        })
     }
-        const file = req.files.fileUpload
-        const filename = file.name
-        if(file.mimetype == "image/jpeg" ||file.mimetype == "image/png"||file.mimetype == "image/gif" ){
-                
-            console.log(filename)
-            console.log(file.tempFilePath)
-            console.log(file.mimetype)
-            // file.mv('frontend/src/asset/upload'+file.name, function(err) {
-                           
-            //     if (err)
-
-            //       return res.status(500).send(err);
-            //             // var sql = "INSERT INTO `users_image`(`first_name`,`last_name`,`mob_no`,`user_name`, `password` ,`image`) VALUES ('" + fname + "','" + lname + "','" + mob + "','" + name + "','" + pass + "','" + img_name + "')";
-
-            //             //   var query = db.query(sql, function(err, result) {
-            //             //        res.redirect('profile/'+result.insertId);
-            //             //   });
-            //          });
-        } else {
-          message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
-          res.render('index.ejs',{message: message});
-        }
-    
-    
-    
-    
 })
 
 module.exports = router;

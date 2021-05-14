@@ -76,6 +76,8 @@ router.post("/updateClass", (req, res) => {
                 
             }if(url.length <= 0 ){
                 url = results[0].url
+            }else if(results[0].url.length<=0){
+                res.send({message:"You must fill url"})
             }
             
             db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, updateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
