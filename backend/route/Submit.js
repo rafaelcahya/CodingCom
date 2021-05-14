@@ -13,6 +13,9 @@ router.post("/submit", (req, res) => {
     const description = req.body.description
     const live_site_url = req.body.live_site_url
     const createAt = req.body.createAt
+    const type = req.body.type
+    let namefile = ""
+    let score = 0
     let user_id = 0
     
     if (title.length <= 0) {
@@ -27,18 +30,36 @@ router.post("/submit", (req, res) => {
 
             if (results.length > 0) {
                 user_id = results[0].id
-                db.query("INSERT INTO submit (title, url, live_site_url, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, user_id, createAt], (err, results) => {
-                    console.log(err)
-                    res.send(results)
-                })
-                console.log(user_id)
+                if (!req.files) {
+                    db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                } else {
+                    const file = req.files.fileUpload
+                    const filename = file.name
+                    if (file.mimetype == "file/rar" || file.mimetype == "file/zip" || file.mimetype == "file/7z") {
+                        db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
+                            console.log(err)
+                            res.send(results)
+                            file.mv('/Skripsi/CodingCom/frontend/src/asset/fileUpload/' + file.name)
+                        })
+                    } else {
+                        res.send({ message: "This format is not allowed. Format allowed is JPG,DIF,PNG" })
+                    }
+                }
+                // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
+                //     console.log(err)
+                //     res.send(results)
+                // })
+                // console.log(user_id)
             }
         })
     }
 })
 
 router.get("/submitList", (req, res) => {
-    db.query("SELECT submit.id, submit.title, submit.url, submit.live_site_url, submit.description, submit.createAt, user.name from submit,user WHERE submit.user_id=user.id",(err, results) => {
+    db.query("SELECT project.id, project.title, project.url, project.live_site_url, project.description, project.createAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
         res.send(results)
         console.log(results)
     })

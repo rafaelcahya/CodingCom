@@ -12,6 +12,8 @@ function Submit() {
     const [description, setDescription] = useState("")
     const [url, setUrl] = useState("")
     const [createAt, setCreateAt] = useState("")
+    const [file,setFile] = useState([])
+    const [type,setType] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
 
     window.onload = setTimeout(function () {
@@ -25,7 +27,16 @@ function Submit() {
     }, 500)
 
     const submit = () => {
-        Axios.post("http://localhost:3001/submit/submit", { name: name, title: title, live_site_url: live_site_url, description: description, url: url, createAt: createAt }).then((response) => {
+        const fd = new FormData();
+        fd.append('fileUpload', file)
+        fd.append('name',name)
+        fd.append('title',title)
+        fd.append('live_site_url',live_site_url)
+        fd.append('description',description)
+        fd.append('url',url)
+        fd.append('type',type)
+        fd.append('createAt',createAt)
+        Axios.post("http://localhost:3001/submit/submit", fd).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
 
@@ -46,8 +57,10 @@ function Submit() {
                         }}/>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Project title</p>
-                        <select name="" id="">
+                        <p className="text-sm font-semibold">Project Type</p>
+                        <select name="" id="" onChange={(event) => {
+                            setType(event.target.value)
+                        }}>
                             <option value="">Select project type</option>
                             <option value="Certificate">Certificate</option>
                             <option value="Challenge">Challenge</option>
@@ -68,7 +81,9 @@ function Submit() {
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Attachment</p>
                         <p className="text-xs color-black-2 font-medium">Only supports .zip, .rar and .7zip extensions</p>
-                        <input type="file" accept=".zip,.rar,.7zip" />
+                        <input type="file" accept=".zip,.rar,.7zip" onChange={(event) => {
+                            setFile(event.target.files[0])
+                        }}/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-1 text-sm font-semibold">
