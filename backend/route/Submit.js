@@ -31,7 +31,7 @@ router.post("/submit", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
+                    db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
@@ -39,13 +39,13 @@ router.post("/submit", (req, res) => {
                     const file = req.files.fileUpload
                     const filename = file.name
                     if (file.mimetype == "file/rar" || file.mimetype == "file/zip" || file.mimetype == "file/7z") {
-                        db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
+                        db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
                             file.mv('/Skripsi/CodingCom/frontend/src/asset/fileUpload/' + file.name)
                         })
                     } else {
-                        res.send({ message: "This format is not allowed. Format allowed is JPG,DIF,PNG" })
+                        res.send({ message: "This format is not allowed. Format allowed is RAR,ZIP,7Z" })
                     }
                 }
                 // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
