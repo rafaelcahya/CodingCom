@@ -24,7 +24,7 @@ import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
 import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
 import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
 import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
-// import Challenge from "./components/pages/challenge/Challenge.jsx"
+import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
 import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/RoadmapBackend.jsx"
