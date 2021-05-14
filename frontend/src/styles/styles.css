@@ -163,7 +163,7 @@ CSS Customization
 
 .shadow-black {
     -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .border-left-orange-1 {
@@ -212,7 +212,7 @@ Accessories
     width: 45px;
     height: 45px;
     -webkit-filter: grayscale(100%);
-            filter: grayscale(100%);
+    filter: grayscale(100%);
     border: none;
     border-radius: 50%;
     -webkit-transition: background-color 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
@@ -344,7 +344,7 @@ Accessories
     padding: 20px;
 }
 
-.image-preview:hover{
+.image-preview:hover {
     box-shadow: 0 40px 75px -12px rgb(0 0 0 / 50%);
 }
 
@@ -353,13 +353,159 @@ Accessories
     height: 400px;
 }
 
-.output{
+.output {
     content: ('lorem');
     height: 400px;
 }
 
 .cm-matchhighlight {
     background: rgba(187, 187, 187, 0.192) !important
+}
+
+
+@keyframes spaceboots {
+    0% {
+        transform: translate(2px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(0px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(2px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(2px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.shake:hover,
+.shake:focus {
+    animation-name: spaceboots;
+    animation-duration: 0.8s;
+    transform-origin: 50% 50%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated:hover {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes tada {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+        -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes tada {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+        -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
 }
 
 /* 
@@ -390,25 +536,29 @@ Navbar
 
 .navbar-mobile-dropdown {
     display: none;
-  }
-  .navbar-mobile ul li:hover .navbar-mobile-dropdown {
+}
+
+.navbar-mobile ul li:hover .navbar-mobile-dropdown {
     display: block;
-  }
-  .navbar-mobile ul li {
+}
+
+.navbar-mobile ul li {
     display: inline-block;
     position: relative;
-  }
-  .navbar-mobile ul li:hover .navbar-mobile-dropdown {
+}
+
+.navbar-mobile ul li:hover .navbar-mobile-dropdown {
     display: block;
-  }
-  .navbar-mobile-dropdown {
+}
+
+.navbar-mobile-dropdown {
     padding-top: 20px;
     display: none;
     position: absolute;
     left: -40px;
     width: 250px;
     height: 750px;
-  }
+}
 
 .course:hover .course-box {
     display: -webkit-box;
@@ -439,19 +589,23 @@ Login page, Register Page
 }
 
 
-.login-box input::-webkit-input-placeholder, .register-box input::-webkit-input-placeholder {
+.login-box input::-webkit-input-placeholder,
+.register-box input::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.login-box input::-moz-placeholder, .register-box input::-moz-placeholder {
+.login-box input::-moz-placeholder,
+.register-box input::-moz-placeholder {
     font-size: .875rem;
 }
 
-.login-box input:-ms-input-placeholder, .register-box input:-ms-input-placeholder {
+.login-box input:-ms-input-placeholder,
+.register-box input:-ms-input-placeholder {
     font-size: .875rem;
 }
 
-.login-box input::-ms-input-placeholder, .register-box input::-ms-input-placeholder {
+.login-box input::-ms-input-placeholder,
+.register-box input::-ms-input-placeholder {
     font-size: .875rem;
 }
 
@@ -490,10 +644,19 @@ Homepage
 
 */
 
+.vscode {
+    cursor: move;
+    cursor: grab;
+}
+
+.vscode:active {
+    cursor: grabbing;
+}
+
 .change-text-anim::before {
     content: "";
     -webkit-animation: changeTextAnim infinite 17.5s;
-            animation: changeTextAnim infinite 17.5s;
+    animation: changeTextAnim infinite 17.5s;
 }
 
 @-webkit-keyframes changeTextAnim {
@@ -615,19 +778,19 @@ Payment
 
 .register-popup-box {
     -webkit-animation: cssAnimation 300ms ease forwards;
-            animation: cssAnimation 300ms ease forwards;
+    animation: cssAnimation 300ms ease forwards;
 }
 
 
 @-webkit-keyframes cssAnimation {
     from {
         -webkit-transform: scale(0);
-                transform: scale(0);
+        transform: scale(0);
     }
 
     to {
         -webkit-transform: scale(1);
-                transform: scale(1);
+        transform: scale(1);
     }
 }
 
@@ -635,12 +798,12 @@ Payment
 @keyframes cssAnimation {
     from {
         -webkit-transform: scale(0);
-                transform: scale(0);
+        transform: scale(0);
     }
 
     to {
         -webkit-transform: scale(1);
-                transform: scale(1);
+        transform: scale(1);
     }
 }
 
@@ -655,7 +818,7 @@ Roadmap
     border-radius: 1.5rem;
 }
 
-.roadmap-box div{
+.roadmap-box div {
     width: 300px;
 }
 
@@ -678,8 +841,8 @@ Roadmap
     top: 50%;
     right: 5%;
     -webkit-transform: translate(-5%, -50%);
-        -ms-transform: translate(-5%, -50%);
-            transform: translate(-5%, -50%);
+    -ms-transform: translate(-5%, -50%);
+    transform: translate(-5%, -50%);
 }
 
 .swiper-button-prev {
@@ -688,8 +851,8 @@ Roadmap
     top: 50%;
     left: 5%;
     -webkit-transform: translate(-5%, -50%);
-        -ms-transform: translate(-5%, -50%);
-            transform: translate(-5%, -50%);
+    -ms-transform: translate(-5%, -50%);
+    transform: translate(-5%, -50%);
 }
 
 /* 
@@ -709,7 +872,7 @@ Tutorial
 */
 
 
-#tutorial-box{
+#tutorial-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -720,13 +883,13 @@ Tutorial
     transition: 200ms;
 }
 
-#tutorial-box:hover{
+#tutorial-box:hover {
     transform: scale(1.05);
     transition: 200ms;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.category-btn{
+.category-btn {
     background-color: white;
     color: black;
     padding: 5px 20px;
@@ -735,21 +898,25 @@ Tutorial
 
 .sidebar-mobile-dropdown {
     display: none;
-  }
-  .sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
+}
+
+.sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
     display: block;
-  }
-  .sidebar-mobile ul li {
+}
+
+.sidebar-mobile ul li {
     display: inline-block;
     position: relative;
-  }
-  .sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
+}
+
+.sidebar-mobile ul li:hover .sidebar-mobile-dropdown {
     display: block;
-  }
-  .sidebar-mobile-dropdown {
+}
+
+.sidebar-mobile-dropdown {
     display: none;
     width: 250px;
-  }
+}
 
 iframe {
     width: 360px;
@@ -822,27 +989,27 @@ Challenge
     padding: 1.25rem;
     border-radius: 0.75rem;
     -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .certificate-box div:hover {
     -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
     background-color: #3b72ff;
     color: white;
 }
 
 .certificate-form input,
-.certificate-form button
-{
+.certificate-form button {
     width: 500px;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
 }
-.certificate-form button{
+
+.certificate-form button {
     border: none;
 }
 
@@ -859,23 +1026,27 @@ Challenge
     outline: none;
 }
 
-.submit-box select{
+.submit-box select {
     padding: .4rem 1rem;
 }
 
-.submit-box input::-webkit-input-placeholder, .submit-box textarea::-webkit-input-placeholder {
+.submit-box input::-webkit-input-placeholder,
+.submit-box textarea::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.submit-box input::-moz-placeholder, .submit-box textarea::-moz-placeholder {
+.submit-box input::-moz-placeholder,
+.submit-box textarea::-moz-placeholder {
     font-size: .875rem;
 }
 
-.submit-box input:-ms-input-placeholder, .submit-box textarea:-ms-input-placeholder {
+.submit-box input:-ms-input-placeholder,
+.submit-box textarea:-ms-input-placeholder {
     font-size: .875rem;
 }
 
-.submit-box input::-ms-input-placeholder, .submit-box textarea::-ms-input-placeholder {
+.submit-box input::-ms-input-placeholder,
+.submit-box textarea::-ms-input-placeholder {
     font-size: .875rem;
 }
 
@@ -886,7 +1057,7 @@ Challenge
 
 .submit-box input:focus,
 .submit-box textarea:focus,
-.submit-box select:focus{
+.submit-box select:focus {
     border: 1.6px solid var(--blue-1);
 }
 
@@ -1032,19 +1203,23 @@ Bootcamp
     outline: none;
 }
 
-.reg-bootcamp-box input::-webkit-input-placeholder, .reg-bootcamp-box textarea::-webkit-input-placeholder {
+.reg-bootcamp-box input::-webkit-input-placeholder,
+.reg-bootcamp-box textarea::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.reg-bootcamp-box input::-moz-placeholder, .reg-bootcamp-box textarea::-moz-placeholder {
+.reg-bootcamp-box input::-moz-placeholder,
+.reg-bootcamp-box textarea::-moz-placeholder {
     font-size: .875rem;
 }
 
-.reg-bootcamp-box input:-ms-input-placeholder, .reg-bootcamp-box textarea:-ms-input-placeholder {
+.reg-bootcamp-box input:-ms-input-placeholder,
+.reg-bootcamp-box textarea:-ms-input-placeholder {
     font-size: .875rem;
 }
 
-.reg-bootcamp-boxx input::-ms-input-placeholder, .reg-bootcamp-box textarea::-ms-input-placeholder {
+.reg-bootcamp-boxx input::-ms-input-placeholder,
+.reg-bootcamp-box textarea::-ms-input-placeholder {
     font-size: .875rem;
 }
 
@@ -1067,14 +1242,14 @@ Career
 
 .cv-form input,
 .cv-form button,
-.cv-form textarea
-{
+.cv-form textarea {
     width: 500px;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 8px;
     outline: none;
 }
-.cv-form button{
+
+.cv-form button {
     border: none;
 }

@@ -87,12 +87,12 @@ export default function Homepage() {
                             -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
                             </g>
                             </svg>
-                            <p className="text-3xl sm:text-4xl font-semibold">coding.com</p>
+                            <p className="shake text-3xl sm:text-4xl font-semibold">coding.com</p>
                         </div>
                         <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-2xl sm:text-3xl md:text-6xl font-bold mr-10 md:mr-20 mb-4 sm:mb-8">An educational platform for web programming from scratch.</p>
                         <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="300" className="change-text-anim text-base sm:text-xl font-medium text-gray-500"></p>
                         <Link to="/tutorial">
-                            <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
+                            <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="animate__tada bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                         </Link>
                     </div>
                 </header>
@@ -101,32 +101,32 @@ export default function Homepage() {
                     slidesPerView= {1} 
                     className="my-32 py-20">
                     <SwiperSlide>
-                        <div data-aos="flip-left" data-aos-duration="500" data-aos-offset="200" className="flex flex-col items-center" style={{cursor: "grab"}}>
-                            <p className="text-4xl font-bold mb-10 tracking-wide">HTML</p>
+                        <div data-aos="flip-left" data-aos-duration="500" data-aos-offset="200" className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-16 tracking-wide">HTML</p>
                             <Tilt className="w-3/5" options={options}>
                                 <img src={html} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
-                            <p className="text-4xl font-bold mb-10 tracking-wide">CSS</p>
+                        <div className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-16 tracking-wide">CSS</p>
                             <Tilt className="w-3/5" options={options}>
                                 <img src={css} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
-                            <p className="text-4xl font-bold mb-10 tracking-wide">SASS</p>
+                        <div className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-16 tracking-wide">SASS</p>
                             <Tilt className="w-3/5" options={options}>
                                 <img src={sass} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
-                            <p className="text-4xl font-bold mb-10 tracking-wide">NodeJS</p>
+                        <div className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-16 tracking-wide">NodeJS</p>
                             <Tilt className="w-3/5" options={options}>
                                 <img src={nodejs} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
@@ -135,7 +135,7 @@ export default function Homepage() {
                 </Swiper>
 
                 <section className="mx-10 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
-                    <p className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">Our Tutorials</p>
+                    <p className="animate__animated animate__swing text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">Our Tutorials</p>
                     <div className="cta flex flex-wrap justify-center gap-10">
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#ff75a0"}}>
@@ -171,7 +171,7 @@ export default function Homepage() {
                 </section>
 
                 <section className="mx-10 lg:mx-32 py-20 mt-32 lg:mt-0 rounded-xl">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding Bootcamp</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="flex justify-center gap-3 text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding <div className="animated tada">Bootcamp</div></p>
                     <div className="block md:flex items-center gap-28">
                         <div>
                             <p data-aos="fade-right" data-aos-easing="ease-in-out" className="text-base sm:text-xl font-medium text-gray-500">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
@@ -268,7 +268,7 @@ export default function Homepage() {
                 <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl" >
                     <img src="https://cdn.discordapp.com/attachments/414258067870449665/445736475158380544/discord.gif" alt="discord" width={100}/>
                     <div className="flex flex-col gap-5">
-                        <p className="text-xl font-semibold">Join us in our community.</p>
+                        <p className=" text-xl font-semibold">Join us in our community.</p>
                         <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
                     </div>
                     <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
