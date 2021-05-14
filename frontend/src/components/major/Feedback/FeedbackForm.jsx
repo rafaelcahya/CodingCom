@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer'
+import Axios from 'axios'
 
 function FeedbackForm() {
+    const [errorMessage,setErrorMessage] = useState("")
+
+    const submit = () => {
+        // Axios.post("http://localhost:3001/submit/submit", {file:file}).then((response) => {
+        //     console.log(response)
+        //     setErrorMessage(response.data.message)
+
+        // })
+    }
+    
     return (
         <>
             <nav className="flex justify-between items-center px-16 xl:px-32 py-5">
@@ -58,7 +69,7 @@ function FeedbackForm() {
                         <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none"></textarea>
                     </div>
                     <p className="color-red-1 text-center font-medium">errorMessage</p>
-                    <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit feedback</p>
+                    <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit feedback</p>
                 </form>
             </section>
             <Footer/>
@@ -92,6 +103,14 @@ class ImageUpload extends React.Component {
             });
         }
         reader.readAsDataURL(file)
+        
+        const fd = new FormData();
+        fd.append('fileUpload',file, file.name)
+        Axios.post("http://localhost:3001/feedback/feedback",fd).then((response) => {
+            console.log(response)
+            // setErrorMessage(response.data.message)
+
+        })
     }
 
     render() {
@@ -108,6 +127,7 @@ class ImageUpload extends React.Component {
                 <form onSubmit={(e)=>this._handleSubmit(e)}>
                     <input className="w-full mb-5"
                     type="file" 
+                    name="fileUpload"
                     onChange={(e)=>this._handleImageChange(e)} />
                 </form>
                 <div style={{width: "400px"}}>

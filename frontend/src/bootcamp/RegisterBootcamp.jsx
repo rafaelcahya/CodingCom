@@ -112,7 +112,7 @@ function RegisterBootcamp() {
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Postal Code</p>
-                                <input type="text" placeholder="Postal Code"  onChange={(event) => {
+                                <input type="number" placeholder="Postal Code"  onChange={(event) => {
                                     setPostalCode(event.target.value)
                                 }} />
                             </div>
@@ -120,13 +120,13 @@ function RegisterBootcamp() {
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Phone number</p>
-                                <input type="text" placeholder="Phone number"  onChange={(event) => {
+                                <input type="number" placeholder="Phone number"  onChange={(event) => {
                                     setPhonenumber(event.target.value)
                                 }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Confirm phone number</p>
-                                <input type="text" placeholder="Confirm phone number"  onChange={(event) => {
+                                <input type="number" placeholder="Confirm phone number"  onChange={(event) => {
                                     setCphonenumber(event.target.value)
                                 }} />
                             </div>
@@ -134,13 +134,13 @@ function RegisterBootcamp() {
                         <div className="w-full flex justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Emergency phone number</p>
-                                <input type="text" placeholder="Emergency phone number"  onChange={(event) => {
+                                <input type="number" placeholder="Emergency phone number"  onChange={(event) => {
                                     setEmergency(event.target.value)
                                 }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Confirm emergency phone number</p>
-                                <input type="text" placeholder="Confirm emergency phone number"  onChange={(event) => {
+                                <input type="number" placeholder="Confirm emergency phone number"  onChange={(event) => {
                                     setCemergency(event.target.value)
                                 }} />
                             </div>
@@ -201,6 +201,7 @@ function RegisterBootcamp() {
                                 <option value="Student">Student</option>
                                 <option value="Work">Work</option>
                                 <option value="Graduate">Fresh graduate</option>
+                                <option value="I am Free">I am Free</option>
                             </select>
                         </div>
                         <p className="color-red-1 text-center font-medium">{errorMessage}</p>
