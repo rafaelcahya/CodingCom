@@ -31,11 +31,11 @@ import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/R
 import RoadmapReact from "./components/pages/tutorial/course/roadmap/content/RoadmapReact.jsx"
 import RoadmapDevops from "./components/pages/tutorial/course/roadmap/content/RoadmapDevops.jsx"
 
-// import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
-// import Submit from "./components/pages/challenge/certificate/Submit.jsx"
-// import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
-// import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
-// import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
+import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
+import Submit from "./components/pages/challenge/certificate/Submit.jsx"
+import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
+import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
+import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
 
 import Class from "./components/pages/class session/Class.jsx"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
@@ -104,7 +104,7 @@ function App() {
 
             <Route path="/html" component={HTML} />
 
-            {/* <Route path="/challenge" component={Challenge} />
+            <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
             <Route path="/react-exercise" component={ReactCerti} />
             <Route path="/vue-exercise" component={VueCerti} />
@@ -114,14 +114,14 @@ function App() {
             <Route path="/CertificateHTMLCSSJS" component={CertificateHTML} />
             <Route path="/CertificateAngular" component={CertificateAngular} />
             <Route path="/CertificateReact" component={CertificateReact} />
-            <Route path="/CertificateVue" component={CertificateVue} /> */}
+            <Route path="/CertificateVue" component={CertificateVue} />
             
             <Route path="/consultation-class" component={ConsultationClass} />
             <Route path="/class-session" component={Class} />
 
             <Route path="/feedback" component={FeedbackForm} />
 
-            {/* <Route path="/career" component={Career} /> */}
+            <Route path="/career" component={Career} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>
