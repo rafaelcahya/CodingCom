@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useRef} from 'react'
+import React, {Fragment, useEffect, useRef, useState} from 'react'
 import VanillaTilt from 'vanilla-tilt';
 import { Link } from "react-router-dom"
 
@@ -39,6 +39,7 @@ import bootcamp from "../../../asset/photo/homepage/bootcamp/bootcamp3.jfif"
 SwiperCore.use([Navigation, Pagination]);
 
 function Tilt(props) {
+    
     const { options, ...rest } = props;
     const tilt = useRef(null);
   
@@ -51,6 +52,13 @@ function Tilt(props) {
 
 export default function Homepage() {
     AOS.init();
+    const [name,setName] = useState("")
+    let x
+
+    window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
+    }, 500)
     
     useEffect(() => {
         if (!localStorage.getItem("loggedIn")) {
@@ -65,7 +73,7 @@ export default function Homepage() {
         };
     return (
         <Fragment>
-            <Link to="/feedback">
+            <Link to={"/feedback/" + name}>
                 <p className="fixed left-0 bottom-0 bg-blue-1 text-white text-sm px-4 py-2 cursor-pointer">Feedback</p>
             </Link>
             <div className="overflow-x-hidden">
