@@ -24,7 +24,7 @@ export class Challenge extends Component {
                 <NavbarMobile/>
                 <div className="flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-32 lg:mt-20">
                     <div>
-                        <p className="text-3xl font-semibold text-center">For Certificate</p>
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center">For Certificate</p>
                         <div className="flex flex-wrap justify-center gap-10 my-10">
                             <Link to="/html-css-js-exercise">
                                 <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="challenge-box p-5 rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
@@ -83,7 +83,7 @@ export class Challenge extends Component {
                         </div>
                     </div>
                     <div>
-                        <p className="text-3xl font-semibold text-center">Challenge</p>
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center">Challenge</p>
                         <div className="flex flex-wrap items-center justify-center gap-10 my-10">
                             <ChallengeComp
                                 image={challenge1}

@@ -1,4 +1,5 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment, useEffect, useRef} from 'react'
+import VanillaTilt from 'vanilla-tilt';
 import { Link } from "react-router-dom"
 
 import AOS from "aos"
@@ -13,7 +14,10 @@ import NavbarMobile from '../../major/NavbarMobile'
 import FeatureComp from './FeatureComp'
 import Footer from '../../major/Footer'
 
-import header from "../../../asset/photo/backgroundheader.jpg"
+import html from "../../../asset/photo/homepage/html.png"
+import css from "../../../asset/photo/homepage/css.png"
+import sass from "../../../asset/photo/homepage/sass.png"
+import nodejs from "../../../asset/photo/homepage/nodejs.png"
 
 import tutorial1 from "../../../asset/icon/Homepage/design.svg"
 import tutorial2 from "../../../asset/icon/Homepage/frontend.svg"
@@ -28,10 +32,22 @@ import session from "../../../asset/photo/homepage/feature/session.jpg"
 import bootcamp2 from "../../../asset/photo/homepage/feature/bootcamp.jfif"
 import textEditor from "../../../asset/photo/homepage/feature/text-editor.jpg"
 import certificate from "../../../asset/photo/homepage/feature/certificate.jpg"
+import community from "../../../asset/photo/homepage/feature/community.jpg"
 
 import bootcamp from "../../../asset/photo/homepage/bootcamp/bootcamp3.jfif"
 
 SwiperCore.use([Navigation, Pagination]);
+
+function Tilt(props) {
+    const { options, ...rest } = props;
+    const tilt = useRef(null);
+  
+    useEffect(() => {
+      VanillaTilt.init(tilt.current, options);
+    }, [options]);
+  
+    return <div ref={tilt} {...rest} />;
+  }
 
 export default function Homepage() {
     AOS.init();
@@ -41,26 +57,85 @@ export default function Homepage() {
             localStorage.setItem("loggedIn", false);
             }
         }, []);
+
+    const options = {
+        scale: 1.1,
+        speed: 1000,
+        max: 20
+        };
     return (
         <Fragment>
+            <Link to="/feedback">
+                <p className="fixed left-0 bottom-0 bg-blue-1 text-white text-sm px-4 py-2 cursor-pointer">Feedback</p>
+            </Link>
             <div className="overflow-x-hidden">
                 <NavbarLogin /> 
                 <NavbarMobile /> 
-                <header className="headerheader flex justify-center lg:justify-between items-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-32 mt-32 lg:mt-0 rounded-xl">
-                    <div className="flex flex-col items-center lg:items-start gap-2">
-                        <p className="text-3xl md:text-4xl lg:text-5xl font-semibold">Coding.com</p>
-                        <div className="change-text-anim text-center lg:text-left text-sm lg:text-base px-14 lg:px-0"></div>
+                <header className="headerheader flex justify-center lg:justify-between items-center mx-10 lg:mx-32 mt-32 lg:mt-16">
+                    <div className="flex flex-col gap-2">
+                        <div data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="0" className="flex items-center gap-5 my-4 sm:my-8">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                            width="30" height="45" viewBox="0 0 44 59"
+                            preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0,59) scale(0.1,-0.1)"
+                            fill="#0250bd" stroke="none">
+                            <path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
+                            80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
+                            -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
+                            153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
+                            13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
+                            -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
+                            </g>
+                            </svg>
+                            <p className="text-3xl sm:text-4xl font-semibold">coding.com</p>
+                        </div>
+                        <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-2xl sm:text-3xl md:text-6xl font-bold mr-10 md:mr-20 mb-4 sm:mb-8">An educational platform for web programming from scratch.</p>
+                        <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="300" className="change-text-anim text-base sm:text-xl font-medium text-gray-500"></p>
                         <Link to="/tutorial">
-                            <p className="bg-orange-1 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max hover:bg-yellow-300">Start learning today</p>
+                            <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                         </Link>
-                    </div>
-                    <div className="hidden lg:block">
-                        <img src={header} alt="" width="400" className="rounded-3xl"/>
                     </div>
                 </header>
 
-                <section className="mx-8 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
-                    <p className="text-center text-2xl md:text-4xl font-semibold py-10">Our Tutorials</p>
+                <Swiper
+                    slidesPerView= {1} 
+                    className="my-32 py-20">
+                    <SwiperSlide>
+                        <div data-aos="flip-left" data-aos-duration="500" data-aos-offset="200" className="flex flex-col items-center" style={{cursor: "grab"}}>
+                            <p className="text-4xl font-bold mb-10 tracking-wide">HTML</p>
+                            <Tilt className="w-3/5" options={options}>
+                                <img src={html} alt="" className=" hidden md:block rounded-lg"/>
+                            </Tilt>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
+                            <p className="text-4xl font-bold mb-10 tracking-wide">CSS</p>
+                            <Tilt className="w-3/5" options={options}>
+                                <img src={css} alt="" className=" hidden md:block rounded-lg"/>
+                            </Tilt>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
+                            <p className="text-4xl font-bold mb-10 tracking-wide">SASS</p>
+                            <Tilt className="w-3/5" options={options}>
+                                <img src={sass} alt="" className=" hidden md:block rounded-lg"/>
+                            </Tilt>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="flex flex-col items-center" style={{cursor: "grab"}}>
+                            <p className="text-4xl font-bold mb-10 tracking-wide">NodeJS</p>
+                            <Tilt className="w-3/5" options={options}>
+                                <img src={nodejs} alt="" className=" hidden md:block rounded-lg"/>
+                            </Tilt>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+
+                <section className="mx-10 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
+                    <p className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">Our Tutorials</p>
                     <div className="cta flex flex-wrap justify-center gap-10">
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#ff75a0"}}>
@@ -95,13 +170,13 @@ export default function Homepage() {
                     </div>
                 </section>
 
-                <section className=" mx-10 md:mx-16 lg:mx-20 xl:mx-64 py-20 mt-32 lg:mt-0 rounded-xl">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl text-left md:text-center md:text-4xl font-semibold py-10">Fulltime Coding Bootcamp</p>
+                <section className="mx-10 lg:mx-32 py-20 mt-32 lg:mt-0 rounded-xl">
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding Bootcamp</p>
                     <div className="block md:flex items-center gap-28">
                         <div>
-                            <p data-aos="fade-right" data-aos-easing="ease-in-out" className="font-medium">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
+                            <p data-aos="fade-right" data-aos-easing="ease-in-out" className="text-base sm:text-xl font-medium text-gray-500">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
                             <Link to="/bootcamp">
-                                <p className="bg-blue-1 text-white w-max font-medium px-8 py-2 mt-5 mb-16 rounded-xl hover:bg-blue-400">Join now</p>
+                                <p className="bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max   mb-16 hover:bg-blue-400">Join now</p>
                             </Link>
                             <div className="flex gap-5">
                                 <p data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="0" className="border-2 border-blue-300 px-2 py-1 text-sm rounded-xl">Classroom</p>
@@ -114,7 +189,7 @@ export default function Homepage() {
                 </section>
 
                 <section className="my-32 lg:my-48">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-center text-2xl md:text-4xl font-semibold py-10">What do we provide</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">What do we provide</p>
                     <Swiper
                         slidesPerView= {1}
                         keyboard= {{
@@ -177,6 +252,13 @@ export default function Homepage() {
                                 image={certificate}
                             />
                         </SwiperSlide>
+                        <SwiperSlide>
+                            <FeatureComp
+                                title= "Community"
+                                desc="We talk about challenge and project, help each other with code, chat about all things web development."
+                                image={community}
+                            />
+                        </SwiperSlide>
                     </Swiper>
                     <div className="">
                         <div className="swiper-paginationn flex gap-4 items-center justify-center my-10 cursor-default"></div>
@@ -193,10 +275,10 @@ export default function Homepage() {
                 </section>
 
                 <section className="flex flex-col items-center gap-5 mt-32 mx-10">
-                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-2xl md:text-4xl font-semibold">Start learning today</p>
-                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
+                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-3xl sm:text-4xl font-semibold">Start learning today</p>
+                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-gray-500 text-base sm:text-lg font-medium text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <Link to="/tutorial">
-                        <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 hover:bg-yellow-300 text-white text-sm font-medium px-8 py-3 mt-10 rounded-xl w-max">Start learning today</p>
+                        <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                     </Link>
                 </section>
             </div>
