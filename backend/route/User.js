@@ -268,6 +268,14 @@ router.put("/deleteUser", (req, res) => {
     })
 })
 
+router.get("/userById/:name", (req, res) => {
+    const name = req.params.name
+    db.query("SELECT * from user WHERE name = ?",name,(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 router.post("/test", (req, res) => {
     const judul = req.body.judul
     const content = req.body.content
