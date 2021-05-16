@@ -46,7 +46,7 @@ router.post("/feedback", (req, res) => {
                         db.query("INSERT INTO feedback (fullname, email, about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?);", [fullname, email, about, filename, des, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
-                            file.mv('/Skripsi/CodingCom/frontend/src/asset/upload/' + file.name)
+                            file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                     } else {
                         res.send({ message: "This format is not allowed. Format allowed is JPG,DIF,PNG" })

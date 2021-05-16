@@ -418,7 +418,95 @@ Accessories
     animation-timing-function: linear;
 }
 
+.animate1 {
+    animation: stretch-bounce1 1s ease-in-out infinite 0ms;
+}
 
+@keyframes stretch-bounce1 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate2 {
+    animation: stretch-bounce2 1s ease-in-out infinite 400ms;
+}
+
+@keyframes stretch-bounce2 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate3 {
+    animation: stretch-bounce3 1s ease-in-out infinite 600ms;
+}
+
+@keyframes stretch-bounce3 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate4 {
+    animation: stretch-bounce4 1s ease-in-out infinite 800ms;
+}
+
+@keyframes stretch-bounce4 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate5 {
+    animation: stretch-bounce5 1s ease-in-out infinite 1s;
+}
+
+@keyframes stretch-bounce5 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -754,7 +842,8 @@ Payment
 
 .payment-confirm-container,
 .register-popup-container,
-.darkmode-container {
+.darkmode-container,
+.rating-container {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -774,6 +863,67 @@ Payment
     width: 500px;
     margin: 15% auto;
     background-color: white;
+}
+
+.rating-box {
+    width: 400px;
+    margin: 15% auto;
+    background-color: white;
+}
+
+
+.emoji {
+    font-size: 3rem;
+    transform: scale(.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    transition:
+        text-shadow .2s ease-in-out,
+        transform .2s ease-in-out;
+}
+
+.emoji:hover {
+    transform: scale(1);
+    text-shadow: 0 20px 20px rgba(0, 0, 0, .3);
+}
+
+.emoji--satisfy:before {
+    content: '🥰';
+}
+
+.emoji--satisfy:hover:before {
+    content: '😍';
+}
+
+.emoji--happy:before {
+    content: '😀';
+}
+
+.emoji--happy:hover:before {
+    content: '🤩';
+}
+
+.emoji--neutral:before {
+    content: '😐 ';
+}
+
+.emoji--neutral:hover:before {
+    content: '😑';
+}
+
+.emoji--sad:before {
+    content: '😕';
+}
+
+.emoji--sad:hover:before {
+    content: '☹️';
+}
+
+.emoji--crying:before {
+    content: '😥';
+}
+
+.emoji--crying:hover:before {
+    content: '😰';
 }
 
 .register-popup-box {

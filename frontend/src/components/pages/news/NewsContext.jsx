@@ -8,7 +8,7 @@ export const NewsContextProvider = (props) => {
     const key = "87943c8a00c54cfd8f14f5e117b7da41"
 
     useEffect (() => {
-        axios.get(`https://newsapi.org/v2/everything?q=css&language=en&pageSize=30&apiKey=${key}`)
+        axios.get(`https://newsapi.org/v2/everything?q=web programming&language=en&pageSize=30&apiKey=${key}`)
         .then((response) => setData(response.data))
         .catch((error) => console.log(error))
     }, [])

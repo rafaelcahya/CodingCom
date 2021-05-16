@@ -14,10 +14,11 @@ import NavbarMobile from '../../major/NavbarMobile'
 import FeatureComp from './FeatureComp'
 import Footer from '../../major/Footer'
 
-import html from "../../../asset/photo/homepage/html.png"
-import css from "../../../asset/photo/homepage/css.png"
-import sass from "../../../asset/photo/homepage/sass.png"
-import nodejs from "../../../asset/photo/homepage/nodejs.png"
+import html from "../../../asset/photo/homepage/html.svg"
+import css from "../../../asset/photo/homepage/css.svg"
+import js from "../../../asset/photo/homepage/js.svg"
+import react from "../../../asset/photo/homepage/react.svg"
+import nodejs from "../../../asset/photo/homepage/nodejs.svg"
 
 import tutorial1 from "../../../asset/icon/Homepage/design.svg"
 import tutorial2 from "../../../asset/icon/Homepage/frontend.svg"
@@ -67,9 +68,8 @@ export default function Homepage() {
         }, []);
 
     const options = {
-        scale: 1.1,
         speed: 1000,
-        max: 20
+        max: 10
         };
     return (
         <Fragment>
@@ -106,36 +106,44 @@ export default function Homepage() {
                 </header>
 
                 <Swiper
-                    slidesPerView= {1} 
+                    slidesPerView= {1} loop="true"
                     className="my-32 py-20">
                     <SwiperSlide>
-                        <div data-aos="flip-left" data-aos-duration="500" data-aos-offset="200" className="vscode flex flex-col items-center">
-                            <p className="text-4xl font-bold my-16 tracking-wide">HTML</p>
-                            <Tilt className="w-3/5" options={options}>
+                        <div className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-14 tracking-wide">HTML</p>
+                            <Tilt options={options}>
                                 <img src={html} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
-                            <p className="text-4xl font-bold my-16 tracking-wide">CSS</p>
-                            <Tilt className="w-3/5" options={options}>
+                            <p className="text-4xl font-bold my-14 tracking-wide">CSS</p>
+                            <Tilt options={options}>
                                 <img src={css} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
-                            <p className="text-4xl font-bold my-16 tracking-wide">SASS</p>
-                            <Tilt className="w-3/5" options={options}>
-                                <img src={sass} alt="" className=" hidden md:block rounded-lg"/>
+                            <p className="text-4xl font-bold my-14 tracking-wide">Javascript</p>
+                            <Tilt options={options}>
+                                <img src={js} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
-                            <p className="text-4xl font-bold my-16 tracking-wide">NodeJS</p>
-                            <Tilt className="w-3/5" options={options}>
+                            <p className="text-4xl font-bold my-14 tracking-wide">ReactJS</p>
+                            <Tilt options={options}>
+                                <img src={react} alt="" className=" hidden md:block rounded-lg"/>
+                            </Tilt>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="vscode flex flex-col items-center">
+                            <p className="text-4xl font-bold my-14 tracking-wide">NodeJS</p>
+                            <Tilt options={options}>
                                 <img src={nodejs} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>

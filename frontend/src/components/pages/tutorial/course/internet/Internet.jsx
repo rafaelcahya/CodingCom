@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
+import {AnimatePresence, motion} from "framer-motion"
+import Axios from 'axios'
+import { Link } from 'react-router-dom'
+
 import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
 import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternetMobile from '../SidebarInternetMobile'
-import Axios from 'axios'
-import { Link } from 'react-router-dom'
-// import Comment from '../../../../major/Comment'
 
+import star from "../../../../../asset/icon/star.svg"
 
 function Internet() {
+    const modal = useRef()
     let x
     const [comment, setComment] = useState("")
     const [name,setName] = useState("")
@@ -105,19 +108,114 @@ function Internet() {
                         }
                     </div>
                 </div>
-                <div className="hidden lg:block sticky self-start top-6 p-6 mt-6 bg-white rounded-lg shadow" style={{width: "18%"}}>
-                    <p className="text-lg font-semibold">Consultation class</p>
-                    <p className="text-sm pt-2">Consult with a professional mentor.</p>
-                    <Link to="/consultation-class">
-                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
-                    </Link>
+                <div className="hidden lg:flex flex-col items-center sticky self-start top-6 mt-6 gap-5" style={{width: "18%"}}>
+                    <div className="p-6 bg-white rounded-lg shadow">
+                        <p className="text-lg font-semibold">Consultation class</p>
+                        <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                        <Link to="/consultation-class">
+                            <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                        </Link>
+                    </div>
+
+                    <div className="p-6 bg-white rounded-lg shadow">
+                        <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
+                        <div className="flex gap-3 items-center justify-center py-4">
+                            <img src={star} alt="" width="10" class="animate1"/>
+                            <img src={star} alt="" width="15" class="animate2"/>
+                            <img src={star} alt="" width="20" class="animate3"/>
+                            <img src={star} alt="" width="15" class="animate4"/>
+                            <img src={star} alt="" width="10" class="animate5"/>
+                        </div>
+                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={() => modal.current.open()}>Leave a rating</p>
+                        <Modal ref={modal}> </Modal>
+                    </div>
                 </div>
             </div>
+            
             
             <Footer />
         </>
     )
 }
 
-
 export default Internet
+
+const Modal = forwardRef((props, ref) => {
+    const [open, setOpen] = useState(false)
+
+    useImperativeHandle(ref, () => {
+        return {
+            open: () => setOpen(true),
+            close: () => setOpen(false)
+        }
+    })
+
+    const Choose = () =>{
+        return(
+            <>
+                <div>
+                    <p className="flex justify-end cursor-pointer" onClick={() => setOpen(false)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></p>
+                    
+                    <div className="flex flex-col items-center gap-4">
+                        <p className="text-xl font-bold">Rate us</p>
+                        <p className="text-sm text-center font-semibold">We love to hear from you. How is your tutorial experience?</p>
+                        <div className="flex items-center my-10">
+                            <span class="emoji emoji--crying"></span>
+                            <span class="emoji emoji--sad"></span>
+                            <span class="emoji emoji--neutral"></span>
+                            <span class="emoji emoji--happy"></span>
+                            <span class="emoji emoji--satisfy"></span>
+                        </div>
+                        <p>Thank you for rating</p>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
+    return(
+        <>
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                    initial={{
+                        opacity: 0
+                    }}
+                    animate={{
+                        opacity: 1,
+                        transition: {
+                            duration: 0.3
+                        }
+                    }}
+                    exit={{
+                        opacity: 0
+                    }}
+                    className="rating-container">
+                        <motion.div
+                        initial={{
+                            scale: 0
+                        }}
+                        animate={{
+                            scale: 1
+                        }}
+                        exit={{
+                            scale: 0
+                        }}
+                        className="rating-box p-5 rounded-lg">
+                            <motion.div
+                            exit={{
+                                opacity: 0,
+                                transition: {
+                                    duration: 0.3
+                                }
+                            }}>
+                                {props.children}
+                                <Choose/>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    )
+})
