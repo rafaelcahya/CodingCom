@@ -74,7 +74,7 @@ export default function Homepage() {
     return (
         <Fragment>
             <Link to={"/feedback/" + name}>
-                <p className="fixed left-0 bottom-0 bg-blue-1 text-white text-sm px-4 py-2 cursor-pointer">Feedback</p>
+                <p className="fixed left-0 bottom-0 bg-blue-1 text-white text-sm px-4 py-2 cursor-pointer z-10">Feedback</p>
             </Link>
             <div className="overflow-x-hidden">
                 <NavbarLogin /> 
@@ -111,7 +111,7 @@ export default function Homepage() {
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">HTML</p>
-                            <Tilt options={options}>
+                            <Tilt data-aos="flip-right" data-aos-easing="ease-in-out" options={options}>
                                 <img src={html} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
@@ -119,7 +119,7 @@ export default function Homepage() {
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">CSS</p>
-                            <Tilt options={options}>
+                            <Tilt data-aos="flip-right" data-aos-easing="ease-in-out"  options={options}>
                                 <img src={css} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
@@ -127,7 +127,7 @@ export default function Homepage() {
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">Javascript</p>
-                            <Tilt options={options}>
+                            <Tilt data-aos="flip-right" data-aos-easing="ease-in-out"  options={options}>
                                 <img src={js} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
@@ -135,7 +135,7 @@ export default function Homepage() {
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">ReactJS</p>
-                            <Tilt options={options}>
+                            <Tilt data-aos="flip-right" data-aos-easing="ease-in-out"  options={options}>
                                 <img src={react} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>
@@ -143,7 +143,7 @@ export default function Homepage() {
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">NodeJS</p>
-                            <Tilt options={options}>
+                            <Tilt data-aos="flip-right" data-aos-easing="ease-in-out"  options={options}>
                                 <img src={nodejs} alt="" className=" hidden md:block rounded-lg"/>
                             </Tilt>
                         </div>

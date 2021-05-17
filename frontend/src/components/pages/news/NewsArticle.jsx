@@ -10,6 +10,9 @@ const News = styled.div`
     }
 `;  
 
+const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+const formatTime = s => new Date(s).toLocaleTimeString();
+
 function NewsArticle({data}) {
     return (
         <a href={data.url} target="_blank" rel="noreferrer" className="flex justify-center" style={{width: "375px"}}>
@@ -19,7 +22,10 @@ function NewsArticle({data}) {
                 </div>
                 <span className="font-medium text-sm text-gray-500 py-1">{data.source.name}</span>
                 <p className="font-semibold">{data.title}</p>
-                <span className="font-semibold text-xs text-gray-500 mt-10 tracking-wider">{data.publishedAt}</span>
+                <div className="flex justify-between mt-10">
+                    <span className="font-medium text-xs text-gray-500 tracking-wider">{formatDate(data.publishedAt)}</span>
+                    <span className="font-medium text-xs text-gray-500 tracking-wider">{formatTime(data.publishedAt)}</span>
+                </div>
             </News>
         </a>
     )

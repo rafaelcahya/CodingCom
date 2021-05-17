@@ -76,14 +76,21 @@ function Menu({menuItem}) {
                     return <Link to={item.url}>
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" className={item.color} id="tutorial-box" key={item.id}>
                             <div className="flex flex-col gap-3">
-                                <p className="text-xs tracking-wider uppercase font-medium text-white">Design</p>
+                                <div className="flex justify-between">
+                                    <p className="text-xs tracking-wider uppercase font-medium text-white">Design</p>
+                                    <p className="text-xs tracking-wider uppercase font-medium text-white">4.7/5.0 (1234)</p>
+                                </div>
                                 <div>
                                     <p className="text-xl text-white font-semibold mb-2">{item.title}</p>
                                     <p className="text-sm text-white tracking-wide w-64">{item.total}</p>
+                                    <p className="text-sm text-white tracking-wide w-64">{item.desc}</p>
                                     <img data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="300" data-aos-delay="200" src={item.image} width={70} alt="#" className="absolute right-10 bottom-10" style={{filter: "drop-shadow(10px 10px 8px rgb(34, 34, 34, 0.3))"}} />
                                 </div>
                             </div>
                             <p className="text-white text-sm font-semibold tracking-wider">{item.time}</p>
+                            <div className="ribbon">
+                                <p className="bg-red-600 text-sm text-center font-semibold text-white px-10 leading-10">{item.status}</p>
+                            </div>
                         </div>
                     </Link>
                 })
