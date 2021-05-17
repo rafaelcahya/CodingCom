@@ -54,6 +54,7 @@ import CertificateReact from "./components/pages/challenge/certificate/Download 
 import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
 import Career from "./components/pages/career/Career.jsx"
 import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
+import ComingSoon from "./components/major/ComingSoon.jsx"
 
 const Container = styled.div`
 `;
@@ -92,6 +93,8 @@ function App() {
 
             <Route path="/bootcamp" component={BootcampHome}/>
             <Route path="/register-bootcamp" component={RegisterBootcamp}/>
+
+            <Route path="/coming-soon" component={ComingSoon} />
 
             <Route path="/internet" component={Internet} />
             <Route path="/what-is-internet" component={WhatisInternet} />

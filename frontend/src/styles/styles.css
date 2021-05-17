@@ -596,6 +596,17 @@ Accessories
     animation-name: tada;
 }
 
+.ribbon{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: -40px;
+    margin-top: 30px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
+    transform: rotate(45deg); /* Standard syntax */
+}   
+
 /* 
 
 Navbar 
@@ -620,7 +631,6 @@ Navbar
     font-size: .875rem;
     margin: .5rem 0
 }
-
 
 .navbar-mobile-dropdown {
     display: none;
@@ -866,14 +876,14 @@ Payment
 }
 
 .rating-box {
-    width: 400px;
+    width: 500px;
     margin: 15% auto;
     background-color: white;
+    z-index: 10;
 }
 
-
 .emoji {
-    font-size: 3rem;
+    font-size: 4rem;
     transform: scale(.5);
     text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
     transition:
@@ -1031,6 +1041,7 @@ Tutorial
     width: 400px;
     height: 225px;
     transition: 200ms;
+    overflow: hidden;
 }
 
 #tutorial-box:hover {

@@ -33,51 +33,54 @@ export default [
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         title: "Basic Internet",
         total: "7 lessons",
-        desc: "In this tutorial, you will learn the internet from understanding the internet to internet crimes.",
+        desc: "",
         category: 'internet',
         time: "56 min"
     },
     {
         id: 2,
         image: webdesign,
-        url: "/internet",
+        url: "/coming-soon",
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
         title: "User Interface (UI)",
-        total: "7 lessons",
+        total: "",
         desc: "User interface (UI) design is the process designers use to build interfaces in software, focusing on looks or style.",
         category: 'Design',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 3,
         image: ux,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "User Experience (UX)",
-        total: "7 lessons",
+        total: "",
         desc: "User experience is about how a user interacts with, and experiences, a particular product, system or service.",
         category: 'Design',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 4,
         image: cx,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Customer Experience (CX)",
-        total: "7 lessons",
+        total: "",
         desc: "Customer experience is the customer experience when interacting with your product.",
         category: 'Design',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 5,
         image: html,
         color: "bg-gradient-to-r from-red-500 to-red-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "HTML",
         total: "7 lessons",
-        desc: "HypertText Markup Language is the standard markup language for documents designed to be displayed in a web browser.",
+        desc: "",
         category: 'Frontend',
         time: "56 min"
     },
@@ -85,209 +88,226 @@ export default [
         id: 6,
         image: css,
         color: "bg-gradient-to-r from-red-500 to-red-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "CSS",
-        total: "7 lessons",
-        desc: "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.",
+        total: "",
+        desc: "CSS is the style sheet language we use to style an HTML document",
         category: 'Frontend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 7,
         image: sass,
         color: "bg-gradient-to-r from-red-500 to-red-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "SASS",
-        total: "7 lessons",
-        desc: "Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.",
+        total: "",
+        desc: "SASS is a preprocessor scripting language that is interpreted or compiled into CSS.",
         category: 'Frontend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 8,
         image: js,
         color: "bg-gradient-to-r from-red-500 to-red-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Javascript",
-        total: "7 lessons",
-        desc: "JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.",
+        total: "",
+        desc: "JavaScript is a programming language that conforms to the ECMAScript specification.",
         category: 'Frontend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 9,
         image: bootstrap,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Bootstrap",
-        total: "7 lessons",
+        total: "",
         desc: "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.",
         category: 'CSS Frameworks',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 10,
         image: tailwind,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "TailwindCSS",
-        total: "7 lessons",
+        total: "",
         desc: "Rapidly build modern websites without ever leaving your HTML. A utility-first CSS framework packed with classes.",
         category: 'CSS Frameworks',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 11,
         image: foundation,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Foundation",
-        total: "7 lessons",
+        total: "",
         desc: "Foundation is a responsive front-end framework. Foundation provides a responsive grid and HTML and CSS UI components.",
         category: 'CSS Frameworks',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 12,
         image: semantic,
         color: "bg-gradient-to-r from-purple-500 to-purple-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Semantic UI",
-        total: "7 lessons",
+        total: "",
         desc: "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
         category: 'CSS Frameworks',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 13,
         image: react,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "ReactJS",
-        total: "7 lessons",
+        total: "",
         desc: "React is an open-source, front end, JavaScript library for building user interfaces or UI components.",
         category: 'JS Frameworks & Libraries',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 14,
         image: vue,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Vue",
-        total: "7 lessons",
-        desc: "Vue.js is an open-source model–view–view-model front end JavaScript framework for building user interfaces and single-page applications.",
+        total: "",
+        desc: "Vue.js is an open-source front end JavaScript framework for building user interfaces and single-page applications.",
         category: 'JS Frameworks & Libraries',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 15,
         image: angular,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Angular",
-        total: "7 lessons",
+        total: "",
         desc: "Angular is a TypeScript-based open-source web application framework.",
         category: 'JS Frameworks & Libraries',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 16,
         image: jquery,
         color: "bg-gradient-to-r from-blue-500 to-blue-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "JQuery",
-        total: "7 lessons",
-        desc: "JQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.",
+        total: "",
+        desc: "JQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation.",
         category: 'JS Frameworks & Libraries',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 17,
         image: nodejs,
         color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "NodeJS",
-        total: "7 lessons",
+        total: "",
         desc: "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine.",
         category: 'Backend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 18,
         image: nextjs,
         color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "NextJS",
-        total: "7 lessons",
-        desc: "Next.js is an open-source React front-end development web framework that enables functionality such as server-side rendering and generating static websites.",
+        total: "",
+        desc: "Next.js is an open-source that lets you build server-side rendering and static web applications using React.",
         category: 'Backend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 19,
         image: laravel,
         color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Laravel",
-        total: "7 lessons",
-        desc: "Laravel is a free, open-source PHP web framework,  intended for the development of web applications following the MVC architectural pattern.",
+        total: "",
+        desc: "Laravel is an open source PHP-based web application framework, using the Model-View-Controller (MVC) concept.",
         category: 'Backend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 20,
         image: php,
         color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "PHP",
-        total: "7 lessons",
+        total: "",
         desc: "PHP is a general-purpose scripting language especially suited to web development.",
         category: 'Backend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 21,
         image: go,
         color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "Go",
-        total: "7 lessons",
+        total: "",
         desc: "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.",
         category: 'Backend',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 22,
         image: postgresql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "PostgreSQL",
-        total: "7 lessons",
-        desc: "PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance.",
+        total: "",
+        desc: "PostgreSQL is a open-source relational database management system emphasizing extensibility and SQL compliance.",
         category: 'Database',
-        time: "56 min"
+        time: "",
+        status: "Coming soon"
     },
     {
         id: 22,
         image: mysql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "MySQL",
-        total: "7 lessons",
+        total: "",
         desc: "MySQL is an open-source relational database management system.",
         category: 'Database',
-        time: "56 min"
+        status: "Coming soon"
     },
     {
         id: 22,
         image: mongodb,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
-        url: "/internet",
+        url: "/coming-soon",
         title: "MongoDB",
-        total: "7 lessons",
-        desc: "MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.",
+        total: "",
+        desc: "MongoDB is a source-available cross-platform document-oriented database program.",
         category: 'Database',
-        time: "56 min"
+        status: "Coming soon"
     }
 ];
