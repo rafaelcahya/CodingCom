@@ -38,11 +38,11 @@ router.post("/submit", (req, res) => {
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                    if (file.mimetype == "file/rar" || file.mimetype == "file/zip" || file.mimetype == "file/7z") {
+                    if (file.mimetype == "file/.rar" || file.mimetype == "file/.zip" || file.mimetype == "file/.7z") {
                         db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
-                            file.mv('/Skripsi/CodingCom/frontend/src/asset/fileUpload/' + file.name)
+                            file.mv('../frontend/src/asset/fileUpload/' + file.name)
                         })
                     } else {
                         res.send({ message: "This format is not allowed. Format allowed is RAR,ZIP,7Z" })

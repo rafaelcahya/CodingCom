@@ -13,7 +13,7 @@ router.post("/createClass", (req, res) => {
     const url = req.body.url
     const createAt = req.body.createAt
     let status = "Pending"
-    let mentor_id = 0;
+    let user_id = 0;
     let updateAt = " "
 
     if (className.length <= 0) {
@@ -24,25 +24,24 @@ router.post("/createClass", (req, res) => {
         res.send({ message: "Time can not be empty" })
     } else {
         console.log(name)
-        db.query("SELECT * From mentor WHERE username = ?", name, (err, results) => {
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
                 console.log(err)
             }
 
             if (results.length > 0) {
-                mentor_id = results[0].mentorId
-                db.query("INSERT INTO class (className, date, time, url, status, mentor_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [className, date, time, url, status, mentor_id, createAt, updateAt], (err, results) => {
+                user_id = results[0].Id
+                db.query("INSERT INTO class (className, date, time, url, status, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [className, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
-                console.log(mentor_id)
             }
         })
     }
 })
 
 router.get("/classList", (req, res) => {
-    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, mentor.fullname, mentor.email from class,mentor WHERE class.mentor_id=mentor.mentorId",(err, results) => {
+    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id",(err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -91,7 +90,7 @@ router.post("/updateClass", (req, res) => {
 
 router.get("/classListUser", (req, res) => {
     let status = "Approve"
-    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, mentor.fullname, mentor.email from class,mentor WHERE class.mentor_id=mentor.mentorId AND class.status = ?",status,(err, results) => {
+    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
         res.send(results)
         console.log(results)
     })

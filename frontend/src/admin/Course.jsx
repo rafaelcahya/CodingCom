@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Sidebar from './admin-major/Sidebar'
 
-function InputJobs() {
+function InputJobs(props) {
+    const urlid = props.match.params.id
     const [value,setValue] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:3001/user/test1").then((response) => {
+        axios.get("http://localhost:3001/course/courseById/"+urlid).then((response) => {
             setValue(response.data)
         })
     }, []);

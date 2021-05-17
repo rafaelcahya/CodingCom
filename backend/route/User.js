@@ -9,6 +9,10 @@ const nodemailer = require('nodemailer')
 router.post("/register", (req, res) => {
     const fullname = req.body.fullname
     const name = req.body.name
+    const gender = req.body.gender
+    const BoD = req.body.BoD
+    const phoneNumber = req.body.phoneNumber
+    const cphoneNumber = req.body.cphoneNumber
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
@@ -28,6 +32,16 @@ router.post("/register", (req, res) => {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
         res.send({ message: "Username cannot contain spaces" })
+    } else if (gender.length<=0) {
+        res.send({ message: "Gender cannot be empty" })
+    } else if (BoD.length<=0) {
+        res.send({ message: "Birth of Date cannot be empty" })
+    } else if (phoneNumber.length<=0) {
+        res.send({ message: "Phone number cannot be empty" })
+    } else if (cphoneNumber.length<=0) {
+        res.send({ message: "Confirm Phone number cannot be empty" })
+    } else if (cphoneNumber != phoneNumber ) {
+        res.send({ message: "Confirm Phone number must be same as phone number" })
     } else if (email.length <= 0) {
         res.send({ message: "Please add your Email" })
     } else if (email.match(/[@]/) == null) {
@@ -77,7 +91,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:' + info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status, roleId, paket_id, createAt, updateAt, isDeleted) VALUES (?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, roleId, paket_id, createAt, updateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -273,26 +287,6 @@ router.get("/userById/:name", (req, res) => {
     db.query("SELECT * from user WHERE name = ?",name,(err, results) => {
         res.send(results)
         console.log(results)
-    })
-})
-
-router.post("/test", (req, res) => {
-    const judul = req.body.judul
-    const content = req.body.content
-    const createAt = req.body.createAt
-    let mentorId = 1
-    let status = "Pending"
-    
-    db.query("INSERT INTO course (judul, content, mentorId, status, createAt) VALUES (?, ?, ?, ?, ?);", [judul, content, mentorId, status,createAt], (err, results) => {
-        console.log(err)
-        res.send(results)
-    })
-})
-
-router.get("/test1", (req, res) => {
-    let id = 1
-    db.query("SELECT * FROM course WHERE id = ?", id, (err, results) => {
-        res.send(results)
     })
 })
 

@@ -30,8 +30,11 @@ app.use("/bootcampuser", bootcampUserRoute)
 const feedbackRoute = require('./route/Feedback')
 app.use("/feedback", feedbackRoute)
 
-const mentorRoute = require('./route/Mentor')
-app.use("/mentor", mentorRoute)
+const courseRoute = require('./route/Course')
+app.use("/course", courseRoute)
+
+const batchRoute = require('./route/Batch')
+app.use("/batch", batchRoute)
 
 app.listen(3001, (req, res) => {
     console.log("Server running...")

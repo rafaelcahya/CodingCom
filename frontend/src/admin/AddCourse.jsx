@@ -5,10 +5,14 @@ import { Editor } from '@tinymce/tinymce-react';
 
 function AddCourse() {
     const editorRef = useRef(null);
+    const [name,setName] = useState("")
     const [judul,setJudul] = useState("")
     const [createAt,setCreateAt] = useState("")
+    let x
 
     window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -19,7 +23,7 @@ function AddCourse() {
     const log = () => {
         if (editorRef.current) {
             console.log(editorRef.current.getContent());
-            Axios.post("http://localhost:3001/user/test", {createAt:createAt, judul:judul, content: editorRef.current.getContent() }).then((response) => {
+            Axios.post("http://localhost:3001/course/addCourse", {name:name, createAt:createAt, judul:judul, content: editorRef.current.getContent() }).then((response) => {
                 console.log(response)
             })
         }
