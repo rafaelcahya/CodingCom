@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
+    const [name,setName] = useState("")
+    let x
+    window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
+    }, 500)
     return (
         <>
             <div className="sidebar fixed w-64 m-5 p-8 flex flex-col gap-2 bg-white rounded-2xl " style={{height: "750px"}}>
@@ -10,6 +16,11 @@ export default function Sidebar() {
                     <Link to="/mentor/class-request">
                         <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
                             <p>Class Request</p>
+                        </div>
+                    </Link>
+                    <Link to={"/mentor/list-course/" + name}>
+                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
+                            <p>List Course</p>
                         </div>
                     </Link>
                     <Link to="/mentor/project-submission">

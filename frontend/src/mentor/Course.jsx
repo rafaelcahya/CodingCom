@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import Sidebar from './admin-major/Sidebar'
+import Sidebar from './major/Sidebar'
 
 function Course(props) {
     const urlid = props.match.params.id

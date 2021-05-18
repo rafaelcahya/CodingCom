@@ -11,6 +11,10 @@ import Popup from "./RegisterPopup"
 function Register() {
     const [fullname, setFullname] = useState("")
     const [name, setName] = useState("")
+    const [gender, setGender] = useState("")
+    const [BoD, setBoD] = useState("")
+    const [phonenumber, setPhonenumber] = useState("")
+    const [cphonenumber, setCphonenumber] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmpassword] = useState("")
@@ -28,7 +32,7 @@ function Register() {
 
     const register = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
             console.log(response)
             if (response.data.message) {
                 setErrorMessage(response.data.message)
@@ -112,6 +116,38 @@ function Register() {
                                 onChange={(event) => {
                                     setName(event.target.value)
                                 }} />
+                        </div>
+                        <div className="w-full flex justify-between gap-10">
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Gender</p>
+                                <select name="" id=""  onChange={(event) => {
+                                    setGender(event.target.value)
+                                }} >
+                                    <option value="Gender">Choose gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Birth date</p>
+                                <input type="date"  onChange={(event) => {
+                                    setBoD(event.target.value)
+                                }} />
+                            </div>
+                        </div>
+                        <div className="w-full flex justify-between gap-10">
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Phone number</p>
+                                <input type="number" placeholder="Phone number"  onChange={(event) => {
+                                    setPhonenumber(event.target.value)
+                                }} />
+                            </div>
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Confirm phone number</p>
+                                <input type="number" placeholder="Confirm phone number"  onChange={(event) => {
+                                    setCphonenumber(event.target.value)
+                                }} />
+                            </div>
                         </div>
                         <div>
                             <p className="email text-xs mb-1">Email</p>

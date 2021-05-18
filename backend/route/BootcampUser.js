@@ -8,16 +8,10 @@ const db = require('../config/db')
 const nodemailer = require('nodemailer')
 
 router.post("/bootcampUserRegis", (req, res) => {
-    const fullname = req.body.fullname
     const name = req.body.name
-    const email = req.body.email
-    const gender = req.body.gender
-    const BoD = req.body.BoD
     const address = req.body.address
     const city = req.body.city
     const postalCode = req.body.postalCode
-    const phonenumber = req.body.phonenumber
-    const cphonenumber = req.body.cphonenumber
     const emergency = req.body.emergency
     const cemergency = req.body.cemergency
     const education = req.body.education
@@ -27,32 +21,13 @@ router.post("/bootcampUserRegis", (req, res) => {
     const busy = req.body.busy
     const createAt = req.body.createAt
     let user_id = 0
-    let textbody = 'Welcome, ' + fullname + 'Thank you for registering for this bootcamp program, we hope you have a nice day and nice journey to the peak'
 
-    if (fullname.length <= 0) {
-        res.send({ message: "Please add your fullname" })
-    } else if (email.length <= 0) {
-        res.send({ message: "Please add your Email" })
-    } else if (email.match(/[@]/) == null) {
-        res.send({ message: "Email is invalid" })
-    } else if (email.match(/[.]/) == null) {
-        res.send({ message: "Email is invalid" })
-    } else if (gender <= 0) {
-        res.send({ message: "Please add your gender" })
-    } else if (BoD <= 0) {
-        res.send({ message: "Please add your birth of date" })
-    } else if (address <= 0) {
+    if (address <= 0) {
         res.send({ message: "Please add your address" })
     } else if(city <=0) {
         res.send({ message: "Please add your city" })
     }else if(postalCode <= 0 ){
         res.send({ message: "Please add your postal code" })
-    }else if(phonenumber <= 0){
-        res.send({ message: "Please add your phone number" })
-    }else if(cphonenumber <= 0){
-        res.send({ message: "Please add your confirm phone number" })
-    }else if(cphonenumber != phonenumber){
-        res.send({ message: "confirm phone number must be same as phone number" })
     }else if(emergency <= 0){
         res.send({ message: "Please add your emergency number" })
     }else if(cemergency <= 0){
@@ -74,10 +49,12 @@ router.post("/bootcampUserRegis", (req, res) => {
             if (err) {
                 console.log(err)
             }
-
             if (results.length > 0) {
                 user_id = results[0].id
-                db.query("SELECT * From bootcampuser WHERE email = ?", email, (err, results) => {
+                let fullname = results[0].fullname
+                let email = results[0].email
+                let textbody = 'Welcome, ' + fullname + 'Thank you for registering for this bootcamp program, we hope you have a nice day and nice journey to the peak'
+                db.query("SELECT * From bootcampuser WHERE user_id = ?", user_id, (err, results) => {
                     if (err) {
                         console.log(err)
                     }
@@ -103,12 +80,12 @@ router.post("/bootcampUserRegis", (req, res) => {
                                 console.log('Email sent:' + info.response)
                             }
                         })
-                        db.query("INSERT INTO bootcampuser (fullname, email, gender, BoD, address, city, postalCode, phonenumber, cphonenumber, emergencynumber, cemergencynumber, education, program, batch, motivation, busy, createAt, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [fullname, email, gender, BoD, address, city, postalCode, phonenumber, cphonenumber, emergency, cemergency, education, program, batch, motivation, busy, createAt, user_id], (err, results) => {
+                        db.query("INSERT INTO bootcampuser (address, city, postalCode, emergencynumber, education, program, batch, motivation, busy, createAt, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [address, city, postalCode, emergency, education, program, batch, motivation, busy, createAt, user_id], (err, results) => {
                             console.log(err)
                             res.send(results)
                         })
                     } else {
-                        res.send({ message: "Username already exist" })
+                        res.send({ message: "Data already exist" })
                     }
                 })
             }

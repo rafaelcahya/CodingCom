@@ -1,18 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 function RegisterBootcamp() {
-    const [fullname, setFullname] = useState("")
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [gender, setGender] = useState("")
-    const [BoD, setBoD] = useState("")
+    const [name,setName] = useState("")
     const [address, setAddress] = useState("")
     const [city, setCity] = useState("")
     const [postalCode, setPostalCode] = useState("")
-    const [phonenumber, setPhonenumber] = useState("")
-    const [cphonenumber, setCphonenumber] = useState("")
     const [emergency, setEmergency] = useState("")
     const [cemergency, setCemergency] = useState("")
     const [education, setEducation] = useState("")
@@ -22,6 +16,7 @@ function RegisterBootcamp() {
     const [busy, setBusy] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [value,setValue] = useState([])
     let x
 
     window.onload = setTimeout(function () {
@@ -32,9 +27,15 @@ function RegisterBootcamp() {
         setCreateAt(date)
     }, 500)
 
+    
+    useEffect(() => {
+        Axios.get("http://localhost:3001/batch/listBatch").then((response) => {
+            setValue(response.data)
+        })
+    }, []);
+
     const submit = () => {
-        console.log(name)
-        Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { fullname : fullname, email:email, gender:gender, BoD:BoD, address:address, city:city, postalCode:postalCode, phonenumber:phonenumber, cphonenumber:cphonenumber, emergency:emergency, cemergency:cemergency, education:education, program:program, batch:batch, motivation:motivation, busy:busy, createAt:createAt, name:name }).then((response) => {
+        Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", {address:address, city:city, postalCode:postalCode,emergency:emergency, cemergency:cemergency, education:education, program:program, batch:batch, motivation:motivation, busy:busy, createAt:createAt, name:name }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
         })
@@ -68,36 +69,6 @@ function RegisterBootcamp() {
                 <div className="flex flex-col items-center">
                     <form className="reg-bootcamp-box w-3/4 md:w-1/2 lg:w-2/5 py-10 flex flex-col gap-10">
                         <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Fullname</p>
-                            <input type="text" placeholder="Fullname"  onChange={(event) => {
-                                    setFullname(event.target.value)
-                                }} />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Email</p>
-                            <input type="text" placeholder="Email"  onChange={(event) => {
-                                    setEmail(event.target.value)
-                                }} />
-                        </div>
-                        <div className="w-full flex justify-between gap-10">
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Gender</p>
-                                <select name="" id=""  onChange={(event) => {
-                                    setGender(event.target.value)
-                                }} >
-                                    <option value="Gender">Choose gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Birth date</p>
-                                <input type="date"  onChange={(event) => {
-                                    setBoD(event.target.value)
-                                }} />
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Home address</p>
                             <textarea placeholder="Home address"  onChange={(event) => {
                                     setAddress(event.target.value)
@@ -114,20 +85,6 @@ function RegisterBootcamp() {
                                 <p className="text-sm font-semibold">Postal Code</p>
                                 <input type="number" placeholder="Postal Code"  onChange={(event) => {
                                     setPostalCode(event.target.value)
-                                }} />
-                            </div>
-                        </div>
-                        <div className="w-full flex justify-between gap-10">
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Phone number</p>
-                                <input type="number" placeholder="Phone number"  onChange={(event) => {
-                                    setPhonenumber(event.target.value)
-                                }} />
-                            </div>
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Confirm phone number</p>
-                                <input type="number" placeholder="Confirm phone number"  onChange={(event) => {
-                                    setCphonenumber(event.target.value)
                                 }} />
                             </div>
                         </div>
@@ -176,16 +133,22 @@ function RegisterBootcamp() {
                                 <option value="Family">Family</option>
                             </select>
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
-                            <select name="" id=""  onChange={(event) => {
-                                    setBatch(event.target.value)
-                                }} >
-                                <option>Choose program</option>
-                                <option value="Batch 1 : 30 August 2021 - 12 November 2021">Batch 1 : 30 August 2021 - 12 November 2021</option>
-                                <option value="Batch 2 : 29 November 2021 - 25 February 2022">Batch 2 : 29 November 2021 - 25 February 2022</option>
-                            </select>
-                        </div>
+                        {
+                                            value.map(
+                                                (val) => {
+                                                    return <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
+                                                    <select name="" id=""  onChange={(event) => {
+                                                            setBatch(event.target.value)
+                                                        }} >
+                                                        <option>Choose program</option>
+                                                        <option value={val.batch}>{val.batch}</option>
+                                                    </select>
+                                                </div>
+                                                }
+                                            )
+                                        }
+                        
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Motivation for joining Fulltime Coding Bootcamp</p>
                             <textarea placeholder="Write your motivation to join Fulltime Coding Bootcamp" onChange={(event) => {

@@ -9,8 +9,6 @@ const db = require('../config/db')
 
 router.post("/feedback", (req, res) => {
     const name = req.body.name
-    let fullname = req.body.fullname
-    let email = req.body.email
     const about = req.body.about
     const des = req.body.des
     let namefile = ""
@@ -28,14 +26,8 @@ router.post("/feedback", (req, res) => {
             }
             if (results.length > 0) {
                 user_id = results[0].id
-                if (fullname.length <= 0) {
-                    fullname = results[0].fullname
-
-                } if (email.length <= 0) {
-                    email = results[0].email
-                }
                 if (!req.files) {
-                    db.query("INSERT INTO feedback (fullname, email, about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?);", [fullname, email, about, namefile, des, user_id, createAt], (err, results) => {
+                    db.query("INSERT INTO feedback (about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?);", [about, namefile, des, user_id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
@@ -43,7 +35,7 @@ router.post("/feedback", (req, res) => {
                     const file = req.files.fileUpload
                     const filename = file.name
                     if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-                        db.query("INSERT INTO feedback (fullname, email, about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?);", [fullname, email, about, filename, des, user_id, createAt], (err, results) => {
+                        db.query("INSERT INTO feedback (about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?);", [about, filename, des, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
                             file.mv('../frontend/src/asset/upload/' + file.name)
