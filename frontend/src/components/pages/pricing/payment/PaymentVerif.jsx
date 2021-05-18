@@ -8,7 +8,7 @@ export default function Payment(props) {
     const modal = useRef()
     return (
         <>
-            <section className="payment-container bg-blue-2 mt-32 lg:mt-20 mb-40 mx-5 xs:mx-10 sm:mx-24 md:mx-32 lg:mx-52 xl:mx-96 py-10 rounded-3xl">
+            <section className="payment-container bg-blue-2 mt-32 lg:mt-20 mb-40 mx-5 xs:mx-10 sm:mx-24 md:mx-32 lg:mx-52 xl:mx-96 py-10 rounded-xl shadow-lg">
                 <div className="flex flex-col justify-center items-center">
                     <p className="text-2xl font-semibold mb-10">{props.plan}</p>
                     <div className="flex flex-col justify-start gap-10">

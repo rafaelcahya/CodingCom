@@ -14,8 +14,10 @@ export class Career extends Component {
         address: '',
         careerObj: '',
         college: '',
-        position: '',
-        position: '',
+        major: '',
+        StartYear: '',
+        EndYear: '',
+        activity: '',
         postSubmitted: false
     }
 
@@ -49,7 +51,6 @@ export class Career extends Component {
                                         <div className="flex items-center gap-1 text-sm font-semibold">
                                             <p>Image</p>
                                         </div>
-                                        <ImageUpload/>
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <p className="text-sm font-semibold">Fullname</p>
@@ -75,24 +76,30 @@ export class Career extends Component {
                                         <p className="text-sm font-semibold">Career objective</p>
                                         <textarea onChange={this.onChange('careerObj')} name="careerObj" id="" cols="30" placeholder="Input career objective" className="rounded-lg" rows="3"></textarea>
                                     </div>
-                                    <div className="flex flex-col gap-2">
-                                        <p className="text-sm font-semibold">College or university name</p>
-                                        <input onChange={this.onChange('college')} name="college" type="text" placeholder="Input college or university name" className="rounded-lg" />
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                        <p className="text-sm font-semibold">Major</p>
-                                        <input onChange={this.onChange('major')} name="major" type="text" placeholder="Input major" className="rounded-lg" />
-                                    </div>
-                                    <div className="flex gap-10">
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-sm font-semibold">Start year</p>
-                                            <input onChange={this.onChange('major')} name="major" type="text" placeholder="Input major" className="rounded-lg" />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-sm font-semibold">End year</p>
-                                            <input onChange={this.onChange('major')} name="major" type="text" placeholder="Input major" className="rounded-lg" />
-                                        </div>
-                                    </div>
+                                    <p className="text-xl">Education</p>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major')} name="major" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('major')} name="StartYear" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('major')} name="EndYear" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('major')} name="activity" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+        
                                     <div>
                                         <button type="button" onClick={this.submitPost} className="bg-blue-1 text-white">See your certificate</button>
                                     </div>
@@ -111,54 +118,109 @@ export class Career extends Component {
 
 export default Career
 
-class ImageUpload extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {file: '',imagePreviewUrl: ''};
+class Accordion extends React.Component {
+    constructor(props){
+      super(props)
+  
+      this.state = {
+        activedIndex: this.getID(),
+        acdTransition: false
+      }
     }
-
-    _handleSubmit(e) {
-        e.preventDefault();
-        console.log('handle uploading-', this.state.file);
-    }
-
-    _handleImageChange(e) {
-        e.preventDefault();
-        
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        
-        reader.onloadend = () => {
-            this.setState({
-            file: file,
-            imagePreviewUrl: reader.result
-            });
+  
+    getID(){
+      let expandedIndex = [];
+      let children = this.props.children;
+  
+      React.Children.map(children, (items, i) => {
+        if(items.props.expanded){
+          expandedIndex.push(items.props.id);
         }
-        reader.readAsDataURL(file)
+      });
+  
+      return expandedIndex;
     }
-
-    render() {
-        let {imagePreviewUrl} = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} alt="" className="image-preview transform hover:scale-125 duration-300 rounded-xl"/>);
+  
+    addTransition(){
+      if(this.state.acdTransition === true){
+        return 'acd-transition'
+      } else {
+        return ""
+      }
+    }
+  
+    handleClick(acdID){
+      let muitipleOpen = this.props.muitipleOpen;
+      let activedList = [...this.state.activedIndex];
+      let activedItem = this.state.activedIndex.indexOf(acdID);
+  
+      if(muitipleOpen){
+        if(activedItem !== -1){
+          activedList.splice(activedItem, 1);
+          this.setState({activedIndex: activedList});
+    
         } else {
-            $imagePreview = (<div className="text-xs color-black-2 font-medium">Please select an Image for Preview</div>);
+          this.setState({activedIndex: [...activedList, acdID]});
         }
-
-        return (
-            <div className="previewComponent">
-                <form onSubmit={(e)=>this._handleSubmit(e)}>
-                    <input className="w-full mb-5"
-                    type="file" 
-                    accept=".jpg,.jpeg,.png"
-                    onChange={(e)=>this._handleImageChange(e)} />
-                </form>
-                <div style={{width: "250px"}}>
-                    {$imagePreview}
-                </div>
-            </div>
-        )
+  
+      } else {
+        if(activedItem !== -1){
+          activedList.splice(activedItem, 1);
+          this.setState({activedIndex: activedList});
+    
+        } else {
+          this.setState({activedIndex: [acdID]});
+        }
+      }
+  
+      if(this.state.acdTransition === false){
+        this.setState({acdTransition: true});
+      }
     }
-}
-
+  
+    isExpanded(acdID){
+      if(this.state.activedIndex.includes(acdID)){
+        return 'actived'
+      } else {
+        return ''
+      }
+    }
+  
+    render() {
+      let childArr = this.props.children;
+  
+      if(childArr.length === undefined){
+        childArr = [this.props.children];
+      }
+  
+      const items = childArr.map((child, i) => {
+        //let newIndex = i + 1;
+        return React.cloneElement(child, {
+          isExpanded: this.isExpanded.bind(this),
+          handleClick: this.handleClick.bind(this),
+          addTransition: this.addTransition.bind(this)
+        });
+      });
+  
+      return (
+        <div className={`accordion-box`}>{items}</div>
+      );
+    }
+  
+  }
+  
+  class AccordionList extends React.Component {
+    render() {
+      return (
+          <div className={`accordion-list ${this.props.isExpanded(this.props.id)} ${this.props.addTransition()}`}>
+              <div className={`accordion-label`} 
+                onClick={ () => { this.props.handleClick(this.props.id) } }>
+                {this.props.headTitle} <span className="acd-arrow"></span>
+              </div>
+              <div className={`accordion-content`}>
+                <div className="accordion-inner">{ this.props.children }</div>
+              </div>
+          </div>
+        );
+    }
+  }

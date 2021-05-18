@@ -29,11 +29,10 @@ export default function ComingSoon() {
                 </div>
 
                 <div className="flex flex-col items-center gap-5">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="0" className="text-gray-400 font-medium tracking-wide">Hello, </p>
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200" className="color-blue-1 text-4xl text-center leading-snug font-semibold w-1/3">We are going to launch our tutorial very soon.</p>
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="400" className="animated tada text-gray-400 font-medium text-xl tracking-wide">Stay tune!</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="0" className="bg-yellow-100 px-6 py-1 color-orange-1 text-sm font-semibold tracking-wider rounded-full">Our website is under construction</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-2xl lg:text-4xl text-center font-semibold mx-10 mb-14 lg:w-7/12">Something big update working by our team. Please wait we are coming soon with a lot of features.</p>
                     <Link to="/">
-                        <p data-aos="zoom-up" data-aos-easing="ease-in-out" data-aos-delay="400" className="bg-blue-1 hover:bg-blue-500 text-white text-sm font-medium px-8 py-2 mt-10 rounded-lg">Back to home</p>
+                        <p data-aos="zoom-up" data-aos-easing="ease-in-out" data-aos-delay="400" className="bg-blue-1 hover:bg-blue-500 text-white text-sm font-medium px-8 py-2 rounded-lg">Back to home</p>
                     </Link>
                 </div>
 

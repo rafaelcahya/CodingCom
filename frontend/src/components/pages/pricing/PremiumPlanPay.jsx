@@ -12,8 +12,6 @@ export default function PremiumPlanPay() {
             <PaymentVerif
                 plan="Premium Plan"
                 time="Forever"
-                benefit1="Get Premium course"
-                available1="Available"
                 benefit2="Get 7 access quota for class consultation"
                 available2="Available"
                 benefit3="Get 5 access quota for class session"

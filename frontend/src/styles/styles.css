@@ -601,11 +601,70 @@ Accessories
     top: 0;
     right: 0;
     margin-right: -40px;
-    margin-top: 30px;
+    margin-top: 25px;
     -ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
     transform: rotate(45deg); /* Standard syntax */
 }   
+
+.accordion-box {
+    margin-bottom: 100px;
+}
+
+.accordion-list  .accordion-box:last-child {
+   margin-bottom: 5px;
+}
+
+.accordion-label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    padding: 10px 50px 10px 10px;
+    color: #fff;
+    background-color: #222;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.accordion-inner {
+    background-color: #eee;
+    padding: 15px;
+}
+
+.accordion-list.actived > .accordion-content {
+    max-height: none;
+}
+
+.acd-sub {
+    padding: 10px;
+}
+
+.acd-arrow {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 8px 8px 0px 8px;
+    border-top-color: #fff;
+}
+
+.accordion-list.actived > .accordion-label > .acd-arrow {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.acd-transition > .accordion-label > .acd-arrow {
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+}
 
 /* 
 
@@ -1033,13 +1092,13 @@ Tutorial
 
 
 #tutorial-box {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 1.2rem;
+    border-radius: 6px;
     width: 400px;
-    height: 225px;
     transition: 200ms;
     overflow: hidden;
 }
@@ -1048,6 +1107,11 @@ Tutorial
     transform: scale(1.05);
     transition: 200ms;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid #3b72ff;
+}
+
+.card:hover ,info{
+    opacity: 1;
 }
 
 .category-btn {

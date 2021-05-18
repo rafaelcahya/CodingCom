@@ -17,10 +17,8 @@ import vue from '../../../asset/photo/Tutorial/vue.svg';
 import angular from '../../../asset/photo/Tutorial/angular.svg';
 import jquery from '../../../asset/photo/Tutorial/jquery.svg';
 import nodejs from '../../../asset/photo/Tutorial/nodejs.svg';
-import nextjs from '../../../asset/photo/Tutorial/nextjs.svg';
 import laravel from '../../../asset/photo/Tutorial/laravel.svg';
 import php from '../../../asset/photo/Tutorial/php.svg';
-import go from '../../../asset/photo/Tutorial/go.svg';
 import postgresql from '../../../asset/photo/Tutorial/postgresql.svg';
 import mysql from '../../../asset/photo/Tutorial/mysql.svg';
 import mongodb from '../../../asset/photo/Tutorial/mongodb.svg';
@@ -33,8 +31,8 @@ export default [
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         title: "Basic Internet",
         total: "7 lessons",
-        desc: "",
-        category: 'internet',
+        desc: "A global communication system that connects computers and computer networks around the world.",
+        category: 'Basic Internet',
         time: "56 min"
     },
     {
@@ -68,7 +66,7 @@ export default [
         url: "/coming-soon",
         title: "Customer Experience (CX)",
         total: "",
-        desc: "Customer experience is the customer experience when interacting with your product.",
+        desc: "Customer experience is the experience when interacting with your product from navigating the website and receiving the product.",
         category: 'Design',
         time: "",
         status: "Coming soon"
@@ -80,8 +78,8 @@ export default [
         url: "/coming-soon",
         title: "HTML",
         total: "7 lessons",
-        desc: "",
-        category: 'Frontend',
+        desc: "HTML is a standard markup language for documents designed to be displayed in a web browser.",
+        category: 'Frontend Development',
         time: "56 min"
     },
     {
@@ -91,8 +89,8 @@ export default [
         url: "/coming-soon",
         title: "CSS",
         total: "",
-        desc: "CSS is the style sheet language we use to style an HTML document",
-        category: 'Frontend',
+        desc: "CSS is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.",
+        category: 'Frontend Development',
         time: "",
         status: "Coming soon"
     },
@@ -103,8 +101,8 @@ export default [
         url: "/coming-soon",
         title: "SASS",
         total: "",
-        desc: "SASS is a preprocessor scripting language that is interpreted or compiled into CSS.",
-        category: 'Frontend',
+        desc: "SASS is a CSS preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.",
+        category: 'Frontend Development',
         time: "",
         status: "Coming soon"
     },
@@ -115,8 +113,8 @@ export default [
         url: "/coming-soon",
         title: "Javascript",
         total: "",
-        desc: "JavaScript is a programming language that conforms to the ECMAScript specification.",
-        category: 'Frontend',
+        desc: "JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive.",
+        category: 'Frontend Development',
         time: "",
         status: "Coming soon"
     },
@@ -163,7 +161,7 @@ export default [
         url: "/coming-soon",
         title: "Semantic UI",
         total: "",
-        desc: "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+        desc: "Semantic UI is a modern front-end development framework, powered by LESS and jQuery. It has a sleek, subtle, and flat design.",
         category: 'CSS Frameworks',
         time: "",
         status: "Coming soon"
@@ -199,7 +197,7 @@ export default [
         url: "/coming-soon",
         title: "Angular",
         total: "",
-        desc: "Angular is a TypeScript-based open-source web application framework.",
+        desc: "Angular is a TypeScript-based open-source web application framework for building single-page client applications using HTML and TypeScript.",
         category: 'JS Frameworks & Libraries',
         time: "",
         status: "Coming soon"
@@ -211,7 +209,7 @@ export default [
         url: "/coming-soon",
         title: "JQuery",
         total: "",
-        desc: "JQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation.",
+        desc: "JQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.",
         category: 'JS Frameworks & Libraries',
         time: "",
         status: "Coming soon"
@@ -224,79 +222,55 @@ export default [
         title: "NodeJS",
         total: "",
         desc: "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine.",
-        category: 'Backend',
+        category: 'Backend Development',
         time: "",
         status: "Coming soon"
     },
     {
         id: 18,
-        image: nextjs,
-        color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/coming-soon",
-        title: "NextJS",
-        total: "",
-        desc: "Next.js is an open-source that lets you build server-side rendering and static web applications using React.",
-        category: 'Backend',
-        time: "",
-        status: "Coming soon"
-    },
-    {
-        id: 19,
         image: laravel,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/coming-soon",
         title: "Laravel",
         total: "",
         desc: "Laravel is an open source PHP-based web application framework, using the Model-View-Controller (MVC) concept.",
-        category: 'Backend',
+        category: 'Backend Development',
         time: "",
         status: "Coming soon"
     },
     {
-        id: 20,
+        id: 19,
         image: php,
         color: "bg-gradient-to-r from-green-500 to-green-400",
         url: "/coming-soon",
         title: "PHP",
         total: "",
-        desc: "PHP is a general-purpose scripting language especially suited to web development.",
-        category: 'Backend',
+        desc: "PHP is a server side scripting language that is embedded in HTML. It is used to manage dynamic content and databases.",
+        category: 'Backend Development',
         time: "",
         status: "Coming soon"
     },
     {
-        id: 21,
-        image: go,
-        color: "bg-gradient-to-r from-green-500 to-green-400",
-        url: "/coming-soon",
-        title: "Go",
-        total: "",
-        desc: "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.",
-        category: 'Backend',
-        time: "",
-        status: "Coming soon"
-    },
-    {
-        id: 22,
+        id: 20,
         image: postgresql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         url: "/coming-soon",
         title: "PostgreSQL",
         total: "",
         desc: "PostgreSQL is a open-source relational database management system emphasizing extensibility and SQL compliance.",
-        category: 'Database',
+        category: 'Database Management',
         time: "",
         status: "Coming soon"
     },
     {
-        id: 22,
+        id: 21,
         image: mysql,
         color: "bg-gradient-to-r from-yellow-500 to-yellow-400",
         url: "/coming-soon",
         title: "MySQL",
         total: "",
-        desc: "MySQL is an open-source relational database management system.",
-        category: 'Database',
+        desc: "MySQL is an open-source relational database management system for a wide range of purposes.",
+        category: 'Database Management',
         status: "Coming soon"
     },
     {
@@ -306,8 +280,8 @@ export default [
         url: "/coming-soon",
         title: "MongoDB",
         total: "",
-        desc: "MongoDB is a source-available cross-platform document-oriented database program.",
-        category: 'Database',
+        desc: "MongoDB is a source-available cross-platform document-oriented database program which means it stores data in JSON-like documents.",
+        category: 'Database Management',
         status: "Coming soon"
     }
 ];
