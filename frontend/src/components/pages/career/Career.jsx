@@ -18,6 +18,21 @@ export class Career extends Component {
         StartYear: '',
         EndYear: '',
         activity: '',
+        college2: '',
+        major2: '',
+        StartYear2: '',
+        EndYear2: '',
+        activity2: '',
+        college3: '',
+        major3: '',
+        StartYear3: '',
+        EndYear3: '',
+        activity3: '',
+        college4: '',
+        major4: '',
+        StartYear4: '',
+        EndYear4: '',
+        activity4: '',
         postSubmitted: false
     }
 
@@ -81,20 +96,240 @@ export class Career extends Component {
                                         <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
                                             <div>
                                                 <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college1')} name="college1" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
                                                     <p className="text-sm font-semibold">Major</p>
-                                                    <input onChange={this.onChange('major')} name="major" type="text" placeholder="Input major" className="rounded-lg" />
+                                                    <input onChange={this.onChange('major1')} name="major1" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa1')} name="gpa1" type="text" placeholder="Input GPA" className="rounded-lg" />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
                                                     <p className="text-sm font-semibold">Start year</p>
-                                                    <input onChange={this.onChange('major')} name="StartYear" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                    <input onChange={this.onChange('StartYear1')} name="StartYear1" type="text" placeholder="Input start year" className="rounded-lg" />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
                                                     <p className="text-sm font-semibold">End year</p>
-                                                    <input onChange={this.onChange('major')} name="EndYear" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                    <input onChange={this.onChange('EndYear1')} name="EndYear1" type="text" placeholder="Input end year" className="rounded-lg" />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
                                                     <p className="text-sm font-semibold">Activity</p>
-                                                    <input onChange={this.onChange('major')} name="activity" type="text" placeholder="Input major" className="rounded-lg" />
+                                                    <input onChange={this.onChange('activity1')} name="activity1" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college2')} name="college2" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major2')} name="major2" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa2')} name="gpa2" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear2')} name="StartYear2" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear2')} name="EndYear2" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity2')} name="activity2" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college3')} name="college3" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major3')} name="major3" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa3')} name="gpa3" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear3')} name="StartYear3" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear3')} name="EndYear3" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity3')} name="activity3" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college4')} name="college4" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major4')} name="major4" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa4')} name="gpa4" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear4')} name="StartYear4" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear4')} name="EndYear4" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity4')} name="activity4" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+
+                                    <p className="text-xl">Work Experience</p>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="Work Experience">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Position</p>
+                                                    <input onChange={this.onChange('posExp1')} name="posExp1" type="text" placeholder="Input position" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Company name</p>
+                                                    <input onChange={this.onChange('company1')} name="company1" type="text" placeholder="Input company name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa1')} name="gpa1" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear1')} name="StartYear1" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear1')} name="EndYear1" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity1')} name="activity1" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college2')} name="college2" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major2')} name="major2" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa2')} name="gpa2" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear2')} name="StartYear2" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear2')} name="EndYear2" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity2')} name="activity2" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college3')} name="college3" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major3')} name="major3" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa3')} name="gpa3" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear3')} name="StartYear3" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear3')} name="EndYear3" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity3')} name="activity3" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                            </div>
+                                        </AccordionList>
+                                    </Accordion>
+                                    <Accordion muitipleOpen={true}>
+                                        <AccordionList expanded={false}  id="1" key="1" headTitle="College or university name">
+                                            <div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">College or university name</p>
+                                                    <input onChange={this.onChange('college4')} name="college4" type="text" placeholder="Input college or university name" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Major</p>
+                                                    <input onChange={this.onChange('major4')} name="major4" type="text" placeholder="Input major" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">GPA</p>
+                                                    <input onChange={this.onChange('gpa4')} name="gpa4" type="text" placeholder="Input GPA" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Start year</p>
+                                                    <input onChange={this.onChange('StartYear4')} name="StartYear4" type="text" placeholder="Input start year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">End year</p>
+                                                    <input onChange={this.onChange('EndYear4')} name="EndYear4" type="text" placeholder="Input end year" className="rounded-lg" />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-sm font-semibold">Activity</p>
+                                                    <input onChange={this.onChange('activity4')} name="activity4" type="text" placeholder="Input major" className="rounded-lg" />
                                                 </div>
                                             </div>
                                         </AccordionList>

@@ -11,7 +11,6 @@ import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import Help from "./components/pages/help/Help";
 import PaymentVerif from "./components/pages/pricing/payment/PaymentVerif";
-import { ScrollToTop } from "./components/minor/scroll to top/ScrollToTop.jsx"
 import Homepage from "./components/pages/homepage/Homepage.jsx"
 import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
 import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
@@ -56,6 +55,8 @@ import Career from "./components/pages/career/Career.jsx"
 import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
 import ComingSoon from "./components/major/ComingSoon.jsx"
 
+import ScrollToTop from "./components/minor/ScrollToTop"
+
 const Container = styled.div`
 `;
 
@@ -64,12 +65,12 @@ function App() {
   const themeMode = theme === 'light' ? lightTheme : darkTheme
   return (
     <Router>
+      <ScrollToTop/>
       <ThemeProvider theme={themeMode}>
         <Container>
           <GlobalStyle />
           <div className="minor flex items-center gap-5 z-10">
             <Toggle theme={theme} toggleTheme={toggleTheme} />
-            <ScrollToTop/>
           </div>
           <Switch>
             <Route path="/" exact component={Homepage} />

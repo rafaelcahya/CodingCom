@@ -605,11 +605,7 @@ Accessories
     -ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
     transform: rotate(45deg); /* Standard syntax */
-}   
-
-.accordion-box {
-    margin-bottom: 100px;
-}
+} 
 
 .accordion-list  .accordion-box:last-child {
    margin-bottom: 5px;
@@ -737,7 +733,8 @@ Login page, Register Page
 */
 
 .login-box input,
-.register-box input {
+.register-box input,
+.register-box select{
     width: 15rem;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
@@ -745,6 +742,18 @@ Login page, Register Page
     outline: none;
 }
 
+.register-box select{
+    width: 100%;
+}
+
+.login-box input:focus,
+.register-box input:focus{
+    border: 1.6px solid var(--blue-1);
+}
+
+.register-box select {
+    padding: .4rem 1rem;
+}
 
 .login-box input::-webkit-input-placeholder,
 .register-box input::-webkit-input-placeholder {
@@ -1103,7 +1112,7 @@ Tutorial
     overflow: hidden;
 }
 
-#tutorial-box:hover {
+#tutorial-box:hover{
     transform: scale(1.05);
     transition: 200ms;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -1291,7 +1300,6 @@ Challenge
 class session 
 
 */
-
 
 .request-class-container input {
     padding: .375rem 1rem;

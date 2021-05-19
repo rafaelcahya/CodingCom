@@ -59,7 +59,7 @@ export default function Homepage() {
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
         setName(x)
-    }, 500)
+    }, 10)
     
     useEffect(() => {
         if (!localStorage.getItem("loggedIn")) {
@@ -98,10 +98,12 @@ export default function Homepage() {
                             <p className="shake text-3xl sm:text-4xl font-semibold">coding.com</p>
                         </div>
                         <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-2xl sm:text-3xl md:text-6xl font-bold mr-10 md:mr-20 mb-4 sm:mb-8">An educational platform for web programming from scratch.</p>
-                        <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="300" className="change-text-anim text-base sm:text-xl font-medium text-gray-500"></p>
-                        <Link to="/tutorial">
-                            <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="animate__tada bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
-                        </Link>
+                        <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="300" className="change-text-anim text-base sm:text-xl font-medium text-gray-500 mb-10"></p>
+                        <div className="w-max">
+                            <Link to="/tutorial">
+                                <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="animate__tada bg-blue-1 text-white font-semibold px-8 py-3 rounded-lg block hover:bg-yellow-300">Start learning today</p>
+                            </Link>
+                        </div>
                     </div>
                 </header>
 
