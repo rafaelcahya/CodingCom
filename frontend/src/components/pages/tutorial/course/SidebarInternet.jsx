@@ -6,7 +6,7 @@ export const SidebarInternet = () => {
     const [value,setValue] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3001/course/listCourse").then((response) => {
+        axios.get("http://localhost:3001/course/listCourseUser").then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
