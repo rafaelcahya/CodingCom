@@ -596,19 +596,34 @@ Accessories
     animation-name: tada;
 }
 
-.ribbon{
+.blob-gradient {
+    fill: url(#radial-gradient) rgb(255, 255, 255);
+}
+
+.wheel {
+    position: absolute;
+    bottom: 0;
+    left: -25%;
+    height: 50vh;
+    width: 50vw;
+}
+
+.ribbon {
     position: fixed;
     top: 0;
     right: 0;
     margin-right: -40px;
     margin-top: 25px;
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
-    transform: rotate(45deg); /* Standard syntax */
-} 
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Safari prior 9.0 */
+    transform: rotate(45deg);
+    /* Standard syntax */
+}
 
-.accordion-list  .accordion-box:last-child {
-   margin-bottom: 5px;
+.accordion-list .accordion-box:last-child {
+    margin-bottom: 5px;
 }
 
 .accordion-label {
@@ -630,7 +645,7 @@ Accessories
     padding: 15px;
 }
 
-.accordion-list.actived > .accordion-content {
+.accordion-list.actived>.accordion-content {
     max-height: none;
 }
 
@@ -652,15 +667,37 @@ Accessories
     border-top-color: #fff;
 }
 
-.accordion-list.actived > .accordion-label > .acd-arrow {
+.accordion-list.actived>.accordion-label>.acd-arrow {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
-.acd-transition > .accordion-label > .acd-arrow {
+.acd-transition>.accordion-label>.acd-arrow {
     -webkit-transition: -webkit-transform 0.3s ease;
     transition: transform 0.3s ease;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
 /* 
 
@@ -732,22 +769,23 @@ Login page, Register Page
 
 */
 
+.login-container,
+.register-container {
+    background-image: linear-gradient(to right bottom, #3417aa, #383abf, #4057d1, #4d72e2, #5f8cf1);
+}
+
 .login-box input,
 .register-box input,
-.register-box select{
-    width: 15rem;
+.register-box select {
+    width: 20rem;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 5px;
     outline: none;
 }
 
-.register-box select{
-    width: 100%;
-}
-
 .login-box input:focus,
-.register-box input:focus{
+.register-box input:focus {
     border: 1.6px solid var(--blue-1);
 }
 
@@ -778,22 +816,6 @@ Login page, Register Page
 .login-box input::placeholder,
 .register-box input::placeholder {
     font-size: .875rem;
-}
-
-@media screen and (min-width: 440px) {
-
-    .login-box input,
-    .register-box input {
-        width: 20rem;
-    }
-}
-
-@media screen and (min-width: 768px) {
-
-    .login-box input,
-    .register-box input {
-        width: 25rem;
-    }
 }
 
 .password-hint-box {
@@ -1112,14 +1134,15 @@ Tutorial
     overflow: hidden;
 }
 
-#tutorial-box:hover{
+#tutorial-box:hover {
     transform: scale(1.05);
     transition: 200ms;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-left: 4px solid #3b72ff;
 }
 
-.card:hover ,info{
+.card:hover,
+info {
     opacity: 1;
 }
 

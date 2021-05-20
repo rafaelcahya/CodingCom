@@ -6,10 +6,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.background};
         color: ${({theme}) => theme.primarytext};
     }
-
-    .login-container,
+    .login-box,
     .login-container input,
     .logout,
+    .register-box,
+    .register-box input,
+    .register-box select,
     .register-popup-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
