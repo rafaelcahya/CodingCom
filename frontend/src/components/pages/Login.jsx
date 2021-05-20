@@ -27,25 +27,6 @@ export default function Login() {
             }
         })
     }
-    
-    const focus = () => {
-        let username = document.getElementsByClassName("username")[0]
-        let inputUsername = document.getElementsByClassName("input-username")[0] 
-        let passwordpassword = document.getElementsByClassName("password")[0]
-        let inputPassword = document.getElementsByClassName("input-password")[0]
-
-        if(inputUsername === document.activeElement){
-            username.style.fontWeight = "bold"
-        }else{
-            username.style.fontWeight = "normal"
-        }
-    
-        if(inputPassword === document.activeElement){
-            passwordpassword.style.fontWeight = "bold"
-        }else{
-            passwordpassword.style.fontWeight = "normal"
-        }
-    }
 
     function refreshPage() {
         setTimeout(()=>{
@@ -55,7 +36,7 @@ export default function Login() {
     
     return (
         <Fragment>
-            <div className="relative flex justify-center" onFocus={focus}>
+            <div className="relative flex justify-center">
                 <div className="absolute">
                     <Particles height="100vh" width="100vw" params={particlesConfig}/>
                 </div>
@@ -67,7 +48,7 @@ export default function Login() {
                     <div className="login-box flex flex-col my-10">
                         <div className="flex flex-col gap-5">
                             <div>
-                                <p className="username text-xs mb-1">Username</p>
+                                <p className="username text-sm mb-1">Username</p>
                                 <input
                                     type="text"
                                     placeholder="Input your username" 
@@ -77,7 +58,7 @@ export default function Login() {
                                 }} />
                             </div>
                             <div>
-                                <p className="password text-xs mb-1">Password</p>
+                                <p className="password text-sm mb-1">Password</p>
                                 <input
                                     type="password"
                                     placeholder="Enter your password" 
@@ -86,7 +67,7 @@ export default function Login() {
                                         setPassword(event.target.value)
                                 }} />
                                 <Link to="/forgotPassword">
-                                    <p className="text-xs mt-1 underline text-right">Forgot password?</p>
+                                    <p className="text-sm mt-1 underline text-right">Forgot password?</p>
                                 </Link>
                             </div>
                         </div>
@@ -103,7 +84,7 @@ export default function Login() {
                         </Link>
                     </div>
                     <Link to="/mentor/login" onClick={refreshPage}>
-                        <p className="text-xs underline text-center my-2 rounded-md">Login as Mentor</p>
+                        <p className="text-sm underline text-center my-2 rounded-md">Login as Mentor</p>
                     </Link>
                 </div>
             </div>

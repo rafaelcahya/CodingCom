@@ -42,51 +42,8 @@ function Register() {
         })
     }
 
-    const focus = () => {
-        let fullname = document.getElementsByClassName("fullname")[0]
-        let inputFullname = document.getElementsByClassName("input-fullname")[0]
-        let username = document.getElementsByClassName("username")[0]
-        let inputUsername = document.getElementsByClassName("input-username")[0]
-        let email = document.getElementsByClassName("email")[0]
-        let inputEmail = document.getElementsByClassName("input-email")[0]
-        let passwordpassword = document.getElementsByClassName("password")[0]
-        let inputPassword = document.getElementsByClassName("input-password")[0]
-        let confirmpass = document.getElementsByClassName("confirmpass")[0]
-        let inputConfirmpass = document.getElementsByClassName("input-confirmpass")[0]
-
-        if (inputFullname === document.activeElement) {
-            fullname.style.fontWeight = "bold"
-        } else {
-            fullname.style.fontWeight = "normal"
-        }
-
-        if (inputUsername === document.activeElement) {
-            username.style.fontWeight = "bold"
-        } else {
-            username.style.fontWeight = "normal"
-        }
-
-        if (inputEmail === document.activeElement) {
-            email.style.fontWeight = "bold"
-        } else {
-            email.style.fontWeight = "normal"
-        }
-
-        if (inputPassword === document.activeElement) {
-            passwordpassword.style.fontWeight = "bold"
-        } else {
-            passwordpassword.style.fontWeight = "normal"
-        }
-
-        if (inputConfirmpass === document.activeElement) {
-            confirmpass.style.fontWeight = "bold"
-        } else {
-            confirmpass.style.fontWeight = "normal"
-        }
-    }
-
     return (
-        <div className="relative flex justify-center" onFocus={focus}>
+        <div className="relative flex justify-center">
             <div className="absolute">
                 <Particles height="100vh" width="100vw" params={particlesConfig} />
             </div>
@@ -97,29 +54,31 @@ function Register() {
                 </div>
                 <div className="register-box flex flex-col my-10">
                     <div className="flex flex-col gap-5">
-                        <div>
-                            <p className="fullname text-xs mb-1">Fullname</p>
-                            <input
-                                type="text"
-                                placeholder="Input your fullname"
-                                className="input-fullname"
-                                onChange={(event) => {
-                                    setFullname(event.target.value)
-                                }} />
+                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
+                            <div>
+                                <p className="fullname text-sm mb-1">Fullname</p>
+                                <input
+                                    type="text"
+                                    placeholder="Input your fullname"
+                                    className="input-fullname"
+                                    onChange={(event) => {
+                                        setFullname(event.target.value)
+                                    }} />
+                            </div>
+                            <div>
+                                <p className="username text-sm mb-1">Username</p>
+                                <input
+                                    type="text"
+                                    placeholder="Input your username"
+                                    className="input-username"
+                                    onChange={(event) => {
+                                        setName(event.target.value)
+                                    }} />
+                            </div>
                         </div>
-                        <div>
-                            <p className="username text-xs mb-1">Username</p>
-                            <input
-                                type="text"
-                                placeholder="Input your username"
-                                className="input-username"
-                                onChange={(event) => {
-                                    setName(event.target.value)
-                                }} />
-                        </div>
-                        <div className="w-full flex justify-between gap-10">
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Gender</p>
+                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
+                            <div className="w-full flex flex-col gap-2">
+                                <p className="gender text-sm">Gender</p>
                                 <select name="" id=""  onChange={(event) => {
                                     setGender(event.target.value)
                                 }} >
@@ -129,71 +88,74 @@ function Register() {
                                 </select>
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Birth date</p>
+                                <p className="text-sm">Birth date</p>
                                 <input type="date"  onChange={(event) => {
                                     setBoD(event.target.value)
                                 }} />
                             </div>
                         </div>
-                        <div className="w-full flex justify-between gap-10">
+                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
                             <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Phone number</p>
+                                <p className="text-sm">Phone number</p>
                                 <input type="number" placeholder="Phone number"  onChange={(event) => {
                                     setPhonenumber(event.target.value)
                                 }} />
                             </div>
                             <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Confirm phone number</p>
-                                <input type="number" placeholder="Confirm phone number"  onChange={(event) => {
+                                <p className="text-sm">Confirm phone number</p>
+                                <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
                                     setCphonenumber(event.target.value)
                                 }} />
                             </div>
                         </div>
-                        <div>
-                            <p className="email text-xs mb-1">Email</p>
+                        <div className="w-full">
+                            <p className="email text-sm mb-1">Email</p>
                             <input
                                 type="text"
                                 placeholder="Input your email"
                                 className="input-email"
+                                style={{width: "100%"}}
                                 onChange={(event) => {
                                     setEmail(event.target.value)
                                 }} />
                         </div>
-                        <div>
-                            <div className="flex justify-between">
-                                <p className="password text-xs mb-1">Password</p>
-                                <div className="flex flex-col items-end">
-                                    <img src={info} alt="" className="info w-3 text-right" />
-                                    <div className="password-hint-box text-xs shadow-black absolute bg-white mt-5 px-3 py-1 rounded-xl">
-                                        <p>Your password must contain: </p>
-                                        <ul className="list-inside list-disc">
-                                            <div className="m-2">
-                                                <li>Uppercase letter</li>
-                                                <li>Lowercase letter</li>
-                                                <li>Number</li>
-                                                <li>8 - 20 Characters</li>
-                                            </div>
-                                        </ul>
+                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
+                            <div>
+                                <div className="flex justify-between">
+                                    <p className="password text-sm mb-1">Password</p>
+                                    <div className="flex flex-col items-end">
+                                        <img src={info} alt="" className="info w-3 text-right" />
+                                        <div className="password-hint-box text-sm shadow-black absolute bg-white mt-5 px-3 py-1 rounded-xl">
+                                            <p>Your password must contain: </p>
+                                            <ul className="list-inside list-disc">
+                                                <div className="m-2">
+                                                    <li>Uppercase letter</li>
+                                                    <li>Lowercase letter</li>
+                                                    <li>Number</li>
+                                                    <li>8 - 20 Characters</li>
+                                                </div>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
+                                <input
+                                    type="password"
+                                    placeholder="Input your password"
+                                    className="input-password"
+                                    onChange={(event) => {
+                                        setPassword(event.target.value)
+                                    }} />
                             </div>
-                            <input
-                                type="password"
-                                placeholder="Input your password"
-                                className="input-password"
-                                onChange={(event) => {
-                                    setPassword(event.target.value)
-                                }} />
-                        </div>
-                        <div>
-                            <p className="confirmpass text-xs mb-1">Confirm password</p>
-                            <input
-                                type="password"
-                                placeholder="Input your password again"
-                                className="input-confirmpass"
-                                onChange={(event) => {
-                                    setConfirmpassword(event.target.value)
-                                }} />
+                            <div>
+                                <p className="confirmpass text-sm mb-1">Confirm password</p>
+                                <input
+                                    type="password"
+                                    placeholder="Input your password again"
+                                    className="input-confirmpass"
+                                    onChange={(event) => {
+                                        setConfirmpassword(event.target.value)
+                                    }} />
+                            </div>
                         </div>
                     </div>
                     <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>

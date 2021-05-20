@@ -24,47 +24,47 @@ function Submenu() {
     return (
         <>
             <div className="navbar-mobile-dropdown rounded-lg px-4">
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Home</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/pricing">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Pricing</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/roadmap">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Roadmap</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/tutorial">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Tutorial</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Deployment</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/challenge">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Challenge</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/class-session">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Coding Class</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/news">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">News</p>
                     </Link>
                 </p>
-                <p onClick={window.scrollTo(0, 0)}>
+                <p>
                     <Link to="/career">
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Career</p>
                     </Link>

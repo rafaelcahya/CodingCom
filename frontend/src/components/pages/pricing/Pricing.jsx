@@ -150,13 +150,6 @@ export class Pricing extends Component {
                                 </div>
                                 <div className="font-semibold flex flex-col gap-5 mt-5">
                                     <div className="flex items-center gap-2">
-                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
-                                        </svg>
-                                        <p>Get Premium course</p>
-                                    </div>
-                                    <div className="flex items-center gap-2">
                                         <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
                                         <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>

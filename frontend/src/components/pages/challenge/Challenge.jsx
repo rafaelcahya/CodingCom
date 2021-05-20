@@ -27,55 +27,55 @@ export class Challenge extends Component {
                         <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center">For Certificate</p>
                         <div className="flex flex-wrap justify-center gap-10 my-10">
                             <Link to="/html-css-js-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="challenge-box p-5 rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5 rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">UI/UX Exercise</p>
                                     <p className="text-sm mt-5">Get UI/UX Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/html-css-js-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="200" className="challenge-box p-5  rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5  rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">HTML CSS Javascript Exercise</p>
                                     <p className="text-sm mt-5">Get HTML CSS JS Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/react-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="50" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">React Exercise</p>
                                     <p className="text-sm mt-5">Get React Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/vue-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">VUE Exercise</p>
                                     <p className="text-sm mt-5">Get VUE Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/angular-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="200" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">Angular Exercise</p>
                                     <p className="text-sm mt-5">Get Angular Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/react-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">NodeJS Exercise</p>
                                     <p className="text-sm mt-5">Get NodeJS Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/react-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="50" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">PHP Exercise</p>
                                     <p className="text-sm mt-5">Get PHP Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/react-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">Laravel Exercise</p>
                                     <p className="text-sm mt-5">Get Laravel Certificate by working on big project based on real project</p>
                                 </div>
                             </Link>
                             <Link to="/react-exercise">
-                                <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="50" className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+                                <div className="challenge-box p-5   rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                     <p className="color-blue-1 font-semibold">Golang Exercise</p>
                                     <p className="text-sm mt-5">Get Golang Certificate by working on big project based on real project</p>
                                 </div>

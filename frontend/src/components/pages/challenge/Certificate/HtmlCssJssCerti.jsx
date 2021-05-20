@@ -10,10 +10,6 @@ import file from "../../../../asset/file/Challenge.docx"
 
 export class HtmlCssJssCerti extends Component {
     render() {
-
-        const scrollToTop = () => {
-            window.scrollTo(0, 0)
-        }
         return (
             <>
                 <NavbarLogin/>
@@ -50,7 +46,7 @@ export class HtmlCssJssCerti extends Component {
                         <div className="flex flex-col justify-between gap-2 my-10">
                             <p className="font-semibold text-xl">Submit Solution</p>
                             <p>Once you've completed the challenge, you can submit your solution.</p>
-                            <p onClick={scrollToTop}>
+                            <p>
                                 <Link to="/submit-solution">
                                     <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
                                 </Link>
@@ -61,7 +57,7 @@ export class HtmlCssJssCerti extends Component {
                                 <p className="font-semibold text-xl">Download Certificate</p>
                                 <p>If your project meets the conditions, you can download your certificate.</p>
                             </div>
-                            <div onClick={scrollToTop}>
+                            <div>
                                 <Link to="/CertificateHTMLCSSJS">
                                     <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
                                 </Link>

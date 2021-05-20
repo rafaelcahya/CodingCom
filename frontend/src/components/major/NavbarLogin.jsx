@@ -12,7 +12,7 @@ export default function NavbarLogin() {
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
-    }, 10)
+    }, 0)
 
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
@@ -161,52 +161,105 @@ export default function NavbarLogin() {
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Web design</p>
-                                <p>User Interface / UI</p>
-                                <p>User Experience / UX</p>
-                                <p>Customer Experience / CX</p>
+                                <div className="flex flex-col gap-2 text-sm mt-2">
+                                    <Link to="/coming-soon">
+                                        <p>User Interface / UI</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>User Experience / UX</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>Customer Experience / CX</p>
+                                    </Link>
+                                </div>
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Frontend</p>
                                 <div className="flex gap-10">
-                                    <div>
-                                        <p className="text-sm mt-2">HTML</p>
-                                        <p>CSS</p>
-                                        <p>SASS</p>
-                                        <p>Javascript</p>
-                                        <p>Bootstrap</p>
-                                        <p>TailwindCSS</p>
-                                        <p>Foundation</p>
-                                        <p>SemanticUI</p>
+                                    <div className="flex flex-col gap-2 text-sm">
+                                        <Link to="/coming-soon">
+                                            <p className="text-sm mt-2">HTML</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>CSS</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>SASS</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Javascript</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Bootstrap</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>TailwindCSS</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Foundation</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>SemanticUI</p>
+                                        </Link>
                                     </div>
-                                    <div>
-                                        <p className="text-sm mt-2">React</p>
-                                        <p>VUE</p>
-                                        <p>Angular</p>
-                                        <p>JQuery</p>
+                                    <div className="flex flex-col gap-2 text-sm">
+                                        <Link to="/coming-soon">
+                                            <p className="text-sm mt-2">React</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>VUE</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Angular</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>JQuery</p>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Backend</p>
-                                <p>NodeJS</p>
-                                <p>NextJS</p>
-                                <p>PHP</p>
-                                <p>Laravel</p>
-                                <p>Golang</p>
+                                <div className="flex flex-col gap-2 text-sm">
+                                    <Link to="/coming-soon">
+                                        <p className="text-sm mt-2">React</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>NodeJS</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>NextJS</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>PHP</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>Laravel</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>Golang</p>
+                                    </Link>
+                                </div>
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Database</p>
-                                <p>MySQL</p>
-                                <p>PostgreSQL</p>
-                                <p>MongoDB</p>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">DevOps</p>
-                                <p>Overview</p>
+                                <div className="flex flex-col gap-2 text-sm mt-2">
+                                    <Link to="/coming-soon">
+                                        <p>MySQL</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>PostgreSQL</p>
+                                    </Link>
+                                    <Link to="/coming-soon">
+                                        <p>MongoDB</p>
+                                    </Link>
+                                </div>
                             </div>
                             <div>
                                 <p className="font-semibold color-blue-1">Deployment</p>
-                                <p>Overview</p>
+                                <Link to="/coming-soon">
+                                    <p className="flex flex-col gap-2 text-sm mt-2">Overview</p>
+                                </Link>
                             </div>
                         </div>
                     </div>
