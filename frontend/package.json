@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "aos": "^3.0.0-beta.6",
     "axios": "^0.21.1",
+    "blobs": "^2.2.0",
     "codemirror": "^5.61.0",
     "framer-motion": "^4.1.2",
     "react": "^17.0.2",
@@ -18,13 +19,14 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-spinners": "^0.10.6",
     "react-to-pdf": "0.0.13",
-    "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.2.3",
     "swiper": "^6.5.4",
     "vanilla-tilt": "^1.4.1",
     "web-vitals": "^1.1.1"
+  },
+  "peerDependencies": {
+    "react-spring": "^8.0.27"
   },
   "scripts": {
     "build:style": "tailwind build ./src/styles/index.css -o ./src/styles/tailwind.css",

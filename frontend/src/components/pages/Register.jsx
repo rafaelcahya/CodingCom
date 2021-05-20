@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import Particles from "react-particles-js"
-import particlesConfig from '../background/ParticlesConfig'
-
 import info from "../../asset/icon/info.svg"
 import Popup from "./RegisterPopup"
 
@@ -43,123 +40,106 @@ function Register() {
     }
 
     return (
-        <div className="relative flex justify-center">
-            <div className="absolute">
-                <Particles height="100vh" width="100vw" params={particlesConfig} />
-            </div>
-            <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
-                <div className="text-lg">
-                    <p className="color-blue-1">Hello,</p>
-                    <p>Let's introduce yourself</p>
+        <div className="register-container flex justify-center p-10 h-screen overflow-hidden">
+            <div className="register-box rounded-lg p-10 shadow-xl overflow-auto">
+                <div className="text-sm mb-5">
+                    <p className="text-xl font-semibold color-blue-1 mb-2">Let's get started,</p>
+                    <div className="text-gray-500 font-medium">
+                        <p>Find new opportunities to make your voice heard. Be proud!</p>
+                    </div>
                 </div>
-                <div className="register-box flex flex-col my-10">
-                    <div className="flex flex-col gap-5">
-                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
-                            <div>
-                                <p className="fullname text-sm mb-1">Fullname</p>
-                                <input
-                                    type="text"
-                                    placeholder="Input your fullname"
-                                    className="input-fullname"
-                                    onChange={(event) => {
-                                        setFullname(event.target.value)
-                                    }} />
-                            </div>
-                            <div>
-                                <p className="username text-sm mb-1">Username</p>
-                                <input
-                                    type="text"
-                                    placeholder="Input your username"
-                                    className="input-username"
-                                    onChange={(event) => {
-                                        setName(event.target.value)
-                                    }} />
-                            </div>
-                        </div>
-                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
-                            <div className="w-full flex flex-col gap-2">
-                                <p className="gender text-sm">Gender</p>
-                                <select name="" id=""  onChange={(event) => {
-                                    setGender(event.target.value)
-                                }} >
-                                    <option value="Gender">Choose gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm">Birth date</p>
-                                <input type="date"  onChange={(event) => {
-                                    setBoD(event.target.value)
-                                }} />
-                            </div>
-                        </div>
-                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm">Phone number</p>
-                                <input type="number" placeholder="Phone number"  onChange={(event) => {
-                                    setPhonenumber(event.target.value)
-                                }} />
-                            </div>
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm">Confirm phone number</p>
-                                <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
-                                    setCphonenumber(event.target.value)
-                                }} />
-                            </div>
-                        </div>
-                        <div className="w-full">
-                            <p className="email text-sm mb-1">Email</p>
+                <div className="flex flex-col gap-5">
+                    <div className="flex flex-col lg:flex-row gap-5">
+                        <div>
+                            <p className="fullname text-sm font-semibold mb-1">Fullname</p>
                             <input
                                 type="text"
-                                placeholder="Input your email"
-                                className="input-email"
-                                style={{width: "100%"}}
+                                placeholder="Input your fullname"
                                 onChange={(event) => {
-                                    setEmail(event.target.value)
+                                    setFullname(event.target.value)
                                 }} />
                         </div>
-                        <div className="w-full flex flex-col lg:flex-row justify-between gap-10">
-                            <div>
-                                <div className="flex justify-between">
-                                    <p className="password text-sm mb-1">Password</p>
-                                    <div className="flex flex-col items-end">
-                                        <img src={info} alt="" className="info w-3 text-right" />
-                                        <div className="password-hint-box text-sm shadow-black absolute bg-white mt-5 px-3 py-1 rounded-xl">
-                                            <p>Your password must contain: </p>
-                                            <ul className="list-inside list-disc">
-                                                <div className="m-2">
-                                                    <li>Uppercase letter</li>
-                                                    <li>Lowercase letter</li>
-                                                    <li>Number</li>
-                                                    <li>8 - 20 Characters</li>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input
-                                    type="password"
-                                    placeholder="Input your password"
-                                    className="input-password"
-                                    onChange={(event) => {
-                                        setPassword(event.target.value)
-                                    }} />
-                            </div>
-                            <div>
-                                <p className="confirmpass text-sm mb-1">Confirm password</p>
-                                <input
-                                    type="password"
-                                    placeholder="Input your password again"
-                                    className="input-confirmpass"
-                                    onChange={(event) => {
-                                        setConfirmpassword(event.target.value)
-                                    }} />
-                            </div>
+                        <div>
+                            <p className="username text-sm font-semibold mb-1">Username</p>
+                            <input
+                                type="text"
+                                placeholder="Input your username"
+                                onChange={(event) => {
+                                    setName(event.target.value)
+                                }} />
                         </div>
                     </div>
-                    <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                    <div className="flex flex-col lg:flex-row justify-between gap-5">
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Gender</p>
+                            <select name="" id=""  onChange={(event) => {
+                                setGender(event.target.value)
+                            }} >`
+                                <option value="Gender">Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Birth date</p>
+                            <input type="date" onChange={(event) => {
+                                setBoD(event.target.value)
+                            }} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col lg:flex-row gap-5">
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Phone number</p>
+                            <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
+                                setPhonenumber(event.target.value)
+                            }} />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Confirm phone number</p>
+                            <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
+                                setCphonenumber(event.target.value)
+                            }} />
+                        </div>
+                    </div>
+                    <div>
+                        <p className="email text-sm font-semibold mb-1">Email</p>
+                        <input
+                            type="text"
+                            placeholder="Input your email"
+                            className="input-email"
+                            onChange={(event) => {
+                                setEmail(event.target.value)
+                            }} />
+                    </div>
+                    <div className="flex flex-col lg:flex-row gap-5">
+                        <div>
+                            <div className="flex justify-between items-center">
+                                <p className="password text-sm font-semibold mb-1">Password</p>
+                                <div className="tooltip">
+                                    <img src={info} alt="" width={15}/>
+                                    <span class="tooltiptext">grewon.pdf</span>
+                                </div>
+                            </div>
+                            <input
+                                type="password"
+                                placeholder="Input your password"
+                                onChange={(event) => {
+                                    setPassword(event.target.value)
+                                }} />
+                        </div>
+                        <div>
+                            <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
+                            <input
+                                type="password"
+                                placeholder="Input your password again"
+                                className="input-confirmpass"
+                                onChange={(event) => {
+                                    setConfirmpassword(event.target.value)
+                                }} />
+                        </div>
+                    </div>
                 </div>
+                <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
                 <div className="flex justify-end items-center gap-5 text-sm">
                     <Link to="/login">
                         <div className="flex items-center gap-1">
@@ -183,10 +163,7 @@ function Register() {
                     </Popup>
                 </div>
             </div>
-
         </div>
-
-
     )
 }
 
