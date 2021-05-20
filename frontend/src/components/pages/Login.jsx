@@ -98,9 +98,6 @@ export default function Login() {
                             <p className="color-blue-1 underline font-medium">Register here</p>
                         </Link>
                     </div>
-                    <Link to="/mentor/login" onClick={refreshPage}>
-                        <p className="text-sm font-medium underline text-center my-2 rounded-md">Login as Mentor</p>
-                    </Link>
                 </div>
                 <div className="hidden lg:block z-50">
                     <BlobAnim/>
