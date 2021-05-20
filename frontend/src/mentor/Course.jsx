@@ -23,10 +23,6 @@ function Course(props) {
                             }
                         )
                     }
-                    <div>
-                        <button>Approve</button>
-                        <button>Reject</button>
-                    </div>
                 </div>
             </div>
         </>
