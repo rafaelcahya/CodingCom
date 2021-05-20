@@ -32,6 +32,41 @@ router.post("/addCourse", (req, res) => {
     })
 })
 
+router.put("/updateCourse", (req, res) => {
+    const id = req.body.id
+    let judul = req.body.judul
+    let des = req.body.des
+    let time = req.body.time
+    let content = req.body.content
+    const updateAt = req.body.updateAt
+    let status = "Pending"
+
+    db.query("SELECT * From course WHERE id = ?", id, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            if(judul.length<=0){
+                judul = results[0].judul
+            }if(des.length<=0){
+                des = results[0].description
+            }if(time.length<=0){
+                time = results[0].time
+            }if(content.length<=0){
+                content = results[0].content
+            }
+            db.query("UPDATE course SET judul = ?, description = ?, time = ?, content = ?, status =?, updateAt=?  WHERE id=?;", [judul, des, time, content, status, updateAt, id], (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+        }
+    })
+
+    
+
+})
+
 router.get("/listCourse", (req, res) => {
     db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.createAt, course.updateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id", (err, results) => {
         res.send(results)
@@ -48,7 +83,7 @@ router.get("/listCourseMentor/:name", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.createAt, course.updateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id AND course.user_id = ?",user_id, (err, results) => {
+            db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.createAt, course.updateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id AND course.user_id = ?", user_id, (err, results) => {
                 res.send(results)
             })
             console.log(user_id)
@@ -58,7 +93,7 @@ router.get("/listCourseMentor/:name", (req, res) => {
 
 router.get("/courseById/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from course WHERE id = ?",id,(err, results) => {
+    db.query("SELECT * from course WHERE id = ?", id, (err, results) => {
         res.send(results)
         console.log(results)
     })

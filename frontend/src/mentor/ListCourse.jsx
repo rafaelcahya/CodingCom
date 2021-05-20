@@ -57,6 +57,11 @@ export default function ListCourse(props) {
                                                             <p>Look Data</p>
                                                             </Link>
                                                         </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <Link to={"/mentor/edit-course/"+val.id}>
+                                                            <p>Edit</p>
+                                                            </Link>
+                                                        </td>
                                                         {/* <td className="flex items-center gap-4 px-6 py-3 whitespace-nowrap">
                                                             <div className="flex flex-col gap-2 w-40">
                                                                 <select className="py-2 border border-black rounded-lg" id="dropdown" onChange={(event) => {
