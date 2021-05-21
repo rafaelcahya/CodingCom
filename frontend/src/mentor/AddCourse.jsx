@@ -6,6 +6,8 @@ import { Editor } from '@tinymce/tinymce-react';
 function AddCourse() {
     const editorRef = useRef(null);
     const [name,setName] = useState("")
+    const [topik,setTopik] = useState("")
+    const [number,setNumber] = useState("")
     const [judul,setJudul] = useState("")
     const [des,setDes] = useState("")
     const [time,setTime] = useState("")
@@ -25,7 +27,7 @@ function AddCourse() {
     const log = () => {
         if (editorRef.current) {
             console.log(editorRef.current.getContent());
-            Axios.post("http://localhost:3001/course/addCourse", {name:name, createAt:createAt, judul:judul, des:des, time:time, content: editorRef.current.getContent() }).then((response) => {
+            Axios.post("http://localhost:3001/course/addCourse", {name:name, topik:topik, number:number, createAt:createAt, judul:judul, des:des, time:time, content: editorRef.current.getContent() }).then((response) => {
                 console.log(response)
             })
         }
@@ -42,6 +44,29 @@ function AddCourse() {
                             placeholder="Input judul"
                             onChange={(event) => {
                                 setJudul(event.target.value)
+                            }} />
+                    </div>
+                    <div className="w-full flex flex-col gap-2">
+                                <p className="gender text-sm">Topik</p>
+                                <select name="" id=""  onChange={(event) => {
+                                    setTopik(event.target.value)
+                                }} >
+                                    <option value="">Choose topik</option>
+                                    <option value="Internet">Internet</option>
+                                    <option value="Web Design">Web Design</option>
+                                    <option value="Frontend">Frontend</option>
+                                    <option value="Backend">Backend</option>
+                                    <option value="Database">Database</option>
+                                    <option value="Web Design">Web Design</option>
+                                </select>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <p className="Number text-sm font-semibold">List Number</p>
+                        <input
+                            type="text"
+                            placeholder="Input number"
+                            onChange={(event) => {
+                                setNumber(event.target.value)
                             }} />
                     </div>
                     <div className="flex flex-col gap-2">

@@ -19,6 +19,7 @@ import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
 import WhatisInternet from "./components/pages/tutorial/course/internet/WhatisInternet.jsx"
 import InternetWork from "./components/pages/tutorial/course/internet/InternetWork.jsx"
 import Whatishttp from "./components/pages/tutorial/course/internet/Whatishttp.jsx"
+import Course from "./components/pages/tutorial/course/internet/Course"
 import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
 import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
 import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
@@ -100,6 +101,7 @@ function App() {
             <Route path="/coming-soon" component={ComingSoon} />
 
             <Route path="/internet" component={Internet} />
+            <Route path="/user-course/:id" component={Course} />
             <Route path="/what-is-internet" component={WhatisInternet} />
             <Route path="/how-internet-work" component={InternetWork} />
             <Route path="/what-is-http" component={Whatishttp} />

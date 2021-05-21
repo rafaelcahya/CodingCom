@@ -16,6 +16,7 @@ function Internet(props) {
     const urlid = props.match.params.id
     const modal = useRef()
     let x
+    const [id, setId] = useState("")
     const [comment, setComment] = useState("")
     const [name, setName] = useState("")
     const [createAt, setCreateAt] = useState("")
@@ -25,6 +26,9 @@ function Internet(props) {
     const [commentlist, setCommentList] = useState([])
 
     window.onload = setTimeout(function () {
+        var url1 = window.location.pathname;
+        var idurl = url1.substring(url1.lastIndexOf('/') + 1);
+        setId(idurl)
         x = localStorage.getItem("name");
         document.getElementById("name").innerHTML = x;
         setName(x)
@@ -39,17 +43,19 @@ function Internet(props) {
     useEffect(() => {
         Axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
             setValue(response.data)
+            console.log(response.data)
         })
     }, []);
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/comment/commentListInternet").then((response) => {
+        Axios.get("http://localhost:3001/comment/commentListById/" + urlid).then((response) => {
             setCommentList(response.data)
+            console.log(response.data)
         })
     }, []);
 
     const commentInternet = () => {
-        Axios.post("http://localhost:3001/comment/commentInternet", { name: name, comment: comment, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/comment/commentInternet", {id:id, name: name, comment: comment, createAt: createAt }).then((response) => {
             setErrorMessage(response.data.message)
             window.location.reload()
         })

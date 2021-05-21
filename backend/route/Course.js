@@ -7,6 +7,8 @@ const db = require('../config/db')
 router.post("/addCourse", (req, res) => {
     const name = req.body.name
     const judul = req.body.judul
+    const topik = req.body.topik
+    const number = req.body.number
     const des = req.body.des
     const time = req.body.time
     const content = req.body.content
@@ -23,7 +25,7 @@ router.post("/addCourse", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("INSERT INTO course (judul, description, time, content, user_Id, status, createAt, updateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
+            db.query("INSERT INTO course (judul, topik, number, description, time, content, user_Id, status, createAt, updateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
@@ -69,6 +71,12 @@ router.put("/updateCourse", (req, res) => {
 
 router.get("/listCourse", (req, res) => {
     db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.createAt, course.updateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id", (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/listCourseUser", (req, res) => {
+    db.query("SELECT * FROM course ORDER BY number ASC", (err, results) => {
         res.send(results)
     })
 })
