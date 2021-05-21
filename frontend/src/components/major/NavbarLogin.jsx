@@ -127,68 +127,75 @@ export default function NavbarLogin() {
             <motion.div
                 initial= {false}
                 variants={menuVariants}
-                animate={openTutorial ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-xl bg-white z-10" >
-                    <div className="tutorials-overview flex items-center gap-2 px-4 py-2 rounded-tl-xl rounded-tr-xl">
-                        <Link to="/tutorial" className="font-semibold hover:underline">Tutorials overview</Link>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                    <div className="dropdown-tutorial-box flex flex-col gap-5 py-5 px-5">
-                        <div className="flex gap-10">
-                            <div>
-                                <p className="font-semibold color-blue-1">Roadmap</p>
-                                <div className="flex flex-col gap-2 text-sm mt-2">
-                                    <Link to="/roadmap-frontend">
-                                        <p>Frontend</p>
-                                    </Link>
-                                    <Link to="/roadmap-backend">
-                                        <p>Backend</p>
-                                    </Link>
-                                    <Link to="/roadmap-devops">
-                                        <p>DevOps</p>
-                                    </Link>
-                                    <Link to="/roadmap-react">
-                                        <p>ReactJs</p>
-                                    </Link>
+                animate={openTutorial ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg bg-white z-10">
+                    <div className="flex gap-24 p-5">
+                        <div className="">
+                            <Link to="/tutorial" className="font-semibold hover:underline whitespace-nowrap">See all tutorials</Link>
+                        </div>
+                        <div className="flex flex-col gap-5">
+                            <div className="flex flex-wrap gap-10">
+                                <div>
+                                    <p className="font-semibold mb-3">Roadmap</p>
+                                    <div className="flex flex-col gap-3 text-sm">
+                                        <Link to="/roadmap-frontend">
+                                            <p>Frontend</p>
+                                        </Link>
+                                        <Link to="/roadmap-backend">
+                                            <p>Backend</p>
+                                        </Link>
+                                        <Link to="/roadmap-devops">
+                                            <p>DevOps</p>
+                                        </Link>
+                                        <Link to="/roadmap-react">
+                                            <p>ReactJs</p>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Internet</p>
-                                <div className="flex flex-col gap-2 text-sm mt-2">
-                                    <Link to="/internet">
-                                        <p>Basic Internet</p>
-                                    </Link>
+                                <div>
+                                    <p className="font-semibold mb-3">Internet</p>
+                                    <div className="flex flex-col gap-2 text-sm mt-2">
+                                        <Link to="/internet">
+                                            <p>Basic Internet</p>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Web design</p>
-                                <div className="flex flex-col gap-2 text-sm mt-2">
-                                    <Link to="/coming-soon">
-                                        <p>User Interface / UI</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>User Experience / UX</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>Customer Experience / CX</p>
-                                    </Link>
+                                <div>
+                                    <p className="font-semibold mb-3">Web design</p>
+                                    <div className="flex flex-col gap-3 text-sm">
+                                        <Link to="/coming-soon">
+                                            <p>User Interface / UI</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>User Experience / UX</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Customer Experience / CX</p>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Frontend</p>
-                                <div className="flex gap-10">
-                                    <div className="flex flex-col gap-2 text-sm">
-                                        <Link to="/coming-soon">
-                                            <p className="text-sm mt-2">HTML</p>
-                                        </Link>
-                                        <Link to="/coming-soon">
-                                            <p>CSS</p>
-                                        </Link>
-                                        <Link to="/coming-soon">
-                                            <p>SASS</p>
-                                        </Link>
-                                        <Link to="/coming-soon">
-                                            <p>Javascript</p>
-                                        </Link>
+                                <div>
+                                    <p className="font-semibold mb-3">Frontend</p>
+                                    <div className="flex gap-10">
+                                        <div className="flex flex-col gap-3 text-sm">
+                                            <Link to="/coming-soon">
+                                                <p>HTML</p>
+                                            </Link>
+                                            <Link to="/coming-soon">
+                                                <p>CSS</p>
+                                            </Link>
+                                            <Link to="/coming-soon">
+                                                <p>SASS</p>
+                                            </Link>
+                                            <Link to="/coming-soon">
+                                                <p>Javascript</p>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="font-semibold mb-3">CSS Framework</p>
+                                    <div className="flex flex-col gap-3 text-sm">
                                         <Link to="/coming-soon">
                                             <p>Bootstrap</p>
                                         </Link>
@@ -202,9 +209,12 @@ export default function NavbarLogin() {
                                             <p>SemanticUI</p>
                                         </Link>
                                     </div>
-                                    <div className="flex flex-col gap-2 text-sm">
+                                </div>
+                                <div>
+                                    <p className="font-semibold mb-3">JS Library & Framework</p>
+                                    <div className="flex flex-col gap-3 text-sm">
                                         <Link to="/coming-soon">
-                                            <p className="text-sm mt-2">React</p>
+                                            <p>React</p>
                                         </Link>
                                         <Link to="/coming-soon">
                                             <p>VUE</p>
@@ -217,51 +227,52 @@ export default function NavbarLogin() {
                                         </Link>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Backend</p>
-                                <div className="flex flex-col gap-2 text-sm">
+                                <div>
+                                    <p className="font-semibold mb-3">Backend</p>
+                                    <div className="flex flex-col gap-3 text-sm">
+                                        <Link to="/coming-soon">
+                                            <p>NodeJS</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>NextJS</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>PHP</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Laravel</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>Golang</p>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="font-semibold mb-3">Database</p>
+                                    <div className="flex flex-col gap-3 text-sm">
+                                        <Link to="/coming-soon">
+                                            <p>MySQL</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>PostgreSQL</p>
+                                        </Link>
+                                        <Link to="/coming-soon">
+                                            <p>MongoDB</p>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="font-semibold mb-3">Deployment</p>
                                     <Link to="/coming-soon">
-                                        <p className="text-sm mt-2">React</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>NodeJS</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>NextJS</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>PHP</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>Laravel</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>Golang</p>
+                                        <p className="flex flex-col gap-3 text-sm">Overview</p>
                                     </Link>
                                 </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Database</p>
-                                <div className="flex flex-col gap-2 text-sm mt-2">
-                                    <Link to="/coming-soon">
-                                        <p>MySQL</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>PostgreSQL</p>
-                                    </Link>
-                                    <Link to="/coming-soon">
-                                        <p>MongoDB</p>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div>
-                                <p className="font-semibold color-blue-1">Deployment</p>
-                                <Link to="/coming-soon">
-                                    <p className="flex flex-col gap-2 text-sm mt-2">Overview</p>
-                                </Link>
                             </div>
                         </div>
+                    </div>
+                    <div className="bg-gray-100 font-semibold flex justify-between py-2 px-5 rounded-bl-lg rounded-br-lg border-t border-gray-300">
+                        <Link to="/tutorial">Tutorial Overview</Link>
+                        <p>coding.com</p>
                     </div>
                 </motion.div>
                 <motion.div

@@ -5,7 +5,7 @@ export class Comment extends Component {
         window.onload = setTimeout( function () {
             var x = localStorage.getItem("name");
             document.getElementById("name").innerHTML = x;
-        }, 500)
+        }, 10)
 
         // const [comment, setComment] = useState("")
         // const comment = () => {

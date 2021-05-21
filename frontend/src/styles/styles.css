@@ -715,15 +715,6 @@ Navbar
     color: #3b72ff;
 }
 
-.dropdown-tutorial-box p:hover {
-    color: #3b72ff;
-}
-
-.dropdown-tutorial-box p:not(:first-child) {
-    font-size: .875rem;
-    margin: .5rem 0
-}
-
 .navbar-mobile-dropdown {
     display: none;
 }
@@ -768,6 +759,16 @@ Navbar
 Login page, Register Page 
 
 */
+
+.appp .particles {
+    position: fixed;
+    top: 0;
+}
+.appp .particles .particle {
+    position: absolute;
+    transition: all 5s ease-out;
+}
+
 
 .login-container,
 .register-container {
