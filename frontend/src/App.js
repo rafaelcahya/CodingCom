@@ -56,6 +56,7 @@ import ConsultationClass from "./components/pages/consultation class/Consultatio
 import ComingSoon from "./components/major/ComingSoon.jsx"
 
 import ScrollToTop from "./components/minor/ScrollToTop"
+import Schedule from "./bootcamp/Schedule.jsx"
 
 const Container = styled.div`
 `;
@@ -94,6 +95,7 @@ function App() {
 
             <Route path="/bootcamp" component={BootcampHome}/>
             <Route path="/register-bootcamp" component={RegisterBootcamp}/>
+            <Route path="/schedule" component={Schedule}/>
 
             <Route path="/coming-soon" component={ComingSoon} />
 
