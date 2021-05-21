@@ -13,6 +13,7 @@ function ClassReq() {
     const [url, setUrl] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [file, setFile] = useState("")
     let x
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
@@ -30,10 +31,17 @@ function ClassReq() {
     }, 500)
 
     const createClass = () => {
-        Axios.post("http://localhost:3001/class/createClass", { name:name, className: className, time: time, date: date, url: url, createAt: createAt }).then((response) => {
+        const fd = new FormData();
+        fd.append('fileUpload', file)
+        fd.append('name', name)
+        fd.append('className', className)
+        fd.append('time', time)
+        fd.append('date', date)
+        fd.append('url', url)
+        fd.append('createAt', createAt)
+        Axios.post("http://localhost:3001/class/createClass", fd).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
-
         })
     }
 
@@ -53,6 +61,16 @@ function ClassReq() {
                                     setClassName(event.target.value)
                                 }} />
                         </div>
+                        <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Image</p>
+                                <input className="w-full mb-5"
+                                    type="file"
+                                    accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
+                                    name="fileUpload"
+                                    onChange={(event) => {
+                                        setFile(event.target.files[0])
+                                    }} />
+                            </div>
                         <div className="flex gap-10">
                             <div className="flex flex-col gap-2">
                                 <p className="Date text-sm font-semibold">Date</p>

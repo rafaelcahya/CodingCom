@@ -36,6 +36,9 @@ app.use("/course", courseRoute)
 const batchRoute = require('./route/Batch')
 app.use("/batch", batchRoute)
 
+const jobsRoute = require('./route/Jobs')
+app.use("/jobs", jobsRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });
