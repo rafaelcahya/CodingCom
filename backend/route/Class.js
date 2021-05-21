@@ -30,11 +30,18 @@ router.post("/createClass", (req, res) => {
             }
 
             if (results.length > 0) {
-                user_id = results[0].Id
-                db.query("INSERT INTO class (className, date, time, url, status, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [className, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
-                    console.log(err)
-                    res.send(results)
-                })
+                user_id = results[0].id
+                if (!req.files) {
+                    res.send({ message: "Image can not be empty" })
+                } else {
+                    const file = req.files.fileUpload
+                    const filename = file.name
+                    db.query("INSERT INTO class (className, image, date, time, url, status, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                        file.mv('../frontend/src/asset/upload/' + file.name)
+                    })
+                }
             }
         })
     }
@@ -75,8 +82,6 @@ router.post("/updateClass", (req, res) => {
                 
             }if(url.length <= 0 ){
                 url = results[0].url
-            }else if(results[0].url.length<=0){
-                res.send({message:"You must fill url"})
             }
             
             db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, updateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
@@ -90,7 +95,7 @@ router.post("/updateClass", (req, res) => {
 
 router.get("/classListUser", (req, res) => {
     let status = "Approve"
-    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
+    db.query("SELECT class.id, class.image, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
         res.send(results)
         console.log(results)
     })

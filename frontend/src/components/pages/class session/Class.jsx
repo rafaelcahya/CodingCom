@@ -28,7 +28,9 @@ function Class() {
                     {
                         listClass.map(
                             (val)=> {
+                                let image = require('../../../asset/upload/'+ val.image)
                                 return <div className="bg-white p-4 my-5 rounded-xl">
+                                            <img src={image.default}></img>
                                             <p className="text-xl font-bold">{val.className}</p>
                                             <div className="flex flex-col gap-1 mt-2 mb-10">
                                                 <div className="flex items-center gap-2">
