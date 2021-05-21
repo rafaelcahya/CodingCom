@@ -16,14 +16,7 @@ import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
 import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
 import Pricing from "./components/pages/pricing/Pricing.jsx"
 import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
-import WhatisInternet from "./components/pages/tutorial/course/internet/WhatisInternet.jsx"
-import InternetWork from "./components/pages/tutorial/course/internet/InternetWork.jsx"
-import Whatishttp from "./components/pages/tutorial/course/internet/Whatishttp.jsx"
 import Course from "./components/pages/tutorial/course/internet/Course"
-import Browser from "./components/pages/tutorial/course/internet/Browser.jsx"
-import DNS from "./components/pages/tutorial/course/internet/DNS.jsx"
-import Domain from "./components/pages/tutorial/course/internet/Domain.jsx"
-import Hosting from "./components/pages/tutorial/course/internet/Hosting.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
@@ -102,13 +95,6 @@ function App() {
 
             <Route path="/internet" component={Internet} />
             <Route path="/user-course/:id" component={Course} />
-            <Route path="/what-is-internet" component={WhatisInternet} />
-            <Route path="/how-internet-work" component={InternetWork} />
-            <Route path="/what-is-http" component={Whatishttp} />
-            <Route path="/browser" component={Browser} />
-            <Route path="/DNS" component={DNS} />
-            <Route path="/domain" component={Domain} />
-            <Route path="/hosting" component={Hosting} />
 
             <Route path="/html" component={HTML} />
 

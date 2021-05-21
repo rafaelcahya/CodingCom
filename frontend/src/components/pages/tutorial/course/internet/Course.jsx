@@ -77,8 +77,9 @@ function Internet(props) {
                                     <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                         <div>
                                             <p className="text-2xl lg:text-5xl font-semibold">{val.judul}</p>
+                                            <p className="text-gray-400 text-sm mt-2">{val.description}</p>
                                         </div>
-                                        <p className="text-gray-400 text-sm mt-5 sm:mt-0">{val.time}</p>
+                                        <p className="text-gray-400 text-sm mt-5 sm:mt-0">{val.time} min</p>
                                     </div>
                                     <div className="flex flex-col gap-5 my-5 pt-5">
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />

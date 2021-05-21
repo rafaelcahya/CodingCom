@@ -1277,14 +1277,22 @@ Challenge
 
 .submit-box input,
 .submit-box textarea,
-.submit-box select {
+.submit-box select,
+.job-box input,
+.job-box textarea,
+.job-box select,
+.courseForm input,
+.courseForm textarea,
+.courseForm select {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 6px;
     outline: none;
 }
 
-.submit-box select {
+.submit-box select,
+.job-box select,
+.courseForm select {
     padding: .4rem 1rem;
 }
 

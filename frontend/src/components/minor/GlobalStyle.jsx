@@ -21,7 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     .submit-box textarea,
     .reg-bootcamp-box input,
     .reg-bootcamp-box select,
-    .reg-bootcamp-box textarea
+    .reg-bootcamp-box textarea,
+    .job-box input,
+    .job-box select,
+    .job-box textarea,
+    .courseForm input,
+    .courseForm select,
+    .courseForm textarea
     {
         background: ${({theme}) => theme.foreground};
     }
@@ -47,13 +53,15 @@ export const GlobalStyle = createGlobalStyle`
     .sidebar,
     .table-request-class,
     .table-request-class select,
-    .jobform{
+    .jobform,
+    .courseForm{
         background: ${({theme}) => theme.foreground2};
     }
     
     .sidebar,
     .table-request-class,
-    .jobform{
+    .jobform,
+    .courseForm{
         border: ${({theme}) => theme.border};
     }
 

@@ -8,7 +8,7 @@ function InputJobs() {
                 <Sidebar/>
                 <div className="jobform ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-2/5" >
                     <section>
-                        <div className="submit-box flex flex-col gap-10">
+                        <div className="job-box flex flex-col gap-10">
                             <div className="flex flex-col gap-3">
                                 <p className="text-lg font-semibold">Post a job</p>
                             </div>

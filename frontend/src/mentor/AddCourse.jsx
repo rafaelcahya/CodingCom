@@ -34,9 +34,9 @@ function AddCourse() {
     };
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="flex">
                 <Sidebar />
-                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-full" >
+                <div className="courseForm ml-80 m-5 p-8 flex flex-col gap-10 bg-white rounded-2xl border border-gray-300 w-full" >
                     <div className="flex flex-col gap-2">
                         <p className="Judul text-sm font-semibold">Judul</p>
                         <input
@@ -47,23 +47,23 @@ function AddCourse() {
                             }} />
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                                <p className="gender text-sm">Topik</p>
-                                <select name="" id=""  onChange={(event) => {
-                                    setTopik(event.target.value)
-                                }} >
-                                    <option value="">Choose topik</option>
-                                    <option value="Internet">Internet</option>
-                                    <option value="Web Design">Web Design</option>
-                                    <option value="Frontend">Frontend</option>
-                                    <option value="Backend">Backend</option>
-                                    <option value="Database">Database</option>
-                                    <option value="Web Design">Web Design</option>
-                                </select>
+                        <p className="gender text-sm font-semibold">Topik</p>
+                        <select name="" id=""  onChange={(event) => {
+                            setTopik(event.target.value)
+                        }} >
+                            <option value="">Choose topik</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Web Design">Web Design</option>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Database">Database</option>
+                            <option value="Web Design">Web Design</option>
+                        </select>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="Number text-sm font-semibold">List Number</p>
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Input number"
                             onChange={(event) => {
                                 setNumber(event.target.value)
@@ -81,28 +81,31 @@ function AddCourse() {
                     <div className="flex flex-col gap-2">
                         <p className="Time text-sm font-semibold">Estimated Time</p>
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Example : 10 min"
                             onChange={(event) => {
                                 setTime(event.target.value)
                             }} />
                     </div>
-                    <Editor
-                        apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
-                        onInit={(evt, editor) => editorRef.current = editor}
-                        initialValue="<p>This is the initial content of the editor.</p>"
-                        init={{
-                            height: 500,
-                            menubar: false,
-                            plugins: [
-                                'advlist autolink lists link image charmap print preview anchor',
-                                'searchreplace visualblocks code fullscreen',
-                                'insertdatetime media table paste code help wordcount export'
-                            ],
-                            toolbar: 'export | undo redo code | fontsizeselect fontselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                        }}
-                    />
+                    <div className="flex flex-col gap-2">
+                        <p className="Time text-sm font-semibold">Tutorial content</p>
+                        <Editor
+                            apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
+                            onInit={(evt, editor) => editorRef.current = editor}
+                            initialValue="<p>This is the initial content of the editor.</p>"
+                            init={{
+                                height: 500,
+                                menubar: false,
+                                plugins: [
+                                    'advlist autolink lists link image charmap print preview anchor',
+                                    'searchreplace visualblocks code fullscreen',
+                                    'insertdatetime media table paste code help wordcount export'
+                                ],
+                                toolbar: 'export | undo redo code | fontsizeselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                            }}
+                        />
+                    </div>
                     <button onClick={log}>Submit</button>
                 </div>
             </div>

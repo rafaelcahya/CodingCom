@@ -26,11 +26,11 @@ export default function ListCourse(props) {
                                 <table className="relative min-w-full">
                                     <thead>
                                         <tr className="border-b-2">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">No</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Judul</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Description</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Time</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Content</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">CreateAt</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">UpdateAt</th>
@@ -42,11 +42,11 @@ export default function ListCourse(props) {
                                             value.map(
                                                 (val) => {
                                                     return <tr className="border-b-2">
+                                                    <td className="px-6 py-3 whitespace-nowrap">{val.number}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.judul}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.description}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.content}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.time} min</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>
