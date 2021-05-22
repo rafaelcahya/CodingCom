@@ -36,35 +36,38 @@ function AddCourse() {
         <>
             <div className="flex">
                 <Sidebar />
-                <div className="courseForm ml-80 m-5 p-8 flex flex-col gap-10 bg-white rounded-2xl border border-gray-300 w-full" >
-                    <div className="flex flex-col gap-2">
-                        <p className="Judul text-sm font-semibold">Judul</p>
-                        <input
-                            type="text"
-                            placeholder="Input judul"
-                            onChange={(event) => {
-                                setJudul(event.target.value)
-                            }} />
+                <div className="courseForm ml-72 m-5 p-8 flex flex-col gap-10 bg-white rounded-lg border border-gray-300 w-full" >
+                    <p className="text-xl font-semibold">Tutorial form</p>
+                    <div className="flex items-center justify-between gap-10 w-full">
+                        <div className="flex flex-col gap-2 w-1/2">
+                            <p className="Judul text-sm font-semibold">Judul</p>
+                            <input
+                                type="text"
+                                placeholder="Input judul"
+                                onChange={(event) => {
+                                    setJudul(event.target.value)
+                                }} />
+                        </div>
+                        <div className="flex flex-col gap-2 w-1/2">
+                            <p className="gender text-sm font-semibold">Topic</p>
+                            <select name="" id=""  onChange={(event) => {
+                                setTopik(event.target.value)
+                            }} >
+                                <option value="">Choose topik</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Database">Database</option>
+                                <option value="Web Design">Web Design</option>
+                            </select>
+                        </div>
                     </div>
-                    <div className="w-full flex flex-col gap-2">
-                        <p className="gender text-sm font-semibold">Topik</p>
-                        <select name="" id=""  onChange={(event) => {
-                            setTopik(event.target.value)
-                        }} >
-                            <option value="">Choose topik</option>
-                            <option value="Internet">Internet</option>
-                            <option value="Web Design">Web Design</option>
-                            <option value="Frontend">Frontend</option>
-                            <option value="Backend">Backend</option>
-                            <option value="Database">Database</option>
-                            <option value="Web Design">Web Design</option>
-                        </select>
-                    </div>
                     <div className="flex flex-col gap-2">
-                        <p className="Number text-sm font-semibold">List Number</p>
+                        <p className="Number text-sm font-semibold">Tutorial number</p>
                         <input
                             type="number"
-                            placeholder="Input number"
+                            placeholder="Input tutorial number"
                             onChange={(event) => {
                                 setNumber(event.target.value)
                             }} />
@@ -106,7 +109,7 @@ function AddCourse() {
                             }}
                         />
                     </div>
-                    <button onClick={log}>Submit</button>
+                    <p className="bg-blue-1 py-2 text-center text-white rounded-lg font-medium" onClick={log}>Submit tutorial</p>
                 </div>
             </div>
         </>

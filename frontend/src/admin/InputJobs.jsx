@@ -45,15 +45,15 @@ function InputJobs() {
         <>
             <div className="flex">
                 <Sidebar />
-                <div className="jobform ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-2/5" >
+                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         <div className="job-box flex flex-col gap-10">
                             <div className="flex flex-col gap-3">
-                                <p className="text-lg font-semibold">Post a job</p>
+                                <p className="text-xl font-semibold">Post a job</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Company logo</p>
-                                <input className="w-full mb-5"
+                                <input className="w-full"
                                     type="file"
                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                     name="fileUpload"
@@ -61,49 +61,52 @@ function InputJobs() {
                                         setFile(event.target.files[0])
                                     }} />
                             </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Company name</p>
-                                <input type="text" placeholder="Input Job title" onChange={(event) => {
-                                            setCompanyName(event.target.value)
-                                        }} />
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Company email</p>
-                                <input type="text" placeholder="Input Job title" onChange={(event) => {
-                                            setCompanyEmail(event.target.value)
-                                        }} />
+                            <div className="flex justify-between items-center gap-10 w-full">
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Company name</p>
+                                    <input type="text" placeholder="Input Job title" onChange={(event) => {
+                                                setCompanyName(event.target.value)
+                                            }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Company email</p>
+                                    <input type="text" placeholder="Input Job title" onChange={(event) => {
+                                                setCompanyEmail(event.target.value)
+                                            }} />
+                                </div>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1 text-sm font-semibold">
                                     <p>Overview</p>
                                 </div>
-                                <p className="text-xs color-black-2 font-medium">Add overview</p>
-                                <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" onChange={(event) => {
+                                <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
                                             setOverview(event.target.value)
                                         }} ></textarea>
                             </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Job title</p>
-                                <input type="text" placeholder="Input Job title" onChange={(event) => {
-                                            setJob(event.target.value)
-                                        }} />
+                            <div className="flex justify-between items-center gap-10 w-full">
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Job title</p>
+                                    <input type="text" placeholder="Input Job title" onChange={(event) => {
+                                                setJob(event.target.value)
+                                            }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Employment type</p>
+                                    <select name="" id="" onChange={(event) => {
+                                                setType(event.target.value)
+                                            }} >
+                                        <option value="">Select employment type</option>
+                                        <option value="Fulltime">Fulltime</option>
+                                        <option value="Parttime">Parttime</option>
+                                        <option value="Internship">Internship</option>
+                                    </select>
+                                </div>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Job location</p>
-                                <input type="text" placeholder="Input Job location" onChange={(event) => {
+                                <textarea name="" id="" maxLength="250" cols="30" rows="5" className="resize-none" placeholder="Input Job location" onChange={(event) => {
                                             setLocation(event.target.value)
-                                        }} />
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Employment type</p>
-                                <select name="" id="" onChange={(event) => {
-                                            setType(event.target.value)
-                                        }} >
-                                    <option value="">Select employment type</option>
-                                    <option value="Fulltime">Fulltime</option>
-                                    <option value="Parttime">Parttime</option>
-                                    <option value="Internship">Internship</option>
-                                </select>
+                                        }}></textarea>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1 text-sm font-semibold">
@@ -131,54 +134,3 @@ function InputJobs() {
 }
 
 export default InputJobs
-
-class ImageUpload extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { file: '', imagePreviewUrl: '' };
-    }
-
-    _handleSubmit(e) {
-        e.preventDefault();
-        console.log('handle uploading-', this.state.file);
-    }
-
-    _handleImageChange(e) {
-        e.preventDefault();
-
-        let reader = new FileReader();
-        let file = e.target.files[0];
-
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-        }
-        reader.readAsDataURL(file)
-    }
-
-    render() {
-        let { imagePreviewUrl } = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} alt="" className="image-preview transform hover:scale-105 duration-300 rounded-xl" />);
-        } else {
-            $imagePreview = (<div className="text-xs color-black-2 font-medium">Please select an Image for Preview</div>);
-        }
-
-        return (
-            <div className="previewComponent">
-                <form onSubmit={(e) => this._handleSubmit(e)}>
-                    <input className="w-full mb-5"
-                        type="file"
-                        accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
-                        onChange={(e) => this._handleImageChange(e)} />
-                </form>
-                <div style={{ width: "300px" }}>
-                    {$imagePreview}
-                </div>
-            </div>
-        )
-    }
-}

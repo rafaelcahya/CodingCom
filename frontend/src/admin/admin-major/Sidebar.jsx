@@ -1,51 +1,69 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Navigation } from "react-minimal-side-navigation";
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
+import {useHistory, useLocation } from 'react-router-dom'
 
 export default function Sidebar() {
+    const history = useHistory();
+    const location = useLocation();
     return (
         <>
-            <div className="sidebar fixed w-64 m-5 p-8 flex flex-col gap-2 bg-white rounded-2xl border border-gray-300" style={{height: "750px"}}>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-2">Dashboard</p>
-                <div className="flex flex-col" style={{fontSize: "16px"}}>
-                    <Link to="/admin/user-list">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>User registration</p>
-                        </div>
-                    </Link>
-                    <Link to="/admin/user-list-active">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>User Actived</p>
-                        </div>
-                    </Link>
-                    <Link to="/admin/list-course">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>Course List</p>
-                        </div>
-                    </Link>
-                    <Link to="/admin/class-requisition">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>Class requisition</p>
-                        </div>
-                    </Link>
-                    <Link to="/admin/payment-requisition">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>Verification Payment</p>
-                        </div>
-                    </Link>
-                    <Link to="/admin/project-list">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>Projectlist</p>
-                        </div>
-                    </Link>
-                    <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                        <p>Transaction</p>
-                    </div>
-                    <Link to="/admin/input-jobs">
-                        <div className="flex items-center gap-4 hover:bg-gray-100 hover:text-blue-500 px-2 py-2 rounded-lg cursor-pointer">
-                            <p>Input jobs</p>
-                        </div>
-                    </Link>
-                </div>
+            <div className="sidebar fixed w-64 m-5 py-8 flex flex-col gap-2 bg-white rounded-lg border border-gray-300" style={{height: "750px"}}>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4">Dashboard</p>
+                <Navigation
+                activeItemId={location.pathname}
+                onSelect={({ itemId }) => {
+                    history.push(itemId);
+                }}
+                items={[
+                    {
+                        title: "User Management",
+                        subNav: [
+                            {
+                                title: "User registration",
+                                itemId: "/admin/user-list"
+                            },
+                            {
+                                title: "User actived",
+                                itemId: "/admin/user-list-active"
+                            },
+                        ],
+                    },
+                    {
+                        title: "Bootcamp Management",
+                        subNav: [
+                            {
+                                title: "Batch form",
+                                itemId: "/admin/add-batch"
+                            },
+                            {
+                                title: "Batch list",
+                                itemId: "/admin/list-batch"
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Tutorial',
+                        itemId: '/admin/list-course',
+                    },
+                    {
+                        title: 'Class Session',
+                        itemId: '/admin/class-requisition',
+                    },
+                    {
+                        title: 'Payment ',
+                        itemId: '/admin/payment-requisition',
+                    },
+                    {
+                        title: 'Project',
+                        itemId: '/admin/project-list',
+                    },
+                    {
+                        title: 'Career Management',
+                        itemId: '/admin/input-jobs',
+                    },
+                ]}
+                />
             </div>
         </>
     )

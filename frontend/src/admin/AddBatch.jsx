@@ -23,7 +23,7 @@ function AddCourse() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="flex flex-col gap-2">
                         <p className="Batch text-sm font-semibold">Batch name</p>
                         <input

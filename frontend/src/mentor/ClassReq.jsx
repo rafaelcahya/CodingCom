@@ -49,21 +49,22 @@ function ClassReq() {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar/>
-                <div className="0verflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-2xl w-full">
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full">
                     <p className="text-lg font-semibold pb-8">Request Class for Mentor</p>
                     <div className="request-class-container flex flex-col gap-10">
-                        <div className="flex flex-col gap-2">
-                            <p className="ClassName text-sm font-semibold">Class Name</p>
-                            <input
-                                type="text"
-                                placeholder="Input Classname"
-                                onChange={(event) => {
-                                    setClassName(event.target.value)
-                                }} />
-                        </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex justify-between items-center gap-10">
+                            <div className="flex flex-col gap-2 w-1/2">
+                                <p className="ClassName text-sm font-semibold">Class Name</p>
+                                <input
+                                    type="text"
+                                    placeholder="Input Classname"
+                                    onChange={(event) => {
+                                        setClassName(event.target.value)
+                                    }} />
+                            </div>
+                            <div className="flex flex-col gap-2 w-1/2">
                                 <p className="text-sm font-semibold">Image</p>
-                                <input className="w-full mb-5"
+                                <input className="w-full"
                                     type="file"
                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                     name="fileUpload"
@@ -71,8 +72,9 @@ function ClassReq() {
                                         setFile(event.target.files[0])
                                     }} />
                             </div>
-                        <div className="flex gap-10">
-                            <div className="flex flex-col gap-2">
+                        </div>
+                        <div className="flex justify-between items-center gap-10">
+                            <div className="flex flex-col gap-2 w-1/2">
                                 <p className="Date text-sm font-semibold">Date</p>
                                 <input
                                     type="date"
@@ -81,7 +83,7 @@ function ClassReq() {
                                         setDate(event.target.value)
                                     }} />
                             </div>
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 w-1/2">
                                 <p className="Waktu text-sm font-semibold">Time</p>
                                 <select id="dropdown" onChange={(event) => {
                                     setTime(event.target.value)

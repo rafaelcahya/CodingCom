@@ -34,7 +34,7 @@ function AddCourse(props) {
             setValue(response.data)
             console.log(response.data)
         })
-    }, []);
+    });
 
     const log = () => {
         if (editorRef.current) {
@@ -46,12 +46,13 @@ function AddCourse(props) {
     };
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="flex">
                 <Sidebar />
                 {
                     value.map(
                         (val) => {
-                            return <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-full" >
+                            return <div className="courseForm ml-72 m-5 p-8 flex flex-col gap-10 bg-white rounded-lg border border-gray-300 w-full" >
+                                <p className="text-xl font-semibold">Edit course</p>
                                 <div className="flex flex-col gap-2">
                                     <p className="Judul text-sm font-semibold">Judul</p>
                                     <input
@@ -98,7 +99,7 @@ function AddCourse(props) {
                                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                                     }}
                                 />
-                                <button onClick={log}>Submit</button>
+                                <p className="bg-blue-1 py-2 text-center text-white rounded-lg font-medium" onClick={log}>Submit</p>
                             </div>
                         }
                     )

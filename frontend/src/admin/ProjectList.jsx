@@ -15,7 +15,7 @@ export default function ProjectList() {
         <>
         <div className="flex h-screen overflow-hidden">
         <Sidebar/>
-        <div className="table-request-class overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-2xl" >
+        <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
             <p className="text-lg font-semibold pb-8">Project List</p>
             <div className="overflow-x-auto">
                 <div className="align-middle inline-block min-w-full">
@@ -27,9 +27,9 @@ export default function ProjectList() {
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">User Name</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Description</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Repo Url</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Live Site Url</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Url</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Created</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Submission time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,8 +41,8 @@ export default function ProjectList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.title}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.description}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.live_site_url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.live_site_url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
                                                     </tr>
                                         }

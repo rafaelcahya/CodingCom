@@ -1518,3 +1518,52 @@ Career
 .cv-form button {
     border: none;
 }
+
+/* 
+
+React sidebar minimal 
+
+*/
+
+.sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option {
+    border-left-width: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem !important;
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, var(--tw-text-opacity));
+    width: 100%
+}
+
+.sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option-selected {
+    --tw-bg-opacity: 1;
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+    --tw-border-opacity: 1;
+    border-color: #3b72ff !important;
+    --tw-text-opacity: 1;
+    color: rgba(31, 41, 55, var(--tw-text-opacity))
+}
+
+.sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option .side-navigation-panel-select-option-wrap .side-navigation-panel-select-option-text {
+    font-weight: 500;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option {
+    border-left-width: 2px;
+    cursor: pointer;
+    display: block;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding: .5rem 2.5rem !important;
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, var(--tw-text-opacity))
+}
+
+.hover\:border-pink-500:hover {
+    --tw-border-opacity: 1;
+    border-color: #3b72ff !important;
+}
