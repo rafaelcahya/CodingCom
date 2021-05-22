@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import VanillaTilt from 'vanilla-tilt';
 import { Link } from "react-router-dom"
 
@@ -73,7 +73,7 @@ export default function Homepage() {
         max: 10
         };
     return (
-        <Fragment>
+        <>
             <Link to={"/feedback/" + name}>
                 <p className="fixed left-0 bottom-0 bg-blue-1 text-white text-sm px-4 py-2 cursor-pointer z-10">Feedback</p>
             </Link>
@@ -141,7 +141,7 @@ export default function Homepage() {
                     </SwiperSlide>
                 </Swiper>
 
-                <section className="mx-10 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
+                <div className="mx-10 md:mx-16 lg:mx-20 xl:mx-64 my-20 lg:mb-32">
                     <p className="animate__animated animate__swing text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">Our Tutorials</p>
                     <div className="cta flex flex-wrap justify-center gap-10">
                         <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="500" data-aos-delay="100" className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl">
@@ -175,10 +175,10 @@ export default function Homepage() {
                             <p className="font-semibold">DevOps</p>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section className="mx-10 lg:mx-32 py-20 mt-32 lg:mt-0 rounded-xl">
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="flex justify-center gap-3 text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding <div className="animated tada">Bootcamp</div></p>
+                <div className="mx-10 lg:mx-32 py-20 mt-32 lg:mt-0 rounded-xl">
+                    <span data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="flex justify-center gap-3 text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding <span className="animated tada">Bootcamp</span></span>
                     <div className="block md:flex items-center gap-28">
                         <div>
                             <p data-aos="fade-right" data-aos-easing="ease-in-out" className="text-base sm:text-xl font-medium text-gray-500">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
@@ -193,9 +193,9 @@ export default function Homepage() {
                         </div>
                         <img src={bootcamp} alt="" width={450} data-aos="zoom-in" data-aos-easing="ease-in-out" className="hidden md:block rounded-xl"/>
                     </div>
-                </section>
+                </div>
 
-                <section className="my-32 lg:my-48">
+                <div className="my-32 lg:my-48">
                     <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="text-center text-2xl sm:text-3xl md:text-5xl font-semibold py-10">What do we provide</p>
                     <Swiper
                         slidesPerView= {1}
@@ -267,29 +267,27 @@ export default function Homepage() {
                             />
                         </SwiperSlide>
                     </Swiper>
-                    <div className="">
-                        <div className="swiper-paginationn flex gap-4 items-center justify-center my-10 cursor-default"></div>
-                    </div>
-                </section>
+                    <div className="swiper-paginationn flex gap-4 items-center justify-center my-10 cursor-default"></div>
+                </div>
                 
-                <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl" >
+                <div className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 lg:mt-0 rounded-xl" >
                     <img src="https://cdn.discordapp.com/attachments/414258067870449665/445736475158380544/discord.gif" alt="discord" width={100}/>
                     <div className="flex flex-col gap-5">
                         <p className=" text-xl font-semibold">Join us in our community.</p>
                         <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
                     </div>
                     <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
-                </section>
+                </div>
 
-                <section className="flex flex-col items-center gap-5 mt-32 mx-10">
+                <div className="flex flex-col items-center gap-5 mt-32 mx-10">
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-3xl sm:text-4xl font-semibold">Start learning today</p>
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-gray-500 text-base sm:text-lg font-medium text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <Link to="/tutorial">
                         <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                     </Link>
-                </section>
+                </div>
             </div>
             <Footer/>
-        </Fragment>
+        </>
     )
 }

@@ -65,35 +65,35 @@ export class Pricing extends Component {
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>No ads</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Text Editor</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Career access</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>News access</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Get future updates</p>
                                     </div>
@@ -115,35 +115,35 @@ export class Pricing extends Component {
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>No ads</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Text Editor</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Career access</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>News access</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Get future updates</p>
                                     </div>
@@ -152,21 +152,21 @@ export class Pricing extends Component {
                                     <div className="flex items-center gap-2">
                                         <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Access to consultation classes and get 7 quotas</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Access to session classes and get 5 quotas</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
-                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                        <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                         </svg>
                                         <p>Get certificate</p>
                                     </div>

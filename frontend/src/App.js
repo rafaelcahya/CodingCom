@@ -52,8 +52,8 @@ import ComingSoon from "./components/major/ComingSoon.jsx"
 import ScrollToTop from "./components/minor/ScrollToTop"
 import Schedule from "./bootcamp/Schedule.jsx"
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
+const ThemeToggle = styled.div``;
 
 function App() {
   const [ theme, toggleTheme] = DarkMode()
@@ -64,9 +64,9 @@ function App() {
       <ThemeProvider theme={themeMode}>
         <Container>
           <GlobalStyle />
-          <div className="minor flex items-center gap-5 z-10">
+          <ThemeToggle className="minor flex items-center gap-5 z-10">
             <Toggle theme={theme} toggleTheme={toggleTheme} />
-          </div>
+          </ThemeToggle>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/help" component={Help} />

@@ -719,16 +719,15 @@ Navbar
     display: none;
 }
 
-.navbar-mobile ul li:hover .navbar-mobile-dropdown {
+.navbar-mobile:hover .navbar-mobile-dropdown {
     display: block;
 }
 
-.navbar-mobile ul li {
-    display: inline-block;
+.navbar-mobile{
     position: relative;
 }
 
-.navbar-mobile ul li:hover .navbar-mobile-dropdown {
+.navbar-mobile:hover .navbar-mobile-dropdown {
     display: block;
 }
 
@@ -736,7 +735,7 @@ Navbar
     padding-top: 20px;
     display: none;
     position: absolute;
-    left: -40px;
+    left: 0;
     width: 250px;
     height: 750px;
 }

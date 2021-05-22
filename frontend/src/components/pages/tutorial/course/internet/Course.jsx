@@ -45,14 +45,14 @@ function Internet(props) {
             setValue(response.data)
             console.log(response.data)
         })
-    }, []);
+    });
 
     useEffect(() => {
         Axios.get("http://localhost:3001/comment/commentListById/" + urlid).then((response) => {
             setCommentList(response.data)
             console.log(response.data)
         })
-    }, []);
+    });
 
     const commentInternet = () => {
         Axios.post("http://localhost:3001/comment/commentInternet", {id:id, name: name, comment: comment, createAt: createAt }).then((response) => {

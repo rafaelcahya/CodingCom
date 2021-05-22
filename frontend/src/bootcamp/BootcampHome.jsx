@@ -119,7 +119,7 @@ function BootcampHome() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-32 gap-y-12 py-10">
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Mindset of a Programmer</p>
@@ -128,7 +128,7 @@ function BootcampHome() {
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Website Structure</p>
@@ -137,7 +137,7 @@ function BootcampHome() {
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Frontend side</p>
@@ -146,7 +146,7 @@ function BootcampHome() {
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Backend Side</p>
@@ -155,7 +155,7 @@ function BootcampHome() {
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Introduction to Databases</p>
@@ -164,7 +164,7 @@ function BootcampHome() {
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="bg-yellow-500 w-max p-3 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
                         <div>
                             <p className="text-lg font-semibold mb-2">Project</p>
@@ -190,28 +190,28 @@ function BootcampHome() {
                         <p>1 July 2021 - 13 August 2021</p>
                     </div>
                     <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden md:block">
-                    <g clip-path="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
+                    <g clipPath="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
                     <clipPath id="clip0"><rect width="16" height="25" fill="white" transform="translate(0.5 16.5) rotate(-90)"/></clipPath></defs></svg>
                     <div className="flex flex-col items-center gap-2">
                         <p className="font-semibold">Document Screening</p>
                         <p>16 August 2021 - 19 August 2021</p>
                     </div>
                     <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden md:block">
-                    <g clip-path="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
+                    <g clipPath="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
                     <clipPath id="clip0"><rect width="16" height="25" fill="white" transform="translate(0.5 16.5) rotate(-90)"/></clipPath></defs></svg>
                     <div className="flex flex-col items-center gap-2">
                         <p className="font-semibold">Announcement</p>
                         <p>23 August 2021</p>
                     </div>
                     <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden md:block">
-                    <g clip-path="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
+                    <g clipPath="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
                     <clipPath id="clip0"><rect width="16" height="25" fill="white" transform="translate(0.5 16.5) rotate(-90)"/></clipPath></defs></svg>
                     <div className="flex flex-col items-center gap-2">
                         <p className="font-semibold">Bootcamp</p>
                         <p>30 August 2021 - 12 November 2021</p>
                     </div>
                     <svg width="26" height="17" viewBox="0 0 26 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden md:block">
-                    <g clip-path="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
+                    <g clipPath="url(#clip0)"><path d="M1.17578 8.5L24.8244 8.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M20.0947 1.5L24.8245 8.5L20.0947 15.5" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></g><defs>
                     <clipPath id="clip0"><rect width="16" height="25" fill="white" transform="translate(0.5 16.5) rotate(-90)"/></clipPath></defs></svg>
                     <div className="flex flex-col items-center gap-2">
                         <p className="font-semibold">Graduation</p>

@@ -117,7 +117,7 @@ function Register() {
                                 <p className="password text-sm font-semibold mb-1">Password</p>
                                 <div className="tooltip">
                                     <img src={info} alt="" width={15}/>
-                                    <span class="tooltiptext">grewon.pdf</span>
+                                    <span className="tooltiptext">grewon.pdf</span>
                                 </div>
                             </div>
                             <input

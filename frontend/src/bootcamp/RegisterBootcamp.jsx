@@ -36,7 +36,6 @@ function RegisterBootcamp() {
 
     const submit = () => {
         Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", {address:address, city:city, postalCode:postalCode,emergency:emergency, cemergency:cemergency, education:education, program:program, batch:batch, motivation:motivation, busy:busy, createAt:createAt, name:name }).then((response) => {
-            console.log(response)
             setErrorMessage(response.data.message)
         })
     }
@@ -134,20 +133,20 @@ function RegisterBootcamp() {
                             </select>
                         </div>
                         {
-                                            value.map(
-                                                (val) => {
-                                                    return <div className="flex flex-col gap-2">
-                                                    <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
-                                                    <select name="" id=""  onChange={(event) => {
-                                                            setBatch(event.target.value)
-                                                        }} >
-                                                        <option>Choose program</option>
-                                                        <option value={val.batch}>{val.batch}</option>
-                                                    </select>
-                                                </div>
-                                                }
-                                            )
-                                        }
+                            value.map(
+                                (val) => {
+                                    return <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
+                                    <select name="" id=""  onChange={(event) => {
+                                            setBatch(event.target.value)
+                                        }} >
+                                        <option>Choose program</option>
+                                        <option value={val.batch}>{val.batch}</option>
+                                    </select>
+                                </div>
+                                }
+                            )
+                        }
                         
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Motivation for joining Fulltime Coding Bootcamp</p>

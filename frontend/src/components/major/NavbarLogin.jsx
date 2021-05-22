@@ -7,6 +7,7 @@ export default function NavbarLogin() {
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem("loggedIn"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localStorage.getItem("loggedIn")]); 
 
     window.onload = setTimeout( function () {

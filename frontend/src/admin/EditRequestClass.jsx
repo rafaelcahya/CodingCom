@@ -37,7 +37,7 @@ function EditRequestClass(props) {
         Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
             setValueList(response.data)
         })
-    }, []);
+    });
 
     const updateClass = () => {
         Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, time: time, date: date, url: url, updateAt: updateAt, status: status }).then((response) => {

@@ -34,37 +34,37 @@ function Internet() {
                         <div className="leading-loose">
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is internet and how it works.</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is HTTP & HTTPS.</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is browser and how it works.</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is DNS Server and how it works.</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is DNS Server, how it works and type of domain.</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" stroke-width="1.5"/>
+                                <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                 </svg>
                                 <p>Understand what is Hosting and type of hosting.</p>
                             </div>

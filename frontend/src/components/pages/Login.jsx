@@ -26,12 +26,6 @@ export default function Login() {
             }
         })
     }
-
-    function refreshPage() {
-        setTimeout(()=>{
-            window.location.reload(true);
-        }, 100);
-    }
     
     return (
         <Fragment>

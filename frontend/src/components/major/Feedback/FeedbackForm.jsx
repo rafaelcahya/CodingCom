@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable no-redeclare */
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer'
 import Axios from 'axios'
@@ -17,6 +18,7 @@ function FeedbackForm() {
         setName(x)
         var today = new Date();
         if (today.getMonth() + 1 <= 10) {
+            // eslint-disable-next-line no-useless-concat
             var date = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         } else {
@@ -97,7 +99,6 @@ function FeedbackForm() {
                             onChange={(event) => {
                                 setFile(event.target.files[0])
                             }} />
-                        {/* <ImageUpload /> */}
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="flex items-center gap-1 text-sm font-semibold">Description</p>
@@ -116,62 +117,3 @@ function FeedbackForm() {
 }
 
 export default FeedbackForm
-
-class ImageUpload extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { file: '', imagePreviewUrl: '' };
-    }
-
-    _handleSubmit(e) {
-        e.preventDefault();
-        console.log('handle uploading-', this.state.file);
-    }
-
-    _handleImageChange(e) {
-        e.preventDefault();
-
-        let reader = new FileReader();
-        let file = e.target.files[0];
-
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-        }
-        reader.readAsDataURL(file)
-
-        // const fd = new FormData();
-        // fd.append('fileUpload', file, file.name)
-        // Axios.post("http://localhost:3001/feedback/feedback", fd).then((response) => {
-        //     console.log(response)
-        //     // setErrorMessage(response.data.message)
-
-        // })
-    }
-
-    render() {
-        let { imagePreviewUrl } = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} alt="" className="image-preview transform hover:scale-150 duration-300 rounded-xl" />);
-        } else {
-            $imagePreview = (<div className="text-xs color-black-2 font-medium">Please select an Image for Preview</div>);
-        }
-
-        return (
-            <div className="previewComponent">
-                <form onSubmit={(e) => this._handleSubmit(e)}>
-                    <input className="w-full mb-5"
-                        type="file"
-                        name="fileUpload"
-                        onChange={(e) => this._handleImageChange(e)} />
-                </form>
-                <div style={{ width: "400px" }}>
-                    {$imagePreview}
-                </div>
-            </div>
-        )
-    }
-}
