@@ -1,48 +1,40 @@
-import React, { Fragment } from 'react'
-import Particles from "react-particles-js"
-
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-import particlesConfig from '../background/ParticlesConfig'
 import info from "../../asset/icon/info.svg"
 
+import BlobAnim from '../minor/Blob animation/BlobAnim'
+
 export default function ForgotPassword() {
-    const focus = () => {
-        let passwordpassword = document.getElementsByClassName("password")[0]
-        let inputPassword = document.getElementsByClassName("input-password")[0]
-        let confirmpass = document.getElementsByClassName("confirmpass")[0]
-        let inputConfirmpass = document.getElementsByClassName("input-confirmpass")[0]
-
-    
-        if(inputPassword === document.activeElement){
-            passwordpassword.style.fontWeight = "bold"
-        }else{
-            passwordpassword.style.fontWeight = "normal"
-        }
-
-        if (inputConfirmpass === document.activeElement) {
-            confirmpass.style.fontWeight = "bold"
-        } else {
-            confirmpass.style.fontWeight = "normal"
-        }
-    }
-    
     return (
-        <Fragment>
-            <div className="relative flex justify-center" onFocus={focus}>
-                <div className="absolute">
-                    <Particles height="100vh" width="100vw" params={particlesConfig} />
-                </div>
-                <div className="login-container my-10 bg-white rounded-xl p-10 shadow-xl overflow-hidden" style={{ zIndex: "1" }}>
-                    <div className="text-lg">
-                        <p className="color-blue-1">Hello,</p>
-                        <p>Create your best password again</p>
+        <>
+            <div className="login-container flex justify-center py-10 h-screen">
+                <div className="hidden lg:flex flex-col gap-10 w-1/2 py-10">
+                    <div data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="0" className="flex gap-5">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="30" height="45" viewBox="0 0 44 59"
+                        preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0,59) scale(0.1,-0.1)"
+                        fill="#fff" stroke="none">
+                        <path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
+                        80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
+                        -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
+                        153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
+                        13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
+                        -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
+                        </g>
+                        </svg>
+                        <p className="text-white text-3xl sm:text-4xl font-medium">coding.com</p>
                     </div>
-                    <div className="register-box flex flex-col my-10">
+                    <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold w-3/4">An educational platform for web programming from scratch.</p>
+                </div>
+                <div className="login-box rounded-lg p-10 shadow-xl overflow-hidden">
+                    <p className="color-blue-1 text-xl font-semibold mb-2">Create new password</p>
+                    <p className="text-sm">Your new password must be different from previous used password</p>
+                    <div className="flex flex-col my-10">
                         <div className="flex flex-col gap-5">
-                            <div>
+                        <div>
                                 <div className="flex justify-between">
-                                    <p className="password text-xs mb-1">Password</p>
+                                    <p className="password text-sm font-semibold mb-1">Password</p>
                                     <div className="flex flex-col items-end">
                                         <img src={info} alt="" className="info w-3 text-right" />
                                         <div className="password-hint-box text-xs shadow-black absolute bg-white mt-5 px-3 py-1 rounded-xl">
@@ -64,27 +56,27 @@ export default function ForgotPassword() {
                                     className="input-password"/>
                             </div>
                             <div>
-                                <p className="confirmpass text-xs mb-1">Confirm password</p>
+                                <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
                                 <input
                                     type="password"
                                     placeholder="Input your password again"
                                     className="input-confirmpass"/>
                             </div>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-8 font-medium">errorMessage</p>
+                        {/* <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p> */}
                     </div>
-                    <div className="flex justify-end items-center gap-5 text-sm">
+                    <div className="flex flex-col gap-5 text-sm">
+                        <p className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Reset password</p>
                         <Link to="/login">
-                            <div className="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                <p>Back to login</p>
-                            </div>
+                            <p className="border border-blue-500 font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Cancel</p>
                         </Link>
-                        <p className="bg-blue-1 text-white px-7 py-2 rounded-lg cursor-pointer">Register</p>
                     </div>
                 </div>
+                <div className="hidden lg:block z-50">
+                    <BlobAnim/>
+                </div>
             </div>
-        </Fragment>
+        </>
     )
 }
 

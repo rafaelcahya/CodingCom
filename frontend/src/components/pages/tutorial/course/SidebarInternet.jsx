@@ -8,9 +8,8 @@ export const SidebarInternet = () => {
     useEffect(() => {
         axios.get("http://localhost:3001/course/listCourseUser").then((response) => {
             setValue(response.data)
-            console.log(response.data)
         })
-    }, []);
+    });
 
     function refreshPage() {
         window.location.reload(false);
@@ -27,7 +26,7 @@ export const SidebarInternet = () => {
                         {
                             value.map(
                                 (val) => {
-                                    return <div className="flex justify-between items-center" onClick={refreshPage}>
+                                    return <div className="flex justify-between items-center">
                                     <Link to={"/user-course/"+val.id}>{val.judul}</Link>
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{val.time} min</p>
                                 </div>

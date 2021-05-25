@@ -11,6 +11,7 @@ import Course from "./Course"
 import ListCourse from "./ListCourse"
 import ListBatch from "./ListBatch"
 import InputJobs from "./InputJobs.jsx"
+import BootcampSchedule from "./BootcampSchedule.jsx"
 
 function App_admin() {
     return (
@@ -27,6 +28,7 @@ function App_admin() {
               <Route path="/admin/input-jobs" component={InputJobs} />
               <Route path="/admin/add-batch" component={AddBatch} />
               <Route path="/admin/list-batch" component={ListBatch} />
+              <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
             </Switch>
           </Router>
     );

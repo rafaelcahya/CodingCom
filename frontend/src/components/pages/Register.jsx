@@ -49,8 +49,8 @@ function Register() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-5">
-                    <div className="flex flex-col lg:flex-row gap-5">
-                        <div>
+                    <div className="flex flex-col lg:flex-row gap-5 w-full">
+                        <div className="w-full lg:w-1/2">
                             <p className="fullname text-sm font-semibold mb-1">Fullname</p>
                             <input
                                 type="text"
@@ -59,7 +59,7 @@ function Register() {
                                     setFullname(event.target.value)
                                 }} />
                         </div>
-                        <div>
+                        <div className="w-full lg:w-1/2">
                             <p className="username text-sm font-semibold mb-1">Username</p>
                             <input
                                 type="text"
@@ -69,8 +69,8 @@ function Register() {
                                 }} />
                         </div>
                     </div>
-                    <div className="flex flex-col lg:flex-row justify-between gap-5">
-                        <div className="flex flex-col gap-2">
+                    <div className="flex flex-col lg:flex-row gap-5 w-full">
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
                             <p className="text-sm font-semibold">Gender</p>
                             <select name="" id=""  onChange={(event) => {
                                 setGender(event.target.value)
@@ -80,21 +80,21 @@ function Register() {
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
                             <p className="text-sm font-semibold">Birth date</p>
                             <input type="date" onChange={(event) => {
                                 setBoD(event.target.value)
                             }} />
                         </div>
                     </div>
-                    <div className="flex flex-col lg:flex-row gap-5">
-                        <div className="flex flex-col gap-2">
+                    <div className="flex flex-col lg:flex-row gap-5 w-full">
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
                             <p className="text-sm font-semibold">Phone number</p>
                             <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
                                 setPhonenumber(event.target.value)
                             }} />
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
                             <p className="text-sm font-semibold">Confirm phone number</p>
                             <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
                                 setCphonenumber(event.target.value)
@@ -106,18 +106,17 @@ function Register() {
                         <input
                             type="text"
                             placeholder="Input your email"
-                            className="input-email"
                             onChange={(event) => {
                                 setEmail(event.target.value)
                             }} />
                     </div>
-                    <div className="flex flex-col lg:flex-row gap-5">
-                        <div>
+                    <div className="flex flex-col lg:flex-row gap-5 w-full">
+                        <div className="w-full lg:w-1/2">
                             <div className="flex justify-between items-center">
                                 <p className="password text-sm font-semibold mb-1">Password</p>
                                 <div className="tooltip">
                                     <img src={info} alt="" width={15}/>
-                                    <span className="tooltiptext">grewon.pdf</span>
+                                    <span className="tooltiptext bg-white text-sm p-2 border border-gray-300 rounded-lg shadow-lg">Password must have uppercase letter, numbers and maximum between 8 - 20 characters</span>
                                 </div>
                             </div>
                             <input
@@ -127,7 +126,7 @@ function Register() {
                                     setPassword(event.target.value)
                                 }} />
                         </div>
-                        <div>
+                        <div className="w-full lg:w-1/2">
                             <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
                             <input
                                 type="password"
@@ -140,28 +139,24 @@ function Register() {
                     </div>
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
-                <div className="flex justify-end items-center gap-5 text-sm">
+                <div className="flex justify-end gap-5 text-sm">
                     <Link to="/login">
-                        <div className="flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                            <p>Back to login</p>
-                        </div>
+                        <p className="border border-blue-500 text-sm font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Back to login</p>
                     </Link>
-                    <p onClick={register} className="bg-blue-1 text-white px-7 py-2 rounded-lg cursor-pointer">Register</p>
-                    <Popup trigger={buttonPopup}>
-                        <p className="text-lg font-bold py-5">Register Success</p>
-                        <p className="text-sm font-medium">Your account is successfully created, please click this button below and go to login page</p>
-                        <br></br>
-                        <Link to="/login">
-                        <div className="flex justify-end">
-                            <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                    Login Now
-                            </button>
-                        </div>
-                        </Link>
-
-                    </Popup>
+                    <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Register</p>
                 </div>
+                <Popup trigger={buttonPopup}>
+                    <p className="text-lg font-bold py-5">Register Success</p>
+                    <p className="text-sm font-medium">Your account is successfully created, please click this button below and go to login page</p>
+                    <br></br>
+                    <Link to="/login">
+                    <div className="flex justify-end">
+                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                Login Now
+                        </button>
+                    </div>
+                    </Link>
+                </Popup>
             </div>
         </div>
     )

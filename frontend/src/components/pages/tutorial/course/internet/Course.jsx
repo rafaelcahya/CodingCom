@@ -39,13 +39,12 @@ function Internet(props) {
         setCreateAt(dateTime)
     }, 500)
 
-
-    useEffect(() => {
-        Axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
-            setValue(response.data)
-            console.log(response.data)
-        })
-    });
+    // useEffect(() => {
+    //     Axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
+    //         setValue(response.data)
+    //         console.log(response.data)
+    //     })
+    // });
 
     useEffect(() => {
         Axios.get("http://localhost:3001/comment/commentListById/" + urlid).then((response) => {
@@ -70,7 +69,7 @@ function Internet(props) {
                 </div>
                 <SidebarInternetMobile />
                 <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
-                    {
+                    {/* {
                         value.map(
                             (val) => {
                                 return <div>
@@ -87,7 +86,7 @@ function Internet(props) {
                                 </div>
                             }
                         )
-                    }
+                    } */}
 
                     <NextPrevBtnTutorial
                         back="/tutorial"
@@ -142,12 +141,10 @@ function Internet(props) {
                     </div>
                 </div>
             </div>
-
-
-            <Footer />
-        </>
-    )
-}
+             <Footer />
+         </>
+     )
+ }
 
 export default Internet
 
