@@ -9,7 +9,9 @@ function Course(props) {
         axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
             setValue(response.data)
         })
-    });
+    }, []);
+
+    
 
     return (
         <>

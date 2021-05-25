@@ -7,12 +7,12 @@ export default function ListCourse(props) {
     const urlname = props.match.params.name
     const [value,setValue] = useState([])
 
-    // useEffect(() => {
-    //     axios.get("http://localhost:3001/course/listCourseMentor/"+urlname).then((response) => {
-    //         setValue(response.data)
-    //         console.log(response.data)
-    //     })
-    // });
+    useEffect(() => {
+        axios.get("http://localhost:3001/course/listCourseMentor/"+urlname).then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
@@ -52,10 +52,10 @@ export default function ListCourse(props) {
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.createAt)} {formatTime(val.createAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.updateAt)} {formatTime(val.updateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.courseCreateAt)} {formatTime(val.courseCreateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.courseUpdateAt)} {formatTime(val.courseUpdateAt)}</td>
                                                         <td className="flex items-center gap-2 px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/admin/course/"+val.id}>
+                                                            <Link to={"/mentor/course/"+val.id}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">View</p>
                                                             </Link>
                                                             <Link to={"/mentor/edit-course/"+val.id}>

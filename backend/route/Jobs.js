@@ -24,7 +24,7 @@ router.post("/jobs", (req, res) => {
     } else {
         const file = req.files.fileUpload
         const filename = file.name
-        db.query("INSERT INTO jobs (companyName, companyEmail, companyLogo, overview, jobTitle, jobDescription, jobLocation, jobType, companyUrl, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [companyName, companyEmail, filename, overview, job, des, location, type, url, createAt, updateAt], (err, results) => {
+        db.query("INSERT INTO jobs (companyName, companyEmail, companyLogo, overview, jobTitle, jobDescription, jobLocation, jobType, companyUrl, jobCreateAt, jobUpdateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [companyName, companyEmail, filename, overview, job, des, location, type, url, createAt, updateAt], (err, results) => {
             console.log(err)
             res.send(results)
             file.mv('../frontend/src/asset/upload/' + file.name)

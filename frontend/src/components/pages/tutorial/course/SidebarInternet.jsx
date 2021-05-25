@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 
 export const SidebarInternet = () => {
-    const [value,setValue] = useState([])
+    const [value, setValue] = useState([])
 
     useEffect(() => {
         axios.get("http://localhost:3001/course/listCourseUser").then((response) => {
@@ -30,14 +30,14 @@ export const SidebarInternet = () => {
                                     <Link to={"/user-course/"+val.id}>{val.judul}</Link>
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{val.time} min</p>
                                 </div>
-                                }
-                            )
-                        }
-                    </div>
+                            }
+                        )
+                    }
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
+}
 
 export default SidebarInternet
 

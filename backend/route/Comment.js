@@ -24,7 +24,7 @@ router.post("/commentInternet", (req, res) => {
 
             if (results.length > 0) {
                 user_id = results[0].id
-                db.query("INSERT INTO comment (comment, courseId, createAt, user_id) VALUES (?, ?, ?, ?);", [comment, id, createAt, user_id], (err, results) => {
+                db.query("INSERT INTO comment (comment, courseId, commentCreateAt, user_id) VALUES (?, ?, ?, ?);", [comment, id, createAt, user_id], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -38,7 +38,7 @@ router.post("/commentInternet", (req, res) => {
 
 router.get("/commentListById/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT comment.comment, comment.createAt, user.name from comment,user WHERE comment.user_id=user.id AND courseId = ?", id, (err, results) => {
+    db.query("SELECT comment.comment, comment.commentCreateAt, user.name from comment,user WHERE comment.user_id=user.id AND courseId = ?", id, (err, results) => {
         res.send(results)
         console.log(results)
     })
