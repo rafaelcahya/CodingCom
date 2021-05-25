@@ -35,7 +35,7 @@ function Internet(props) {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = time + ' ' + date;
+        var dateTime = date + ' ' + time;
         setCreateAt(dateTime)
     }, 500)
 
@@ -45,21 +45,25 @@ function Internet(props) {
             setValue(response.data)
             console.log(response.data)
         })
-    });
+    }, []);
 
     useEffect(() => {
         Axios.get("http://localhost:3001/comment/commentListById/" + urlid).then((response) => {
             setCommentList(response.data)
             console.log(response.data)
         })
-    });
+    }, []);
 
     const commentInternet = () => {
-        Axios.post("http://localhost:3001/comment/commentInternet", {id:id, name: name, comment: comment, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/comment/commentInternet", { id: id, name: name, comment: comment, createAt: createAt }).then((response) => {
             setErrorMessage(response.data.message)
             window.location.reload()
         })
     }
+
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const formatTime = s => new Date(s).toLocaleTimeString();
+
     return (
         <>
             <NavbarLogin />
@@ -84,15 +88,16 @@ function Internet(props) {
                                     <div className="flex flex-col gap-5 my-5 pt-5">
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />
                                     </div>
+                                    <NextPrevBtnTutorial
+                                        back={"/user-course/"+val.number}
+                                        next={"/user-course/"+val.number}
+                                    />
                                 </div>
                             }
                         )
                     }
 
-                    <NextPrevBtnTutorial
-                        back="/tutorial"
-                        next="/what-is-internet"
-                    />
+
                     <div className="comment-container mt-32">
                         <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
                         <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
@@ -110,7 +115,7 @@ function Internet(props) {
                                     return <div className="comment-box p-4 my-5 rounded-lg">
                                         <div className="flex justify-between mb-1">
                                             <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
-                                            <p className="text-gray-400 text-sm">{val.createAt}</p>
+                                            <p className="text-gray-400 text-sm">{formatDate(val.commentCreateAt)} {formatTime(val.commentCreateAt)}</p>
                                         </div>
                                         <p className="text-sm">{val.comment}</p>
                                     </div>

@@ -31,22 +31,19 @@ router.post("/submit", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
+                    db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                    if (file.mimetype == "file/.rar" || file.mimetype == "file/.zip" || file.mimetype == "file/.7z") {
-                        db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
+                        db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
                             file.mv('../frontend/src/asset/fileUpload/' + file.name)
                         })
-                    } else {
-                        res.send({ message: "This format is not allowed. Format allowed is RAR,ZIP,7Z" })
-                    }
+                   
                 }
                 // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
                 //     console.log(err)
@@ -59,7 +56,7 @@ router.post("/submit", (req, res) => {
 })
 
 router.get("/submitList", (req, res) => {
-    db.query("SELECT project.id, project.title, project.url, project.live_site_url, project.description, project.createAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
+    db.query("SELECT project.id, project.title, project.url, project.live_site_url, project.description, project.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
         res.send(results)
         console.log(results)
     })

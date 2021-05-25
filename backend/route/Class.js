@@ -14,7 +14,7 @@ router.post("/createClass", (req, res) => {
     const createAt = req.body.createAt
     let status = "Pending"
     let user_id = 0;
-    let updateAt = " "
+    let updateAt = ""
 
     if (className.length <= 0) {
         res.send({ message: "Class name can not be empty" })
@@ -36,7 +36,7 @@ router.post("/createClass", (req, res) => {
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                    db.query("INSERT INTO class (className, image, date, time, url, status, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
+                    db.query("INSERT INTO class (className, image, date, time, url, status, user_id, classCreateAt, classUpdateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                         file.mv('../frontend/src/asset/upload/' + file.name)
@@ -48,7 +48,7 @@ router.post("/createClass", (req, res) => {
 })
 
 router.get("/classList", (req, res) => {
-    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id",(err, results) => {
+    db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id",(err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -84,7 +84,7 @@ router.post("/updateClass", (req, res) => {
                 url = results[0].url
             }
             
-            db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, updateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
+            db.query("UPDATE class SET className = ?, date = ?, time = ?, url = ?, status =?, classUpdateAt=?  WHERE id=?;", [className, date, time, url, status, updateAt, id], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
@@ -95,7 +95,7 @@ router.post("/updateClass", (req, res) => {
 
 router.get("/classListUser", (req, res) => {
     let status = "Approve"
-    db.query("SELECT class.id, class.image, class.className, class.date, class.time, class.url, class.status, class.createAt, class.updateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
+    db.query("SELECT class.id, class.image, class.className, class.date, class.time, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
         res.send(results)
         console.log(results)
     })

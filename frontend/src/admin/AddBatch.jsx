@@ -2,7 +2,7 @@ import React, {useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
 
-function AddCourse() {
+function AddBatch() {
 
     const [batch, setBatch] = useState("")
     const [createAt, setCreateAt] = useState("")
@@ -11,7 +11,9 @@ function AddCourse() {
     window.onload = setTimeout(function () {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        setCreateAt(date)
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setCreateAt(dateTime)
     }, 500)
 
     const Batch = () => {
@@ -41,4 +43,4 @@ function AddCourse() {
     )
 }
 
-export default AddCourse
+export default AddBatch

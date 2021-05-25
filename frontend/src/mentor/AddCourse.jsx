@@ -28,7 +28,7 @@ function AddCourse() {
         if (editorRef.current) {
             console.log(editorRef.current.getContent());
             Axios.post("http://localhost:3001/course/addCourse", {name:name, topik:topik, number:number, createAt:createAt, judul:judul, des:des, time:time, content: editorRef.current.getContent() }).then((response) => {
-                console.log(response)
+                console.log("inserted into database")
             })
         }
     };

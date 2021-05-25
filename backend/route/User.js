@@ -91,7 +91,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:' + info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, roleId, paket_id, createAt, updateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -197,7 +197,7 @@ router.put("/addeditKuota", (req, res) => {
     const status = req.body.status
     const createAt = req.body.createAt
     const updateAt = req.body.updateAt
-    let update = " "
+    let update = ""
     let kuotaConsultation = 0
     let kuotaSession = 0
     let paket = 0
@@ -212,19 +212,19 @@ router.put("/addeditKuota", (req, res) => {
                 kuotaConsultation = results[0].classConsultation + 5
                 kuotaSession = results[0].classSession + 5
                 if(paket_id == 2){
-                    db.query("UPDATE userkuota SET classSession = ?, updateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
+                    db.query("UPDATE userkuota SET classSession = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
                 }else if(paket_id == 3){
-                    db.query("UPDATE userkuota SET classConsultation = ?, updateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
+                    db.query("UPDATE userkuota SET classConsultation = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
                 }
                     
             } else {
-                db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, createAt, updateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
+                db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -237,7 +237,7 @@ router.put("/addeditKuota", (req, res) => {
 
 router.get("/userList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND isDeleted = ?", isDeleted, (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -246,7 +246,7 @@ router.get("/userList", (req, res) => {
 router.get("/userListActive", (req, res) => {
     let status = "ACTIVED"
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -255,7 +255,7 @@ router.get("/userListActive", (req, res) => {
 router.get("/userListPayment", (req, res) => {
     let status = "PENDING"
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.createAt, user.updateAt, user.paket_id ,user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.paket_id ,user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
     })
 })
@@ -265,7 +265,7 @@ router.put("/updateUser", (req, res) => {
     const role = req.body.role
     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET roleId = ?, updateAt = ? WHERE id = ?;", [role, updateAt, id], (err, results) => {
+    db.query("UPDATE user SET roleId = ?, userUpdateAt = ? WHERE id = ?;", [role, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })
@@ -276,7 +276,7 @@ router.put("/deleteUser", (req, res) => {
     const updateAt = req.body.updateAt
     let isDeleted = "YES"
 
-    db.query("UPDATE user SET isDeleted = ?, updateAt = ? WHERE id = ?;", [isDeleted, updateAt, id], (err, results) => {
+    db.query("UPDATE user SET isDeleted = ?, userUpdateAt = ? WHERE id = ?;", [isDeleted, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })

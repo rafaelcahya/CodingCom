@@ -27,7 +27,7 @@ router.post("/feedback", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    db.query("INSERT INTO feedback (about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?);", [about, namefile, des, user_id, createAt], (err, results) => {
+                    db.query("INSERT INTO feedback (about, image, description, user_id, feedbackCreateAt) VALUES (?, ?, ?, ?, ?);", [about, namefile, des, user_id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
@@ -35,7 +35,7 @@ router.post("/feedback", (req, res) => {
                     const file = req.files.fileUpload
                     const filename = file.name
                     if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-                        db.query("INSERT INTO feedback (about, image, description, user_id, createAt) VALUES (?, ?, ?, ?, ?);", [about, filename, des, user_id, createAt], (err, results) => {
+                        db.query("INSERT INTO feedback (about, image, description, user_id, feedbackCreateAt) VALUES (?, ?, ?, ?, ?);", [about, filename, des, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
                             file.mv('../frontend/src/asset/upload/' + file.name)

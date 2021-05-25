@@ -80,7 +80,7 @@ router.post("/bootcampUserRegis", (req, res) => {
                                 console.log('Email sent:' + info.response)
                             }
                         })
-                        db.query("INSERT INTO bootcampuser (address, city, postalCode, emergencynumber, education, program, batch, motivation, busy, createAt, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [address, city, postalCode, emergency, education, program, batch, motivation, busy, createAt, user_id], (err, results) => {
+                        db.query("INSERT INTO bootcampuser (address, city, postalCode, emergencynumber, education, program, batch, motivation, busy, bootcampCreateAt, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [address, city, postalCode, emergency, education, program, batch, motivation, busy, createAt, user_id], (err, results) => {
                             console.log(err)
                             res.send(results)
                         })

@@ -43,7 +43,7 @@ export default function ProjectList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.description}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.live_site_url}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.projectCreateAt}</td>
                                                     </tr>
                                         }
                                     )

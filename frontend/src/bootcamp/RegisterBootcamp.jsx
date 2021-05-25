@@ -24,7 +24,9 @@ function RegisterBootcamp() {
         setName(x)
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        setCreateAt(date)
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setCreateAt(dateTime)
     }, 500)
 
     
