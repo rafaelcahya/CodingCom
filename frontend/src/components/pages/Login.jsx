@@ -82,9 +82,7 @@ export default function Login() {
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
-                    <div className="flex justify-end items-center gap-5 text-sm">
-                        <p onClick={login} className="bg-blue-1 text-white px-7 py-2 rounded-lg">Login</p>
-                    </div>
+                    <p onClick={login} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Login</p>
                     
                     <div className="text-sm font-medium text-gray-500 flex flex-col justify-center items-center gap-2 my-10">
                         <p>Don't have an account?</p>

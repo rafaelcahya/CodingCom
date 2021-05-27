@@ -74,7 +74,7 @@ function Internet(props) {
                 </div>
                 <SidebarInternetMobile />
                 <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
-                    {
+                    {/* {
                         value.map(
                             (val) => {
                                 return <div>
@@ -95,7 +95,7 @@ function Internet(props) {
                                 </div>
                             }
                         )
-                    }
+                    } */}
 
 
                     <div className="comment-container mt-32">
@@ -147,12 +147,10 @@ function Internet(props) {
                     </div>
                 </div>
             </div>
-
-
-            <Footer />
-        </>
-    )
-}
+             <Footer />
+         </>
+     )
+ }
 
 export default Internet
 

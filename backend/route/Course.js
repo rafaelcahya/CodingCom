@@ -90,6 +90,7 @@ router.get("/listCourseMentor/:name", (req, res) => {
         }
 
         if (results.length > 0) {
+            // buat ambil index
             user_id = results[0].id
             db.query("SELECT course.number, course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id AND course.user_id = ?", user_id, (err, results) => {
                 res.send(results)

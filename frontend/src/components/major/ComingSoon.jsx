@@ -30,9 +30,10 @@ export default function ComingSoon() {
 
                 <div className="flex flex-col items-center gap-5">
                     <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="0" className="bg-yellow-100 px-6 py-1 color-orange-1 text-sm font-semibold tracking-wider rounded-full">Our website is under construction</p>
-                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-2xl lg:text-4xl text-center font-semibold mx-10 mb-14 lg:w-7/12">Something big update working by our team. Please wait we are coming soon with a lot of features.</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-2xl lg:text-4xl text-center font-semibold mx-10 lg:w-7/12">Stay tunned, we're launching very soon</p>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200">We are working very hard to give you the best experience possible!</p>
                     <Link to="/">
-                        <p data-aos="zoom-up" data-aos-easing="ease-in-out" data-aos-delay="400" className="bg-blue-1 hover:bg-blue-500 text-white text-sm font-medium px-8 py-2 rounded-lg">Back to home</p>
+                        <p data-aos="zoom-up" data-aos-easing="ease-in-out" data-aos-delay="400" className="bg-blue-1 hover:bg-blue-500 text-white text-sm font-medium px-8 py-2 mt-14 rounded-lg">Back to home</p>
                     </Link>
                 </div>
 

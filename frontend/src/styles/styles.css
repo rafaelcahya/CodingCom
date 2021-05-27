@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @font-face {
     font-family: montserrat;
     src: url(../asset/font/Montserrat-Regular.ttf);
@@ -310,9 +317,15 @@ Accessories
     border-bottom: 1px solid rgb(209, 213, 219);
     padding: 20px;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: left;
     font-weight: 600;
 }
@@ -332,6 +345,8 @@ Accessories
     width: 100%;
     padding: 5px 20px;
     opacity: 0;
+    -webkit-transition: all .25s;
+    -o-transition: all .25s;
     transition: all .25s;
     height: 20px;
     margin: 0px 0 0 40px;
@@ -345,7 +360,8 @@ Accessories
 }
 
 .image-preview:hover {
-    box-shadow: 0 40px 75px -12px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 0 40px 75px -12px rgb(0 0 0 / 50%);
+            box-shadow: 0 40px 75px -12px rgb(0 0 0 / 50%);
 }
 
 .CodeMirror {
@@ -363,148 +379,328 @@ Accessories
 }
 
 
-@keyframes spaceboots {
+@-webkit-keyframes spaceboots {
     0% {
-        transform: translate(2px, 1px) rotate(0deg);
+        -webkit-transform: translate(2px, 1px) rotate(0deg);
+                transform: translate(2px, 1px) rotate(0deg);
     }
 
     10% {
-        transform: translate(-1px, -2px) rotate(-1deg);
+        -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+                transform: translate(-1px, -2px) rotate(-1deg);
     }
 
     20% {
-        transform: translate(-3px, 0px) rotate(1deg);
+        -webkit-transform: translate(-3px, 0px) rotate(1deg);
+                transform: translate(-3px, 0px) rotate(1deg);
     }
 
     30% {
-        transform: translate(0px, 2px) rotate(0deg);
+        -webkit-transform: translate(0px, 2px) rotate(0deg);
+                transform: translate(0px, 2px) rotate(0deg);
     }
 
     40% {
-        transform: translate(1px, -1px) rotate(1deg);
+        -webkit-transform: translate(1px, -1px) rotate(1deg);
+                transform: translate(1px, -1px) rotate(1deg);
     }
 
     50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
+        -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+                transform: translate(-1px, 2px) rotate(-1deg);
     }
 
     60% {
-        transform: translate(-3px, 1px) rotate(0deg);
+        -webkit-transform: translate(-3px, 1px) rotate(0deg);
+                transform: translate(-3px, 1px) rotate(0deg);
     }
 
     70% {
-        transform: translate(2px, 1px) rotate(-1deg);
+        -webkit-transform: translate(2px, 1px) rotate(-1deg);
+                transform: translate(2px, 1px) rotate(-1deg);
     }
 
     80% {
-        transform: translate(-1px, -1px) rotate(1deg);
+        -webkit-transform: translate(-1px, -1px) rotate(1deg);
+                transform: translate(-1px, -1px) rotate(1deg);
     }
 
     90% {
-        transform: translate(2px, 2px) rotate(0deg);
+        -webkit-transform: translate(2px, 2px) rotate(0deg);
+                transform: translate(2px, 2px) rotate(0deg);
     }
 
     100% {
-        transform: translate(1px, -2px) rotate(-1deg);
+        -webkit-transform: translate(1px, -2px) rotate(-1deg);
+                transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+
+@keyframes spaceboots {
+    0% {
+        -webkit-transform: translate(2px, 1px) rotate(0deg);
+                transform: translate(2px, 1px) rotate(0deg);
+    }
+
+    10% {
+        -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+                transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        -webkit-transform: translate(-3px, 0px) rotate(1deg);
+                transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        -webkit-transform: translate(0px, 2px) rotate(0deg);
+                transform: translate(0px, 2px) rotate(0deg);
+    }
+
+    40% {
+        -webkit-transform: translate(1px, -1px) rotate(1deg);
+                transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+                transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        -webkit-transform: translate(-3px, 1px) rotate(0deg);
+                transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        -webkit-transform: translate(2px, 1px) rotate(-1deg);
+                transform: translate(2px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        -webkit-transform: translate(-1px, -1px) rotate(1deg);
+                transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        -webkit-transform: translate(2px, 2px) rotate(0deg);
+                transform: translate(2px, 2px) rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: translate(1px, -2px) rotate(-1deg);
+                transform: translate(1px, -2px) rotate(-1deg);
     }
 }
 
 .shake:hover,
 .shake:focus {
-    animation-name: spaceboots;
-    animation-duration: 0.8s;
-    transform-origin: 50% 50%;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    -webkit-animation-name: spaceboots;
+            animation-name: spaceboots;
+    -webkit-animation-duration: 0.8s;
+            animation-duration: 0.8s;
+    -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
 }
 
 .animate1 {
-    animation: stretch-bounce1 1s ease-in-out infinite 0ms;
+    -webkit-animation: stretch-bounce1 1s ease-in-out infinite 0ms;
+            animation: stretch-bounce1 1s ease-in-out infinite 0ms;
+}
+
+@-webkit-keyframes stretch-bounce1 {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 @keyframes stretch-bounce1 {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
 .animate2 {
-    animation: stretch-bounce2 1s ease-in-out infinite 400ms;
+    -webkit-animation: stretch-bounce2 1s ease-in-out infinite 400ms;
+            animation: stretch-bounce2 1s ease-in-out infinite 400ms;
+}
+
+@-webkit-keyframes stretch-bounce2 {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 @keyframes stretch-bounce2 {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
 .animate3 {
-    animation: stretch-bounce3 1s ease-in-out infinite 600ms;
+    -webkit-animation: stretch-bounce3 1s ease-in-out infinite 600ms;
+            animation: stretch-bounce3 1s ease-in-out infinite 600ms;
+}
+
+@-webkit-keyframes stretch-bounce3 {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 @keyframes stretch-bounce3 {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
 .animate4 {
-    animation: stretch-bounce4 1s ease-in-out infinite 800ms;
+    -webkit-animation: stretch-bounce4 1s ease-in-out infinite 800ms;
+            animation: stretch-bounce4 1s ease-in-out infinite 800ms;
+}
+
+@-webkit-keyframes stretch-bounce4 {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 @keyframes stretch-bounce4 {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
 .animate5 {
-    animation: stretch-bounce5 1s ease-in-out infinite 1s;
+    -webkit-animation: stretch-bounce5 1s ease-in-out infinite 1s;
+            animation: stretch-bounce5 1s ease-in-out infinite 1s;
+}
+
+@-webkit-keyframes stretch-bounce5 {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
 }
 
 @keyframes stretch-bounce5 {
     0% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
     50% {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+                transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 }
 
@@ -669,36 +865,34 @@ Accessories
 
 .accordion-list.actived>.accordion-label>.acd-arrow {
     -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
 }
 
 .acd-transition>.accordion-label>.acd-arrow {
     -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
     transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .tooltip {
     position: relative;
     display: inline-block;
-  }
+}
   
-  .tooltip .tooltiptext {
+.tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+    width: 200px;
     position: absolute;
     right: 0;
     z-index: 1;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+}
 
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 /* 
 
 Navbar 
@@ -765,19 +959,31 @@ Login page, Register Page
 }
 .appp .particles .particle {
     position: absolute;
+    -webkit-transition: all 5s ease-out;
+    -o-transition: all 5s ease-out;
     transition: all 5s ease-out;
 }
 
 
 .login-container,
 .register-container {
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#3417aa), color-stop(#383abf), color-stop(#4057d1), color-stop(#4d72e2), to(#5f8cf1));
+    background-image: -o-linear-gradient(left top, #3417aa, #383abf, #4057d1, #4d72e2, #5f8cf1);
     background-image: linear-gradient(to right bottom, #3417aa, #383abf, #4057d1, #4d72e2, #5f8cf1);
+}
+
+.login-box{
+    width: 450px;
+}
+
+.register-box{
+    width: 600px;
 }
 
 .login-box input,
 .register-box input,
 .register-box select {
-    width: 20rem;
+    width: 100%;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 5px;
@@ -813,6 +1019,22 @@ Login page, Register Page
     font-size: .875rem;
 }
 
+.login-box input::-webkit-input-placeholder, .register-box input::-webkit-input-placeholder {
+    font-size: .875rem;
+}
+
+.login-box input::-moz-placeholder, .register-box input::-moz-placeholder {
+    font-size: .875rem;
+}
+
+.login-box input:-ms-input-placeholder, .register-box input:-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.login-box input::-ms-input-placeholder, .register-box input::-ms-input-placeholder {
+    font-size: .875rem;
+}
+
 .login-box input::placeholder,
 .register-box input::placeholder {
     font-size: .875rem;
@@ -834,10 +1056,12 @@ Homepage
 
 .vscode {
     cursor: move;
+    cursor: -webkit-grab;
     cursor: grab;
 }
 
 .vscode:active {
+    cursor: -webkit-grabbing;
     cursor: grabbing;
 }
 
@@ -974,15 +1198,32 @@ Payment
 
 .emoji {
     font-size: 4rem;
-    transform: scale(.5);
+    -webkit-transform: scale(.5);
+        -ms-transform: scale(.5);
+            transform: scale(.5);
     text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    -webkit-transition:
+        text-shadow .2s ease-in-out,
+        -webkit-transform .2s ease-in-out;
+    transition:
+        text-shadow .2s ease-in-out,
+        -webkit-transform .2s ease-in-out;
+    -o-transition:
+        text-shadow .2s ease-in-out,
+        transform .2s ease-in-out;
     transition:
         text-shadow .2s ease-in-out,
         transform .2s ease-in-out;
+    transition:
+        text-shadow .2s ease-in-out,
+        transform .2s ease-in-out,
+        -webkit-transform .2s ease-in-out;
 }
 
 .emoji:hover {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
     text-shadow: 0 20px 20px rgba(0, 0, 0, .3);
 }
 
@@ -1124,20 +1365,34 @@ Tutorial
 
 #tutorial-box {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 1.2rem;
     border-radius: 6px;
     width: 400px;
+    -webkit-transition: 200ms;
+    -o-transition: 200ms;
     transition: 200ms;
     overflow: hidden;
 }
 
 #tutorial-box:hover {
-    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-transition: 200ms;
+    -o-transition: 200ms;
     transition: 200ms;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-left: 4px solid #3b72ff;
 }
 
@@ -1315,6 +1570,22 @@ Challenge
     font-size: .875rem;
 }
 
+.submit-box input::-webkit-input-placeholder, .submit-box textarea::-webkit-input-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input::-moz-placeholder, .submit-box textarea::-moz-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input:-ms-input-placeholder, .submit-box textarea:-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.submit-box input::-ms-input-placeholder, .submit-box textarea::-ms-input-placeholder {
+    font-size: .875rem;
+}
+
 .submit-box input::placeholder,
 .submit-box textarea::placeholder {
     font-size: .875rem;
@@ -1335,7 +1606,7 @@ class session
 .request-class-container input {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
-    border-radius: 10px;
+    border-radius: 6px;
     outline: none;
 }
 
@@ -1487,6 +1758,22 @@ Bootcamp
     font-size: .875rem;
 }
 
+.reg-bootcamp-box input::-webkit-input-placeholder, .reg-bootcamp-box textarea::-webkit-input-placeholder {
+    font-size: .875rem;
+}
+
+.reg-bootcamp-box input::-moz-placeholder, .reg-bootcamp-box textarea::-moz-placeholder {
+    font-size: .875rem;
+}
+
+.reg-bootcamp-box input:-ms-input-placeholder, .reg-bootcamp-box textarea:-ms-input-placeholder {
+    font-size: .875rem;
+}
+
+.reg-bootcamp-box input::-ms-input-placeholder, .reg-bootcamp-box textarea::-ms-input-placeholder {
+    font-size: .875rem;
+}
+
 .reg-bootcamp-box input::placeholder,
 .reg-bootcamp-box textarea::placeholder {
     font-size: .875rem;
@@ -1527,9 +1814,15 @@ React sidebar minimal
 .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option {
     border-left-width: 2px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: .75rem 1rem !important;
     --tw-text-opacity: 1;
     color: rgba(55, 65, 81, var(--tw-text-opacity));

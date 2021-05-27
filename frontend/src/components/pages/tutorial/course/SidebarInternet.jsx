@@ -8,9 +8,8 @@ export const SidebarInternet = () => {
     useEffect(() => {
         axios.get("http://localhost:3001/course/listCourseUser").then((response) => {
             setValue(response.data)
-            console.log(response.data)
         })
-    }, []);
+    });
 
     function refreshPage() {
         window.location.reload(false);

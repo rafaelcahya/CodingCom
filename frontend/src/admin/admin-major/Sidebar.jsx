@@ -40,6 +40,10 @@ export default function Sidebar() {
                                 title: "Batch list",
                                 itemId: "/admin/list-batch"
                             },
+                            {
+                                title: "Schedule",
+                                itemId: "/admin/bootcamp-schedule"
+                            }
                         ],
                     },
                     {
