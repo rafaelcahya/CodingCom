@@ -41,7 +41,7 @@ router.post("/register", (req, res) => {
     } else if (cphoneNumber.length<=0) {
         res.send({ message: "Confirm Phone number cannot be empty" })
     } else if (cphoneNumber != phoneNumber ) {
-        res.send({ message: "Confirm Phone number must be same as phone number" })
+        res.send({ message: "Phone number and confirm phone number must be the same" })
     } else if (email.length <= 0) {
         res.send({ message: "Please add your Email" })
     } else if (email.match(/[@]/) == null) {
