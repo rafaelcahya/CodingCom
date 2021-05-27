@@ -149,7 +149,7 @@ router.post("/updateStatus", (req, res) => {
     const name = req.body.name
     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET status = ?, updateAt = ? WHERE name=?;", [status, updateAt, name], (err, results) => {
+    db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE name=?;", [status, updateAt, name], (err, results) => {
         console.log(err)
         res.send(results)
     })
@@ -161,7 +161,7 @@ router.post("/updateStatusClassSession", (req, res) => {
     const name = req.body.name
     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET status = ?, updateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
+    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
         console.log(err)
         res.send(results)
     })
@@ -173,7 +173,7 @@ router.post("/updateStatusClassConsultation", (req, res) => {
     const name = req.body.name
     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET status = ?, updateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
+    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
         console.log(err)
         res.send(results)
     })
@@ -185,7 +185,7 @@ router.put("/updatePayment", (req, res) => {
     const updateAt = req.body.updateAt
     let paket_id = 1
 
-    db.query("UPDATE user SET status = ?, updateAt = ?, paket_id = ? WHERE id = ?;", [status, updateAt, paket_id, id], (err, results) => {
+    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE id = ?;", [status, updateAt, paket_id, id], (err, results) => {
         console.log(err)
         res.send(results)
     })

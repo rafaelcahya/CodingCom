@@ -12,9 +12,9 @@ export const SidebarInternet = () => {
         })
     }, []);
 
-    // function refreshPage() {
-    //     window.location.reload(false);
-    // }
+    function refreshPage() {
+        window.location.reload(false);
+    }
     return (
         <>
             <div className="hidden lg:block sticky self-start top-0 pt-6">
@@ -28,7 +28,7 @@ export const SidebarInternet = () => {
                         value.map(
                             (val) => {
                                 return <div className="flex justify-between items-center">
-                                    <Link to={"/user-course/" + val.id}>{val.number}.{val.judul}</Link>
+                                    <Link to={"/user-course/" + val.id} onClick={refreshPage}>{val.number}.{val.judul}</Link>
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{val.time} min</p>
                                 </div>
                             }

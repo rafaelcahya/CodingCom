@@ -167,6 +167,49 @@ const Modal = forwardRef((props, ref) => {
     })
 
     const Choose = () => {
+        const [id, setId] = useState("")
+        const [name, setName] = useState("")
+        const [rating, setRating] = useState("")
+        const [des, setDes]  = useState("")
+        const [createAt, setCreateAt] = useState("")
+        let x
+
+        window.onload = setTimeout(function () {
+            var url1 = window.location.pathname;
+            var idurl = url1.substring(url1.lastIndexOf('/') + 1);
+            setId(idurl)
+            x = localStorage.getItem("name");
+            document.getElementById("name").innerHTML = x;
+            setName(x)
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date + ' ' + time;
+            setCreateAt(dateTime)
+        }, 500)
+
+        const RateEmo1 = () => {
+           setRating("1")
+        }
+        const RateEmo2 = () => {
+            setRating("2")
+        }
+        const RateEmo3 = () => {
+            setRating("3")
+        }
+        const RateEmo4 = () => {
+            setRating("4")
+        }
+        const RateEmo5 = () => {
+            setRating("5")
+        }
+        const Rate = () => {
+            Axios.post("http://localhost:3001/rating/rating", { id: id, name: name, rating: rating, des: des, createAt: createAt }).then((response) => {
+                window.location.reload()
+                console.log(response)
+            })
+        }
+
         return (
             <>
                 <div className="">
@@ -176,12 +219,18 @@ const Modal = forwardRef((props, ref) => {
                         <p className="text-xl font-bold">Rate us</p>
                         <p className="text-sm text-center font-semibold">We love to hear from you. How is your tutorial experience?</p>
                         <div className="flex items-center my-10">
-                            <span class="emoji emoji--crying"></span>
-                            <span class="emoji emoji--sad"></span>
-                            <span class="emoji emoji--neutral"></span>
-                            <span class="emoji emoji--happy"></span>
-                            <span class="emoji emoji--satisfy"></span>
+                            <span onClick={RateEmo1} class="emoji emoji--crying"></span>
+                            <span onClick={RateEmo2} class="emoji emoji--sad"></span>
+                            <span onClick={RateEmo3} class="emoji emoji--neutral"></span>
+                            <span onClick={RateEmo4} class="emoji emoji--happy"></span>
+                            <span onClick={RateEmo5} class="emoji emoji--satisfy"></span>
                         </div>
+                        <div>
+                        <textarea placeholder="add your rating here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
+                            setDes(event.target.value)
+                        }}></textarea>
+                        <p onClick={Rate} id="submitRating" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Rate Now</p>
+                            </div>
                         <p>Thank you for rating</p>
                     </div>
                 </div>

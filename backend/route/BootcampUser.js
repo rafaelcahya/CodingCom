@@ -19,7 +19,7 @@ router.post("/bootcampUserRegis", (req, res) => {
     const batch = req.body.batch
     const motivation = req.body.motivation
     const busy = req.body.busy
-    const createAt = req.body.createAt
+    const createAt = req.body.createAt 
     let user_id = 0
 
     if (address <= 0) {

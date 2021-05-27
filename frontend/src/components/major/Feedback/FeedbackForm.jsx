@@ -39,7 +39,6 @@ function FeedbackForm() {
         Axios.post("http://localhost:3001/feedback/feedback", fd).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
-
         })
         console.log(file)
     }
