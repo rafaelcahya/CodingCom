@@ -187,7 +187,7 @@ const Modal = forwardRef((props, ref) => {
         }, 500)
 
         const RateEmo1 = () => {
-           setRating("1")
+            setRating("1")
         }
         const RateEmo2 = () => {
             setRating("2")

@@ -98,7 +98,7 @@ router.post("/updateClass", (req, res) => {
 
 router.get("/classListUser", (req, res) => {
     let status = "Approve"
-    db.query("SELECT class.id, class.image, class.className, class.date, class.time, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
+    db.query("SELECT class.id, class.image, class.className, class.startDate, class.endDate, class.startTime, class.endTime, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
         res.send(results)
     })
 })

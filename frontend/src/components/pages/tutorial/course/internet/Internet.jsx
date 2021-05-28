@@ -24,6 +24,9 @@ function Internet() {
         })
     }, []);
 
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const formatTime = s => new Date(s).toLocaleTimeString(undefined, { timeStyle: 'short' });
+
     return (
         <>
             <NavbarLogin />
@@ -48,7 +51,7 @@ function Internet() {
                         </Link>
                     </div>
                     <div className="bg-green-100 p-5 my-10 rounded-lg">
-                        <p className="text-lg font-semibold mb-2">What you'll learn</p>
+                        <p className="text-xl font-semibold mb-2">What you'll learn</p>
                         <div className="leading-loose">
                             <div className="flex items-center gap-2">
                                 <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +92,7 @@ function Internet() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-lg font-semibold mb-2">About this tutorial</p>
+                        <p className="text-xl font-semibold mb-2">About this tutorial</p>
                         <div className="flex flex-col gap-4 leading-relaxed">
                             <p>The Internet is a worldwide computer network that connects computers all over the world. The Internet's "backbone" is made up of multiple high-bandwidth data connections. These lines connect to key Internet hubs that distribute data to various places such as web servers and Internet service providers (ISPs).</p>
                             <p>You must have access to an Internet service provider (ISP) in order to connect to the Internet. The ISP functions as a mediator between you and the Internet. The majority of ISPs provide broadband Internet access via cable, DSL, or fiber. When you use a public Wi-Fi signal to connect to the Internet, the Wi-Fi router is still connected to an ISP that provides Internet access. To provide Internet connectivity to linked devices, even cellular data towers must connect to an Internet service provider.</p>
@@ -98,37 +101,38 @@ function Internet() {
                     {
                         valueAVG.map(
                             (val) => {
-                                return <div className="my-10 border-b">
-                                    {val.AverageRating == 1?(<p className="text-lg font-semibold mb-2">A/{val.AverageRating}</p>):
-                                    val.AverageRating == 2?(<p className="text-lg font-semibold mb-2">B/{val.AverageRating}</p>):
-                                    val.AverageRating == 3?(<p className="text-lg font-semibold mb-2">C/{val.AverageRating}</p>):
-                                    val.AverageRating == 4?(<p className="text-lg font-semibold mb-2">D/{val.AverageRating}</p>):
-                                    (<p className="text-lg font-semibold mb-2">E/{val.AverageRating}</p>)
+                                return <div className="my-10">
+                                    <p className="text-xl font-semibold mb-2">User feedback</p>
+                                    <p>Tutorial rating</p>
+                                    {val.AverageRating == 1?(<p className="text-lg font-semibold mb-2">😍 {val.AverageRating}</p>):
+                                    val.AverageRating == 2?(<p className="text-lg font-semibold mb-2">🤩 {val.AverageRating}</p>):
+                                    val.AverageRating == 3?(<p className="text-lg font-semibold mb-2">😑 {val.AverageRating}</p>):
+                                    val.AverageRating == 4?(<p className="text-lg font-semibold mb-2">☹️ {val.AverageRating}</p>):
+                                    (<p className="text-lg font-semibold mb-2">😰 {val.AverageRating}</p>)
                                 }
-                                
                             </div>
                             }
                         )
                     }
                     <div className="my-10 border-b">
-                                <p className="text-lg font-semibold mb-2">Review</p>
+                        <p className="text-xl font-semibold mb-2">Review</p>
                     </div>
                     {
                         value.map(
                             (val) => {
                                 return <div>
                                     <div className="flex justify-between gap-2">
-                                        <p>{val.name}</p>
+                                        <p className="text-lg font-semibold">{val.name}</p>
                                         <div className="text-right">
-                                        {val.rating == 1?(<p>A/{val.rating}</p>):
-                                    val.rating == 2?(<p>B/{val.rating}</p>):
-                                    val.rating == 3?(<p>C/{val.rating}</p>):
-                                    val.rating == 4?(<p>D/{val.rating}</p>):
-                                    (<p>E/{val.rating}</p>)
-                                }
-                                            <p>{val.ratingCreateAt}</p>
+                                            {val.rating == 1?(<p>😰 {val.rating}</p>):
+                                                val.rating == 2?(<p>☹️ {val.rating}</p>):
+                                                val.rating == 3?(<p>😑 {val.rating}</p>):
+                                                val.rating == 4?(<p>🤩 {val.rating}</p>):
+                                                (<p>😍 {val.rating}</p>)
+                                            }
                                         </div>
                                     </div>
+                                    <p className="text-sm text-gray-600">{formatDate(val.ratingCreateAt)} {formatTime(val.ratingCreateAt)}</p>
                                     <p className="py-5"> {val.description}</p>
                                 </div>
                             }
