@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
+import Axios from 'axios'
 
 function Internet() {
+    const [value, setValue] = useState([])
+    const [valueAVG, setValueAVG] = useState([])
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/rating/ratingList").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/rating/AvgratingList").then((response) => {
+            setValueAVG(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
     return (
         <>
             <NavbarLogin />
@@ -77,19 +95,46 @@ function Internet() {
                             <p>You must have access to an Internet service provider (ISP) in order to connect to the Internet. The ISP functions as a mediator between you and the Internet. The majority of ISPs provide broadband Internet access via cable, DSL, or fiber. When you use a public Wi-Fi signal to connect to the Internet, the Wi-Fi router is still connected to an ISP that provides Internet access. To provide Internet connectivity to linked devices, even cellular data towers must connect to an Internet service provider.</p>
                         </div>
                     </div>
-                    <div className="my-10 border-b">
-                        <p className="text-lg font-semibold mb-2">Review</p>
-                        <div>
-                            <div className="flex justify-between gap-2">
-                                <p>Name</p>
-                                <div className="text-right">
-                                    <p>Rating</p>
-                                    <p>Date</p>
-                                </div>
+                    {
+                        valueAVG.map(
+                            (val) => {
+                                return <div className="my-10 border-b">
+                                    {val.AverageRating == 1?(<p className="text-lg font-semibold mb-2">A/{val.AverageRating}</p>):
+                                    val.AverageRating == 2?(<p className="text-lg font-semibold mb-2">B/{val.AverageRating}</p>):
+                                    val.AverageRating == 3?(<p className="text-lg font-semibold mb-2">C/{val.AverageRating}</p>):
+                                    val.AverageRating == 4?(<p className="text-lg font-semibold mb-2">D/{val.AverageRating}</p>):
+                                    (<p className="text-lg font-semibold mb-2">E/{val.AverageRating}</p>)
+                                }
+                                
                             </div>
-                            <p className="py-5"> I have completed several of Max' courses by now and they are simply great to quickly kick off your career as a Web Dev. This course is no exception and really helped to get an understanding on how to use the MEAN stack. I would highly recommend doing Max' comprehensive Angular beforehand, since he explained all the important concepts there in more detail.</p>
-                        </div>
+                            }
+                        )
+                    }
+                    <div className="my-10 border-b">
+                                <p className="text-lg font-semibold mb-2">Review</p>
                     </div>
+                    {
+                        value.map(
+                            (val) => {
+                                return <div>
+                                    <div className="flex justify-between gap-2">
+                                        <p>{val.name}</p>
+                                        <div className="text-right">
+                                        {val.rating == 1?(<p>A/{val.rating}</p>):
+                                    val.rating == 2?(<p>B/{val.rating}</p>):
+                                    val.rating == 3?(<p>C/{val.rating}</p>):
+                                    val.rating == 4?(<p>D/{val.rating}</p>):
+                                    (<p>E/{val.rating}</p>)
+                                }
+                                            <p>{val.ratingCreateAt}</p>
+                                        </div>
+                                    </div>
+                                    <p className="py-5"> {val.description}</p>
+                                </div>
+                            }
+                        )
+                    }
+                    
                 </div>
             </div>
             
