@@ -62,8 +62,8 @@ function Submit() {
                             setType(event.target.value)
                         }}>
                             <option value="">Select project type</option>
-                            <option value="Certificate">Certificate</option>
-                            <option value="Challenge">Challenge</option>
+                            <option value="2">Certificate</option>
+                            <option value="1">Challenge</option>
                         </select>
                     </div>
                     <div className="flex flex-col gap-2">

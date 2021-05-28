@@ -8,6 +8,10 @@ const db = require('../config/db')
 router.post("/createClass", (req, res) => {
     const name = req.body.name
     const className = req.body.className
+    const info = req.body.info
+    const des = req.body.des
+    const endDate = req.body.enddate
+    const endTime = req.body.endtime
     const date = req.body.date
     const time = req.body.time
     const url = req.body.url
@@ -36,7 +40,7 @@ router.post("/createClass", (req, res) => {
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                    db.query("INSERT INTO class (className, image, date, time, url, status, user_id, classCreateAt, classUpdateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, date, time, url, status, user_id, createAt, updateAt], (err, results) => {
+                    db.query("INSERT INTO class (className, image, classInfo, startDate, endDate, startTime, endTime, classDescription, classUrl, status, user_id, classCreateAt, classUpdateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, info, date, endDate, time, endTime, des, url, status, user_id, createAt, updateAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                         file.mv('../frontend/src/asset/upload/' + file.name)
