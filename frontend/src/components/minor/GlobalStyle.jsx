@@ -15,19 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     .register-popup-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
-    #sidebarmobile,
-    .submit-box input,
-    .submit-box select,
-    .submit-box textarea,
-    .reg-bootcamp-box input,
-    .reg-bootcamp-box select,
-    .reg-bootcamp-box textarea,
-    .job-box input,
-    .job-box select,
-    .job-box textarea,
-    .courseForm input,
-    .courseForm select,
-    .courseForm textarea
+    #sidebarmobile
     {
         background: ${({theme}) => theme.foreground};
     }

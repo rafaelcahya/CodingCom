@@ -42,7 +42,7 @@ export default function Tutorial() {
         <div className="mx-8 sm:mx-24 mt-32 lg:mt-20">
             <div className="flex flex-col items-center gap-3">
                 <p className="text-4xl font-bold">Tutorials</p>
-                <p className="text-gray-500 font-medium">Learn web development tutorials anytime and anywhere</p>
+                <p className="text-lg text-gray-500 font-medium">Learn web development tutorials anytime and anywhere</p>
             </div>
             <Button button={buttons} filter={filter} />
             <Menu menuItem={menuItem}/>
@@ -85,7 +85,6 @@ function Menu({menuItem}) {
                                 <p className="text-gray-400 leading-6">{item.desc}</p>
                             </div>
                             <div className="flex justify-between text-sm font-medium mt-6">
-                                <p>Rating</p>
                                 <p>{item.total}</p>
                                 <p>{item.time}</p>
                             </div>

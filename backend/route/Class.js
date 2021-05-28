@@ -50,7 +50,6 @@ router.post("/createClass", (req, res) => {
 router.get("/classList", (req, res) => {
     db.query("SELECT class.id, class.className, class.date, class.time, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id",(err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 
@@ -97,7 +96,6 @@ router.get("/classListUser", (req, res) => {
     let status = "Approve"
     db.query("SELECT class.id, class.image, class.className, class.date, class.time, class.url, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ?",status,(err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 
@@ -105,7 +103,6 @@ router.get("/classById/:id", (req, res) => {
     const id = req.params.id
     db.query("SELECT * from class WHERE id = ?",id,(err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 

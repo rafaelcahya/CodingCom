@@ -12,10 +12,12 @@ export default function Class() {
         })
     }, []);
 
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+
     return (
         <>
         <div className="flex h-screen overflow-hidden">
-        <Sidebar/>
+            <Sidebar/>
             <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
             <p className="text-xl font-semibold">Class Requisition</p>
             <p className="text-sm font-semibold">A list of class requests that the mentor has created</p>
@@ -47,7 +49,7 @@ export default function Class() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.className}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.date}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.date)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
@@ -57,11 +59,11 @@ export default function Class() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {val.status === "Pending" ?(
-                                                                <p>{val.status}</p>
-                                                                ):(
                                                                 <Link to={"/edit-request-class/" + val.id}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
                                                                 </Link>
+                                                                ):(
+                                                                    <p>{val.status}</p>
                                                                 )}
                                                             
                                                         </td>

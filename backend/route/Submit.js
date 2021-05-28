@@ -41,9 +41,9 @@ router.post("/submit", (req, res) => {
                         db.query("INSERT INTO project (title, type, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
-                            file.mv('../frontend/src/asset/fileUpload/' + file.name)
+                            // file.mv('../frontend/src/asset/fileUpload/' + file.name)
+                            file.mv('../../frontend/src/asset/upload' + file.name)
                         })
-                   
                 }
                 // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
                 //     console.log(err)

@@ -1537,7 +1537,11 @@ Challenge
 .job-box select,
 .courseForm input,
 .courseForm textarea,
-.courseForm select {
+.courseForm select,
+.batchForm input,
+.batchForm textarea,
+.batchForm select {
+    background-color: white;
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 6px;
