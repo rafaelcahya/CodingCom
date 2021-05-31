@@ -15,16 +15,18 @@ export default function Payment() {
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
-                    <p className="text-lg font-semibold pb-8">Course List</p>
-                    <div className="overflow-x-auto">
+                    <p className="text-lg font-semibold">Batch List</p>
+                    <p className="text-sm font-semibold">Temporary list of future bootcamp batches</p>
+                    <div className="overflow-x-auto mt-8">
                         <div className="align-middle inline-block min-w-full">
                             <div className="overflow-hidden">
                                 <table className="relative min-w-full">
                                     <thead>
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Batch</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">CreateAt</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">isDeleted</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Start date</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">End date</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -33,8 +35,7 @@ export default function Payment() {
                                                 (val) => {
                                                     return <tr className="border-b-2">
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.batch}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>  
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.isDeleted}</td>              
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>             
                                                         {/* <td className="flex items-center gap-4 px-6 py-3 whitespace-nowrap">
                                                             <div className="flex flex-col gap-2 w-40">
                                                                 <select className="py-2 border border-black rounded-lg" id="dropdown" onChange={(event) => {

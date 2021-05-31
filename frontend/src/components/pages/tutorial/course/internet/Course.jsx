@@ -85,7 +85,7 @@ function Internet(props) {
                                         </div>
                                         <p className="text-gray-400 text-sm mt-5 sm:mt-0">{val.time} min</p>
                                     </div>
-                                    <div className="flex flex-col gap-5 my-5 pt-5">
+                                    <div className="content-course flex flex-col gap-5 my-5 pt-5">
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />
                                     </div>
                                     <NextPrevBtnTutorial
@@ -147,7 +147,7 @@ function Internet(props) {
                     </div>
                 </div>
             </div>
-             <Footer />
+            <Footer />
          </>
      )
  }

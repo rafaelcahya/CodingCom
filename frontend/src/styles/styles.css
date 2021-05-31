@@ -1189,6 +1189,64 @@ Payment
     background-color: white;
 }
 
+.register-popup-box {
+    -webkit-animation: cssAnimation 300ms ease forwards;
+    animation: cssAnimation 300ms ease forwards;
+}
+
+
+@-webkit-keyframes cssAnimation {
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+@keyframes cssAnimation {
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* 
+
+Course 
+
+*/
+
+.content-course a{
+    color: var(--blue-1);
+    text-decoration: underline;
+}
+
+.content-course li {
+    margin-left: 25px;
+}
+
+.content-course ul{
+    list-style-type: initial;
+}
+
+.content-course ol{
+    list-style-type: decimal;
+}
+
+.content-course ul li span, .content-course ol li span{
+    text-indent: 500px;
+}
+
 .rating-box {
     width: 500px;
     margin: 15% auto;
@@ -1265,37 +1323,6 @@ Payment
 
 .emoji--crying:hover:before {
     content: '😰';
-}
-
-.register-popup-box {
-    -webkit-animation: cssAnimation 300ms ease forwards;
-    animation: cssAnimation 300ms ease forwards;
-}
-
-
-@-webkit-keyframes cssAnimation {
-    from {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-
-    to {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-
-@keyframes cssAnimation {
-    from {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-
-    to {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
 }
 
 /* 
@@ -1795,18 +1822,10 @@ Career
 
 */
 
-.cv-form input,
-.cv-form button,
-.cv-form textarea {
-    width: 500px;
-    padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
-    border-radius: 8px;
+.jobCategorybtn:focus{
+    background-color: var(--blue-1);
+    color: white;
     outline: none;
-}
-
-.cv-form button {
-    border: none;
 }
 
 /* 

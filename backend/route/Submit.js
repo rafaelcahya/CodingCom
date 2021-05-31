@@ -42,7 +42,7 @@ router.post("/submit", (req, res) => {
                             console.log(err)
                             res.send(results)
                             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
-                            file.mv('../../frontend/src/asset/upload' + file.name)
+                            file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                 }
                 // db.query("INSERT INTO submit (title, url, fileName, live_site_url, description, score, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, url, live_site_url, description, score, user_id, createAt], (err, results) => {
@@ -56,7 +56,7 @@ router.post("/submit", (req, res) => {
 })
 
 router.get("/submitList", (req, res) => {
-    db.query("SELECT project.id, project.title, project.url, project.live_site_url, project.description, project.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
+    db.query("SELECT project.id, project.title, project.url, project.fileName, project.live_site_url, project.description, project.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
         res.send(results)
         console.log(results)
     })

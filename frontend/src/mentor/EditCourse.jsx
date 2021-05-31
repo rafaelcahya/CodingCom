@@ -95,7 +95,7 @@ function AddCourse(props) {
                                             'searchreplace visualblocks code fullscreen',
                                             'insertdatetime media table paste code help wordcount export'
                                         ],
-                                        toolbar: 'export | undo redo code | fontsizeselect fontselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                                        toolbar: 'export | undo redo code | fontsizeselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
                                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                                     }}
                                 />

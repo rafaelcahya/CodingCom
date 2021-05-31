@@ -182,6 +182,14 @@ function BootcampHome() {
                 <p className="text-xl leading-10 font-medium text-center lg:mx-10 xl:mx-32">Students will take part in intensive learning starting from the Preparation Phase to learn programming fundamentals and the Bootcamp Phase to learn the hard skills and soft skills needed to become a programmer.</p>
             </section>
 
+            <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="program">
+                <p className="text-center text-3xl font-semibold mb-10">Fulltime Coding Bootcamp Program</p>
+                <p className="text-xl leading-10 font-medium text-center lg:mx-10 xl:mx-32">Students will take part in intensive learning starting from the Preparation Phase to learn programming fundamentals and the Bootcamp Phase to learn the hard skills and soft skills needed to become a programmer.</p>
+                <ul>
+                    <li>test</li>
+                </ul>
+            </section>
+
             <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28">
                 <p className="text-center text-3xl font-semibold mb-10">Bootcamp Process</p>
                 <div className="grid md:flex md:flex-wrap md:justify-center md:items-center gap-10">
