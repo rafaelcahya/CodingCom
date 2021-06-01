@@ -1,16 +1,21 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable no-useless-concat */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Editor } from '@tinymce/tinymce-react';
 
 function EditRequestClass(props) {
     const urlid = props.match.params.id
+    const editorRef = useRef(null);
     const [id, setId] = useState("")
     const [className, setClassName] = useState("")
-    const [time, setTime] = useState("")
-    const [date, setDate] = useState("")
+    const [info, setInfo] = useState("")
+    const [starttime, setStartTime] = useState("")
+    const [endtime, setEndTime] = useState("")
+    const [startdate, setStartDate] = useState("")
+    const [enddate, setEndDate] = useState("")
     const [url, setUrl] = useState("")
     const [updateAt, setUpdateAt] = useState("")
     const [status, setStatus] = useState("")
@@ -40,7 +45,7 @@ function EditRequestClass(props) {
     });
 
     const updateClass = () => {
-        Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, time: time, date: date, url: url, updateAt: updateAt, status: status }).then((response) => {
+        Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, info:info, starttime: starttime, endtime:endtime, startdate: startdate, enddate:enddate, des:editorRef.current.getContent(), url: url, updateAt: updateAt, status: status }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
 
@@ -78,26 +83,74 @@ function EditRequestClass(props) {
                                         <input
                                             type="date"
                                             placeholder="Input Date"
-                                            defaultValue = {val.date}
+                                            defaultValue = {val.startDate}
                                             onChange={(event) => {
-                                                setDate(event.target.value)
+                                                setStartDate(event.target.value)
+                                            }} />
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-1/2">
+                                        <p className="Date text-sm font-semibold">Date</p>
+                                        <input
+                                            type="date"
+                                            placeholder="Input Date"
+                                            defaultValue = {val.endDate}
+                                            onChange={(event) => {
+                                                setEndDate(event.target.value)
+                                            }} />
+                                    </div>
+                                </div>
+                                <div className="flex justify-between items-center gap-10">
+                                <div className="flex flex-col gap-2 w-1/2">
+                                        <p className="Waktu text-sm font-semibold">Time</p>
+                                        <input
+                                            type="time"
+                                            defaultValue = {val.startTime}
+                                            onChange={(event) => {
+                                                setStartTime(event.target.value)
                                             }} />
                                     </div>
                                     <div className="flex flex-col gap-2 w-1/2">
                                         <p className="Waktu text-sm font-semibold">Time</p>
                                         <input
                                             type="time"
+                                            defaultValue = {val.endTime}
                                             onChange={(event) => {
-                                                setTime(event.target.value)
+                                                setEndTime(event.target.value)
                                             }} />
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Class Information</p>
+                            <textarea placeholder="add info class here(255 char)" className="textarea resize-none cursor-text" defaultValue = {val.classInfo} onChange={(event) => {
+                                setInfo(event.target.value)
+                            }} ></textarea>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="Time text-sm font-semibold">Class Description</p>
+                            <Editor
+                                apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
+                                onInit={(evt, editor) => editorRef.current = editor}
+                                initialValue={val.classDescription}
+                                init={{
+                                    height: 500,
+                                    menubar: false,
+                                    plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount export'
+                                    ],
+                                    toolbar: 'export | undo redo code | fontsizeselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                }}
+                            />
+                        </div>
+                                <div className="flex flex-col gap-2">
                                     <p className="url flex items-center gap-1 text-sm font-semibold">Meeting URL</p>
                                     <input
                                         type="text"
-                                        defaultValue = {val.url}
+                                        defaultValue = {val.classUrl}
                                         placeholder="Input Url"
+                                        required
                                         onChange={(event) => {
                                             setUrl(event.target.value)
                                         }} />

@@ -12,6 +12,9 @@ function Register() {
     const [BoD, setBoD] = useState("")
     const [phonenumber, setPhonenumber] = useState("")
     const [cphonenumber, setCphonenumber] = useState("")
+    const [emergencynumber, setEmergencynumber] = useState("")
+    const [cemergencynumber, setCemergencynumber] = useState("")
+    const [education, setEducation] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmpassword] = useState("")
@@ -29,7 +32,7 @@ function Register() {
 
     const register = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/user/register", { fullname: fullname, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, education:education, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
             console.log(response)
             if (response.data.message) {
                 setErrorMessage(response.data.message)
@@ -101,6 +104,20 @@ function Register() {
                             }} />
                         </div>
                     </div>
+                    <div className="flex flex-col lg:flex-row gap-5 w-full">
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                            <p className="text-sm font-semibold">Phone number(Optional)</p>
+                            <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
+                                setEmergencynumber(event.target.value)
+                            }} />
+                        </div>
+                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                            <p className="text-sm font-semibold">Confirm phone number(Optional)</p>
+                            <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
+                                setCemergencynumber(event.target.value)
+                            }} />
+                        </div>
+                    </div>
                     <div>
                         <p className="email text-sm font-semibold mb-1">Email</p>
                         <input
@@ -137,6 +154,21 @@ function Register() {
                                 }} />
                         </div>
                     </div>
+                    <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Last education(Optional)</p>
+                            <select name="" id=""  onChange={(event) => {
+                                    setEducation(event.target.value)
+                                }} >
+                                <option value="Gender">Choose education level</option>
+                                <option value="Male">Elementary school</option>
+                                <option value="Junior">Junior high school</option>
+                                <option value="Senior">Senior high school</option>
+                                <option value="Associate">Associate Degrees</option>
+                                <option value="Bachelor’s">Bachelor’s Degrees</option>
+                                <option value="Master’s">Master’s Degrees</option>
+                                <option value="Doctoral">Doctoral Degrees</option>
+                            </select>
+                        </div>
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
                 <div className="flex justify-end gap-5 text-sm">
