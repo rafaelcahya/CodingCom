@@ -13,12 +13,15 @@ router.post("/register", (req, res) => {
     const BoD = req.body.BoD
     const phoneNumber = req.body.phoneNumber
     const cphoneNumber = req.body.cphoneNumber
+    const emergencynumber = req.body.emergencynumber
+    const cemergencynumber = req.body.cemergencynumber
+    const education = req.body.education
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
     const createAt = req.body.createAt
     let paket_id = 4
-    let updateAt = " "
+    let updateAt = ""
     let status = "NONACTIVE"
     let role = 3
     let isDeleted = "NO"
@@ -41,7 +44,9 @@ router.post("/register", (req, res) => {
     } else if (cphoneNumber.length<=0) {
         res.send({ message: "Confirm Phone number cannot be empty" })
     } else if (cphoneNumber != phoneNumber ) {
-        res.send({ message: "Phone number and confirm phone number must be the same" })
+        res.send({ message: "Phone number and confirm phone number must be same" })
+    } else if (cemergencynumber != emergencynumber){
+        res.send({ message:"Emergency number and confirm emergency number must be same" })
     } else if (email.length <= 0) {
         res.send({ message: "Please add your Email" })
     } else if (email.match(/[@]/) == null) {
@@ -91,7 +96,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:' + info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, emergencyNumber, email, education, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, emergencynumber, email, education, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })

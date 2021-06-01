@@ -6,14 +6,16 @@ import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
-function Class() {
+function ClassDetail(props) {
+    const urlid = props.match.params.id
     const [listClass,SetListClass] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3001/class/classListUser").then((response) => {
-        SetListClass(response.data)
+        axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
+            SetListClass(response.data)
+            console.log(response.data)
         })
-    }, []);
+    },[]);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
@@ -23,8 +25,8 @@ function Class() {
 
             <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72 mt-20">
                 <div className="flex flex-col gap-2">
-                    <p className="text-4xl font-bold">Coding class</p>
-                    <p className="text-xl text-gray-500 font-medium">Choose classes that will support your personal and professional development here!</p>
+                    <p className="text-4xl font-bold">Class Detail</p>
+                    <p className="text-xl text-gray-500 font-medium">This is detail class!!</p>
                 </div>
                 <div className="flex justify-center gap-5 mt-20 h-full">
                     {
@@ -35,6 +37,10 @@ function Class() {
                                             <img src={image.default} style={{width:"500px", height:"200px"}} className="rounded-lg" />
                                             <div className="px-2 py-4">
                                                 <p className="text-xl font-bold capitalize">{val.className}</p>
+                                                <div>
+                                                    <p>Class Infomartion :</p>
+                                                    <p>{val.classInfo}</p>
+                                                </div>
                                                 <div className="flex flex-col gap-2 mt-2 mb-10">
                                                     <div className="flex items-center gap-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -49,7 +55,11 @@ function Class() {
                                                         <p className="text-gray-600 text-sm font-medium mt-0.5">{val.startTime} - {val.endTime}</p>
                                                     </div>
                                                 </div>
-                                                <a href={"/detail-class/"+val.id} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-sm font-semibold px-6 py-2 rounded-md">Room</a>
+                                                <div className="content-course flex flex-col gap-5 my-5 pt-5">
+                                                    <p>Description Class :</p>
+                                        <div dangerouslySetInnerHTML={{ __html: val.classDescription }} />
+                                                </div>
+                                                <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-sm font-semibold px-6 py-2 rounded-md">Join Room</a>
                                             </div>
                                         </div>
                             }
@@ -57,19 +67,10 @@ function Class() {
                     }
                 </div>
             </div>
-
-            <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 rounded-xl" >
-                <img src="https://cdn.discordapp.com/attachments/414258067870449665/445736475158380544/discord.gif" alt="discord" width={100} />
-                <div className="flex flex-col gap-5">
-                    <p className="text-xl font-semibold">Join us in our community.</p>
-                    <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
-                </div>
-                <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{ backgroundColor: "#2c2f33" }}>Join us</a>
-            </section>
             <Footer />
         </>
     )
 }
 
 
-export default Class
+export default ClassDetail

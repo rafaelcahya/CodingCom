@@ -27,12 +27,14 @@ export default function Class() {
                         <table className="relative min-w-full">
                             <thead>
                                 <tr className="border-b-2">
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Id</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Mentor name</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Class name</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Time</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Class Name</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Class Info</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Start Date</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">End Date</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Start Time</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">End Time</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">URL</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last Created</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
@@ -45,15 +47,17 @@ export default function Class() {
                                     reqList.map(
                                         (val) => {
                                             return <tr className="border-b-2">
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.id}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.className}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.date)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.updateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.classInfo}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.startDate)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.endDate)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.startTime}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.endTime}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.classUrl}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classCreateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
                                                         </td>

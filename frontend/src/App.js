@@ -31,6 +31,7 @@ import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
 
 import Class from "./components/pages/class session/Class.jsx"
+import ClassDetail from "./components/pages/class session/ClassDetail.jsx"
 import BootcampHome from "./bootcamp/BootcampHome.jsx"
 import News from "./components/pages/news/News.jsx"
 import { NewsContextProvider } from "./components/pages/news/NewsContext.jsx"
@@ -112,6 +113,7 @@ function App() {
             
             <Route path="/consultation-class" component={ConsultationClass} />
             <Route path="/class-session" component={Class} />
+            <Route path="/detail-class/:id" component={ClassDetail} />
 
             <Route path="/feedback/:name" component={FeedbackForm} />
 
