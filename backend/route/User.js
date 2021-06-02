@@ -128,9 +128,9 @@ router.post("/login", (req, res) => {
                 res.json({ loggedIn: true, name: name })
 
             } else if (name.length <= 0) {
-                res.send({ message: "You must fill username" })
+                res.send({ message: "Username has not been filled" })
             } else if (password.length <= 0) {
-                res.send({ message: "You must fill password" })
+                res.send({ message: "Password has not been filled" })
             }
             // else if (password.length <= 8) {
             //     res.json({ loggedIn: true, message: "Password at least has 8 character" })

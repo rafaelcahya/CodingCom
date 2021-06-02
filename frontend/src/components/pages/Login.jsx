@@ -6,10 +6,13 @@ import { useHistory } from "react-router-dom"
 
 import BlobAnim from '../minor/Blob animation/BlobAnim'
 
+import showPass from "../../asset/icon/eye.svg"
+import hidePass from "../../asset/icon/eye-off.svg"
+
 export default function Login() {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
-
+    const [revealPass, setRevealPass] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
 
     let history = useHistory()
@@ -68,15 +71,23 @@ export default function Login() {
                             </div>
                             <div>
                                 <p className="password text-sm font-semibold mb-1">Password</p>
-                                <input
-                                    type="password"
-                                    placeholder="Enter your password" 
-                                    className="input-password"
-                                    onChange={(event) => {
-                                        setPassword(event.target.value)
-                                }} />
+                                <div className="flex gap-2">
+                                    <input
+                                        type={revealPass ? "text" : "password"}
+                                        placeholder="Enter your password" 
+                                        className="border-none"
+                                        onChange={(event) => {
+                                            setPassword(event.target.value)
+                                    }} />
+                                    <img
+                                        alt=""
+                                        title={revealPass ? "Hide password" : "Show password"}
+                                        src={revealPass ? hidePass : showPass}
+                                        onClick={() => setRevealPass(prevState => !prevState)}
+                                    />
+                                </div>
                                 <Link to="/forgotPassword">
-                                    <p className="text-xs font-semibold mt-1 underline text-right">Forgot password?</p>
+                                    <p className="text-xs font-semibold mt-1.5 underline text-right">Forgot password?</p>
                                 </Link>
                             </div>
                         </div>

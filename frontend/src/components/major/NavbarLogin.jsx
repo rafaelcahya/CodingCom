@@ -42,7 +42,7 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20">
+                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20 border-b border-gray-300">
                     <div className=" flex items-center py-5">
                         <NavLink to=""
                             exact 

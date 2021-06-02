@@ -9,12 +9,14 @@ import NavbarMobile from '../../major/NavbarMobile'
 function ClassDetail(props) {
     const urlid = props.match.params.id
     const [listClass,SetListClass] = useState([])
+    const [show, toggleShow] = useState(true);
 
     useEffect(() => {
         axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
             SetListClass(response.data)
             console.log(response.data)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -23,45 +25,61 @@ function ClassDetail(props) {
             <NavbarLogin />
             <NavbarMobile />
 
-            <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72 mt-20">
-                <div className="flex flex-col gap-2">
-                    <p className="text-4xl font-bold">Class Detail</p>
-                    <p className="text-xl text-gray-500 font-medium">This is detail class!!</p>
-                </div>
-                <div className="flex justify-center gap-5 mt-20 h-full">
+            <div className="mx-16 xl:mx-32 mt-20">
+                <div>
                     {
                         listClass.map(
-                            (val)=> {
+                            (val) => {
                                 let image = require('../../../asset/upload/'+ val.image)
-                                return <div className="bg-white p-2 my-5 rounded-lg w-max">
-                                            <img src={image.default} style={{width:"500px", height:"200px"}} className="rounded-lg" />
-                                            <div className="px-2 py-4">
-                                                <p className="text-xl font-bold capitalize">{val.className}</p>
-                                                <div>
-                                                    <p>Class Infomartion :</p>
-                                                    <p>{val.classInfo}</p>
-                                                </div>
-                                                <div className="flex flex-col gap-2 mt-2 mb-10">
-                                                    <div className="flex items-center gap-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                                        <p className="text-gray-600 text-sm font-medium">{val.fullname}</p>
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                                        <p className="text-gray-600 text-sm font-medium mt-0.5">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                                        <p className="text-gray-600 text-sm font-medium mt-0.5">{val.startTime} - {val.endTime}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="content-course flex flex-col gap-5 my-5 pt-5">
-                                                    <p>Description Class :</p>
-                                        <div dangerouslySetInnerHTML={{ __html: val.classDescription }} />
-                                                </div>
-                                                <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-sm font-semibold px-6 py-2 rounded-md">Join Room</a>
+                                return <div className="flex gap-10">
+                                    <div className="flex flex-col gap-5">
+                                        <img src={image.default} style={{width:"700px", height:"400px"}} className="rounded-lg" />
+                                        <div className="flex flex-col gap-5" style={{width:"700px"}}>
+                                            <div className="py-8 border-b-2 border-gray-300">
+                                                <p className="text-2xl font-bold capitalize">{val.className}</p>
+                                                <p className="text-gray-500 text-sm font-medium capitalize">by {val.fullname}</p>
+                                            </div>
+                                            <div className="flex flex-col gap-2 pt-3">
+                                                <p className="text-xl font-semibold capitalize">Class Information</p>
+                                                <p>{val.classInfo}</p>
+                                            </div>
+                                            <div className="flex flex-col gap-2">
+                                                <p className="text-xl font-semibold capitalize">Description Class</p>
+                                                <div dangerouslySetInnerHTML={{ __html: val.classDescription }} />
                                             </div>
                                         </div>
+                                    </div>
+                                    <div className="sticky self-start top-5 flex flex-col gap-5">
+                                        <p className="text-2xl font-bold capitalize">{val.className}</p>
+                                        <div className="flex gap-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                            <div className="mt-0.5">
+                                                <p className="text-gray-500 text-xs uppercase font-semibold">Date</p>
+                                                <p className="font-medium mt-1">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                            <div className="mt-0.5">
+                                                <p className="text-gray-500 text-xs uppercase font-semibold">Time</p>
+                                                <p className="font-medium mt-1">{val.startTime} - {val.endTime}</p>
+                                            </div>
+                                        </div>
+                                        <div className="max-w-md">
+                                            <p className="classInfo">{val.classInfo}</p>
+                                        </div>
+                                        <div>
+                                            <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                            {show && <div className="bg-white shadow rounded-lg p-4 m-4">
+                                                <p>Are you sure you want to take this class?</p>
+                                                <div className="flex items-center gap-5 mt-4">
+                                                    <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                    <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                </div>
+                                                </div>}
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         )
                     }

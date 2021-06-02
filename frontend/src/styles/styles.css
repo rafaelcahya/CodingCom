@@ -1633,6 +1633,12 @@ Challenge
 class session 
 
 */
+.classInfo{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 
 .request-class-container input {
     padding: .375rem 1rem;
