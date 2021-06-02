@@ -132,8 +132,11 @@ function EditRequestClass(props) {
                                 onInit={(evt, editor) => editorRef.current = editor}
                                 initialValue={val.classDescription}
                                 init={{
-                                    height: 500,
+                                    height: 300,
                                     menubar: false,
+                                    skin: "fabric",
+                                    icons: "thin",
+                                    toolbar_sticky: true,
                                     plugins: [
                                         'advlist autolink lists link image charmap print preview anchor',
                                         'searchreplace visualblocks code fullscreen',

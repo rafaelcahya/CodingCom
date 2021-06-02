@@ -133,10 +133,13 @@ function ClassReq() {
                             <Editor
                                 apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
                                 onInit={(evt, editor) => editorRef.current = editor}
-                                initialValue="<p>This is the initial content of the editor.</p>"
                                 init={{
-                                    height: 500,
+                                    height: 300,
                                     menubar: false,
+                                    placeholder: "Enter complete class details by entering a class description (class background and class objectives), what will be covered, to whom this class is recommended and general terms and conditions.",
+                                    skin: "fabric",
+                                    icons: "thin",
+                                    toolbar_sticky: true,
                                     plugins: [
                                         'advlist autolink lists link image charmap print preview anchor',
                                         'searchreplace visualblocks code fullscreen',
