@@ -16,6 +16,9 @@ router.post("/register", (req, res) => {
     const emergencynumber = req.body.emergencynumber
     const cemergencynumber = req.body.cemergencynumber
     const education = req.body.education
+    const address = req.body.address
+    const city = req.body.city
+    const postalCode = req.body.postalCode
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
@@ -69,6 +72,8 @@ router.post("/register", (req, res) => {
         res.send({ message: "Please add your confirm password" })
     } else if (confirmpassword != password) {
         res.send({ message: "Confirm password must be same as password" })
+    } else if(education.length<= 0){
+        res.send({message:"Education can not be empty"})
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -96,7 +101,7 @@ router.post("/register", (req, res) => {
                         console.log('Email sent:' + info.response)
                     }
                 })
-                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, emergencyNumber, email, education, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, emergencynumber, email, education, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, emergencyNumber, address, city, postalCode, email, education, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, emergencynumber, address, city, postalCode, email, education, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })

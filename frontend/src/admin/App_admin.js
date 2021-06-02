@@ -10,7 +10,10 @@ import AddBatch from "./AddBatch"
 import Course from "./Course"
 import ListCourse from "./ListCourse"
 import ListBatch from "./ListBatch"
+import ListProject from "./ListProject.jsx"
 import InputJobs from "./InputJobs.jsx"
+import AddProject from "./AddProject.jsx"
+import EditProject from "./EditProject.jsx"
 import BootcampSchedule from "./BootcampSchedule.jsx"
 
 function App_admin() {
@@ -26,7 +29,10 @@ function App_admin() {
               <Route path="/admin/course/:id" component={Course} />
               <Route path="/admin/list-course" component={ListCourse} />
               <Route path="/admin/input-jobs" component={InputJobs} />
+              <Route path="/admin/add-project" component={AddProject} />
+              <Route path="/admin/edit-project/:id" component={EditProject} />
               <Route path="/admin/add-batch" component={AddBatch} />
+              <Route path="/admin/list-project" component={ListProject} />
               <Route path="/admin/list-batch" component={ListBatch} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
             </Switch>
