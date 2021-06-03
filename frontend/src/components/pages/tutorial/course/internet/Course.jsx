@@ -77,6 +77,8 @@ function Internet(props) {
                     {
                         value.map(
                             (val) => {
+                                let nextpage = val.number + 1
+                                let prevpage = val.number - 1
                                 return <div>
                                     <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                         <div>
@@ -89,8 +91,8 @@ function Internet(props) {
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />
                                     </div>
                                     <NextPrevBtnTutorial
-                                        back={"/user-course/"+val.number}
-                                        next={"/user-course/"+val.number}
+                                        back={"/user-course/"+nextpage}
+                                        next={"/user-course/"+prevpage}
                                     />
                                 </div>
                             }

@@ -56,7 +56,7 @@ router.post("/submit", (req, res) => {
 })
 
 router.get("/submitList", (req, res) => {
-    db.query("SELECT projectsub.id, projectsub.title, projectsub.url, projectsub.fileName, projectsub.live_site_url, projectsub.description, projectsub.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
+    db.query("SELECT projectsub.id, projectsub.title, projectsub.url, projectsub.fileName, projectsub.live_site_url, projectsub.description, projectsub.projectsubCreateAt, projectsub.projectsubUpdateAt, user.name from projectsub,user WHERE projectsub.user_id = user.id",(err, results) => {
         res.send(results)
         console.log(results)
     })

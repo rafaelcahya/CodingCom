@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import Sidebar from './admin-major/Sidebar'
 
@@ -7,8 +7,10 @@ function AddProject() {
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
     const [brief, setBrief] = useState("")
+    const [type, setType] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [value, setValue] = useState([])
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -18,12 +20,21 @@ function AddProject() {
         setCreateAt(dateTime)
     }, 500)
 
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/project/projectTypeList").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
     const submit = () => {
         const fd = new FormData();
         fd.append('fileUpload', file)
         fd.append('title', title)
         fd.append('info', info)
         fd.append('brief', brief)
+        fd.append('type', type)
         fd.append('createAt', createAt)
         Axios.post("http://localhost:3001/project/project", fd).then((response) => {
             console.log(response)
@@ -51,6 +62,21 @@ function AddProject() {
                                             }} />
                                 </div>
                             </div>
+                            <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Select the Project Type</p>
+                            <select name="" id="" onChange={(event) => {
+                                setType(event.target.value)
+                            }} >
+                                <option>Choose Type</option>
+                                {
+                                    value.map(
+                                        (val) => {
+                                           return <option value={val.typeId}>{val.type}</option>
+                                        }
+                                    )
+                                }
+                            </select>
+                        </div>
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Image Project</p>
                                 <input className="w-full"

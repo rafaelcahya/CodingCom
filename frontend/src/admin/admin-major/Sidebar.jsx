@@ -59,8 +59,12 @@ export default function Sidebar() {
                         itemId: '/admin/payment-requisition',
                     },
                     {
-                        title: 'Project',
+                        title: 'Project Submission',
                         itemId: '/admin/project-list',
+                    },
+                    {
+                        title: 'Project Detail',
+                        itemId: '/admin/list-project',
                     },
                     {
                         title: 'Career Management',

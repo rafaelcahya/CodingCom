@@ -73,7 +73,6 @@ function EditProject(props) {
                                     type="file"
                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                     name="fileUpload"
-                                    defaultValue = {val.image}
                                     onChange={(event) => {
                                         setFile(event.target.files[0])
                                     }} />
