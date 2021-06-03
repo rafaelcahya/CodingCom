@@ -43,7 +43,7 @@ export default function NavbarLogin() {
         <>
             <nav id="top">
                 <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20 border-b border-gray-300">
-                    <div className=" flex items-center py-5">
+                    <div className=" flex items-center py-3">
                         <NavLink to=""
                             exact 
                             className="logo">
@@ -271,7 +271,7 @@ export default function NavbarLogin() {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-gray-100 font-semibold flex justify-between py-2 px-5 rounded-bl-lg rounded-br-lg border-t border-gray-300">
+                    <div className="font-semibold flex justify-between py-2 px-5 rounded-bl-lg rounded-br-lg border-t border-gray-300">
                         <Link to="/tutorial">Tutorial Overview</Link>
                         <p>coding.com</p>
                     </div>
