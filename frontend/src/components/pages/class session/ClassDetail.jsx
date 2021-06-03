@@ -9,7 +9,7 @@ import NavbarMobile from '../../major/NavbarMobile'
 function ClassDetail(props) {
     const urlid = props.match.params.id
     const [listClass,SetListClass] = useState([])
-    const [show, toggleShow] = useState(true);
+    const [show, toggleShow] = useState(false);
 
     useEffect(() => {
         axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
@@ -70,11 +70,11 @@ function ClassDetail(props) {
                                         </div>
                                         <div>
                                             <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
-                                            {show && <div className="bg-white shadow rounded-lg p-4 m-4">
-                                                <p>Are you sure you want to take this class?</p>
+                                            {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                <p className="font-semibold">Are you sure you want to take this class?</p>
                                                 <div className="flex items-center gap-5 mt-4">
                                                     <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                    <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                    <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
                                                 </div>
                                                 </div>}
                                         </div>
