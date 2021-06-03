@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar';
 
-export default function Payment() {
+export default function ListBatch() {
     const [value,setValue] = useState([])
     useEffect(() => {
         axios.get("http://localhost:3001/batch/listBatch").then((response) => {

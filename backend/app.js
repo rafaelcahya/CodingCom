@@ -42,6 +42,9 @@ app.use("/jobs", jobsRoute)
 const ratingRoute = require('./route/Rating')
 app.use("/rating", ratingRoute)
 
+const projectRoute = require('./route/Project')
+app.use("/project", projectRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });

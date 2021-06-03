@@ -31,14 +31,14 @@ router.post("/submit", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    db.query("INSERT INTO project (title, type_id, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
+                    db.query("INSERT INTO projectsub (title, type_id, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, namefile, live_site_url, description, score, user_id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                        db.query("INSERT INTO project (title, type_id, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
+                        db.query("INSERT INTO projectsub (title, type_id, url, fileName, live_site_url, description, score, user_id, projectCreateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, url, filename, live_site_url, description, score, user_id, createAt], (err, results) => {
                             console.log(err)
                             res.send(results)
                             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
@@ -56,7 +56,7 @@ router.post("/submit", (req, res) => {
 })
 
 router.get("/submitList", (req, res) => {
-    db.query("SELECT project.id, project.title, project.url, project.fileName, project.live_site_url, project.description, project.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
+    db.query("SELECT projectsub.id, projectsub.title, projectsub.url, projectsub.fileName, projectsub.live_site_url, projectsub.description, projectsub.projectCreateAt, user.name from project,user WHERE project.user_id=user.id",(err, results) => {
         res.send(results)
         console.log(results)
     })

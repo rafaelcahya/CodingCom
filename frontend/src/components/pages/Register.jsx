@@ -20,6 +20,9 @@ function Register() {
     const [confirmpassword, setConfirmpassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [postalCode, setPostalCode] = useState("")
     const [buttonPopup, setButtonPopup] = useState(false)
 
     window.onload = setTimeout(function () {
@@ -32,7 +35,7 @@ function Register() {
 
     const register = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/register", { fullname: fullname, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, education:education, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/user/register", { fullname: fullname, address:address, city:city, postalCode:postalCode, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, education:education, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
             console.log(response)
             if (response.data.message) {
                 setErrorMessage(response.data.message)
@@ -155,7 +158,27 @@ function Register() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Last education(Optional)</p>
+                            <p className="text-sm font-semibold">Home address(Optional)</p>
+                            <textarea placeholder="Home address" onChange={(event) => {
+                                setAddress(event.target.value)
+                            }} />
+                        </div>
+                        <div className="w-full flex justify-between gap-10">
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">City(Optional)</p>
+                                <input type="text" placeholder="City" onChange={(event) => {
+                                    setCity(event.target.value)
+                                }} />
+                            </div>
+                            <div className="w-1/2 flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Postal Code(Optional)</p>
+                                <input type="number" placeholder="Postal Code" onChange={(event) => {
+                                    setPostalCode(event.target.value)
+                                }} />
+                            </div>
+                        </div>
+                    <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Last education</p>
                             <select name="" id=""  onChange={(event) => {
                                     setEducation(event.target.value)
                                 }} >

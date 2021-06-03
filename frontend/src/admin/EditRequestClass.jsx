@@ -42,7 +42,7 @@ function EditRequestClass(props) {
         Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
             setValueList(response.data)
         })
-    });
+    },[]);
 
     const updateClass = () => {
         Axios.post("http://localhost:3001/class/updateClass", { id: id, className: className, info:info, starttime: starttime, endtime:endtime, startdate: startdate, enddate:enddate, des:editorRef.current.getContent(), url: url, updateAt: updateAt, status: status }).then((response) => {
