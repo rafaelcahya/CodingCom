@@ -109,13 +109,13 @@ function Register() {
                     </div>
                     <div className="flex flex-col lg:flex-row gap-5 w-full">
                         <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Phone number(Optional)</p>
+                            <p className="text-sm font-semibold">Emergency number(Optional)</p>
                             <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
                                 setEmergencynumber(event.target.value)
                             }} />
                         </div>
                         <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Confirm phone number(Optional)</p>
+                            <p className="text-sm font-semibold">Confirm emergency(Optional)</p>
                             <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
                                 setCemergencynumber(event.target.value)
                             }} />

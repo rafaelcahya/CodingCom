@@ -17,6 +17,9 @@ import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
 import Pricing from "./components/pages/pricing/Pricing.jsx"
 import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
 import Course from "./components/pages/tutorial/course/internet/Course"
+import ChallengeList from "./components/pages/challenge/ChallengeList.jsx"
+import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
+import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
@@ -42,10 +45,10 @@ import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
 
-import CertificateHTML from "./components/pages/challenge/certificate/Download Certificate/CertiHTML/CertificateHTML.jsx"
-import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
-import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
-import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
+// import CertificateHTML from "./components/pages/challenge/certificate/Download Certificate/CertiHTML/CertificateHTML.jsx"
+// import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
+// import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
+// import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
 import Career from "./components/pages/career/Career.jsx"
 import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
 import ComingSoon from "./components/major/ComingSoon.jsx"
@@ -98,6 +101,9 @@ function App() {
             <Route path="/user-course/:id" component={Course} />
 
             <Route path="/html" component={HTML} />
+            <Route path="/challenge-list" component={ChallengeList} />
+            <Route path="/list-challenges/:id" component={MenuChallenges} />
+            <Route path="/project-detail/:id" component={ProjectDetail} />
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
