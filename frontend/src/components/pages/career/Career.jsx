@@ -1,95 +1,107 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Footer from '../../major/Footer'
+import Axios from 'axios'
 
 export default function Career() {
+    const [value,setValue] = useState([])
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/jobs/ListJobs").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
     }, 10)
 
-    const items= [
-        {
-            CompanyName: "Samsung",
-            JobTitle: "Software Engineering",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Fulltime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        },
-        {
-            CompanyName: "Shopee",
-            JobTitle: "Back End Web Engineer",
-            Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
-            JobType:"Parttime"
-        }
-    ]
+    const items = value
 
-    const allCategories = ['All', ...new Set(items.map(item => item.JobType))];
+    // const items = [
+    //     {
+    //         CompanyName: "Samsung",
+    //         JobTitle: "Software Engineering",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Fulltime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     },
+    //     {
+    //         CompanyName: "Shopee",
+    //         JobTitle: "Back End Web Engineer",
+    //         Overview: "We are responsible for the design and implementation of the web application server. We create services to hundreds",
+    //         JobType:"Parttime"
+    //     }
+    // ]
+
+    const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
 
     const [menuItem, setMenuItem] = useState(items);
     const [buttons] = useState(allCategories);
@@ -99,10 +111,10 @@ export default function Career() {
 
     if(button === 'All'){
         setMenuItem(items);
-        return;
+        return
     }
 
-    const filteredData = items.filter(item => item.JobType ===  button);
+    const filteredData = items.filter(item => item.jobType ===  button);
     setMenuItem(filteredData)
 }
     return (
@@ -161,13 +173,13 @@ function Menu({menuItem}) {
                             <div className="flex justify-between">
                                 {/* Buat masukin logo company disini, tag p nya apus aja klo dah jadi */}
                                 <p className="w-10 h-10 bg-red-500"></p>
-                                <p className="text-xs font-medium text-gray-400">2 may, 2021</p>
+                                <p className="text-xs font-medium text-gray-400">{item.jobCreateAt}</p>
                             </div>
                             <div className="flex flex-col gap-2 py-2">
-                                <p className="text-sm">{item.CompanyName}</p>
-                                <p className="font-semibold">{item.JobTitle}</p>
-                                <p className="text-gray-500 text-sm">{item.Overview}</p>
-                                <p className="text-xs bg-blue-100 color-blue-1 font-semibold w-max py-1 px-2 mt-2 rounded-lg">{item.JobType}</p>
+                                <p className="text-sm">{item.companyName}</p>
+                                <p className="font-semibold">{item.jobTitle}</p>
+                                <p className="text-gray-500 text-sm">{item.overview}</p>
+                                <p className="text-xs bg-blue-100 color-blue-1 font-semibold w-max py-1 px-2 mt-2 rounded-lg">{item.jobType}</p>
                             </div>
                         </div>
                     </Link>
