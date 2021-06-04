@@ -32,4 +32,10 @@ router.post("/jobs", (req, res) => {
     }
 })
 
+router.get("/ListJobs", (req, res) => {
+    db.query("SELECT * from jobs", (err, results) => {
+        res.send(results)
+    })
+})
+
 module.exports = router;
