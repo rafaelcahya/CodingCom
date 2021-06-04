@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     #sidebarmobile
     {
         background: ${({theme}) => theme.foreground};
+        color: ${({theme}) => theme.primarytext};
     }
 
     .navbar-mobile,
@@ -59,6 +60,10 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({theme}) => theme.primarytext};
     }
 
+    .change-text-anim{
+        color: ${({theme}) => theme.tertiarytext};
+    }
+
     /* 
     
     BOOTCAMP 
@@ -81,6 +86,8 @@ export const GlobalStyle = createGlobalStyle`
 export const lightTheme={
     background: '#eff3fc',
     primarytext: '#3a3a3a',
+    secondarytext: '#3a3a3a',
+    tertiarytext: '#3a3a3a',
     foreground: '#eff3fc',
     foreground2: '#fff',
     foreground3: '#eff3fc',
@@ -88,10 +95,12 @@ export const lightTheme={
 }
 
 export const darkTheme={
-    background: '#16141f',
-    primarytext: '#fff',
-    foreground: '#1f1d28',
-    foreground2: '#1f1d28',
+    background: '#0b0b18',
+    primarytext: '#e2e2e2',
+    secondarytext: '#c9c8c8',
+    tertiarytext: '#fed049',
+    foreground: '#121227',
+    foreground2: '#121227',
     foreground3: '#eff3fc',
     border: 'none'
 }

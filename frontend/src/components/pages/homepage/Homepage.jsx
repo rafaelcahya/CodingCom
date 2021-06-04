@@ -181,7 +181,7 @@ export default function Homepage() {
                     <span data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement="top-bottom" className="flex justify-center gap-3 text-2xl sm:text-3xl md:text-5xl text-left md:text-center font-semibold py-10">Fulltime Coding <span className="animated tada">Bootcamp</span></span>
                     <div className="block md:flex items-center gap-28">
                         <div>
-                            <p data-aos="fade-right" data-aos-easing="ease-in-out" className="text-base sm:text-xl font-medium text-gray-500">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
+                            <p data-aos="fade-right" data-aos-easing="ease-in-out" className="text-base sm:text-xl font-medium">Join this bootcamp for a career in industry. Learn everything from basic coding, UI designing to deployment.</p>
                             <Link to="/bootcamp">
                                 <p className="bg-blue-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max   mb-16 hover:bg-blue-400">Join now</p>
                             </Link>
@@ -281,7 +281,7 @@ export default function Homepage() {
 
                 <div className="flex flex-col items-center gap-5 mt-32 mx-10">
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-3xl sm:text-4xl font-semibold">Start learning today</p>
-                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-gray-500 text-base sm:text-lg font-medium text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
+                    <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-base sm:text-lg font-medium text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <Link to="/tutorial">
                         <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                     </Link>
