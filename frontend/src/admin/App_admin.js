@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Class from "./Class.jsx"
 import Payment from "./Payment.jsx"
 import EditRequestClass from "./EditRequestClass"
+import EditTopik from "./EditTopik"
 import UserList from "./UserList"
 import UserListActive from "./UserListActive"
 import ProjectList from "./ProjectList"
@@ -10,6 +11,7 @@ import AddBatch from "./AddBatch"
 import Course from "./Course"
 import ListCourse from "./ListCourse"
 import ListBatch from "./ListBatch"
+import ListTopik from "./ListTopik"
 import ListProject from "./ListProject.jsx"
 import InputJobs from "./InputJobs.jsx"
 import AddProject from "./AddProject.jsx"
@@ -34,6 +36,8 @@ function App_admin() {
               <Route path="/admin/add-batch" component={AddBatch} />
               <Route path="/admin/list-project" component={ListProject} />
               <Route path="/admin/list-batch" component={ListBatch} />
+              <Route path="/admin/list-topik" component={ListTopik} />
+              <Route path="/admin/edit-topik/:id" component={EditTopik} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
             </Switch>
           </Router>
