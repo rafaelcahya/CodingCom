@@ -10,6 +10,9 @@ export default function ListBatch() {
         })
     }, []);
 
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const formatTime = s => new Date(s).toLocaleTimeString();
+
     return (
         <>
             <div className="flex h-screen overflow-hidden">
@@ -35,7 +38,7 @@ export default function ListBatch() {
                                                 (val) => {
                                                     return <tr className="border-b-2">
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.batch}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>             
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.createAt)} {formatTime(val.createAt)}</td>             
                                                         {/* <td className="flex items-center gap-4 px-6 py-3 whitespace-nowrap">
                                                             <div className="flex flex-col gap-2 w-40">
                                                                 <select className="py-2 border border-black rounded-lg" id="dropdown" onChange={(event) => {

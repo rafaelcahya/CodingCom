@@ -1552,10 +1552,6 @@ Challenge
     border: none;
 }
 
-.challenge-box {
-    width: 21rem;
-}
-
 .submit-box input,
 .submit-box textarea,
 .submit-box select,
@@ -1640,42 +1636,42 @@ class session
     -webkit-box-orient: vertical;
 }
 
-.request-class-container input {
+.request-class-form input {
     padding: .375rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 6px;
     outline: none;
 }
 
-.request-class-container input::-webkit-input-placeholder {
+.request-class-form input::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
-.request-class-container input::-moz-placeholder {
+.request-class-form input::-moz-placeholder {
     font-size: .875rem;
 }
 
-.request-class-container input:-ms-input-placeholder {
+.request-class-form input:-ms-input-placeholder {
     font-size: .875rem;
 }
 
-.request-class-container input::-ms-input-placeholder {
+.request-class-form input::-ms-input-placeholder {
     font-size: .875rem;
 }
 
-.request-class-container input::placeholder {
+.request-class-form input::placeholder {
     font-size: .875rem;
 }
 
-.request-class-container select {
+.request-class-form select {
     padding: .5rem 1rem;
     border: 1.6px solid var(--black-2);
     border-radius: 10px;
     outline: none;
 }
 
-.request-class-container input:focus,
-.request-class-container select:focus {
+.request-class-form input:focus,
+.request-class-form select:focus {
     border: 1.6px solid var(--blue-1);
 }
 
@@ -1841,7 +1837,7 @@ React sidebar minimal
 */
 
 .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option {
-    border-left-width: 2px;
+    border-left-width: 0 !important;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1860,7 +1856,7 @@ React sidebar minimal
 
 .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option-selected {
     --tw-bg-opacity: 1;
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+    background-color: #bc6ff1 !important;
     --tw-border-opacity: 1;
     border-color: #3b72ff !important;
     --tw-text-opacity: 1;
@@ -1884,7 +1880,27 @@ React sidebar minimal
     color: rgba(55, 65, 81, var(--tw-text-opacity))
 }
 
-.hover\:border-pink-500:hover {
+.side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option {
+    border-left-width: 0 !important;
+    cursor: pointer;
+    display: block;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding: .5rem 4rem;
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, var(--tw-text-opacity))
+}
+
+.side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option-selected {
+    --tw-bg-opacity: 1;
+    background-color: #bc6ff1 !important;
     --tw-border-opacity: 1;
-    border-color: #3b72ff !important;
+    border-color: rgba(236, 72, 153, var(--tw-border-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(31, 41, 55, var(--tw-text-opacity))
+}
+
+.hover\:bg-gray-100:hover {
+    --tw-bg-opacity: 1;
+    background-color: #bc6ff1 !important;
 }

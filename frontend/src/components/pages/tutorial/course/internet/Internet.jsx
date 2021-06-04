@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -50,7 +51,7 @@ function Internet() {
                             <p className="text-white font-semibold px-8 py-2 mt-5 rounded-lg w-max bg-blue-1 hover:bg-blue-400">Start learning</p>
                         </Link>
                     </div>
-                    <div className="bg-green-100 p-5 my-10 rounded-lg">
+                    <div className="bg-green-100 color-black-1 p-5 my-10 rounded-lg">
                         <p className="text-xl font-semibold mb-2">What you'll learn</p>
                         <div className="leading-loose">
                             <div className="flex items-center gap-2">

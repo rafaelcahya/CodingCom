@@ -54,38 +54,38 @@ function AddProject() {
                             <div className="flex flex-col gap-3">
                                 <p className="text-xl font-semibold">Post a Project</p>
                             </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Select the Project Type</p>
+                                <select name="" id="" onChange={(event) => {
+                                    setType(event.target.value)
+                                }} >
+                                    <option>Choose Type</option>
+                                    {
+                                        value.map(
+                                            (val) => {
+                                            return <option value={val.typeId}>{val.type}</option>
+                                            }
+                                        )
+                                    }
+                                </select>
+                            </div>
                             <div className="flex justify-between items-center gap-10 w-full">
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Image Project</p>
+                                    <input className="w-full"
+                                        type="file"
+                                        accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
+                                        name="fileUpload"
+                                        onChange={(event) => {
+                                            setFile(event.target.files[0])
+                                        }} />
+                                </div>
                                 <div className="flex flex-col gap-2 w-1/2">
                                     <p className="text-sm font-semibold">Title</p>
                                     <input type="text" placeholder="Input Job title" onChange={(event) => {
                                                 setTitle(event.target.value)
                                             }} />
                                 </div>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Select the Project Type</p>
-                            <select name="" id="" onChange={(event) => {
-                                setType(event.target.value)
-                            }} >
-                                <option>Choose Type</option>
-                                {
-                                    value.map(
-                                        (val) => {
-                                           return <option value={val.typeId}>{val.type}</option>
-                                        }
-                                    )
-                                }
-                            </select>
-                        </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Image Project</p>
-                                <input className="w-full"
-                                    type="file"
-                                    accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
-                                    name="fileUpload"
-                                    onChange={(event) => {
-                                        setFile(event.target.files[0])
-                                    }} />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1 text-sm font-semibold">

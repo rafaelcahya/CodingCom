@@ -35,6 +35,7 @@ function App_admin() {
               <Route path="/admin/list-project" component={ListProject} />
               <Route path="/admin/list-batch" component={ListBatch} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
+              <Route path="/admin/add-project" component={AddProject} />
             </Switch>
           </Router>
     );

@@ -28,6 +28,7 @@ function EditProject(props) {
         Axios.get("http://localhost:3001/project/projectById/"+urlid).then((response) => {
             setValueList(response.data)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const submit = () => {
@@ -50,7 +51,7 @@ function EditProject(props) {
         <>
             <div className="flex">
                 <Sidebar />
-                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="edit-projectdetail-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                     {
                 valueList.map(
@@ -61,21 +62,21 @@ function EditProject(props) {
                             </div>
                             <div className="flex justify-between items-center gap-10 w-full">
                                 <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Image Project</p>
+                                    <input className="w-full"
+                                        type="file"
+                                        accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
+                                        name="fileUpload"
+                                        onChange={(event) => {
+                                            setFile(event.target.files[0])
+                                        }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-1/2">
                                     <p className="text-sm font-semibold">Title</p>
                                     <input type="text" placeholder="Input Job title" defaultValue={val.projectTitle} onChange={(event) => {
                                                 setTitle(event.target.value)
                                             }} />
                                 </div>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Image Project</p>
-                                <input className="w-full"
-                                    type="file"
-                                    accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
-                                    name="fileUpload"
-                                    onChange={(event) => {
-                                        setFile(event.target.files[0])
-                                    }} />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1 text-sm font-semibold">
