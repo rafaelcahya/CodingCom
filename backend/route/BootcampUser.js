@@ -15,6 +15,7 @@ router.post("/bootcampUserRegis", (req, res) => {
     const busy = req.body.busy
     const createAt = req.body.createAt 
     let user_id = 0
+    let status = "Pending"
 
     if(program <=0 ){
         res.send({ message: "Please add your how you know this program" })
@@ -60,7 +61,7 @@ router.post("/bootcampUserRegis", (req, res) => {
                                 console.log('Email sent:' + info.response)
                             }
                         })
-                        db.query("INSERT INTO bootcampuser (program, batch, motivation, busy, bootcampCreateAt, user_id) VALUES (?, ?, ?, ?, ?, ?);", [program, batch, motivation, busy, createAt, user_id], (err, results) => {
+                        db.query("INSERT INTO bootcampuser (program, batch, motivation, busy, status, bootcampCreateAt, user_id) VALUES (?, ?, ?, ?, ?, ?, ?);", [program, batch, motivation, busy, status, createAt, user_id], (err, results) => {
                             console.log(err)
                             res.send(results)
                         })

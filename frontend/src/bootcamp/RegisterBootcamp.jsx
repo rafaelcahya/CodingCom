@@ -37,6 +37,8 @@ function RegisterBootcamp() {
         })
     }
 
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const formatTime = s => new Date(s).toLocaleTimeString();
     return (
         <>
             <nav className="flex justify-between items-center px-16 xl:px-32 py-5 border-b-2 border-yellow-400">
@@ -89,7 +91,7 @@ function RegisterBootcamp() {
                                 {
                                     value.map(
                                         (val) => {
-                                           return <option value={val.batchId}>{val.batch}</option>
+                                           return <option value={val.batchId}>{val.batch} : {formatDate(val.startDate)} - {formatDate(val.endDate)}</option>
                                         }
                                     )
                                 }
