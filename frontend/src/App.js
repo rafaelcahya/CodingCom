@@ -17,10 +17,10 @@ import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
 import Pricing from "./components/pages/pricing/Pricing.jsx"
 import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
 import Course from "./components/pages/tutorial/course/internet/Course"
-import ChallengeList from "./components/pages/challenge/ChallengeList.jsx"
+import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
-import Challenge from "./components/pages/challenge/Challenge.jsx"
+// import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
 import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/RoadmapBackend.jsx"
@@ -101,7 +101,7 @@ function App() {
             <Route path="/user-course/:id" component={Course} />
 
             <Route path="/html" component={HTML} />
-            <Route path="/challenge-list" component={ChallengeList} />
+            <Route path="/challenge" component={Challenge} />
             <Route path="/list-challenges/:id" component={MenuChallenges} />
             <Route path="/project-detail/:id" component={ProjectDetail} />
 

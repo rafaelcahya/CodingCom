@@ -2,10 +2,12 @@ import {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     body:not(.certification),
-    .navbar{
+    .navbar,
+    .view-course-admin .approvebar{
         background-color: ${({theme}) => theme.background};
         color: ${({theme}) => theme.primarytext};
     }
+
     .login-box,
     .login-container input,
     .logout,
@@ -33,9 +35,11 @@ export const GlobalStyle = createGlobalStyle`
     .roadmap-box div, 
     .tutorial-paid-box, 
     .tutorial-box,
-    .challenge-box, 
+    .challenge-box,
+    .challenge-card,
     .certificate-box div,
     .comment-box textarea,
+    .class-card,
     .news-box,
     .comment-container textarea,
     .comment-box,
@@ -43,21 +47,48 @@ export const GlobalStyle = createGlobalStyle`
     .table-request-class,
     .table-request-class select,
     .jobform,
-    .courseForm{
+    .jobform input,
+    .jobform textarea,
+    .jobform select,
+    .courseForm,
+    .courseForm input,
+    .courseForm select,
+    .projectsub-form,
+    .batchForm,
+    .batchForm input,
+    .bootcamp-schedule-form,
+    .bootcamp-schedule-form input,
+    .bootcamp-schedule-form select,
+    .view-course-admin,
+    .edit-projectdetail-form,
+    .edit-projectdetail-form input,
+    .edit-projectdetail-form textarea,
+    .request-class-form,
+    .request-class-form input,
+    .request-class-form textarea{
         background: ${({theme}) => theme.foreground2};
     }
     
     .sidebar,
     .table-request-class,
     .jobform,
-    .courseForm{
+    .courseForm,
+    .projectsub-form,
+    .batchForm,
+    .bootcamp-schedule-form,
+    .view-course-admin,
+    .view-course-admin .approvebar,
+    .edit-projectdetail-form,
+    .request-class-form {
         border: ${({theme}) => theme.border};
     }
 
     .register-popup-box,
     .course-box p,
+    .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option,
+    .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option,
     .comment-container textarea{
-        color: ${({theme}) => theme.primarytext};
+        color: ${({theme}) => theme.primarytext} !important;
     }
 
     .change-text-anim{
@@ -95,12 +126,12 @@ export const lightTheme={
 }
 
 export const darkTheme={
-    background: '#0b0b18',
+    background: '#0e0d12',
     primarytext: '#e2e2e2',
     secondarytext: '#c9c8c8',
     tertiarytext: '#fed049',
-    foreground: '#121227',
-    foreground2: '#121227',
+    foreground: '#16171d',
+    foreground2: '#16171d',
     foreground3: '#eff3fc',
     border: 'none'
 }

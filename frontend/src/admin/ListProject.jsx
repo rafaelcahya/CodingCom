@@ -28,9 +28,6 @@ export default function ListProject() {
                                     <thead>
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">title</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Info</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Image</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Brief</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
@@ -42,9 +39,6 @@ export default function ListProject() {
                                                 (val) => {
                                                     return <tr className="border-b-2">
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.projectTitle}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.projectInfo}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.image}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.projectBrief}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectCreateAt)} {formatTime(val.projectCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectUpdateAt)} {formatTime(val.projectUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">

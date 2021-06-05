@@ -39,6 +39,7 @@ function App_admin() {
               <Route path="/admin/list-topik" component={ListTopik} />
               <Route path="/admin/edit-topik/:id" component={EditTopik} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
+              <Route path="/admin/add-project" component={AddProject} />
             </Switch>
           </Router>
     );
