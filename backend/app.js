@@ -48,6 +48,9 @@ app.use("/project", projectRoute)
 const topikRoute = require('./route/Topik')
 app.use("/topik", topikRoute)
 
+const scheduleRoute = require('./route/Schedule')
+app.use("/schedule", scheduleRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });

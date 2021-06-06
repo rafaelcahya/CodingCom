@@ -5,6 +5,8 @@ import Axios from 'axios'
 function AddBatch() {
 
     const [batch, setBatch] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
     const [createAt, setCreateAt] = useState("")
 
 
@@ -17,7 +19,7 @@ function AddBatch() {
     }, 500)
 
     const Batch = () => {
-        Axios.post("http://localhost:3001/batch/addBatch", { createAt: createAt, batch: batch }).then((response) => {
+        Axios.post("http://localhost:3001/batch/addBatch", { createAt: createAt, batch: batch, startDate:startDate, endDate:endDate }).then((response) => {
             console.log(response)
         })
     };
@@ -42,18 +44,18 @@ function AddBatch() {
                                 <p className="Batch text-sm font-semibold">Start date</p>
                                 <input
                                     type="date"
-                                    placeholder="Input Batch"
+                                    placeholder="Input Start Date"
                                     onChange={(event) => {
-                                        setBatch(event.target.value)
+                                        setStartDate(event.target.value)
                                     }} />
                             </div>
                             <div className="flex flex-col gap-2 w-1/2">
                                 <p className="Batch text-sm font-semibold">End date</p>
                                 <input
                                     type="date"
-                                    placeholder="Input Batch"
+                                    placeholder="Input End Date"
                                     onChange={(event) => {
-                                        setBatch(event.target.value)
+                                        setEndDate(event.target.value)
                                     }} />
                             </div>
                         </div>
