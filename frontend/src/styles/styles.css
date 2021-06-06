@@ -893,6 +893,13 @@ Accessories
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.truncate3{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 /* 
 
 Navbar 
@@ -1629,12 +1636,6 @@ Challenge
 class session 
 
 */
-.classInfo{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
 
 .request-class-form input {
     padding: .375rem 1rem;

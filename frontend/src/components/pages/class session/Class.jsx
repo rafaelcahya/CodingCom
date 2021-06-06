@@ -17,6 +17,7 @@ function Class() {
 
     var day = { day: 'numeric'};
     var month = { month: 'short' };
+
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatDateDay = s => new Date(s).toLocaleDateString('en-gb', day);
     const formatDateMonth= s => new Date(s).toLocaleDateString('en-gb', month);
@@ -45,7 +46,7 @@ function Class() {
                                                 <div className="flex flex-col gap-4">
                                                     <p className="text-xl font-bold capitalize break-words max-w-xs">{val.className}</p>
                                                     <div className="max-w-xs">
-                                                        <p className="classInfo text-sm">{val.classInfo}</p>
+                                                        <p className="truncate3 text-sm">{val.classInfo}</p>
                                                     </div>
                                                     <div className="flex flex-col gap-3">
                                                         <div className="flex items-center gap-2">
