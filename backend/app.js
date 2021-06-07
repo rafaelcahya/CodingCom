@@ -51,6 +51,12 @@ app.use("/topik", topikRoute)
 const scheduleRoute = require('./route/Schedule')
 app.use("/schedule", scheduleRoute)
 
+const transactionRoute = require('./route/Transaction')
+app.use("/transaction", transactionRoute)
+
+const categoryRoute = require('./route/Category')
+app.use("/category", categoryRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });

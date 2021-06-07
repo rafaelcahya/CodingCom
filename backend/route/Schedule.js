@@ -38,4 +38,11 @@ router.post("/addSchedule", (req, res) => {
 
 })
 
+router.get("/ScheduleList", (req, res) => {
+    db.query("SELECT * from schedule ORDER BY date",(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 module.exports = router;

@@ -210,8 +210,7 @@ router.put("/addeditKuota", (req, res) => {
     let update = ""
     let kuotaConsultation = 0
     let kuotaSession = 0
-    let paket = 0
-    if (status == "ACTIVED") {
+    if (status == "Approved") {
         kuotaConsultation = 7
         kuotaSession = 5
         db.query("SELECT * From userkuota WHERE user_id = ?", id, (err, results) => {

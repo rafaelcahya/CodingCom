@@ -1,12 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import BootcampNavbar from './BootcampNavbar'
+import axios from 'axios';
 
 export default function Schedule() {
-    window.onload = setTimeout( function () {
+    const [value, setValue] = useState([])
+
+    window.onload = setTimeout(function () {
         var x = localStorage.getItem("name");
         document.getElementById("name").innerHTML = x;
-    }, 10)
+    }, 250)
+
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/schedule/ScheduleList").then((response) => {
+            setValue(response.data)
+        })
+    }, []);
+
     const items = [{
         title: "Preparation Day",
         description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod quaerat officiis libero doloremque qui ratione ullam vero est? Natus itaque voluptatum, dolore nihil ratione fugit pariatur ad in odio enim. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod quaerat officiis libero doloremque qui ratione ullam vero est? Natus itaque voluptatum, dolore nihil ratione fugit pariatur ad in odio enim.",
@@ -15,6 +26,7 @@ export default function Schedule() {
         location: "Jakarta",
         status: "Online"
     }];
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
         <>
             <div className="hidden fixed w-full bg-white lg:block gap-10 px-16 xl:px-32 py-5">
@@ -28,21 +40,25 @@ export default function Schedule() {
                     <span className="flex gap-1 text-2xl font-semibold">Hello <p id="name"></p></span>
                     <p className="font-medium text-gray-400">Check your bootcamp schedule here</p>
                 </div>
-                <div className="flex flex-col lg:flex-row justify-center gap-8">
-                    <div className="bg-white p-4 rounded-lg w-full lg:w-3/5">
-                        <p className="bg-blue-500 h-1.5 w-full rounded-lg"></p>
-                        <div className=" flex flex-col gap-4">
-                            <div className="flex flex-col gap-2 mt-4">
-                                <p className="text-lg font-semibold">Preparation Day</p>
-                                <p className="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod quaerat officiis libero doloremque qui ratione ullam vero est? Natus itaque voluptatum, dolore nihil ratione fugit pariatur ad in odio enim. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod quaerat officiis libero doloremque qui ratione ullam vero est? Natus itaque voluptatum, dolore nihil ratione fugit pariatur ad in odio enim.</p>
-                                <p>25 januari 2021</p>
-                                <p>09:00pm</p>
-                                <p>Jakarta</p>
-                                <p>Online</p>
+                {
+                    value.map((val) => {
+                        return <div className="flex flex-col lg:flex-row justify-center gap-8">
+                            <div className="bg-white p-4 rounded-lg w-full lg:w-3/5">
+                                <p className="bg-blue-500 h-1.5 w-full rounded-lg"></p>
+                                <div className=" flex flex-col gap-4">
+                                    <div className="flex flex-col gap-2 mt-4">
+                                        <p className="text-lg font-semibold">{val.title}</p>
+                                        <p className="">{val.description}</p>
+                                        <p>{formatDate(val.date)}</p>
+                                        <p>{val.time}</p>
+                                        <p>{val.location}</p>
+                                        <p>{val.status}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    })
+                }
             </div>
         </>
     )

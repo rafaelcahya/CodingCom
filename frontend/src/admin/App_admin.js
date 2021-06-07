@@ -8,9 +8,11 @@ import UserList from "./UserList"
 import UserListActive from "./UserListActive"
 import ProjectList from "./ProjectList"
 import AddBatch from "./AddBatch"
+import AddCategory from "./AddCategory"
 import Course from "./Course"
 import ListCourse from "./ListCourse"
 import ListBatch from "./ListBatch"
+import ListCategory from "./ListCategory"
 import ListTopik from "./ListTopik"
 import ListProject from "./ListProject.jsx"
 import InputJobs from "./InputJobs.jsx"
@@ -34,8 +36,10 @@ function App_admin() {
               <Route path="/admin/add-project" component={AddProject} />
               <Route path="/admin/edit-project/:id" component={EditProject} />
               <Route path="/admin/add-batch" component={AddBatch} />
+              <Route path="/admin/add-category" component={AddCategory} />
               <Route path="/admin/list-project" component={ListProject} />
               <Route path="/admin/list-batch" component={ListBatch} />
+              <Route path="/admin/list-category" component={ListCategory} />
               <Route path="/admin/list-topik" component={ListTopik} />
               <Route path="/admin/edit-topik/:id" component={EditTopik} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />

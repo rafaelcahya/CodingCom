@@ -90,25 +90,33 @@ export default function Payment(props) {
 const Modal = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false)
     const [name,setName] = useState("")
+    const [createAt, setCreateAt] = useState("")
     let x
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
         setName(x)
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setCreateAt(dateTime)
+        console.log("Test")
     }, 500)
-    if(props.plan === "Class Session Quota"){
-        Axios.post("http://localhost:3001/user/updateStatusClassSession",{name:name}).then((response) => {
-            console.log(response)
-        }) 
-    }else if(props.plan === "Class Consultation Quota"){
-        Axios.post("http://localhost:3001/user/updateStatusClassConsultation",{name:name}).then((response) => {
-            console.log(response)
-        }) 
-    }else{
-    Axios.post("http://localhost:3001/user/updateStatus",{name:name}).then((response) => {
-            console.log(response)
-        })
-    }
+
+    // if(props.plan === "Class Session Quota"){
+    //     Axios.post("http://localhost:3001/transaction/updateStatusClassSession",{name:name}).then((response) => {
+    //         console.log(response)
+    //     }) 
+    // }else if(props.plan === "Class Consultation Quota"){
+    //     Axios.post("http://localhost:3001/transaction/updateStatusClassConsultation",{name:name}).then((response) => {
+    //         console.log(response)
+    //     }) 
+    // }else{
+    // Axios.post("http://localhost:3001/transaction/updateStatus",{name:name}).then((response) => {
+    //         console.log(response)
+    //     })
+    // }
     useImperativeHandle(ref, () => {
         return {
             open: () => setOpen(true),
@@ -116,7 +124,15 @@ const Modal = forwardRef((props, ref) => {
         }
     })
 
-    const Choose = () =>{
+    const Choose = (props) =>{
+    const [name,setName] = useState("")
+    let x
+
+    window.onload = setTimeout(function () {
+        x = localStorage.getItem("name");
+        setName(x)
+        console.log(name)
+    }, 500)
         return(
             <>
                 <div className="flex justify-between items-center gap-10 my-5">
