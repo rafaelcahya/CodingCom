@@ -31,10 +31,10 @@ function ClassDetail(props) {
                         listClass.map(
                             (val) => {
                                 let image = require('../../../asset/upload/'+ val.image)
-                                return <div className="flex gap-10">
+                                return <div className="classDetail flex flex-col md:flex-row gap-10">
                                     <div className="flex flex-col gap-5">
-                                        <img src={image.default} style={{width:"700px", height:"400px"}} className="rounded-lg" />
-                                        <div className="flex flex-col gap-5" style={{width:"700px"}}>
+                                        <img src={image.default}  className="rounded-lg" />
+                                        <div className="flex flex-col gap-5">
                                             <div className="py-8 border-b-2 border-gray-300">
                                                 <p className="text-2xl font-bold capitalize">{val.className}</p>
                                                 <p className="text-gray-500 text-sm font-medium capitalize">by {val.fullname}</p>

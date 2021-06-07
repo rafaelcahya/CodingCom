@@ -349,7 +349,6 @@ Accessories
     -o-transition: all .25s;
     transition: all .25s;
     height: 20px;
-    margin: 0px 0 0 40px;
     border-top: 0;
 }
 
@@ -893,6 +892,13 @@ Accessories
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.truncate3{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 /* 
 
 Navbar 
@@ -1375,6 +1381,31 @@ Roadmap
 
 /* 
 
+Project 
+
+*/
+
+.projDetail img{
+    width: 20rem;
+    height: 12rem;
+}
+
+@media (min-width: 320px) {
+    .projDetail img{
+        width: 25rem;
+        height: 18rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .projDetail img{
+        width: 45rem;
+        height: 30rem;
+    }
+}
+
+/* 
+
 Pricing 
 
 */
@@ -1629,11 +1660,15 @@ Challenge
 class session 
 
 */
-.classInfo{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+
+.classDetail img{
+    width: 25rem;
+}
+
+@media (min-width: 768px) {
+    .classDetail img{
+        width: 40rem;
+    }
 }
 
 .request-class-form input {

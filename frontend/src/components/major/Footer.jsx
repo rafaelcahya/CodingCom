@@ -17,7 +17,7 @@ function Footer() {
     return (
         <div className="flex flex-col mt-20 lg:mt-56">
             <div className="footer-box flex flex-col items-center pb-10 bg-dark-1">
-                <div className="bg-orange-1 my-10 py-10 px-10 md:px-20 lg:px-32 rounded-xl">
+                <div className="bg-orange-1 my-10 py-10 px-0 md:px-20 lg:px-32 rounded-xl">
                     <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-x-10 gap-y-10 lg:gap-y-0">
                         <p className="font-semibold text-xl text-white w-80">Want Us to Email you About Special Offers & Updates?</p>
                         <div className="flex flex-col md:flex-row items-center">
