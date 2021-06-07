@@ -28,8 +28,8 @@ function ProjectDetail(props) {
                 {
                     value.map((val) => {
                         let image = require('../../../asset/upload/'+ val.image)
-                        return <div className="flex flex-col">
-                            <img src={image.default} style={{width: "800px", height:"450px"}} className="mx-auto rounded-xl" />
+                        return <div className="projDetail flex flex-col">
+                            <img src={image.default} className="mx-auto rounded-xl" />
                             <p className="text-3xl font-semibold text-center my-10">{val.projectTitle}</p>
                             <div className="flex flex-col gap-3">
                                 <p className="font-semibold text-xl">Brief</p>

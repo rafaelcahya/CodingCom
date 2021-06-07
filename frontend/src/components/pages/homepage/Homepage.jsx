@@ -80,7 +80,7 @@ export default function Homepage() {
             <div className="overflow-x-hidden">
                 <NavbarLogin /> 
                 <NavbarMobile /> 
-                <header className="headerheader flex justify-center lg:justify-between items-center mx-10 lg:mx-32 mt-32 lg:mt-16">
+                <header className="headerheader flex justify-center lg:justify-between items-center mx-10 lg:mx-32 mt-20 lg:mt-16">
                     <div className="flex flex-col gap-2">
                         <div data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="0" className="flex items-center gap-5 my-4 sm:my-8">
                             <Confetti/>
@@ -98,7 +98,7 @@ export default function Homepage() {
 
                 <Swiper
                     slidesPerView= {1} loop="true"
-                    className="my-32 py-20">
+                    className="my-32 py-20 hidden sm:block">
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">HTML</p>

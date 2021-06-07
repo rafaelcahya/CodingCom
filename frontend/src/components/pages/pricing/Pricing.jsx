@@ -181,7 +181,7 @@ export class Pricing extends Component {
                 </section>
 
                 <section className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center mx-10 lg:mx-20 pb-20 gap-20">
-                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500 w-max">
+                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
                         <div>
                             <p className="text-lg font-semibold">Consultation Class Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for  consultation class access</p>
@@ -190,7 +190,7 @@ export class Pricing extends Component {
                             <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
                         </Link>
                     </div>
-                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex items-center ring-2 ring-blue-500 w-max">
+                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
                         <div>
                             <p className="text-lg font-semibold">Session Class Quota</p>
                             <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>

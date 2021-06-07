@@ -349,7 +349,6 @@ Accessories
     -o-transition: all .25s;
     transition: all .25s;
     height: 20px;
-    margin: 0px 0 0 40px;
     border-top: 0;
 }
 
@@ -1382,6 +1381,31 @@ Roadmap
 
 /* 
 
+Project 
+
+*/
+
+.projDetail img{
+    width: 20rem;
+    height: 12rem;
+}
+
+@media (min-width: 320px) {
+    .projDetail img{
+        width: 25rem;
+        height: 18rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .projDetail img{
+        width: 45rem;
+        height: 30rem;
+    }
+}
+
+/* 
+
 Pricing 
 
 */
@@ -1636,6 +1660,16 @@ Challenge
 class session 
 
 */
+
+.classDetail img{
+    width: 25rem;
+}
+
+@media (min-width: 768px) {
+    .classDetail img{
+        width: 40rem;
+    }
+}
 
 .request-class-form input {
     padding: .375rem 1rem;

@@ -26,18 +26,18 @@ function Class() {
             <NavbarLogin />
             <NavbarMobile />
 
-            <div className="mx-16 xl:mx-32 mt-20">
+            <div className="flex md:block flex-col items-center mx-5 xl:mx-32 mt-20">
                 <div className="flex flex-col gap-2">
                     <p className="text-4xl font-bold">Coding class</p>
                     <p className="text-xl text-gray-500 font-medium">Choose classes that will support your personal and professional development here!</p>
                 </div>
-                <div className="grid grid-cols-3 justify-center gap-10 mt-20 h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-10 mt-20 h-full">
                     {
                         listClass.map(
                             (val)=> {
                                 let image = require('../../../asset/upload/'+ val.image)
                                 return <a href={"/detail-class/"+val.id} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
-                                            <img src={image.default} style={{width:"400px", height:"200px"}} className="rounded-lg" />
+                                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                                             <div className="flex gap-6 px-2 py-4">
                                                 <div>
                                                     <p className="color-blue-1 text-right font-semibold">{formatDateDay(val.startDate)}</p>

@@ -41,13 +41,13 @@ function ChellengeList(props) {
                     </div>
                     })
                 }
-                <div className="grid grid-cols-3 justify-center gap-10 mt-20 h-full">
+                <div className="flex flex-wrap justify-center gap-10 mt-20 h-full">
                     {
                         value.map((val) => {
                             let image = require('../../../asset/upload/'+ val.image)
                             return <Link to={"/project-detail/"+val.projectId}>
                                     <div className="challenge-card bg-white p-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
-                                        <img src={image.default} style={{width:"400px", height:"200px"}} className="rounded-lg" />
+                                        <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                                         <div className="flex flex-col gap-4 px-2 pt-2">
                                             <p className="text-xl font-bold capitalize">{val.projectTitle}</p>
                                             <div className="max-w-sm">

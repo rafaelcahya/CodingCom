@@ -97,7 +97,7 @@ function Button({button, filter}) {
     return (
         <div className="bg-white sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 shadow-lg w-full md:w-2/12">
             <p className="text-sm font-semibold">Type of employment :</p>
-            <div className="flex flex-row md:flex-col gap-4">
+            <div className="flex flex-col sm:flex-row md:flex-col gap-4">
                 {
                     button.map((cat, i)=>{
                         return <button onClick={()=> filter(cat)}  id="jobCategorybtn" className="jobCategorybtn text-left text-sm font-medium bg-blue-50 px-2 py-2 rounded-lg">{cat}</button>
