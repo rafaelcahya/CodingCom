@@ -12,23 +12,25 @@ import File from "../../../asset/file/Challenge.docx"
 function ProjectDetail(props) {
     const urlid = props.match.params.id
     const [value, setValue] = useState([])
+    let id
     useEffect(() => {
         axios.get("http://localhost:3001/project/GetprojectById/" + urlid).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         <>
             <NavbarLogin />
             <NavbarMobile />
 
-            <div className="flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-32 lg:mt-20">
-                {
-                    value.map((val) => {
-                        let image = require('../../../asset/upload/'+ val.image)
-                        return <div className="projDetail flex flex-col">
+
+            {
+                value.map((val) => {
+                    let image = require('../../../asset/upload/' + val.image)
+                    return <div className="flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 mt-32 lg:mt-20">
+                        <div className="projDetail flex flex-col">
                             <img src={image.default} className="mx-auto rounded-xl" />
                             <p className="text-3xl font-semibold text-center my-10">{val.projectTitle}</p>
                             <div className="flex flex-col gap-3">
@@ -36,61 +38,61 @@ function ProjectDetail(props) {
                                 <p>{val.projectInfo}</p>
                             </div>
                         </div>
-                    })
-                }
-                <div className="flex flex-col gap-2">
-                    <p className="font-semibold text-xl">Getting Started</p>
-                    <ol className="list-decimal ml-10 flex flex-col gap-2">
-                        <li>Download the project file.</li>
-                        <li>Read the PDF file and have a look around the project.</li>
-                        <li>Get colors, fonts, etc from the design system.</li>
-                        <li>Set up your project/file architecture however you want</li>
-                        <li>Set up the project with version control (e.g. Git).</li>
-                        <li>Start coding!</li>
-                    </ol>
-                    </div>   
-                    <div className="flex flex-col md:flex-row gap-10">
-                        <div className="flex flex-col gap-2 my-10">
-                            <p className="font-semibold text-xl">Download Starter File</p>
-                            <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
-                            <a href={File} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
-                        </div> 
-                        <div className="flex flex-col gap-2 my-10">
-                            <p className="font-semibold text-xl">Submit Solution</p>
-                            <p>Once you've completed the challenge, you can submit your solution.</p>
-                            <p>
-                                <Link to="/submit-solution">
-                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
-                                </Link>
-                            </p>
+
+                        <div className="flex flex-col gap-2">
+                            <p className="font-semibold text-xl">Getting Started</p>
+                            <ol className="list-decimal ml-10 flex flex-col gap-2">
+                                <li>Download the project file.</li>
+                                <li>Read the PDF file and have a look around the project.</li>
+                                <li>Get colors, fonts, etc from the design system.</li>
+                                <li>Set up your project/file architecture however you want</li>
+                                <li>Set up the project with version control (e.g. Git).</li>
+                                <li>Start coding!</li>
+                            </ol>
                         </div>
-                        <div className="flex flex-col justify-between gap-2 my-10">
-                            <div className="flex flex-col gap-2">
-                                <p className="font-semibold text-xl">Download Certificate</p>
-                                <p>If your project meets the conditions, you can download your certificate.</p>
+                        <div className="flex flex-col md:flex-row gap-10">
+                            <div className="flex flex-col gap-2 my-10">
+                                <p className="font-semibold text-xl">Download Starter File</p>
+                                <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
+                                <a href={File} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
                             </div>
-                            <div>
-                                <Link to="/CertificateAngular">
-                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
-                                </Link>
+                            <div className="flex flex-col gap-2 my-10">
+                                <p className="font-semibold text-xl">Submit Solution</p>
+                                <p>Once you've completed the challenge, you can submit your solution.</p>
+                                <p>
+                                    <Link to={"/submit-solution/" + val.projectId}>
+                                        <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
+                                    </Link>
+                                </p>
+                            </div>
+                            <div className="flex flex-col justify-between gap-2 my-10">
+                                <div className="flex flex-col gap-2">
+                                    <p className="font-semibold text-xl">Download Certificate</p>
+                                    <p>If your project meets the conditions, you can download your certificate.</p>
+                                </div>
+                                <div>
+                                    <Link to="/CertificateAngular">
+                                        <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>    
-                    <div>
-                        <p className="text-center text-lg font-semibold">FAQs</p>
-                        <div className="flex flex-col md:flex-row gap-10 my-10">
-                            <div className="w-full md:w-1/2">
-                                <p className="font-semibold text-xl my-2">Is there an official solution i can take a look at?</p>
-                                <p>We don't provide "official" solutions for the challenges. This is because there is no single perfect way to complete a challenge. Instead, you're encouraged to review other people's code in the community. You can learn so much by seeing how other people have approached the same challenges.</p>
-                            </div>
-                            <div className="w-full md:w-1/2">
-                                <p className="font-semibold text-xl my-2">Can i use my solution on my portofolio</p>
-                                <p>Of course! Frontend Mentor was created to make professionally designed projects more accessible to the development community. Please feel free to use anything you build in your portfolio.</p>
+                        <div>
+                            <p className="text-center text-lg font-semibold">FAQs</p>
+                            <div className="flex flex-col md:flex-row gap-10 my-10">
+                                <div className="w-full md:w-1/2">
+                                    <p className="font-semibold text-xl my-2">Is there an official solution i can take a look at?</p>
+                                    <p>We don't provide "official" solutions for the challenges. This is because there is no single perfect way to complete a challenge. Instead, you're encouraged to review other people's code in the community. You can learn so much by seeing how other people have approached the same challenges.</p>
+                                </div>
+                                <div className="w-full md:w-1/2">
+                                    <p className="font-semibold text-xl my-2">Can i use my solution on my portofolio</p>
+                                    <p>Of course! Frontend Mentor was created to make professionally designed projects more accessible to the development community. Please feel free to use anything you build in your portfolio.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-            </div>
-
+                })
+            }
             {/* <div className="flex flex-wrap justify-center gap-10 my-10">
                                 <div className="challenge-box p-5 rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                                 <img src={image.default} style={{width:"400px", height:"250px"}} className="rounded-lg" />

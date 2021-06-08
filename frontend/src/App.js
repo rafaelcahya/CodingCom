@@ -20,6 +20,7 @@ import Course from "./components/pages/tutorial/course/internet/Course"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
+import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
 // import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
@@ -28,7 +29,6 @@ import RoadmapReact from "./components/pages/tutorial/course/roadmap/content/Roa
 import RoadmapDevops from "./components/pages/tutorial/course/roadmap/content/RoadmapDevops.jsx"
 
 import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
-import Submit from "./components/pages/challenge/certificate/Submit.jsx"
 import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
 import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
 import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
@@ -104,13 +104,13 @@ function App() {
             <Route path="/challenge" component={Challenge} />
             <Route path="/list-challenges/:id" component={MenuChallenges} />
             <Route path="/project-detail/:id" component={ProjectDetail} />
+            <Route path="/submit-solution/:id" component={Submit} />
 
             <Route path="/challenge" component={Challenge} />
             <Route path="/html-css-js-exercise" component={Certificate1} />
             <Route path="/react-exercise" component={ReactCerti} />
             <Route path="/vue-exercise" component={VueCerti} />
             <Route path="/angular-exercise" component={AngularCerti} />
-            <Route path="/submit-solution" component={Submit} />
 
             <Route path="/CertificateHTMLCSSJS" component={CertificateHTML} />
             <Route path="/CertificateAngular" component={CertificateAngular} />
