@@ -9,6 +9,7 @@ const db = require('../config/db')
 router.post("/addTopik", (req, res) => {
     const name = req.body.name
     const title = req.body.title
+    const category = req.body.category
     const info = req.body.info
     const about = req.body.about
     const createAt = req.body.createAt
@@ -31,7 +32,7 @@ router.post("/addTopik", (req, res) => {
     
             if (results.length > 0) {
                 user_id = results[0].id
-                db.query("INSERT INTO topik (topikTitle, topikInfo, about, status, topikCreateAt, topikUpdateAt, isDeleted, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, info, about, status, createAt, updateAt, isDeleted, user_id], (err, results) => {
+                db.query("INSERT INTO topik (topikTitle, category_id, topikInfo, about, status, topikCreateAt, topikUpdateAt, isDeleted, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, category, info, about, status, createAt, updateAt, isDeleted, user_id], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -50,7 +51,7 @@ router.get("/topikById/:id", (req, res) => {
 })
 
 router.get("/TopikList", (req, res) => {
-    db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname from topik,user WHERE topik.user_id = user.id",(err, results) => {
+    db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId",(err, results) => {
         res.send(results)
         console.log(results)
     })

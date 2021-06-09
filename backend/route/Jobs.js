@@ -38,4 +38,13 @@ router.get("/ListJobs", (req, res) => {
     })
 })
 
+router.get("/jobById/:id", (req, res) => {
+    const id = req.params.id
+    // db.query("SELECT * from jobs WHERE jobsId = ?", id, (err, results) => {
+    //     res.send(results)
+    // })
+    console.log(id)
+    console.log("ksaodkasodkaso")
+})
+
 module.exports = router;

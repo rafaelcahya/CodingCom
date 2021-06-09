@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../../../major/Footer'
 import NavbarLogin from '../../../major/NavbarLogin'
 import NavbarMobile from '../../../major/NavbarMobile'
@@ -6,19 +6,22 @@ import Axios from 'axios'
 
 function Submit() {
     let x
+    const [id, setId] =useState("")
     const [name, setName] = useState("")
-    const [title, setTitle] = useState("")
     const [live_site_url, setLiveSiteUrl] = useState("")
     const [description, setDescription] = useState("")
     const [url, setUrl] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [file,setFile] = useState([])
-    const [type,setType] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    //const [value,setValue] = useState([])
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
         setName(x)
+        var url1 = window.location.pathname;
+        var idurl = url1.substring(url1.lastIndexOf('/') + 1);
+        setId(idurl)
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -26,15 +29,20 @@ function Submit() {
         setCreateAt(dateTime)
     }, 500)
 
+    // useEffect(() => {
+    //     axios.get("http://localhost:3001/project/projectList").then((response) => {
+    //         setValue(response.data)
+    //     })
+    // }, []);
+
     const submit = () => {
         const fd = new FormData();
         fd.append('fileUpload', file)
         fd.append('name',name)
-        fd.append('title',title)
+        fd.append('id', id)
         fd.append('live_site_url',live_site_url)
         fd.append('description',description)
         fd.append('url',url)
-        fd.append('type',type)
         fd.append('createAt',createAt)
         Axios.post("http://localhost:3001/submit/submit", fd).then((response) => {
             console.log(response)
@@ -50,22 +58,19 @@ function Submit() {
             <div className="mx-8 sm:mx-24 md:mx-40 lg:mx-72 mt-20">
                 <p className="font-semibold text-2xl text-center my-5">Submit Project</p>
                 <div className="submit-box flex flex-col gap-10">
-                    <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Project title</p>
-                        <input type="text" placeholder="Input project title" onChange={(event) => {
-                            setTitle(event.target.value)
-                        }}/>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Project Type</p>
+                    {/* <div className="flex flex-col gap-2">
+                        <p className="text-sm font-semibold">Project Title</p>
                         <select name="" id="" onChange={(event) => {
-                            setType(event.target.value)
+                            setTitle(event.target.value)
                         }}>
-                            <option value="">Select project type</option>
-                            <option value="2">Certificate</option>
-                            <option value="1">Challenge</option>
+                            <option>Select project title</option>
+                            {
+                                value.map((val) => {
+                                    return <option value={val.projectId}>{val.projectTitle}</option>
+                                })
+                            }
                         </select>
-                    </div>
+                    </div> */}
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">Repository URL</p>
                         <input type="text" placeholder="Input repository URL" onChange={(event) => {

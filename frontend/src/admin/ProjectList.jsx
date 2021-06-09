@@ -27,9 +27,9 @@ export default function ProjectList() {
                         <table className="relative min-w-full">
                             <thead>
                                 <tr className="border-b-2">
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Id</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">User Name</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Type Project</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Description</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Repo Url</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Live Site Url</th>
@@ -43,13 +43,13 @@ export default function ProjectList() {
                                         (val) => {
                                             let file = require('../asset/upload/'+ val.fileName)
                                             return <tr className="border-b-2">
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.id}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.title}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.projectTitle}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.type}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.description}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.live_site_url}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectCreateAt)} {formatTime(val.projectCreateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectsubCreateAt)} {formatTime(val.projectsubCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <a href={file.default} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download</a>
                                                         </td>

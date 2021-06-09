@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Axios from 'axios'
 import Sidebar from './major/Sidebar'
 import { Editor } from '@tinymce/tinymce-react';
@@ -6,10 +6,12 @@ import { Editor } from '@tinymce/tinymce-react';
 function AddTopik() {
     const [name, setName] = useState("")
     const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
     const [info, setInfo] = useState("")
     const editorRef = useRef(null);
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [value,setValue] = useState([])
     let x
 
     window.onload = setTimeout(function () {
@@ -22,8 +24,11 @@ function AddTopik() {
         setCreateAt(dateTime)
     }, 500)
 
-
-   
+    useEffect(() => {
+        Axios.get("http://localhost:3001/category/listCategory").then((response) => {
+            setValue(response.data)
+        })
+    }, []);
 
     const submit = () => {
         if (editorRef.current) {
@@ -33,11 +38,7 @@ function AddTopik() {
             fd.append('info', info)
             fd.append('about', editorRef.current.getContent())
             fd.append('createAt', createAt)
-            console.log(name)
-            console.log(title)
-            console.log(info)
-            console.log(createAt)
-            console.log(editorRef.current.getContent())
+            fd.append('category', category)
             Axios.post("http://localhost:3001/topik/addTopik", fd).then((response) => {
                 console.log(response)
                 setErrorMessage(response.data.message)
@@ -65,6 +66,21 @@ function AddTopik() {
                                             }} />
                                 </div>
                             </div>
+                            <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Select the Category</p>
+                            <select name="" id="" onChange={(event) => {
+                                setCategory(event.target.value)
+                            }} >
+                                <option>Choose Category</option>
+                                {
+                                    value.map(
+                                        (val) => {
+                                           return <option value={val.categoryId}>{val.category}</option>
+                                        }
+                                    )
+                                }
+                            </select>
+                        </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1 text-sm font-semibold">
                                     <p>Project Info</p>

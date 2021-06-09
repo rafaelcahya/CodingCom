@@ -20,23 +20,21 @@ export default function Career() {
         document.getElementById("demo").innerHTML = x;
     }, 10)
 
-    const items = value
-
     const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
 
-    const [menuItem, setMenuItem] = useState(items);
+    const [menuItem, setMenuItem] = useState(value);
     const [buttons] = useState(allCategories);
 
   //Filter Function
     const filter = (button) =>{
         setShow(false);
         if(button === 'All'){
-            setMenuItem(items);
+            setMenuItem(value);
             
             return
         }
 
-        const filteredData = items.filter(item => item.jobType === button);
+        const filteredData = value.filter(val => val.jobType === button);
         setMenuItem(filteredData)
     }
 
@@ -62,8 +60,8 @@ export default function Career() {
                         <div className="flex py-4">
                         {show ? <div className="flex flex-wrap items-center gap-5">
                                 {
-                                    items.map((item) =>{
-                                        return <Link to={item.url}>
+                                    value.map((item) =>{
+                                        return <Link to={"/job-detail/"+item.jobsId}>
                                             <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
                                                     {/* Buat masukin logo company disini, tag p nya apus aja klo dah jadi */}
@@ -113,7 +111,7 @@ function Menu({menuItem}) {
         <div className="flex flex-wrap items-center gap-5">
             {
                 menuItem.map((item) =>{
-                    return <Link to={item.url}>
+                    return <Link to={"/job-detail/"+item.jobsId}>
                         <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                             <div className="flex justify-between">
                                 {/* Buat masukin logo company disini, tag p nya apus aja klo dah jadi */}

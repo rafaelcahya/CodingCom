@@ -27,6 +27,7 @@ export default function ListBatch() {
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Mentor Name</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Category</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Info</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">About</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
@@ -42,6 +43,7 @@ export default function ListBatch() {
                                                     return <tr className="border-b-2">
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.topikTitle}</td> 
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.category}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.topikInfo}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.about}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.status}</td> 
