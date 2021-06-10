@@ -1891,7 +1891,7 @@ React sidebar minimal
 
 .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option-selected {
     --tw-bg-opacity: 1;
-    background-color: #bc6ff1 !important;
+    background-color: #e1e5ea !important;
     --tw-border-opacity: 1;
     border-color: #3b72ff !important;
     --tw-text-opacity: 1;
@@ -1928,7 +1928,7 @@ React sidebar minimal
 
 .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option-selected {
     --tw-bg-opacity: 1;
-    background-color: #bc6ff1 !important;
+    background-color: #e1e5ea !important;
     --tw-border-opacity: 1;
     border-color: rgba(236, 72, 153, var(--tw-border-opacity));
     --tw-text-opacity: 1;
@@ -1937,5 +1937,5 @@ React sidebar minimal
 
 .hover\:bg-gray-100:hover {
     --tw-bg-opacity: 1;
-    background-color: #bc6ff1 !important;
+    background-color: #e1e5ea !important;
 }

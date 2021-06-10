@@ -20,7 +20,7 @@ import Course from "./components/pages/tutorial/course/internet/Course"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
-import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+import Submit from "./components/pages/challenge/certificate/Submit.jsx"
 // import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"

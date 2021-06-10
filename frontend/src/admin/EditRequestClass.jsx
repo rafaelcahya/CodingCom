@@ -42,6 +42,7 @@ function EditRequestClass(props) {
         Axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
             setValueList(response.data)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const updateClass = () => {
@@ -56,7 +57,7 @@ function EditRequestClass(props) {
         <>
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class  ml-72 m-5 p-8 flex flex-col gap-1 border border-gray-300 rounded-lg w-full" >
+                <div className="request-class-form ml-72 m-5 p-8 flex flex-col gap-1 border border-gray-300 rounded-lg w-full" >
                     <div className="flex flex-col gap-1 pb-8">
                         <p className="text-lg font-semibold">Class Request</p>
                         <p className="text-xs font-medium text-gray-400 w-3/4">For Class name, Date, and Time are only added if there are certain changes. If not added, the data will be adjusted to the data that was filled in previously.</p>
