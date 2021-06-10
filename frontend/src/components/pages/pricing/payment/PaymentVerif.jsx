@@ -7,6 +7,19 @@ import { Link } from 'react-router-dom'
 
 export default function Payment(props) {
     const modal = useRef()
+    const [name,setName] = useState("")
+    const [createAt, setCreateAt] = useState("")
+
+    useEffect(() => {
+        let x = localStorage.getItem("name");
+        setName(x)
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setCreateAt(dateTime)
+        console.log("kjafasd")
+    }, []);
     return (
         <>
             <section className="payment-container bg-blue-2 mt-32 lg:mt-20 mb-40 mx-5 xs:mx-10 sm:mx-24 md:mx-32 lg:mx-52 xl:mx-96 py-10 rounded-xl shadow-lg">
@@ -90,30 +103,6 @@ export default function Payment(props) {
 
 const Modal = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false)
-    const [name,setName] = useState("")
-    const [createAt, setCreateAt] = useState("")
-    let x
-    console.log("asdawsdwasdwa")
-
-    // window.onload = setTimeout(function () {
-    //     x = localStorage.getItem("name");
-    //     setName(x)
-    //     var today = new Date();
-    //     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    //     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    //     var dateTime = date + ' ' + time;
-    //     setCreateAt(dateTime)
-    // }, 500)
-
-    useEffect(() => {
-        x = localStorage.getItem("name");
-        setName(x)
-        var today = new Date();
-        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date + ' ' + time;
-        setCreateAt(dateTime)
-    }, []);
 
     // if(props.plan === "Class Session Quota"){
     //     Axios.post("http://localhost:3001/transaction/updateStatusClassSession",{name:name}).then((response) => {
@@ -136,13 +125,6 @@ const Modal = forwardRef((props, ref) => {
     })
 
     const Choose = (props) =>{
-    const [name,setName] = useState("")
-    let x
-
-    window.onload = setTimeout(function () {
-        x = localStorage.getItem("name");
-        setName(x)
-    }, 10)
         return(
             <>
                 <div className="flex justify-between items-center gap-10 my-5">
