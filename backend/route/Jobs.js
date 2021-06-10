@@ -32,6 +32,31 @@ router.post("/jobs", (req, res) => {
     }
 })
 
+router.post("/apply", (req, res) => {
+    const name = req.body.name
+    const id = req.body.id
+    const createAt = req.body.createAt
+    const lockDate = req.body.lockDate
+    let user_id = 0
+    let status = "Pending"
+
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("INSERT INTO application (user_id, job_id, status, applicationCreateAt, applicationLocked) VALUES (?, ?, ?, ?, ?);", [user_id, id, status, createAt, lockDate], (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+            console.log(user_id)
+        }
+    })
+
+})
+
 router.get("/ListJobs", (req, res) => {
     db.query("SELECT * from jobs", (err, results) => {
         res.send(results)
@@ -40,11 +65,37 @@ router.get("/ListJobs", (req, res) => {
 
 router.get("/jobById/:id", (req, res) => {
     const id = req.params.id
-    // db.query("SELECT * from jobs WHERE jobsId = ?", id, (err, results) => {
-    //     res.send(results)
-    // })
-    console.log(id)
-    console.log("ksaodkasodkaso")
+    db.query("SELECT * from jobs WHERE jobsId = ?", id, (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/ListJobsCount", (req, res) => {
+    db.query("SELECT COUNT(jobsId) AS CountJobs from jobs", (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/applicationById/:id/:name", (req, res) => {
+    const id = req.params.id
+    const name = req.params.name
+    let user_id = 0
+
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT * from application WHERE job_id = ? AND user_id = ?", [id, user_id], (err, results) => {
+                res.send(results)
+                console.log(results)
+            })
+        }
+    })
+
+    
 })
 
 module.exports = router;

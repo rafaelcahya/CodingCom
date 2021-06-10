@@ -6,7 +6,9 @@ import Axios from 'axios'
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
 export default function Career() {
     const [value,setValue] = useState([])
+    const [valueCount,setValueCount] = useState([])
     const [show, setShow] = useState(true);
+    const [name, setName] = useState("")
 
     useEffect(() => {
         Axios.get("http://localhost:3001/jobs/ListJobs").then((response) => {
@@ -15,9 +17,17 @@ export default function Career() {
         })
     }, []);
 
+    useEffect(() => {
+        Axios.get("http://localhost:3001/jobs/ListJobsCount").then((response) => {
+            setValueCount(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
+        setName(x)
     }, 10)
 
     const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
@@ -56,16 +66,20 @@ export default function Career() {
                 <div className="block md:flex gap-4 w-full">
                     <Button button={buttons} filter={filter} />
                     <div className="flex flex-col my-10 md:my-0 w-full md:w-10/12">
-                        <p className="text-xl font-semibold">Showing 20 jobs</p>
+                    {
+                        valueCount.map((val) => {
+                            return <p className="text-xl font-semibold">Showing {val.CountJobs} jobs</p>
+                        })
+                    }
                         <div className="flex py-4">
                         {show ? <div className="flex flex-wrap items-center gap-5">
                                 {
                                     value.map((item) =>{
-                                        return <Link to={"/job-detail/"+item.jobsId}>
+                                        let image = require('../../../asset/upload/'+ item.companyLogo)
+                                        return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
                                             <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
-                                                    {/* Buat masukin logo company disini, tag p nya apus aja klo dah jadi */}
-                                                    <p className="w-10 h-10 bg-red-500"></p>
+                                                <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                                                     <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
                                                 </div>
                                                 <div className="flex flex-col gap-2 py-2">
@@ -107,15 +121,20 @@ function Button({button, filter}) {
 }
 
 function Menu({menuItem}) {
+    const[name, setName] = useState("")
+    window.onload = setTimeout( function () {
+        var x = localStorage.getItem("name");
+        setName(x)
+    }, 10)
     return (
         <div className="flex flex-wrap items-center gap-5">
             {
                 menuItem.map((item) =>{
-                    return <Link to={"/job-detail/"+item.jobsId}>
+                    let image = require('../../../asset/upload/'+ item.companyLogo)
+                    return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
                         <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                             <div className="flex justify-between">
-                                {/* Buat masukin logo company disini, tag p nya apus aja klo dah jadi */}
-                                <p className="w-10 h-10 bg-red-500"></p>
+                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                                 <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
                             </div>
                             <div className="flex flex-col gap-2 py-2">

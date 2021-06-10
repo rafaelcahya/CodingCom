@@ -50,6 +50,7 @@ import CertificateAngular from "./components/pages/challenge/certificate/Downloa
 import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
 import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
 import Career from "./components/pages/career/Career.jsx"
+import CareerDetail from "./components/pages/career/CareerDetail.jsx"
 import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
 import ComingSoon from "./components/major/ComingSoon.jsx"
 
@@ -124,6 +125,7 @@ function App() {
             <Route path="/feedback/:name" component={FeedbackForm} />
 
             <Route path="/career" component={Career} />
+            <Route path="/career-detail/:id/:name" component={CareerDetail} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>

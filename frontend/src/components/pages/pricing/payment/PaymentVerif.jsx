@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import Axios from 'axios'
 import logobca from "../../../../asset/photo/logo_bca.png"
@@ -93,8 +93,19 @@ const Modal = forwardRef((props, ref) => {
     const [name,setName] = useState("")
     const [createAt, setCreateAt] = useState("")
     let x
+    console.log("asdawsdwasdwa")
 
-    window.onload = setTimeout(function () {
+    // window.onload = setTimeout(function () {
+    //     x = localStorage.getItem("name");
+    //     setName(x)
+    //     var today = new Date();
+    //     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    //     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    //     var dateTime = date + ' ' + time;
+    //     setCreateAt(dateTime)
+    // }, 500)
+
+    useEffect(() => {
         x = localStorage.getItem("name");
         setName(x)
         var today = new Date();
@@ -102,7 +113,7 @@ const Modal = forwardRef((props, ref) => {
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = date + ' ' + time;
         setCreateAt(dateTime)
-    }, 10)
+    }, []);
 
     // if(props.plan === "Class Session Quota"){
     //     Axios.post("http://localhost:3001/transaction/updateStatusClassSession",{name:name}).then((response) => {
