@@ -38,18 +38,18 @@ router.post("/register", (req, res) => {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
         res.send({ message: "Username cannot contain spaces" })
-    } else if (gender.length<=0) {
+    } else if (gender.length <= 0) {
         res.send({ message: "Gender cannot be empty" })
-    } else if (BoD.length<=0) {
+    } else if (BoD.length <= 0) {
         res.send({ message: "Birth of Date cannot be empty" })
-    } else if (phoneNumber.length<=0) {
+    } else if (phoneNumber.length <= 0) {
         res.send({ message: "Phone number cannot be empty" })
-    } else if (cphoneNumber.length<=0) {
+    } else if (cphoneNumber.length <= 0) {
         res.send({ message: "Confirm Phone number cannot be empty" })
-    } else if (cphoneNumber != phoneNumber ) {
+    } else if (cphoneNumber != phoneNumber) {
         res.send({ message: "Phone number and confirm phone number must be same" })
-    } else if (cemergencynumber != emergencynumber){
-        res.send({ message:"Emergency number and confirm emergency number must be same" })
+    } else if (cemergencynumber != emergencynumber) {
+        res.send({ message: "Emergency number and confirm emergency number must be same" })
     } else if (email.length <= 0) {
         res.send({ message: "Please add your Email" })
     } else if (email.match(/[@]/) == null) {
@@ -72,8 +72,8 @@ router.post("/register", (req, res) => {
         res.send({ message: "Please add your confirm password" })
     } else if (confirmpassword != password) {
         res.send({ message: "Confirm password must be same as password" })
-    } else if(education.length<= 0){
-        res.send({message:"Education can not be empty"})
+    } else if (education.length <= 0) {
+        res.send({ message: "Education can not be empty" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -154,40 +154,130 @@ router.post("/login", (req, res) => {
     })
 })
 
-router.post("/updateStatus", (req, res) => {
-    let status = "PENDING"
-    const name = req.body.name
-    const updateAt = req.body.updateAt
+router.post("/reset", (req, res) => {
 
-    db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE name=?;", [status, updateAt, name], (err, results) => {
-        console.log(err)
-        res.send(results)
-    })
+    const email = req.body.email
+    let hash = ""
+
+    if (email.length <= 0) {
+        res.send({ message: "Email can not be empty" })
+    } else {
+        db.query("SELECT * From user WHERE email = ?", email, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                hash = results[0].password
+                if(email == results[0].email){
+                    var transporter = nodemailer.createTransport({
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            type: 'login',
+                            user: 'codingpaymentcom@gmail.com',
+                            pass: 'Codingcom01'
+                        }
+                    })
+                    var mailOption = {
+                        from: 'codingpaymentcom@gmail.com',
+                        to: email,
+                        subject: 'Forgot Password',
+                        html: '<b><p>Makan tuh Tempe</p></b>' + '<br/>' + 'Clik the Link Below if you want to reset your password' + '<br/>' + 'http://localhost:3000/forgotPassword/' + hash
+                    }
+                    transporter.sendMail(mailOption, function (err, info) {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            console.log('Email sent:' + info.response)
+                        }
+                    })
+                }
+            } else {
+                res.send({message: "Your Email Doesn't Exist" })
+
+            }
+        })
+    }
 })
 
-router.post("/updateStatusClassSession", (req, res) => {
-    let status = "PENDING"
-    let paket_id = 2
-    const name = req.body.name
+router.post("/resetPassword", (req, res) => {
+    const id = req.body.id
+    const password = req.body.password
+    const confirmpassword = req.body.confirmPassword
     const updateAt = req.body.updateAt
+    var crypto = require('crypto')
+    var hash = crypto.createHash('md5').update(password).digest('hex')
 
-    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
-        console.log(err)
-        res.send(results)
-    })
+    if(password.length<=0){
+        res.send({message:"Password can not be empty"})
+    }else if(confirmpassword.length<=0){
+        res.send({message:"Confirm Password can not be empty"})
+    }else if(confirmpassword != password){
+        res.send({message:"Confirm Password must be same as password"})
+    } else if (password.length < 8) {
+        res.send({ message: "Password must be at least 8 characters" })
+    } else if (password.length >= 20) {
+        res.send({ message: "Password must be less than 20 characters" })
+    } else if (password.match(/[A-Z]/) == null) {
+        res.send({ message: "Password must contain at least 1 uppercase letter" })
+    } else if (password.match(/[a-z]/) == null) {
+        res.send({ message: "Password must contain at least 1 lowercase letter" })
+    } else if (password.match(/[0-9]/) == null) {
+        res.send({ message: "Password must contain at least 1 number" })
+    }else{
+        db.query("SELECT * From user WHERE password = ?", id, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                if (hash.match(results[0].password) != null) {
+                    res.send({ message:"Password can not be same as your old password" })
+    
+                } else {
+                    db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE password = ?;", [password, confirmpassword, updateAt, id], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                }
+                
+            } 
+        })
+    }
 })
 
-router.post("/updateStatusClassConsultation", (req, res) => {
-    let status = "PENDING"
-    let paket_id = 3
-    const name = req.body.name
-    const updateAt = req.body.updateAt
+// router.post("/updateStatus", (req, res) => {
+//     let status = "PENDING"
+//     const name = req.body.name
+//     const updateAt = req.body.updateAt
 
-    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
-        console.log(err)
-        res.send(results)
-    })
-})
+//     db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE name=?;", [status, updateAt, name], (err, results) => {
+//         console.log(err)
+//         res.send(results)
+//     })
+// })
+
+// router.post("/updateStatusClassSession", (req, res) => {
+//     let status = "PENDING"
+//     let paket_id = 2
+//     const name = req.body.name
+//     const updateAt = req.body.updateAt
+
+//     db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
+//         console.log(err)
+//         res.send(results)
+//     })
+// })
+
+// router.post("/updateStatusClassConsultation", (req, res) => {
+//     let status = "PENDING"
+//     let paket_id = 3
+//     const name = req.body.name
+//     const updateAt = req.body.updateAt
+
+//     db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE name=?;", [status, updateAt, paket_id, name], (err, results) => {
+//         console.log(err)
+//         res.send(results)
+//     })
+// })
 
 router.put("/updatePayment", (req, res) => {
     const id = req.body.id
@@ -220,18 +310,18 @@ router.put("/addeditKuota", (req, res) => {
             if (results.length > 0) {
                 kuotaConsultation = results[0].classConsultation + 5
                 kuotaSession = results[0].classSession + 5
-                if(paket_id == 2){
+                if (paket_id == 2) {
                     db.query("UPDATE userkuota SET classSession = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
-                }else if(paket_id == 3){
+                } else if (paket_id == 3) {
                     db.query("UPDATE userkuota SET classConsultation = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
                 }
-                    
+
             } else {
                 db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
                     console.log(err)
@@ -293,7 +383,7 @@ router.put("/deleteUser", (req, res) => {
 
 router.get("/userById/:name", (req, res) => {
     const name = req.params.name
-    db.query("SELECT * from user WHERE name = ?",name,(err, results) => {
+    db.query("SELECT * from user WHERE name = ?", name, (err, results) => {
         res.send(results)
         console.log(results)
     })

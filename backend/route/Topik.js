@@ -57,6 +57,14 @@ router.get("/TopikList", (req, res) => {
     })
 })
 
+router.get("/ListTopik", (req, res) => {
+    let status = "Approve"
+    db.query("SELECT * from topik WHERE status = ?",status,(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 router.post("/editTopik", (req, res) => {
     const id = req.body.id
     let title = req.body.title
@@ -67,7 +75,7 @@ router.post("/editTopik", (req, res) => {
 
     if(status.length <= 0 ){
         res.send({message:"You must Choose Status"})
-    } 
+    }
 
     db.query("SELECT * From topik WHERE topikId = ?", id, (err, results) => {
         if (err) {

@@ -25,7 +25,7 @@ router.post("/addCourse", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("INSERT INTO course (judul, topik, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
+            db.query("INSERT INTO course (judul, topik_id, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
@@ -70,7 +70,7 @@ router.put("/updateCourse", (req, res) => {
 })
 
 router.get("/listCourse", (req, res) => {
-    db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id", (err, results) => {
+    db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId", (err, results) => {
         res.send(results)
     })
 })
@@ -92,7 +92,7 @@ router.get("/listCourseMentor/:name", (req, res) => {
         if (results.length > 0) {
             // buat ambil index
             user_id = results[0].id
-            db.query("SELECT course.number, course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, user.email FROM course,user WHERE course.user_id = user.id AND course.user_id = ?", user_id, (err, results) => {
+            db.query("SELECT course.number, course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId AND course.user_id = ?", user_id, (err, results) => {
                 res.send(results)
             })
         }

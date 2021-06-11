@@ -9,6 +9,7 @@ import {GlobalStyle, lightTheme, darkTheme} from "../src/components/minor/Global
 import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
+import ResetPassword from "./components/pages/ResetPassword"
 import Help from "./components/pages/help/Help";
 import PaymentVerif from "./components/pages/pricing/payment/PaymentVerif";
 import Homepage from "./components/pages/homepage/Homepage.jsx"
@@ -20,7 +21,7 @@ import Course from "./components/pages/tutorial/course/internet/Course"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
-import Submit from "./components/pages/challenge/certificate/Submit.jsx"
+import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
 // import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
@@ -76,7 +77,8 @@ function App() {
             <Route path="/" exact component={Homepage} />
             <Route path="/help" component={Help} />
             <Route path="/login" component={Login} />
-            <Route path="/forgotPassword" component={ForgotPassword} />
+            <Route path="/forgotPassword/:hash" component={ForgotPassword} />
+            <Route path="/resetPassword" component={ResetPassword} />
             <Route path="/register" component={Register} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/payment-confirmation-premium" component={PaymentVerif} />
@@ -125,7 +127,7 @@ function App() {
             <Route path="/feedback/:name" component={FeedbackForm} />
 
             <Route path="/career" component={Career} />
-            <Route path="/career-detail/:id/:name" component={CareerDetail} />
+            <Route path="/career-detail/:name/:id" component={CareerDetail} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>
