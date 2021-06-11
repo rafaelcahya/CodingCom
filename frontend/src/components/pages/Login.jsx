@@ -86,7 +86,7 @@ export default function Login() {
                                         onClick={() => setRevealPass(prevState => !prevState)}
                                     />
                                 </div>
-                                <Link to="/forgotPassword">
+                                <Link to="/resetPassword">
                                     <p className="text-xs font-semibold mt-1.5 underline text-right">Forgot password?</p>
                                 </Link>
                             </div>

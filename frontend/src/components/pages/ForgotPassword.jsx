@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import info from "../../asset/icon/info.svg"
+import Axios from "axios"
 
 import BlobAnim from '../minor/Blob animation/BlobAnim'
 
 export default function ForgotPassword() {
+    const [id, setId] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setCPassword] = useState("")
+    const [updateAt, setUpdateAt] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+
+    window.onload = setTimeout(function () {
+        var url1 = window.location.pathname;
+        var idurl = url1.substring(url1.lastIndexOf('/') + 1);
+        setId(idurl)
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
+
+    const submit = () => {
+        Axios.post("http://localhost:3001/user/resetPassword", { password:password, confirmPassword:confirmPassword, id:id, updateAt:updateAt}).then((response) => {
+            console.log(response)
+            setErrorMessage(response.data.message)
+            
+        })
+    }
+
     return (
         <>
             <div className="login-container flex justify-center py-10 h-screen">
@@ -53,20 +79,26 @@ export default function ForgotPassword() {
                                 <input
                                     type="password"
                                     placeholder="Input your password"
-                                    className="input-password"/>
+                                    className="input-password"
+                                    onChange={(event) => {
+                                        setPassword(event.target.value)
+                                    }} />
                             </div>
                             <div>
                                 <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
                                 <input
                                     type="password"
                                     placeholder="Input your password again"
-                                    className="input-confirmpass"/>
+                                    className="input-confirmpass"
+                                    onChange={(event) => {
+                                        setCPassword(event.target.value)
+                                    }} />
                             </div>
                         </div>
-                        {/* <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p> */}
+                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex flex-col gap-5 text-sm">
-                        <p className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Reset password</p>
+                        <p onClick={submit} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Reset password</p>
                         <Link to="/login">
                             <p className="border border-blue-500 font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Cancel</p>
                         </Link>

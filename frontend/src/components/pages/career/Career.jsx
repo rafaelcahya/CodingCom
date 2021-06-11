@@ -76,7 +76,7 @@ export default function Career() {
                                 {
                                     value.map((item) =>{
                                         let image = require('../../../asset/upload/'+ item.companyLogo)
-                                        return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
+                                        return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
                                             <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
                                                 <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
@@ -131,7 +131,7 @@ function Menu({menuItem}) {
             {
                 menuItem.map((item) =>{
                     let image = require('../../../asset/upload/'+ item.companyLogo)
-                    return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
+                    return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
                         <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                             <div className="flex justify-between">
                             <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />

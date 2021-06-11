@@ -52,6 +52,7 @@ router.post("/apply", (req, res) => {
                 res.send(results)
             })
             console.log(user_id)
+            console.log(id)
         }
     })
 
@@ -76,7 +77,7 @@ router.get("/ListJobsCount", (req, res) => {
     })
 })
 
-router.get("/applicationById/:id/:name", (req, res) => {
+router.get("/applicationById/:name/:id", (req, res) => {
     const id = req.params.id
     const name = req.params.name
     let user_id = 0

@@ -55,7 +55,7 @@ function CareerDetail(props) {
         })
     };
     
-    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'short' });
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
         <>
             <div className="bg-white flex justify-between items-center px-16 xl:px-32 py-5">
@@ -122,7 +122,7 @@ function CareerDetail(props) {
                         console.log(formatDate(dateTime))
                         console.log(formatDate(val.applicationLocked))
                         return <div>
-                        {formatDate(dateTime) > formatDate(val.applicationLocked) ? (<p style={{backgroundColor:"royalblue"}} className="classInfo text-sm">Haram</p>):
+                        {formatDate(dateTime) > formatDate(val.applicationLocked) ? (<p style={{backgroundColor:"royalblue"}} className="classInfo text-sm">Already Applied</p>):
                         (<p style={{backgroundColor:"royalblue"}} className="classInfo text-sm">apply</p>)}
                         </div>
                     }))}

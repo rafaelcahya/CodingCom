@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Sidebar from './major/Sidebar'
 import Axios from 'axios'
 import { Editor } from '@tinymce/tinymce-react';
@@ -12,6 +12,7 @@ function AddCourse() {
     const [des,setDes] = useState("")
     const [time,setTime] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [value,setValue] = useState([])
     let x
 
     window.onload = setTimeout(function () {
@@ -23,6 +24,14 @@ function AddCourse() {
         var dateTime = date + ' ' + time;
         setCreateAt(dateTime)
     }, 500)
+
+    
+    useEffect(() => {
+        Axios.get("http://localhost:3001/topik/ListTopik").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
 
     const log = () => {
         if (editorRef.current) {
@@ -54,12 +63,11 @@ function AddCourse() {
                                 setTopik(event.target.value)
                             }} >
                                 <option value="">Choose topik</option>
-                                <option value="Internet">Internet</option>
-                                <option value="Web Design">Web Design</option>
-                                <option value="Frontend">Frontend</option>
-                                <option value="Backend">Backend</option>
-                                <option value="Database">Database</option>
-                                <option value="Web Design">Web Design</option>
+                                {
+                                    value.map((val)=>{
+                                        return <option value={val.topikId}>{val.topikTitle}</option>
+                                    })
+                                }
                             </select>
                         </div>
                     </div>
@@ -105,7 +113,7 @@ function AddCourse() {
                                 plugins: [
                                     'advlist autolink lists link image charmap print preview anchor',
                                     'searchreplace visualblocks code fullscreen',
-                                    'insertdatetime media table paste code help wordcount export'
+                                    'insertdatetime media table paste code help wordcount'
                                 ],
                                 toolbar: 'export | undo redo code | fontsizeselect formatselect preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
                                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
