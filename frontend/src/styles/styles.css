@@ -1853,6 +1853,25 @@ Bootcamp
     border: 1.6px solid var(--blue-1);
 }
 
+@media (min-width: 320px) {
+    .schedule-card{
+        width: 25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .schedule-card{
+        width: 40rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .schedule-card{
+        width: 50rem;
+    }
+}
+
+
 /* 
 
 Career 

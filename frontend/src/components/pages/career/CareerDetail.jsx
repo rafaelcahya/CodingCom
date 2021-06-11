@@ -1,10 +1,9 @@
+/* eslint-disable default-case */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 import Footer from '../../major/Footer'
-import NavbarLogin from '../../major/NavbarLogin'
-import NavbarMobile from '../../major/NavbarMobile'
 import { Link } from 'react-router-dom';
 
 function CareerDetail(props) {
@@ -55,11 +54,11 @@ function CareerDetail(props) {
         })
     };
     
-    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'short' });
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
         <>
             <div className="bg-white flex justify-between items-center px-16 xl:px-32 py-5">
-                <Link to="/">
+                <Link to="/career">
                     <div className="flex items-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         <p>Back</p>
@@ -70,34 +69,52 @@ function CareerDetail(props) {
             </div>
 
             <div className="mx-16 xl:mx-32 mt-20">
-                <div className="flex flex-wrap justify-center gap-10 mt-20 h-full">
                     {
                         value.map((val) => {
                             let image = require('../../../asset/upload/'+ val.companyLogo)
-                            // var today = new Date();
-                            // var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                            // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                            // var dateTime = date + ' ' + time;
-                            // console.log(dateTime)
-                            return <div className="challenge-card bg-white p-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
-                                        <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
-                                        <div className="flex flex-col gap-4 px-2 pt-2">
-                                            <p className="text-xl font-bold capitalize">{val.companyName}</p>
-                                            <p className="text-xl font-bold capitalize">{val.companyEmail}</p>
-                                            <div className="max-w-sm">
-                                                <p className="classInfo text-sm">Overview : </p>
-                                                <p className="classInfo text-sm">{val.overview}</p>
-                                                <p className="classInfo text-sm">Job Title : </p>
-                                                <p className="classInfo text-sm">{val.jobTitle}</p>
-                                                <p className="classInfo text-sm">Job Description : </p>
-                                                <p className="classInfo text-sm">{val.jobDescription}</p>
-                                                <p className="classInfo text-sm">Job Type : </p>
-                                                <p className="classInfo text-sm">{val.jobType}</p>
-                                                <p className="classInfo text-sm">Job Location : </p>
-                                                <p className="classInfo text-sm">{val.jobLocation}</p>
+                            return <div className="flex flex-col gap-4 px-2 pt-2">
+                                        <div className="flex flex-col gap-4 border-b-2 border-gray-300 pb-10">
+                                            <div className="flex items-center gap-5">
+                                                <img src={image.default} className="w-20 h-20 rounded-lg" />
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="text-lg font-semibold capitalize">{val.companyName}</p>
+                                                    <p className="text-2xl md:text-3xl font-bold capitalize">{val.jobTitle}</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col md:flex-row gap-y-4 md:gap-10">
+                                                <p>{val.jobLocation}</p>
+                                                <p>{val.jobType}</p>
+                                                <p>{val.companyEmail}</p>
+                                            </div>
+                                            {
+                                                !valueList.length ? (<p onClick={submit}>Apply now</p>):
+                                                (valueList.map((val) => {
+                                                    var today = new Date();
+                                                    var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+                                                    //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                                                    var dateTime = date;
+                                                    console.log(formatDate(dateTime))
+                                                    console.log(formatDate(val.applicationLocked))
+                                                    return <div>
+                                                        {
+                                                            (formatDate(val.applicationLocked) > formatDate(dateTime)) ? <p>apasdadsdasdply</p> :
+                                                            <p>apply</p>
+                                                        }
+                                                    </div>
+                                                }))
+                                            }
+                                            <p className="text-sm text-gray-500">{formatDate(val.jobCreateAt)}</p>
+                                        </div>
+                                        <div className="flex flex-col gap-10 pt-5">
+                                            <div className="flex flex-col gap-2">
+                                                <p className="text-xl font-semibold">Overview</p>
+                                                <p>{val.overview}</p>
+                                            </div>
+                                            <div className="flex flex-col gap-2">
+                                                <p className="text-xl font-semibold">Job Description</p>
+                                                <p>{val.jobDescription}</p>
                                             </div>
                                         </div>
-                                            <p className="text-xs tracking-wide text-gray-400">{formatDate(val.jobCreateAt)}</p>
                                     </div>
                         })
                     }
@@ -113,20 +130,7 @@ function CareerDetail(props) {
                             </div>
                         })
                     } */}
-                    {!valueList.length ? (<p onClick={submit} style={{backgroundColor:"royalblue"}} className="classInfo text-sm">Apply</p>):
-                    (valueList.map((val) => {
-                        var today = new Date();
-                        var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-                        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                        var dateTime = date;
-                        console.log(formatDate(dateTime))
-                        console.log(formatDate(val.applicationLocked))
-                        return <div>
-                        {formatDate(dateTime) > formatDate(val.applicationLocked) ? (<p style={{backgroundColor:"royalblue"}} className="classInfo text-sm">Haram</p>):
-                        (<p style={{backgroundColor:"royalblue"}} className="classInfo text-sm">apply</p>)}
-                        </div>
-                    }))}
-                </div>
+                    
             </div>
 
             <section className="discord flex flex-col items-center gap-10 text-center text-white mx-10 lg:mx-20 px-10 lg:px-20 py-20 mt-32 rounded-xl" >

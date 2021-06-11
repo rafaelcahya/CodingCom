@@ -79,13 +79,15 @@ export default function Career() {
                                         return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
                                             <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
-                                                <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
+                                                <img src={image.default} className="w-10 h-10 rounded-lg" alt=""/>
                                                     <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
                                                 </div>
                                                 <div className="flex flex-col gap-2 py-2">
                                                     <p className="text-sm">{item.companyName}</p>
                                                     <p className="font-semibold">{item.jobTitle}</p>
-                                                    <p className="text-gray-500 text-sm">{item.overview}</p>
+                                                    <div className="max-w-xs">
+                                                        <p className="truncate3 text-gray-500 text-sm">{item.overview}</p>
+                                                    </div>
                                                     <p className="text-xs bg-blue-100 color-blue-1 font-semibold w-max py-1 px-2 mt-2 rounded-lg">{item.jobType}</p>
                                                 </div>
                                             </div>
@@ -134,7 +136,7 @@ function Menu({menuItem}) {
                     return <Link to={"/career-detail/"+item.jobsId + "/" + name}>
                         <div className="bg-white p-4 rounded-lg transform hover:scale-105 duration-200 hover:shadow-md" style={{width: "310px"}}>
                             <div className="flex justify-between">
-                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
+                                <img src={image.default} className="w-10 h-10 rounded-lg" alt="" />
                                 <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
                             </div>
                             <div className="flex flex-col gap-2 py-2">
