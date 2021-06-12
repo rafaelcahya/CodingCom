@@ -5,6 +5,8 @@ const router = express.Router()
 const db = require('../config/db')
 
 const nodemailer = require('nodemailer')
+const fs = require('fs')
+const handlebars = require('handlebars')
 
 router.post("/register", (req, res) => {
     const fullname = req.body.fullname
@@ -28,7 +30,7 @@ router.post("/register", (req, res) => {
     let status = "NONACTIVE"
     let role = 3
     let isDeleted = "NO"
-    let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
+    // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
     if (fullname.length <= 0) {
         res.send({ message: "Please add your fullname" })
@@ -80,27 +82,51 @@ router.post("/register", (req, res) => {
                 console.log(err)
             }
             if (!results.length) {
-                var transporter = nodemailer.createTransport({
-                    host: 'smtp.gmail.com',
-                    auth: {
-                        type: 'login',
-                        user: 'codingpaymentcom@gmail.com',
-                        pass: 'Codingcom01'
-                    }
-                })
-                var mailOption = {
-                    from: 'codingpaymentcom@gmail.com',
-                    to: email,
-                    subject: 'Register Successfully',
-                    text: textbody
-                }
-                transporter.sendMail(mailOption, function (err, info) {
-                    if (err) {
-                        console.log(err)
-                    } else {
-                        console.log('Email sent:' + info.response)
-                    }
-                })
+                var inLineCss = require('nodemailer-juice');
+                const readHTMLFile = function(path, callback) {
+                    fs.readFile(path, { encoding: "utf-8" }, function(err, html) {
+                        if (err) {
+                            throw err;
+                        callback(err);
+                        } else {
+                            callback(null, html);
+                        }
+                    });
+                };
+                    var transporter = nodemailer.createTransport({
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            type: 'login',
+                            user: 'codingpaymentcom@gmail.com',
+                            pass: 'Codingcom01'
+                        }
+                    })
+                    readHTMLFile(
+                        __dirname + "/views/register.html",
+                        function(err, html){
+                            var template = handlebars.compile(html);
+
+                            var htmlToSend = template();
+                            var mailOption = {
+                                from: 'codingpaymentcom@gmail.com',
+                                to: email,
+                                subject: 'Register Successfully',
+                                attachments: [{
+                                    filename: 'logo_codingcom.png',
+                                    path: __dirname +'/views/logo_codingcom.png',
+                                    cid: 'logo@cid'
+                                }],
+                                html: htmlToSend
+                            }
+                            transporter.sendMail(mailOption, function (err, info) {
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('Email sent:' + info.response)
+                                }
+                            })
+                        }
+                    )
                 db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, emergencyNumber, address, city, postalCode, email, education, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, emergencynumber, address, city, postalCode, email, education, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
