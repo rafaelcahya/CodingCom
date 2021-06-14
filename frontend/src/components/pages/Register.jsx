@@ -158,25 +158,25 @@ function Register() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Home address(Optional)</p>
-                            <textarea placeholder="Home address" onChange={(event) => {
-                                setAddress(event.target.value)
+                        <p className="text-sm font-semibold">Home address(Optional)</p>
+                        <textarea placeholder="Home address" onChange={(event) => {
+                            setAddress(event.target.value)
+                        }} />
+                    </div>
+                    <div className="w-full flex justify-between gap-10">
+                        <div className="w-1/2 flex flex-col gap-2">
+                            <p className="text-sm font-semibold">City(Optional)</p>
+                            <input type="text" placeholder="City" onChange={(event) => {
+                                setCity(event.target.value)
                             }} />
                         </div>
-                        <div className="w-full flex justify-between gap-10">
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">City(Optional)</p>
-                                <input type="text" placeholder="City" onChange={(event) => {
-                                    setCity(event.target.value)
-                                }} />
-                            </div>
-                            <div className="w-1/2 flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Postal Code(Optional)</p>
-                                <input type="number" placeholder="Postal Code" onChange={(event) => {
-                                    setPostalCode(event.target.value)
-                                }} />
-                            </div>
+                        <div className="w-1/2 flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Postal Code(Optional)</p>
+                            <input type="number" placeholder="Postal Code" onChange={(event) => {
+                                setPostalCode(event.target.value)
+                            }} />
                         </div>
+                    </div>
                     <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Last education</p>
                             <select name="" id=""  onChange={(event) => {

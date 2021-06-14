@@ -65,7 +65,13 @@ export const GlobalStyle = createGlobalStyle`
     .edit-projectdetail-form textarea,
     .request-class-form,
     .request-class-form input,
-    .request-class-form textarea{
+    .request-class-form textarea,
+    .profile-form input,
+    .profile-form select,
+    .profile-form textarea,
+    .submit-box input,
+    .submit-box select,
+    .submit-box textarea{
         background: ${({theme}) => theme.foreground2};
     }
     

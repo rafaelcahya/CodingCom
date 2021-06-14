@@ -4,6 +4,11 @@ import { NavLink, Link } from 'react-router-dom'
 
 export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
+    const [name,setName] = useState("")
+    window.onload = setTimeout(function () {
+        let x = localStorage.getItem("name");
+        setName(x)
+    }, 10)
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem("loggedIn"));
@@ -280,8 +285,13 @@ export default function NavbarLogin() {
                     initial= {false}
                     variants={menuVariantsa}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-5 px-5 hidden lg:flex flex-col gap-4 rounded-xl bg-white z-10">
-                    <p className="text-sm">Change Password</p>
-                    <Link to="/feedback">
+                    <Link to="/profile">
+                        <p className="text-sm">Profile</p>
+                    </Link>
+                    <Link to="/resetPassword">
+                        <p className="text-sm">Change Password</p>
+                    </Link>
+                    <Link to={"/feedback/" + name}>
                         <p className="text-sm">Feedback</p>
                     </Link>
                     {loggedIn ? (

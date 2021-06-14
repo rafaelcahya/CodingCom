@@ -40,8 +40,8 @@ export default function ResetPassword() {
                     <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold w-3/4">An educational platform for web programming from scratch.</p>
                 </div>
                 <div className="login-box rounded-lg p-10 shadow-xl overflow-hidden">
-                    <p className="color-blue-1 text-xl font-semibold mb-2">Please Input Your Email</p>
-                    <p className="text-sm">You will get email if your email right</p>
+                    <p className="color-blue-1 text-xl font-semibold mb-2">Reset Password</p>
+                    <p className="text-sm">Enter your email address in the form below. We will send a link to your email.</p>
                     <div className="flex flex-col my-10">
                         <div className="flex flex-col gap-5">
                         <div>
