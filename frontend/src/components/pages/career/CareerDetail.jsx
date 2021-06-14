@@ -16,6 +16,7 @@ function CareerDetail(props) {
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
     let x
+    let dateTime
 
     useEffect(() => {
         axios.get("http://localhost:3001/jobs/jobById/" + urlid).then((response) => {
@@ -26,7 +27,7 @@ function CareerDetail(props) {
     }, []);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/jobs/applicationById/" + urlid + "/" + urlname).then((response) => {
+        axios.get("http://localhost:3001/jobs/applicationById/" + urlname + "/" + urlid).then((response) => {
             setValueList(response.data)
             console.log(response.data)
         })
@@ -42,7 +43,7 @@ function CareerDetail(props) {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date;
+        dateTime = date;
         setCreateAt(dateTime)
         var date1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 7);
         setLockDate(date1)
@@ -53,8 +54,23 @@ function CareerDetail(props) {
             console.log(response)
         })
     };
-    
+
+    const items = valueList
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+
+    items.map((val)=>{
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        dateTime = date;
+        if(formatDate(dateTime) === formatDate(val.applicationLocked)){
+            axios.post("http://localhost:3001/jobs/update", {id:urlid, name:urlname}).then((response) => {
+        })
+        }
+        return val
+    },[])
+
+
     return (
         <>
             <div className="bg-white flex justify-between items-center px-16 xl:px-32 py-5">
@@ -89,16 +105,10 @@ function CareerDetail(props) {
                                             {
                                                 !valueList.length ? (<p onClick={submit}>Apply now</p>):
                                                 (valueList.map((val) => {
-                                                    var today = new Date();
-                                                    var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-                                                    //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                                                    var dateTime = date;
-                                                    console.log(formatDate(dateTime))
-                                                    console.log(formatDate(val.applicationLocked))
                                                     return <div>
                                                         {
-                                                            (formatDate(val.applicationLocked) > formatDate(dateTime)) ? <p>apasdadsdasdply</p> :
-                                                            <p>apply</p>
+                                                            (val.status === "Pending") ? <p>Already Applied</p> :
+                                                            <p>Apply Again</p>
                                                         }
                                                     </div>
                                                 }))

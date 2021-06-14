@@ -96,7 +96,28 @@ router.get("/applicationById/:name/:id", (req, res) => {
         }
     })
 
-    
+
+})
+
+router.post("/update", (req, res) => {
+    const id = req.body.id
+    const name = req.body.name
+    let status = "Not Responded"
+    let user_id = 0
+
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("UPDATE application SET status = ? WHERE job_id = ? AND user_id = ?;", [status, id, user_id], (err, results) => {
+                res.send(results)
+            }) 
+        }
+    })
+
 })
 
 module.exports = router;
