@@ -82,7 +82,6 @@ router.post("/register", (req, res) => {
                 console.log(err)
             }
             if (!results.length) {
-                var inLineCss = require('nodemailer-juice');
                 const readHTMLFile = function(path, callback) {
                     fs.readFile(path, { encoding: "utf-8" }, function(err, html) {
                         if (err) {
@@ -193,6 +192,16 @@ router.post("/reset", (req, res) => {
                 console.log(err)
             }
             if (results.length > 0) {
+                const readHTMLFile = function(path, callback) {
+                    fs.readFile(path, { encoding: "utf-8" }, function(err, html) {
+                        if (err) {
+                            throw err;
+                        callback(err);
+                        } else {
+                            callback(null, html);
+                        }
+                    });
+                };
                 hash = results[0].password
                 if(email == results[0].email){
                     var transporter = nodemailer.createTransport({
@@ -203,19 +212,32 @@ router.post("/reset", (req, res) => {
                             pass: 'Codingcom01'
                         }
                     })
-                    var mailOption = {
-                        from: 'codingpaymentcom@gmail.com',
-                        to: email,
-                        subject: 'Forgot Password',
-                        html: '<b><p>Makan tuh Tempe</p></b>' + '<br/>' + 'Clik the Link Below if you want to reset your password' + '<br/>' + 'http://localhost:3000/forgotPassword/' + hash
-                    }
-                    transporter.sendMail(mailOption, function (err, info) {
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            console.log('Email sent:' + info.response)
+                    readHTMLFile(
+                        __dirname + "/views/forgotpass.html",
+                        function(err, html){
+                            var template = handlebars.compile(html);
+
+                            var htmlToSend = template();
+                            var mailOption = {
+                                from: 'codingpaymentcom@gmail.com',
+                                to: email,
+                                subject: 'Forgot Password',
+                                attachments: [{
+                                    filename: 'logo_codingcom.png',
+                                    path: __dirname +'/views/logo_codingcom.png',
+                                    cid: 'logo@cid'
+                                }],
+                                html: htmlToSend
+                            }
+                            transporter.sendMail(mailOption, function (err, info) {
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('Email sent:' + info.response)
+                                }
+                            })
                         }
-                    })
+                    )
                 }
             } else {
                 res.send({message: "Your Email Doesn't Exist" })

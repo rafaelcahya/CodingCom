@@ -10,6 +10,7 @@ import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import ResetPassword from "./components/pages/ResetPassword"
+import AddProfile from "./components/pages/AddProfile.jsx"
 import Help from "./components/pages/help/Help";
 import PaymentVerif from "./components/pages/pricing/payment/PaymentVerif";
 import Homepage from "./components/pages/homepage/Homepage.jsx"
@@ -80,6 +81,7 @@ function App() {
             <Route path="/forgotPassword/:hash" component={ForgotPassword} />
             <Route path="/resetPassword" component={ResetPassword} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={AddProfile}/>
             <Route path="/pricing" component={Pricing} />
             <Route path="/payment-confirmation-premium" component={PaymentVerif} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />

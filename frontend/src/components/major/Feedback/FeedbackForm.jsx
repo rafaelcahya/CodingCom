@@ -53,16 +53,14 @@ function FeedbackForm() {
 
     return (
         <>
-            <nav className="flex justify-between items-center px-16 xl:px-32 py-5">
-                <Link to="/">
-                    <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        <p>Back to home</p>
-                    </div>
-                </Link>
-            </nav>
             <section className="flex flex-col items-center">
-                <form action="" className="submit-box flex flex-col gap-10 w-3/4 md:w-1/2 lg:w-2/5 mt-20">
+                <form action="" className="submit-box flex flex-col gap-10 w-4/5 md:w-1/2 mt-5">
+                    <nav className="-ml-2 my-5 py-5 border-b">
+                        <Link to="/" className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            <p>Back</p>
+                        </Link>
+                    </nav>
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-3xl">Give us your feedback</p>
                         <p className="font-medium text-sm">Tell us what you love, tell us what you hate, and tell us what you want to see in the next update.</p>

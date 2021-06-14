@@ -59,6 +59,7 @@ Root
     --orange-2: #fdefc5;
     --black-1: #3a3a3a;
     --black-2: #7a7a7a;
+    --black-3: #e1e8eb;
     --white-1: #fff;
 
     --red-1: #F44336;
@@ -126,6 +127,10 @@ CSS Customization
 
 .bg-black-2 {
     background-color: var(--black-2);
+}
+
+.bg-black-3 {
+    background-color: var(--black-3);
 }
 
 .bg-green-1-10 {
@@ -998,7 +1003,7 @@ Login page, Register Page
 
 .login-box input:focus,
 .register-box input:focus {
-    border: 1.6px solid var(--blue-1);
+    border: 1.5px solid var(--blue-1);
 }
 
 .register-box select {
@@ -1052,6 +1057,22 @@ Login page, Register Page
 
 .info:hover+.password-hint-box {
     display: block;
+}
+
+/* 
+
+Profile 
+
+*/
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea{
+    background-color: white;
+    padding: .375rem 1rem;
+    border: 1.5px solid var(--black-3);
+    border-radius: 6px;
+    outline: none;
 }
 
 /* 
@@ -1521,7 +1542,7 @@ iframe {
 
 .textarea {
     padding: 1rem;
-    border: 2px solid var(--black-2);
+    border: 1.5px solid var(--black-3);
     background-color: white;
     border-radius: 5px;
     outline: none;
@@ -1574,7 +1595,7 @@ Challenge
 .certificate-form button {
     width: 500px;
     padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
+    border: 1.5px solid var(--black-3);
     border-radius: 10px;
     outline: none;
 }
@@ -1597,7 +1618,7 @@ Challenge
 .batchForm select {
     background-color: white;
     padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
+    border: 1.5px solid var(--black-3);
     border-radius: 6px;
     outline: none;
 }
@@ -1652,7 +1673,7 @@ Challenge
 .submit-box input:focus,
 .submit-box textarea:focus,
 .submit-box select:focus {
-    border: 1.6px solid var(--blue-1);
+    border: 1.5px solid var(--blue-1);
 }
 
 /* 
@@ -1673,7 +1694,7 @@ class session
 
 .request-class-form input {
     padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
+    border: 1.3px solid var(--black-3);
     border-radius: 6px;
     outline: none;
 }
@@ -1700,14 +1721,14 @@ class session
 
 .request-class-form select {
     padding: .5rem 1rem;
-    border: 1.6px solid var(--black-2);
+    border: 1.5px solid var(--black-3);
     border-radius: 10px;
     outline: none;
 }
 
 .request-class-form input:focus,
 .request-class-form select:focus {
-    border: 1.6px solid var(--blue-1);
+    border: 1.5px solid var(--blue-1);
 }
 
 /* 
@@ -1801,7 +1822,7 @@ Bootcamp
 .reg-bootcamp-box textarea,
 .reg-bootcamp-box select {
     padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
+    border: 1.5px solid var(--black-3);
     border-radius: 10px;
     outline: none;
 }
@@ -1850,7 +1871,7 @@ Bootcamp
 .reg-bootcamp-box input:focus,
 .reg-bootcamp-box textarea:focus,
 .reg-bootcamp-box select:focus {
-    border: 1.6px solid var(--blue-1);
+    border: 1.5px solid var(--blue-1);
 }
 
 @media (min-width: 320px) {
