@@ -285,7 +285,7 @@ export default function NavbarLogin() {
                     initial= {false}
                     variants={menuVariantsa}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-5 px-5 hidden lg:flex flex-col gap-4 rounded-xl bg-white z-10">
-                    <Link to="/profile">
+                    <Link to={"/profile/" + name}>
                         <p className="text-sm">Profile</p>
                     </Link>
                     <Link to="/resetPassword">
