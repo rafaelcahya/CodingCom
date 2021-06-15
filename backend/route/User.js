@@ -437,4 +437,79 @@ router.get("/userById/:name", (req, res) => {
     })
 })
 
+router.post("/profile", (req, res) => {
+    const urlname = req.body.urlname
+    let fullname = req.body.fullname
+    let name = req.body.name
+    let gender = req.body.gender
+    let BoD = req.body.BoD
+    let phonenumber = req.body.phonenumber
+    let cphonenumber = req.body.cphonenumber
+    let emergencynumber = req.body.emergencynumber
+    let cemergencynumber = req.body.cemergencynumber
+    let address = req.body.address
+    let city = req.body.city
+    let postalCode = req.body.postalCode
+    const updateAt = req.body.updateAt
+    if(cphonenumber != phonenumber){
+        res.send({message:"Confirm Phone Number must be same as Phone Number"})
+    }else if(cemergencynumber != emergencynumber){
+        res.send({message:"Confirm Emergency Number must be as Emergency Number"})
+    }else{
+        db.query("SELECT * From user WHERE name = ?", urlname, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                if (fullname.length <= 0) {
+                    fullname = results[0].fullname
+
+                } if (name.length <= 0) {
+                    name = results[0].name
+
+                } if (gender.length <= 0) {
+                    gender = results[0].gender
+
+                } if (BoD.length <= 0) {
+                    BoD = results[0].BoD
+
+                } if (phonenumber.length <= 0) {
+                    phonenumber = results[0].phoneNumber
+
+                } if (emergencynumber.length <= 0) {
+                    emergencynumber = results[0].emergencyNumber
+
+                } if (address.length <= 0) {
+                    address = results[0].address
+
+                } if (city.length <= 0) {
+                    city = results[0].city
+
+                } if(postalCode.length <= 0){
+                    postalCode = results[0].postalCode
+
+                } if (!req.files) {
+                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, updateAt, urlname], (err, results) => {
+                    console.log(err)
+                    res.send(results)
+                    })
+                } else {
+                    const file = req.files.fileUpload
+                    const filename = file.name
+                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, updateAt, filename, urlname], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                        file.mv('../frontend/src/asset/upload/' + file.name)
+                    })
+                }
+                // db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, updateAt, urlname], (err, results) => {
+                //     console.log(err)
+                //     res.send(results)
+                //     file.mv('../frontend/src/asset/upload/' + file.name)
+                // })
+            }
+        })
+    }
+})
+
 module.exports = router;

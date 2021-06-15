@@ -81,7 +81,7 @@ function App() {
             <Route path="/forgotPassword/:hash" component={ForgotPassword} />
             <Route path="/resetPassword" component={ResetPassword} />
             <Route path="/register" component={Register} />
-            <Route path="/profile" component={AddProfile}/>
+            <Route path="/profile/:name" component={AddProfile} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/payment-confirmation-premium" component={PaymentVerif} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
