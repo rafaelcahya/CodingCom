@@ -8,21 +8,11 @@ import Popup from "./RegisterPopup"
 function Register() {
     const [fullname, setFullname] = useState("")
     const [name, setName] = useState("")
-    const [gender, setGender] = useState("")
-    const [BoD, setBoD] = useState("")
-    const [phonenumber, setPhonenumber] = useState("")
-    const [cphonenumber, setCphonenumber] = useState("")
-    const [emergencynumber, setEmergencynumber] = useState("")
-    const [cemergencynumber, setCemergencynumber] = useState("")
-    const [education, setEducation] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmpassword, setConfirmpassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [createAt,setCreateAt] = useState("")
-    const [address, setAddress] = useState("")
-    const [city, setCity] = useState("")
-    const [postalCode, setPostalCode] = useState("")
     const [buttonPopup, setButtonPopup] = useState(false)
 
     window.onload = setTimeout(function () {
@@ -35,7 +25,7 @@ function Register() {
 
     const register = () => {
         console.log(name)
-        Axios.post("http://localhost:3001/user/register", { fullname: fullname, address:address, city:city, postalCode:postalCode, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, education:education, name: name, gender:gender, BoD:BoD, phoneNumber:phonenumber, cphoneNumber:cphonenumber, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/user/register", { fullname: fullname, name: name, email: email, password: password, confirmpassword: confirmpassword, createAt: createAt }).then((response) => {
             console.log(response)
             if (response.data.message) {
                 setErrorMessage(response.data.message)
@@ -75,52 +65,6 @@ function Register() {
                                 }} />
                         </div>
                     </div>
-                    <div className="flex flex-col lg:flex-row gap-5 w-full">
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Gender</p>
-                            <select name="" id=""  onChange={(event) => {
-                                setGender(event.target.value)
-                            }} >`
-                                <option value="Gender">Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Birth date</p>
-                            <input type="date" onChange={(event) => {
-                                setBoD(event.target.value)
-                            }} />
-                        </div>
-                    </div>
-                    <div className="flex flex-col lg:flex-row gap-5 w-full">
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Phone number</p>
-                            <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
-                                setPhonenumber(event.target.value)
-                            }} />
-                        </div>
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Confirm phone number</p>
-                            <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
-                                setCphonenumber(event.target.value)
-                            }} />
-                        </div>
-                    </div>
-                    <div className="flex flex-col lg:flex-row gap-5 w-full">
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Emergency number(Optional)</p>
-                            <input type="number" placeholder="Phone number" className="w-32"  onChange={(event) => {
-                                setEmergencynumber(event.target.value)
-                            }} />
-                        </div>
-                        <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                            <p className="text-sm font-semibold">Confirm emergency(Optional)</p>
-                            <input type="number" placeholder="Confirm phone number" className="input-confph" onChange={(event) => {
-                                setCemergencynumber(event.target.value)
-                            }} />
-                        </div>
-                    </div>
                     <div>
                         <p className="email text-sm font-semibold mb-1">Email</p>
                         <input
@@ -157,41 +101,6 @@ function Register() {
                                 }} />
                         </div>
                     </div>
-                    <div className="flex flex-col gap-2">
-                        <p className="text-sm font-semibold">Home address(Optional)</p>
-                        <textarea placeholder="Home address" onChange={(event) => {
-                            setAddress(event.target.value)
-                        }} />
-                    </div>
-                    <div className="w-full flex justify-between gap-10">
-                        <div className="w-1/2 flex flex-col gap-2">
-                            <p className="text-sm font-semibold">City(Optional)</p>
-                            <input type="text" placeholder="City" onChange={(event) => {
-                                setCity(event.target.value)
-                            }} />
-                        </div>
-                        <div className="w-1/2 flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Postal Code(Optional)</p>
-                            <input type="number" placeholder="Postal Code" onChange={(event) => {
-                                setPostalCode(event.target.value)
-                            }} />
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Last education</p>
-                            <select name="" id=""  onChange={(event) => {
-                                    setEducation(event.target.value)
-                                }} >
-                                <option value="Gender">Choose education level</option>
-                                <option value="Male">Elementary school</option>
-                                <option value="Junior">Junior high school</option>
-                                <option value="Senior">Senior high school</option>
-                                <option value="Associate">Associate Degrees</option>
-                                <option value="Bachelor’s">Bachelor’s Degrees</option>
-                                <option value="Master’s">Master’s Degrees</option>
-                                <option value="Doctoral">Doctoral Degrees</option>
-                            </select>
-                        </div>
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
                 <div className="flex justify-end gap-5 text-sm">

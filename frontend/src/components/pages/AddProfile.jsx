@@ -5,7 +5,7 @@ import Axios from "axios"
 
 export default function AddProfile(props) {
     const urlname = props.match.params.name
-    const [id, setId] = useState("")
+    const [education, setEducation] = useState("")
     const [fullname, setFullname] = useState("")
     const [name, setName] = useState("")
     const [gender, setGender] = useState("")
@@ -53,6 +53,7 @@ export default function AddProfile(props) {
         fd.append('postalCode', postalCode)
         fd.append('updateAt', updateAt)
         fd.append('urlname', urlname)
+        fd.append('education', education)
         Axios.post("http://localhost:3001/user/profile",fd).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
@@ -106,7 +107,7 @@ export default function AddProfile(props) {
                                     <select name="" id="" onChange={(event) => {
                                             setGender(event.target.value)
                                         }} >
-                                        <option>{val.gender}</option>
+                                        <option>Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -166,6 +167,21 @@ export default function AddProfile(props) {
                                         }} />
                                 </div>
                             </div>
+                            <div className="flex flex-col gap-2">
+                            <p className="text-sm font-semibold">Last education</p>
+                            <select name="" id=""  onChange={(event) => {
+                                    setEducation(event.target.value)
+                                }} >
+                                <option value="Gender">Choose education level</option>
+                                <option value="Male">Elementary school</option>
+                                <option value="Junior">Junior high school</option>
+                                <option value="Senior">Senior high school</option>
+                                <option value="Associate">Associate Degrees</option>
+                                <option value="Bachelor’s">Bachelor’s Degrees</option>
+                                <option value="Master’s">Master’s Degrees</option>
+                                <option value="Doctoral">Doctoral Degrees</option>
+                            </select>
+                        </div>
                         </div>
                         })
                     }

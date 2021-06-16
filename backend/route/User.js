@@ -11,16 +11,6 @@ const handlebars = require('handlebars')
 router.post("/register", (req, res) => {
     const fullname = req.body.fullname
     const name = req.body.name
-    const gender = req.body.gender
-    const BoD = req.body.BoD
-    const phoneNumber = req.body.phoneNumber
-    const cphoneNumber = req.body.cphoneNumber
-    const emergencynumber = req.body.emergencynumber
-    const cemergencynumber = req.body.cemergencynumber
-    const education = req.body.education
-    const address = req.body.address
-    const city = req.body.city
-    const postalCode = req.body.postalCode
     const email = req.body.email
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
@@ -40,18 +30,6 @@ router.post("/register", (req, res) => {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
         res.send({ message: "Username cannot contain spaces" })
-    } else if (gender.length <= 0) {
-        res.send({ message: "Gender cannot be empty" })
-    } else if (BoD.length <= 0) {
-        res.send({ message: "Birth of Date cannot be empty" })
-    } else if (phoneNumber.length <= 0) {
-        res.send({ message: "Phone number cannot be empty" })
-    } else if (cphoneNumber.length <= 0) {
-        res.send({ message: "Confirm Phone number cannot be empty" })
-    } else if (cphoneNumber != phoneNumber) {
-        res.send({ message: "Phone number and confirm phone number must be same" })
-    } else if (cemergencynumber != emergencynumber) {
-        res.send({ message: "Emergency number and confirm emergency number must be same" })
     } else if (email.length <= 0) {
         res.send({ message: "Please add your Email" })
     } else if (email.match(/[@]/) == null) {
@@ -74,8 +52,6 @@ router.post("/register", (req, res) => {
         res.send({ message: "Please add your confirm password" })
     } else if (confirmpassword != password) {
         res.send({ message: "Confirm password must be same as password" })
-    } else if (education.length <= 0) {
-        res.send({ message: "Education can not be empty" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -126,7 +102,7 @@ router.post("/register", (req, res) => {
                             })
                         }
                     )
-                db.query("INSERT INTO user (fullname, name, gender, BoD, phoneNumber, emergencyNumber, address, city, postalCode, email, education, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, gender, BoD, phoneNumber, emergencynumber, address, city, postalCode, email, education, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -450,6 +426,7 @@ router.post("/profile", (req, res) => {
     let address = req.body.address
     let city = req.body.city
     let postalCode = req.body.postalCode
+    let education = req.body.education
     const updateAt = req.body.updateAt
     if(cphonenumber != phonenumber){
         res.send({message:"Confirm Phone Number must be same as Phone Number"})
@@ -488,15 +465,18 @@ router.post("/profile", (req, res) => {
                 } if(postalCode.length <= 0){
                     postalCode = results[0].postalCode
 
+                } if(education.length <=0){
+                    education = results[0].education
+
                 } if (!req.files) {
-                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, updateAt, urlname], (err, results) => {
+                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, urlname], (err, results) => {
                     console.log(err)
                     res.send(results)
                     })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
-                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, updateAt, filename, urlname], (err, results) => {
+                    db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, filename, urlname], (err, results) => {
                         console.log(err)
                         res.send(results)
                         file.mv('../frontend/src/asset/upload/' + file.name)
