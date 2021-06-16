@@ -70,9 +70,9 @@ export default function BootcampSchedule() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="gender text-sm font-semibold">Status</p>
-                            <select name="" id="" onChange={(event) => {
+                            <select name="" id="" value={status} onChange={(event) => {
                                     setStatus(event.target.value)
-                                }} >
+                                }}>
                                 <option value="">Choose status</option>
                                 <option value="Offline">Offline</option>
                                 <option value="Online">Online</option>
