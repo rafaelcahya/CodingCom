@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import ShowMoreText from 'react-show-more-text';
 
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
@@ -32,7 +33,7 @@ function ClassDetail(props) {
                             (val) => {
                                 let image = require('../../../asset/upload/'+ val.image)
                                 return <div className="classDetail flex flex-col md:flex-row gap-10">
-                                    <div className="flex flex-col gap-5">
+                                    <div className="flex flex-col gap-5 w-3/4">
                                         <img src={image.default}  className="rounded-lg" />
                                         <div className="flex flex-col gap-5">
                                             <div className="py-8 border-b-2 border-gray-300">
@@ -43,7 +44,7 @@ function ClassDetail(props) {
                                                 <p className="text-xl font-semibold capitalize">Class Information</p>
                                                 <p>{val.classInfo}</p>
                                             </div>
-                                            <div className="flex flex-col gap-2">
+                                            <div className="content-class flex flex-col gap-2 leading-7">
                                                 <p className="text-xl font-semibold capitalize">Description Class</p>
                                                 <div dangerouslySetInnerHTML={{ __html: val.classDescription }} />
                                             </div>
@@ -66,7 +67,12 @@ function ClassDetail(props) {
                                             </div>
                                         </div>
                                         <div className="max-w-md">
-                                            <p className="classInfo">{val.classInfo}</p>
+                                            <ShowMoreText
+                                                more='Read more'
+                                                less='Read less'
+                                                anchorClass='anchor-showmore'>
+                                                <p>{val.classInfo}</p>
+                                            </ShowMoreText>
                                         </div>
                                         <div>
                                             <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>

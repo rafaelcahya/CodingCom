@@ -1688,6 +1688,27 @@ class session
 
 */
 
+.content-class a{
+    color: var(--blue-1);
+    text-decoration: underline;
+}
+
+.content-class li {
+    margin-left: 25px;
+}
+
+.content-class ul{
+    list-style-type: initial;
+}
+
+.content-class ol{
+    list-style-type: decimal;
+}
+
+.content-class ul li span, .content-class ol li span{
+    text-indent: 500px;
+}
+
 .classDetail img{
     width: 25rem;
 }
