@@ -71,7 +71,7 @@ export default function Schedule() {
                                                 </ShowMoreText>
                                                 <div className="w-max">
                                                     {
-                                                        val.status === "Offline" ? (<p className="text-xs font-semibold rounded-md tracking-wide p-1 text-blue-500 bg-blue-100">{val.status}</p>):(<p className="text-xs font-semibold rounded-md tracking-wide p-1 text-green-500 bg-green-100">{val.status}</p>)
+                                                        val.status === "Offline" ? (<p className="text-xs font-semibold rounded-md tracking-wider p-1 text-gray-500 bg-gray-200">{val.status}</p>):(<p className="text-xs font-semibold rounded-md tracking-wider p-1 text-green-500 bg-green-100">{val.status}</p>)
                                                     }
                                                 </div>
                                             </div>

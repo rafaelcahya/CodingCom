@@ -12,7 +12,6 @@ import ForgotPassword from "./components/pages/ForgotPassword"
 import ResetPassword from "./components/pages/ResetPassword"
 import AddProfile from "./components/pages/AddProfile.jsx"
 import Help from "./components/pages/help/Help";
-import PaymentVerif from "./components/pages/pricing/payment/PaymentVerif";
 import Homepage from "./components/pages/homepage/Homepage.jsx"
 import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
 import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
@@ -83,7 +82,6 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/profile/:name" component={AddProfile} />
             <Route path="/pricing" component={Pricing} />
-            <Route path="/payment-confirmation-premium" component={PaymentVerif} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
             <Route path="/payment-confirmation-class-consultation-quota" component={ConsultationPay} />
             <Route path="/payment-confirmation-class-session-quota" component={SessionPay} />

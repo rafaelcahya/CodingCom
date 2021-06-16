@@ -124,7 +124,7 @@ function ClassReq() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Class Information</p>
-                            <textarea placeholder="add info class here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
+                            <textarea placeholder="Class information" className="h-32 resize-none cursor-text" onChange={(event) => {
                                 setInfo(event.target.value)
                             }} ></textarea>
                         </div>

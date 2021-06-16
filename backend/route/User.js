@@ -27,7 +27,7 @@ router.post("/register", (req, res) => {
     const createAt = req.body.createAt
     let paket_id = 4
     let updateAt = ""
-    let status = "NONACTIVE"
+    let status = "Not Active"
     let role = 3
     let isDeleted = "NO"
     // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
@@ -391,7 +391,7 @@ router.get("/userList", (req, res) => {
 })
 
 router.get("/userListActive", (req, res) => {
-    let status = "ACTIVED"
+    let status = "Active"
     let isDeleted = "NO"
     db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)

@@ -1698,7 +1698,8 @@ class session
     }
 }
 
-.request-class-form input {
+.request-class-form input,
+.request-class-form textarea {
     padding: .375rem 1rem;
     border: 1.3px solid var(--black-3);
     border-radius: 6px;
@@ -1733,7 +1734,8 @@ class session
 }
 
 .request-class-form input:focus,
-.request-class-form select:focus {
+.request-class-form select:focus,
+.request-class-form textarea:focus {
     border: 1.5px solid var(--blue-1);
 }
 

@@ -57,7 +57,9 @@ export default function Class() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
+                                                            {
+                                                                val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>):(<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>)
+                                                            }
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {val.status === "Pending" ?(

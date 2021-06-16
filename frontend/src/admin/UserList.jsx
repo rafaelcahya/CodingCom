@@ -68,9 +68,16 @@ export default function UserList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                        {
+                                                            val.status !== "Active" ? (<td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
+                                                        </td>) : (
+                                                            <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>
+                                                        )
+                                                        
+                                                        }
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-100 text-blue-500">{val.role}</p>
                                                         </td>
