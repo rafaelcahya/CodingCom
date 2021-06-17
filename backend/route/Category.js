@@ -28,4 +28,11 @@ router.get("/listCategory", (req, res) => {
     })
 })
 
+router.get("/categoryById/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT * from category WHERE categoryId = ?", id, (err, results) => {
+        res.send(results)
+    })
+})
+
 module.exports = router;

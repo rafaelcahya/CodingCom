@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import Axios from 'axios'
 
 import Accordion from "../components/minor/accordion/Accordion"
 
@@ -10,11 +11,19 @@ import Syllabus from '../asset/file/Silabus-Update2021.pdf'
 import BootcampNavbar from './BootcampNavbar';
 
 function BootcampHome() {
+    const [value, setValue] = useState([])
 
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
     }, 10)
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/batch/listBatch").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
 
     const hiddenTexts = [{
         label: 'What will I get from the program?',
@@ -64,6 +73,7 @@ function BootcampHome() {
         label: 'Does Hacktiv8 provide certificates upon graduation?',
         value: 'Hacktiv8 provides digital certificates for Hacktiv8 students who have successfully completed the Hacktiv8 learning program.'
     }];
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
         <>
             <BootcampNavbar/>
@@ -279,16 +289,18 @@ function BootcampHome() {
             </section>
 
             <section className="py-10 mt-10 mb-20 md:mb-28 bg-yellow-200 text-black">
-                <div className="flex justify-center gap-10  lg:mx-10 xl:mx-32">
+                {value.map((val)=>{
+                   return <div className="flex justify-center gap-10  lg:mx-10 xl:mx-32">
                     <div className="text-center px-10 py-5 rounded-xl">
-                        <p>Batch 1 will run on </p>
-                        <p className="text-lg font-semibold mt-2">30 August 2021 - 12 November 2021</p>
+                        <p>{val.batch} will run on </p>
+                        <p className="text-lg font-semibold mt-2">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
                     </div>
-                    <div className="text-center px-10 py-5 rounded-xl">
+                    {/* <div className="text-center px-10 py-5 rounded-xl">
                         <p>Batch 2 will run on </p>
                         <p className="text-lg font-semibold mt-2">29 November 2021 - 25 February 2022</p>
-                    </div>
+                    </div> */}
                 </div>
+                })}
                 <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-20 md:gap-0 px-8 md:px-16 lg:px-40 py-10">
                     <div>
                         <p className="mb-2">Duration</p>

@@ -20,12 +20,12 @@ router.post("/rating", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT * From rating WHERE user_id = ? AND course_id = ?", [user_id, id], (err, results) => {
+            db.query("SELECT * From rating WHERE user_id = ? AND topik_id = ?", [user_id, id], (err, results) => {
                 if (err) {
                     console.log(err)
                 }
                 if (!results.length) {
-                    db.query("INSERT INTO rating (rating, description, user_id, course_id, ratingCreateAt) VALUES (?, ?, ?, ?, ?);", [rating, des, user_id, id, createAt], (err, results) => {
+                    db.query("INSERT INTO rating (rating, description, user_id, topik_id, ratingCreateAt) VALUES (?, ?, ?, ?, ?);", [rating, des, user_id, id, createAt], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
@@ -41,15 +41,18 @@ router.post("/rating", (req, res) => {
     })
 })
 
-router.get("/ratingList", (req, res) => {
-    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name from rating,user WHERE rating.user_id=user.id", (err, results) => {
+router.get("/ratingList/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name from rating,user WHERE rating.user_id=user.id AND rating.topik_id = ?",id, (err, results) => {
         res.send(results)
     })
 })
 
-router.get("/AvgratingList", (req, res) => {
-    db.query("SELECT AVG(rating) AS AverageRating FROM rating", (err, results) => {
+router.get("/AvgratingList/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT AVG(rating) AS AverageRating FROM rating WHERE rating.topik_id = ?",id, (err, results) => {
         res.send(results)
+        console.log(results)
     })
 })
 

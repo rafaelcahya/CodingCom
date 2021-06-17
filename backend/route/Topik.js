@@ -98,4 +98,12 @@ router.post("/editTopik", (req, res) => {
     })
 })
 
+router.get("/topikByCatId/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT * from topik WHERE category_id = ?", id, (err, results) => {
+        res.send(results)
+    })
+    console.log(id)
+})
+
 module.exports = router;

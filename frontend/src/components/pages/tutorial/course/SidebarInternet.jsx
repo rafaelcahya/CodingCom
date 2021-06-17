@@ -9,7 +9,7 @@ export const SidebarInternet = () => {
         axios.get("http://localhost:3001/course/listCourseUser").then((response) => {
             setValue(response.data)
         })
-    });
+    },[]);
 
     function refreshPage() {
         window.location.reload(false);

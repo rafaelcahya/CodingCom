@@ -106,4 +106,11 @@ router.get("/courseById/:id", (req, res) => {
     })
 })
 
+router.get("/courseByTopikId/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT * from course WHERE topik_id = ?", id, (err, results) => {
+        res.send(results)
+    })
+})
+
 module.exports = router;

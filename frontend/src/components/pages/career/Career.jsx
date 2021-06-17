@@ -86,7 +86,7 @@ export default function Career() {
                                                     <p className="text-sm">{item.companyName}</p>
                                                     <p className="font-semibold">{item.jobTitle}</p>
                                                     <div className="max-w-xs">
-                                                        <p className="truncate3 text-gray-500 text-sm">{item.overview}</p>
+                                                    <div dangerouslySetInnerHTML={{ __html: item.overview }} />
                                                     </div>
                                                     <p className="text-xs bg-blue-100 color-blue-1 font-semibold w-max py-1 px-2 mt-2 rounded-lg">{item.jobType}</p>
                                                 </div>
@@ -143,7 +143,7 @@ function Menu({menuItem}) {
                                 <p className="text-sm">{item.companyName}</p>
                                 <p className="font-semibold">{item.jobTitle}</p>
                                 <div className="max-w-xs">
-                                    <p className="truncate3 text-gray-500 text-sm">{item.overview}</p>
+                                <div dangerouslySetInnerHTML={{ __html: item.overview }} />
                                 </div>
                                 <p className="text-xs bg-blue-100 color-blue-1 font-semibold w-max py-1 px-2 mt-2 rounded-lg">{item.jobType}</p>
                             </div>

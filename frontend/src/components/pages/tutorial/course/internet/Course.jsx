@@ -16,7 +16,6 @@ function Internet(props) {
     const urlid = props.match.params.id
     const modal = useRef()
     let x
-    const [id, setId] = useState("")
     const [comment, setComment] = useState("")
     const [name, setName] = useState("")
     const [createAt, setCreateAt] = useState("")
@@ -26,9 +25,6 @@ function Internet(props) {
     const [commentlist, setCommentList] = useState([])
 
     window.onload = setTimeout(function () {
-        var url1 = window.location.pathname;
-        var idurl = url1.substring(url1.lastIndexOf('/') + 1);
-        setId(idurl)
         x = localStorage.getItem("name");
         document.getElementById("name").innerHTML = x;
         setName(x)
@@ -55,7 +51,7 @@ function Internet(props) {
     }, []);
 
     const commentInternet = () => {
-        Axios.post("http://localhost:3001/comment/commentInternet", { id: id, name: name, comment: comment, createAt: createAt }).then((response) => {
+        Axios.post("http://localhost:3001/comment/commentInternet", { id: urlid, name: name, comment: comment, createAt: createAt }).then((response) => {
             setErrorMessage(response.data.message)
             window.location.reload()
         })
@@ -91,8 +87,8 @@ function Internet(props) {
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />
                                     </div>
                                     <NextPrevBtnTutorial
-                                        back={"/user-course/"+nextpage}
-                                        next={"/user-course/"+prevpage}
+                                        back={"/user-course/"+prevpage}
+                                        next={"/user-course/"+nextpage}
                                     />
                                 </div>
                             }
@@ -166,7 +162,7 @@ const Modal = forwardRef((props, ref) => {
         }
     })
 
-    const Choose = () => {
+    const Choose = (props) => {
         const [id, setId] = useState("")
         const [name, setName] = useState("")
         const [rating, setRating] = useState("")
@@ -186,6 +182,7 @@ const Modal = forwardRef((props, ref) => {
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             var dateTime = date + ' ' + time;
             setCreateAt(dateTime)
+            console.log(idurl)
         }, 500)
 
         const RateEmo1 = () => {

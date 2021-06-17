@@ -118,11 +118,11 @@ function CareerDetail(props) {
                                         <div className="flex flex-col gap-10 pt-5">
                                             <div className="flex flex-col gap-2">
                                                 <p className="text-xl font-semibold">Overview</p>
-                                                <p>{val.overview}</p>
+                                                <div dangerouslySetInnerHTML={{ __html: val.overview }} />
                                             </div>
                                             <div className="flex flex-col gap-2">
                                                 <p className="text-xl font-semibold">Job Description</p>
-                                                <p>{val.jobDescription}</p>
+                                                <div dangerouslySetInnerHTML={{ __html: val.jobDescription }} />
                                             </div>
                                         </div>
                                     </div>

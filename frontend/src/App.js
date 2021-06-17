@@ -19,6 +19,8 @@ import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
 import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
 import Pricing from "./components/pages/pricing/Pricing.jsx"
 import Internet from "./components/pages/tutorial/course/internet/Internet.jsx"
+import CategoryDetail from "./components/pages/tutorial/CategoryDetail.jsx"
+import TopicDetail from "./components/pages/tutorial/TopicDetail.jsx"
 import Course from "./components/pages/tutorial/course/internet/Course"
 import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
@@ -104,8 +106,10 @@ function App() {
 
             <Route path="/coming-soon" component={ComingSoon} />
 
+            <Route path="/category-detail/:id" component={CategoryDetail} />
+            <Route path="/topic-detail/:id" component={TopicDetail} />
             <Route path="/internet" component={Internet} />
-            <Route path="/user-course/:id" component={Course} />
+            <Route path="/:course/:id/:id2" component={Course} />
 
             <Route path="/html" component={HTML} />
             <Route path="/challenge" component={Challenge} />
