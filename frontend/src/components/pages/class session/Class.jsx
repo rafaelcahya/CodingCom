@@ -31,7 +31,7 @@ function Class() {
                     <p className="text-4xl font-bold">Coding class</p>
                     <p className="text-xl text-gray-500 font-medium">Choose classes that will support your personal and professional development here!</p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-10 mt-20 h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-5 gap-y-12 mt-20 h-full">
                     {
                         listClass.map(
                             (val)=> {
@@ -43,8 +43,8 @@ function Class() {
                                                     <p className="color-blue-1 text-right font-semibold">{formatDateDay(val.startDate)}</p>
                                                     <p className="font-medium uppercase tracking-tight">{formatDateMonth(val.startDate)}</p>
                                                 </div>
-                                                <div className="flex flex-col gap-4">
-                                                    <p className="text-xl font-bold capitalize break-words max-w-xs">{val.className}</p>
+                                                <div className="flex flex-col gap-4 w-72">
+                                                    <p className="text-xl font-bold capitalize break-words">{val.className}</p>
                                                     <div className="max-w-xs">
                                                         <p className="truncate3 text-sm">{val.classInfo}</p>
                                                     </div>

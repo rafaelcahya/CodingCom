@@ -21,6 +21,11 @@ export default function AddProfile(props) {
     const [errorMessage, setErrorMessage] = useState("")
     const [file, setFile] = useState([])
     const [valueList,setValueList] = useState([])
+    
+    window.onload = setTimeout(function () {
+        let x = localStorage.getItem("name");
+        setName(x)
+    }, 10)
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -64,13 +69,18 @@ export default function AddProfile(props) {
         <>
             <div className="flex flex-col items-center">
                 <div className="profile-form pt-5 w-4/5 md:w-1/2">
-                    <div className="-ml-2 mt-5 mb-10 py-5 border-b">
-                        <Link to="/" className="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                            <p>Back</p>
+                    <div className="sticky self-start container mx-auto top-10 gap-10 py-2 bg-white shadow rounded-lg border hover:bg-blue-50">
+                        <Link to={"/profile/" + name}>
+                            <div className="flex items-center justify-between px-5">
+                                <div className="flex items-center gap-1 -ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                    <p>Back</p>
+                                </div>
+                                <p className="font-semibold">Personal Information</p>
+                            </div>
                         </Link>
                     </div>
-                    <div>
+                    <div className="mt-20 mb-10">
                         <p className="text-2xl font-semibold">Your profile</p>
                         <p className="font-medium text-sm">This is your profile. Fill your profile wisely, it will affect others.</p>
                     </div>
@@ -186,8 +196,8 @@ export default function AddProfile(props) {
                         })
                     }
                     <p>{errorMessage}</p>
-                    <div className="py-10">
-                        <p onClick={submit} className="bg-blue-1 hover:bg-blue-400 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Save</p>
+                    <div className="flex justify-center py-10">
+                        <p onClick={submit} className="w-max bg-blue-1 hover:bg-blue-400 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Save</p>
                     </div>
                 </div>
             </div>

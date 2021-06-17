@@ -1081,6 +1081,15 @@ Profile
     outline: none;
 }
 
+.table-profile tr td{
+    padding: 0.875rem 0;
+}
+
+.table-profile tr td:first-child{
+    padding-right: 15rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}
 /* 
 
 Homepage 
@@ -1688,6 +1697,27 @@ class session
 
 */
 
+.content-class a{
+    color: var(--blue-1);
+    text-decoration: underline;
+}
+
+.content-class li {
+    margin-left: 25px;
+}
+
+.content-class ul{
+    list-style-type: initial;
+}
+
+.content-class ol{
+    list-style-type: decimal;
+}
+
+.content-class ul li span, .content-class ol li span{
+    text-indent: 500px;
+}
+
 .classDetail img{
     width: 25rem;
 }
@@ -1698,7 +1728,8 @@ class session
     }
 }
 
-.request-class-form input {
+.request-class-form input,
+.request-class-form textarea {
     padding: .375rem 1rem;
     border: 1.3px solid var(--black-3);
     border-radius: 6px;
@@ -1733,7 +1764,8 @@ class session
 }
 
 .request-class-form input:focus,
-.request-class-form select:focus {
+.request-class-form select:focus,
+.request-class-form textarea:focus {
     border: 1.5px solid var(--blue-1);
 }
 
