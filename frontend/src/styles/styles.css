@@ -1081,6 +1081,15 @@ Profile
     outline: none;
 }
 
+.table-profile tr td{
+    padding: 0.875rem 0;
+}
+
+.table-profile tr td:first-child{
+    padding-right: 15rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}
 /* 
 
 Homepage 

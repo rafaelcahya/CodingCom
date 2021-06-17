@@ -9,7 +9,6 @@ function AddBatch() {
     const [endDate, setEndDate] = useState("")
     const [createAt, setCreateAt] = useState("")
 
-
     window.onload = setTimeout(function () {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

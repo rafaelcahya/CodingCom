@@ -24,7 +24,7 @@ export default function Schedule() {
     return (
         <>
             <div className="flex flex-col items-center px-16 lg:px-32 pt-14 w-full">
-                <div className="schedule-card fixed gap-10 py-2 bg-white rounded-lg shadow border hover:bg-blue-50">
+                <div className="schedule-card fixed gap-10 py-2 bg-white shadow rounded-lg border hover:bg-blue-50">
                     <Link to="/bootcamp">
                         <div className="flex items-center justify-between px-5">
                             <div className="flex items-center gap-1 -ml-2">
@@ -35,7 +35,7 @@ export default function Schedule() {
                         </div>
                     </Link>
                 </div>
-                <div className="flex flex-col justify-center bg-white border p-5 rounded-lg w-max mt-20">
+                <div className="flex flex-col justify-center bg-white border p-5 rounded-lg mt-20">
                     <div className="pt-5 pb-10">
                         <span className="flex gap-1 text-xl font-semibold">Hi <p id="name"></p></span>
                         <p className="text-sm font-medium text-gray-400">Here all your planned classes and events. You will find information for each day.</p>
