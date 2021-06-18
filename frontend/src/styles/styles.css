@@ -898,6 +898,13 @@ Accessories
     visibility: visible;
 }
 
+.truncate2{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 .truncate3{
     overflow: hidden;
     display: -webkit-box;
@@ -1582,7 +1589,10 @@ iframe {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* 

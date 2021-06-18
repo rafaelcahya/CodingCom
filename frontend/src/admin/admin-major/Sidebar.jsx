@@ -47,9 +47,23 @@ export default function Sidebar() {
                         ],
                     },
                     {
-                        title: 'Tutorial',
-                        itemId: '/admin/list-course',
+                        title: "Tutorial Management",
+                        subNav: [
+                            {
+                                title: 'Tutorial List',
+                                itemId: '/admin/list-course',
+                            },
+                            {
+                                title: 'Sub tutorial list',
+                                itemId: '/admin/list-topik',
+                            },
+                            {
+                                title: 'Add tutorial',
+                                itemId: '/admin/add-category',
+                            },
+                        ],
                     },
+                    
                     {
                         title: 'Class Session',
                         itemId: '/admin/class-requisition',

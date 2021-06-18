@@ -169,11 +169,9 @@ export default function NavbarLogin() {
                                 {
                                     value.map((val) => {
                                         return <Link to={"/category-detail/" + val.categoryId}>
-                                            <div>
+                                            <div style={{width: "300px"}}>
                                                 <p className="font-semibold mb-3">{val.category}</p>
-                                                <div className="flex flex-col gap-2 text-sm mt-2">
-                                                    <p>{val.categoryInfo}</p>
-                                                </div>
+                                                <p className="truncate2 text-sm mt-2">{val.categoryInfo}</p>
                                             </div>
                                         </Link>
                                     })
