@@ -12,10 +12,12 @@ import BootcampNavbar from './BootcampNavbar';
 
 function BootcampHome() {
     const [value, setValue] = useState([])
+    const [name, setName] = useState("")
 
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
+        setName(x)
     }, 10)
 
     useEffect(() => {
@@ -83,7 +85,7 @@ function BootcampHome() {
                     <p className="text-4xl font-semibold text-center">Fulltime Coding Bootcamp</p>
                     <p className="text-xl font-medium w-3/5 text-center mt-5 mb-10">Be a part of coding.com and show your skills and creativity to impact others in an affordable time. Gain a knowledge base for the future and learn how to build a website for yourself or even your business.</p>
                     <p>Prepare yourself to be the next tech leaders!</p>
-                    <Link to="/register-bootcamp">
+                    <Link to={"/register-bootcamp/" + name}>
                         <p className="bg-yellow-500 px-8 py-3 mt-5 mb-10 rounded-xl">Register Now</p>
                     </Link>
                 </div>
@@ -330,7 +332,7 @@ function BootcampHome() {
                             <p>Career Opportunity</p>
                             <p>Certificate</p>
                         </div>
-                        <Link to="/register-bootcamp">
+                        <Link to={"/register-bootcamp/" + name}>
                             <p className="bg-yellow-500 text-white font-medium mt-20 px-6 py-2 rounded-xl">Register Now</p>
                         </Link>
                     </div>

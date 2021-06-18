@@ -31,7 +31,7 @@ export default function Sidebar() {
                             },
                             {
                                 title: "Tutorial List",
-                                itemId: "/mentor/list-course/" + name
+                                itemId: "/mentor/list-courses/" + name
                             },
                         ],
                     },

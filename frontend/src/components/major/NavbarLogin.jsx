@@ -7,6 +7,7 @@ export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
     const [name, setName] = useState("")
     const [value, setValue] = useState([])
+    let image = require('../../asset/upload/'+ localStorage.getItem("image"))
     window.onload = setTimeout(function () {
         let x = localStorage.getItem("name");
         setName(x)
@@ -135,6 +136,7 @@ export default function NavbarLogin() {
                             initial={false}
                             animate={openProfile ? "opened" : "closed"}>
                             <div id="demo"></div>
+                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </motion.div>
                     </div>

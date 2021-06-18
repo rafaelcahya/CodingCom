@@ -15,7 +15,7 @@ router.post("/register", (req, res) => {
     const password = req.body.password
     const confirmpassword = req.body.confirmpassword
     const createAt = req.body.createAt
-    let paket_id = 4
+    let image = "default-user-image.png"
     let updateAt = ""
     let status = "Not Active"
     let role = 3
@@ -102,7 +102,7 @@ router.post("/register", (req, res) => {
                             })
                         }
                     )
-                db.query("INSERT INTO user (fullname, name, email, password, confirmpassword, status, roleId, paket_id, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?, ?);", [fullname, name, email, password, confirmpassword, status, role, paket_id, createAt, updateAt, isDeleted], (err, results) => {
+                db.query("INSERT INTO user (image, fullname, name, email, password, confirmpassword, status, roleId, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?);", [image, fullname, name, email, password, confirmpassword, status, role, createAt, updateAt, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -126,7 +126,7 @@ router.post("/login", (req, res) => {
         }
         if (results.length > 0) {
             if (hash.match(results[0].password) != null) {
-                res.json({ loggedIn: true, name: name })
+                res.json({ loggedIn: true, name: name, image:results[0].image })
 
             } else if (name.length <= 0) {
                 res.send({ message: "Username has not been filled" })

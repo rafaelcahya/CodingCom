@@ -23,6 +23,7 @@ export default function Login() {
             if (response.data.loggedIn) {
                 localStorage.setItem("loggedIn", true)
                 localStorage.setItem("name", response.data.name)
+                localStorage.setItem("image",response.data.image)
                 history.push("/")
             } else {
                 setErrorMessage(response.data.message)

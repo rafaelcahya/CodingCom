@@ -2,8 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
-function RegisterBootcamp() {
+function RegisterBootcamp(props) {
+    const urlname = props.match.params.name
     const [name, setName] = useState("")
+    const [education, setEducation] = useState("")
+    const [fullname, setFullname] = useState("")
+    const [gender, setGender] = useState("")
+    const [BoD, setBoD] = useState("")
+    const [phonenumber, setPhoneNumber] = useState("")
+    const [cphonenumber, setCphoneNumber] = useState("")
+    const [emergencynumber, setEmergencyNumber] = useState("")
+    const [cemergencynumber, setCemergencyNumber] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [postalCode, setPostalCode] = useState("")
     const [program, setProgram] = useState("")
     const [batch, setBatch] = useState("")
     const [motivation, setMotivation] = useState("")
@@ -11,6 +23,8 @@ function RegisterBootcamp() {
     const [errorMessage, setErrorMessage] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [value, setValue] = useState([])
+    const [valueGet, setValueGet] = useState([])
+    let name1 = ""
     let x
 
     window.onload = setTimeout(function () {
@@ -23,7 +37,6 @@ function RegisterBootcamp() {
         setCreateAt(dateTime)
     }, 500)
 
-
     useEffect(() => {
         Axios.get("http://localhost:3001/batch/listBatch").then((response) => {
             setValue(response.data)
@@ -31,10 +44,23 @@ function RegisterBootcamp() {
         })
     }, []);
 
-    const submit = () => {
-        Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", {program: program, batch: batch, motivation: motivation, busy: busy, createAt: createAt, name: name }).then((response) => {
-            setErrorMessage(response.data.message)
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user/userById/" + urlname).then((response) => {
+            setValueGet(response.data)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const submit = () => {
+        Axios.all([
+            Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { program: program, batch: batch, motivation: motivation, busy: busy, createAt: createAt, name: name }).then((response) => {
+                setErrorMessage(response.data.message)
+            }),
+            Axios.post("http://localhost:3001/user/profile", {urlname:urlname, name:name1, fullname:fullname, gender:gender, education:education, BoD:BoD, phonenumber:phonenumber, cphonenumber:cphonenumber, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, city:city, address:address, postalCode:postalCode, updateAt:createAt}).then((response) => {
+                console.log(response)
+                setErrorMessage(response.data.message)
+            })
+        ])
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -64,63 +90,222 @@ function RegisterBootcamp() {
             </nav>
             <section className="py-20 md:py-28">
                 <p className="text-2xl font-semibold text-center">Registration Form</p>
-                <div className="flex flex-col items-center">
-                    <form className="reg-bootcamp-box w-3/4 md:w-1/2 lg:w-2/5 py-10 flex flex-col gap-10">
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">How did you know this program?</p>
-                            <select name="" id="" onChange={(event) => {
-                                setProgram(event.target.value)
-                            }} >
-                                <option>Select source</option>
-                                <option value="Facebook">Facebook</option>
-                                <option value="Google">Google</option>
-                                <option value="Twitter">Twitter</option>
-                                <option value="LinkedIn">LinkedIn</option>
-                                <option value="Email">Email</option>
-                                <option value="Wesbite">Wesbite</option>
-                                <option value="Friends">Friends</option>
-                                <option value="Family">Family</option>
-                            </select>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
-                            <select name="" id="" onChange={(event) => {
-                                setBatch(event.target.value)
-                            }} >
-                                <option>Choose Batch</option>
-                                {
-                                    value.map(
-                                        (val) => {
-                                           return <option value={val.batchId}>{val.batch} : {formatDate(val.startDate)} - {formatDate(val.endDate)}</option>
+                {
+                    valueGet.map((val) => {
+                        return <div className="flex flex-col items-center">
+                            <form className="reg-bootcamp-box w-3/4 md:w-1/2 lg:w-2/5 py-10 flex flex-col gap-10">
+                                <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    {val.fullname.length <= 0 ? (<div className="flex flex-col gap-2 w-full">
+                                        <p className="text-sm font-semibold">Fullname</p>
+                                        <input type="text" placeholder="Fullname" onChange={(event) => {
+                                            setFullname(event.target.value)
+                                        }} />
+                                    </div>) : (<div className="flex flex-col gap-2 w-full">
+                                        <p className="text-sm font-semibold">Fullname</p>
+                                        <input type="text" placeholder="Fullname" value={val.fullname} disabled onChange={(event) => {
+                                            setFullname(event.target.value)
+                                        }} />
+                                    </div>)}
+                                </div>
+                                <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    {val.gender.length <= 0 ? (<div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Gender</p>
+                                        <select name="" id="" onChange={(event) => {
+                                            setGender(event.target.value)
+                                        }} >
+                                            <option>Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>) : (<div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Gender</p>
+                                        <select name="" id="" disabled onChange={(event) => {
+                                            setGender(event.target.value)
+                                        }}>
+                                            <option>{val.gender}</option>
+                                        </select>
+                                    </div>)}
+                                    {val.BoD == "0000-00-00" ? (<div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Birth date</p>
+                                        <input type="date" onChange={(event) => {
+                                            setBoD(event.target.value)
+                                        }} />
+                                    </div>) : (<div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Birth date</p>
+                                        <input type="text" value={formatDate(val.BoD)} disabled onChange={(event) => {
+                                            setBoD(event.target.value)
+                                        }} />
+                                    </div>)}
+                                </div>
+                                {val.phoneNumber.length <= 0 ? (<div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Phone number</p>
+                                        <input type="number" placeholder="Phone number" onChange={(event) => {
+                                            setPhoneNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Confirm phone number</p>
+                                        <input type="number" placeholder="Confirm phone number" onChange={(event) => {
+                                            setCphoneNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                </div>) : (<div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Phone number</p>
+                                        <input type="number" value={val.phoneNumber} disabled placeholder="Phone number" onChange={(event) => {
+                                            setPhoneNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Confirm phone number</p>
+                                        <input type="number" value={val.phoneNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
+                                            setCphoneNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                </div>)}
+                                {val.emergencyNumber.length <= 0 ? (<div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Emergency number</p>
+                                        <input type="number" placeholder="Phone number" onChange={(event) => {
+                                            setEmergencyNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Confirm emergency</p>
+                                        <input type="number" placeholder="Confirm phone number" onChange={(event) => {
+                                            setCemergencyNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                </div>) : (<div className="flex flex-col lg:flex-row gap-5 w-full">
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Emergency number</p>
+                                        <input type="number" value={val.emergencyNumber} disabled placeholder="Phone number" onChange={(event) => {
+                                            setEmergencyNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                        <p className="text-sm font-semibold">Confirm emergency</p>
+                                        <input type="number" value={val.emergencyNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
+                                            setCemergencyNumber(event.target.value)
+                                        }} />
+                                    </div>
+                                </div>)}
+                                {val.address.length <= 0 ? (<div className="flex flex-col gap-2 w-full">
+                                    <p className="text-sm font-semibold">Home address</p>
+                                    <textarea placeholder="Home address" className="resize-none" onChange={(event) => {
+                                        setAddress(event.target.value)
+                                    }} />
+                                </div>) : (<div className="flex flex-col gap-2 w-full">
+                                    <p className="text-sm font-semibold">Home address</p>
+                                    <textarea placeholder="Home address" value={val.address} disabled className="resize-none" onChange={(event) => {
+                                        setAddress(event.target.value)
+                                    }} />
+                                </div>)}
+                                <div className="w-full flex justify-between gap-10">
+                                    {val.city.length <= 0 ? (<div className="w-1/2 flex flex-col gap-2">
+                                        <p className="text-sm font-semibold">City</p>
+                                        <input type="text" placeholder="City" onChange={(event) => {
+                                            setCity(event.target.value)
+                                        }} />
+                                    </div>) : (<div className="w-1/2 flex flex-col gap-2">
+                                        <p className="text-sm font-semibold">City</p>
+                                        <input type="text" value={val.city} disabled placeholder="City" onChange={(event) => {
+                                            setCity(event.target.value)
+                                        }} />
+                                    </div>)}
+                                    {val.postalCode == 0 ? (<div className="w-1/2 flex flex-col gap-2">
+                                        <p className="text-sm font-semibold">Postal Code</p>
+                                        <input type="number" placeholder="Postal Code" onChange={(event) => {
+                                            setPostalCode(event.target.value)
+                                        }} />
+                                    </div>) : (<div className="w-1/2 flex flex-col gap-2">
+                                        <p className="text-sm font-semibold">Postal Code</p>
+                                        <input type="number" value={val.postalCode} disabled placeholder="Postal Code" onChange={(event) => {
+                                            setPostalCode(event.target.value)
+                                        }} />
+                                    </div>)}
+                                </div>
+                                {val.education.length <=0 ? (<div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Last education</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setEducation(event.target.value)
+                                    }} >
+                                        <option>Choose education level</option>
+                                        <option value="Elementary school">Elementary school</option>
+                                        <option value="Junior">Junior high school</option>
+                                        <option value="Senior">Senior high school</option>
+                                        <option value="Associate">Associate Degrees</option>
+                                        <option value="Bachelor’s">Bachelor’s Degrees</option>
+                                        <option value="Master’s">Master’s Degrees</option>
+                                        <option value="Doctoral">Doctoral Degrees</option>
+                                    </select>
+                                </div>):(<div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Last education</p>
+                                    <select name="" id="" disabled onChange={(event) => {
+                                        setEducation(event.target.value)
+                                    }} >
+                                        <option>{val.education}</option>
+                                    </select>
+                                </div>)}
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">How did you know this program?</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setProgram(event.target.value)
+                                    }} >
+                                        <option>Select source</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Google">Google</option>
+                                        <option value="Twitter">Twitter</option>
+                                        <option value="LinkedIn">LinkedIn</option>
+                                        <option value="Email">Email</option>
+                                        <option value="Wesbite">Wesbite</option>
+                                        <option value="Friends">Friends</option>
+                                        <option value="Family">Family</option>
+                                    </select>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setBatch(event.target.value)
+                                    }} >
+                                        <option>Choose Batch</option>
+                                        {
+                                            value.map(
+                                                (val) => {
+                                                    return <option value={val.batchId}>{val.batch} : {formatDate(val.startDate)} - {formatDate(val.endDate)}</option>
+                                                }
+                                            )
                                         }
-                                    )
-                                }
-                            </select>
-                        </div>
+                                    </select>
+                                </div>
 
 
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Motivation for joining Fulltime Coding Bootcamp</p>
-                            <textarea placeholder="Write your motivation to join Fulltime Coding Bootcamp" onChange={(event) => {
-                                setMotivation(event.target.value)
-                            }} />
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Motivation for joining Fulltime Coding Bootcamp</p>
+                                    <textarea placeholder="Write your motivation to join Fulltime Coding Bootcamp" onChange={(event) => {
+                                        setMotivation(event.target.value)
+                                    }} />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Are you currently busy?</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setBusy(event.target.value)
+                                    }} >
+                                        <option>Select one</option>
+                                        <option value="Student">Student</option>
+                                        <option value="Work">Work</option>
+                                        <option value="Graduate">Fresh graduate</option>
+                                        <option value="I am Free">I am Free</option>
+                                    </select>
+                                </div>
+                                <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                                <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
+                            </form>
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-semibold">Are you currently busy?</p>
-                            <select name="" id="" onChange={(event) => {
-                                setBusy(event.target.value)
-                            }} >
-                                <option>Select one</option>
-                                <option value="Student">Student</option>
-                                <option value="Work">Work</option>
-                                <option value="Graduate">Fresh graduate</option>
-                                <option value="I am Free">I am Free</option>
-                            </select>
-                        </div>
-                        <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                        <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
-                    </form>
-                </div>
+                    })
+                }
+
             </section>
 
             <footer className="bg-black text-white flex flex-col items-center mt-10 py-20 md:py-28">

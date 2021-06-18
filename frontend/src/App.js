@@ -99,7 +99,7 @@ function App() {
             <Route path="/tutorial" component={Tutorial} />
 
             <Route path="/bootcamp" component={BootcampHome}/>
-            <Route path="/register-bootcamp" component={RegisterBootcamp}/>
+            <Route path="/register-bootcamp/:name" component={RegisterBootcamp}/>
             <Route path="/schedule" component={Schedule}/>
 
             <Route path="/coming-soon" component={ComingSoon} />
