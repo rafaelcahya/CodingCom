@@ -33,6 +33,10 @@ export default function Sidebar() {
                                 title: "Tutorial List",
                                 itemId: "/mentor/list-courses/" + name
                             },
+                            {
+                                title: "Add Sub tutorial",
+                                itemId: "/mentor/add-topik/" + name
+                            },
                         ],
                     },
                     {
