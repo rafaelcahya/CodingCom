@@ -5,15 +5,20 @@ import { Link } from 'react-router-dom'
 import info from "../../asset/icon/info.svg"
 import Popup from "./RegisterPopup"
 
+import showPass from "../../asset/icon/eye.svg"
+import hidePass from "../../asset/icon/eye-off.svg"
+
 function Register() {
     const [fullname, setFullname] = useState("")
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    // eslint-disable-next-line no-unused-vars
     const [confirmpassword, setConfirmpassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [createAt,setCreateAt] = useState("")
     const [buttonPopup, setButtonPopup] = useState(false)
+    const [revealPass, setRevealPass] = useState(false)
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -36,34 +41,34 @@ function Register() {
     }
 
     return (
-        <div className="register-container flex justify-center p-10 h-screen overflow-hidden">
-            <div className="register-box rounded-lg p-10 shadow-xl overflow-auto">
-                <div className="text-sm mb-5">
+        <div className="register-container flex justify-center py-10 px-20 h-screen overflow-hidden">
+            <div className="register-box rounded-lg p-10 shadow-xl">
+                <div className="text-sm mb-10">
                     <p className="text-xl font-semibold color-blue-1 mb-2">Let's get started,</p>
                     <div className="text-gray-500 font-medium">
                         <p>Find new opportunities to make your voice heard. Be proud!</p>
                     </div>
                 </div>
-                <div className="flex flex-col gap-5">
-                    <div className="flex flex-col lg:flex-row gap-5 w-full">
-                        <div className="w-full lg:w-1/2">
-                            <p className="fullname text-sm font-semibold mb-1">Fullname</p>
-                            <input
-                                type="text"
-                                placeholder="Input your fullname"
-                                onChange={(event) => {
-                                    setFullname(event.target.value)
-                                }} />
-                        </div>
-                        <div className="w-full lg:w-1/2">
-                            <p className="username text-sm font-semibold mb-1">Username</p>
-                            <input
-                                type="text"
-                                placeholder="Input your username"
-                                onChange={(event) => {
-                                    setName(event.target.value)
-                                }} />
-                        </div>
+                <div className="flex flex-col gap-7">
+                    <div className="flex flex-col md:flex-row gap-10">
+                    <div>
+                        <p className="fullname text-sm font-semibold mb-1">Fullname</p>
+                        <input
+                            type="text"
+                            placeholder="Input your fullname"
+                            onChange={(event) => {
+                                setFullname(event.target.value)
+                            }} />
+                    </div>
+                    <div>
+                        <p className="username text-sm font-semibold mb-1">Username</p>
+                        <input
+                            type="text"
+                            placeholder="Input your username"
+                            onChange={(event) => {
+                                setName(event.target.value)
+                            }} />
+                    </div>
                     </div>
                     <div>
                         <p className="email text-sm font-semibold mb-1">Email</p>
@@ -74,40 +79,53 @@ function Register() {
                                 setEmail(event.target.value)
                             }} />
                     </div>
-                    <div className="flex flex-col lg:flex-row gap-5 w-full">
-                        <div className="w-full lg:w-1/2">
-                            <div className="flex justify-between items-center">
-                                <p className="password text-sm font-semibold mb-1">Password</p>
-                                <div className="tooltip">
-                                    <img src={info} alt="" width={15}/>
-                                    <span className="tooltiptext bg-white text-sm p-2 border border-gray-300 rounded-lg shadow-lg">Password must have uppercase letter, numbers and maximum between 8 - 20 characters</span>
-                                </div>
+                    <div>
+                        <div className="flex justify-between items-center">
+                            <p className="password text-sm font-semibold mb-1">Password</p>
+                            <div className="tooltip">
+                                <img src={info} alt="" width={15}/>
+                                <span className="tooltiptext bg-white text-sm p-2 border border-gray-300 rounded-lg shadow-lg">Password must have uppercase letter, numbers and maximum between 8 - 20 characters</span>
                             </div>
+                        </div>
+                        <div className="flex gap-2">
                             <input
-                                type="password"
-                                placeholder="Input your password"
+                                type={revealPass ? "text" : "password"}
+                                placeholder="Enter your password" 
+                                className="border-none"
                                 onChange={(event) => {
                                     setPassword(event.target.value)
-                                }} />
+                            }} />
+                            <img
+                                alt=""
+                                title={revealPass ? "Hide password" : "Show password"}
+                                src={revealPass ? hidePass : showPass}
+                                onClick={() => setRevealPass(prevState => !prevState)}
+                            />
                         </div>
-                        <div className="w-full lg:w-1/2">
-                            <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
+                    </div>
+                    <div>
+                        <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
+                        <div className="flex gap-2">
                             <input
-                                type="password"
-                                placeholder="Input your password again"
-                                className="input-confirmpass"
+                                type={revealPass ? "text" : "password"}
+                                placeholder="Enter your password again" 
+                                className="border-none"
                                 onChange={(event) => {
-                                    setConfirmpassword(event.target.value)
-                                }} />
+                                    setPassword(event.target.value)
+                            }} />
+                            <img
+                                alt=""
+                                title={revealPass ? "Hide password" : "Show password"}
+                                src={revealPass ? hidePass : showPass}
+                                onClick={() => setRevealPass(prevState => !prevState)}
+                            />
                         </div>
                     </div>
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
-                <div className="flex justify-end gap-5 text-sm">
-                    <Link to="/login">
-                        <p className="border border-blue-500 text-sm font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Back to login</p>
-                    </Link>
-                    <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Register</p>
+                <div className="flex justify-between w-full gap-5 text-sm pt-5">
+                    <Link to="/login" className="border border-gray-200 hover:bg-gray-200 text-sm font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Back</Link>
+                    <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Register</p>
                 </div>
                 <Popup trigger={buttonPopup}>
                     <p className="text-lg font-bold py-5">Register Success</p>

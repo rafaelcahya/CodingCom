@@ -67,7 +67,134 @@ export default function AddProfile(props) {
 
     return (
         <>
-            <div className="flex flex-col items-center">
+            <div className="bg-blue-100 px-16 py-10 pb-48" id="container" >
+                <Link to="/">
+                    <div className="flex gap-1 bg-white py-2 pl-1 pr-3 rounded-lg w-max">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <p>back</p>
+                    </div>
+                </Link>
+            </div>
+            <div className="flex flex-col items-center -mt-20">
+                <div className="profile-form w-3/4 md:w-1/2">
+                    {
+                        valueList.map((val)=>{
+                            return <div className="flex flex-col items-center gap-10">
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">Image Profile</p>
+                                <input className="w-full"
+                                    type="file"
+                                    accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
+                                    name="fileUpload" 
+                                    onChange={(event) => {
+                                        setFile(event.target.files[0])
+                                    }} />
+                            </div>
+                            <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Fullname</p>
+                                    <input type="text" defaultValue={val.fullname} placeholder="Fullname" onChange={(event) => {
+                                            setFullname(event.target.value)
+                                        }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Username</p>
+                                    <input type="text" defaultValue={val.name} placeholder="Username" onChange={(event) => {
+                                            setName(event.target.value)
+                                        }} />
+                                </div>
+                            </div>
+                            <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Gender</p>
+                                    <select name="" id="" onChange={(event) => {
+                                            setGender(event.target.value)
+                                        }} >
+                                        <option>Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Birth date</p>
+                                    <input type="date" defaultValue={val.BoD} onChange={(event) => {
+                                            setBoD(event.target.value)
+                                        }} />
+                                </div>
+                            </div>
+                            <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Phone number</p>
+                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Phone number" onChange={(event) => {
+                                            setPhoneNumber(event.target.value)
+                                        }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Confirm phone number</p>
+                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Confirm phone number" onChange={(event) => {
+                                            setCphoneNumber(event.target.value)
+                                        }} />
+                                </div>
+                            </div>
+                            <div className="flex flex-col lg:flex-row gap-5 w-full">
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Emergency number</p>
+                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Phone number" onChange={(event) => {
+                                            setEmergencyNumber(event.target.value)
+                                        }} />
+                                </div>
+                                <div className="flex flex-col gap-2 w-full lg:w-1/2">
+                                    <p className="text-sm font-semibold">Confirm emergency</p>
+                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Confirm phone number" onChange={(event) => {
+                                            setCemergencyNumber(event.target.value)
+                                        }} />
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-2 w-full">
+                                <p className="text-sm font-semibold">Home address</p>
+                                    <textarea placeholder="Home address" rows={5} defaultValue={val.address} className="resize-none" onChange={(event) => {
+                                        setAddress(event.target.value)
+                                    }} />
+                            </div>
+                            <div className="w-full flex justify-between gap-10">
+                                <div className="w-1/2 flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">City</p>
+                                    <input type="text" defaultValue={val.city} placeholder="City" onChange={(event) => {
+                                            setCity(event.target.value)
+                                        }} />
+                                </div>
+                                <div className="w-1/2 flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Postal Code</p>
+                                    <input type="number" defaultValue={val.postalCode} placeholder="Postal Code" onChange={(event) => {
+                                            setPostalCode(event.target.value)
+                                        }} />
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Last education</p>
+                                    <select name="" id=""  onChange={(event) => {
+                                            setEducation(event.target.value)
+                                        }} >
+                                        <option value="Gender" className="p-3">Choose education level</option>
+                                        <option value="Male">Elementary school</option>
+                                        <option value="Junior">Junior high school</option>
+                                        <option value="Senior">Senior high school</option>
+                                        <option value="Associate">Associate Degrees</option>
+                                        <option value="Bachelor’s">Bachelor’s Degrees</option>
+                                        <option value="Master’s">Master’s Degrees</option>
+                                        <option value="Doctoral">Doctoral Degrees</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p className="text-sm color-red-1 text-center font-medium">{errorMessage}</p>
+                            <p onClick={submit} className="bg-blue-1 hover:bg-blue-400 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Save profile</p>
+                        </div>
+                        })
+                    }
+                </div>
+            </div>
+            {/* <div className="flex flex-col items-center">
                 <div className="profile-form pt-5 w-4/5 md:w-1/2">
                     <div className="sticky self-start container mx-auto top-10 gap-10 py-2 bg-white shadow rounded-lg border hover:bg-blue-50">
                         <Link to={"/profile/" + name}>
@@ -200,7 +327,7 @@ export default function AddProfile(props) {
                         <p onClick={submit} className="w-max bg-blue-1 hover:bg-blue-400 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Save</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <Footer/>
         </>
     )

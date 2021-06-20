@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import info from "../../asset/icon/info.svg"
 import Axios from "axios"
 
 import BlobAnim from '../minor/Blob animation/BlobAnim'
@@ -46,7 +45,7 @@ export default function ResetPassword() {
                         <div className="flex flex-col gap-5">
                         <div>
                                 <div className="flex justify-between">
-                                    <p className="password text-sm font-semibold mb-1">Email</p>
+                                    <p className="password text-sm font-semibold mb-2 color-black-2">Email</p>
                                 </div>
                                 <input
                                     type="text"
@@ -60,9 +59,9 @@ export default function ResetPassword() {
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex flex-col gap-5 text-sm">
-                        <p onClick={reset} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Send to Email</p>
+                        <p onClick={reset} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Send to Email</p>
                         <Link to="/login">
-                            <p className="border border-blue-500 font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Cancel</p>
+                            <p className="bg-gray-200 hover:bg-gray-50 font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Cancel</p>
                         </Link>
                     </div>
                 </div>

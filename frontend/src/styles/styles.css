@@ -958,6 +958,16 @@ Navbar
     height: 750px;
 }
 
+.dropdown-tutorial p{
+    padding: .5rem;
+}
+
+.dropdown-tutorial p:hover {
+    background-color: #3b72ff;
+    color: white;
+    border-radius: 0.5rem
+}
+
 .course:hover .course-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1001,22 +1011,19 @@ Login page, Register Page
 }
 
 .register-box{
-    width: 600px;
+    width: 500px;
 }
 
-.login-box input,
-.register-box input,
+.login-box input[type="text"],
+.login-box input[type="password"],
+.register-box input[type="text"],
+.register-box input[type="password"],
 .register-box select {
     width: 100%;
-    padding: .375rem 1rem;
-    border: 1.6px solid var(--black-2);
-    border-radius: 5px;
+    padding: .5rem 1rem;
+    background-color: var(--black-3);
+    border-radius: 6px;
     outline: none;
-}
-
-.login-box input:focus,
-.register-box input:focus {
-    border: 1.5px solid var(--blue-1);
 }
 
 .register-box select {

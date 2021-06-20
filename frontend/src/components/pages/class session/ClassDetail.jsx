@@ -33,7 +33,7 @@ function ClassDetail(props) {
                             (val) => {
                                 let image = require('../../../asset/upload/'+ val.image)
                                 return <div className="classDetail flex flex-col md:flex-row gap-10">
-                                    <div className="flex flex-col gap-5 w-3/4">
+                                    <div className="flex flex-col gap-5 w-3/5">
                                         <img src={image.default}  className="rounded-lg" />
                                         <div className="flex flex-col gap-5">
                                             <div className="py-8 border-b-2 border-gray-300">
@@ -50,7 +50,7 @@ function ClassDetail(props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="sticky self-start top-5 flex flex-col gap-5">
+                                    <div className="sticky self-start top-5 flex flex-col gap-5 w-2/5">
                                         <p className="text-2xl font-bold capitalize">{val.className}</p>
                                         <div className="flex gap-5">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
