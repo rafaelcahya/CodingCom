@@ -1,14 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Footer from '../../major/Footer'
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import Accordion from '../../minor/accordion/Accordion'
+import Axios from 'axios'
 
-export class Pricing extends Component {
-    render() {
-        
+function Pricing(props) {
+    const urlname = props.match.params.name
+    const [valueList, setValueList] = useState([])
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user/userById/" + urlname).then((response) => {
+            setValueList(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const hiddenTexts = [{
             label: 'How long will the plan be active?',
             value: 'There is no time limit for the premium plan meaning you can access all the features included in the premium plan forever.'
@@ -50,7 +59,9 @@ export class Pricing extends Component {
                         <p className="text-base sm:text-xl font-medium text-gray-500 mt-10">Access to all our tutorials and features</p>
                     </div>
                 </div>
-                <section className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
+                {valueList.map((val)=>{
+                        return <div>
+                    {val.status=="Not Active"?( <section className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
                     <div className="plan-box w-72 px-10 py-8 rounded-xl shadow-xl flex flex-col justify-between">
                         <article>
                             <div className="flex flex-col gap-2">
@@ -178,28 +189,83 @@ export class Pricing extends Component {
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </Link>
                     </div>
-                </section>
-
-                <section className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center mx-10 lg:mx-20 pb-20 gap-20">
-                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
-                        <div>
-                            <p className="text-lg font-semibold">Consultation Class Quota</p>
-                            <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for  consultation class access</p>
+                    </section>):(<div>
+                        <section className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center mx-10 lg:mx-20 xl:mx-56 pb-20 gap-20">
+                        <div className="plan-box w-72 px-10 py-8 rounded-xl shadow-xl flex flex-col justify-between">
+                            <article>
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-3xl font-semibold color-blue-1">Free</span>
+                                    <div className="my-5">
+                                        <p className="text-lg font-semibold">Starter Bundle</p>
+                                        <p className="text-gray-400 text-sm font-medium">All the basics is activated by itself</p>
+                                    </div>
+                                </div>
+                                <div className="text-sm">
+                                    <div className="flex flex-col gap-5 mt-5 font-semibold ">
+                                        <div className="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
+                                            <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
+                                            </svg>
+                                            <p>No ads</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
+                                            <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
+                                            </svg>
+                                            <p>Text Editor</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
+                                            <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
+                                            </svg>
+                                            <p>Career access</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
+                                            <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
+                                            </svg>
+                                            <p>News access</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
+                                            <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
+                                            </svg>
+                                            <p>Get future updates</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <Link to="/payment-confirmation-class-consultation-quota">
-                            <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
-                        </Link>
-                    </div>
-                    <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
-                        <div>
-                            <p className="text-lg font-semibold">Session Class Quota</p>
-                            <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>
+                        </section>
+                        <section className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center mx-10 lg:mx-20 pb-20 gap-20">
+                        <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
+                            <div>
+                                <p className="text-lg font-semibold">Consultation Class Quota</p>
+                                <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for  consultation class access</p>
+                            </div>
+                            <Link to="/payment-confirmation-class-consultation-quota">
+                                <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
+                            </Link>
                         </div>
-                        <Link to="/payment-confirmation-class-session-quota">
-                            <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>
-                        </Link>
+                        <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
+                            <div>
+                                <p className="text-lg font-semibold">Session Class Quota</p>
+                                <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>
+                            </div>
+                            <Link to="/payment-confirmation-class-session-quota">
+                                <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>
+                            </Link>
+                        </div>
+                    </section>
                     </div>
-                </section>
+                    )}
+                </div>
+                 })}
 
                 <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
                     <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">Steps to make the payment</p>
@@ -232,7 +298,6 @@ export class Pricing extends Component {
                 <Footer/>
             </>
         )
-    }
 }
 
 export default Pricing

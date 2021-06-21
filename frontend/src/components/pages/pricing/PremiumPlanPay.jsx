@@ -1,7 +1,8 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { AnimatePresence, motion } from "framer-motion"
 import { Link } from 'react-router-dom'
 import NavbarLogin from "../../major/NavbarLogin"
+import Axios from 'axios'
 import NavbarMobile from "../../major/NavbarMobile"
 
 import logobca from "../../../asset/photo/logo_bca.png"
@@ -112,6 +113,24 @@ const Modal = forwardRef((props, ref) => {
     })
 
     const Choose = (props) => {
+        const [name, setName] = useState("")
+        const [createAt, setCreateAt] = useState("")
+    
+        useEffect(() => {
+            let x = localStorage.getItem("name");
+            setName(x)
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date + ' ' + time;
+            setCreateAt(dateTime)
+        }, []);
+
+        const submit = () => {
+            Axios.post("http://localhost:3001/transaction/updateStatus", { name: name, createAt: createAt }).then((response) => {
+                console.log(response)
+            })
+        }
         return (
             <>
                 <div className="flex justify-between items-center gap-10 my-5">
@@ -120,7 +139,7 @@ const Modal = forwardRef((props, ref) => {
                     </Link>
                     <div className="flex gap-5">
                         <p className="text-sm rounded-lg py-2 px-4 cursor-pointer" onClick={() => setOpen(false)}>Cancel</p>
-                        <a href="mailto:codingpaymentcom@gmail.com?subject=Payment Confirmation&body=hello coding.com, I've done the payment transfer process for Rp. 286,000." className="bg-green-1 text-white text-sm rounded-lg py-2 px-4 cursor-pointer">Sure</a>
+                        <a href="mailto:codingpaymentcom@gmail.com?subject=Payment Confirmation&body=hello coding.com, I've done the payment transfer process for Rp. 286,000." className="bg-green-1 text-white text-sm rounded-lg py-2 px-4 cursor-pointer" onClick={submit}>Sure</a>
                     </div>
                 </div>
             </>

@@ -77,7 +77,7 @@ export default function NavbarLogin() {
                             </svg>
                         </NavLink>
                         <div className="navbar flex items-center ml-12 gap-6 xl:gap-12" id="navbar">
-                            <NavLink to="/pricing"
+                            <NavLink to={"/pricing/"+name}
                                 activeClassName="navbar_active"
                                 className="navbar__link underline_anim">
                                 <p>Pricing</p>
@@ -136,7 +136,7 @@ export default function NavbarLogin() {
                             initial={false}
                             animate={openProfile ? "opened" : "closed"}>
                             <div id="demo"></div>
-                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
+                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" alt=""/>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </motion.div>
                     </div>
