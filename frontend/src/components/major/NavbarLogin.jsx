@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 import { NavLink, Link } from 'react-router-dom'
@@ -25,10 +26,10 @@ export default function NavbarLogin() {
         })
     }, []);
 
-    window.onload = setTimeout(function () {
-        var x = localStorage.getItem("name");
-        document.getElementById("demo").innerHTML = x;
-    }, 10)
+    // window.onload = setTimeout(function () {
+    //     var x = localStorage.getItem("name");
+    //     document.getElementById("demo").innerHTML = x;
+    // }, 10)
 
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
@@ -135,8 +136,9 @@ export default function NavbarLogin() {
                             onClick={() => setOpenProfile(state => !state)}
                             initial={false}
                             animate={openProfile ? "opened" : "closed"}>
-                            <div id="demo"></div>
-                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" alt=""/>
+                            <div className="flex items-center gap-2">
+                                <img src={image.default} className="ring-1 rounded-full" width="30" alt="Image Profile"/>
+                            </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </motion.div>
                     </div>
@@ -297,7 +299,7 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariantsa}
-                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-5 px-5 hidden lg:flex flex-col gap-4 rounded-xl bg-white z-10">
+                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-3 px-3 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <Link to={"/profile/" + name}>
                         <p className="text-sm">Profile</p>
                     </Link>

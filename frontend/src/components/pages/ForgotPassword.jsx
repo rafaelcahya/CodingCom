@@ -4,6 +4,8 @@ import info from "../../asset/icon/info.svg"
 import Axios from "axios"
 
 import BlobAnim from '../minor/Blob animation/BlobAnim'
+import showPass from "../../asset/icon/eye.svg"
+import hidePass from "../../asset/icon/eye-off.svg"
 
 export default function ForgotPassword() {
     const [id, setId] = useState("")
@@ -11,6 +13,7 @@ export default function ForgotPassword() {
     const [confirmPassword, setCPassword] = useState("")
     const [updateAt, setUpdateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [revealPass, setRevealPass] = useState(false)
 
     window.onload = setTimeout(function () {
         var url1 = window.location.pathname;
@@ -76,13 +79,21 @@ export default function ForgotPassword() {
                                         </div>
                                     </div>
                                 </div>
-                                <input
-                                    type="password"
-                                    placeholder="Input your password"
-                                    className="input-password"
-                                    onChange={(event) => {
-                                        setPassword(event.target.value)
+                                <div className="flex gap-2">
+                                    <input
+                                        type={revealPass ? "text" : "password"}
+                                        placeholder="Enter your password again" 
+                                        className="border-none"
+                                        onChange={(event) => {
+                                            setPassword(event.target.value)
                                     }} />
+                                    <img
+                                        alt=""
+                                        title={revealPass ? "Hide password" : "Show password"}
+                                        src={revealPass ? hidePass : showPass}
+                                        onClick={() => setRevealPass(prevState => !prevState)}
+                                    />
+                                </div>
                             </div>
                             <div>
                                 <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>

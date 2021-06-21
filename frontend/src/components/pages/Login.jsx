@@ -53,15 +53,12 @@ export default function Login() {
                     </div>
                     <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="150" className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold w-3/4">An educational platform for web programming from scratch.</p>
                 </div>
-                <div className="login-box rounded-lg p-10 shadow-xl overflow-hidden">
-                    <div className="text-xl font-semibold">
-                        <p className="color-blue-1">Hello,</p>
-                        <p>Welcome to Coding.com</p>
-                    </div>
+                <div className="login-box rounded-lg py-20 px-10 shadow-xl overflow-hidden">
+                    <p className="text-center text-2xl font-semibold">Log in to Coding.com</p>
                     <div className="flex flex-col my-10">
-                        <div className="flex flex-col gap-5">
+                        <div className="flex flex-col gap-10">
                             <div>
-                                <p className="username text-sm font-semibold mb-1">Username</p>
+                                <p className="username text-sm font-medium mb-2 color-black-2">Username</p>
                                 <input
                                     type="text"
                                     placeholder="Input your username" 
@@ -71,7 +68,7 @@ export default function Login() {
                                 }} />
                             </div>
                             <div>
-                                <p className="password text-sm font-semibold mb-1">Password</p>
+                                <p className="password text-sm font-medium mb-2 color-black-2">Password</p>
                                 <div className="flex gap-2">
                                     <input
                                         type={revealPass ? "text" : "password"}
@@ -88,13 +85,13 @@ export default function Login() {
                                     />
                                 </div>
                                 <Link to="/resetPassword">
-                                    <p className="text-xs font-semibold mt-1.5 underline text-right">Forgot password?</p>
+                                    <p className="color-black-2 text-xs font-semibold mt-1.5 underline text-right">Forgot password?</p>
                                 </Link>
                             </div>
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
-                    <p onClick={login} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Login</p>
+                    <p onClick={login} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Login</p>
                     
                     <div className="text-sm font-medium text-gray-500 flex flex-col justify-center items-center gap-2 my-10">
                         <p>Don't have an account?</p>
