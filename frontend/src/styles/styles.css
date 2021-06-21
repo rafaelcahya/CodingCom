@@ -928,7 +928,6 @@ Navbar
     color: #3b72ff;
 }
 
-.navbar p:hover,
 .help:hover {
     color: #3b72ff;
 }
@@ -958,14 +957,24 @@ Navbar
     height: 750px;
 }
 
-.dropdown-tutorial p{
+.dropdown-tutorial div{
+    width: 350px;
     padding: .5rem;
 }
 
-.dropdown-tutorial p:hover {
+.dropdown-tutorial div:hover {
+    background-color: #eef2fc;
+    border-radius: 0.5rem
+}
+
+.dropdown-user p{
+    padding: 0.5rem;
+}
+
+.dropdown-user p:hover{
     background-color: #3b72ff;
     color: white;
-    border-radius: 0.5rem
+    border-radius: 5px;
 }
 
 .course:hover .course-box {

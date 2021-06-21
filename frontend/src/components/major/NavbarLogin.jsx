@@ -137,7 +137,7 @@ export default function NavbarLogin() {
                             initial={false}
                             animate={openProfile ? "opened" : "closed"}>
                             <div className="flex items-center gap-2">
-                                <img src={image.default} className="ring-1 rounded-full" width="30" alt="Image Profile"/>
+                                <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile"/>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </motion.div>
@@ -146,40 +146,27 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariants}
-                    animate={openTutorial ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg bg-white z-10">
-                    <div className="flex gap-24 p-5">
-                        <div className="">
-                            <Link to="/tutorial" className="font-semibold hover:underline whitespace-nowrap">See all tutorials</Link>
-                        </div>
+                    animate={openTutorial ? "opened" : "closed"} className="navbar absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg z-10 p-5">
                         <div className="flex flex-col gap-5">
-                            <div className="flex flex-wrap gap-10">
-                                <div>
-                                    <p className="font-semibold mb-3">Roadmap</p>
-                                    <div className="flex flex-col gap-3 text-sm">
-                                        <Link to="/roadmap-frontend">
-                                            <p>Frontend</p>
-                                        </Link>
-                                        <Link to="/roadmap-backend">
-                                            <p>Backend</p>
-                                        </Link>
-                                        <Link to="/roadmap-devops">
-                                            <p>DevOps</p>
-                                        </Link>
-                                        <Link to="/roadmap-react">
-                                            <p>ReactJs</p>
-                                        </Link>
+                            <div className="flex flex-wrap gap-x-5 gap-5">
+                                <div className="dropdown-tutorial">
+                                    <div className="flex flex-col gap-1">
+                                        <p className="font-semibold">Roadmap</p>
+                                        <Link to="/roadmap" className="text-sm">A collection of web development roadmaps</Link>
                                     </div>
                                 </div>
-                                {
-                                    value.map((val) => {
-                                        return <Link to={"/category-detail/" + val.categoryId}>
-                                            <div style={{width: "300px"}}>
-                                                <p className="font-semibold mb-3">{val.category}</p>
-                                                <p className="truncate2 text-sm mt-2">{val.categoryInfo}</p>
+                                    {
+                                        value.map((val) => {
+                                            return <div className="dropdown-tutorial flex">
+                                                    <Link to={"/category-detail/" + val.categoryId}>
+                                                    <div className="flex flex-col gap-1">
+                                                        <p className="font-semibold">{val.category}</p>
+                                                        <p className="truncate2 leading-6 text-sm">{val.categoryInfo}</p>
+                                                    </div>
+                                                </Link>
                                             </div>
-                                        </Link>
-                                    })
-                                }
+                                        })
+                                    }
                                 {/* <div>
                                     <p className="font-semibold mb-3">Web design</p>
                                     <div className="flex flex-col gap-3 text-sm">
@@ -290,7 +277,6 @@ export default function NavbarLogin() {
                                 </div> */}
                             </div>
                         </div>
-                    </div>
                     <div className="font-semibold flex justify-between py-2 px-5 rounded-bl-lg rounded-br-lg border-t border-gray-300">
                         <Link to="/tutorial">Tutorial Overview</Link>
                         <p>coding.com</p>
@@ -299,7 +285,7 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariantsa}
-                    animate={openProfile ? "opened" : "closed"} className="dropdown-tutorial absolute top-0 right-0 mx-16 xl:mx-32 py-3 px-3 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
+                    animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 py-3 px-3 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <Link to={"/profile/" + name}>
                         <p className="text-sm">Profile</p>
                     </Link>
@@ -311,7 +297,7 @@ export default function NavbarLogin() {
                     </Link>
                     {loggedIn ? (
                         <>
-                            <Link to="/login" className="bg-blue-100 hover:bg-blue-50 color-blue-1 text-sm py-2 text-center rounded-lg">
+                            <Link to="/login" className="hover:bg-blue-50 color-blue-1 text-sm py-2 text-center rounded-lg">
                                 Logout
                             </Link>
                         </>
