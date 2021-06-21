@@ -303,60 +303,62 @@ router.post("/resetPassword", (req, res) => {
 //     })
 // })
 
-router.put("/updatePayment", (req, res) => {
-    const id = req.body.id
+router.put("/updatePaymentStatus", (req, res) => {
+    const id = req.body.userId
     const status = req.body.status
     const updateAt = req.body.updateAt
-    let paket_id = 1
+    let statsUser= "ACTIVED"
 
-    db.query("UPDATE user SET status = ?, userUpdateAt = ?, paket_id = ? WHERE id = ?;", [status, updateAt, paket_id, id], (err, results) => {
+    if (status == "APPROVED") {
+    db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE id = ?;", [statsUser, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })
+}
 })
 
-router.put("/addeditKuota", (req, res) => {
-    const id = req.body.id
-    const paket_id = req.body.paket_id
-    const status = req.body.status
-    const createAt = req.body.createAt
-    const updateAt = req.body.updateAt
-    let update = ""
-    let kuotaConsultation = 0
-    let kuotaSession = 0
-    if (status == "Approved") {
-        kuotaConsultation = 7
-        kuotaSession = 5
-        db.query("SELECT * From userkuota WHERE user_id = ?", id, (err, results) => {
-            if (err) {
-                console.log(err)
-            }
-            if (results.length > 0) {
-                kuotaConsultation = results[0].classConsultation + 5
-                kuotaSession = results[0].classSession + 5
-                if (paket_id == 2) {
-                    db.query("UPDATE userkuota SET classSession = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
-                        console.log(err)
-                        res.send(results)
-                    })
-                } else if (paket_id == 3) {
-                    db.query("UPDATE userkuota SET classConsultation = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
-                        console.log(err)
-                        res.send(results)
-                    })
-                }
+// router.put("/addeditKuota", (req, res) => {
+//     const id = req.body.id
+//     const paket_id = req.body.paket_id
+//     const status = req.body.status
+//     const createAt = req.body.createAt
+//     const updateAt = req.body.updateAt
+//     let update = ""
+//     let kuotaConsultation = 0
+//     let kuotaSession = 0
+//     if (status == "Approved") {
+//         kuotaConsultation = 7
+//         kuotaSession = 5
+//         db.query("SELECT * From userkuota WHERE user_id = ?", id, (err, results) => {
+//             if (err) {
+//                 console.log(err)
+//             }
+//             if (results.length > 0) {
+//                 kuotaConsultation = results[0].classConsultation + 5
+//                 kuotaSession = results[0].classSession + 5
+//                 if (paket_id == 2) {
+//                     db.query("UPDATE userkuota SET classSession = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, id], (err, results) => {
+//                         console.log(err)
+//                         res.send(results)
+//                     })
+//                 } else if (paket_id == 3) {
+//                     db.query("UPDATE userkuota SET classConsultation = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, id], (err, results) => {
+//                         console.log(err)
+//                         res.send(results)
+//                     })
+//                 }
 
-            } else {
-                db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
-                    console.log(err)
-                    res.send(results)
-                })
-            }
-        })
+//             } else {
+//                 db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
+//                     console.log(err)
+//                     res.send(results)
+//                 })
+//             }
+//         })
 
-    }
+//     }
 
-})
+// })
 
 router.get("/userList", (req, res) => {
     let isDeleted = "NO"

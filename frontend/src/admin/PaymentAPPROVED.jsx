@@ -2,52 +2,15 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar';
 
-export default function Payment() {
+export default function PaymentAPPROVED() {
     const [payList, setPayList] = useState([])
-    const [createAt, setCreateAt] = useState("")
-    const [updateAt, setUpdateAt] = useState("")
-    const [newStatus, setNewStatus] = useState("")
-
-    window.onload = setTimeout(function () {
-        var today = new Date();
-        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date + ' ' + time;
-        setCreateAt(dateTime)
-        setUpdateAt(dateTime)
-    }, 500)
 
     useEffect(() => {
-        axios.get("http://localhost:3001/transaction/TransactionList").then((response) => {
+        axios.get("http://localhost:3001/transaction/TransactionListAPPROVED").then((response) => {
             setPayList(response.data)
             console.log(response.data)
         })
     }, []);
-
-    const updatePayment = (id,paket_id,user_id) => {
-        axios.all([
-            axios.put("http://localhost:3001/transaction/updatePayment", {
-            id: id,
-            status: newStatus,
-            updateAt : updateAt
-        }),
-        axios.put("http://localhost:3001/transaction/addeditKuota", {
-            userId: user_id,
-            paket_id: paket_id,
-            status: newStatus,
-            createAt : createAt,
-            updateAt : updateAt
-        }),
-        axios.put("http://localhost:3001/user/updatePaymentStatus", {
-            id: id,
-            status: newStatus,
-            updateAt : updateAt,
-            userId : user_id
-        })
-        
-    ])
-        setNewStatus("")
-    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
@@ -57,8 +20,8 @@ export default function Payment() {
             <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
-                    <p className="text-xl font-semibold">Verification Payment</p>
-                    <p className="text-sm font-semibold">A list of users who have verified the payment</p>
+                    <p className="text-xl font-semibold">Payment Approved</p>
+                    <p className="text-sm font-semibold">A list of users who have approved the payment</p>
                     <div className="overflow-x-auto mt-8">
                         <div className="align-middle inline-block min-w-full">
                             <div className="overflow-hidden">
@@ -72,7 +35,6 @@ export default function Payment() {
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">CreateAt</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">UpdateAt</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -89,18 +51,6 @@ export default function Payment() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionCreateAt)} {formatTime(val.transactionCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionUpdateAt)} {formatTime(val.transactionUpdateAt)}</td>
-                                                        <td className="flex items-center gap-4 px-6 py-3 whitespace-nowrap">
-                                                            <div className="flex flex-col gap-2 w-40">
-                                                                <select className="py-2 border border-black rounded-lg" id="dropdown" onChange={(event) => {
-                                                                    setNewStatus(event.target.value)
-                                                                }}>
-                                                                    <option value="">Change Status</option>
-                                                                    <option value="APPROVED">Approve</option>
-                                                                    <option value="REJECTED">Reject</option>
-                                                                </select>
-                                                            </div>
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500 cursor-pointer"  onClick={() => { updatePayment(val.transactionId,val.paket_id,val.user_id) }}>Update</p>
-                                                        </td>
                                                     </tr>
                                                 }
                                             )

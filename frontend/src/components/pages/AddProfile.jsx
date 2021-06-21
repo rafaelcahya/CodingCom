@@ -213,7 +213,9 @@ export default function AddProfile(props) {
                     </div>
                     {
                         valueList.map((val)=>{
+                            let image = require('../../asset/upload/'+ val.image)
                           return <div className="flex flex-col items-center gap-10">
+                              <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" alt=""/>
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Image Profile</p>
                                 <input className="w-full"

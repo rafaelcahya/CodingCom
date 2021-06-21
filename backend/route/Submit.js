@@ -53,6 +53,20 @@ router.post("/submit", (req, res) => {
     }
 })
 
+router.post("/score", (req, res) => {
+    const id = req.body.urlid
+    const score = req.body.score
+    const updateAt = req.body.updateAt
+    if(score <= 0){
+        res.send({message:"Score can not be empty"})
+    }else {
+        db.query("UPDATE projectsub SET score = ?, projectsubCreateAt = ? WHERE id = ?;", [score,updateAt,id], (err, results) => {
+            console.log(err)
+            res.send(results)
+        }) 
+    }
+})
+
 router.get("/submitList", (req, res) => {
     db.query("SELECT projectsub.id, projectsub.url, projectsub.fileName, projectsub.live_site_url, projectsub.description, projectsub.projectsubCreateAt, projectsub.projectsubUpdateAt, project.projectTitle, project.type_id, typeproject.type, user.name from projectsub,project,typeproject,user WHERE projectsub.user_id = user.id AND projectsub.project_id = project.projectId AND project.type_id = typeproject.typeId",(err, results) => {
         res.send(results)

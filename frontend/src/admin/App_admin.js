@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import Class from "./Class.jsx"
 import Payment from "./Payment.jsx"
+import PaymentApproved from "./PaymentAPPROVED"
+import PaymentRejected from "./PaymentREJECTED"
 import EditRequestClass from "./EditRequestClass"
 import EditTopik from "./EditTopik"
 import UserList from "./UserList"
@@ -26,6 +28,8 @@ function App_admin() {
             <Switch>
               <Route path="/admin/class-requisition" exact component={Class} />
               <Route path="/admin/payment-requisition" component={Payment} />
+              <Route path="/admin/payment-approved" component={PaymentApproved} />
+              <Route path="/admin/payment-rejected" component={PaymentRejected} />
               <Route path={"/edit-request-class/:id"} component={EditRequestClass} />
               <Route path="/admin/user-list" component={UserList} />
               <Route path="/admin/user-list-active" component={UserListActive} />

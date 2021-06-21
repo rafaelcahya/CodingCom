@@ -7,13 +7,15 @@ import AddTopik from "./AddTopik"
 import EditCourse from "./EditCourse"
 import Course from "./Course"
 import ListCourse from "./ListCourse"
+import EditProject from "./EditProjectSubmission"
 
 function App_mentor() {
     return (
         <Router>
             <Switch>
-                <Route path="/mentor/class-request" exact component={ClassReq} />
-                <Route path="/mentor/project-submission" exact component={ProjectSub} />
+                <Route path="/mentor/class-request" component={ClassReq} />
+                <Route path="/mentor/project-submission" component={ProjectSub} />
+                <Route path="/mentor/edit-project-submission/:id" component={EditProject} />
                 <Route path="/mentor/add-course" component={AddCourse} />
                 <Route path="/mentor/add-topik" component={AddTopik} />
                 <Route path="/mentor/edit-course/:id" component={EditCourse} />

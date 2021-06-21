@@ -84,7 +84,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/profile/:name" component={Profile} />
             <Route path="/edit-profile/:name" component={AddProfile} />
-            <Route path="/pricing" component={Pricing} />
+            <Route path="/pricing/:name" component={Pricing} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
             <Route path="/payment-confirmation-class-consultation-quota" component={ConsultationPay} />
             <Route path="/payment-confirmation-class-session-quota" component={SessionPay} />

@@ -78,7 +78,7 @@ export default function NavbarLogin() {
                             </svg>
                         </NavLink>
                         <div className="navbar flex items-center ml-12 gap-6 xl:gap-12" id="navbar">
-                            <NavLink to="/pricing"
+                            <NavLink to={"/pricing/"+name}
                                 activeClassName="navbar_active"
                                 className="navbar__link underline_anim">
                                 <p>Pricing</p>
