@@ -111,7 +111,7 @@ function Register() {
                                 placeholder="Enter your password again" 
                                 className="border-none"
                                 onChange={(event) => {
-                                    setPassword(event.target.value)
+                                    setConfirmpassword(event.target.value)
                             }} />
                             <img
                                 alt=""
@@ -128,8 +128,8 @@ function Register() {
                     <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Register</p>
                 </div>
                 <Popup trigger={buttonPopup}>
-                    <p className="text-lg font-bold py-5">Register Success</p>
-                    <p className="text-sm font-medium">Your account is successfully created, please click this button below and go to login page</p>
+                    <p className="text-lg font-semibold py-5">Register Success</p>
+                    <p className="text-sm font-medium">Your account is successfully created.</p>
                     <br></br>
                     <Link to="/login">
                     <div className="flex justify-end">

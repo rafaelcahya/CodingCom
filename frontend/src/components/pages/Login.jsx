@@ -56,7 +56,7 @@ export default function Login() {
                 <div className="login-box rounded-lg py-20 px-10 shadow-xl overflow-hidden">
                     <p className="text-center text-2xl font-semibold">Log in to Coding.com</p>
                     <div className="flex flex-col my-10">
-                        <div className="flex flex-col gap-10">
+                        <div className="flex flex-col gap-5">
                             <div>
                                 <p className="username text-sm font-medium mb-2 color-black-2">Username</p>
                                 <input

@@ -2,6 +2,7 @@ import {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     body:not(.certification),
+    .navbar,
     .view-course-admin .approvebar{
         background-color: ${({theme}) => theme.background};
         color: ${({theme}) => theme.primarytext};
@@ -106,14 +107,14 @@ export const GlobalStyle = createGlobalStyle`
     
     */
 
-    .navbar,
     .bootcamp-navbar,
     .dropdown-tutorial,
-    .dropdown-user{
+    .dropdown-user,
+    .dropdown{
         background-color: ${({theme}) => theme.foreground2};
     }
 
-    .dropdown-tutorial div:hover{
+    .dropdown-tutorial div:hover, .dropdown-user p:hover{
         background-color: ${({theme}) => theme.foreground4};
     }
 
@@ -134,7 +135,7 @@ export const lightTheme={
     foreground: '#eff3fc',
     foreground2: '#fff',
     foreground3: '#eff3fc',
-    foreground4: '#fff',
+    foreground4: '#f4f7ff',
     border: '1px solid rgb(209, 213, 219)'
 }
 
@@ -146,6 +147,6 @@ export const darkTheme={
     foreground: '#16171d',
     foreground2: '#16171d',
     foreground3: '#eff3fc',
-    foreground4: '#3b72ff',
+    foreground4: '#1a1b20',
     border: 'none'
 }

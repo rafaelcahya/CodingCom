@@ -962,18 +962,12 @@ Navbar
     padding: .5rem;
 }
 
-.dropdown-tutorial div:hover {
-    background-color: #eef2fc;
-    border-radius: 0.5rem
-}
-
 .dropdown-user p{
     padding: 0.5rem;
 }
 
-.dropdown-user p:hover{
-    background-color: #3b72ff;
-    color: white;
+.dropdown-user p:hover, .dropdown-tutorial div:hover{
+    background-color: #f4f7ff;
     border-radius: 5px;
 }
 
@@ -1033,6 +1027,11 @@ Login page, Register Page
     background-color: var(--black-3);
     border-radius: 6px;
     outline: none;
+}
+
+.login-box input:focus,
+.register-box input:focus{
+    background-color: #d8e7ff;
 }
 
 .register-box select {

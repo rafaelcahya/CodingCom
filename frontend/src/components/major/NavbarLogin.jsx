@@ -146,13 +146,16 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariants}
-                    animate={openTutorial ? "opened" : "closed"} className="navbar absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg z-10 p-5">
+                    animate={openTutorial ? "opened" : "closed"} className="dropdown absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg z-10 p-5">
                         <div className="flex flex-col gap-5">
+                            <Link to="/tutorial" className="font-semibold hover:underline">Tutorial Overview</Link>
                             <div className="flex flex-wrap gap-x-5 gap-5">
                                 <div className="dropdown-tutorial">
-                                    <div className="flex flex-col gap-1">
-                                        <p className="font-semibold">Roadmap</p>
-                                        <Link to="/roadmap" className="text-sm">A collection of web development roadmaps</Link>
+                                    <div>
+                                        <Link to="/roadmap" className="flex flex-col gap-1">
+                                            <p className="font-semibold">Roadmap</p>
+                                            <p className="text-sm">A collection of web development roadmaps</p>
+                                        </Link>
                                     </div>
                                 </div>
                                     {
@@ -277,10 +280,6 @@ export default function NavbarLogin() {
                                 </div> */}
                             </div>
                         </div>
-                    <div className="font-semibold flex justify-between py-2 px-5 rounded-bl-lg rounded-br-lg border-t border-gray-300">
-                        <Link to="/tutorial">Tutorial Overview</Link>
-                        <p>coding.com</p>
-                    </div>
                 </motion.div>
                 <motion.div
                     initial={false}
