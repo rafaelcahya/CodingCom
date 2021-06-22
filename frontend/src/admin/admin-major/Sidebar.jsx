@@ -18,6 +18,7 @@ export default function Sidebar() {
                 items={[
                     {
                         title: "User Management",
+                        itemId: "/admin/user-list",
                         subNav: [
                             {
                                 title: "User registration",
@@ -31,6 +32,7 @@ export default function Sidebar() {
                     },
                     {
                         title: "Bootcamp Management",
+                        itemId: "/admin/add-batch",
                         subNav: [
                             {
                                 title: "Batch form",
@@ -48,6 +50,7 @@ export default function Sidebar() {
                     },
                     {
                         title: "Tutorial Management",
+                        itemId: '/admin/list-course',
                         subNav: [
                             {
                                 title: 'Tutorial List',
@@ -74,6 +77,7 @@ export default function Sidebar() {
                     },
                     {
                         title: "Project Management",
+                        itemId: "/admin/add-project",
                         subNav: [
                             {
                                 title: "Add project",
