@@ -48,7 +48,7 @@ export default function ListBatch() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.category}</td>  
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.topikCreateAt)} {formatTime(val.topikCreateAt)}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            {val.topikUpdateAt === "0000-00-00 00:00:00" ? <p>Never updated</p> : <p>{formatDate(val.topikUpdateAt)}{formatDate(val.topikUpdateAt)}</p>}
+                                                            {val.topikUpdateAt === "0000-00-00 00:00:00" ? <p>Never updated</p> : <p>{formatDate(val.topikUpdateAt)} {formatDate(val.topikUpdateAt)}</p>}
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.status}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">

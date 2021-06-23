@@ -85,7 +85,9 @@ export default function Payment() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.tipe_paket}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
+                                                            {
+                                                                (val.status === "Approved") ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p> : <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>
+                                                            }
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionCreateAt)} {formatTime(val.transactionCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionUpdateAt)} {formatTime(val.transactionUpdateAt)}</td>
@@ -95,11 +97,11 @@ export default function Payment() {
                                                                     setNewStatus(event.target.value)
                                                                 }}>
                                                                     <option value="">Change Status</option>
-                                                                    <option value="APPROVED">Approve</option>
-                                                                    <option value="REJECTED">Reject</option>
+                                                                    <option value="Approved">Approve</option>
+                                                                    <option value="Rejected">Reject</option>
                                                                 </select>
                                                             </div>
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500 cursor-pointer"  onClick={() => { updatePayment(val.transactionId,val.paket_id,val.user_id) }}>Update</p>
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 hover:bg-green-300 text-green-500 cursor-pointer"  onClick={() => { updatePayment(val.transactionId,val.paket_id,val.user_id) }}>Update</p>
                                                         </td>
                                                     </tr>
                                                 }

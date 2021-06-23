@@ -8,7 +8,7 @@ import DefaultImageProfile from "../../asset/photo/default-user-image.png"
 export default function Profile(props) {
     const urlname = props.match.params.name
     const [valueList, setValueList] = useState([])
-
+    
     useEffect(() => {
         Axios.get("http://localhost:3001/user/userById/" + urlname).then((response) => {
             setValueList(response.data)

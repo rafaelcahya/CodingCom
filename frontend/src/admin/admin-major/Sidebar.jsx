@@ -72,8 +72,22 @@ export default function Sidebar() {
                         itemId: '/admin/class-requisition',
                     },
                     {
-                        title: 'Payment ',
-                        itemId: '/admin/payment-requisition',
+                        title: "Payment Management",
+                        itemId: "/admin/payment-requisition",
+                        subNav: [
+                            {
+                                title: "Payment Requisition",
+                                itemId: "/admin/payment-requisition"
+                            },
+                            {
+                                title: 'Payment Approved',
+                                itemId: '/admin/payment-approved',
+                            },
+                            {
+                                title: 'Payment Rejected',
+                                itemId: '/admin/payment-rejected',
+                            },
+                        ],
                     },
                     {
                         title: "Project Management",

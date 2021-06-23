@@ -45,35 +45,38 @@ function AddTopik() {
     
             })
         }
+    }
 
+    const resetForm = () => { 
+        document.getElementById("reset-form").reset();
     }
 
     return (
         <>
             <div className="flex">
                 <Sidebar />
-                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="topik-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         <div className="job-box flex flex-col gap-10">
                             <div className="flex flex-col gap-3">
                                 <p className="text-xl font-semibold">Add Sub Tutorial for getting started</p>
                             </div>
-                            <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Choose tutorial</p>
-                                <select name="" id="" onChange={(event) => {
-                                    setCategory(event.target.value)
-                                }} >
-                                    <option>Choose tutorial</option>
-                                    {
-                                        value.map(
-                                            (val) => {
-                                            return <option value={val.categoryId}>{val.category}</option>
-                                            }
-                                        )
-                                    }
-                                </select>
-                            </div>
-                            <div className="flex justify-between items-center gap-10 w-full">
+                            <div className="flex justify-between gap-10 w-full">
+                                <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Choose tutorial</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setCategory(event.target.value)
+                                    }} >
+                                        <option>Choose tutorial</option>
+                                        {
+                                            value.map(
+                                                (val) => {
+                                                return <option value={val.categoryId}>{val.category}</option>
+                                                }
+                                            )
+                                        }
+                                    </select>
+                                </div>
                                 <div className="flex flex-col gap-2 w-1/2">
                                     <p className="text-sm font-semibold">Sub Tutorial title</p>
                                     <input type="text" placeholder="Input Sub Tutorial title" onChange={(event) => {
@@ -113,7 +116,10 @@ function AddTopik() {
                                 />
                             </div>
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
+                            <div className="flex justify-between gap-10 w-full">
+                                <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
+                                <p onClick={submit} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>
+                            </div>
                         </div>
                     </section>
                 </div>

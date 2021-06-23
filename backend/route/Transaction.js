@@ -7,7 +7,7 @@ const db = require('../config/db')
 const nodemailer = require('nodemailer')
 
 router.post("/updateStatus", (req, res) => {
-    let status = "PENDING"
+    let status = "Pending"
     const name = req.body.name
     const createAt = req.body.createAt
     let user_id = 0
@@ -32,7 +32,7 @@ router.post("/updateStatus", (req, res) => {
 })
 
 router.post("/updateStatusClassSession", (req, res) => {
-    let status = "PENDING"
+    let status = "Pending"
     const name = req.body.name
     const createAt = req.body.createAt
     let user_id = 0
@@ -47,7 +47,7 @@ router.post("/updateStatusClassSession", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("INSERT INTO transaction (user_id, paket_id, status, transactionCreateAt, transactionUpdateAt isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [user_id, paket_id, status, createAt, updateAt, isDeleted], (err, results) => {
+            db.query("INSERT INTO transaction (user_id, paket_id, status, transactionCreateAt, transactionUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [user_id, paket_id, status, createAt, updateAt, isDeleted], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
@@ -57,7 +57,7 @@ router.post("/updateStatusClassSession", (req, res) => {
 })
 
 router.post("/updateStatusClassConsultation", (req, res) => {
-    let status = "PENDING"
+    let status = "Pending"
     const name = req.body.name
     const createAt = req.body.createAt
     let user_id = 0

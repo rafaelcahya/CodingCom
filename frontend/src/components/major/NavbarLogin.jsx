@@ -158,18 +158,18 @@ export default function NavbarLogin() {
                                         </Link>
                                     </div>
                                 </div>
-                                    {
-                                        value.map((val) => {
-                                            return <div className="dropdown-tutorial flex">
-                                                    <Link to={"/category-detail/" + val.categoryId}>
-                                                    <div className="flex flex-col gap-1">
-                                                        <p className="font-semibold">{val.category}</p>
-                                                        <p className="truncate2 leading-6 text-sm">{val.categoryInfo}</p>
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        })
-                                    }
+                                {
+                                    value.map((val) => {
+                                        return <div className="dropdown-tutorial flex">
+                                                <Link to={"/category-detail/" + val.categoryId}>
+                                                <div className="flex flex-col gap-1">
+                                                    <p className="font-semibold">{val.category}</p>
+                                                    <p className="truncate2 leading-6 text-sm">{val.categoryInfo}</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    })
+                                }
                                 {/* <div>
                                     <p className="font-semibold mb-3">Web design</p>
                                     <div className="flex flex-col gap-3 text-sm">
@@ -284,27 +284,45 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariantsa}
-                    animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 py-3 px-3 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
-                    <Link to={"/profile/" + name}>
-                        <p className="text-sm">Profile</p>
-                    </Link>
-                    <Link to="/resetPassword">
-                        <p className="text-sm">Change Password</p>
-                    </Link>
-                    <Link to={"/feedback/" + name}>
-                        <p className="text-sm">Feedback</p>
-                    </Link>
-                    {loggedIn ? (
-                        <>
-                            <Link to="/login" className="hover:bg-blue-50 color-blue-1 text-sm py-2 text-center rounded-lg">
-                                Logout
+                    animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
+                    <div className="flex gap-5">
+                        <div className="text-sm pr-5 border-r-2">
+                            <div className="dropdown-user-quota flex justify-between gap-5">
+                                <p>Premium plan</p>
+                                <p>Actived/Not Actived</p>
+                            </div>
+                            <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota flex justify-between gap-5">
+                                <p>Class Consultation Quota</p>
+                                <p>0 quota</p>
                             </Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link to="/login" className="login bg-blue-1 text-white px-8 py-2 rounded-xl">login</Link>
-                        </>
-                    )}
+                            <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota flex justify-between">
+                                <p>Coding Class Quota</p>
+                                <p>0 quota</p>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to={"/profile/" + name}>
+                                <p className="text-sm">Profile</p>
+                            </Link>
+                            <Link to="/resetPassword">
+                                <p className="text-sm">Change Password</p>
+                            </Link>
+                            <Link to={"/feedback/" + name}>
+                                <p className="text-sm">Feedback</p>
+                            </Link>
+                            {loggedIn ? (
+                                <>
+                                    <Link to="/login" className="text-sm text-red-500 rounded-lg">
+                                        <p>Logout</p>
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="/login" className="login bg-blue-1 text-white text-sm rounded-lg"><p>login</p></Link>
+                                </>
+                            )}
+                        </div>
+                    </div>
                 </motion.div>
             </nav>
         </>
