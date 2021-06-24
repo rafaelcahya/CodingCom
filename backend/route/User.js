@@ -113,6 +113,95 @@ router.post("/register", (req, res) => {
     }
 })
 
+router.post("/registerMentor", (req, res) => {
+    const fullname = req.body.fullname
+    const name = req.body.name
+    const email = req.body.email
+    const createAt = req.body.createAt
+    let image = "default-user-image.png"
+    let updateAt = ""
+    let status = "ACTIVED"
+    let role = 2
+    let isDeleted = "NO"
+    let number = Math.floor(Math.random()*(999-100+1)+100);
+    let password = "Mentor"+number
+    // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
+
+    if (fullname.length <= 0) {
+        res.send({ message: "Please add your fullname" })
+    } else if (name.length <= 0) {
+        res.send({ message: "Please add your username" })
+    } else if (name.length >= 32) {
+        res.send({ message: "Username must be less than 20 characters" })
+    } else if (name.match(/[ ]/) != null) {
+        res.send({ message: "Username cannot contain spaces" })
+    } else if (email.length <= 0) {
+        res.send({ message: "Please add your Email" })
+    } else if (email.match(/[@]/) == null) {
+        res.send({ message: "Email is invalid" })
+    } else if (email.match(/[.]/) == null) {
+        res.send({ message: "Email is invalid" })
+    } else {
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (!results.length) {
+                const readHTMLFile = function(path, callback) {
+                    fs.readFile(path, { encoding: "utf-8" }, function(err, html) {
+                        if (err) {
+                            throw err;
+                        callback(err);
+                        } else {
+                            callback(null, html);
+                        }
+                    });
+                };
+                    var transporter = nodemailer.createTransport({
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            type: 'login',
+                            user: 'codingpaymentcom@gmail.com',
+                            pass: 'Codingcom01'
+                        }
+                    })
+                    readHTMLFile(
+                        __dirname + "/views/register.html",
+                        function(err, html){
+                            var template = handlebars.compile(html);
+
+                            var htmlToSend = template();
+                            var mailOption = {
+                                from: 'codingpaymentcom@gmail.com',
+                                to: email,
+                                subject: 'Register Successfully',
+                                attachments: [{
+                                    filename: 'logo_codingcom.png',
+                                    path: __dirname +'/views/logo_codingcom.png',
+                                    cid: 'logo@cid'
+                                }],
+                                html: htmlToSend
+                            }
+                            transporter.sendMail(mailOption, function (err, info) {
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('Email sent:' + info.response)
+                                }
+                            })
+                        }
+                    )
+                db.query("INSERT INTO user (image, fullname, name, email, password, confirmpassword, status, roleId, userCreateAt, userUpdateAt, isDeleted) VALUES (?, ?, ?, ?, MD5(?), MD5(?), ?, ?, ?, ?, ?);", [image, fullname, name, email, password, password, status, role, createAt, updateAt, isDeleted], (err, results) => {
+                    console.log(err)
+                    res.send(results)
+                })
+            } else {
+                res.send({ message: "Username already exist" })
+            }
+        })
+    }
+})
+
 router.post("/login", (req, res) => {
 
     const name = req.body.name
@@ -492,6 +581,24 @@ router.post("/profile", (req, res) => {
             }
         })
     }
+})
+
+router.get("/userkuotaById/:name", (req, res) => {
+    const name = req.params.name
+    let user_id = 0
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT * From userkuota WHERE user_id = ?", user_id, (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+        }
+    })
 })
 
 module.exports = router;

@@ -21,6 +21,9 @@ import InputJobs from "./InputJobs.jsx"
 import AddProject from "./AddProject.jsx"
 import EditProject from "./EditProject.jsx"
 import BootcampSchedule from "./BootcampSchedule.jsx"
+import AddFAQ from "./AddFQA"
+import ListFAQ from "./ListFAQ"
+import EditFAQ from "./EditFAQ"
 
 function App_admin() {
     return (
@@ -48,6 +51,9 @@ function App_admin() {
               <Route path="/admin/edit-topik/:id" component={EditTopik} />
               <Route path="/admin/bootcamp-schedule" component={BootcampSchedule} />
               <Route path="/admin/add-project" component={AddProject} />
+              <Route path="/admin/add-faq" component={AddFAQ} />
+              <Route path="/admin/list-faq" component={ListFAQ} />
+              <Route path="/admin/edit-faq/:id" component={EditFAQ} />
             </Switch>
           </Router>
     );

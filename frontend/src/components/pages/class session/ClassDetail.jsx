@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import ShowMoreText from 'react-show-more-text';
+import { Link } from 'react-router-dom';
 
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
@@ -9,16 +10,25 @@ import NavbarMobile from '../../major/NavbarMobile'
 
 function ClassDetail(props) {
     const urlid = props.match.params.id
-    const [listClass,SetListClass] = useState([])
+    const [listClass, SetListClass] = useState([])
+    const [value, setValue] = useState([])
     const [show, toggleShow] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/class/classById/"+urlid).then((response) => {
+        axios.get("http://localhost:3001/class/classById/" + urlid).then((response) => {
             SetListClass(response.data)
             console.log(response.data)
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
@@ -31,10 +41,10 @@ function ClassDetail(props) {
                     {
                         listClass.map(
                             (val) => {
-                                let image = require('../../../asset/upload/'+ val.image)
+                                let image = require('../../../asset/upload/' + val.image)
                                 return <div className="classDetail flex flex-col md:flex-row gap-10">
                                     <div className="flex flex-col gap-5 w-3/5">
-                                        <img src={image.default}  className="rounded-lg" />
+                                        <img src={image.default} className="rounded-lg" />
                                         <div className="flex flex-col gap-5">
                                             <div className="py-8 border-b-2 border-gray-300">
                                                 <p className="text-2xl font-bold capitalize">{val.className}</p>
@@ -74,7 +84,42 @@ function ClassDetail(props) {
                                                 <p>{val.classInfo}</p>
                                             </ShowMoreText>
                                         </div>
-                                        <div>
+                                        {/* {value.map((val)=>{
+                                            return 
+                                        })} */}
+                                        {!value.length ? (<div>
+                                            <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                            {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                <p className="font-semibold">You don't have any quota for join class session, You can buy your quota in the link below</p>
+                                                <div className="flex items-center gap-5 mt-4">
+                                                    <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                    <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                </div>
+                                            </div>}
+                                        </div>) : (value.map((items) => {
+                                            return <div>
+                                                {items.classSession <= 0 ? (<div>
+                                                    <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                                    {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                        <p className="font-semibold">You don't have any quota left please buy quota to join this class</p>
+                                                        <div className="flex items-center gap-5 mt-4">
+                                                            <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                            <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                        </div>
+                                                    </div>}
+                                                </div>) : (<div>
+                                                    <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                                    {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                        <p className="font-semibold">Are you sure you want to take this class?</p>
+                                                        <div className="flex items-center gap-5 mt-4">
+                                                            <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                            <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                        </div>
+                                                    </div>}
+                                                </div>)}
+                                            </div>
+                                        }))}
+                                        {/* <div>
                                             <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
                                             {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
                                                 <p className="font-semibold">Are you sure you want to take this class?</p>
@@ -83,7 +128,7 @@ function ClassDetail(props) {
                                                     <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
                                                 </div>
                                                 </div>}
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             }
