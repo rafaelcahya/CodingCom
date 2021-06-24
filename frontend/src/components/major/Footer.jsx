@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 import logo from "../../asset/logo/logo_codingcom_footer.svg"
 
 function Footer() {
     const [des, setDes] = useState("")
     const [email, setEmail] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [name, setName] = useState("")
+    window.onload = setTimeout(function () {
+        let x = localStorage.getItem("name");
+        setName(x)
+    }, 10)
 
     const subscribe = () => {
         Axios.post("http://localhost:3001/subscribe/subscribe", {email:email, des:des}).then((response) => {
@@ -36,15 +42,15 @@ function Footer() {
                     <div className="flex flex-col lg:flex-row gap-32 text-sm text-center lg:text-left">
                         <div className="flex flex-col gap-3">
                             <p className="font-semibold my-2">Navigation</p>
-                            <p>Home</p>
-                            <p>Pricing</p>
-                            <p>Roadmap</p>
-                            <p>Tutorial</p>
-                            <p>Deployment</p>
-                            <p>Challenge</p>
-                            <p>Class</p>
-                            <p>News</p>
-                            <p>Career</p>
+                            <Link to="/">Home</Link>
+                            <Link to={"/pricing/"+name}>Pricing</Link>
+                            <Link to="/roadmap">Roadmap</Link>
+                            <Link to="/tutorial">Tutorial</Link>
+                            <Link to="/challenge">Challenge</Link>
+                            <Link to="/class-session">Coding Class</Link>
+                            <Link to="/">Class Consultation</Link>
+                            <Link to="/news">News</Link>
+                            <Link to="/career">Career</Link>
                         </div>
                         <div className="flex flex-col gap-3">
                             <p className="font-semibold my-2">Tutorial</p>

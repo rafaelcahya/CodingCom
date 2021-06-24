@@ -25,7 +25,6 @@ function ProjectDetail(props) {
             <NavbarLogin />
             <NavbarMobile />
 
-
             {
                 value.map((val) => {
                     let image = require('../../../asset/upload/' + val.image)
@@ -35,7 +34,7 @@ function ProjectDetail(props) {
                             <p className="text-3xl font-semibold text-center my-10">{val.projectTitle}</p>
                             <div className="flex flex-col gap-3">
                                 <p className="font-semibold text-xl">Brief</p>
-                                <p>{val.projectInfo}</p>
+                                <p>{val.projectBrief}</p>
                             </div>
                         </div>
 

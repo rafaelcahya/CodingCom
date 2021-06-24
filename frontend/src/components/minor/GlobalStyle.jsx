@@ -107,8 +107,15 @@ export const GlobalStyle = createGlobalStyle`
     
     */
 
-    .bootcamp-navbar{
+    .bootcamp-navbar,
+    .dropdown-tutorial,
+    .dropdown-user,
+    .dropdown{
         background-color: ${({theme}) => theme.foreground2};
+    }
+
+    .dropdown-tutorial div:hover, .dropdown-user p:hover{
+        background-color: ${({theme}) => theme.foreground4};
     }
 
     .req-box{
@@ -128,6 +135,7 @@ export const lightTheme={
     foreground: '#eff3fc',
     foreground2: '#fff',
     foreground3: '#eff3fc',
+    foreground4: '#f4f7ff',
     border: '1px solid rgb(209, 213, 219)'
 }
 
@@ -139,5 +147,6 @@ export const darkTheme={
     foreground: '#16171d',
     foreground2: '#16171d',
     foreground3: '#eff3fc',
+    foreground4: '#1a1b20',
     border: 'none'
 }

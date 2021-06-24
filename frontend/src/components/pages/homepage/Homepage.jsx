@@ -90,7 +90,7 @@ export default function Homepage() {
                         <p data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-delay="300" className="change-text-anim text-base sm:text-xl font-medium text-gray-500 mb-10"></p>
                         <div className="w-max">
                             <Link to="/tutorial">
-                                <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="animate__tada bg-blue-1 text-white font-semibold px-8 py-3 rounded-lg block hover:bg-yellow-300">Start learning today</p>
+                                <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="450" className="animate__tada bg-blue-1 text-white font-medium px-8 py-3 rounded-lg block hover:bg-yellow-300">Start learning today</p>
                             </Link>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ export default function Homepage() {
 
                 <Swiper
                     slidesPerView= {1} loop="true"
-                    className="my-32 py-20 hidden sm:block">
+                    className="my-32 py-20 hidden md:block">
                     <SwiperSlide>
                         <div className="vscode flex flex-col items-center">
                             <p className="text-4xl font-bold my-14 tracking-wide">HTML</p>
@@ -283,7 +283,7 @@ export default function Homepage() {
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="100" className="text-center text-3xl sm:text-4xl font-semibold">Start learning today</p>
                     <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="200" className="text-base sm:text-lg font-medium text-center w-full sm:w-1/2">Whether you’re interested in learning how to code or getting a head start in web development, this website will be a powerful ally.</p>
                     <Link to="/tutorial">
-                        <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 text-white font-semibold px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
+                        <p data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-delay="300" className="bg-orange-1 text-white font-medium px-8 py-3 mt-10 rounded-lg w-max hover:bg-yellow-300">Start learning today</p>
                     </Link>
                 </div>
             </div>

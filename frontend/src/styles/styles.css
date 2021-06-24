@@ -928,44 +928,24 @@ Navbar
     color: #3b72ff;
 }
 
-.navbar p:hover,
 .help:hover {
     color: #3b72ff;
 }
 
-.navbar-mobile-dropdown {
-    display: none;
-}
-
-.navbar-mobile:hover .navbar-mobile-dropdown {
-    display: block;
-}
-
-.navbar-mobile{
-    position: relative;
-}
-
-.navbar-mobile:hover .navbar-mobile-dropdown {
-    display: block;
-}
-
-.navbar-mobile-dropdown {
-    padding-top: 20px;
-    display: none;
-    position: absolute;
-    left: 0;
-    width: 250px;
-    height: 750px;
-}
-
-.dropdown-tutorial p{
+.dropdown-tutorial div{
+    width: 350px;
     padding: .5rem;
 }
 
-.dropdown-tutorial p:hover {
-    background-color: #3b72ff;
-    color: white;
-    border-radius: 0.5rem
+.dropdown-user p{
+    padding: 0.5rem;
+}
+
+.dropdown-user p:hover, 
+.dropdown-user .dropdown-user-quota:hover,
+.dropdown-tutorial div:hover{
+    background-color: #f4f7ff;
+    border-radius: 5px;
 }
 
 .course:hover .course-box {
@@ -1024,6 +1004,11 @@ Login page, Register Page
     background-color: var(--black-3);
     border-radius: 6px;
     outline: none;
+}
+
+.login-box input:focus,
+.register-box input:focus{
+    background-color: #d8e7ff;
 }
 
 .register-box select {
@@ -1653,6 +1638,18 @@ Challenge
     border: 1.5px solid var(--black-3);
     border-radius: 6px;
     outline: none;
+}
+
+.courseForm input:focus,
+.courseForm textarea:focus,
+.courseForm select:focus{
+    border: 1.5px solid var(--blue-1);
+}
+
+.topik-form input:focus,
+.topik-form textarea:focus,
+.topik-form select:focus{
+    border: 1.5px solid var(--blue-1);
 }
 
 .submit-box select,

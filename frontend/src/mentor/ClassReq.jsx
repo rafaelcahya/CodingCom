@@ -55,13 +55,17 @@ function ClassReq() {
         }
     }
 
+    const resetForm = () => { 
+        document.getElementById("reset-form").reset();
+    }
+
     return (
         <>
             <div className="flex">
                 <Sidebar />
                 <div className="request-class-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full">
                     <p className="text-lg font-semibold pb-8">Request Class for Mentor</p>
-                    <div className="flex flex-col gap-10">
+                    <form className="flex flex-col gap-10" id="reset-form">
                         <div className="flex justify-between items-center gap-10">
                             <div className="flex flex-col gap-2 w-1/2">
                                 <p className="ClassName text-sm font-semibold">Class Name</p>
@@ -160,8 +164,11 @@ function ClassReq() {
                                 }} />
                         </div>
                         <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                        <p onClick={createClass} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
-                    </div>
+                        <div className="flex justify-between gap-10 w-full">
+                            <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
+                            <p onClick={createClass} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </>

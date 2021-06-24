@@ -65,6 +65,7 @@ export default function AddProfile(props) {
         })
     }
 
+
     return (
         <>
             <div className="bg-blue-100 px-16 py-10 pb-48" id="container" >
@@ -76,7 +77,7 @@ export default function AddProfile(props) {
                 </Link>
             </div>
             <div className="flex flex-col items-center -mt-20">
-                <div className="profile-form w-3/4 md:w-1/2">
+                <form className="profile-form w-3/4 md:w-1/2" id="reset-form">
                     {
                         valueList.map((val)=>{
                             return <div className="flex flex-col items-center gap-10">
@@ -192,7 +193,7 @@ export default function AddProfile(props) {
                         </div>
                         })
                     }
-                </div>
+                </form>
             </div>
             {/* <div className="flex flex-col items-center">
                 <div className="profile-form pt-5 w-4/5 md:w-1/2">

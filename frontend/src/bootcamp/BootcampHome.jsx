@@ -197,9 +197,6 @@ function BootcampHome() {
             <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="program">
                 <p className="text-center text-3xl font-semibold mb-10">Fulltime Coding Bootcamp Program</p>
                 <p className="text-xl leading-10 font-medium text-center lg:mx-10 xl:mx-32">Students will take part in intensive learning starting from the Preparation Phase to learn programming fundamentals and the Bootcamp Phase to learn the hard skills and soft skills needed to become a programmer.</p>
-                <ul>
-                    <li>test</li>
-                </ul>
             </section>
 
             <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28">
@@ -291,18 +288,16 @@ function BootcampHome() {
             </section>
 
             <section className="py-10 mt-10 mb-20 md:mb-28 bg-yellow-200 text-black">
-                {value.map((val)=>{
-                   return <div className="flex justify-center gap-10  lg:mx-10 xl:mx-32">
-                    <div className="text-center px-10 py-5 rounded-xl">
-                        <p>{val.batch} will run on </p>
-                        <p className="text-lg font-semibold mt-2">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
+                <div className="flex justify-center items-center">
+                    {value.map((val)=>{
+                        return <div className="gap-10  lg:mx-10 xl:mx-32">
+                        <div className="text-center px-10 py-5 rounded-xl">
+                            <p>{val.batch} will run on </p>
+                            <p className="text-lg font-semibold mt-2">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
+                        </div>
                     </div>
-                    {/* <div className="text-center px-10 py-5 rounded-xl">
-                        <p>Batch 2 will run on </p>
-                        <p className="text-lg font-semibold mt-2">29 November 2021 - 25 February 2022</p>
-                    </div> */}
+                    })}
                 </div>
-                })}
                 <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-20 md:gap-0 px-8 md:px-16 lg:px-40 py-10">
                     <div>
                         <p className="mb-2">Duration</p>
