@@ -50,7 +50,7 @@ export default function ListCourse() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.courseCreateAt)} {formatTime(val.courseCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.courseUpdateAt)} {formatTime(val.courseUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/admin/course/"+val.id}>
+                                                            <Link to={"/admin/course/"+val.number+"/"+val.topik_id}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">View</p>
                                                             </Link>
                                                         </td>

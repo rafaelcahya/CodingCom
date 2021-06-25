@@ -14,6 +14,7 @@ import star from "../../../../../asset/icon/star.svg"
 
 function Internet(props) {
     const urlid = props.match.params.id
+    const urlid2 = props.match.params.id2
     const modal = useRef()
     let x
     const [comment, setComment] = useState("")
@@ -37,18 +38,18 @@ function Internet(props) {
 
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
+        Axios.get("http://localhost:3001/course/courseById/" + urlid +"/" + urlid2).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
-    }, []);
+    }, [urlid]);
 
     useEffect(() => {
         Axios.get("http://localhost:3001/comment/commentListById/" + urlid).then((response) => {
             setCommentList(response.data)
             console.log(response.data)
         })
-    }, []);
+    }, [urlid]);
 
     const commentInternet = () => {
         Axios.post("http://localhost:3001/comment/commentInternet", { id: urlid, name: name, comment: comment, createAt: createAt }).then((response) => {

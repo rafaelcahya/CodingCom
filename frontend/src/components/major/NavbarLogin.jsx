@@ -8,6 +8,8 @@ export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
     const [name, setName] = useState("")
     const [value, setValue] = useState([])
+    const [valueList, setValueList] = useState([])
+    const [valueVal, setValueVal] = useState([])
     let image = require('../../asset/upload/'+ localStorage.getItem("image"))
     window.onload = setTimeout(function () {
         let x = localStorage.getItem("name");
@@ -20,10 +22,26 @@ export default function NavbarLogin() {
     }, [localStorage.getItem("loggedIn")]);
 
     useEffect(() => {
+        Axios.get("http://localhost:3001/user/userById/"+localStorage.getItem("name")).then((response) => {
+            setValueList(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    useEffect(() => {
         Axios.get("http://localhost:3001/category/listCategory").then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
+    }, []);
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
+            setValueVal(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // window.onload = setTimeout(function () {
@@ -286,20 +304,24 @@ export default function NavbarLogin() {
                     variants={menuVariantsa}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
-                        <div className="text-sm pr-5 border-r-2">
-                            <div className="dropdown-user-quota flex justify-between gap-5">
+                        {valueVal.map((v)=>{
+                            return <div className="text-sm pr-5 border-r-2">
+                            {valueList.map((val)=>{
+                                return <div className="dropdown-user-quota flex justify-between gap-5">
                                 <p>Premium plan</p>
-                                <p>Actived/Not Actived</p>
+                                <p>{val.status}</p>
                             </div>
-                            <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota flex justify-between gap-5">
-                                <p>Class Consultation Quota</p>
-                                <p>0 quota</p>
-                            </Link>
-                            <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota flex justify-between">
-                                <p>Coding Class Quota</p>
-                                <p>0 quota</p>
-                            </Link>
-                        </div>
+                            })}
+                                <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota flex justify-between gap-5">
+                                    <p>Class Consultation Quota</p>
+                                    <p>{v.classConsultation}</p>
+                                </Link>
+                                <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota flex justify-between">
+                                    <p>Coding Class Quota</p>
+                                    <p>{v.classSession}</p>
+                                </Link>
+                            </div>
+                        })}
                         <div>
                             <Link to={"/profile/" + name}>
                                 <p className="text-sm">Profile</p>

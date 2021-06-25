@@ -18,22 +18,22 @@ export const SidebarInternet = () => {
         <>
             <div className="hidden lg:block sticky self-start top-0 pt-6">
                 <p className="text-lg font-semibold">Internet Tutorial</p>
-                <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                    <div className="flex justify-between items-center">
-                        <Link to="/internet">Getting Started</Link>
-                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
-                    </div>
                     {
                         value.map(
                             (val) => {
-                                return <div className="flex justify-between items-center">
-                                    <Link to={"/user-course/" + val.id}>{val.number}.{val.judul}</Link>
+                                return <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                                <div className="flex justify-between items-center">
+                                    <Link to={"/topic-detail/" + val.topik_id}>Getting Started</Link>
+                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <Link to={"/"+ val.judul +"/" + val.number + "/" + val.topik_id}>{val.number}.{val.judul}</Link>
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{val.time} min</p>
+                                </div>
                                 </div>
                             }
                         )
                     }
-                </div>
             </div>
         </>
     )

@@ -26,7 +26,7 @@ export default function Sidebar() {
                         title: "Tutorial Management",
                         subNav: [
                             {
-                                title: "Add tutorial",
+                                title: "Add Tutorial Course",
                                 itemId: "/mentor/add-course"
                             },
                             {
@@ -34,7 +34,7 @@ export default function Sidebar() {
                                 itemId: "/mentor/list-course/" + name
                             },
                             {
-                                title: "Add Sub tutorial",
+                                title: "Add Topik Tutorial",
                                 itemId: "/mentor/add-topik/" + name
                             },
                         ],

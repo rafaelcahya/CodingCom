@@ -80,13 +80,15 @@ export default function AddProfile(props) {
                 <form className="profile-form w-3/4 md:w-1/2" id="reset-form">
                     {
                         valueList.map((val)=>{
+                            let image = require('../../asset/upload/'+ val.image)
                             return <div className="flex flex-col items-center gap-10">
+                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" alt=""/>
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold">Image Profile</p>
                                 <input className="w-full"
                                     type="file"
                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
-                                    name="fileUpload" 
+                                    name="fileUpload"
                                     onChange={(event) => {
                                         setFile(event.target.files[0])
                                     }} />

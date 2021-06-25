@@ -5,12 +5,37 @@ import { Link } from 'react-router-dom';
 
 function Course(props) {
     const urlid = props.match.params.id
+    const urlid2 = props.match.params.id2
+    const [updateAt, setUpdateAt] = useState("")
     const [value, setValue] = useState([])
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
+
     useEffect(() => {
-        axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
+        axios.get("http://localhost:3001/course/courseById/" + urlid + "/" + urlid2).then((response) => {
             setValue(response.data)
+            console.log(urlid)
+            console.log(urlid2)
         })
-    });
+    },[urlid,urlid2]);
+
+    const Approve = () => {
+        axios.put("http://localhost:3001/course/approve",{id:urlid, id2:urlid2, updateAt:updateAt}).then((response) => {
+            console.log(response)
+        })
+    };
+
+    const Reject = () => {
+        axios.put("http://localhost:3001/course/reject",{id:urlid, id2:urlid2, updateAt:updateAt}).then((response) => {
+            console.log(response)
+        })
+    };
 
     return (
         <>
@@ -25,8 +50,8 @@ function Course(props) {
                             </div>
                         </Link>
                         <div className="flex items-center gap-5 font-semibold">
-                            <p className="text-red-500">Reject</p>
-                            <p className="px-4 py-2 bg-green-100 text-green-500 rounded-lg">Approve</p>
+                            <p onClick={Reject} className="text-red-500">Reject</p>
+                            <p onClick={Approve} className="px-4 py-2 bg-green-100 text-green-500 rounded-lg">Approve</p>
                         </div>
                     </div>
                     {

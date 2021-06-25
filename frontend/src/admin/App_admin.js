@@ -37,7 +37,7 @@ function App_admin() {
               <Route path="/admin/user-list" component={UserList} />
               <Route path="/admin/user-list-active" component={UserListActive} />
               <Route path="/admin/project-list" component={ProjectList} />
-              <Route path="/admin/course/:id" component={Course} />
+              <Route path="/admin/course/:id/:id2" component={Course} />
               <Route path="/admin/list-course" component={ListCourse} />
               <Route path="/admin/input-jobs" component={InputJobs} />
               <Route path="/admin/add-project" component={AddProject} />

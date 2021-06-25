@@ -12,6 +12,7 @@ function AddCourse() {
     const [des,setDes] = useState("")
     const [time,setTime] = useState("")
     const [createAt,setCreateAt] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
     const [value,setValue] = useState([])
     let x
 
@@ -38,6 +39,7 @@ function AddCourse() {
             console.log(editorRef.current.getContent());
             Axios.post("http://localhost:3001/course/addCourse", {name:name, topik:topik, number:number, createAt:createAt, judul:judul, des:des, time:time, content: editorRef.current.getContent() }).then((response) => {
                 console.log("inserted into database")
+                setErrorMessage(response.data.message)
             })
         }
     };
@@ -124,6 +126,7 @@ function AddCourse() {
                             }}
                         />
                     </div>
+                    <p>{errorMessage}</p>
                     <div className="flex justify-between gap-10 w-full">
                         <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
                         <p onClick={log} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>

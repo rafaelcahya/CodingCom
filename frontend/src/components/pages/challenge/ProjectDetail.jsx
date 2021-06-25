@@ -12,7 +12,6 @@ import File from "../../../asset/file/Challenge.docx"
 function ProjectDetail(props) {
     const urlid = props.match.params.id
     const [value, setValue] = useState([])
-    let id
     useEffect(() => {
         axios.get("http://localhost:3001/project/GetprojectById/" + urlid).then((response) => {
             setValue(response.data)

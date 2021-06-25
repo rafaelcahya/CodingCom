@@ -3,6 +3,7 @@
 /* eslint-disable eqeqeq */
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
@@ -92,7 +93,13 @@ function TopicDetail(props) {
                                     <div className="sticky self-start top-10 w-1/3">
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
                                         <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p>
-                                        <p>MASUK KE COURSE</p>
+                                        {
+                                            value.map((item)=>{
+                                                return <Link to={"/"+ item.judul +"/" + item.number + "/" + val.topikId}>
+                                                <p>MASUK KE COURSE</p>
+                                                </Link>
+                                            })
+                                        }
                                         {/* {
                                             value.map(
                                                 (item) => {

@@ -25,11 +25,20 @@ router.post("/addCourse", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("INSERT INTO course (judul, topik_id, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
-                console.log(err)
-                res.send(results)
+            db.query("SELECT * From course WHERE topik_id = ? AND number = ?",[topik, number], (err, results) => {
+                if (err) {
+                    console.log(err)
+                }
+        
+                if (!results.length) {
+                    db.query("INSERT INTO course (judul, topik_id, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                }else{
+                    res.send({message:"Tutorial Number can not be same at the same Topic"})
+                }
             })
-            console.log(user_id)
         }
     })
 })
@@ -64,13 +73,10 @@ router.put("/updateCourse", (req, res) => {
             })
         }
     })
-
-    
-
 })
 
 router.get("/listCourse", (req, res) => {
-    db.query("SELECT course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId", (err, results) => {
+    db.query("SELECT course.id, course.number, course.judul, course.description, course.time, course.content, course.topik_id, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId", (err, results) => {
         res.send(results)
     })
 })
@@ -99,16 +105,43 @@ router.get("/listCourseMentor/:name", (req, res) => {
     })
 })
 
-router.get("/courseById/:id", (req, res) => {
+router.get("/courseById/:id/:id2", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from course WHERE id = ?", id, (err, results) => {
+    const topik_id = req.params.id2
+    db.query("SELECT * from course WHERE topik_id = ? AND number = ?", [topik_id, id], (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/courseByTopikId/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from course WHERE topik_id = ?", id, (err, results) => {
+    let status = "APPROVED"
+    let number = "1"
+    db.query("SELECT * from course WHERE topik_id = ? AND status = ? AND number = ?", [id, status, number], (err, results) => {
+        res.send(results)
+    })
+})
+
+router.put("/approve", (req, res) => {
+    const id = req.body.id
+    const topik_id = req.body.id2
+    const updateAt = req.body.updateAt
+    let status = "APPROVED"
+
+    db.query("UPDATE course SET status = ?, courseUpdateAt=? WHERE topik_id = ? AND number = ?;", [status, updateAt, topik_id, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
+router.put("/reject", (req, res) => {
+    const id = req.body.id
+    const topik_id = req.body.id2
+    const updateAt = req.body.updateAt
+    let status = "REJECTED"
+
+    db.query("UPDATE course SET status = ?, courseUpdateAt=? WHERE topik_id = ? AND number = ?;", [status, updateAt, topik_id, id], (err, results) => {
+        console.log(err)
         res.send(results)
     })
 })
