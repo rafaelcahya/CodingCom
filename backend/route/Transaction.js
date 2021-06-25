@@ -91,7 +91,7 @@ router.get("/TransactionList", (req, res) => {
 
 router.get("/TransactionListAPPROVED", (req, res) => {
     let isDeleted = "NO"
-    let status = "APPROVED"
+    let status = "Approved"
     db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?",[isDeleted, status], (err, results) => {
         res.send(results)
     })
@@ -99,7 +99,7 @@ router.get("/TransactionListAPPROVED", (req, res) => {
 
 router.get("/TransactionListREJECTED", (req, res) => {
     let isDeleted = "NO"
-    let status = "REJECTED"
+    let status = "Rejected"
     db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?",[isDeleted, status], (err, results) => {
         res.send(results)
     })
@@ -125,7 +125,7 @@ router.put("/addeditKuota", (req, res) => {
     let update = ""
     let kuotaConsultation = 0
     let kuotaSession = 0
-    if (status == "APPROVED") {
+    if (status == "Approved") {
         kuotaConsultation = 7
         kuotaSession = 5
         db.query("SELECT * From userkuota WHERE user_id = ?", id, (err, results) => {
