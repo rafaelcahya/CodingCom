@@ -24,7 +24,16 @@ export default function Login() {
                 localStorage.setItem("loggedIn", true)
                 localStorage.setItem("name", response.data.name)
                 localStorage.setItem("image",response.data.image)
-                history.push("/")
+                localStorage.setItem("role", response.data.role)
+
+                if(localStorage.getItem("role") == 1){
+                    history.push("/admin/user-list")
+                }else if(localStorage.getItem("role") == 2){
+                    history.push("/mentor/class-request")
+                }else{
+                    history.push("/")
+                }
+                
             } else {
                 setErrorMessage(response.data.message)
             }
