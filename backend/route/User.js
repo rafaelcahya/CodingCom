@@ -203,7 +203,7 @@ router.post("/reset", (req, res) => {
                                     path: __dirname +'/views/logo_codingcom.png',
                                     cid: 'logo@cid'
                                 }],
-                                html: htmlToSend
+                                html: "<p>Click the button below to change your old password.</p>" + 'http://localhost:3000/forgotPassword/' + hash
                             }
                             transporter.sendMail(mailOption, function (err, info) {
                                 if (err) {
