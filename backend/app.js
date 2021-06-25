@@ -57,6 +57,9 @@ app.use("/transaction", transactionRoute)
 const categoryRoute = require('./route/Category')
 app.use("/category", categoryRoute)
 
+const FAQRoute = require('./route/FAQ')
+app.use("/faq", FAQRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });

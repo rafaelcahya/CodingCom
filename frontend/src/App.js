@@ -8,6 +8,7 @@ import {GlobalStyle, lightTheme, darkTheme} from "../src/components/minor/Global
 
 import Login from "./components/pages/Login"
 import Register from "./components/pages/Register"
+import RegisterMentor from "./components/pages/RegisterMentor"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import ResetPassword from "./components/pages/ResetPassword"
 import Profile from "./components/pages/Profile.jsx"
@@ -113,7 +114,7 @@ function App() {
             <Route path="/project-detail/:id" component={ProjectDetail} />
             <Route path="/submit-solution/:id" component={Submit} />
 
-            <Route path="/challenge" component={Challenge} />
+            {/* <Route path="/challenge" component={Challenge} /> */}
             <Route path="/html-css-js-exercise" component={Certificate1} />
             <Route path="/react-exercise" component={ReactCerti} />
             <Route path="/vue-exercise" component={VueCerti} />
@@ -132,6 +133,8 @@ function App() {
 
             <Route path="/career" component={Career} />
             <Route path="/career-detail/:name/:id" component={CareerDetail} />
+
+            <Route path="/register-mentor" component={RegisterMentor} />
 
             <NewsContextProvider>
               <Route path="/news" component={News}/>
