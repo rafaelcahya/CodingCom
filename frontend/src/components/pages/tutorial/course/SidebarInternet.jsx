@@ -17,7 +17,7 @@ export const SidebarInternet = () => {
     return (
         <>
             <div className="hidden lg:block sticky self-start top-0 pt-6">
-                <p className="text-lg font-semibold">Internet Tutorial</p>
+                <p className="text-lg font-semibold">Course List</p>
                     {
                         value.map(
                             (val) => {

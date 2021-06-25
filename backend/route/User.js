@@ -180,7 +180,7 @@ router.post("/registerMentor", (req, res) => {
                                     path: __dirname +'/views/logo_codingcom.png',
                                     cid: 'logo@cid'
                                 }],
-                                html: htmlToSend
+                                html: "<p><b>Welcome New Mentor,We hope we can help you achive something</b></p>" + '<br/>'+'This is your account'+'<br/>' +'Username: '+ name +'<br/>' + 'Password: ' + password + '<br/>' +"<p><b>NOTE : DON'T LOSE THIS EMAIL AND DON'T GIVE THIS EMAIL TO ANYONE</b></p>"
                             }
                             transporter.sendMail(mailOption, function (err, info) {
                                 if (err) {
@@ -215,8 +215,7 @@ router.post("/login", (req, res) => {
         }
         if (results.length > 0) {
             if (hash.match(results[0].password) != null) {
-                res.json({ loggedIn: true, name: name, image:results[0].image })
-
+                res.json({ loggedIn: true, name: name, image:results[0].image, role:results[0].roleId })
             } else if (name.length <= 0) {
                 res.send({ message: "Username has not been filled" })
             } else if (password.length <= 0) {

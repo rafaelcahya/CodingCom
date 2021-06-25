@@ -33,7 +33,7 @@ router.post("/rating", (req, res) => {
                     db.query("UPDATE rating SET rating = ?, description = ?, ratingCreateAt = ? WHERE user_id = ?;", [rating, des, createAt, user_id], (err, results) => {
                         console.log(err)
                         res.send(results)
-                    }) 
+                    })
                 }
             })
             console.log(user_id)
