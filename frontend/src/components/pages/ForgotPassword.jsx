@@ -61,7 +61,7 @@ export default function ForgotPassword() {
                     <p className="text-sm">Your new password must be different from previous used password</p>
                     <div className="flex flex-col my-10">
                         <div className="flex flex-col gap-5">
-                        <div>
+                            <div>
                                 <div className="flex justify-between">
                                     <p className="password text-sm font-semibold mb-1">Password</p>
                                     <div className="flex flex-col items-end">
@@ -97,13 +97,21 @@ export default function ForgotPassword() {
                             </div>
                             <div>
                                 <p className="confirmpass text-sm font-semibold mb-1">Confirm password</p>
-                                <input
-                                    type="password"
-                                    placeholder="Input your password again"
-                                    className="input-confirmpass"
-                                    onChange={(event) => {
-                                        setCPassword(event.target.value)
+                                <div className="flex gap-2">
+                                    <input
+                                        type={revealPass ? "text" : "password"}
+                                        placeholder="Enter your password again" 
+                                        className="border-none"
+                                        onChange={(event) => {
+                                            setCPassword(event.target.value)
                                     }} />
+                                    <img
+                                        alt=""
+                                        title={revealPass ? "Hide password" : "Show password"}
+                                        src={revealPass ? hidePass : showPass}
+                                        onClick={() => setRevealPass(prevState => !prevState)}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
