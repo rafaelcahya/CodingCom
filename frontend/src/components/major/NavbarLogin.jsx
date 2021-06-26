@@ -76,89 +76,94 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden relative text-sm lg:flex justify-between px-16 xl:px-32 z-20 border-b border-gray-200">
-                    <div className=" flex items-center py-3">
-                        <NavLink to=""
-                            exact
-                            className="logo">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                width="30" height="45" viewBox="0 0 44 59"
-                                preserveAspectRatio="xMidYMid meet">
-                                <g transform="translate(0,59) scale(0.1,-0.1)"
-                                    fill="currentColor" stroke="none">
-                                    <path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
-                            80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
-                            -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
-                            153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
-                            13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
-                            -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
-                                </g>
-                            </svg>
-                        </NavLink>
-                        <div className="navbar flex items-center ml-12 gap-6 xl:gap-12" id="navbar">
-                            <NavLink to={"/pricing/"+name}
+                <div className="navbar hidden lg:block relative ">
+                    {/* <div className="border-b border-gray-200">
+                        <p className="px-16 xl:px-32">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor obcaecati exercitationem ipsum, odio dicta error neque repudiandae nihil. Fuga animi ipsam nobis culpa perferendis saepe, dignissimos dolor inventore unde at.</p>
+                    </div> */}
+                    <div className="text-sm lg:flex justify-between px-16 xl:px-32 z-20 border-b border-gray-200">
+                        <div className=" flex items-center py-3">
+                            <NavLink to=""
+                                exact
+                                className="logo">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                    width="30" height="45" viewBox="0 0 44 59"
+                                    preserveAspectRatio="xMidYMid meet">
+                                    <g transform="translate(0,59) scale(0.1,-0.1)"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
+                                80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
+                                -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
+                                153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
+                                13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
+                                -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
+                                    </g>
+                                </svg>
+                            </NavLink>
+                            <div className="navbar flex items-center ml-12 gap-6 xl:gap-12" id="navbar">
+                                <NavLink to={"/pricing/"+name}
+                                    activeClassName="navbar_active"
+                                    className="navbar__link underline_anim">
+                                    <p>Pricing</p>
+                                </NavLink>
+                                <motion.div className="course"
+                                    onClick={() => setOpenTutorial(state => !state)}
+                                    initial={false}
+                                    animate={openTutorial ? "opened" : "closed"}>
+                                    <div
+                                        className="navbar__link">
+                                        <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
+                                    </div>
+                                </motion.div>
+
+                                <NavLink to="/challenge"
+                                    activeClassName="navbar_active"
+                                    className="navbar__link">
+                                    <p className="navbar_btn underline_anim">Challenges</p>
+                                </NavLink>
+
+                                <NavLink to="/class-session"
+                                    activeClassName="navbar_active"
+                                    className="navbar__link">
+                                    <p className="navbar_btn underline_anim">Coding Class</p>
+                                </NavLink>
+
+                                <NavLink to="/news"
+                                    activeClassName="navbar_active"
+                                    className="navbar__link">
+                                    <p className="navbar_btn underline_anim">News</p>
+                                </NavLink>
+
+                                <NavLink to="/career"
+                                    activeClassName="navbar_active"
+                                    className="navbar__link">
+                                    <p className="navbar_btn underline_anim">Career</p>
+                                </NavLink>
+
+                                <NavLink to="/bootcamp"
+                                    activeClassName="navbar_active"
+                                    className="navbar__link">
+                                    <p className="navbar_btn underline_anim">Bootcamp</p>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <NavLink to="/help"
                                 activeClassName="navbar_active"
                                 className="navbar__link underline_anim">
-                                <p>Pricing</p>
+                                <p className="help">Help</p>
                             </NavLink>
-                            <motion.div className="course"
-                                onClick={() => setOpenTutorial(state => !state)}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="rotate(90)" className="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <motion.div className="flex items-center gap-1 cursor-pointer"
+                                onClick={() => setOpenProfile(state => !state)}
                                 initial={false}
-                                animate={openTutorial ? "opened" : "closed"}>
-                                <div
-                                    className="navbar__link">
-                                    <p className="navbar_btn underline_anim cursor-pointer">Tutorial</p>
+                                animate={openProfile ? "opened" : "closed"}>
+                                <div className="flex items-center gap-2">
+                                    <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile"/>
                                 </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </motion.div>
-
-                            <NavLink to="/challenge"
-                                activeClassName="navbar_active"
-                                className="navbar__link">
-                                <p className="navbar_btn underline_anim">Challenges</p>
-                            </NavLink>
-
-                            <NavLink to="/class-session"
-                                activeClassName="navbar_active"
-                                className="navbar__link">
-                                <p className="navbar_btn underline_anim">Coding Class</p>
-                            </NavLink>
-
-                            <NavLink to="/news"
-                                activeClassName="navbar_active"
-                                className="navbar__link">
-                                <p className="navbar_btn underline_anim">News</p>
-                            </NavLink>
-
-                            <NavLink to="/career"
-                                activeClassName="navbar_active"
-                                className="navbar__link">
-                                <p className="navbar_btn underline_anim">Career</p>
-                            </NavLink>
-
-                            <NavLink to="/bootcamp"
-                                activeClassName="navbar_active"
-                                className="navbar__link">
-                                <p className="navbar_btn underline_anim">Bootcamp</p>
-                            </NavLink>
-
                         </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <NavLink to="/help"
-                            activeClassName="navbar_active"
-                            className="navbar__link underline_anim">
-                            <p className="help">Help</p>
-                        </NavLink>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="rotate(90)" className="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        <motion.div className="flex items-center gap-1 cursor-pointer"
-                            onClick={() => setOpenProfile(state => !state)}
-                            initial={false}
-                            animate={openProfile ? "opened" : "closed"}>
-                            <div className="flex items-center gap-2">
-                                <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile"/>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </motion.div>
                     </div>
                 </div>
                 <motion.div
@@ -346,6 +351,9 @@ export default function NavbarLogin() {
                             </Link>
                             <Link to="/resetPassword">
                                 <p className="text-sm">Change Password</p>
+                            </Link>
+                            <Link to="/purchase">
+                                <p className="text-sm">Purchase</p>
                             </Link>
                             <Link to={"/feedback/" + name}>
                                 <p className="text-sm">Feedback</p>

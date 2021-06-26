@@ -128,7 +128,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const lightTheme={
-    background: '#eff3fc',
+    background: '#fff',
     primarytext: '#3a3a3a',
     secondarytext: '#3a3a3a',
     tertiarytext: '#3a3a3a',

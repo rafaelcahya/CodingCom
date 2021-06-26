@@ -64,7 +64,7 @@ export default function Profile(props) {
                                 let image = require('../../asset/upload/' + val.image)
                                 return <div>
                                     <div className="flex flex-col items-center gap-3">
-                                        <img src={image.default} className="ring-4 ring-white rounded-full transform transition duration-150 hover:scale-110 mb-3" width={150} alt="Not Found" onClick={window.onload = function() {
+                                        <img src={image.default} className="img-image-profile ring-4 ring-white rounded-full transform transition duration-150 hover:scale-110 mb-3" alt="Not Found" onClick={window.onload = function() {
                                             if(!window.location.hash) {
                                                 window.location = window.location + '#';
                                                 window.location.reload();

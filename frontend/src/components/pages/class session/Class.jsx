@@ -26,12 +26,17 @@ function Class() {
             <NavbarLogin />
             <NavbarMobile />
 
-            <div className="flex md:block flex-col items-center mx-5 xl:mx-32 mt-20">
-                <div className="flex flex-col gap-2">
-                    <p className="text-4xl font-bold">Coding class</p>
-                    <p className="text-xl text-gray-500 font-medium">Choose classes that will support your personal and professional development here!</p>
+            <div className="flex md:block flex-col items-center">
+                <div className="bg-custom darken-overlay">
+                    <div className="text-white flex flex-col gap-2 px-5 xl:px-32 py-36">
+                        <p className="text-4xl font-bold">Coding class</p>
+                        <p className="text-xl font-medium">Choose classes that will support your personal and professional development here!</p>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-5 gap-y-12 mt-20 h-full">
+                <div className="flex justify-center">
+                    <p className="text-3xl font-semibold border-b-2 px-2 pb-2 border-black mb-20 mt-32 lg:mt-20 w-max">Latest Class</p>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-5 gap-y-12 h-full px-5 xl:px-32">
                     {
                         listClass.map(
                             (val)=> {

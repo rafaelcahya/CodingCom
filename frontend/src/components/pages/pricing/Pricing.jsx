@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Footer from '../../major/Footer'
 
@@ -338,7 +338,7 @@ function Pricing(props) {
                                 </div>
                             </article>
                             <div className="bg-blue-100 text-blue-500 text-sm text-center py-3 mt-10 rounded-xl">
-                                <p className="font-medium">Activated</p>
+                                <p className="font-semibold">Activated</p>
                             </div>
                         </div>
                         </section>

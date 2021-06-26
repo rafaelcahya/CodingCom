@@ -5,13 +5,6 @@
 * Browsers: last 4 version
 */
 
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
 @font-face {
     font-family: montserrat;
     src: url(../asset/font/Montserrat-Regular.ttf);
@@ -187,6 +180,18 @@ CSS Customization
 Accessories 
 
 */
+
+.bg-custom{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1004%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(9%2c 35%2c 99%2c 1)'%3e%3c/rect%3e%3cpath d='M1109.98 380.25L1161.69 380.25L1161.69 388.94L1109.98 388.94z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M393.06 359.5L435.99 359.5L435.99 400.48L393.06 400.48z' stroke='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M431.84 402.43L472.8 402.43L472.8 405.46L431.84 405.46z' stroke='rgba(255%2c 242%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M1002.72 41.35 a20.7 20.7 0 1 0 41.4 0 a20.7 20.7 0 1 0 -41.4 0z' stroke='rgba(255%2c 242%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M1309.46 123.66a53.61 53.61 0 1 0-83 67.87z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M232.45 321L287.45 321L287.45 376L232.45 376z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M816.9 469.81 a5.27 5.27 0 1 0 10.54 0 a5.27 5.27 0 1 0 -10.54 0z' fill='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M1432.88 9.17L1441.97 9.17L1441.97 33.19L1432.88 33.19z' fill='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M382.46 384.9L408.37 384.9L408.37 410.81L382.46 410.81z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M931.35 88.54L975.27 88.54L975.27 132.46L931.35 132.46z' fill='rgba(255%2c 242%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M131.47 125.66L175 125.66L175 157.86L131.47 157.86z' stroke='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M128.09 511.39 a13.76 13.76 0 1 0 27.52 0 a13.76 13.76 0 1 0 -27.52 0z' fill='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M683.18-27.48a38.58 38.58 0 1 0-23.47 73.51z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M133.22 506L151.89 506L151.89 556.31L133.22 556.31z' fill='rgba(255%2c 242%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M739.42 376.4L748.85 376.4L748.85 385.83L739.42 385.83z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M821.42 128.87 a3.09 3.09 0 1 0 6.18 0 a3.09 3.09 0 1 0 -6.18 0z' stroke='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M122.37 407.16 a30.46 30.46 0 1 0 60.92 0 a30.46 30.46 0 1 0 -60.92 0z' stroke='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M453.9 136.76a52.59 52.59 0 1 0 105.12-3.32z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M-24.25 176.76 a34.68 34.68 0 1 0 69.36 0 a34.68 34.68 0 1 0 -69.36 0z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M1005.24 39.71a5.85 5.85 0 1 0-8.83 7.67z' fill='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M487.7 511.95 a48.08 48.08 0 1 0 96.16 0 a48.08 48.08 0 1 0 -96.16 0z' stroke='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M809.6 272.2 a43.43 43.43 0 1 0 86.86 0 a43.43 43.43 0 1 0 -86.86 0z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M966.75 402.24L996.1 402.24L996.1 431.59L966.75 431.59z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M667.57 475.88a30.87 30.87 0 1 0-1.11-61.73z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M230.61 551.18L235.92 551.18L235.92 556.49L230.61 556.49z' fill='rgba(255%2c 242%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M856.86 169.23L912.38 169.23L912.38 185.35L856.86 185.35z' fill='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M1479.68 178.49a45.81 45.81 0 1 0-90.73-12.68z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M1363.16 420.91L1407.32 420.91L1407.32 465.07L1363.16 465.07z' stroke='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M239.04 366.86L267.39 366.86L267.39 376.03L239.04 376.03z' fill='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M1083.26 256.76a50.99 50.99 0 1 0-14.59-100.93z' fill='rgba(233%2c 59%2c 129%2c 1)'%3e%3c/path%3e%3cpath d='M1131.31 398.42a13.57 13.57 0 1 0-21.69 16.32z' fill='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M858.33 410.47a12.04 12.04 0 1 0-15.86 18.12z' stroke='rgba(255%2c 31%2c 90%2c 1)'%3e%3c/path%3e%3cpath d='M281.87 98.17 a30.26 30.26 0 1 0 60.52 0 a30.26 30.26 0 1 0 -60.52 0z' fill='rgba(199%2c 255%2c 216%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1004'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.darken-overlay div {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 .minor {
     position: fixed;
@@ -917,6 +922,19 @@ Accessories
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
+
+.shadow-4xl{
+    --tw-shadow: 0 30px 50px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover-translate{
+    transition: 0.3s;
+}
+
+.hover-translate:hover{
+    transform: translate(0, -25px);
+}
 /* 
 
 Navbar 
@@ -942,7 +960,7 @@ Navbar
 }
 
 .dropdown-user p:hover, 
-.dropdown-user .dropdown-user-quota:hover,
+.dropdown-user-quota:hover,
 .dropdown-tutorial div:hover{
     background-color: #f4f7ff;
     border-radius: 5px;
@@ -1069,6 +1087,10 @@ Login page, Register Page
 Profile 
 
 */
+.img-image-profile{
+    width: 150px;
+    height: 150px;
+}
 
 .profile-form input,
 .profile-form select,
