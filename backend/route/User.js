@@ -397,7 +397,7 @@ router.put("/updatePaymentStatus", (req, res) => {
     const updateAt = req.body.updateAt
     let statsUser= "Actived"
 
-    if (status == "APPROVED") {
+    if (status == "Approved") {
     db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE id = ?;", [statsUser, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)

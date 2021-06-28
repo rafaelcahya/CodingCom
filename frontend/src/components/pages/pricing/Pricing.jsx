@@ -1,4 +1,5 @@
-import React, { Component, useEffect, useState } from 'react'
+/* eslint-disable eqeqeq */
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Footer from '../../major/Footer'
 
@@ -166,14 +167,14 @@ function Pricing(props) {
                                                     <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
                                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                                     </svg>
-                                                    <p>Access to consultation classes and get 7 quotas</p>
+                                                    <p>Access to consultation class and get 7 quotas</p>
                                                 </div>
                                                 <div className="flex items-center gap-2">
                                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
                                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                                     </svg>
-                                                    <p>Access to session classes and get 5 quotas</p>
+                                                    <p>Access to coding class and get 5 quotas</p>
                                                 </div>
                                                 <div className="flex items-center gap-2">
                                                     <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,18 +198,14 @@ function Pricing(props) {
                                     <p className="text-lg font-semibold">Consultation Class Quota</p>
                                     <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for  consultation class access</p>
                                 </div>
-                                <Link to="/payment-confirmation-class-consultation-quota">
-                                    <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 75,000</p>
-                                </Link>
+                                <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">Premium is not active yet</p>
                             </div>
                             <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
                                 <div>
-                                    <p className="text-lg font-semibold">Session Class Quota</p>
-                                    <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>
+                                    <p className="text-lg font-semibold">Coding Class Quota</p>
+                                    <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for Coding Class access</p>
                                 </div>
-                                <Link to="/payment-confirmation-class-session-quota">
-                                    <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>
-                                </Link>
+                                <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">Premium is not active yet</p>
                             </div>
                         </section>
                     </div>
@@ -318,14 +315,14 @@ function Pricing(props) {
                                             <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
                                             <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                             </svg>
-                                            <p>Access to consultation classes and get 7 quotas</p>
+                                            <p>Access to consultation class and get 7 quotas</p>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="8" cy="8" r="8" fill="#D1FAE5"/>
                                             <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                             </svg>
-                                            <p>Access to session classes and get 5 quotas</p>
+                                            <p>Access to coding class and get 5 quotas</p>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -338,7 +335,7 @@ function Pricing(props) {
                                 </div>
                             </article>
                             <div className="bg-blue-100 text-blue-500 text-sm text-center py-3 mt-10 rounded-xl">
-                                <p className="font-medium">Activated</p>
+                                <p className="font-semibold">Activated</p>
                             </div>
                         </div>
                         </section>
@@ -354,8 +351,8 @@ function Pricing(props) {
                             </div>
                             <div className="plan-box px-5 sm:px-10 py-8 rounded-xl shadow-xl flex flex-col md:flex-row gap-5 md:gap-0 items-center ring-2 ring-blue-500 w-max">
                                 <div>
-                                    <p className="text-lg font-semibold">Session Class Quota</p>
-                                    <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for session class access</p>
+                                    <p className="text-lg font-semibold">Coding Class Quota</p>
+                                    <p className="text-sm font-medium text-gray-400 w-72">You will get 5 quota for Coding Class access</p>
                                 </div>
                                 <Link to="/payment-confirmation-class-session-quota">
                                     <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg">IDR 250,000</p>

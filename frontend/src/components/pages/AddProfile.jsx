@@ -69,7 +69,7 @@ export default function AddProfile(props) {
     return (
         <>
             <div className="bg-blue-100 px-16 py-10 pb-48" id="container" >
-                <Link to="/">
+                <Link to={"/profile/" + name}>
                     <div className="flex gap-1 bg-white py-2 pl-1 pr-3 rounded-lg w-max">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         <p>back</p>
@@ -82,10 +82,18 @@ export default function AddProfile(props) {
                         valueList.map((val)=>{
                             let image = require('../../asset/upload/'+ val.image)
                             return <div className="flex flex-col items-center gap-10">
-                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" alt=""/>
-                            <div className="flex flex-col gap-2">
+                            <div className="image-profile relative">
+                                <img src={image.default} className="img-image-profile ring-4 ring-white rounded-full transform transition duration-150 hover:scale-110 mb-3" alt=""/>
+                                <label htmlFor="edit-image-profile">
+                                    <div className="bg-blue-500 hover:bg-blue-300 cursor-pointer p-2 w-max rounded-full absolute bottom-3 right-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="hidden">
                                 <p className="text-sm font-semibold">Image Profile</p>
-                                <input className="w-full"
+                                <input className="edit-image-profile w-full"
+                                    id="edit-image-profile"
                                     type="file"
                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                     name="fileUpload"

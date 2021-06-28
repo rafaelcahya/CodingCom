@@ -26,7 +26,7 @@ function ChellengeList() {
                     value.map((val) => {
                         return <div className="w-full">
                             <Link to={"/list-challenges/" + val.typeId}>
-                                <div className="flex flex-col justify-center items-center text-center gap-5 h-80 px-5 md:px-40 hover:bg-blue-500 hover:text-white rounded-lg">
+                                <div className="flex flex-col justify-center items-center text-center gap-5 h-80 px-5 md:px-40 bg-blue-50 hover:bg-blue-500 hover:text-white rounded-lg">
                                     <p className="text-2xl font-semibold">{val.type}</p>
                                     <p className="text-sm md:text-base">{val.typeDescription}</p>
                                 </div>

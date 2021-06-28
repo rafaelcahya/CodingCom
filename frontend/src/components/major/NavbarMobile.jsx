@@ -90,7 +90,7 @@ export default function NavbarMobile() {
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Coding Class</p>
                         </Link>
                         <Link to="/news">
-                            <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">News</p>
+                            <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Newsfeed</p>
                         </Link>
                         <Link to="/career">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Career</p>
