@@ -14,6 +14,7 @@ import AddCategory from "./AddCategory"
 import Course from "./Course"
 import ListCourse from "./ListCourse"
 import ListBatch from "./ListBatch"
+import ListBootcampUser from "./ListBootcampUser"
 import ListCategory from "./ListCategory"
 import ListTopik from "./ListTopik"
 import ListProject from "./ListProject.jsx"
@@ -54,6 +55,7 @@ function App_admin() {
               <Route path="/admin/add-faq" component={AddFAQ} />
               <Route path="/admin/list-faq" component={ListFAQ} />
               <Route path="/admin/edit-faq/:id" component={EditFAQ} />
+              <Route path="/admin/list-bootcamp-user" component={ListBootcampUser} />
             </Switch>
           </Router>
     );

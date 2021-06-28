@@ -24,7 +24,7 @@ function CareerDetail(props) {
             console.log(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [urlid]);
 
     useEffect(() => {
         axios.get("http://localhost:3001/jobs/applicationById/" + urlname + "/" + urlid).then((response) => {
@@ -32,7 +32,7 @@ function CareerDetail(props) {
             console.log(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [urlname,urlid]);
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");

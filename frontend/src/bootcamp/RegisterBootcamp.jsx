@@ -21,6 +21,7 @@ function RegisterBootcamp(props) {
     const [motivation, setMotivation] = useState("")
     const [busy, setBusy] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [errorMessage2, setErrorMessage2] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [value, setValue] = useState([])
     const [valueGet, setValueGet] = useState([])
@@ -54,7 +55,7 @@ function RegisterBootcamp(props) {
     const submit = () => {
         Axios.all([
             Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { program: program, batch: batch, motivation: motivation, busy: busy, createAt: createAt, name: name }).then((response) => {
-                setErrorMessage(response.data.message)
+                setErrorMessage2(response.data.message2)
             }),
             Axios.post("http://localhost:3001/user/profile", {urlname:urlname, name:name1, fullname:fullname, gender:gender, education:education, BoD:BoD, phonenumber:phonenumber, cphonenumber:cphonenumber, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, city:city, address:address, postalCode:postalCode, updateAt:createAt}).then((response) => {
                 console.log(response)
@@ -216,7 +217,7 @@ function RegisterBootcamp(props) {
                                     </div>)}
                                     {val.postalCode == 0 ? (<div className="w-1/2 flex flex-col gap-2">
                                         <p className="text-sm font-semibold">Postal Code</p>
-                                        <input type="number" placeholder="Postal Code" onChange={(event) => {
+                                        <input type="number" placeholder="Postal Code" min="0" onChange={(event) => {
                                             setPostalCode(event.target.value)
                                         }} />
                                     </div>) : (<div className="w-1/2 flex flex-col gap-2">
@@ -299,6 +300,7 @@ function RegisterBootcamp(props) {
                                         <option value="I am Free">I am Free</option>
                                     </select>
                                 </div>
+                                <p className="color-red-1 text-center font-medium">{errorMessage2}</p>
                                 <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                                 <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                             </form>

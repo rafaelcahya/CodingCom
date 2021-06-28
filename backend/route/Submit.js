@@ -74,4 +74,23 @@ router.get("/submitList", (req, res) => {
     })
 })
 
+router.get("/submitListById/:id/:name", (req, res) => {
+    const id = req.params.id
+    const name = req.params.name
+    let user_id=0
+
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT * from projectsub WHERE project_id = ? AND user_id = ?",[id, user_id],(err, results) => {
+                res.send(results)
+                console.log(results)
+            })
+        }
+    })
+})
+
 module.exports = router;
