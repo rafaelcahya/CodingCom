@@ -14,8 +14,16 @@ function News(props) {
         <>
             <NavbarLogin/>
             <NavbarMobile/>
+            <div>
+                <div className="bg-custom darken-overlay">
+                    <div className="text-white flex flex-col items-center gap-2 px-5 xl:px-32 py-36">
+                        <p className="text-4xl font-bold">Newsfeed</p>
+                        <p className="text-xl font-medium">Find the latest Newsfeed news from multiple sources</p>
+                    </div>
+                </div>
+            </div>
             <div className="flex justify-center">
-                <p className="text-center text-3xl font-semibold border-b-2 px-2 pb-2 border-black mb-20 mt-32 lg:mt-20 w-max">Latest Update</p>
+                <p className="text-3xl font-semibold border-b-2 px-2 pb-2 border-black mb-20 mt-32 lg:mt-20 w-max">Latest Newsfeed</p>
             </div>
             <div className="flex flex-wrap justify-center gap-10">
                 {data

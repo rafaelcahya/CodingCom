@@ -928,12 +928,16 @@ Accessories
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover-translate{
+.hover-translateY, .hover-translateX{
     transition: 0.3s;
 }
 
-.hover-translate:hover{
+.hover-translateY:hover{
     transform: translate(0, -25px);
+}
+
+.hover-translateX:hover{
+    transform: translate(25px, 0);
 }
 /* 
 
@@ -957,13 +961,6 @@ Navbar
 
 .dropdown-user p{
     padding: 0.5rem;
-}
-
-.dropdown-user p:hover, 
-.dropdown-user-quota:hover,
-.dropdown-tutorial div:hover{
-    background-color: #f4f7ff;
-    border-radius: 5px;
 }
 
 .course:hover .course-box {

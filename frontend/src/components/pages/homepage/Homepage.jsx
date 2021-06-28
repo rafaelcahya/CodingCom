@@ -60,31 +60,31 @@ export default function Homepage() {
 
                 <div className="mx-10 md:mx-16 lg:mx-20 my-20 lg:mb-32">
                     <div className="cta flex flex-wrap justify-center gap-10">
-                        <div className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translate">
+                        <div className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translateY">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#ff75a0"}}>
                                 <img src={tutorial1} alt=""/>
                             </div>
                             <p className="font-semibold">Web Design</p>
                         </div>
-                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translate">
+                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translateY">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#7868e6"}}>
                                 <img src={tutorial2} alt="" />
                             </div>
                             <p className="font-semibold">Frontend Development</p>
                         </div>
-                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translate">
+                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translateY">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#ffab73"}}>
                                 <img src={tutorial3} alt=""/>
                             </div>
                             <p className="font-semibold">Backend Development</p>
                         </div>
-                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translate">
+                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translateY">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#6ddccf"}}>
                                 <img src={tutorial4} alt=""/>
                             </div>
                             <p className="font-semibold">Database Management</p>
                         </div>
-                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translate">
+                        <div  className="bg-white flex flex-col justify-center items-center gap-2 py-5 w-56 rounded-xl shadow-4xl hover-translateY">
                             <div className="h-12 w-12 p-3 rounded-full" style={{backgroundColor: "#91c788"}}>
                                 <img src={tutorial5} alt=""/>
                             </div>
@@ -106,56 +106,56 @@ export default function Homepage() {
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Latest Learning Path</p>
+                                    <p className="hover-translateX">Latest Learning Path</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="180">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Challenge</p>
+                                    <p className="hover-translateX">Challenge</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="195">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Consultation</p>
+                                    <p className="hover-translateX">Consultation</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="210">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Coding Class</p>
+                                    <p className="hover-translateX">Coding Class</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="225">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Bootcamp</p>
+                                    <p className="hover-translateX">Bootcamp</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="240">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Text Editor</p>
+                                    <p className="hover-translateX">Text Editor</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="255">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Certificate</p>
+                                    <p className="hover-translateX">Certificate</p>
                                 </div>
                                 <div className="flex items-center gap-2" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-delay="270">
                                     <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8"/>
                                     <path d="M4 7.5L7 10L11 5" stroke="#10B981" strokeWidth="1.5"/>
                                     </svg>
-                                    <p>Bootcamp</p>
+                                    <p className="hover-translateX">Bootcamp</p>
                                 </div>
                             </div>
                         </div>

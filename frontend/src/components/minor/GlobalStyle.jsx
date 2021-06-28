@@ -74,6 +74,15 @@ export const GlobalStyle = createGlobalStyle`
     .submit-box textarea{
         background: ${({theme}) => theme.foreground2};
     }
+
+    .filter-job,
+    .career-card{
+        background: ${({theme}) => theme.foreground5};
+    }
+    
+    .filter-job button{
+        background: ${({theme}) => theme.foreground4};
+    }
     
     .sidebar,
     .table-request-class,
@@ -85,8 +94,21 @@ export const GlobalStyle = createGlobalStyle`
     .view-course-admin,
     .view-course-admin .approvebar,
     .edit-projectdetail-form,
-    .request-class-form {
+    .request-class-form,
+    .filter-job,
+    .career-card {
         border: ${({theme}) => theme.border};
+    }
+    
+    .navbar .navbar-content{
+        border-bottom: ${({theme}) => theme.border};
+    }
+
+    .dropdown-user .dropdown-user-setting p:hover,
+    .dropdown-user-quota div:hover,
+    .dropdown-tutorial div:hover{
+        background: ${({theme}) => theme.foreground4};
+        border-radius: 5px;
     }
 
     .register-popup-box,
@@ -114,7 +136,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.foreground2};
     }
 
-    .dropdown-tutorial div:hover, .dropdown-user p:hover{
+    .dropdown-tutorial div:hover{
         background-color: ${({theme}) => theme.foreground4};
     }
 
@@ -134,8 +156,8 @@ export const lightTheme={
     tertiarytext: '#3a3a3a',
     foreground: '#eff3fc',
     foreground2: '#fff',
-    foreground3: '#eff3fc',
     foreground4: '#f4f7ff',
+    foreground5: '#fff',
     border: '1px solid rgb(209, 213, 219)'
 }
 
@@ -146,7 +168,7 @@ export const darkTheme={
     tertiarytext: '#fed049',
     foreground: '#16171d',
     foreground2: '#16171d',
-    foreground3: '#eff3fc',
     foreground4: '#1a1b20',
+    foreground5: '#16171d',
     border: 'none'
 }

@@ -28,9 +28,9 @@ function Class() {
 
             <div className="flex md:block flex-col items-center">
                 <div className="bg-custom darken-overlay">
-                    <div className="text-white flex flex-col gap-2 px-5 xl:px-32 py-36">
+                    <div className="text-white flex flex-col items-center gap-2 px-5 xl:px-32 py-36">
                         <p className="text-4xl font-bold">Coding class</p>
-                        <p className="text-xl font-medium">Choose classes that will support your personal and professional development here!</p>
+                        <p className="text-xl font-medium">Find and choose your favorite class here!</p>
                     </div>
                 </div>
                 <div className="flex justify-center">
