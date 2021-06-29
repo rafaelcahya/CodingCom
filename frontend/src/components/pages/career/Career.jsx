@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Footer from '../../major/Footer'
+import NavbarLogin from '../../major/NavbarLogin'
+import NavbarMobile from '../../major/NavbarMobile'
 import Axios from 'axios'
 
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -24,12 +27,6 @@ export default function Career() {
         })
     }, []);
 
-    window.onload = setTimeout( function () {
-        var x = localStorage.getItem("name");
-        document.getElementById("demo").innerHTML = x;
-        setName(x)
-    }, 10)
-
     const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
 
     const [menuItem, setMenuItem] = useState(value);
@@ -50,16 +47,9 @@ export default function Career() {
 
     return (
         <>
-            <div className="flex justify-between items-center px-16 xl:px-32 py-5">
-                <Link to="/">
-                    <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        <p>Back</p>
-                    </div>
-                </Link>
-                <p>Find job</p>
-                <p id="demo"></p>
-            </div>
+            
+            <NavbarLogin />
+            <NavbarMobile />
 
             <div>
                 <div className="bg-custom darken-overlay">
@@ -82,7 +72,7 @@ export default function Career() {
                                     value.map((item) =>{
                                         let image = require('../../../asset/upload/'+ item.companyLogo)
                                         return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
-                                            <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-200 shadow hover:shadow-lg" style={{width: "310px"}}>
+                                            <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-100 shadow hover:shadow-lg" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
                                                     <img src={image.default} className="w-10 h-10 rounded-lg" alt=""/>
                                                     <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
@@ -114,7 +104,7 @@ export default function Career() {
 
 function Button({button, filter}) {
     return (
-        <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-200 shadow w-full md:w-2/12">
+        <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-100 shadow w-full md:w-2/12">
             <p className="text-sm font-semibold">Type of employment :</p>
             <div className="flex flex-row md:flex-col gap-4">
                 {
@@ -139,7 +129,7 @@ function Menu({menuItem}) {
                 menuItem.map((item) =>{
                     let image = require('../../../asset/upload/'+ item.companyLogo)
                     return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
-                        <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-200 shadow hover:shadow-lg" style={{width: "310px"}}>
+                        <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-100 shadow hover:shadow-lg" style={{width: "310px"}}>
                             <div className="flex justify-between">
                                 <img src={image.default} className="w-10 h-10 rounded-lg" alt="" />
                                 <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>

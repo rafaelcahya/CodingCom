@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react'
 import {motion} from "framer-motion"
 import { Link } from 'react-router-dom'
 
 function BootcampNavbar() {
+    let image = require('../asset/upload/'+ localStorage.getItem("image"))
+
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
         document.getElementById("demo").innerHTML = x;
@@ -19,7 +22,7 @@ function BootcampNavbar() {
     }
     return (
         <>
-            <nav className="bootcamp-navbar hidden fixed w-full bg-white lg:flex justify-between items-center px-16 xl:px-32 py-5">
+            <nav className="bootcamp-navbar hidden fixed w-full bg-white lg:flex justify-between items-center px-16 xl:px-32 py-3 shadow-md">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                 width="30" height="45" viewBox="0 0 44 59"
                 preserveAspectRatio="xMidYMid meet">
@@ -43,9 +46,12 @@ function BootcampNavbar() {
                     <a href="#program" className="hover:text-yellow-500">Program</a>
                     <a href="#pricing" className="hover:text-yellow-500">Pricing</a>
                     <a href="#faq" className="hover:text-yellow-500">FAQ</a>
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-5 -mt-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="rotate(90)" className="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        <p id="demo"></p>
+                        <div className="flex items-center gap-2">
+                            <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile"/>
+                            <p id="demo" className="text-sm"></p>
+                        </div>
                     </div>
                 </div>
             </nav>

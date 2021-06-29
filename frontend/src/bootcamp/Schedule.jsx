@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ShowMoreText from 'react-show-more-text';
+import BootcampNavbar from './BootcampNavbar'
 
 export default function Schedule() {
     const [value, setValue] = useState([])
@@ -23,19 +23,9 @@ export default function Schedule() {
 
     return (
         <>
-            <div className="flex flex-col items-center px-16 lg:px-32 pt-14 w-full">
-                <div className="schedule-card fixed gap-10 py-2 bg-white shadow rounded-lg border hover:bg-blue-50">
-                    <Link to="/bootcamp">
-                        <div className="flex items-center justify-between px-5">
-                            <div className="flex items-center gap-1 -ml-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                <p>Back</p>
-                            </div>
-                            <p className="font-semibold">Bootcamp Schedule</p>
-                        </div>
-                    </Link>
-                </div>
-                <div className="flex flex-col justify-center bg-white border p-5 rounded-lg mt-20">
+            <BootcampNavbar/>
+            <div className="flex justify-center py-32">
+                <div className="flex flex-col justify-center bg-white border p-5 rounded-lg px-16 lg:px-32">
                     <div className="pt-5 pb-10">
                         <span className="flex gap-1 text-xl font-semibold">Hi <p id="name"></p></span>
                         <p className="text-sm font-medium text-gray-400">Here all your planned classes and events. You will find information for each day.</p>
@@ -47,7 +37,7 @@ export default function Schedule() {
                                 value.map((val) => {
                                     return <div className="schedule-card flex items-center border-b py-5 hover:bg-blue-50 transition duration-100">
                                             <div className="w-full md:w-1/5 border-r-0 md:border-r-2 pl-5">
-                                                <p className="tracking-wide font-semibold">{formatDate(val.date)}</p>
+                                                <p className="color-blue-1 tracking-wide font-semibold">{formatDate(val.date)}</p>
                                                 <p className="text-sm font-medium">{val.time}</p>
                                             </div>
                                             <div className="w-full md:w-4/5 flex flex-col md:flex-row md:justify-between md:items-center gap-5 mx-0 md:mx-10">
