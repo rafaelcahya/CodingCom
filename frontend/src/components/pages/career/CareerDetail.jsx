@@ -27,7 +27,7 @@ function CareerDetail(props) {
     }, [urlid]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/jobs/applicationById/" + urlname + "/" + urlid).then((response) => {
+        axios.get("http://localhost:3001/jobs/applicationById/" + localStorage.getItem("name") + "/" + urlid).then((response) => {
             setValueList(response.data)
             console.log(response.data)
         })

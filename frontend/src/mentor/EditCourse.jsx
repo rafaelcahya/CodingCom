@@ -30,7 +30,7 @@ function AddCourse(props) {
 
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/course/courseById/" + urlid).then((response) => {
+        Axios.get("http://localhost:3001/course/courseByIdMentor/" + urlid).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
@@ -93,7 +93,7 @@ function AddCourse(props) {
                                         plugins: [
                                             'advlist autolink lists link image charmap print preview anchor',
                                             'searchreplace visualblocks code fullscreen',
-                                            'insertdatetime media table paste code help wordcount export'
+                                            'insertdatetime media table paste code help wordcount'
                                         ],
                                         toolbar: 'export | undo redo code | fontsizeselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
                                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
