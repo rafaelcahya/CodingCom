@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Footer from '../../major/Footer'
+import NavbarLogin from '../../major/NavbarLogin'
+import NavbarMobile from '../../major/NavbarMobile'
 import Axios from 'axios'
 
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -65,16 +68,9 @@ export default function Career() {
 
     return (
         <>
-            <div className="flex justify-between items-center px-16 xl:px-32 py-5">
-                <Link to="/">
-                    <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        <p>Back</p>
-                    </div>
-                </Link>
-                <p>Find job</p>
-                <p id="demo"></p>
-            </div>
+            
+            <NavbarLogin />
+            <NavbarMobile />
 
             <div>
                 <div className="bg-custom darken-overlay">
@@ -129,7 +125,7 @@ export default function Career() {
 
 function Button({button, filter}) {
     return (
-        <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-200 shadow w-full md:w-2/12">
+        <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-100 shadow w-full md:w-2/12">
             <p className="text-sm font-semibold">Type of employment :</p>
             <div className="flex flex-row md:flex-col gap-4">
                 {

@@ -158,7 +158,7 @@ export const lightTheme={
     foreground2: '#fff',
     foreground4: '#f4f7ff',
     foreground5: '#fff',
-    border: '1px solid rgb(209, 213, 219)'
+    border: '1px solid rgb(238, 241, 247)'
 }
 
 export const darkTheme={
