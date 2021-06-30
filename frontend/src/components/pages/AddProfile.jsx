@@ -155,7 +155,7 @@ export default function AddProfile(props) {
                                         }} />
                                 </div>
                                 <div className="flex flex-col gap-2 w-full lg:w-1/2">
-                                    <p className="text-sm font-semibold">Confirm emergency</p>
+                                    <p className="text-sm font-semibold">Confirm emergency number</p>
                                     <input type="number" defaultValue={val.emergencyNumber} placeholder="Confirm emergency number" min="0" max="9999999999999" onChange={(event) => {
                                             setCemergencyNumber(event.target.value)
                                         }} />

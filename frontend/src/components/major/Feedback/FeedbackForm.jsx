@@ -53,18 +53,18 @@ function FeedbackForm() {
 
     return (
         <>
-            <section className="flex flex-col items-center">
-                <form action="" className="submit-box flex flex-col gap-10 w-1/3 mt-16">
-                    <Link to="/">
-                        <div className="flex items-center bg-white hover:bg-gray-200 p-2 rounded-full w-max">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                            <p>back</p>
-                        </div>
-                    </Link>
-                    <div className="flex flex-col gap-3">
-                        <p className="font-semibold text-3xl">Give us your feedback</p>
-                        <p className="font-medium text-sm">Tell us what you love, tell us what you hate, and tell us what you want to see in the next update.</p>
+            <div className="flex items-center justify-between px-16 py-10 pb-20">
+                <Link to="/">
+                    <div className="flex items-center bg-white hover:bg-gray-200 p-2 rounded-full w-max">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <p>back</p>
                     </div>
+                </Link>
+                <p className="font-semibold">Leave Feedback</p>
+            </div>
+            <section className="flex flex-col items-center">
+                <form action="" className="submit-box flex flex-col gap-10 w-1/3">
+                    <p className="font-medium text-3xl text-center pb-14">Lets talk about everything.</p>
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">About</p>
                         <select name="" id="" onChange={(event) => {

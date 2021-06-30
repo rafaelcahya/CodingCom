@@ -16,9 +16,9 @@ router.post("/feedback", (req, res) => {
     let user_id = 0
 
     if (about.length <= 0) {
-        res.send({ message: "You must fill about" })
+        res.send({ message: "About not selected" })
     } else if (des.length <= 0) {
-        res.send({ message: "You must fill description" })
+        res.send({ message: "Description can not be empty" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
