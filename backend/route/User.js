@@ -642,7 +642,7 @@ router.post("/ChangePassword", (req, res) => {
                     })
     
                 } else {
-                    res.send({ message:"Old Password doesn't match data" })
+                    res.send({ message:"Old password is not the same as the previous password" })
                 }       
             } 
         })
