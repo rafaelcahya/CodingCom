@@ -600,4 +600,53 @@ router.get("/userkuotaById/:name", (req, res) => {
     })
 })
 
+router.post("/ChangePassword", (req, res) => {
+    const name = req.body.name
+    const password = req.body.password
+    const newpassword = req.body.newpassword
+    const confirmpassword = req.body.confirmpassword
+    const updateAt = req.body.updateAt
+    var crypto = require('crypto')
+    var hash = crypto.createHash('md5').update(password).digest('hex')
+
+    if(password.length<=0){
+        res.send({message:"Password can not be empty"})
+    }else if(newpassword.length<=0){
+        res.send({message:"New Password can not be empty"})
+    }else if(newpassword == password){
+        res.send({message:"New password can not be same as old password"})
+    }else if (newpassword.length < 8) {
+        res.send({ message: "Password must be at least 8 characters" })
+    } else if (newpassword.length >= 20) {
+        res.send({ message: "Password must be less than 20 characters" })
+    } else if (newpassword.match(/[A-Z]/) == null) {
+        res.send({ message: "Password must contain at least 1 uppercase letter" })
+    } else if (newpassword.match(/[a-z]/) == null) {
+        res.send({ message: "Password must contain at least 1 lowercase letter" })
+    } else if (newpassword.match(/[0-9]/) == null) {
+        res.send({ message: "Password must contain at least 1 number" })
+    }else if(confirmpassword.length<=0){
+        res.send({message:"Confirm Password can not be empty"})
+    }else if(confirmpassword != newpassword){
+        res.send({message:"Confirm Password must be same as password"})
+    }else{
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                if (hash.match(results[0].password) != null) {
+                    db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE name = ?;", [password, confirmpassword, updateAt, name], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+    
+                } else {
+                    res.send({ message:"Old Password doesn't match data" })
+                }       
+            } 
+        })
+    }
+})
+
 module.exports = router;

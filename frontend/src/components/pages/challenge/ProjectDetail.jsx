@@ -11,12 +11,12 @@ import File from "../../../asset/file/Challenge.docx"
 
 function ProjectDetail(props) {
     const urlid = props.match.params.id
+    const urltype = props.match.params.type
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
     useEffect(() => {
         axios.get("http://localhost:3001/project/GetprojectById/" + urlid).then((response) => {
             setValue(response.data)
-            console.log(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -24,7 +24,6 @@ function ProjectDetail(props) {
     useEffect(() => {
         axios.get("http://localhost:3001/submit/submitListById/" + urlid+ "/" + localStorage.getItem("name")).then((response) => {
             setValueList(response.data)
-            console.log(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -72,7 +71,13 @@ function ProjectDetail(props) {
                                     </Link>
                                 </p>
                             </div>
-                            {!valueList.length ? (<div className="flex flex-col justify-between gap-2 my-10">
+                            {urltype != "Certificate" ? (<div className="flex flex-col justify-between gap-2 my-10">
+                                <div className="flex flex-col gap-2">
+                                    <p className="font-semibold text-xl">You can not download Cerificate</p>
+                                    <p>Because you are not openning Certificate Type</p>
+                                </div>
+                            </div>):(
+                                !valueList.length ? (<div className="flex flex-col justify-between gap-2 my-10">
                                 <div className="flex flex-col gap-2">
                                     <p className="font-semibold text-xl">Download Certificate</p>
                                     <p>If your project meets the conditions, you can download your certificate.</p>
@@ -86,7 +91,7 @@ function ProjectDetail(props) {
                                         <p>You can download certificate, Click Button Below</p>
                                     </div>
                                     <div>
-                                        <Link to="/CertificateAngular">
+                                        <Link to={"/CertificateAngular/"+urlid}>
                                             <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
                                         </Link>
                                     </div>
@@ -96,6 +101,7 @@ function ProjectDetail(props) {
                                     </div>)}
                                 </div>
                                 })
+                            )
                             )}
                         </div>
                         <div>

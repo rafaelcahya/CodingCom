@@ -6,6 +6,22 @@ import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
+
 function Class() {
     const [listClass,SetListClass] = useState([])
 
@@ -41,7 +57,7 @@ function Class() {
                         listClass.map(
                             (val)=> {
                                 let image = require('../../../asset/upload/'+ val.image)
-                                return <a href={"/detail-class/"+val.id} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
+                                return <a href={"/detail-class/"+val.id +"-" + GenerateID(15,10)} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
                                             <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
                                             <div className="flex gap-6 px-2 py-4">
                                                 <div>

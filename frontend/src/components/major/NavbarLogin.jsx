@@ -4,6 +4,22 @@ import { motion } from "framer-motion"
 import { NavLink, Link } from 'react-router-dom'
 import Axios from 'axios'
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
+
 export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
     const [name, setName] = useState("")
@@ -184,7 +200,7 @@ export default function NavbarLogin() {
                                 {
                                     value.map((val) => {
                                         return <div className="dropdown-tutorial flex">
-                                                <Link to={"/category-detail/" + val.categoryId}>
+                                                <Link to={"/category-detail/" + val.categoryId + "-" + GenerateID(15,10)}>
                                                 <div className="flex flex-col gap-1">
                                                     <p className="font-semibold">{val.category}</p>
                                                     <p className="truncate2 leading-6 text-sm">{val.categoryInfo}</p>
@@ -365,7 +381,7 @@ export default function NavbarLogin() {
                             <Link to={"/profile/" + name}>
                                 <p className="text-sm">Profile</p>
                             </Link>
-                            <Link to="/resetPassword">
+                            <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
                                 <p className="text-sm">Change Password</p>
                             </Link>
                             <Link to="/purchase">

@@ -8,6 +8,21 @@ import { Link } from 'react-router-dom'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
 
 function TopicDetail(props) {
     const urlid = props.match.params.id
@@ -95,7 +110,7 @@ function TopicDetail(props) {
                                         <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p>
                                         {
                                             value.map((item)=>{
-                                                return <Link to={"/"+ item.judul +"/" + item.number + "/" + val.topikId}>
+                                                return <Link to={"/"+ GenerateID(15,10) +"/" + item.number + "/" + val.topikId}>
                                                 <p>MASUK KE COURSE</p>
                                                 </Link>
                                             })

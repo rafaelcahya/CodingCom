@@ -7,6 +7,7 @@ import PDFAngular from './PDFAngular';
 export class CertificateAngular extends Component {
     state = {
         title: '',
+        projectId:this.props.match.params.id,
         postSubmitted: false
     }
 
@@ -52,7 +53,7 @@ export class CertificateAngular extends Component {
                             <Footer/>
                         </div>
                         ) : (
-                        <PDFAngular title={this.state.title} />
+                        <PDFAngular title={this.state.title} projectId={this.state.projectId} />
                     )
                 }
             </>

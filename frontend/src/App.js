@@ -12,6 +12,7 @@ import RegisterMentor from "./components/pages/RegisterMentor"
 import ForgotPassword from "./components/pages/ForgotPassword"
 import ResetPassword from "./components/pages/ResetPassword"
 import Profile from "./components/pages/Profile.jsx"
+import ChangePassword from "./components/pages/ChangePassword"
 import AddProfile from "./components/pages/AddProfile.jsx"
 import Help from "./components/pages/help/Help";
 import Homepage from "./components/pages/homepage/Homepage.jsx"
@@ -83,6 +84,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/forgotPassword/:hash" component={ForgotPassword} />
             <Route path="/resetPassword" component={ResetPassword} />
+            <Route path="/ChangePassword/:name-:hash" component={ChangePassword} />
             <Route path="/register" component={Register} />
             <Route path="/profile/:name" component={Profile} />
             <Route path="/edit-profile/:name" component={AddProfile} />
@@ -106,14 +108,14 @@ function App() {
 
             <Route path="/coming-soon" component={ComingSoon} />
 
-            <Route path="/category-detail/:id" component={CategoryDetail} />
-            <Route path="/topic-detail/:id" component={TopicDetail} />
+            <Route path="/category-detail/:id-:hash" component={CategoryDetail} />
+            <Route path="/topic-detail/:id-:hash" component={TopicDetail} />
             <Route path="/:course/:id/:id2" component={Course} />
 
             <Route path="/html" component={HTML} />
             <Route path="/challenge" component={Challenge} />
-            <Route path="/list-challenges/:id" component={MenuChallenges} />
-            <Route path="/project-detail/:id" component={ProjectDetail} />
+            <Route path="/list-challenges/:id-:hash" component={MenuChallenges} />
+            <Route path="/project-:type/:id-:hash" component={ProjectDetail} />
             <Route path="/submit-solution/:id" component={Submit} />
 
             {/* <Route path="/challenge" component={Challenge} /> */}
@@ -123,13 +125,13 @@ function App() {
             <Route path="/angular-exercise" component={AngularCerti} />
 
             <Route path="/CertificateHTMLCSSJS" component={CertificateHTML} />
-            <Route path="/CertificateAngular" component={CertificateAngular} />
+            <Route path="/CertificateAngular/:id" component={CertificateAngular} />
             <Route path="/CertificateReact" component={CertificateReact} />
             <Route path="/CertificateVue" component={CertificateVue} />
             
             <Route path="/consultation-class" component={ConsultationClass} />
             <Route path="/class-session" component={Class} />
-            <Route path="/detail-class/:id" component={ClassDetail} />
+            <Route path="/detail-class/:id-:hash" component={ClassDetail} />
 
             <Route path="/feedback/:name" component={FeedbackForm} />
 

@@ -6,6 +6,21 @@ import { Link } from 'react-router-dom'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
 
 function CategoryDetail(props) {
     const urlid = props.match.params.id
@@ -48,7 +63,7 @@ function CategoryDetail(props) {
                                 value.map(
                                     (val) => {
                                         return <div className="flex justify-between items-center">
-                                            <Link to={"/topic-detail/" + val.topikId}>
+                                            <Link to={"/topic-detail/" + val.topikId + "-" + GenerateID(15,10)}>
                                                 <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="bg-white">
                                                     <div className="flex flex-col gap-2">
                                                         {/* <img data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="300" data-aos-delay="200" src={item.image} width={40} alt="logo" className="" /> */}
