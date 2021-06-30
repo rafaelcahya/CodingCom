@@ -18,8 +18,8 @@ router.post("/submit", (req, res) => {
     let user_id = 0
     let isDeleted = "NO"
     
-    if (url.length <= 0) {
-        res.send({ message: "Please add the repository URL" })
+    if (description.length <= 0) {
+        res.send({ message: "Please add the description" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -29,10 +29,11 @@ router.post("/submit", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    db.query("INSERT INTO projectsub (project_id, url, fileName, live_site_url, description, score, user_id, projectsubCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [id, url, namefile, live_site_url, description, score, user_id, createAt, isDeleted], (err, results) => {
-                        console.log(err)
-                        res.send(results)
-                    })
+                    // db.query("INSERT INTO projectsub (project_id, url, fileName, live_site_url, description, score, user_id, projectsubCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [id, url, namefile, live_site_url, description, score, user_id, createAt, isDeleted], (err, results) => {
+                    //     console.log(err)
+                    //     res.send(results)
+                    // })
+                    res.send({message:"File can not be empty"})
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
@@ -56,14 +57,16 @@ router.post("/submit", (req, res) => {
 router.post("/score", (req, res) => {
     const id = req.body.urlid
     const score = req.body.score
+    const revisi = req.body.revisi
     const updateAt = req.body.updateAt
     if(score <= 0){
         res.send({message:"Score can not be empty"})
     }else {
-        db.query("UPDATE projectsub SET score = ?, projectsubCreateAt = ? WHERE id = ?;", [score,updateAt,id], (err, results) => {
+        db.query("UPDATE projectsub SET score = ?, revisi = ?, projectsubUpdateAt = ? WHERE id = ?;", [score,revisi,updateAt,id], (err, results) => {
             console.log(err)
             res.send(results)
-        }) 
+            res.send({message:"Score successfully submited!!"})
+        })
     }
 })
 

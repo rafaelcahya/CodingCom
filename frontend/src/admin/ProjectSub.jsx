@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react'
 import axios from 'axios';
-import Sidebar from './major/Sidebar'
+import Sidebar from './admin-major/Sidebar'
 import { Link } from 'react-router-dom';
 
 function ProjectSub() {

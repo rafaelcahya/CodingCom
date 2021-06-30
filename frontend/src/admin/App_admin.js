@@ -25,6 +25,7 @@ import BootcampSchedule from "./BootcampSchedule.jsx"
 import AddFAQ from "./AddFQA"
 import ListFAQ from "./ListFAQ"
 import EditFAQ from "./EditFAQ"
+import EditProjectSub from "./EditProjectSubmission"
 
 function App_admin() {
     return (
@@ -56,6 +57,7 @@ function App_admin() {
               <Route path="/admin/list-faq" component={ListFAQ} />
               <Route path="/admin/edit-faq/:id" component={EditFAQ} />
               <Route path="/admin/list-bootcamp-user" component={ListBootcampUser} />
+              <Route exact path="/admin/edit-project-submission-:id-:hash" component={EditProjectSub} />
             </Switch>
           </Router>
     );

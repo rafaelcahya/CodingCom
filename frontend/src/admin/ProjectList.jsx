@@ -2,6 +2,22 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar';
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
+
 export default function ProjectList() {
     const [proList, setProList] = useState([])
 
@@ -52,6 +68,11 @@ export default function ProjectList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectsubCreateAt)} {formatTime(val.projectsubCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <a href={file.default} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download</a>
+                                                        </td>
+                                                        <td className="flex items-center gap-2 px-6 py-3 whitespace-nowrap">
+                                                            
+                                                            <a href={"/admin/edit-project-submission-"+val.id + "-" + GenerateID(15,10)} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
+                                                          
                                                         </td>
                                                     </tr>
                                         }
