@@ -12,7 +12,7 @@ router.post("/updateStatus", (req, res) => {
     const createAt = req.body.createAt
     let user_id = 0
     let paket_id = 1
-    let updateAt =""
+    let updateAt = ""
     let isDeleted = "NO"
 
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
@@ -37,7 +37,7 @@ router.post("/updateStatusClassSession", (req, res) => {
     const createAt = req.body.createAt
     let user_id = 0
     let paket_id = 2
-    let updateAt =""
+    let updateAt = ""
     let isDeleted = "NO"
 
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
@@ -62,7 +62,7 @@ router.post("/updateStatusClassConsultation", (req, res) => {
     const createAt = req.body.createAt
     let user_id = 0
     let paket_id = 3
-    let updateAt =""
+    let updateAt = ""
     let isDeleted = "NO"
 
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
@@ -84,7 +84,7 @@ router.post("/updateStatusClassConsultation", (req, res) => {
 router.get("/TransactionList", (req, res) => {
     let isDeleted = "NO"
     let status = "Pending"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?",[isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -92,7 +92,7 @@ router.get("/TransactionList", (req, res) => {
 router.get("/TransactionListAPPROVED", (req, res) => {
     let isDeleted = "NO"
     let status = "Approved"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?",[isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -100,7 +100,7 @@ router.get("/TransactionListAPPROVED", (req, res) => {
 router.get("/TransactionListREJECTED", (req, res) => {
     let isDeleted = "NO"
     let status = "Rejected"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?",[isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -157,6 +157,22 @@ router.put("/addeditKuota", (req, res) => {
 
     }
 
+})
+
+router.get("/TransactionListUser/:name", (req, res) => {
+    const name = req.params.name
+    let user_id = 0
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            user_id=results[0].id
+            db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.user_id = ?", user_id, (err, results) => {
+                res.send(results)
+            })
+        }
+    })
 })
 
 module.exports = router;

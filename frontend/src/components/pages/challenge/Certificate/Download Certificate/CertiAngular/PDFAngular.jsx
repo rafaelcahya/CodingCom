@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Pdf from "react-to-pdf";
+import axios from 'axios';
 
 const ref = React.createRef();
 
@@ -10,6 +11,14 @@ const options = {
 }
 
 const PDFAngular = (props) => {
+    const [value, setValue] = useState([])
+    useEffect(() => {
+        axios.get("http://localhost:3001/project/GetprojectById/" + props.projectId).then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <>
             <div style={{padding: "0 10rem"}}>

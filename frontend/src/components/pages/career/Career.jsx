@@ -7,11 +7,27 @@ import NavbarMobile from '../../major/NavbarMobile'
 import Axios from 'axios'
 
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
+
 export default function Career() {
     const [value,setValue] = useState([])
     const [valueCount,setValueCount] = useState([])
     const [show, setShow] = useState(true);
-    const [name, setName] = useState("")
 
     useEffect(() => {
         Axios.get("http://localhost:3001/jobs/ListJobs").then((response) => {
@@ -26,6 +42,11 @@ export default function Career() {
             console.log(response.data)
         })
     }, []);
+
+    window.onload = setTimeout( function () {
+        var x = localStorage.getItem("name");
+        document.getElementById("demo").innerHTML = x;
+    }, 10)
 
     const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
 
@@ -71,8 +92,8 @@ export default function Career() {
                                 {
                                     value.map((item) =>{
                                         let image = require('../../../asset/upload/'+ item.companyLogo)
-                                        return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
-                                            <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-100 shadow hover:shadow-lg" style={{width: "310px"}}>
+                                        return <Link to={"/detail-career/" + item.jobsId + "-" + GenerateID(3,5)}>
+                                            <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-200 shadow hover:shadow-lg" style={{width: "310px"}}>
                                                 <div className="flex justify-between">
                                                     <img src={image.default} className="w-10 h-10 rounded-lg" alt=""/>
                                                     <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>
@@ -118,18 +139,13 @@ function Button({button, filter}) {
 }
 
 function Menu({menuItem}) {
-    const[name, setName] = useState("")
-    window.onload = setTimeout( function () {
-        var x = localStorage.getItem("name");
-        setName(x)
-    }, 10)
     return (
         <div className="flex flex-wrap items-center gap-5">
             {
                 menuItem.map((item) =>{
                     let image = require('../../../asset/upload/'+ item.companyLogo)
-                    return <Link to={"/career-detail/"+ name + "/" + item.jobsId}>
-                        <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-100 shadow hover:shadow-lg" style={{width: "310px"}}>
+                    return <Link to={"/detail-career/" + item.jobsId + "-"+ GenerateID(3,5)}>
+                        <div className="career-card p-4 rounded-lg transform hover:scale-105 duration-200 border border-gray-200 shadow hover:shadow-lg" style={{width: "310px"}}>
                             <div className="flex justify-between">
                                 <img src={image.default} className="w-10 h-10 rounded-lg" alt="" />
                                 <p className="text-xs font-medium text-gray-400">{formatDate(item.jobCreateAt)}</p>

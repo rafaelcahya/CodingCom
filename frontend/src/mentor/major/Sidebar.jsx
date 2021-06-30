@@ -31,11 +31,15 @@ export default function Sidebar() {
                             },
                             {
                                 title: "Tutorial List",
-                                itemId: "/mentor/list-course/" + name
+                                itemId: "/mentor/list-course"
                             },
                             {
                                 title: "Add Topik Tutorial",
-                                itemId: "/mentor/add-topik/" + name
+                                itemId: "/mentor/add-topik"
+                            },
+                            {
+                                title: "List Topik Tutorial",
+                                itemId:"/mentor/list-topik"
                             },
                         ],
                     },

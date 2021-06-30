@@ -7,7 +7,7 @@ import AddTopik from "./AddTopik"
 import EditTopik from "./EditTopik"
 import ListTopik from "./ListTopik"
 import EditCourse from "./EditCourse"
-import Course from "./Course"
+import ShowCourse from "./ShowCourse.jsx";
 import ListCourse from "./ListCourse"
 import EditProject from "./EditProjectSubmission"
 
@@ -15,16 +15,16 @@ function App_mentor() {
     return (
         <Router>
             <Switch>
-                <Route path="/mentor/class-request" component={ClassReq} />
-                <Route path="/mentor/project-submission" component={ProjectSub} />
-                <Route path="/mentor/edit-project-submission/:id" component={EditProject} />
-                <Route path="/mentor/add-course" component={AddCourse} />
-                <Route path="/mentor/add-topik" component={AddTopik} />
-                <Route path="/mentor/list-topik" component={ListTopik} />
-                <Route path="/mentor/edit-topik/:id" component={EditTopik} />
-                <Route path="/mentor/edit-course/:id" component={EditCourse} />
-                <Route path="/mentor/course/:id" component={Course} />
-                <Route path="/mentor/list-course/:name" component={ListCourse} />
+                <Route exact path="/mentor/class-request" component={ClassReq} />
+                <Route exact path="/mentor/project-submission" component={ProjectSub} />
+                <Route exact path="/mentor/edit-project-submission/:id-:hash" component={EditProject} />
+                <Route exact path="/mentor/add-course" component={AddCourse} />
+                <Route exact path="/mentor/add-topik" component={AddTopik} />
+                <Route exact path="/mentor/list-topik" component={ListTopik} />
+                <Route exact path="/mentor/edit-topik/:id-:hash" component={EditTopik} />
+                <Route exact path="/mentor/mentor-edit-course-:id-:hash" component={EditCourse} />
+                <Route exact path="/mentor/mentor-show-course-:id-:hash" component={ShowCourse} />
+                <Route exact path="/mentor/list-course" component={ListCourse} />
             </Switch>
         </Router>
     );

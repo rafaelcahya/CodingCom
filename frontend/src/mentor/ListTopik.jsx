@@ -4,10 +4,25 @@ import { Link } from 'react-router-dom';
 
 import Sidebar from './major/Sidebar';
 
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
 export default function ListTopik() {
     const [value,setValue] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:3001/topik/TopikList").then((response) => {
+        axios.get("http://localhost:3001/topik/TopikListMentor/"+ localStorage.getItem("name")).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
@@ -52,7 +67,7 @@ export default function ListTopik() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.status}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/mentor/edit-topik/"+val.topikId}>
+                                                            <Link to={"/mentor/edit-topik/"+val.topikId + "-" + GenerateID(3,5)}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>
                                                             </Link>
                                                         </td>     

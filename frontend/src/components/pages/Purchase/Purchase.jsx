@@ -34,6 +34,14 @@ export default function Purchase() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        axios.get("http://localhost:3001/transaction/TransactionListUser/"+localStorage.getItem("name")).then((response) => {
+            setPayList(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
     return (
         <>
             <NavbarLogin /> 
@@ -88,19 +96,23 @@ export default function Purchase() {
                 </div>
                 <div className="flex flex-col w-3/4">
                     <p className="text-xl font-semibold">Purchase List</p>
-                    <div className="flex justify-between items-center p-5 mt-5 border rounded-lg hover:shadow-md">
-                        <div>
-                            <p>Nama Paket</p>
-                            <p>Create at</p>
-                            <p>Status</p>
+                    {
+                        payList.map((val)=>{
+                            return <div className="flex justify-between items-center p-5 mt-5 border rounded-lg hover:shadow-md">
+                            <div>
+                                <p>{val.tipe_paket}</p>
+                                <p>{val.transactionCreateAt}</p>
+                                <p>{val.status}</p>
+                            </div>
+                            <div>
+                                {val.paket_id == 1 ?(<p>Rp.286.000.00</p>):val.paket_id == 2 ? (<p>Rp.250.000.00</p>):(<p>Rp.75.000.00</p>)}
+                            </div>
+                            <div>
+                            {val.paket_id == 1 ?(<p>Rp.286.000.00</p>):val.paket_id == 2 ? (<p>Rp.250.000.00</p>):(<p>Rp.75.000.00</p>)}
+                            </div>
                         </div>
-                        <div>
-                            <p>Harga</p>
-                        </div>
-                        <div>
-                            <p>Harga</p>
-                        </div>
-                    </div>
+                        })
+                    }
                 </div>
             </div>
         </>

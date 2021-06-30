@@ -113,6 +113,13 @@ router.get("/courseById/:id/:id2", (req, res) => {
     })
 })
 
+router.get("/courseByIdMentor/:id", (req, res) => {
+    const id = req.params.id
+    db.query("SELECT * from course WHERE id = ?",id, (err, results) => {
+        res.send(results)
+    })
+})
+
 router.get("/courseByTopikId/:id", (req, res) => {
     const id = req.params.id
     let status = "APPROVED"

@@ -136,13 +136,13 @@ export default function AddProfile(props) {
                             <div className="flex flex-col lg:flex-row gap-5 w-full">
                                 <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                     <p className="text-sm font-semibold">Phone number</p>
-                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Phone number" onChange={(event) => {
+                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Phone number" min="0" max="9999999999999" onChange={(event) => {
                                             setPhoneNumber(event.target.value)
                                         }} />
                                 </div>
                                 <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                     <p className="text-sm font-semibold">Confirm phone number</p>
-                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Confirm phone number" onChange={(event) => {
+                                    <input type="number" defaultValue={val.phoneNumber} placeholder="Confirm phone number" min="0" max="9999999999999" onChange={(event) => {
                                             setCphoneNumber(event.target.value)
                                         }} />
                                 </div>
@@ -150,13 +150,13 @@ export default function AddProfile(props) {
                             <div className="flex flex-col lg:flex-row gap-5 w-full">
                                 <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                     <p className="text-sm font-semibold">Emergency number</p>
-                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Phone number" onChange={(event) => {
+                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Emergency number" min="0" max="9999999999999" onChange={(event) => {
                                             setEmergencyNumber(event.target.value)
                                         }} />
                                 </div>
                                 <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                     <p className="text-sm font-semibold">Confirm emergency number</p>
-                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Confirm phone number" onChange={(event) => {
+                                    <input type="number" defaultValue={val.emergencyNumber} placeholder="Confirm emergency number" min="0" max="9999999999999" onChange={(event) => {
                                             setCemergencyNumber(event.target.value)
                                         }} />
                                 </div>
@@ -176,7 +176,7 @@ export default function AddProfile(props) {
                                 </div>
                                 <div className="w-1/2 flex flex-col gap-2">
                                     <p className="text-sm font-semibold">Postal Code</p>
-                                    <input type="number" defaultValue={val.postalCode} placeholder="Postal Code" onChange={(event) => {
+                                    <input type="number" defaultValue={val.postalCode} placeholder="Postal Code" min="0" onChange={(event) => {
                                             setPostalCode(event.target.value)
                                         }} />
                                 </div>

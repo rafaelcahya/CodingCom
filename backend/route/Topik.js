@@ -137,4 +137,22 @@ router.get("/topikByCatId/:id", (req, res) => {
     })
 })
 
+router.get("/TopikListMentor/:name", (req, res) => {
+    const name = req.params.name
+    let user_id = 0
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId AND topik.user_id = ?",user_id,(err, results) => {
+                res.send(results)
+                console.log(results)
+            })
+        }
+    })
+})
+
 module.exports = router;
