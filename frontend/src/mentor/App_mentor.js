@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import ClassReq from "./ClassReq.jsx"
-import ProjectSub from "./ProjectSub.jsx";
 import AddCourse from "./AddCourse"
 import AddTopik from "./AddTopik"
 import EditTopik from "./EditTopik"
@@ -9,15 +8,12 @@ import ListTopik from "./ListTopik"
 import EditCourse from "./EditCourse"
 import ShowCourse from "./ShowCourse.jsx";
 import ListCourse from "./ListCourse"
-import EditProject from "./EditProjectSubmission"
 
 function App_mentor() {
     return (
         <Router>
             <Switch>
                 <Route exact path="/mentor/class-request" component={ClassReq} />
-                <Route exact path="/mentor/project-submission" component={ProjectSub} />
-                <Route exact path="/mentor/edit-project-submission/:id-:hash" component={EditProject} />
                 <Route exact path="/mentor/add-course" component={AddCourse} />
                 <Route exact path="/mentor/add-topik" component={AddTopik} />
                 <Route exact path="/mentor/list-topik" component={ListTopik} />

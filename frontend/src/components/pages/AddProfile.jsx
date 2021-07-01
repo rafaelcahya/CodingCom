@@ -121,7 +121,7 @@ export default function AddProfile(props) {
                                     <select name="" id="" onChange={(event) => {
                                             setGender(event.target.value)
                                         }} >
-                                        <option>Gender</option>
+                                        <option value="">Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -176,7 +176,7 @@ export default function AddProfile(props) {
                                 </div>
                                 <div className="w-1/2 flex flex-col gap-2">
                                     <p className="text-sm font-semibold">Postal Code</p>
-                                    <input type="number" defaultValue={val.postalCode} placeholder="Postal Code" min="0" onChange={(event) => {
+                                    <input type="number" defaultValue={val.postalCode} placeholder="Postal Code" min="0" max="99999" onChange={(event) => {
                                             setPostalCode(event.target.value)
                                         }} />
                                 </div>

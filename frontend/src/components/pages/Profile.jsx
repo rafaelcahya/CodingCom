@@ -114,7 +114,7 @@ export default function Profile(props) {
                                         <div className="flex flex-col md:flex-row justify-between gap-5">
                                             <p className="text-xl font-medium w-full md:w-3/5">Personal Information</p>
                                             <div className="flex flex-col gap-3 w-full md:w-2/5">
-                                                <p>{val.gender}</p>
+                                                {val.gender.length<=0 ?(<p>Gender has not selected</p>):(<p>{val.gender}</p>)}
                                                 <p>{formatDate(val.BoD)}</p>
                                                 <p>{val.phoneNumber}</p>
                                                 <p>{val.emergencyNumber}*</p>

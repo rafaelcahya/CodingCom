@@ -518,10 +518,17 @@ router.post("/profile", (req, res) => {
     let postalCode = req.body.postalCode
     let education = req.body.education
     const updateAt = req.body.updateAt
-    if(cphonenumber != phonenumber){
+
+    if(phonenumber > 9999999999999){
+        res.send({message:"Phone number must be less than 13 digit "})
+    }else if(emergencynumber > 9999999999999){
+        res.send({message:"Emergency number must be less than 13 digit "})
+    }else if(cphonenumber != phonenumber){
         res.send({message:"Confirm Phone Number must be same as Phone Number"})
     }else if(cemergencynumber != emergencynumber){
         res.send({message:"Confirm Emergency Number must be as Emergency Number"})
+    }else if(postalCode > 99999){
+        res.send({message:"Postal Code must be less than 5 digit"})
     }else{
         db.query("SELECT * From user WHERE name = ?", urlname, (err, results) => {
             if (err) {
