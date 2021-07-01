@@ -387,7 +387,7 @@ export default function NavbarLogin() {
                             <Link to="/purchase">
                                 <p className="text-sm">Purchase</p>
                             </Link>
-                            <Link to="/purchase">
+                            <Link to="/history-submit-project">
                                 <p className="text-sm">Project</p>
                             </Link>
                             <Link to={"/feedback/" + name}>

@@ -50,8 +50,8 @@ export default function Purchase() {
         <>
             <NavbarLogin /> 
             <NavbarMobile /> 
-            <div className="flex gap-10 px-16 xl:px-32 py-10 w-full">
-                <div className="sticky self-start top-5 border w-max rounded-lg p-3">
+            <div className="flex flex-col lg:flex-row gap-10 mt-16 lg:mt-0 px-10 xl:px-32 py-10 w-full">
+                <div className="static lg:sticky self-start top-5 border w-full lg:w-1/4 rounded-lg p-3">
                     <div className="flex items-center gap-5 mb-5 p-2">
                         <img src={image.default} className="ring-1 rounded-full p-0.5" width="50" alt="Image Profile"/>   
                         <div>
@@ -65,10 +65,10 @@ export default function Purchase() {
                             })}
                         </div>
                     </div>
-                    <div className="flex gap-5 my-5">
+                    <div className="flex gap-5">
                         {valueVal.map((v)=>{
-                            return <div className="text-sm pr-5">
-                                <div className="flex flex-col gap-2">
+                            return <div className="text-sm">
+                                <div className="flex flex-col">
                                     {
                                         v.classConsultation<=3 ? 
                                         <Link to="/payment-confirmation-class-consultation-quota" className="flex justify-between gap-10 p-2 hover:bg-blue-50 rounded-md">
@@ -98,15 +98,15 @@ export default function Purchase() {
                         })}
                     </div>
                 </div>
-                <div className="flex flex-col w-3/4">
+                <div className="flex flex-col w-full lg:w-3/4">
                     <p className="text-xl font-semibold">Purchase List</p>
                     <div className="border mt-5 rounded-lg ">
                         {
                             payList.map((val)=>{
                                 return <div className="flex justify-between items-center p-5 hover:shadow-md w-full">
-                                <div className="flex flex-col gap-3 text-sm w-4/12">
+                                <div className="flex flex-col gap-3 text-sm w-4xxa/12">
                                     <p className="font-semibold">{val.tipe_paket}</p>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
                                         <p>{formatDate(val.transactionCreateAt)}</p>
                                         <p>{formatTime(val.transactionCreateAt)}</p>
                                     </div>

@@ -43,11 +43,6 @@ export default function Career() {
         })
     }, []);
 
-    window.onload = setTimeout( function () {
-        var x = localStorage.getItem("name");
-        document.getElementById("demo").innerHTML = x;
-    }, 10)
-
     const allCategories = ['All', 'Fulltime', 'Parttime', 'Internship'];
 
     const [menuItem, setMenuItem] = useState(value);

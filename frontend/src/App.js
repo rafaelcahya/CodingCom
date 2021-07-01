@@ -62,6 +62,7 @@ import ComingSoon from "./components/major/ComingSoon.jsx"
 import ScrollToTop from "./components/minor/ScrollToTop"
 import Schedule from "./bootcamp/Schedule.jsx"
 import Purchase from "./components/pages/Purchase/Purchase.jsx"
+import HistorySubmit from "./components/pages/History Submit/HistorySubmit.jsx"
 
 const Container = styled.div``;
 const ThemeToggle = styled.div``;
@@ -88,11 +89,13 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/profile/:name" component={Profile} />
             <Route path="/edit-profile/:name" component={AddProfile} />
+            <Route path="/purchase" component={Purchase} />
+            <Route path="/history-submit-project" component={HistorySubmit} />
+
             <Route path="/pricing/:name" component={Pricing} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
             <Route path="/payment-confirmation-class-consultation-quota" component={ConsultationPay} />
             <Route path="/payment-confirmation-class-session-quota" component={SessionPay} />
-            <Route path="/purchase" component={Purchase} />
 
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/roadmap-frontend" component={RoadmapFrontend} />
