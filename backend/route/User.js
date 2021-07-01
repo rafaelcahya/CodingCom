@@ -23,21 +23,21 @@ router.post("/register", (req, res) => {
     // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
     if (fullname.length <= 0) {
-        res.send({ message: "Please add your fullname" })
+        res.send({ message: "Your fullname is not filled in" })
     } else if (name.length <= 0) {
-        res.send({ message: "Please add your username" })
-    } else if (name.length >= 32) {
+        res.send({ message: "Your username is not filled in" })
+    } else if (name.length >= 20) {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
         res.send({ message: "Username cannot contain spaces" })
     } else if (email.length <= 0) {
-        res.send({ message: "Please add your Email" })
+        res.send({ message: "Your email is not filled in" })
     } else if (email.match(/[@]/) == null) {
         res.send({ message: "Email is invalid" })
     } else if (email.match(/[.]/) == null) {
         res.send({ message: "Email is invalid" })
     } else if (password <= 0) {
-        res.send({ message: "Please add your password" })
+        res.send({ message: "Your password is not filled in" })
     } else if (password.length < 8) {
         res.send({ message: "Password must be at least 8 characters" })
     } else if (password.length >= 20) {
@@ -128,15 +128,15 @@ router.post("/registerMentor", (req, res) => {
     // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
 
     if (fullname.length <= 0) {
-        res.send({ message: "Please add your fullname" })
+        res.send({ message: "Your fullname is not filled in" })
     } else if (name.length <= 0) {
-        res.send({ message: "Please add your username" })
-    } else if (name.length >= 32) {
+        res.send({ message: "Your username is not filled in" })
+    } else if (name.length >= 20) {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
         res.send({ message: "Username cannot contain spaces" })
     } else if (email.length <= 0) {
-        res.send({ message: "Please add your Email" })
+        res.send({ message: "Your email is not filled in" })
     } else if (email.match(/[@]/) == null) {
         res.send({ message: "Email is invalid" })
     } else if (email.match(/[.]/) == null) {
@@ -249,7 +249,7 @@ router.post("/reset", (req, res) => {
     let hash = ""
 
     if (email.length <= 0) {
-        res.send({ message: "Email can not be empty" })
+        res.send({ message: "Your email is not filled in" })
     } else {
         db.query("SELECT * From user WHERE email = ?", email, (err, results) => {
             if (err) {

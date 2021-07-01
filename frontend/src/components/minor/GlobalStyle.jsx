@@ -17,7 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     .register-popup-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
-    #sidebarmobile
+    #sidebarmobile,
+    .purchase-filter-btn
     {
         background: ${({theme}) => theme.foreground};
         color: ${({theme}) => theme.primarytext};
@@ -71,7 +72,9 @@ export const GlobalStyle = createGlobalStyle`
     .profile-form textarea,
     .submit-box input,
     .submit-box select,
-    .submit-box textarea{
+    .submit-box textarea,
+    .separator-purchase-card,
+    .purchase-card {
         background: ${({theme}) => theme.foreground2};
     }
 
@@ -96,7 +99,9 @@ export const GlobalStyle = createGlobalStyle`
     .edit-projectdetail-form,
     .request-class-form,
     .filter-job,
-    .career-card {
+    .career-card,
+    .separator-purchase-card,
+    .purchase-card  {
         border: ${({theme}) => theme.border};
     }
     
@@ -106,7 +111,9 @@ export const GlobalStyle = createGlobalStyle`
 
     .dropdown-user .dropdown-user-setting p:hover,
     .dropdown-user-quota div:hover,
-    .dropdown-tutorial div:hover{
+    .dropdown-tutorial div:hover,
+    .purchase-filter-btn:hover,
+    .purchase-card:hover{
         background: ${({theme}) => theme.foreground4};
         border-radius: 5px;
     }
@@ -157,7 +164,6 @@ export const lightTheme={
     foreground: '#eff3fc',
     foreground2: '#fff',
     foreground4: '#f4f7ff',
-    foreground5: '#fff',
     border: '1px solid rgb(238, 241, 247)'
 }
 
@@ -169,6 +175,5 @@ export const darkTheme={
     foreground: '#16171d',
     foreground2: '#16171d',
     foreground4: '#1a1b20',
-    foreground5: '#16171d',
     border: 'none'
 }

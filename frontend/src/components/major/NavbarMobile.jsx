@@ -1,12 +1,31 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from "react";
+import Axios from 'axios'
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
+
+const GenerateID = (len, k)=>{
+    const s = (k) =>{
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for(let i = 0 ; i<k ; i++){
+            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for(let n = 0;n<len;n++){
+        id += '-'+s(k)
+    }
+    return id
+}
 
 export default function NavbarMobile() {
     const [loggedIn, setLoggedIn] = useState(true)
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
+    const [valueList, setValueList] = useState([])
+    const [valueVal, setValueVal] = useState([])
     const [name, setName] = useState("")
     let image = require('../../asset/upload/'+ localStorage.getItem("image"))
 
@@ -19,6 +38,22 @@ export default function NavbarMobile() {
         setLoggedIn(localStorage.getItem("loggedIn"));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localStorage.getItem("loggedIn")]);
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user/userById/"+localStorage.getItem("name")).then((response) => {
+            setValueList(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
+            setValueVal(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const menuVariants = {
         opened: {
@@ -102,26 +137,72 @@ export default function NavbarMobile() {
                     variants={menuProfile}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
-                        <div className="text-sm pr-5 border-r-2">
-                            <div className="dropdown-user-quota flex justify-between gap-5">
-                                <p>Premium plan</p>
-                                <p>Actived/Not Actived</p>
-                            </div>
-                            <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota flex justify-between gap-5">
-                                <p>Class Consultation Quota</p>
-                                <p>0 quota</p>
-                            </Link>
-                            <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota flex justify-between">
-                                <p>Coding Class Quota</p>
-                                <p>0 quota</p>
-                            </Link>
+                        <div className="flex gap-5">
+                            {valueVal.map((v)=>{
+                                return <div className="text-sm pr-5 border-r-2">
+                                {valueList.map((val)=>{
+                                    return <div className="dropdown-user-quota">
+                                    {
+                                        val.status==="Actived"?
+                                        <div className="flex justify-between gap-20">
+                                            <p className="text-gray-400">Premium plan</p>
+                                            <p className="text-green-500 rounded-lg font-semibold tracking-wide">{val.status}</p>
+                                        </div>
+                                        :
+                                        <div className="flex justify-between gap-20">
+                                            <p className="text-gray-400">Premium plan</p>
+                                            <p>{val.status}</p>
+                                        </div>
+                                    }
+                                </div>
+                                })}
+                                    {
+                                        v.classConsultation<=3 ? 
+                                        <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-green-500">{v.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                    {
+                                        v.classSession<=3 ? 
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-yellow-500">{v.classSession}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-green-500">{v.classSession}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                </div>
+                            })}
                         </div>
                         <div>
                             <Link to={"/profile/" + name}>
                                 <p className="text-sm">Profile</p>
                             </Link>
-                            <Link to="/resetPassword">
+                            <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
                                 <p className="text-sm">Change Password</p>
+                            </Link>
+                            <Link to="/purchase">
+                                <p className="text-sm">Purchase</p>
+                            </Link>
+                            <Link to="/history-submit-project">
+                                <p className="text-sm">Project</p>
                             </Link>
                             <Link to={"/feedback/" + name}>
                                 <p className="text-sm">Feedback</p>
