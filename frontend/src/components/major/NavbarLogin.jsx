@@ -92,11 +92,8 @@ export default function NavbarLogin() {
     return (
         <>
             <nav id="top">
-                <div className="navbar hidden lg:block relative ">
-                    {/* <div className="border-b border-gray-200">
-                        <p className="px-16 xl:px-32">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor obcaecati exercitationem ipsum, odio dicta error neque repudiandae nihil. Fuga animi ipsam nobis culpa perferendis saepe, dignissimos dolor inventore unde at.</p>
-                    </div> */}
-                    <div className="navbar-content text-sm lg:flex justify-between px-16 xl:px-32 z-20 border-b border-gray-200">
+                <div className="navbar hidden lg:block relative z-20">
+                    <div className="navbar-content text-sm relative lg:flex justify-between px-16 xl:px-32  border-b border-gray-200">
                         <div className=" flex items-center py-3">
                             <NavLink to=""
                                 exact
@@ -185,7 +182,7 @@ export default function NavbarLogin() {
                 <motion.div
                     initial={false}
                     variants={menuVariants}
-                    animate={openTutorial ? "opened" : "closed"} className="dropdown absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg z-10 p-5">
+                    animate={openTutorial ? "opened" : "closed"} className="dropdown absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg p-5 z-10">
                         <div className="flex flex-col gap-5">
                             <Link to="/tutorial" className="font-semibold hover:underline">Tutorial Overview</Link>
                             <div className="flex flex-wrap gap-x-5 gap-5">

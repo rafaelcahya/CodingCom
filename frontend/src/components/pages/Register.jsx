@@ -41,8 +41,8 @@ function Register() {
     }
 
     return (
-        <div className="register-container flex justify-center py-10 px-20 h-screen overflow-hidden">
-            <div className="register-box rounded-lg p-10 shadow-xl">
+        <div className="register-container flex justify-center py-10 px-20 h-screen">
+            <div className="register-box rounded-lg p-10 shadow-xl overflow-hidden">
                 <div className="text-sm mb-10">
                     <p className="text-xl font-semibold color-blue-1 mb-2">Let's get started,</p>
                     <div className="text-gray-500 font-medium">
@@ -124,13 +124,12 @@ function Register() {
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
                 <div className="flex justify-between w-full gap-5 text-sm pt-5">
-                    <Link to="/login" className="border border-gray-200 hover:bg-gray-200 text-sm font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Back</Link>
+                    <Link to="/login" className="text-sm font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Back</Link>
                     <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Register</p>
                 </div>
                 <Popup trigger={buttonPopup}>
                     <p className="text-lg font-semibold py-5">Register Success</p>
                     <p className="text-sm font-medium">Your account is successfully created.</p>
-                    <br></br>
                     <Link to="/login">
                     <div className="flex justify-end">
                         <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
@@ -145,5 +144,3 @@ function Register() {
 }
 
 export default Register
-
-

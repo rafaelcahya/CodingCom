@@ -993,15 +993,16 @@ Login page, Register Page
     transition: all 5s ease-out;
 }
 
-
 .login-container,
-.register-container {
+.reset-password-container,
+.register-container,
+.change-password-container {
     background-image: -webkit-gradient(linear, left top, right bottom, from(#3417aa), color-stop(#383abf), color-stop(#4057d1), color-stop(#4d72e2), to(#5f8cf1));
     background-image: -o-linear-gradient(left top, #3417aa, #383abf, #4057d1, #4d72e2, #5f8cf1);
     background-image: linear-gradient(to right bottom, #3417aa, #383abf, #4057d1, #4d72e2, #5f8cf1);
 }
 
-.login-box{
+.login-box, .change-password-box, .reset-password-box{
     width: 450px;
 }
 
@@ -1013,16 +1014,21 @@ Login page, Register Page
 .login-box input[type="password"],
 .register-box input[type="text"],
 .register-box input[type="password"],
-.register-box select {
+.register-box select,
+.change-password-box input[type="text"],
+.change-password-box input[type="password"],
+.reset-password-box input[type="text"],
+.reset-password-box input[type="password"]{
     width: 100%;
     padding: .5rem 1rem;
-    background-color: var(--black-3);
     border-radius: 6px;
     outline: none;
 }
 
 .login-box input:focus,
-.register-box input:focus{
+.register-box input:focus,
+.change-password-box input:focus,
+.reset-password-box input:focus{
     background-color: #d8e7ff;
 }
 
@@ -1643,6 +1649,9 @@ Challenge
 .submit-box input,
 .submit-box textarea,
 .submit-box select,
+.feedback-box input,
+.feedback-box textarea,
+.feedback-box select,
 .job-box input,
 .job-box textarea,
 .job-box select,
@@ -1652,7 +1661,6 @@ Challenge
 .batchForm input,
 .batchForm textarea,
 .batchForm select {
-    background-color: white;
     padding: .375rem 1rem;
     border: 1.5px solid var(--black-3);
     border-radius: 6px;
@@ -1672,13 +1680,16 @@ Challenge
 }
 
 .submit-box select,
+.feedback-box select,
 .job-box select,
 .courseForm select {
     padding: .4rem 1rem;
 }
 
 .submit-box input::-webkit-input-placeholder,
-.submit-box textarea::-webkit-input-placeholder {
+.submit-box textarea::-webkit-input-placeholder,
+.change-password-box ::-webkit-input-placeholder,
+.reset-password-box ::-webkit-input-placeholder {
     font-size: .875rem;
 }
 
@@ -1711,17 +1722,6 @@ Challenge
 
 .submit-box input::-ms-input-placeholder, .submit-box textarea::-ms-input-placeholder {
     font-size: .875rem;
-}
-
-.submit-box input::placeholder,
-.submit-box textarea::placeholder {
-    font-size: .875rem;
-}
-
-.submit-box input:focus,
-.submit-box textarea:focus,
-.submit-box select:focus {
-    border: 1.5px solid var(--blue-1);
 }
 
 /* 

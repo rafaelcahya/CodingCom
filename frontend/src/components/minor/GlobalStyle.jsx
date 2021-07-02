@@ -9,12 +9,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .login-box,
-    .login-container input,
     .logout,
     .register-box,
     .register-box input,
     .register-box select,
     .register-popup-box,
+    .change-password-box,
+    .reset-password-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
     #sidebarmobile,
@@ -36,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
     .roadmap-box div, 
     .tutorial-paid-box, 
     .tutorial-box,
-    .challenge-box,
     .challenge-card,
     .certificate-box div,
     .comment-box textarea,
@@ -70,14 +70,42 @@ export const GlobalStyle = createGlobalStyle`
     .profile-form input,
     .profile-form select,
     .profile-form textarea,
-    .submit-box input,
-    .submit-box select,
-    .submit-box textarea,
     .separator-purchase-card,
     .purchase-card {
         background: ${({theme}) => theme.foreground2};
     }
 
+    .login-form input,
+    .reset-password-box input,
+    .register-box input,
+    .feedback-box input,
+    .feedback-box select,
+    .feedback-box textarea,
+    .submit-box input,
+    .submit-box select,
+    .submit-box textarea,
+    .change-password-box input{
+        background: ${({theme}) => theme.foreground4};
+        border: ${({theme}) => theme.border2};
+    }
+
+    .login-form input:focus,
+    .reset-password-box input:focus,
+    .register-box input:focus,
+    .profile-form input:focus,
+    .profile-form select:focus,
+    .profile-form textarea:focus,
+    .feedback-box input:focus,
+    .feedback-box select:focus,
+    .feedback-box textarea:focus,
+    .submit-box input:focus,
+    .submit-box select:focus,
+    .submit-box textarea:focus,
+    .change-password-box input:focus,
+    .challenge-box div{
+        background: ${({theme}) => theme.foreground3};
+    }
+    
     .filter-job,
     .career-card{
         background: ${({theme}) => theme.foreground5};
@@ -101,8 +129,14 @@ export const GlobalStyle = createGlobalStyle`
     .filter-job,
     .career-card,
     .separator-purchase-card,
-    .purchase-card  {
+    .purchase-card{
         border: ${({theme}) => theme.border};
+    }
+
+    .profile-form input,
+    .profile-form select,
+    .profile-form textarea{
+        border: ${({theme}) => theme.border2};
     }
     
     .navbar .navbar-content{
@@ -161,10 +195,12 @@ export const lightTheme={
     primarytext: '#3a3a3a',
     secondarytext: '#3a3a3a',
     tertiarytext: '#3a3a3a',
-    foreground: '#eff3fc',
+    foreground: '#fff',
     foreground2: '#fff',
-    foreground4: '#f4f7ff',
-    border: '1px solid rgb(238, 241, 247)'
+    foreground3: '#ecf3fc',
+    foreground4: '#fff',
+    border: '1px solid #eef1f7',
+    border2: '1.5px solid #e1e8eb'
 }
 
 export const darkTheme={
@@ -174,6 +210,8 @@ export const darkTheme={
     tertiarytext: '#fed049',
     foreground: '#16171d',
     foreground2: '#16171d',
-    foreground4: '#1a1b20',
-    border: 'none'
+    foreground3: '#31343d',
+    foreground4: '#272931',
+    border: 'none',
+    border2: 'none'
 }

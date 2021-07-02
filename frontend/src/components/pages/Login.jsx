@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Fragment, useState } from 'react'
 
 import Axios from "axios"
@@ -64,25 +65,23 @@ export default function Login() {
                 </div>
                 <div className="login-box rounded-lg py-20 px-10 shadow-xl overflow-hidden">
                     <p className="text-center text-2xl font-semibold">Log in to Coding.com</p>
-                    <div className="flex flex-col my-10">
+                    <div className="login-form flex flex-col my-10">
                         <div className="flex flex-col gap-5">
                             <div>
-                                <p className="username text-sm font-medium mb-2 color-black-2">Username</p>
+                                <p className="text-sm font-medium mb-2 color-black-2">Username</p>
                                 <input
                                     type="text"
                                     placeholder="Input your username" 
-                                    className="input-username" 
                                     onChange={(event) => {
                                         setName(event.target.value)
                                 }} />
                             </div>
                             <div>
-                                <p className="password text-sm font-medium mb-2 color-black-2">Password</p>
+                                <p className="text-sm font-medium mb-2 color-black-2">Password</p>
                                 <div className="flex gap-2">
                                     <input
                                         type={revealPass ? "text" : "password"}
-                                        placeholder="Enter your password" 
-                                        className="border-none"
+                                        placeholder="Enter your password"
                                         onChange={(event) => {
                                             setPassword(event.target.value)
                                     }} />

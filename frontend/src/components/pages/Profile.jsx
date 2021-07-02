@@ -41,9 +41,9 @@ export default function Profile(props) {
 
     return (
         <>
-            <div className="flex justify-between bg-blue-100 w-full px-16 py-10 pb-48" id="container" >
+            <div className="flex justify-between bg-blue-600 w-full px-16 py-10 pb-48" id="container" >
                 <Link to="/">
-                    <div className="flex gap-1 bg-white py-2 pl-1 pr-3 rounded-lg">
+                    <div className="flex gap-1 bg-white text-black py-2 pl-1 pr-3 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         <p>back</p>
                     </div>
@@ -51,7 +51,7 @@ export default function Profile(props) {
                 {
                     valueList.map((val) => {
                         return <Link to={"/edit-profile/" + val.name}>
-                            <p className="bg-blue-1 hover:bg-blue-400 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Edit Profile</p>
+                            <p className="bg-white text-black text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Edit Profile</p>
                         </Link>
                     })
                 }

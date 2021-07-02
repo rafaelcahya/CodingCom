@@ -320,9 +320,9 @@ router.post("/resetPassword", (req, res) => {
     var hash = crypto.createHash('md5').update(password).digest('hex')
 
     if(password.length<=0){
-        res.send({message:"Password can not be empty"})
+        res.send({message:"Your password is not filled in"})
     }else if(confirmpassword.length<=0){
-        res.send({message:"Confirm Password can not be empty"})
+        res.send({message:"Yor confirm password is not filled in"})
     }else if(confirmpassword != password){
         res.send({message:"Confirm Password must be same as password"})
     } else if (password.length < 8) {
@@ -567,14 +567,12 @@ router.post("/profile", (req, res) => {
 
                 } if (!req.files) {
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, urlname], (err, results) => {
-                    console.log(err)
                     res.send(results)
                     })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, filename, urlname], (err, results) => {
-                        console.log(err)
                         res.send(results)
                         file.mv('../frontend/src/asset/upload/' + file.name)
                     })
@@ -607,7 +605,7 @@ router.get("/userkuotaById/:name", (req, res) => {
     })
 })
 
-router.post("/ChangePassword", (req, res) => {
+router.post("/Change    ", (req, res) => {
     const name = req.body.name
     const password = req.body.password
     const newpassword = req.body.newpassword

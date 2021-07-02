@@ -79,7 +79,7 @@ export default function Purchase() {
                             {valueList.map((val)=>{
                                 return <div className="flex justify-between gap-20">
                                 {
-                                    val.status==="Actived"?<p className="text-sm text-green-500 rounded-lg font-medium tracking-wide">Premium account</p>:<p>{val.status}</p>
+                                    val.status==="Actived"?<p className="text-xs text-green-500 rounded-lg font-medium tracking-wide">Premium account</p>:<p className="text-xs text-gray-400 justify-centerrounded-lg font-medium tracking-wide">Not premium account</p>
                                 }
                             </div>
                             })}
