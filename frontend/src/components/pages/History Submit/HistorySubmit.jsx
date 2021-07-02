@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import NavbarLogin from "../../major/NavbarLogin"
 import NavbarMobile from "../../major/NavbarMobile"
 import axios from 'axios';
+import Footer from "../../major/Footer"
 
 export default function HistorySubmit() {
     const [value,setValue] = useState([])
@@ -111,7 +112,7 @@ export default function HistorySubmit() {
                     <Menu menuItem={menuItem}/>
                 </div>
             </div>
-            
+            <Footer/>
         </>
     )
 }

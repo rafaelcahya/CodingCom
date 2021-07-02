@@ -60,7 +60,7 @@ export default function ResetPassword() {
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>
                     <div className="flex flex-col gap-5 text-sm">
-                        <p onClick={reset} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Send to Email</p>
+                        <p onClick={reset} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Send Link</p>
                         <Link to="/login">
                             <p className="bg-gray-200 hover:bg-gray-50 font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Cancel</p>
                         </Link>
