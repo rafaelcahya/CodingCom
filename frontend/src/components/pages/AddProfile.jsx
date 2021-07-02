@@ -23,11 +23,6 @@ export default function AddProfile(props) {
     const [errorMessage, setErrorMessage] = useState("")
     const [file, setFile] = useState([])
     const [valueList,setValueList] = useState([])
-    
-    window.onload = setTimeout(function () {
-        let x = localStorage.getItem("name");
-        setName(x)
-    }, 10)
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -38,7 +33,7 @@ export default function AddProfile(props) {
     }, 500)
     
     useEffect(() => {
-        Axios.get("http://localhost:3001/user/userById/"+urlname).then((response) => {
+        Axios.get("http://localhost:3001/user/userById/"+localStorage.getItem("name")).then((response) => {
             setValueList(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,7 +44,7 @@ export default function AddProfile(props) {
         fd.append('fileUpload', file)
         fd.append('fullname', fullname)
         fd.append('gender', gender)
-        fd.append('name', name)
+        fd.append('username', name)
         fd.append('BoD', BoD)
         fd.append('phonenumber', phonenumber)
         fd.append('cphonenumber', cphonenumber)
@@ -63,6 +58,9 @@ export default function AddProfile(props) {
         fd.append('education', education)
         Axios.post("http://localhost:3001/user/profile",fd).then((response) => {
             setErrorMessage(response.data.message)
+            if(name.length>0){
+                localStorage.setItem("name", response.data.name)
+            }
         })
     }
 
@@ -97,13 +95,18 @@ export default function AddProfile(props) {
 
     return (
         <>
-            <div className="bg-blue-600 px-16 py-10 pb-48" id="container" >
-                <Link to={"/profile/" + name}>
-                    <div className="flex gap-1 bg-white text-black py-2 pl-1 pr-3 rounded-lg w-max">
+            <div className="bg-blue-100 px-16 py-10 pb-48" id="container" >
+                {name.length>0 ? (<Link to={"/profile/" + localStorage.getItem("name")}>
+                    <div className="flex gap-1 bg-white py-2 pl-1 pr-3 rounded-lg w-max">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         <p>back</p>
                     </div>
-                </Link>
+                </Link>):(<Link to={"/profile/" + urlname}>
+                    <div className="flex gap-1 bg-white py-2 pl-1 pr-3 rounded-lg w-max">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <p>back</p>
+                    </div>
+                </Link>)}
             </div>
             <div className="flex flex-col items-center -mt-20">
                 <form className="profile-form w-3/4 md:w-1/2" id="reset-form">

@@ -110,7 +110,7 @@ function TopicDetail(props) {
                                         <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p>
                                         {
                                             value.map((item)=>{
-                                                return <Link to={"/"+ GenerateID(15,10) +"/" + item.number + "/" + val.topikId}>
+                                                return <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId}>
                                                 <p>MASUK KE COURSE</p>
                                                 </Link>
                                             })

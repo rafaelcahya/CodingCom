@@ -20,6 +20,15 @@ const GenerateID = (len, k)=>{
 
 export default function ProjectList() {
     const [proList, setProList] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/submit/submitList").then((response) => {
@@ -27,6 +36,13 @@ export default function ProjectList() {
             console.log(response.data)
         })
     }, []);
+
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/submit/deleteProjectSub", {
+            id: id,
+            updateAt: updateAt
+        })
+    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
@@ -49,7 +65,9 @@ export default function ProjectList() {
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Description</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Repo Url</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Live Site Url</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Uploaded Times</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Submission time</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Submission updated</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">action</th>
                                 </tr>
                             </thead>
@@ -65,7 +83,9 @@ export default function ProjectList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.description}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.url}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.live_site_url}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.timesUpload}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectsubCreateAt)} {formatTime(val.projectsubCreateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.projectsubUpdateAt)} {formatTime(val.projectsubUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <a href={file.default} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download</a>
                                                         </td>
@@ -73,6 +93,9 @@ export default function ProjectList() {
                                                             
                                                             <a href={"/admin/edit-project-submission-"+val.id + "-" + GenerateID(15,10)} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
                                                           
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.id) }}>Delete</p>
                                                         </td>
                                                     </tr>
                                         }

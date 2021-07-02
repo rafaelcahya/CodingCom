@@ -76,13 +76,15 @@ router.put("/updateCourse", (req, res) => {
 })
 
 router.get("/listCourse", (req, res) => {
-    db.query("SELECT course.id, course.number, course.judul, course.description, course.time, course.content, course.topik_id, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT course.id, course.number, course.judul, course.description, course.time, course.content, course.topik_id, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId AND course.isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/listCourseUser", (req, res) => {
-    db.query("SELECT * FROM course ORDER BY number ASC", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * FROM course WHERE isDeleted = ? ORDER BY number ASC",isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -90,6 +92,7 @@ router.get("/listCourseUser", (req, res) => {
 router.get("/listCourseMentor/:name", (req, res) => {
     const name = req.params.name
     let user_id = 0
+    let isDeleted = "NO"
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
             console.log(err)
@@ -98,7 +101,7 @@ router.get("/listCourseMentor/:name", (req, res) => {
         if (results.length > 0) {
             // buat ambil index
             user_id = results[0].id
-            db.query("SELECT course.number, course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId AND course.user_id = ?", user_id, (err, results) => {
+            db.query("SELECT course.number, course.id, course.judul, course.description, course.time, course.content, course.status, course.courseCreateAt, course.courseUpdateAt, user.fullname, topik.topikTitle, user.email FROM course,user,topik WHERE course.user_id = user.id AND course.topik_id = topik.topikId AND course.user_id = ? AND course.isDeleted = ?", [user_id,isDeleted], (err, results) => {
                 res.send(results)
             })
         }
@@ -124,7 +127,8 @@ router.get("/courseByTopikId/:id", (req, res) => {
     const id = req.params.id
     let status = "APPROVED"
     let number = "1"
-    db.query("SELECT * from course WHERE topik_id = ? AND status = ? AND number = ?", [id, status, number], (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from course WHERE topik_id = ? AND status = ? AND number = ? AND isDeleted = ?", [id, status, number, isDeleted], (err, results) => {
         res.send(results)
     })
 })
@@ -148,6 +152,17 @@ router.put("/reject", (req, res) => {
     let status = "REJECTED"
 
     db.query("UPDATE course SET status = ?, courseUpdateAt=? WHERE topik_id = ? AND number = ?;", [status, updateAt, topik_id, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
+router.put("/deleteCourse", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE course SET isDeleted = ?, courseUpdateAt = ? WHERE id = ?;", [isDeleted, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
     })

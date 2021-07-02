@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../../major/Footer';
 import NavbarLogin from '../../major/NavbarLogin';
 import NavbarMobile from '../../major/NavbarMobile';
+import axios from 'axios';
 
 function ConsultationClass() {
     var hours = new Date().getHours()
     var dayOfWeek = new Date().getDay();
+    const [value, setValue] = useState([])
+    useEffect(() => {
+        axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <>
             <NavbarLogin/>

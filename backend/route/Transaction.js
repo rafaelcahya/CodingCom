@@ -84,7 +84,7 @@ router.post("/updateStatusClassConsultation", (req, res) => {
 router.get("/TransactionList", (req, res) => {
     let isDeleted = "NO"
     let status = "Pending"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ? ORDER BY transactionCreateAt DESC", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -92,7 +92,7 @@ router.get("/TransactionList", (req, res) => {
 router.get("/TransactionListAPPROVED", (req, res) => {
     let isDeleted = "NO"
     let status = "Approved"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ? ORDER BY transactionCreateAt DESC", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -100,7 +100,7 @@ router.get("/TransactionListAPPROVED", (req, res) => {
 router.get("/TransactionListREJECTED", (req, res) => {
     let isDeleted = "NO"
     let status = "Rejected"
-    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ?", [isDeleted, status], (err, results) => {
+    db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.isDeleted = ? AND transaction.status = ? ORDER BY transactionCreateAt DESC", [isDeleted, status], (err, results) => {
         res.send(results)
     })
 })
@@ -125,6 +125,7 @@ router.put("/addeditKuota", (req, res) => {
     let update = ""
     let kuotaConsultation = 0
     let kuotaSession = 0
+    let isDeleted = "NO"
     if (status == "Approved") {
         kuotaConsultation = 7
         kuotaSession = 5
@@ -148,7 +149,7 @@ router.put("/addeditKuota", (req, res) => {
                 }
 
             } else {
-                db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt) VALUES (?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update], (err, results) => {
+                db.query("INSERT INTO userkuota (classConsultation, classSession, user_id, kuotaCreateAt, kuotaUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [kuotaConsultation, kuotaSession, id, createAt, update, isDeleted], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
@@ -161,6 +162,7 @@ router.put("/addeditKuota", (req, res) => {
 
 router.get("/TransactionListUser/:name", (req, res) => {
     const name = req.params.name
+    let isDeleted = "NO"
     let user_id = 0
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
@@ -168,10 +170,21 @@ router.get("/TransactionListUser/:name", (req, res) => {
         }
         if (results.length > 0) {
             user_id=results[0].id
-            db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.user_id = ?", user_id, (err, results) => {
+            db.query("SELECT transaction.transactionId, transaction.user_id, transaction.paket_id, transaction.status, transaction.transactionCreateAt, transaction.transactionUpdateAt, user.fullname, user.email, user.name, paket.tipe_paket FROM transaction,user,paket WHERE transaction.user_id = user.id AND transaction.paket_id = paket.id AND transaction.user_id = ? AND transaction.isDeleted = ? ORDER BY transactionCreateAt DESC", [user_id, isDeleted], (err, results) => {
                 res.send(results)
             })
         }
+    })
+})
+
+router.put("/deleteTransaction", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE transaction SET isDeleted = ?, transactionUpdateAt = ? WHERE transactionId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
     })
 })
 

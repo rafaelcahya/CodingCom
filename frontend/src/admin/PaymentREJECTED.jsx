@@ -4,6 +4,15 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function PaymentREJECTED() {
     const [payList, setPayList] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/transaction/TransactionListREJECTED").then((response) => {
@@ -11,6 +20,13 @@ export default function PaymentREJECTED() {
             console.log(response.data)
         })
     }, []);
+
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/transaction/deleteTransaction", {
+            id: id,
+            updateAt: updateAt
+        })
+    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
@@ -51,6 +67,9 @@ export default function PaymentREJECTED() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionCreateAt)} {formatTime(val.transactionCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.transactionUpdateAt)} {formatTime(val.transactionUpdateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.transactionId) }}>Delete</p>
+                                                        </td>
                                                     </tr>
                                                 }
                                             )

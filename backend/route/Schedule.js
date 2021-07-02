@@ -39,9 +39,21 @@ router.post("/addSchedule", (req, res) => {
 })
 
 router.get("/ScheduleList", (req, res) => {
-    db.query("SELECT * from schedule ORDER BY date",(err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from schedule WHERE isDeleted = ? ORDER BY date",isDeleted,(err, results) => {
         res.send(results)
         console.log(results)
+    })
+})
+
+router.put("/deleteSchedule", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE schedule SET isDeleted = ?, scheduleUpdateAt = ? WHERE scheduleId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
     })
 })
 

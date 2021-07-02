@@ -7,17 +7,18 @@ export default function ResetPassword() {
     const [errorMessage, setErrorMessage] = useState("")
 
     const reset = () => {
-        Axios.post("http://localhost:3001/user/reset", { email:email}).then((response) => {
+        Axios.post("http://localhost:3001/user/reset", { email: email }).then((response) => {
             console.log(response)
+
             setErrorMessage(response.data.message)
-            
+
         })
     }
 
     return (
         <>
-            <div className="reset-password-container flex justify-center py-10 h-screen">
-                <div className="reset-password-box rounded-lg p-10 shadow-xl overflow-hidden">
+            <div className="login-container flex justify-center py-10 h-screen">
+                <div className="login-box rounded-lg p-10 shadow-xl overflow-hidden">
                     <p className="color-blue-1 text-xl font-semibold mb-2">Reset Password</p>
                     <p className="text-sm">Enter your email address in the form below. We will send a link to your email.</p>
                     <div className="flex flex-col my-10">

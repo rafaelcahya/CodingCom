@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Axios from 'axios'
 import Sidebar from './admin-major/Sidebar'
+import { Editor } from '@tinymce/tinymce-react';
 
 function AddProject() {
+    const editorRef = useRef(null);
     const [file, setFile] = useState([])
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
-    const [brief, setBrief] = useState("")
     const [type, setType] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
@@ -29,11 +30,12 @@ function AddProject() {
     }, []);
 
     const submit = () => {
+        if (editorRef.current) {
         const fd = new FormData();
         fd.append('fileUpload', file)
         fd.append('title', title)
         fd.append('info', info)
-        fd.append('brief', brief)
+        fd.append('brief', editorRef.current.getContent())
         fd.append('type', type)
         fd.append('createAt', createAt)
         Axios.post("http://localhost:3001/project/project", fd).then((response) => {
@@ -42,6 +44,7 @@ function AddProject() {
 
         })
         console.log(file)
+    }
     }
 
     return (
@@ -96,12 +99,26 @@ function AddProject() {
                                         }} ></textarea>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-1 text-sm font-semibold">
-                                    <p>Project Brief</p>
-                                </div>
-                                <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
-                                            setBrief(event.target.value)
-                                        }} ></textarea>
+                                <p className="Time text-sm font-semibold">Project Brief</p>
+                                <Editor
+                                    apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
+                                    onInit={(evt, editor) => editorRef.current = editor}
+                                    initialValue="This is initial value"
+                                    init={{
+                                        height: 300,
+                                        menubar: false,
+                                        skin: "fabric",
+                                        icons: "thin",
+                                        toolbar_sticky: true,
+                                        plugins: [
+                                            'advlist autolink lists link image charmap print preview anchor',
+                                            'searchreplace visualblocks code fullscreen',
+                                            'insertdatetime media table paste code help wordcount'
+                                        ],
+                                        toolbar: 'undo redo code | fontsizeselect formatselect print preview | link image media full page bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                    }}
+                                />
                             </div>
                             
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>

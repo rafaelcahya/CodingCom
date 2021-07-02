@@ -41,7 +41,7 @@ function ProjectDetail(props) {
                             <p className="text-3xl font-semibold text-center my-10">{val.projectTitle}</p>
                             <div className="flex flex-col gap-3">
                                 <p className="font-semibold text-xl">Brief</p>
-                                <p>{val.projectBrief}</p>
+                                <div dangerouslySetInnerHTML={{ __html: val.projectBrief }} />
                             </div>
                         </div>
 

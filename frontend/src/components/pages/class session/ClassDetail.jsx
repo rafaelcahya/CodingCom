@@ -13,6 +13,15 @@ function ClassDetail(props) {
     const [listClass, SetListClass] = useState([])
     const [value, setValue] = useState([])
     const [show, toggleShow] = useState(false);
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/class/classById/" + urlid).then((response) => {
@@ -29,6 +38,12 @@ function ClassDetail(props) {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const reset = () => {
+        axios.post("http://localhost:3001/user/minUserKuotaSession", { name:localStorage.getItem("name"), updateAt:updateAt }).then((response) => {
+            console.log(response)
+        })
+    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
@@ -113,7 +128,7 @@ function ClassDetail(props) {
                                                         <p className="font-semibold">Are you sure you want to take this class?</p>
                                                         <div className="flex items-center gap-5 mt-4">
                                                             <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                            <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                            <a href={val.url} target="_blank" rel="noreferrer" onClick={reset} className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
                                                         </div>
                                                     </div>}
                                                 </div>)}

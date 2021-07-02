@@ -18,13 +18,14 @@ router.post("/jobs", (req, res) => {
     const url = req.body.url
     const createAt = req.body.createAt
     let updateAt = ""
+    let isDeleted = "NO"
 
     if (!req.files) {
         res.send({ message: "Logo can not be empty" })
     } else {
         const file = req.files.fileUpload
         const filename = file.name
-        db.query("INSERT INTO jobs (companyName, companyEmail, companyLogo, overview, jobTitle, jobDescription, jobLocation, jobType, companyUrl, jobCreateAt, jobUpdateAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [companyName, companyEmail, filename, overview, job, des, location, type, url, createAt, updateAt], (err, results) => {
+        db.query("INSERT INTO jobs (companyName, companyEmail, companyLogo, overview, jobTitle, jobDescription, jobLocation, jobType, companyUrl, jobCreateAt, jobUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [companyName, companyEmail, filename, overview, job, des, location, type, url, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
             res.send(results)
             file.mv('../frontend/src/asset/upload/' + file.name)
@@ -39,6 +40,7 @@ router.post("/apply", (req, res) => {
     const lockDate = req.body.lockDate
     let user_id = 0
     let status = "Pending"
+    let isDeleted = "NO"
 
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
@@ -47,7 +49,7 @@ router.post("/apply", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("INSERT INTO application (user_id, job_id, status, applicationCreateAt, applicationLocked) VALUES (?, ?, ?, ?, ?);", [user_id, id, status, createAt, lockDate], (err, results) => {
+            db.query("INSERT INTO application (user_id, job_id, status, applicationCreateAt, applicationLocked, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [user_id, id, status, createAt, lockDate, isDeleted], (err, results) => {
                 console.log(err)
                 res.send(results)
             })
@@ -59,7 +61,8 @@ router.post("/apply", (req, res) => {
 })
 
 router.get("/ListJobs", (req, res) => {
-    db.query("SELECT * from jobs", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from jobs WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -72,7 +75,8 @@ router.get("/jobById/:id", (req, res) => {
 })
 
 router.get("/ListJobsCount", (req, res) => {
-    db.query("SELECT COUNT(jobsId) AS CountJobs from jobs", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT COUNT(jobsId) AS CountJobs from jobs WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -118,6 +122,17 @@ router.post("/update", (req, res) => {
         }
     })
 
+})
+
+router.put("/deleteJobs", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE jobs SET isDeleted = ?, jobUpdateAt = ? WHERE jobsId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
 })
 
 module.exports = router;
