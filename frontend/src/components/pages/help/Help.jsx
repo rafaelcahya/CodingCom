@@ -1,11 +1,20 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useEffect, useState } from 'react'
 import NavbarLogin from '../../major/NavbarLogin'
 import HelpComp from './HelpComp'
 import Footer from '../../major/Footer'
 import NavbarMobile from '../../major/NavbarMobile'
+import Axios from "axios"
 
-export class Help extends Component {
-    render() {
+function Help() {
+    const [valueList, setValueList] = useState([])
+    
+    useEffect(() => {
+        Axios.get("http://localhost:3001/faq/listFaq").then((response) => {
+            setValueList(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
         return (
             <Fragment>
                 <NavbarLogin/>
@@ -16,11 +25,16 @@ export class Help extends Component {
                         <p className="color-blue-1 text-2xl font-medium my-5">Basic</p>
                         <div className="flex flex-col gap-5">
                             <p className="text-lg font-semibold">How does this website work ?</p>
-                            <HelpComp
-                                subtitle= "How to access ?"
-                                desc= "The first thing you should know is that you can immediately learn or access this without having to register or login."
-                            />
-                            <HelpComp
+                            {
+                                valueList.map((val)=>{
+                                    return <HelpComp
+                                    subtitle= {val.question}
+                                    desc= {val.answer}
+                                />
+                                })
+                            }
+                            
+                            {/* <HelpComp
                                 subtitle= "What do Coding.com Courses include ?"
                                 desc= "Each course is created and managed by a mentor in text form. At any time, the mentor can modify each existing course so you can get the latest learning."
                             />
@@ -39,7 +53,7 @@ export class Help extends Component {
                             <HelpComp
                                 subtitle= "What is Career ?"
                                 desc= "in Career, you can see job vacancies from various companies that are available and you can apply directly. We will be a bridge between you and the company you are applying for. We will continue to update job vacancies with new ones."
-                            />
+                            /> */}
                         </div>
                     </div>
                     <div id="plan">
@@ -86,7 +100,6 @@ export class Help extends Component {
                 <Footer />
             </Fragment>
         )
-    }
 }
 
 export default Help
