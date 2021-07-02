@@ -38,20 +38,23 @@ router.post("/project", (req, res) => {
 })
 
 router.get("/projectList", (req, res) => {
-    db.query("SELECT * from project", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from project WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/projectListByTypeId/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from project WHERE project.type_id = ?",id, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from project WHERE project.type_id = ? AND project.isDeleted = ?",[id,isDeleted], (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/projectTypeList", (req, res) => {
-    db.query("SELECT * from typeproject", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from typeproject WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -121,6 +124,17 @@ router.post("/editProject", (req, res) => {
     //     console.log(err)
     //     res.send(results)
     // })
+})
+
+router.put("/deleteProject", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE project SET isDeleted = ?, projectUpdateAt = ? WHERE projectId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
 })
 
 module.exports = router;

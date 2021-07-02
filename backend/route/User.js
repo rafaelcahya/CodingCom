@@ -21,8 +21,9 @@ router.post("/register", (req, res) => {
     let role = 3
     let isDeleted = "NO"
     // let textbody = 'Welcome, ' + fullname + "<br/>" + 'Thank you for registering your account, we hope you hava nice day and nice journey to the peak'
-
-    if (fullname.length <= 0) {
+    if(fullname.length<=0 && name.length<=0 && email.length<=0 && password.length<=0 && confirmpassword.length<=0){
+        res.send({message:"All forms have not been filled"})
+    }else if (fullname.length <= 0) {
         res.send({ message: "Please add your fullname" })
     } else if (name.length <= 0) {
         res.send({ message: "Please add your username" })
@@ -53,7 +54,7 @@ router.post("/register", (req, res) => {
     } else if (confirmpassword != password) {
         res.send({ message: "Confirm password must be same as password" })
     } else {
-        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        db.query("SELECT * From user WHERE name = ? OR email = ?", [name, email], (err, results) => {
             if (err) {
                 console.log(err)
             }
@@ -107,7 +108,7 @@ router.post("/register", (req, res) => {
                     res.send(results)
                 })
             } else {
-                res.send({ message: "Username already exist" })
+                res.send({ message: "Username or email already registered" })
             }
         })
     }
@@ -142,7 +143,7 @@ router.post("/registerMentor", (req, res) => {
     } else if (email.match(/[.]/) == null) {
         res.send({ message: "Email is invalid" })
     } else {
-        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        db.query("SELECT * From user WHERE name = ? OR email = ?", [name, email], (err, results) => {
             if (err) {
                 console.log(err)
             }
@@ -196,7 +197,7 @@ router.post("/registerMentor", (req, res) => {
                     res.send(results)
                 })
             } else {
-                res.send({ message: "Username already exist" })
+                res.send({ message: "Username or email already registered" })
             }
         })
     }
@@ -250,6 +251,10 @@ router.post("/reset", (req, res) => {
 
     if (email.length <= 0) {
         res.send({ message: "Email can not be empty" })
+    } else if (email.match(/[@]/) == null) {
+        res.send({ message: "Email is invalid" })
+    } else if (email.match(/[.]/) == null) {
+        res.send({ message: "Email is invalid" })
     } else {
         db.query("SELECT * From user WHERE email = ?", email, (err, results) => {
             if (err) {
@@ -267,7 +272,8 @@ router.post("/reset", (req, res) => {
                     });
                 };
                 hash = results[0].password
-                if(email == results[0].email){
+                if(email.match(results[0].email)!=null){
+                    res.send({message:"Link has been send by email"})
                     var transporter = nodemailer.createTransport({
                         host: 'smtp.gmail.com',
                         auth: {
@@ -346,8 +352,7 @@ router.post("/resetPassword", (req, res) => {
     
                 } else {
                     db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE password = ?;", [password, confirmpassword, updateAt, id], (err, results) => {
-                        console.log(err)
-                        res.send(results)
+                        res.redirect('/')
                     })
                 }
                 
@@ -399,7 +404,6 @@ router.put("/updatePaymentStatus", (req, res) => {
 
     if (status == "Approved") {
     db.query("UPDATE user SET status = ?, userUpdateAt = ? WHERE id = ?;", [statsUser, updateAt, id], (err, results) => {
-        console.log(err)
         res.send(results)
     })
 }
@@ -450,25 +454,23 @@ router.put("/updatePaymentStatus", (req, res) => {
 
 router.get("/userList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND isDeleted = ?", isDeleted, (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND user.isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 
 router.get("/userListActive", (req, res) => {
-    let status = "Active"
+    let status = "Actived"
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND user.isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 
 router.get("/userListPayment", (req, res) => {
     let status = "PENDING"
     let isDeleted = "NO"
-    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.paket_id ,user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND isDeleted = ?", [status, isDeleted], (err, results) => {
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.paket_id ,user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND status = ? AND user.isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
     })
 })
@@ -479,7 +481,6 @@ router.put("/updateUser", (req, res) => {
     const updateAt = req.body.updateAt
 
     db.query("UPDATE user SET roleId = ?, userUpdateAt = ? WHERE id = ?;", [role, updateAt, id], (err, results) => {
-        console.log(err)
         res.send(results)
     })
 })
@@ -490,23 +491,22 @@ router.put("/deleteUser", (req, res) => {
     let isDeleted = "YES"
 
     db.query("UPDATE user SET isDeleted = ?, userUpdateAt = ? WHERE id = ?;", [isDeleted, updateAt, id], (err, results) => {
-        console.log(err)
         res.send(results)
     })
 })
 
 router.get("/userById/:name", (req, res) => {
     const name = req.params.name
-    db.query("SELECT * from user WHERE name = ?", name, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from user WHERE name = ? AND isDeleted = ?", [name,isDeleted], (err, results) => {
         res.send(results)
-        console.log(results)
     })
 })
 
 router.post("/profile", (req, res) => {
     const urlname = req.body.urlname
     let fullname = req.body.fullname
-    let name = req.body.name
+    let name = req.body.username
     let gender = req.body.gender
     let BoD = req.body.BoD
     let phonenumber = req.body.phonenumber
@@ -519,7 +519,13 @@ router.post("/profile", (req, res) => {
     let education = req.body.education
     const updateAt = req.body.updateAt
 
-    if(phonenumber > 9999999999999){
+    if(fullname.length<=0 && name.length<=0 && gender.length<=0 && BoD.length<=0 && phonenumber.length<=0 && cphonenumber.length<=0 && emergencynumber.length<=0 && cemergencynumber.length<=0 && address.length<=0 && city.length<=0 && postalCode <=0 && education.length<=0){
+        res.send({message:""})
+    }else if(name.length > 20){
+        res.send({message:"Username must be less than 20 characters"})
+    }else if(name.match(/[ ]/)!=null) {
+        res.send({message:"Username cannot contain spaces"})
+    }else if(phonenumber > 9999999999999){
         res.send({message:"Phone number must be less than 13 digit "})
     }else if(emergencynumber > 9999999999999){
         res.send({message:"Emergency number must be less than 13 digit "})
@@ -567,15 +573,13 @@ router.post("/profile", (req, res) => {
 
                 } if (!req.files) {
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, urlname], (err, results) => {
-                    console.log(err)
-                    res.send(results)
+                    res.json({ message:"Profile Updated", name: name})
                     })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, filename, urlname], (err, results) => {
-                        console.log(err)
-                        res.send(results)
+                        res.json({ message:"Profile Updated", name: name})
                         file.mv('../frontend/src/asset/upload/' + file.name)
                     })
                 }
@@ -592,6 +596,7 @@ router.post("/profile", (req, res) => {
 router.get("/userkuotaById/:name", (req, res) => {
     const name = req.params.name
     let user_id = 0
+    let isDeleted = "NO"
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
             console.log(err)
@@ -599,8 +604,7 @@ router.get("/userkuotaById/:name", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT * From userkuota WHERE user_id = ?", user_id, (err, results) => {
-                console.log(err)
+            db.query("SELECT * From userkuota WHERE user_id = ? AND isDeleted = ?", [user_id,isDeleted], (err, results) => {
                 res.send(results)
             })
         }
@@ -643,9 +647,8 @@ router.post("/ChangePassword", (req, res) => {
             }
             if (results.length > 0) {
                 if (hash.match(results[0].password) != null) {
-                    db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE name = ?;", [password, confirmpassword, updateAt, name], (err, results) => {
-                        console.log(err)
-                        res.send(results)
+                    db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE name = ?;", [newpassword, confirmpassword, updateAt, name], (err, results) => {
+                        res.send({message:"Password Updated"})
                     })
     
                 } else {
@@ -654,6 +657,32 @@ router.post("/ChangePassword", (req, res) => {
             } 
         })
     }
+})
+
+router.post("/minUserKuotaSession", (req, res) => {
+        const name = req.body.name
+        const updateAt = req.body.updateAt
+        let kuotaSession = 0
+        let user_id = 0
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                user_id = results[0].id
+                db.query("SELECT * From userkuota WHERE user_id = ?", user_id, (err, results) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                    if (results.length > 0) {
+                        kuotaSession = results[0].classSession - 1
+                        db.query("UPDATE userkuota SET classSession = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaSession, updateAt, user_id], (err, results) => {
+                            res.send({message:"Kuota updated"})
+                        })
+                    }
+                })
+            }
+        })
 })
 
 module.exports = router;

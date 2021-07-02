@@ -8,6 +8,8 @@ function AddTopik() {
     const [title, setTitle] = useState("")
     const [category, setCategory] = useState("")
     const [info, setInfo] = useState("")
+    const [time, setTime] = useState("")
+    const [progress, setProgress] = useState("")
     const editorRef = useRef(null);
     const [createAt, setCreateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
@@ -39,6 +41,8 @@ function AddTopik() {
             fd.append('about', editorRef.current.getContent())
             fd.append('createAt', createAt)
             fd.append('category', category)
+            fd.append('time', time)
+            fd.append('progress', progress)
             Axios.post("http://localhost:3001/topik/addTopik", fd).then((response) => {
                 console.log(response)
                 setErrorMessage(response.data.message)
@@ -93,6 +97,18 @@ function AddTopik() {
                                 }} ></textarea>
                             </div>
 
+                            <div className="w-full">
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Progress: Complete/Coming Soon</p>
+                                    <select name="" id=""  onChange={(event) => {
+                                            setProgress(event.target.value)
+                                        }} >
+                                        <option value="">Complete</option>
+                                        <option value="Coming Soon">Coming Soon</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div className="flex flex-col gap-2">
                                 <p className="Time text-sm font-semibold">Sub Tutorial description</p>
                                 <Editor
@@ -115,6 +131,12 @@ function AddTopik() {
                                     }}
                                 />
                             </div>
+                            <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Time</p>
+                                    <input type="number" min="0" placeholder="Input Time" onChange={(event) => {
+                                                setTime(event.target.value)
+                                            }} />
+                                </div>
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                             <div className="flex justify-between gap-10 w-full">
                                 <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>

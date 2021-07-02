@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom';
 
 function ProjectSub() {
     const [proList, setProList] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/submit/submitList").then((response) => {
@@ -12,6 +21,13 @@ function ProjectSub() {
             console.log(response.data)
         })
     }, []);
+
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/user/deleteProjectSub", {
+            id: id,
+            updateAt: updateAt
+        })
+    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();

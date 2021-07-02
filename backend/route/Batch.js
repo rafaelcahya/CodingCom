@@ -18,7 +18,18 @@ router.post("/addBatch", (req, res) => {
 })
 
 router.get("/listBatch", (req, res) => {
-    db.query("SELECT * FROM batch", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * FROM batch WHERE isDeleted = ?",isDeleted, (err, results) => {
+        res.send(results)
+    })
+})
+
+router.put("/deleteBatch", (req, res) => {
+    const id = req.body.id
+    let isDeleted = "YES"
+
+    db.query("UPDATE batch SET isDeleted = ? WHERE batchId = ?;", [isDeleted, id], (err, results) => {
+        console.log(err)
         res.send(results)
     })
 })

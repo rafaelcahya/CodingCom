@@ -5,11 +5,28 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function ListFAQ() {
     const [value,setValue] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
+
     useEffect(() => {
         axios.get("http://localhost:3001/faq/listFaq").then((response) => {
             setValue(response.data)
         })
     }, []);
+
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/faq/deleteHelp", {
+            id: id,
+            updateAt: updateAt
+        })
+    }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
@@ -46,7 +63,10 @@ export default function ListFAQ() {
                                                             <Link to={"/admin/edit-faq/"+val.helpId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>
                                                             </Link>
-                                                        </td>    
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.helpId) }}>Delete</p>
+                                                        </td>
                                                         {/* <td className="flex items-center gap-4 px-6 py-3 whitespace-nowrap">
                                                             <div className="flex flex-col gap-2 w-40">
                                                                 <select className="py-2 border border-black rounded-lg" id="dropdown" onChange={(event) => {

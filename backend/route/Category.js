@@ -23,14 +23,26 @@ router.post("/addCategory", (req, res) => {
 })
 
 router.get("/listCategory", (req, res) => {
-    db.query("SELECT * FROM category", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * FROM category WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
 
-router.get("/categoryById/:id", (req, res) => {
+router.get("/categoryById/:id/:hash", (req, res) => {
     const id = req.params.id
     db.query("SELECT * from category WHERE categoryId = ?", id, (err, results) => {
+        res.send(results)
+    })
+})
+
+router.put("/deleteCategory", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE category SET isDeleted = ?, categoryUpdateAt = ? WHERE categoryId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
         res.send(results)
     })
 })

@@ -10,7 +10,7 @@ export default function Profile(props) {
     const [valueList, setValueList] = useState([])
     
     useEffect(() => {
-        Axios.get("http://localhost:3001/user/userById/" + urlname).then((response) => {
+        Axios.get("http://localhost:3001/user/userById/" + localStorage.getItem("name")).then((response) => {
             setValueList(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps

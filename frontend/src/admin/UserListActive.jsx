@@ -4,12 +4,28 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function UserList() {
     const [userList, setUserList] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
 
     useEffect(() => {
         axios.get("http://localhost:3001/user/userListActive").then((response) => {
             setUserList(response.data)
         })
     }, []);
+
+    const deleteUser = (id) => {
+        axios.put("http://localhost:3001/user/deleteUser", {
+            id: id,
+            updateAt: updateAt
+        })
+    }
 
     return (
         <>
@@ -48,8 +64,11 @@ export default function UserList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-100 text-blue-500">{val.role}</p>
                                                         </td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.createAt}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.updateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.userCreateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.userUpdateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.id) }}>Delete</p>
+                                                        </td>
                                                     </tr>
                                                 }
                                             )

@@ -13,6 +13,7 @@ router.post("/rating", (req, res) => {
     const des = req.body.des
     const createAt = req.body.createAt
     let user_id = 0
+    let isDeleted = "NO"
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
             console.log(err)
@@ -25,7 +26,7 @@ router.post("/rating", (req, res) => {
                     console.log(err)
                 }
                 if (!results.length) {
-                    db.query("INSERT INTO rating (rating, description, user_id, topik_id, ratingCreateAt) VALUES (?, ?, ?, ?, ?);", [rating, des, user_id, id, createAt], (err, results) => {
+                    db.query("INSERT INTO rating (rating, description, user_id, topik_id, ratingCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [rating, des, user_id, id, createAt, isDeleted], (err, results) => {
                         console.log(err)
                         res.send(results)
                     })
@@ -43,16 +44,29 @@ router.post("/rating", (req, res) => {
 
 router.get("/ratingList/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name from rating,user WHERE rating.user_id=user.id AND rating.topik_id = ?",id, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name from rating,user WHERE rating.user_id=user.id AND rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/AvgratingList/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT AVG(rating) AS AverageRating FROM rating WHERE rating.topik_id = ?",id, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT AVG(rating) AS AverageRating FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
         res.send(results)
         console.log(results)
+    })
+})
+
+router.put("/deleteRating", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE rating SET isDeleted = ?, ratingCreateAt = ? WHERE ratingId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
     })
 })
 

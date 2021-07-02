@@ -1,29 +1,65 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import items from './Data';
 import { Link } from 'react-router-dom';
 import NavbarLogin from "../../major/NavbarLogin"
 import NavbarMobile from "../../major/NavbarMobile"
+import axios from 'axios';
 
 export default function HistorySubmit() {
     const [value,setValue] = useState([])
+    const [sum, setSum] = useState([])
+    const [certi, setCerti] = useState([])
+    const [chel, setChel] = useState([])
     const [show, setShow] = useState(true);
 
-    const allCategories = ['All', ...new Set(items.map(item => item.jobType))];
+    useEffect(() => {
+        axios.get("http://localhost:3001/submit/submitListUser/"+localStorage.getItem("name")).then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
-    const [menuItem, setMenuItem] = useState(items);
+    useEffect(() => {
+        axios.get("http://localhost:3001/submit/submitListCount/"+localStorage.getItem("name")).then((response) => {
+            setSum(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/submit/submitListCountCerti/"+localStorage.getItem("name")).then((response) => {
+            setCerti(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+    useEffect(() => {
+        axios.get("http://localhost:3001/submit/submitListCountChel/"+localStorage.getItem("name")).then((response) => {
+            setChel(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    // const allCategories = ['All', ...new Set(value.map(item => item.type))];
+    const allCategories = ['All', 'Certificate', 'Challenge'];
+
+    const [menuItem, setMenuItem] = useState(value);
     const [buttons] = useState(allCategories);
 
   //Filter Function
     const filter = (button) =>{
         setShow(false);
         if(button === 'All'){
-            setMenuItem(items);
+            setMenuItem(value);
             
             return
         }
 
-        const filteredData = items.filter(item => item.jobType === button);
+        const filteredData = value.filter(item => item.type === button);
         setMenuItem(filteredData)
     }
     
@@ -49,15 +85,23 @@ export default function HistorySubmit() {
                     <div className="flex flex-col gap-3 text-sm">
                         <div className="flex justify-between">
                             <p className="text-gray-400">Total Submit</p>
-                            <p>20</p>
+                            {
+                                sum.map((val)=>{
+                                    return <p>{val.sum}</p>
+                                })
+                            }
                         </div>
                         <div className="flex justify-between">
                             <p className="text-gray-400">Challenge Submit</p>
-                            <p>5</p>
+                            {chel.map((val)=>{
+                                return <p>{val.chel}</p>
+                            })}
                         </div>
                         <div className="flex justify-between">
                             <p className="text-gray-400">Certificate Submit</p>
-                            <p>15</p>
+                            {certi.map((val)=>{
+                                return <p>{val.certi}</p>
+                            })}
                         </div>
                     </div>
                 </div>
@@ -95,15 +139,15 @@ function Menu({menuItem}) {
                     menuItem.map((item) =>{
                         return <div className="flex justify-between items-center p-5 hover:shadow-md w-full" key={item.id}>
                             <div className="item-container">
-                                <p>Project Type</p>
-                                <p>Project Name</p>
-                                <p>CreateAt</p>
+                                <p>{item.type}</p>
+                                <p>{item.projectTitle}</p>
+                                <p>{item.projectsubCreateAt}</p>
                             </div>
                             <div className="item-container">
-                                <p>Description</p>
+                                <p>{item.description}</p>
                             </div>
                             <div className="item-container">
-                                <p>Score</p>
+                                <p>{item.score}</p>
                             </div>
                         </div>
                     })

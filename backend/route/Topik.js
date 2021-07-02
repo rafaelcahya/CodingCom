@@ -13,6 +13,8 @@ router.post("/addTopik", (req, res) => {
     const info = req.body.info
     const about = req.body.about
     const createAt = req.body.createAt
+    const time = req.body.time
+    const progress = req.body.progress
     let updateAt = ""
     let isDeleted = "NO"
     let status = "Pending"
@@ -24,7 +26,9 @@ router.post("/addTopik", (req, res) => {
         res.send({ message: "Topik Info can not be empty" })
     } else if (about.length <= 0) {
         res.send({ message: "Topik About can not be empty" })
-    } else {
+    } else if(progress.length <= 0 && time <= 0){
+        res.send({message:"Time cannot be empty"})
+    }else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
                 console.log(err)
@@ -32,11 +36,10 @@ router.post("/addTopik", (req, res) => {
 
             if (results.length > 0) {
                 user_id = results[0].id
-                db.query("INSERT INTO topik (topikTitle, category_id, topikInfo, about, status, topikCreateAt, topikUpdateAt, isDeleted, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, category, info, about, status, createAt, updateAt, isDeleted, user_id], (err, results) => {
+                db.query("INSERT INTO topik (topikTitle, category_id, topikInfo, about, status, time, progress, topikCreateAt, topikUpdateAt, isDeleted, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, category, info, about, status, time, progress, createAt, updateAt, isDeleted, user_id], (err, results) => {
                     console.log(err)
-                    res.send(results)
+                    res.send({message:"Topik successfully uploaded"})
                 })
-                console.log(user_id)
             }
         })
     }
@@ -51,7 +54,8 @@ router.get("/topikById/:id", (req, res) => {
 })
 
 router.get("/TopikList", (req, res) => {
-    db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.time, topik.progress, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId AND topik.isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -59,7 +63,8 @@ router.get("/TopikList", (req, res) => {
 
 router.get("/ListTopik", (req, res) => {
     let status = "Approve"
-    db.query("SELECT * from topik WHERE status = ?", status, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from topik WHERE status = ? AND isDeleted = ?", [status,isDeleted], (err, results) => {
         res.send(results)
         console.log(results)
     })
@@ -130,15 +135,17 @@ router.post("/editTopikMentor", (req, res) => {
     })
 })
 
-router.get("/topikByCatId/:id", (req, res) => {
+router.get("/topikByCatId/:id/:hash", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from topik WHERE category_id = ?", id, (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from topik WHERE category_id = ? AND isDeleted = ?", [id,isDeleted], (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/TopikListMentor/:name", (req, res) => {
     const name = req.params.name
+    let isDeleted = "NO"
     let user_id = 0
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
         if (err) {
@@ -147,7 +154,35 @@ router.get("/TopikListMentor/:name", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId AND topik.user_id = ?",user_id,(err, results) => {
+            db.query("SELECT topik.topikId, topik.topikTitle, topik.topikInfo, topik.about, topik.status, topik.topikCreateAt, topik.topikUpdateAt, user.fullname, category.category from topik,user,category WHERE topik.user_id = user.id AND topik.category_id = category.categoryId AND topik.user_id = ? AND topik.isDeleted = ?",[user_id,isDeleted],(err, results) => {
+                res.send(results)
+                console.log(results)
+            })
+        }
+    })
+})
+
+router.put("/deleteTopik", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE topik SET isDeleted = ?, topikUpdateAt = ? WHERE topikId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
+})
+
+router.get("/TopikListCourseCount", (req, res) => {
+    let isDeleted = "NO"
+    let topik_id = 0 
+    db.query("SELECT * from topik WHERE isDeleted = ?",isDeleted,(err,results)=>{
+        if(err){
+            console.log(err)
+        }
+        if(results.length>0){
+            topik_id =results[0].id
+            db.query("SELECT COUNT(id) as courseCount from course WHERE topik_id = ? AND isDeleted = ?",[topik_id, isDeleted], (err, results) => {
                 res.send(results)
                 console.log(results)
             })

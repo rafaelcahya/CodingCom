@@ -25,7 +25,8 @@ router.post("/addFaq", (req, res) => {
 })
 
 router.get("/listFaq", (req, res) => {
-    db.query("SELECT * from help", (err, results) => {
+    let isDeleted = "NO"
+    db.query("SELECT * from help WHERE isDeleted = ?",isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -61,6 +62,17 @@ router.post("/editFaq", (req, res) => {
         }
     })
     
+})
+
+router.put("/deleteFAQ", (req, res) => {
+    const id = req.body.id
+    const updateAt = req.body.updateAt
+    let isDeleted = "YES"
+
+    db.query("UPDATE help SET isDeleted = ?, helpUpdateAt = ? WHERE helpId = ?;", [isDeleted, updateAt, id], (err, results) => {
+        console.log(err)
+        res.send(results)
+    })
 })
 
 module.exports = router;
