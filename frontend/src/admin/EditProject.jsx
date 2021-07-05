@@ -98,7 +98,6 @@ function EditProject(props) {
                                                 <input className="w-full"
                                                     type="file"
                                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
-                                                    name="fileUpload"
                                                     required
                                                     onChange={(event) => {
                                                         setFile(event.target.files[0])

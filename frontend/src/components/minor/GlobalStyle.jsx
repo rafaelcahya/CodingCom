@@ -194,12 +194,8 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.foreground4};
     }
 
-    .req-box{
-        background-color: ${({theme}) => theme.foreground6};
-    }
-
-    .bootcamp-package{
-        background-color: ${({theme}) => theme.foreground6};
+    .border-popup-history-project{
+        background-color: ${({theme}) => theme.foreground5};
     }
 `;
 
