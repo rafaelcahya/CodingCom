@@ -50,22 +50,23 @@ function ChellengeList(props) {
             <NavbarMobile />
             {
                 type.map((v) => {
-                    return <div className="mx-16 xl:mx-32 mt-20">
-
-                        <div>
-                            <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center">{v.type}</p>
+                    return <div>
+                        <div className="bg-custom darken-overlay">
+                            <div className="text-white flex flex-col items-center gap-3 px-5 xl:px-32 py-36">
+                                <p className="text-4xl font-bold">{v.type}</p>
+                                <p className="max-w-2xl font-medium text-center">{v.typeDescription}</p>
+                            </div>
                         </div>
-
-                        <div className="flex flex-wrap justify-center gap-10 mt-20 h-full">
+                        <div className="flex flex-wrap justify-center gap-5 mt-20 h-full">
                             {
                                 value.map((val) => {
                                     let image = require('../../../asset/upload/' + val.image)
                                     return <Link to={"/project-"+v.type+"/" + val.projectId + "-" + GenerateID(15, 10)}>
-                                        <div className="challenge-card bg-white p-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
-                                            <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
+                                        <div className="challenge-card bg-white p-2 rounded-lg w-max shadow-md hover:shadow-xl transform hover:scale-105 duration-200">
+                                            <img src={image.default} className="rounded-lg" />
                                             <div className="flex flex-col gap-4 px-2 pt-2">
-                                                <p className="text-xl font-bold capitalize">{val.projectTitle}</p>
-                                                <div className="max-w-sm">
+                                                <p className="text-xl font-semibold capitalize mt-4">{val.projectTitle}</p>
+                                                <div className="max-w-sm truncate3">
                                                     <p className="classInfo text-sm">{val.projectInfo}</p>
                                                 </div>
                                                 <p className="text-xs tracking-wide text-gray-400">{formatDate(val.projectCreateAt)}</p>

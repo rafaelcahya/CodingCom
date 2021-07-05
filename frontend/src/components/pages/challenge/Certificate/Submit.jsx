@@ -100,7 +100,10 @@ function Submit() {
                             setDescription(event.target.value)
                         }}></textarea>
                     </div>
-                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                    {
+                        errorMessage === "Project has been successfully uploaded" ? <p className=" text-green-500 text-center font-medium">{errorMessage}</p> :<p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                    }
+                    
                     <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer" onClick={submit}>Submit</p>
                 </div>
             </div>

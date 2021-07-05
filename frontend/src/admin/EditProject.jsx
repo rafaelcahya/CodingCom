@@ -86,7 +86,7 @@ function EditProject(props) {
                                 <div className="flex items-center gap-1 text-sm font-semibold">
                                     <p>Project Info</p>
                                 </div>
-                                <textarea defaultValue={val.projectInfo} name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
+                                <textarea defaultValue={val.projectInfo} name="" id=""  cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
                                             setInfo(event.target.value)
                                         }} ></textarea>
                             </div>
@@ -114,7 +114,7 @@ function EditProject(props) {
                             </div>
                             
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit Project</p>
+                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Save changes</p>
                         </div>
                         }
                         )

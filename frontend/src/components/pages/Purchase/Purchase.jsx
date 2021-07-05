@@ -132,9 +132,9 @@ export default function Purchase() {
                     {show ? <div>
                         {
                             value.map((val) =>{
-                                return <div className="purchase-card border mt-5 rounded-lg">
-                                    <div className="flex justify-between items-center p-5 hover:shadow-md w-full">
-                                    <div className="flex flex-col gap-3 text-sm w-4/12">
+                                return <div className="purchase-card border-b mt-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg">
+                                    <div className="flex justify-between items-center gap-5 p-5 w-full">
+                                    <div className="flex flex-col gap-3 text-sm w-full md:w-4/12">
                                         <p className="font-semibold">{val.tipe_paket}</p>
                                         <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
                                             <p>{formatDate(val.transactionCreateAt)}</p>
@@ -145,7 +145,7 @@ export default function Purchase() {
                                             val.status === "Pending" ? <p className="text-xs bg-yellow-100 text-yellow-500 font-semibold w-max px-2 py-1 rounded-md">{val.status}</p> : <p className="text-xs bg-red-100 text-red-500 font-semibold w-max px-2 py-1 rounded-md">{val.status}</p>
                                         }
                                     </div>
-                                    <div className="flex flex-col gap-1 w-3/12">
+                                    <div className="flex flex-col gap-1 w-full md:w-3/12">
                                         <p className="text-xs font-medium text-gray-400">Bundle price</p>
                                         <div>
                                             {
@@ -154,7 +154,7 @@ export default function Purchase() {
                                             }
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-1 w-3/12">
+                                    <div className="flex flex-col gap-1 w-full md:w-3/12">
                                         <p className="text-xs font-medium text-gray-400">Total price</p>
                                         <div>
                                             {
@@ -197,9 +197,9 @@ function Menu({payList}) {
         <>
             {
                 payList.map((val) =>{
-                    return <div className="purchase-card border mt-5 rounded-lg ">
-                            <div className="flex justify-between items-center gap-5 p-5 hover:shadow-md rounded-md w-full">
-                            <div className="flex flex-col gap-3 text-sm w-4/12">
+                    return <div className="purchase-card border-b mt-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg ">
+                            <div className="flex justify-between items-center gap-5 p-5 w-full">
+                            <div className="flex flex-col gap-3 text-sm w-full md:w-4/12">
                                 <p className="font-semibold">{val.tipe_paket}</p>
                                 <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
                                     <p>{formatDate(val.transactionCreateAt)}</p>
@@ -210,7 +210,7 @@ function Menu({payList}) {
                                     val.status === "Pending" ? <p className="text-xs bg-yellow-100 text-yellow-500 font-semibold w-max px-2 py-1 rounded-md">{val.status}</p> : <p className="text-xs bg-red-100 text-red-500 font-semibold w-max px-2 py-1 rounded-md">{val.status}</p>
                                 }
                             </div>
-                            <div className="flex flex-col gap-1 w-3/12">
+                            <div className="flex flex-col gap-1 w-full md:w-3/12">
                                 <p className="text-xs font-medium text-gray-400">Bundle price</p>
                                 <div>
                                     {
@@ -219,7 +219,7 @@ function Menu({payList}) {
                                     }
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-1 w-3/12">
+                            <div className="flex flex-col gap-1 w-full md:w-3/12">
                                 <p className="text-xs font-medium text-gray-400">Total price</p>
                                 <div>
                                     {

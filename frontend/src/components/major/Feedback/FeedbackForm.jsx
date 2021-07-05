@@ -63,7 +63,7 @@ function FeedbackForm() {
                 <p className="font-semibold">Leave Feedback</p>
             </div>
             <section className="flex flex-col items-center">
-                <form action="" className="feedback-box flex flex-col gap-10 w-1/3">
+                <form action="" className="feedback-box flex flex-col gap-10 w-2/3 lg:w-1/3">
                     <p className="font-medium text-3xl text-center pb-14">Lets talk about everything.</p>
                     <div className="flex flex-col gap-2">
                         <p className="text-sm font-semibold">About</p>

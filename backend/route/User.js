@@ -611,7 +611,7 @@ router.get("/userkuotaById/:name", (req, res) => {
     })
 })
 
-router.post("/Change    ", (req, res) => {
+router.post("/ChangePassword", (req, res) => {
     const name = req.body.name
     const password = req.body.password
     const newpassword = req.body.newpassword
@@ -648,7 +648,7 @@ router.post("/Change    ", (req, res) => {
             if (results.length > 0) {
                 if (hash.match(results[0].password) != null) {
                     db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE name = ?;", [newpassword, confirmpassword, updateAt, name], (err, results) => {
-                        res.send({message:"Password Updated"})
+                        res.send({message:"Password has changed"})
                     })
     
                 } else {

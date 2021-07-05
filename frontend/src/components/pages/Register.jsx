@@ -51,24 +51,24 @@ function Register() {
                 </div>
                 <div className="flex flex-col gap-7">
                     <div className="flex flex-col md:flex-row gap-10">
-                    <div>
-                        <p className="fullname text-sm font-semibold mb-1">Fullname</p>
-                        <input
-                            type="text"
-                            placeholder="Input your fullname"
-                            onChange={(event) => {
-                                setFullname(event.target.value)
-                            }} />
-                    </div>
-                    <div>
-                        <p className="username text-sm font-semibold mb-1">Username</p>
-                        <input
-                            type="text"
-                            placeholder="Input your username"
-                            onChange={(event) => {
-                                setName(event.target.value)
-                            }} />
-                    </div>
+                        <div>
+                            <p className="text-sm font-semibold mb-1">Fullname</p>
+                            <input
+                                type="text"
+                                placeholder="Input your fullname"
+                                onChange={(event) => {
+                                    setFullname(event.target.value)
+                                }} />
+                        </div>
+                        <div>
+                            <p className="text-sm font-semibold mb-1">Username</p>
+                            <input
+                                type="text"
+                                placeholder="Input your username"
+                                onChange={(event) => {
+                                    setName(event.target.value)
+                                }} />
+                        </div>
                     </div>
                     <div>
                         <p className="email text-sm font-semibold mb-1">Email</p>

@@ -21,11 +21,10 @@ export default function ResetPassword() {
                 <div className="login-box rounded-lg p-10 shadow-xl overflow-hidden">
                     <p className="color-blue-1 text-xl font-semibold mb-2">Reset Password</p>
                     <p className="text-sm">Enter your email address in the form below. We will send a link to your email.</p>
-                    <div className="flex flex-col my-10">
-                        <div className="flex flex-col gap-5">
-                        <div>
+                    <div className="reset-password-box flex flex-col my-10">
+                        <div className="flex flex-col w-auto" style={{width: "370px"}}>
                             <div className="flex justify-between">
-                                <p className="password text-sm font-semibold mb-2 color-black-2">Email</p>
+                                <p className="text-sm font-semibold mb-2 color-black-2">Email</p>
                             </div>
                             <input
                                 type="text"
@@ -33,7 +32,6 @@ export default function ResetPassword() {
                                 onChange={(event) => {
                                     setEmail(event.target.value)
                                 }} />
-                            </div>
                         </div>
                         <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
                     </div>

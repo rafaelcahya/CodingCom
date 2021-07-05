@@ -1114,6 +1114,31 @@ Profile
     font-size: 0.875rem;
     line-height: 1.25rem
 }
+
+/* 
+
+History Purchase 
+
+*/
+
+.purchase-filter-btn:focus{
+    background-color: var(--blue-1);
+    color: white;
+    outline: none;
+}
+
+/* 
+
+History Purchase 
+
+*/
+
+.project-filter-btn:focus{
+    background-color: var(--blue-1);
+    color: white;
+    outline: none;
+}
+
 /* 
 
 Homepage 
@@ -1212,6 +1237,11 @@ Homepage
     background-size: cover;
 }
 
+.popup-box{
+    margin: 15% auto;
+    background-color: white;
+}
+
 /* 
 
 Payment 
@@ -1255,7 +1285,7 @@ Payment
     background-color: white;
 }
 
-.register-popup-box {
+.register-popup-box, .popup-box {
     -webkit-animation: cssAnimation 300ms ease forwards;
     animation: cssAnimation 300ms ease forwards;
 }
@@ -1446,21 +1476,21 @@ Project
 */
 
 .projDetail img{
-    width: 20rem;
-    height: 12rem;
+    width: 15rem;
+    height: 8rem;
 }
 
 @media (min-width: 320px) {
     .projDetail img{
-        width: 25rem;
-        height: 18rem;
+        width: 20rem;
+        height: 15rem;
     }
 }
 
 @media (min-width: 768px) {
     .projDetail img{
-        width: 45rem;
-        height: 30rem;
+        width: 40rem;
+        height: 25rem;
     }
 }
 
@@ -1617,6 +1647,36 @@ iframe {
 Challenge 
 
 */
+
+.challenge-card{
+    width: 400px;
+}
+
+.challenge-card img{
+    width: 400px;
+    height: 200px;
+}
+
+.project-tinymce a{
+    color: var(--blue-1);
+    text-decoration: underline;
+}
+
+.project-tinymce li {
+    margin-left: 25px;
+}
+
+.project-tinymce ul{
+    list-style-type: initial;
+}
+
+.project-tinymce ol{
+    list-style-type: decimal;
+}
+
+.project-tinymce ul li span, .project-tinymce ol li span{
+    text-indent: 500px;
+}
 
 .certificate-box div {
     padding: 1.25rem;

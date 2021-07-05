@@ -19,7 +19,7 @@ router.post("/feedback", (req, res) => {
     if (about.length <= 0) {
         res.send({ message: "About not selected" })
     } else if (des.length <= 0) {
-        res.send({ message: "Description can not be empty" })
+        res.send({ message: "Description is not filled in" })
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -28,7 +28,7 @@ router.post("/feedback", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    res.send({message:"Image can not be empty"})
+                    res.send({message:"Image must be included"})
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name

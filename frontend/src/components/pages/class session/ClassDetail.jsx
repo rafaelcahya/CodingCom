@@ -14,6 +14,7 @@ function ClassDetail(props) {
     const [value, setValue] = useState([])
     const [show, toggleShow] = useState(false);
     const [updateAt, setUpdateAt] = useState("")
+    const [valueVal, setValueVal] = useState([])
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -34,6 +35,14 @@ function ClassDetail(props) {
     useEffect(() => {
         axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
             setValue(response.data)
+            console.log(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
+            setValueVal(response.data)
             console.log(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,13 +133,22 @@ function ClassDetail(props) {
                                                     </div>}
                                                 </div>) : (<div>
                                                     <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
-                                                    {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                    {show && valueVal.map((v) => {
+                                                        return <div className="detail-class-card flex flex-col gap-4 text-sm shadow rounded-lg p-4 mt-4">
                                                         <p className="font-semibold">Are you sure you want to take this class?</p>
-                                                        <div className="flex items-center gap-5 mt-4">
+                                                        <div className="flex items-center gap-5">
                                                             <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
                                                             <a href={val.url} target="_blank" rel="noreferrer" onClick={reset} className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
                                                         </div>
-                                                    </div>}
+                                                        <div className="flex items-center gap-1">
+                                                            <p>Remaining class consultation quotas:</p> 
+                                                            {
+                                                                v.classSession <= 3 ? <p className="text-base font-semibold text-yellow-500">{v.classSession}</p> :<p className="text-base font-semibold text-green-500">{v.classSession}</p>
+                                                            } 
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    })}
                                                 </div>)}
                                             </div>
                                         }))}

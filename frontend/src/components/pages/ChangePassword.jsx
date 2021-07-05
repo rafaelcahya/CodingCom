@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from "axios"
@@ -95,10 +96,12 @@ export default function ChangePassword(props) {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                        {
+                            errorMessage == "Password has changed" ? <p className="text-sm text-green-500 text-center mt-8 font-medium">{errorMessage}</p> : <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                        }
                     </div>
                     <div className="flex flex-col gap-5 text-sm">
-                        <p onClick={change} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Send to Email</p>
+                        <p onClick={change} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Save Changes</p>
                         <Link to="/login">
                             <p className="font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Cancel</p>
                         </Link>

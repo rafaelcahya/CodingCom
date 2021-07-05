@@ -26,10 +26,10 @@ import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
 //Punya Kosasie
-import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+// import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
 
 //Punya Cahya
-// import Submit from "./components/pages/challenge/certificate/Submit.jsx"
+import Submit from "./components/pages/challenge/certificate/Submit.jsx"
 // import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
@@ -37,10 +37,7 @@ import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/R
 import RoadmapReact from "./components/pages/tutorial/course/roadmap/content/RoadmapReact.jsx"
 import RoadmapDevops from "./components/pages/tutorial/course/roadmap/content/RoadmapDevops.jsx"
 
-// import Certificate1 from "./components/pages/challenge/certificate/HtmlCssJssCerti"
-// import ReactCerti from "./components/pages/challenge/certificate/ReactCerti.jsx"
-// import VueCerti from "./components/pages/challenge/certificate/VueCerti.jsx"
-// import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
+import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
 
 import Class from "./components/pages/class session/Class.jsx"
 import ClassDetail from "./components/pages/class session/ClassDetail.jsx"
@@ -54,10 +51,8 @@ import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
 
-// import CertificateHTML from "./components/pages/challenge/certificate/Download Certificate/CertiHTML/CertificateHTML.jsx"
-// import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
-// import CertificateReact from "./components/pages/challenge/certificate/Download Certificate/CertiReact/CertificateReact.jsx"
-// import CertificateVue from "./components/pages/challenge/certificate/Download Certificate/CertiVue/CertificateVue.jsx"
+import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
+
 import Career from "./components/pages/career/Career.jsx"
 import CareerDetail from "./components/pages/career/CareerDetail.jsx"
 import ConsultationClass from "./components/pages/consultation class/ConsultationClass.jsx"
@@ -125,16 +120,10 @@ function App() {
             <Route path="/project-:type/:id-:hash" component={ProjectDetail} />
             <Route path="/submit-solution/:id" component={Submit} />
 
-            {/* <Route path="/challenge" component={Challenge} /> */}
-            {/* <Route path="/html-css-js-exercise" component={Certificate1} />
-            <Route path="/react-exercise" component={ReactCerti} />
-            <Route path="/vue-exercise" component={VueCerti} />
+            <Route path="/challenge" component={Challenge} />
             <Route path="/angular-exercise" component={AngularCerti} />
 
-            <Route path="/CertificateHTMLCSSJS" component={CertificateHTML} />
             <Route path="/CertificateAngular/:id" component={CertificateAngular} />
-            <Route path="/CertificateReact" component={CertificateReact} />
-            <Route path="/CertificateVue" component={CertificateVue} /> */}
             
             <Route path="/consultation-class" component={ConsultationClass} />
             <Route path="/class-session" component={Class} />

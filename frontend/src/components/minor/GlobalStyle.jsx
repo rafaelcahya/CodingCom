@@ -14,12 +14,12 @@ export const GlobalStyle = createGlobalStyle`
     .register-box input,
     .register-box select,
     .register-popup-box,
+    .popup-box,
     .change-password-box,
     .reset-password-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
-    #sidebarmobile,
-    .purchase-filter-btn
+    #sidebarmobile
     {
         background: ${({theme}) => theme.foreground};
         color: ${({theme}) => theme.primarytext};
@@ -37,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
     .roadmap-box div, 
     .tutorial-paid-box, 
     .tutorial-box,
-    .challenge-card,
     .certificate-box div,
     .comment-box textarea,
     .class-card,
@@ -71,7 +70,11 @@ export const GlobalStyle = createGlobalStyle`
     .profile-form select,
     .profile-form textarea,
     .separator-purchase-card,
-    .purchase-card {
+    .separator-project-card,
+    .purchase-card,
+    .history-project-card,
+    .challenge-card,
+    .detail-class-card {
         background: ${({theme}) => theme.foreground2};
     }
 
@@ -92,6 +95,7 @@ export const GlobalStyle = createGlobalStyle`
     .login-form input:focus,
     .reset-password-box input:focus,
     .register-box input:focus,
+    .reset-password-box input:focus,
     .profile-form input:focus,
     .profile-form select:focus,
     .profile-form textarea:focus,
@@ -107,7 +111,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     .filter-job,
-    .career-card{
+    .career-card,
+    .purchase-filter-btn,
+    .project-filter-btn{
         background: ${({theme}) => theme.foreground5};
     }
     
@@ -129,13 +135,19 @@ export const GlobalStyle = createGlobalStyle`
     .filter-job,
     .career-card,
     .separator-purchase-card,
-    .purchase-card{
+    .separator-project-card{
         border: ${({theme}) => theme.border};
+    }
+
+    .purchase-card,
+    .history-project-card{
+        border-bottom: ${({theme}) => theme.border};
     }
 
     .profile-form input,
     .profile-form select,
-    .profile-form textarea{
+    .profile-form textarea,
+    .reset-password-box input{
         border: ${({theme}) => theme.border2};
     }
     
@@ -146,13 +158,14 @@ export const GlobalStyle = createGlobalStyle`
     .dropdown-user .dropdown-user-setting p:hover,
     .dropdown-user-quota div:hover,
     .dropdown-tutorial div:hover,
-    .purchase-filter-btn:hover,
-    .purchase-card:hover{
-        background: ${({theme}) => theme.foreground4};
-        border-radius: 5px;
+    .purchase-card:hover,
+    .history-project-card:hover{
+        background: ${({theme}) => theme.foreground5};
+        border-radius: 8px;
     }
 
     .register-popup-box,
+    .popup-box,
     .course-box p,
     .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option,
     .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option,
@@ -199,7 +212,8 @@ export const lightTheme={
     foreground2: '#fff',
     foreground3: '#ecf3fc',
     foreground4: '#fff',
-    border: '1px solid #eef1f7',
+    foreground5: '#ecf3fc',
+    border: '1px solid #e1e3e7',
     border2: '1.5px solid #e1e8eb'
 }
 
@@ -212,6 +226,7 @@ export const darkTheme={
     foreground2: '#16171d',
     foreground3: '#31343d',
     foreground4: '#272931',
+    foreground5: '#272931',
     border: 'none',
     border2: 'none'
 }
