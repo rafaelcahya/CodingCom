@@ -17,7 +17,7 @@ export default function HistorySubmit(props) {
     const [certi, setCerti] = useState([])
     const [chel, setChel] = useState([])
     const [show, setShow] = useState(true);
-    const [buttonPopup, setButtonPopup] = useState(false)
+    const [buttonPopup1, setButtonPopup1] = useState(false)
     const [valueList, setValueList] = useState([])
     const [projectId, setProjectId] = useState([])
 
@@ -65,6 +65,10 @@ export default function HistorySubmit(props) {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const OpenSetButtonPopup1 = () =>{
+        setButtonPopup1(true)
+    }
 
     // const allCategories = ['All', ...new Set(value.map(item => item.type))];
     const allCategories = ['All', 'Certificate', 'Challenge'];
@@ -134,47 +138,47 @@ export default function HistorySubmit(props) {
                         show ? <div>
                             {
                                 value.map((item) =>{
-                                    return <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
-                                        <div className="flex items-center justify-between gap-2">
-                                            <p className="text-sm font-semibold">{item.type}</p>
-                                            <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
-                                        </div>
-                                        <p className="font-semibold">{item.projectTitle}</p>
-                                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-                                            <div className="flex gap-10">
-                                                <div className="flex flex-col gap-1">
-                                                    <p className="text-xs font-medium text-gray-400">Times upload</p>
-                                                    <p>{item.timesUpload}</p>
+                                    return <div>
+                                            <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                                            <div className="flex items-center justify-between gap-2">
+                                                <p className="text-sm font-semibold">{item.type}</p>
+                                                <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
+                                            </div>
+                                            <p className="font-semibold">{item.projectTitle}</p>
+                                            <div className="flex flex-col md:justify-between gap-5">
+                                                <div className="flex gap-10">
+                                                    <div className="flex flex-col gap-1">
+                                                        <p className="text-xs font-medium text-gray-400">Times upload</p>
+                                                        <p>{item.timesUpload}</p>
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <p className="text-xs font-medium text-gray-400">Score</p>
+                                                        <div>
+                                                            {
+                                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="flex flex-col gap-1">
-                                                    <p className="text-xs font-medium text-gray-400">Score</p>
+                                                <div className="flex items-center justify-end gap-5 text-sm">
+                                                    <p className="text-blue-500 font-medium cursor-pointer" onClick={OpenSetButtonPopup1}>More project details</p>
+                                                    {
+                                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                                        <p className="text-blue-500 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
+                                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
+                                                    }
                                                     <div>
                                                         {
-                                                            item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                            item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                            <Link to={"/submit-solution/" + item.project_id}>
+                                                                <p className="text-white bg-blue-1 w-max px-4 py-2 rounded-lg">Submit solution</p>
+                                                            </Link>
                                                         }
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="flex gap-10 text-sm">
-                                                <p>More project details</p>
-                                                {
-                                                    item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
-                                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
-                                                </Link>) : <p>Certified</p>
-                                                }
-                                                <div>
-                                                    {
-                                                        projectId.map((val) => {
-                                                            return <Link to={"/submit-solution/" + val.projectId}>
-                                                            <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
-                                                        </Link>
-                                                        })
-                                                    }
-                                                </div>
-                                            </div>
                                         </div>
-                                        <DetailsPopup trigger={buttonPopup}>
+                                        <DetailsPopup trigger={buttonPopup1}>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum a id ex exercitationem doloribus, dolor impedit sed! Hic, dignissimos. Facere, provident porro velit quas culpa laborum explicabo fugit nulla.</p>
                                         </DetailsPopup>
                                     </div>
@@ -206,32 +210,58 @@ function Button({button, filter}) {
 }
 
 function Menu({menuItem}) {
+    const [buttonPopup2, setButtonPopup2] = useState(false)
+    
+    const OpenSetButtonPopup2 = () =>{
+        setButtonPopup2(true)
+    }
     return (
         <>
             {
                 menuItem.map((item) =>{
-                    return <div className="history-project-card flex justify-between items-center mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b" key={item.id}>
-                        <div className="flex flex-col gap-3 text-sm w-4/12">
-                            <p className="font-semibold">{item.type}</p>
+                    return <div>
+                            <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                            <div className="flex items-center justify-between gap-2">
+                                <p className="text-sm font-semibold">{item.type}</p>
+                                <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
+                            </div>
                             <p className="font-semibold">{item.projectTitle}</p>
-                            <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
-                                <p>{formatDate(item.projectsubCreateAt)}</p>
-                                <p>{formatTime(item.projectsubCreateAt)}</p>
+                            <div className="flex flex-col md:justify-between gap-5">
+                                <div className="flex gap-10">
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-xs font-medium text-gray-400">Times upload</p>
+                                        <p>{item.timesUpload}</p>
+                                    </div>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-xs font-medium text-gray-400">Score</p>
+                                        <div>
+                                            {
+                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-end gap-5 text-sm">
+                                    <p className="text-blue-500 font-medium cursor-pointer" onClick={OpenSetButtonPopup2}>More project details</p>
+                                    {
+                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                        <p className="text-blue-500 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
+                                    }
+                                    <div>
+                                        {
+                                            <Link to={"/submit-solution/" + item.project_id}>
+                                                <p className="text-white bg-blue-1 w-max px-4 py-2 rounded-lg">Submit solution</p>
+                                            </Link>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-1 w-3/12">
-                            <p className="text-xs font-medium text-gray-400">Times upload</p>
-                            <p>{item.timesUpload}</p>
-                        </div>
-                        <div className="flex flex-col gap-1 w-3/12">
-                            <p className="text-xs font-medium text-gray-400">Score</p>
-                            <div>
-                                {
-                                    item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                    item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
-                                }
-                            </div>
-                        </div>
+                        <DetailsPopup trigger={buttonPopup2}>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum a id ex exercitationem doloribus, dolor impedit sed! Hic, dignissimos. Facere, provident porro velit quas culpa laborum explicabo fugit nulla.</p>
+                        </DetailsPopup>
                     </div>
                 })
             }
@@ -241,8 +271,11 @@ function Menu({menuItem}) {
 
 function DetailsPopup(props){
     return(props.trigger)?(
-        <div className="">
-            {props.children}
+        <div className="register-popup-container overflow-hidden">
+            <div className="register-popup-box px-10 py-5 rounded-lg">
+                {props.children}
+            </div>
+            
         </div>
     ):"";
 }

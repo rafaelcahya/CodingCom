@@ -65,7 +65,6 @@ router.post("/score", (req, res) => {
     }else {
         db.query("UPDATE projectsub SET score = ?, revisi = ?, projectsubUpdateAt = ? WHERE id = ?;", [score,revisi,updateAt,id], (err, results) => {
             console.log(err)
-            res.send(results)
             res.send({message:"Score successfully submited!!"})
         })
     }
