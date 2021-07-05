@@ -325,8 +325,10 @@ router.post("/resetPassword", (req, res) => {
     var crypto = require('crypto')
     var hash = crypto.createHash('md5').update(password).digest('hex')
 
-    if(password.length<=0){
-        res.send({message:"Your password is not filled in"})
+    if(password.length<=0 && confirmpassword.length<=0){
+        res.send({message:"All form must be filled"})
+    }else if(password.length<=0){
+        res.send({message:"Password can not be empty"})
     }else if(confirmpassword.length<=0){
         res.send({message:"Yor confirm password is not filled in"})
     }else if(confirmpassword != password){
@@ -620,7 +622,9 @@ router.post("/ChangePassword", (req, res) => {
     var crypto = require('crypto')
     var hash = crypto.createHash('md5').update(password).digest('hex')
 
-    if(password.length<=0){
+    if(password.length<=0 && newpassword.length<=0 && confirmpassword.length<=0){
+        res.send({message:"All form must be filled"})
+    }else if(password.length<=0){
         res.send({message:"Password can not be empty"})
     }else if(newpassword.length<=0){
         res.send({message:"New Password can not be empty"})

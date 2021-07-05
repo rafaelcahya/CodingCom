@@ -16,8 +16,11 @@ router.post("/submit", (req, res) => {
     let score = 0
     let user_id = 0
     let isDeleted = "NO"
+    let times = 1
     
-    if (description.length <= 0) {
+    if(url.length <=0 && description.length<=0 && live_site_url.length<=0 && !req.files){
+        res.send({message:"All form have not been filled"})
+    }else if (description.length <= 0) {
         res.send({ message: "Please add the description" })
     } else if(!req.files){
         res.send({message:"File can not be empty"})
@@ -36,14 +39,15 @@ router.post("/submit", (req, res) => {
                         console.log(err)
                     }
                     if(!results.length){
-                        db.query("INSERT INTO projectsub (project_id, url, fileName, live_site_url, description, score, user_id, projectsubCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [id, url, filename, live_site_url, description, score, user_id, createAt, isDeleted], (err, results) => {
+                        db.query("INSERT INTO projectsub (project_id, url, fileName, live_site_url, description, score, user_id, timesUpload, projectsubCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [id, url, filename, live_site_url, description, score, user_id, times, createAt, isDeleted], (err, results) => {
                             console.log(err)
                             res.send({message:"Project has been successfully uploaded"})
                             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
                             file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                     }else{
-                        db.query("UPDATE projectsub SET url = ?, fileName = ?, live_site_url = ?, description = ?, projectsubUpdateAt = ? WHERE user_id = ? AND project_id = ?;", [url, filename, live_site_url, description, createAt, user_id, id], (err, results) => {
+                        times = results[0].timesUpload + 1
+                        db.query("UPDATE projectsub SET url = ?, fileName = ?, live_site_url = ?, description = ?, timesUpload = ?, projectsubUpdateAt = ? WHERE user_id = ? AND project_id = ?;", [url, filename, live_site_url, description, times, createAt, user_id, id], (err, results) => {
                             console.log(err)
                             res.send({message:"Project has been successfully uploaded"})
                             file.mv('../frontend/src/asset/upload/' + file.name)

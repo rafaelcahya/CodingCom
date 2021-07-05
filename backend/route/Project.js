@@ -28,18 +28,21 @@ router.post("/project", (req, res) => {
     } else {
         const file = req.files.fileUpload
         const filename = file.name
-        db.query("INSERT INTO project (projectTitle, type_id, projectInfo, image, projectBrief, projectCreateAt, projectUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?);", [title, type, info, filename, brief, createAt, updateAt, isDeleted], (err, results) => {
+        const projectFile = req.files.projectFile
+        const projectFileName = projectFile.name
+        db.query("INSERT INTO project (projectTitle, type_id, projectInfo, image, projectBrief, projectFile, projectCreateAt, projectUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, info, filename, brief, projectFileName, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
-            res.send(results)
             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
             file.mv('../frontend/src/asset/upload/' + file.name)
+            projectFile.mv('../frontend/src/asset/upload/' + projectFile.name)
+            res.send("Project Submited!!")
         })
     }
 })
 
 router.get("/projectList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT * from project WHERE isDeleted = ?",isDeleted, (err, results) => {
+    db.query("SELECT * from project WHERE isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -47,14 +50,14 @@ router.get("/projectList", (req, res) => {
 router.get("/projectListByTypeId/:id", (req, res) => {
     const id = req.params.id
     let isDeleted = "NO"
-    db.query("SELECT * from project WHERE project.type_id = ? AND project.isDeleted = ?",[id,isDeleted], (err, results) => {
+    db.query("SELECT * from project WHERE project.type_id = ? AND project.isDeleted = ?", [id, isDeleted], (err, results) => {
         res.send(results)
     })
 })
 
 router.get("/projectTypeList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT * from typeproject WHERE isDeleted = ?",isDeleted, (err, results) => {
+    db.query("SELECT * from typeproject WHERE isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
     })
 })
@@ -87,7 +90,12 @@ router.post("/editProject", (req, res) => {
     let title = req.body.title
     let info = req.body.info
     let brief = req.body.brief
+    let type = req.body.type
     let updateAt = req.body.updateAt
+    const file = req.files.fileUpload
+    const filename = file.name
+    const projectFile = req.files.projectFile
+    const projectFileName = projectFile.name
 
     db.query("SELECT * From project WHERE projectId = ?", id, (err, results) => {
         if (err) {
@@ -103,19 +111,21 @@ router.post("/editProject", (req, res) => {
             } if (brief.length <= 0) {
                 brief = results[0].projectBrief
 
+            } if (type.length <= 0) {
+                type = results[0].type_id
+
             } if (!req.files) {
                 db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectId=?;", [title, info, brief, updateAt, id], (err, results) => {
                     console.log(err)
                     res.send(results)
                 })
-            } else {
-                const file = req.files.fileUpload
-                const filename = file.name
-                db.query("UPDATE project SET projectTitle = ?, image = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectid=?;", [title, filename, info, brief, updateAt, id], (err, results) => {
+            }else {
+                db.query("UPDATE project SET projectTitle = ?, image = ?, projectInfo = ?, projectBrief = ?, projectFile = ?, projectUpdateAt=?  WHERE projectid=?;", [title, filename, info, brief, projectFileName, updateAt, id], (err, results) => {
                     console.log(err)
-                    res.send(results)
                     // file.mv('../frontend/src/asset/fileUpload/' + file.name)
                     file.mv('../frontend/src/asset/upload/' + file.name)
+                    projectFile.mv('../frontend/src/asset/upload/' + projectFile.name)
+                    res.send("Project Updated!!")
                 })
             }
         }
