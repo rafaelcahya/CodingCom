@@ -10,6 +10,9 @@ import NavbarMobile from '../../major/NavbarMobile'
 
 import File from "../../../asset/file/Challenge.docx"
 
+const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+const formatTime = s => new Date(s).toLocaleTimeString();
+
 function ProjectDetail(props) {
     const urlid = props.match.params.id
     const urltype = props.match.params.type
@@ -24,7 +27,7 @@ function ProjectDetail(props) {
     }, []);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/submit/submitListById/" + urlid+ "/" + localStorage.getItem("name")).then((response) => {
+        axios.get("http://localhost:3001/submit/submitListById/" + urlid + "/" + localStorage.getItem("name")).then((response) => {
             setValueList(response.data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,54 +105,60 @@ function ProjectDetail(props) {
                                     <p className="font-semibold text-lg">Download Cerificate</p>
                                     <p>This project does not have a certificate</p>
                                 </div>
-                            </div>):(
+                            </div>) : (
                                 !valueList.length ? (<div className="flex flex-col justify-between gap-2">
-                                <div className="flex flex-col gap-2">
-                                    <p className="font-semibold text-lg">Download Certificate</p>
-                                    <p>If your project meets the conditions, you can download your certificate.</p>
-                                </div>
-                            </div>) :(
-                                valueList.map((v)=>{
-                                    return <div className="flex flex-col justify-between gap-2">
-                                        {v.score >= 95 ?(<div>
-                                        <div className="flex flex-col gap-2">
-                                        <p className="font-semibold text-xl">Download Certificate</p>
-                                        <p>You can download certificate, Click Button Below</p>
+                                    <div className="flex flex-col gap-2">
+                                        <p className="font-semibold text-lg">Download Certificate</p>
+                                        <p>If your project meets the conditions, you can download your certificate.</p>
                                     </div>
-                                    <div>
-                                        <Link to={"/CertificateAngular/"+urlid}>
-                                            <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
-                                        </Link>
-                                    </div>
-                                    </div>):(<div className="flex flex-col gap-2">
-                                        <p className="font-semibold text-xl">Download Certificate</p>
-                                        <p>Score is not high enough to download certificate</p>
-                                    </div>)}
-                                </div>
-                                })
-                            )
+                                </div>) : (
+                                    valueList.map((v) => {
+                                        return <div className="flex flex-col justify-between gap-2">
+                                            {v.score >= 95 ? (<div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="font-semibold text-xl">Download Certificate</p>
+                                                    <p>You can download certificate, Click Button Below</p>
+                                                </div>
+                                                <div>
+                                                    <Link to={"/CertificateAngular/" + urlid}>
+                                                        <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                                                    </Link>
+                                                </div>
+                                            </div>) : (<div className="flex flex-col gap-2">
+                                                <p className="font-semibold text-xl">Download Certificate</p>
+                                                <p>Score is not high enough to download certificate</p>
+                                            </div>)}
+                                        </div>
+                                    })
+                                )
                             )}
                         </div>
                     </div>
                 })
             }
             <Popup trigger={buttonPopup}>
-            {
-                value.map((val) => {
-                    return <div>
-                        <div className="flex justify-between items-center">
-                            <p className="text-2xl font-semibold mb-10">{val.projectTitle}</p>
-                            <div onClick={closePopupScore}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                {
+                    value.map((val) => {
+                        return <div>
+                            <div className="flex justify-between items-center">
+                                <p className="text-2xl font-semibold mb-10">{val.projectTitle}</p>
+                                <div onClick={closePopupScore}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </div>
                             </div>
+                            {
+                                !valueList.length ?(<p><b>You haven't submitted this project</b></p>):(valueList.map((v) => {
+                                    return <div>
+                                        <p>{formatDate(v.projectsubCreateAt)} {formatTime(v.projectsubCreateAt)}</p>
+                                        <p>{v.score}</p>
+                                        <p>{v.description}</p>
+                                        <p>{v.revisi}</p>
+                                    </div>
+                                }))
+                            }
                         </div>
-                        <p>CreateAt</p>
-                        <p>Score</p>
-                        <p>Description</p>
-                        <p>Revision Note</p>
-                    </div>
-                }) 
-            }
+                    })
+                }
             </Popup>
             {/* <div className="flex flex-wrap justify-center gap-10 my-10">
                     <div className="challenge-box p-5 rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
@@ -175,12 +184,12 @@ function ProjectDetail(props) {
 
 export default ProjectDetail
 
-function Popup(props){
-    return(props.trigger)?(
+function Popup(props) {
+    return (props.trigger) ? (
         <div className="register-popup-container overflow-hidden">
             <div className="popup-box p-5 rounded-lg">
                 {props.children}
             </div>
         </div>
-    ):"";
+    ) : "";
 }
