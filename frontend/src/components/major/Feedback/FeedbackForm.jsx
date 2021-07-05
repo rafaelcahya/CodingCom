@@ -100,7 +100,7 @@ function FeedbackForm() {
                     <div className="flex flex-col gap-2">
                         <p className="flex items-center gap-1 text-sm font-semibold">Description</p>
                         <p className="text-xs color-black-2 font-medium">Describe any suggestions such as design, user experience, system errors, etc.</p>
-                        <textarea name="" id="" maxLength="250" rows="5" className="resize-none" onChange={(event) => {
+                        <textarea name="" id="" maxLength="550" rows="5" className="resize-none" onChange={(event) => {
                             setDes(event.target.value)
                         }}></textarea>
                     </div>

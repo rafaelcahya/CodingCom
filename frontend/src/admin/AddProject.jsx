@@ -6,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 function AddProject() {
     const editorRef = useRef(null);
     const [file, setFile] = useState([])
+    const [projectFile, setProjectFile] = useState([])
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
     const [type, setType] = useState("")
@@ -37,13 +38,13 @@ function AddProject() {
         fd.append('info', info)
         fd.append('brief', editorRef.current.getContent())
         fd.append('type', type)
+        fd.append('projectFile', projectFile)
         fd.append('createAt', createAt)
         Axios.post("http://localhost:3001/project/project", fd).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
 
         })
-        console.log(file)
     }
     }
 
@@ -120,9 +121,19 @@ function AddProject() {
                                     }}
                                 />
                             </div>
+                            <div className="flex flex-col gap-2 w-1/2">
+                                    <p className="text-sm font-semibold">Project File</p>
+                                    <input className="w-full"
+                                        type="file"
+                                        accept=".zip,.rar"
+                                        name="fileUpload"
+                                        onChange={(event) => {
+                                            setProjectFile(event.target.files[0])
+                                        }} />
+                                </div>
                             
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit feedback</p>
+                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit Project</p>
                         </div>
                     </section>
                 </div>

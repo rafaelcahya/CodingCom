@@ -16,10 +16,14 @@ router.post("/feedback", (req, res) => {
     let user_id = 0
     let isDeleted = "NO"
 
-    if (about.length <= 0) {
+    if(about.length <= 0 && des.length<=0){
+        res.send({message:"All form must be filled"})
+    } else if (about.length <= 0) {
         res.send({ message: "About not selected" })
     } else if (des.length <= 0) {
         res.send({ message: "Description can not be empty" })
+    } else if(des.length > 500){
+        res.send({message:"Description must be less than 500 character"})
     } else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -34,7 +38,7 @@ router.post("/feedback", (req, res) => {
                     const filename = file.name
                         db.query("INSERT INTO feedback (about, image, description, user_id, feedbackCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [about, filename, des, user_id, createAt, isDeleted], (err, results) => {
                             console.log(err)
-                            res.send(results)
+                            res.send({message:"Thank you for your feedback!!"})
                             file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                 }
