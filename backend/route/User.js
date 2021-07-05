@@ -330,7 +330,7 @@ router.post("/resetPassword", (req, res) => {
     }else if(password.length<=0){
         res.send({message:"Password can not be empty"})
     }else if(confirmpassword.length<=0){
-        res.send({message:"Confirm Password can not be empty"})
+        res.send({message:"Yor confirm password is not filled in"})
     }else if(confirmpassword != password){
         res.send({message:"Confirm Password must be same as password"})
     } else if (password.length < 8) {
@@ -652,7 +652,7 @@ router.post("/ChangePassword", (req, res) => {
             if (results.length > 0) {
                 if (hash.match(results[0].password) != null) {
                     db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE name = ?;", [newpassword, confirmpassword, updateAt, name], (err, results) => {
-                        res.send({message:"Password Updated"})
+                        res.send({message:"Password has changed"})
                     })
     
                 } else {

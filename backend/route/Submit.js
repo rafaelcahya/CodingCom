@@ -38,14 +38,14 @@ router.post("/submit", (req, res) => {
                     if(!results.length){
                         db.query("INSERT INTO projectsub (project_id, url, fileName, live_site_url, description, score, user_id, projectsubCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [id, url, filename, live_site_url, description, score, user_id, createAt, isDeleted], (err, results) => {
                             console.log(err)
-                            res.send({message:"Project successfully uploaded!!"})
+                            res.send({message:"Project has been successfully uploaded"})
                             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
                             file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                     }else{
                         db.query("UPDATE projectsub SET url = ?, fileName = ?, live_site_url = ?, description = ?, projectsubUpdateAt = ? WHERE user_id = ? AND project_id = ?;", [url, filename, live_site_url, description, createAt, user_id, id], (err, results) => {
                             console.log(err)
-                            res.send({message:"Project successfully updated!!"})
+                            res.send({message:"Project has been successfully uploaded"})
                             file.mv('../frontend/src/asset/upload/' + file.name)
                         })
                     }
@@ -121,7 +121,7 @@ router.get("/submitListUser/:name", (req, res) => {
         }
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT projectsub.description, projectsub.score, projectsub.revisi, projectsub.timesUpload, projectsubCreateAt, projectsubUpdateAt, projectsub.url, projectsub.fileName, projectsub.live_site_url, project.projectTitle, typeproject.type from projectsub,project,typeproject WHERE projectsub.project_id=project.projectId AND project.type_id = typeproject.typeId AND projectsub.user_id = ? AND projectsub.isDeleted = ?",[user_id, isDeleted],(err, results) => {
+            db.query("SELECT projectsub.description, projectsub.project_id, projectsub.score, projectsub.revisi, projectsub.timesUpload, projectsubCreateAt, projectsubUpdateAt, projectsub.url, projectsub.fileName, projectsub.live_site_url, project.projectTitle, typeproject.type from projectsub,project,typeproject WHERE projectsub.project_id=project.projectId AND project.type_id = typeproject.typeId AND projectsub.user_id = ? AND projectsub.isDeleted = ?",[user_id, isDeleted],(err, results) => {
                 res.send(results)
                 console.log(results)
             })

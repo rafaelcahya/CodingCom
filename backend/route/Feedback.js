@@ -32,7 +32,7 @@ router.post("/feedback", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    res.send({message:"Image can not be empty"})
+                    res.send({message:"Image must be included"})
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name

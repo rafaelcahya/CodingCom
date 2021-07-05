@@ -95,7 +95,7 @@ function AddProject() {
                                 <div className="flex items-center gap-1 text-sm font-semibold">
                                     <p>Project Info</p>
                                 </div>
-                                <textarea name="" id="" maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
+                                <textarea name="" id="" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
                                             setInfo(event.target.value)
                                         }} ></textarea>
                             </div>
@@ -133,7 +133,7 @@ function AddProject() {
                                 </div>
                             
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit Project</p>
+                            <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                         </div>
                     </section>
                 </div>
