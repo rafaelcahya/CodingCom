@@ -158,10 +158,12 @@ export const GlobalStyle = createGlobalStyle`
     .dropdown-user .dropdown-user-setting p:hover,
     .dropdown-user-quota div:hover,
     .dropdown-tutorial div:hover,
-    .purchase-card:hover,
     .history-project-card:hover{
-        background: ${({theme}) => theme.foreground5};
         border-radius: 8px;
+    }
+    
+    .purchase-card:hover{
+        background: ${({theme}) => theme.foreground4};
     }
 
     .register-popup-box,

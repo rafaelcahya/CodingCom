@@ -23,7 +23,7 @@ router.post("/submit", (req, res) => {
     }else if (description.length <= 0) {
         res.send({ message: "Please add the description" })
     } else if(!req.files){
-        res.send({message:"File can not be empty"})
+        res.send({message:"You haven't included the file"})
     }else{
         const file = req.files.fileUpload
         const filename = file.name

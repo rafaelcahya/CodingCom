@@ -1238,8 +1238,10 @@ Homepage
 }
 
 .popup-box{
-    margin: 15% auto;
+    margin: 10px auto;
+    height: 90%;
     background-color: white;
+    overflow: auto;
 }
 
 /* 
@@ -1269,8 +1271,8 @@ Payment
     width: 100%;
     top: 0;
     left: 0;
-    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
 }
 
 .darkmode-container {

@@ -161,7 +161,7 @@ export default function HistorySubmit(props) {
                                                         <div>
                                                             {
                                                                 item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
                                                             }
                                                         </div>
                                                     </div>
@@ -193,7 +193,7 @@ export default function HistorySubmit(props) {
                                                 -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
                                                     </g>
                                                 </svg>
-                                                <p className="text-xl font-semibold">Detail Project</p>
+                                                <p className="text-xl font-medium">Detail Project</p>
                                                 <div onClick={CloseSetButtonPopup1} className="cursor-pointer">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                                 </div>
@@ -221,7 +221,7 @@ export default function HistorySubmit(props) {
                                                             <p className="text-xs text-gray-500">Score</p>
                                                             {
                                                                 item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
                                                             }
                                                         </div>
                                                     </div>
@@ -240,7 +240,7 @@ export default function HistorySubmit(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="border-popup-history-project w-full h-0.5 my-10"></div>
+                                            <div className="border-popup-history-project w-full h-0.5 my-5"></div>
                                             <div className="flex flex-col gap-5">
                                                 <div>
                                                     <p className="text-xs text-gray-500">Description</p>
@@ -312,7 +312,7 @@ function Menu({menuItem}) {
                                         <div>
                                             {
                                                 item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
                                             }
                                         </div>
                                     </div>
@@ -321,8 +321,8 @@ function Menu({menuItem}) {
                                     <p className="text-blue-500 font-medium cursor-pointer" onClick={OpenSetButtonPopup2}>More project details</p>
                                     {
                                         item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
-                                        <p className="text-blue-500 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
-                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
+                                        <p className="text-blue-500 text-center font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>) : ( <p className="text-gray-600 text-center font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
                                     }
                                     <div>
                                         {
@@ -344,7 +344,7 @@ function Menu({menuItem}) {
                                 -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
                                     </g>
                                 </svg>
-                                <p className="text-xl font-semibold">Detail Project</p>
+                                <p className="text-xl font-medium">Detail Project</p>
                                 <div onClick={CloseSetButtonPopup2} className="cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </div>
@@ -372,7 +372,7 @@ function Menu({menuItem}) {
                                             <p className="text-xs text-gray-500">Score</p>
                                             {
                                                 item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                item.score <= 76 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
                                             }
                                         </div>
                                     </div>
@@ -380,8 +380,8 @@ function Menu({menuItem}) {
                                 <div className="flex flex-col gap-5 text-sm">
                                     {
                                         item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
-                                        <p className="text-white bg-blue-1 px-4 py-2 rounded-lg">Download certificate</p>
-                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm px-4 py-2 rounded-lg">Download certificate</p>)
+                                        <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>) : ( <p className="text-gray-600 text-center font-medium text-sm px-4 py-2 rounded-lg">Download certificate</p>)
                                     }
                                     <div>
                                         {
@@ -412,11 +412,10 @@ function Menu({menuItem}) {
 
 function DetailsPopup(props){
     return(props.trigger)?(
-        <div className="register-popup-container overflow-hidden px-80">
+        <div className="register-popup-container px-5 sm:px-20 md:px-32 lg:px-80 pt-10 z-50">
             <div className="popup-box p-8 rounded-lg">
                 {props.children}
             </div>
-            
         </div>
     ):"";
 }
