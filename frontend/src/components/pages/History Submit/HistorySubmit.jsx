@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -17,7 +18,7 @@ export default function HistorySubmit(props) {
     const [certi, setCerti] = useState([])
     const [chel, setChel] = useState([])
     const [show, setShow] = useState(true);
-    const [buttonPopup, setButtonPopup] = useState(false)
+    const [buttonPopup1, setButtonPopup1] = useState(false)
     const [valueList, setValueList] = useState([])
     const [projectId, setProjectId] = useState([])
 
@@ -65,6 +66,14 @@ export default function HistorySubmit(props) {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const OpenSetButtonPopup1 = () =>{
+        setButtonPopup1(true)
+    }
+
+    const CloseSetButtonPopup1 = () =>{
+        setButtonPopup1(false)
+    }
 
     // const allCategories = ['All', ...new Set(value.map(item => item.type))];
     const allCategories = ['All', 'Certificate', 'Challenge'];
@@ -134,48 +143,114 @@ export default function HistorySubmit(props) {
                         show ? <div>
                             {
                                 value.map((item) =>{
-                                    return <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
-                                        <div className="flex items-center justify-between gap-2">
-                                            <p className="text-sm font-semibold">{item.type}</p>
-                                            <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
-                                        </div>
-                                        <p className="font-semibold">{item.projectTitle}</p>
-                                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-                                            <div className="flex gap-10">
-                                                <div className="flex flex-col gap-1">
-                                                    <p className="text-xs font-medium text-gray-400">Times upload</p>
-                                                    <p>{item.timesUpload}</p>
+                                    return <div>
+                                            <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                                            <div className="flex items-center justify-between gap-2">
+                                                <p className="text-sm font-semibold">{item.type}</p>
+                                                <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
+                                            </div>
+                                            <p className="font-semibold">{item.projectTitle}</p>
+                                            <div className="flex flex-col md:justify-between gap-5">
+                                                <div className="flex gap-10">
+                                                    <div className="flex flex-col gap-1">
+                                                        <p className="text-xs font-medium text-gray-400">Times upload</p>
+                                                        <p>{item.timesUpload}</p>
+                                                    </div>
+                                                    <div className="flex flex-col gap-1">
+                                                        <p className="text-xs font-medium text-gray-400">Score</p>
+                                                        <div>
+                                                            {
+                                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="flex flex-col gap-1">
-                                                    <p className="text-xs font-medium text-gray-400">Score</p>
+                                                <div className="flex items-center justify-end gap-5 text-sm">
+                                                    <p className="text-blue-500 font-medium cursor-pointer" onClick={OpenSetButtonPopup1}>More project details</p>
+                                                    {
+                                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                                        <p className="text-blue-500 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
+                                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
+                                                    }
+                                                    <div>
+                                                    {
+                                                        item.score < 95 ? <Link to={"/submit-solution/" + item.project_id}><p className="text-white text-center bg-blue-1 px-4 py-2 rounded-lg">Submit solution</p>
+                                                        </Link> : <p className="text-center px-4 py-2 rounded-lg">Submit solution</p>
+                                                    }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <DetailsPopup trigger={buttonPopup1}>
+                                            <div className="flex items-center justify-between">
+                                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30" height="45" viewBox="0 0 44 59" preserveAspectRatio="xMidYMid meet">
+                                                <g transform="translate(0,59) scale(0.1,-0.1)" fill="currentColor" stroke="none"><path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
+                                                80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
+                                                -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
+                                                153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
+                                                13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
+                                                -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
+                                                    </g>
+                                                </svg>
+                                                <p className="text-xl font-medium">Detail Project</p>
+                                                <div onClick={CloseSetButtonPopup1} className="cursor-pointer">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-between mt-14">
+                                                <div className="flex flex-col gap-5">
+                                                    <div>
+                                                        <p className="text-xs text-gray-500">Project name</p>
+                                                        <p className="font-medium">{item.projectTitle}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-gray-500">Project type</p>
+                                                        <p className="font-medium">{item.type}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-gray-500">Upload time</p>
+                                                        <p className="font-medium">{formatDate(item.projectsubCreateAt)} {formatTime(item.projectsubCreateAt)}</p>
+                                                    </div>
+                                                    <div className="flex justify-between">
+                                                        <div>
+                                                            <p className="text-xs text-gray-500">Times upload</p>
+                                                            <p className="font-medium">{item.timesUpload}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-xs text-gray-500">Score</p>
+                                                            {
+                                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-col gap-5 text-sm">
+                                                    {
+                                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                                        <p className="text-white bg-blue-1 px-4 py-2 rounded-lg">Download certificate</p>
+                                                    </Link>) : ( <p className="text-gray-600 font-medium text-sm px-4 py-2 rounded-lg">Download certificate</p>)
+                                                    }
                                                     <div>
                                                         {
-                                                            item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                                            item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                                            item.score < 95 ? <Link to={"/submit-solution/" + item.project_id}><p className="text-white text-center bg-blue-1 px-4 py-2 rounded-lg">Submit solution</p>
+                                                            </Link> : <p className="text-center px-4 py-2 rounded-lg">Submit solution</p>
                                                         }
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="flex gap-10 text-sm">
-                                                <p>More project details</p>
-                                                {
-                                                    item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
-                                                    <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
-                                                </Link>) : <p>Certified</p>
-                                                }
+                                            <div className="border-popup-history-project w-full h-0.5 my-5"></div>
+                                            <div className="flex flex-col gap-5">
                                                 <div>
-                                                    {
-                                                        projectId.map((val) => {
-                                                            return <Link to={"/submit-solution/" + val.projectId}>
-                                                            <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Submit solution</p>
-                                                        </Link>
-                                                        })
-                                                    }
+                                                    <p className="text-xs text-gray-500">Description</p>
+                                                    <p>{item.description}</p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs text-gray-500">Revision note</p>
+                                                    <p>{item.revisi}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <DetailsPopup trigger={buttonPopup}>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum a id ex exercitationem doloribus, dolor impedit sed! Hic, dignissimos. Facere, provident porro velit quas culpa laborum explicabo fugit nulla.</p>
                                         </DetailsPopup>
                                     </div>
                                 })
@@ -206,32 +281,128 @@ function Button({button, filter}) {
 }
 
 function Menu({menuItem}) {
+    const [buttonPopup2, setButtonPopup2] = useState(false)
+    
+    const OpenSetButtonPopup2 = () =>{
+        setButtonPopup2(true)
+    }
+
+    const CloseSetButtonPopup2 = () =>{
+        setButtonPopup2(false)
+    }
     return (
         <>
             {
                 menuItem.map((item) =>{
-                    return <div className="history-project-card flex justify-between items-center mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b" key={item.id}>
-                        <div className="flex flex-col gap-3 text-sm w-4/12">
-                            <p className="font-semibold">{item.type}</p>
+                    return <div>
+                            <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                            <div className="flex items-center justify-between gap-2">
+                                <p className="text-sm font-semibold">{item.type}</p>
+                                <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
+                            </div>
                             <p className="font-semibold">{item.projectTitle}</p>
-                            <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
-                                <p>{formatDate(item.projectsubCreateAt)}</p>
-                                <p>{formatTime(item.projectsubCreateAt)}</p>
+                            <div className="flex flex-col md:justify-between gap-5">
+                                <div className="flex gap-10">
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-xs font-medium text-gray-400">Times upload</p>
+                                        <p>{item.timesUpload}</p>
+                                    </div>
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-xs font-medium text-gray-400">Score</p>
+                                        <div>
+                                            {
+                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-end gap-5 text-sm">
+                                    <p className="text-blue-500 font-medium cursor-pointer" onClick={OpenSetButtonPopup2}>More project details</p>
+                                    {
+                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                        <p className="text-blue-500 text-center font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>) : ( <p className="text-gray-600 text-center font-medium text-sm w-max px-4 py-2 rounded-lg">Download certificate</p>)
+                                    }
+                                    <div>
+                                        {
+                                            item.score < 95 ? <Link to={"/submit-solution/" + item.project_id}><p className="text-white text-center bg-blue-1 px-4 py-2 rounded-lg">Submit solution</p>
+                                            </Link> : <p className="text-center px-4 py-2 rounded-lg">Submit solution</p>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-1 w-3/12">
-                            <p className="text-xs font-medium text-gray-400">Times upload</p>
-                            <p>{item.timesUpload}</p>
-                        </div>
-                        <div className="flex flex-col gap-1 w-3/12">
-                            <p className="text-xs font-medium text-gray-400">Score</p>
-                            <div>
-                                {
-                                    item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
-                                    item.score <= 74 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
-                                }
+                        <DetailsPopup trigger={buttonPopup2}>
+                            <div className="flex items-center justify-between">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30" height="45" viewBox="0 0 44 59" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0,59) scale(0.1,-0.1)" fill="currentColor" stroke="none"><path d="M270 548 c-136 -52 -250 -236 -250 -403 0 -85 7 -101 51 -125 46 -24
+                                80 -25 117 -6 44 23 192 181 192 205 0 11 -5 21 -11 21 -6 0 -49 -36 -96 -80
+                                -90 -85 -135 -115 -160 -106 -13 5 -15 21 -11 84 5 94 44 175 125 262 60 66
+                                153 122 153 94 0 -10 -6 -25 -14 -33 -13 -14 -12 -18 10 -28 22 -10 26 -8 41
+                                13 25 39 24 70 -4 99 -32 31 -68 32 -143 3z m-184 -324 c-20 -56 -25 -63 -25
+                                -38 -1 49 31 126 46 110 2 -1 -8 -34 -21 -72z"/>
+                                    </g>
+                                </svg>
+                                <p className="text-xl font-medium">Detail Project</p>
+                                <div onClick={CloseSetButtonPopup2} className="cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </div>
                             </div>
-                        </div>
+                            <div className="flex justify-between mt-14">
+                                <div className="flex flex-col gap-5">
+                                    <div>
+                                        <p className="text-xs text-gray-500">Project name</p>
+                                        <p className="font-medium">{item.projectTitle}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500">Project type</p>
+                                        <p className="font-medium">{item.type}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500">Upload time</p>
+                                        <p className="font-medium">{formatDate(item.projectsubCreateAt)} {formatTime(item.projectsubCreateAt)}</p>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <div>
+                                            <p className="text-xs text-gray-500">Times upload</p>
+                                            <p className="font-medium">{item.timesUpload}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-gray-500">Score</p>
+                                            {
+                                                item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{item.score}</p>) :
+                                                item.score <= 76 ? <p className="text-yellow-500 text-xl font-bold">{item.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-5 text-sm">
+                                    {
+                                        item.score >= 95 ? ( <Link to={"/CertificateAngular/"+item.project_id}>
+                                        <p className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg">Download certificate</p>
+                                    </Link>) : ( <p className="text-gray-600 text-center font-medium text-sm px-4 py-2 rounded-lg">Download certificate</p>)
+                                    }
+                                    <div>
+                                        {
+                                            item.score < 95 ? <Link to={"/submit-solution/" + item.project_id}><p className="text-white text-center bg-blue-1 px-4 py-2 rounded-lg">Submit solution</p>
+                                            </Link> : <p className="text-center px-4 py-2 rounded-lg">Submit solution</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="border-popup-history-project w-full h-0.5 my-10"></div>
+                            <div className="flex flex-col gap-5">
+                                <div>
+                                    <p className="text-xs text-gray-500">Description</p>
+                                    <p>{item.description}</p>
+                                </div>
+                                <div>
+                                    <p className="text-xs text-gray-500">Revision note</p>
+                                    <p>{item.revisi}</p>
+                                </div>
+                            </div>
+                        </DetailsPopup>
                     </div>
                 })
             }
@@ -241,8 +412,10 @@ function Menu({menuItem}) {
 
 function DetailsPopup(props){
     return(props.trigger)?(
-        <div className="">
-            {props.children}
+        <div className="register-popup-container px-5 sm:px-20 md:px-32 lg:px-80 pt-10 z-50">
+            <div className="popup-box p-8 rounded-lg">
+                {props.children}
+            </div>
         </div>
     ):"";
 }

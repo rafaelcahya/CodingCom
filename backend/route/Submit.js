@@ -23,7 +23,7 @@ router.post("/submit", (req, res) => {
     }else if (description.length <= 0) {
         res.send({ message: "Please add the description" })
     } else if(!req.files){
-        res.send({message:"File can not be empty"})
+        res.send({message:"You haven't included the file"})
     }else{
         const file = req.files.fileUpload
         const filename = file.name
@@ -69,7 +69,6 @@ router.post("/score", (req, res) => {
     }else {
         db.query("UPDATE projectsub SET score = ?, revisi = ?, projectsubUpdateAt = ? WHERE id = ?;", [score,revisi,updateAt,id], (err, results) => {
             console.log(err)
-            res.send(results)
             res.send({message:"Score successfully submited!!"})
         })
     }
