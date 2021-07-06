@@ -117,7 +117,7 @@ router.post("/editProject", (req, res) => {
             } if (!req.files) {
                 db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectId=?;", [title, info, brief, updateAt, id], (err, results) => {
                     console.log(err)
-                    res.send(results)
+                    res.send({message:"Project Updated"})
                 })
             }else {
                 db.query("UPDATE project SET projectTitle = ?, image = ?, projectInfo = ?, projectBrief = ?, projectFile = ?, projectUpdateAt=?  WHERE projectid=?;", [title, filename, info, brief, projectFileName, updateAt, id], (err, results) => {
@@ -125,7 +125,7 @@ router.post("/editProject", (req, res) => {
                     // file.mv('../frontend/src/asset/fileUpload/' + file.name)
                     file.mv('../frontend/src/asset/upload/' + file.name)
                     projectFile.mv('../frontend/src/asset/upload/' + projectFile.name)
-                    res.send("Project Updated!!")
+                    res.send({message:"Project Updated!!"})
                 })
             }
         }

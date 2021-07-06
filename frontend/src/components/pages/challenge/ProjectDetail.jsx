@@ -48,6 +48,7 @@ function ProjectDetail(props) {
             {
                 value.map((val) => {
                     let image = require('../../../asset/upload/' + val.image)
+                    let file = require('../../../asset/upload/'+ val.projectFile)
                     return <div className="flex flex-col md:flex-row gap-10 w-full px-16 xl:px-32 mt-32 lg:mt-20">
                         <div className="flex flex-col gap-20 w-full md:w-3/4">
                             <div className="projDetail flex flex-col">
@@ -91,7 +92,7 @@ function ProjectDetail(props) {
                             <div className="flex flex-col gap-2">
                                 <p className="font-semibold text-lg">Download Starter File</p>
                                 <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
-                                <a href={File} className="text-white bg-blue-1 text-sm w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
+                                <a href={file.default} className="text-white bg-blue-1 text-sm w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="font-semibold text-lg">Submit Solution</p>
