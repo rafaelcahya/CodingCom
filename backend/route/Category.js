@@ -8,6 +8,7 @@ const db = require('../config/db')
 
 router.post("/addCategory", (req, res) => {
     const category = req.body.category
+    const categoryInfo = req.body.categoryInfo
     const createAt = req.body.createAt
     let updateAt = ""
     let isDeleted = "NO"
@@ -15,7 +16,7 @@ router.post("/addCategory", (req, res) => {
     if(category.length <= 0){
         res.send({message:"Category can not be empty"})
     }else{
-        db.query("INSERT INTO category (category, categoryCreateAt, categoryUpdateAt, isDeleted) VALUES (?, ?, ?, ?);", [category, createAt, updateAt, isDeleted], (err, results) => {
+        db.query("INSERT INTO category (category, categoryInfo categoryCreateAt, categoryUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?);", [category, categoryInfo, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
             res.send(results)
         })
