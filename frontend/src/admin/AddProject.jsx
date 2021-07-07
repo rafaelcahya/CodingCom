@@ -7,7 +7,7 @@ function AddProject() {
     const editorRef = useRef(null);
     const [file, setFile] = useState([])
     const [projectFile, setProjectFile] = useState([])
-    const [html, setHTML] = useState([])
+    const [language, setLanguage] = useState([])
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
     const [type, setType] = useState("")
@@ -32,7 +32,6 @@ function AddProject() {
     }, []);
 
     const submit = () => {
-        console.log(html)
             if (editorRef.current) {
             const fd = new FormData();
             fd.append('fileUpload', file)
@@ -41,6 +40,7 @@ function AddProject() {
             fd.append('brief', editorRef.current.getContent())
             fd.append('type', type)
             fd.append('projectFile', projectFile)
+            fd.append('language', language)
             fd.append('createAt', createAt)
             Axios.post("http://localhost:3001/project/project", fd).then((response) => {
                 console.log(response)
@@ -134,18 +134,14 @@ function AddProject() {
                                     }} />
                             </div>
 
-                            <div class="form-group">
-                                <label>Programming Language
-                                    <div>
-                                        <input type="checkbox" name="Weekdays[]" value="Sunday"  onChange={(event) => {
-                                            if(event.target.checked){
-                                                setHTML(event.target.value[0])
-                                            }else if(!event.target.checked){
-                                                setHTML([])
-                                            }
-                                    }} /> Sunday<br />
-                                    </div><br />
-                                </label>
+                            <div className="flex flex-col gap-2 w-1/2">
+                                <p className="text-sm font-semibold">Programming Language</p>
+                                <input className="w-full"
+                                    type="text"
+                                    maxLength = "50"
+                                    onChange={(event) => {
+                                        setLanguage(event.target.value)
+                                    }} />
                             </div>
 
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>

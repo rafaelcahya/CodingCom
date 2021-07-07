@@ -11,9 +11,11 @@ router.post("/project", (req, res) => {
     const info = req.body.info
     const brief = req.body.brief
     const type = req.body.type
+    const language = req.body.language
     const createAt = req.body.createAt
     let updateAt = ""
     let isDeleted = "NO"
+    let format = /[^!@#$%^&*()_+\-={};':"|,.<>?*$]/
 
     if (title.length <= 0) {
         res.send({ message: "Project Title can not be empty" })
@@ -23,6 +25,10 @@ router.post("/project", (req, res) => {
         res.send({ message: "Project Brief can not be empty" })
     } else if (type.length <= 0) {
         res.send({ message: "Project Type can not be empty" })
+    } else if(language.length<=0){
+        res.send({message:"Programming language must be filled"})
+    } else if(language.match(format)!=null){
+        res.send({message:"Can not have special character"})
     } else if (!req.files) {
         res.send({ message: "Image can not be empty" })
     } else {
