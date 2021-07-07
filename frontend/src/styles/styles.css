@@ -1324,7 +1324,7 @@ Course
 
 */
 
-.content-course p {
+.content-course p:not(.review p), .content-course .tinymce-topic-detail {
     margin-bottom: 20px;
 }
 
