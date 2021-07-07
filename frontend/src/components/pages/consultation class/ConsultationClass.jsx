@@ -79,11 +79,20 @@ function ConsultationClass() {
                                             }
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
                                                     </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                        
                                                     </td>
                                                 )
                                             }
@@ -118,11 +127,19 @@ function ConsultationClass() {
                                             }
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
                                                     </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
                                                     </td>
                                                 )
                                             }
@@ -157,11 +174,21 @@ function ConsultationClass() {
                                             }
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                       
                                                     </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                        
                                                     </td>
                                                 )
                                             }
@@ -227,11 +254,20 @@ function ConsultationClass() {
                                             }
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                    <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                    {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
                                                 </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                        
                                                     </td>
                                                 )
                                             }
@@ -266,11 +302,21 @@ function ConsultationClass() {
                                             }
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                    <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                    {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                    
                                                 </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                       
                                                     </td>
                                                 )
                                             }
@@ -305,11 +351,21 @@ function ConsultationClass() {
                                             }
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                    <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>
+                                                    {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                   
                                                 </td>
                                                 ) : (
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                                        <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>
+                                                        {value.map((val)=>{
+                                                            return <div>
+                                                                {val.classConsultation > 0 ?(  <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                            </div>
+                                                        })}
+                                                      
                                                     </td>
                                                 )
                                             }

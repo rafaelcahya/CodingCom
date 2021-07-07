@@ -4,6 +4,7 @@ import Axios from 'axios'
 
 function AddCategory() {
     const [category, setCategory] = useState("")
+    const [categoryInfo, setCategoryInfo] = useState("")
     const [createAt, setCreateAt] = useState("")
 
 
@@ -16,7 +17,7 @@ function AddCategory() {
     }, 500)
 
     const submit = () => {
-        Axios.post("http://localhost:3001/category/addCategory", { createAt: createAt, category: category}).then((response) => {
+        Axios.post("http://localhost:3001/category/addCategory", { createAt: createAt, category: category, categoryInfo:categoryInfo}).then((response) => {
             console.log(response)
         })
     };
@@ -41,7 +42,9 @@ function AddCategory() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="Batch text-sm font-semibold">Tutorial info</p>
-                            <textarea name="" id="" rows="5" placeholder="Input tutorial info"></textarea>
+                            <textarea name="" id="" rows="5" placeholder="Input tutorial info" onChange={(event) => {
+                                    setCategoryInfo(event.target.value)
+                                }} ></textarea>
                         </div>
                     </div>
                     <button onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 my-10 rounded-lg cursor-pointer">Submit</button>
