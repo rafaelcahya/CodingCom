@@ -34,12 +34,13 @@ function AddCourse(props) {
             setValue(response.data)
             console.log(response.data)
         })
-    });
+    }, []);
 
     const log = () => {
+        console.log(urlid)
         if (editorRef.current) {
             console.log(editorRef.current.getContent());
-            Axios.put("http://localhost:3001/course/updateCourse", { id: id, name: name, updateAt: updateAt, judul: judul, des: des, time: time, content: editorRef.current.getContent() }).then((response) => {
+            Axios.put("http://localhost:3001/course/updateCourse", { id: urlid, name: name, updateAt: updateAt, judul: judul, des: des, time: time, content: editorRef.current.getContent() }).then((response) => {
                 console.log(response)
             })
         }

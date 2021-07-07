@@ -1,12 +1,18 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
+import ShowMoreText from 'react-show-more-text';
+
+import AOS from "aos"
+import "../../../../node_modules/aos/dist/aos.css"
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
 const GenerateID = (len, k) => {
+    AOS.init();
     const s = (k) => {
         var text = ""
         var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -27,6 +33,7 @@ function CategoryDetail(props) {
     const urlhash = props.match.params.hash
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
+    const [course,setCourse] = useState([])
 
     useEffect(() => {
         Axios.get("http://localhost:3001/category/categoryById/" + urlid + "/" + urlhash).then((response) => {
@@ -42,6 +49,21 @@ function CategoryDetail(props) {
         })
     },[]);
 
+    useEffect(() => {
+        Axios.get("http://localhost:3001/course/listCourse").then((response) => {
+            setCourse(response.data)
+        })
+    }, []);
+
+    let total_min = 0; 
+    let tot = 0;
+
+    for (let i = 0; i < course.length; i++) {
+        if (course[i].topikTitle == "Basic Internet")
+        if (course[i].time) tot += parseInt(course[i].time);
+    }
+    total_min = tot;
+
     return (
         <>
             <NavbarLogin />
@@ -50,34 +72,53 @@ function CategoryDetail(props) {
                 valueList.map(
                     (val) => {
                         return <div className="mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
-
                             <div className="flex flex-col items-center">
                                 <p className="text-2xl lg:text-5xl font-semibold">{val.category}</p>
-                                <p className="text-center px-32 py-5">{val.categoryInfo}</p>
+                                <p className="text-center py-5 max-w-3xl">{val.categoryInfo}</p>
                             </div>
-
-                            <div className="hidden lg:block lg:w-1/5">
-                                <div className="hidden lg:block sticky self-start top-0 pt-6">
-                                    <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                                        {
-                                            value.map(
-                                                (val) => {
-                                                    return <div className="flex justify-between items-center">
-                                                        <Link to={"/topic-detail/" + val.topikId + "-" + GenerateID(1, 10)}>
-                                                            <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="bg-white">
-                                                                <div className="flex flex-col gap-2">
-                                                                    {/* <img data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="300" data-aos-delay="200" src={item.image} width={40} alt="logo" className="" /> */}
-                                                                    <p className="font-semibold">{val.topikTitle}</p>
-                                                                    <p className="truncate3 text-sm text-gray-400 leading-6">{val.topikInfo}</p>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    </div>
+                            
+                            <div className="flex-1 flex flex-wrap gap-5 my-10">
+                                {
+                                    value.map(
+                                        (val) => {
+                                            return <div className="flex">
+                                                {
+                                                    val.progress === "Coming Soon" ? <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
+                                                        <p className="font-semibold" style={{width: "300px"}}>{val.topikTitle}</p>
+                                                        <p className="w-10 h-0.5 bg-yellow-500 my-3"></p>
+                                                        <ShowMoreText
+                                                            more='Read more'
+                                                            less='Read less'
+                                                            anchorClass='anchor-showmore'
+                                                            className="text-sm text-gray-500">
+                                                            <p>{val.topikInfo}</p>
+                                                        </ShowMoreText>
+                                                        <p className="text-sm font-medium mt-6">0 min</p>
+                                                        <div className="ribbon">
+                                                            <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
+                                                        </div>
+                                                    </div> : <Link to={"/topic-detail/" + val.topikId + "-" + GenerateID(1, 10)}>
+                                            <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
+                                                <p className="font-semibold" style={{width: "300px"}}>{val.topikTitle}</p>
+                                                <p className="w-10 h-0.5 bg-yellow-500 my-3"></p>
+                                                <ShowMoreText
+                                                    more='Read more'
+                                                    less='Read less'
+                                                    anchorClass='anchor-showmore'
+                                                    className="text-sm text-gray-500">
+                                                    <p>{val.topikInfo}</p>
+                                                </ShowMoreText>
+                                                <p className="text-sm font-medium mt-6">{total_min} min</p>
+                                                <div className="ribbon">
+                                                    <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
+                                                </div>
+                                            </div>
+                                        </Link>
                                                 }
-                                            )
+                                            </div>
                                         }
-                                    </div>
-                                </div>
+                                    )
+                                }
                             </div>
                         </div>
                     }

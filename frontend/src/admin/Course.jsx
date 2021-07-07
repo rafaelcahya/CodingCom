@@ -51,7 +51,7 @@ function Course(props) {
                         </Link>
                         <div className="flex items-center gap-5 font-semibold">
                             <p onClick={Reject} className="text-red-500">Reject</p>
-                            <p onClick={Approve} className="px-4 py-2 bg-green-100 text-green-500 rounded-lg">Approve</p>
+                            <p onClick={Approve} className="px-4 py-2 bg-green-100 text-green-500 rounded-lg cursor-pointer">Approve</p>
                         </div>
                     </div>
                     {

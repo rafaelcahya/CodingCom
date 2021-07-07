@@ -7,7 +7,6 @@ import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
 import SidebarInternet from '../SidebarInternet'
-import NextPrevBtnTutorial from '../NextPrevBtnTutorial'
 import SidebarInternetMobile from '../SidebarInternetMobile'
 
 import star from "../../../../../asset/icon/star.svg"
@@ -115,8 +114,6 @@ function Internet(props) {
                     {
                         value.map(
                             (val) => {
-                                let nextpage = val.number + 1
-                                let prevpage = val.number - 1
                                 return <div>
                                     <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                         <div>
@@ -128,10 +125,6 @@ function Internet(props) {
                                     <div className="content-course flex flex-col gap-5 my-5 pt-5">
                                         <div dangerouslySetInnerHTML={{ __html: val.content }} />
                                     </div>
-                                    <NextPrevBtnTutorial
-                                        back={"/user-course/"+prevpage}
-                                        next={"/user-course/"+nextpage}
-                                    />
                                 </div>
                             }
                         )

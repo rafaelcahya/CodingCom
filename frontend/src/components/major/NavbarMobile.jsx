@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Axios from 'axios'
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
@@ -76,7 +76,8 @@ export default function NavbarMobile() {
             boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0), 0 10px 10px -5px rgba(0, 0, 0, 0)"
         }
     }
-    return (
+
+        return (
         <>
             <nav className="navbar-mobile flex justify-between lg:hidden fixed top-0 px-10 shadow-md w-full z-20">
                 <motion.div
@@ -104,7 +105,7 @@ export default function NavbarMobile() {
                 <motion.div
                     initial={false}
                     variants={menuVariants}
-                    animate={openTutorial ? "opened" : "closed"} className="absolute top-0 p-5 flex flex-col gap-2 rounded-lg bg-white z-10">
+                    animate={openTutorial ? "opened" : "closed"} className="navbar-mobile-dropdown absolute top-0 p-5 flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="rounded-lg">
                         <Link to="/">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Home</p>
@@ -115,9 +116,7 @@ export default function NavbarMobile() {
                         <Link to="/roadmap">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Roadmap</p>
                         </Link>
-                        <Link to="/tutorial">
-                            <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Tutorial</p>
-                        </Link>
+                        <DropDownMenu/>
                         <Link to="/challenge">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Challenge</p>
                         </Link>
@@ -137,41 +136,43 @@ export default function NavbarMobile() {
                     variants={menuProfile}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
-                        <div className="flex gap-5">
-                            {valueVal.map((v)=>{
-                                return <div className="text-sm pr-5 border-r-2">
-                                {valueList.map((val)=>{
-                                    return <div className="dropdown-user-quota">
-                                    {
-                                        val.status==="Actived"?
-                                        <div className="flex justify-between gap-20">
-                                            <p className="text-gray-400">Premium plan</p>
-                                            <p className="text-green-500 rounded-lg font-semibold tracking-wide">{val.status}</p>
-                                        </div>
-                                        :
-                                        <div className="flex justify-between gap-20">
-                                            <p className="text-gray-400">Premium plan</p>
-                                            <p>{val.status}</p>
-                                        </div>
-                                    }
-                                </div>
-                                })}
+                    {valueVal.map((v)=>{
+                            return <div className="text-sm">
+                            {valueList.map((val)=>{
+                                return <div className="dropdown-user-quota rounded-lg">
+                                {
+                                    val.status==="Actived"?
+                                    <div className="flex justify-between gap-20">
+                                        <p className="text-gray-400">Premium plan</p>
+                                        <p className="text-green-500 rounded-lg font-semibold tracking-wide">{val.status}</p>
+                                    </div>
+                                    :
+                                    <div className="flex justify-between gap-20">
+                                        <p className="text-gray-400">Premium plan</p>
+                                        <p>{val.status}</p>
+                                    </div>
+                                }
+                            </div>
+                            })}
+                                <div className="dropdown-user-quota rounded-lg">
                                     {
                                         v.classConsultation<=3 ? 
-                                        <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
+                                        <Link to="/payment-confirmation-class-consultation-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Class Consultation Quota</p>
                                                 <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
                                             </div>
                                         </Link>
                                         :
-                                        <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
+                                        <Link to="/payment-confirmation-class-consultation-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Class Consultation Quota</p>
                                                 <p className="font-semibold text-green-500">{v.classConsultation}</p>
                                             </div>
                                         </Link>
                                     }
+                                </div>
+                                <div className="dropdown-user-quota rounded-lg">
                                     {
                                         v.classSession<=3 ? 
                                         <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
@@ -189,33 +190,34 @@ export default function NavbarMobile() {
                                         </Link>
                                     }
                                 </div>
-                            })}
-                        </div>
-                        <div>
+                            </div>
+                        })}
+                        <div className="border-darkmode w-0.5 my-5"></div>
+                        <div className="dropdown-user-setting">
                             <Link to={"/profile/" + name}>
-                                <p className="text-sm">Profile</p>
+                                <p className="text-sm rounded-lg">Profile</p>
                             </Link>
                             <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
-                                <p className="text-sm">Change Password</p>
+                                <p className="text-sm rounded-lg">Change Password</p>
                             </Link>
                             <Link to="/purchase">
-                                <p className="text-sm">Purchase</p>
+                                <p className="text-sm rounded-lg">Purchase</p>
                             </Link>
                             <Link to="/history-submit-project">
-                                <p className="text-sm">Project</p>
+                                <p className="text-sm rounded-lg">Project</p>
                             </Link>
                             <Link to={"/feedback/" + name}>
-                                <p className="text-sm">Feedback</p>
+                                <p className="text-sm rounded-lg">Feedback</p>
                             </Link>
                             {loggedIn ? (
                                 <>
-                                    <Link to="/login" className="text-sm text-red-500 rounded-lg">
-                                        <p>Logout</p>
+                                    <Link to="/login" className="text-sm text-red-500">
+                                        <p className="rounded-lg">Logout</p>
                                     </Link>
                                 </>
                             ) : (
                                 <>
-                                    <Link to="/login" className="login bg-blue-1 text-white text-sm rounded-lg"><p>login</p></Link>
+                                    <Link to="/login" className="login bg-blue-1 text-white text-sm rounded-lg"><p className="rounded-lg">login</p></Link>
                                 </>
                             )}
                         </div>
@@ -226,3 +228,51 @@ export default function NavbarMobile() {
         </>
     )
 }
+
+const DropDownMenu = () => {
+    const [dropdownTutorial, setDropdownTutorial] = useState();
+    const [open, setOpen] = useState(false);
+    const container = useRef(null);
+    
+    const handleClickOutside = event => {
+        if (container.current && !container.current.contains(event.target)) {
+            setOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/category/listCategory").then((response) => {
+            setDropdownTutorial(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
+    return (
+        <div className="container" ref={container}>
+            <div className="flex justify-between items-center px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg" onClick={() => setOpen(!open)}>
+                <p>Tutorial</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            {open && (
+            <div>
+                {
+                    dropdownTutorial.map((val) => {
+                        return <div className="dropdown-tutorial rounded-lg ml-14">
+                                <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(15,10)} className="">
+                                    <p className="text-sm font-medium p-2">{val.category}</p>
+                            </Link>
+                        </div>
+                    })
+                }
+            </div>
+            )}
+        </div>
+    );
+};

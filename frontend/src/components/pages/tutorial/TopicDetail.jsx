@@ -74,7 +74,7 @@ function TopicDetail(props) {
                                 <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                     <div>
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
-                                        <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p>
+                                        <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-10 my-10 w-full">
@@ -106,14 +106,15 @@ function TopicDetail(props) {
                                             }
                                     </div>
                                     <div className="sticky self-start top-10 w-1/3">
-                                        <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
-                                        <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p>
+                                        {/* <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
+                                        <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p> */}
                                         {
-                                            value.map((item)=>{
+                                            !value.length ? (<p>gkada</p>) : value.map((item)=>{
                                                 return <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId}>
                                                 <p>MASUK KE COURSE</p>
                                                 </Link>
                                             })
+                                            
                                         }
                                         {/* {
                                             value.map(
