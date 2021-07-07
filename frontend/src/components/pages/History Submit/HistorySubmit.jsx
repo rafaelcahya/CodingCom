@@ -251,7 +251,7 @@ export default function HistorySubmit(props) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="border-popup-history-project w-full h-0.5 my-5"></div>
+                                                    <div className="border-darkmode w-full h-0.5 my-5"></div>
                                                     <div className="flex flex-col gap-5">
                                                         <div>
                                                             <p className="text-xs text-gray-500">Description</p>
@@ -410,7 +410,7 @@ function Menu({ menuItem }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="border-popup-history-project w-full h-0.5 my-5"></div>
+                                    <div className="border-darkmode w-full h-0.5 my-5"></div>
                                     <div className="flex flex-col gap-5">
                                         <div>
                                             <p className="text-xs text-gray-500">Description</p>

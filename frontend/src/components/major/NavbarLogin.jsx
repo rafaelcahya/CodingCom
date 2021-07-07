@@ -93,7 +93,7 @@ export default function NavbarLogin() {
         <>
             <nav id="top">
                 <div className="navbar hidden lg:block relative z-20">
-                    <div className="navbar-content text-sm relative lg:flex justify-between px-16 xl:px-32  border-b border-gray-200">
+                    <div className="navbar-content text-sm relative lg:flex justify-between px-16 xl:px-32 border-b border-gray-200">
                         <div className=" flex items-center py-3">
                             <NavLink to=""
                                 exact
@@ -184,9 +184,9 @@ export default function NavbarLogin() {
                     variants={menuVariants}
                     animate={openTutorial ? "opened" : "closed"} className="dropdown absolute top-0 mx-16 xl:mx-32 hidden lg:flex flex-col rounded-lg p-5 z-10">
                         <div className="flex flex-col gap-5">
-                            <Link to="/tutorial" className="font-semibold hover:underline">Tutorial Overview</Link>
+                            <p className="font-semibold">Tutorial Overview</p>
                             <div className="flex flex-wrap gap-x-5 gap-5">
-                                <div className="dropdown-tutorial">
+                                <div className="dropdown-tutorial rounded-lg">
                                     <div>
                                         <Link to="/roadmap" className="flex flex-col gap-1">
                                             <p className="font-semibold">Roadmap</p>
@@ -196,7 +196,7 @@ export default function NavbarLogin() {
                                 </div>
                                 {
                                     value.map((val) => {
-                                        return <div className="dropdown-tutorial flex">
+                                        return <div className="dropdown-tutorial rounded-lg">
                                                 <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(15,10)}>
                                                 <div className="flex flex-col gap-1">
                                                     <p className="font-semibold">{val.category}</p>
@@ -215,9 +215,9 @@ export default function NavbarLogin() {
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
                         {valueVal.map((v)=>{
-                            return <div className="text-sm pr-5 border-r-2">
+                            return <div className="text-sm">
                             {valueList.map((val)=>{
-                                return <div className="dropdown-user-quota">
+                                return <div className="dropdown-user-quota rounded-lg">
                                 {
                                     val.status==="Actived"?
                                     <div className="flex justify-between gap-20">
@@ -232,65 +232,70 @@ export default function NavbarLogin() {
                                 }
                             </div>
                             })}
-                                {
-                                    v.classConsultation<=3 ? 
-                                    <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
-                                        <div className="flex justify-between gap-10">
-                                            <p className="text-gray-400">Class Consultation Quota</p>
-                                            <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
-                                        </div>
-                                    </Link>
-                                    :
-                                    <Link to="/payment-confirmation-class-consultation-quota" className="dropdown-user-quota">
-                                        <div className="flex justify-between gap-10">
-                                            <p className="text-gray-400">Class Consultation Quota</p>
-                                            <p className="font-semibold text-green-500">{v.classConsultation}</p>
-                                        </div>
-                                    </Link>
-                                }
-                                {
-                                    v.classSession<=3 ? 
-                                    <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
-                                        <div className="flex justify-between gap-10">
-                                            <p className="text-gray-400">Coding Class Quota</p>
-                                            <p className="font-semibold text-yellow-500">{v.classSession}</p>
-                                        </div>
-                                    </Link>
-                                    :
-                                    <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
-                                        <div className="flex justify-between gap-10">
-                                            <p className="text-gray-400">Coding Class Quota</p>
-                                            <p className="font-semibold text-green-500">{v.classSession}</p>
-                                        </div>
-                                    </Link>
-                                }
+                                <div className="dropdown-user-quota rounded-lg">
+                                    {
+                                        v.classConsultation<=3 ? 
+                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-green-500">{v.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                </div>
+                                <div className="dropdown-user-quota rounded-lg">
+                                    {
+                                        v.classSession<=3 ? 
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-yellow-500">{v.classSession}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-green-500">{v.classSession}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                </div>
                             </div>
                         })}
+                        <div className="border-darkmode w-0.5 my-5"></div>
                         <div className="dropdown-user-setting">
                             <Link to={"/profile/" + name}>
-                                <p className="text-sm">Profile</p>
+                                <p className="text-sm rounded-lg">Profile</p>
                             </Link>
                             <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
-                                <p className="text-sm">Change Password</p>
+                                <p className="text-sm rounded-lg">Change Password</p>
                             </Link>
                             <Link to="/purchase">
-                                <p className="text-sm">Purchase</p>
+                                <p className="text-sm rounded-lg">Purchase</p>
                             </Link>
                             <Link to="/history-submit-project">
-                                <p className="text-sm">Project</p>
+                                <p className="text-sm rounded-lg">Project</p>
                             </Link>
                             <Link to={"/feedback/" + name}>
-                                <p className="text-sm">Feedback</p>
+                                <p className="text-sm rounded-lg">Feedback</p>
                             </Link>
                             {loggedIn ? (
                                 <>
-                                    <Link to="/login" className="text-sm text-red-500 rounded-lg">
-                                        <p>Logout</p>
+                                    <Link to="/login" className="text-sm text-red-500">
+                                        <p className="rounded-lg">Logout</p>
                                     </Link>
                                 </>
                             ) : (
                                 <>
-                                    <Link to="/login" className="login bg-blue-1 text-white text-sm rounded-lg"><p>login</p></Link>
+                                    <Link to="/login" className="login bg-blue-1 text-white text-sm rounded-lg"><p className="rounded-lg">login</p></Link>
                                 </>
                             )}
                         </div>

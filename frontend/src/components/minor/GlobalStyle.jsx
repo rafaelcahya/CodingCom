@@ -19,7 +19,8 @@ export const GlobalStyle = createGlobalStyle`
     .reset-password-box,
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
-    #sidebarmobile
+    #sidebarmobile,
+    #tutorial-box
     {
         background: ${({theme}) => theme.foreground};
         color: ${({theme}) => theme.primarytext};
@@ -36,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
     .payment-confirm-box,
     .roadmap-box div, 
     .tutorial-paid-box, 
-    .tutorial-box,
     .certificate-box div,
     .comment-box textarea,
     .class-card,
@@ -155,9 +155,6 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: ${({theme}) => theme.border};
     }
 
-    .dropdown-user .dropdown-user-setting p:hover,
-    .dropdown-user-quota div:hover,
-    .dropdown-tutorial div:hover,
     .history-project-card:hover{
         border-radius: 8px;
     }
@@ -179,11 +176,11 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({theme}) => theme.tertiarytext};
     }
 
-    /* 
-    
-    BOOTCAMP 
-    
-    */
+    .dropdown-tutorial:hover,
+    .dropdown-user-quota:hover,
+    .dropdown-user-setting p:hover{
+        background-color: ${({theme}) => theme.foreground5};
+    }
 
     .bootcamp-navbar,
     .dropdown-tutorial,
@@ -192,11 +189,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.foreground2};
     }
 
-    .dropdown-tutorial div:hover{
-        background-color: ${({theme}) => theme.foreground4};
-    }
-
-    .border-popup-history-project{
+    .border-darkmode{
         background-color: ${({theme}) => theme.foreground5};
     }
 `;

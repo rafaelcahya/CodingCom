@@ -28,6 +28,15 @@ export default function ListCourse() {
         })
     }
 
+    let total_min = 0; 
+    let tot = 0;
+
+    for (let i = 0; i < value.length; i++) {
+        if (value[i].topikTitle == "Internet")
+        if (value[i].time) tot += parseInt(value[i].time);
+    }
+    total_min = tot;
+
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     const formatTime = s => new Date(s).toLocaleTimeString();
 
@@ -38,15 +47,17 @@ export default function ListCourse() {
                 <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-xl font-semibold">Tutorial List</p>
                     <p className="text-sm font-semibold">List of tutorials that have been created by mentors</p>
+                    <span id="val">{total_min}</span>
                     <div className="overflow-x-auto mt-8">
                         <div className="align-middle inline-block min-w-full">
                             <div className="overflow-hidden">
-                                <table className="relative min-w-full">
+                                <table className="relative min-w-full" id="table">
                                     <thead>
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Mentor name</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Course title</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Course Topic</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Time (min)</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
@@ -61,6 +72,7 @@ export default function ListCourse() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.judul}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.topikTitle}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>

@@ -98,7 +98,7 @@ function EditTopik(props) {
                                         <div className="flex items-center gap-1 text-sm font-semibold">
                                             <p>Topik Info</p>
                                         </div>
-                                        <textarea name="" id="" defaultValue={val.topikInfo} maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
+                                        <textarea name="" id="" defaultValue={val.topikInfo} cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
                                             setInfo(event.target.value)
                                         }} ></textarea>
                                     </div>

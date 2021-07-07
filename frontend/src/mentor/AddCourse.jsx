@@ -80,7 +80,7 @@ function AddCourse() {
                     <div className="flex flex-col gap-2">
                         <p className="Number text-sm font-semibold">Tutorial number</p>
                         <input
-                            type="number"
+                            type="number" min="0"
                             placeholder="Input tutorial number"
                             onChange={(event) => {
                                 setNumber(event.target.value)

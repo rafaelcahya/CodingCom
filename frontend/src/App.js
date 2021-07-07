@@ -16,7 +16,6 @@ import ChangePassword from "./components/pages/ChangePassword"
 import AddProfile from "./components/pages/AddProfile.jsx"
 import Help from "./components/pages/help/Help";
 import Homepage from "./components/pages/homepage/Homepage.jsx"
-import Tutorial from "./components/pages/tutorial/Tutorial.jsx"
 import Roadmap from "./components/pages/tutorial/course/roadmap/Roadmap"
 import Pricing from "./components/pages/pricing/Pricing.jsx"
 import CategoryDetail from "./components/pages/tutorial/CategoryDetail.jsx"
@@ -101,8 +100,6 @@ function App() {
             <Route path="/roadmap-backend" component={RoadmapBackend} />
             <Route path="/roadmap-react" component={RoadmapReact} />
             <Route path="/roadmap-devops" component={RoadmapDevops} />
-
-            <Route path="/tutorial" component={Tutorial} />
 
             <Route path="/bootcamp" component={BootcampHome}/>
             <Route path="/register-bootcamp/:name" component={RegisterBootcamp}/>

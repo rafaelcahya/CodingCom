@@ -1324,6 +1324,10 @@ Course
 
 */
 
+.content-course p {
+    margin-bottom: 20px;
+}
+
 .content-course a{
     color: var(--blue-1);
     text-decoration: underline;
@@ -1590,10 +1594,6 @@ iframe {
         width: 660px;
         height: 350px;
     }
-}
-
-.tutorial-box {
-    width: 300px;
 }
 
 .swiper-pagination::-webkit-scrollbar {
