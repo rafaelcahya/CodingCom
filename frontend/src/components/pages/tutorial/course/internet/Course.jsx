@@ -12,6 +12,22 @@ import SidebarInternetMobile from '../SidebarInternetMobile'
 
 import star from "../../../../../asset/icon/star.svg"
 
+const GenerateID = (len, k) => {
+    const s = (k) => {
+        var text = ""
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for (let i = 0; i < k; i++) {
+            text += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return text
+    }
+    var id = s(k);
+    for (let n = 0; n < len; n++) {
+        id += '-' + s(k)
+    }
+    return id
+}
+
 function Internet(props) {
     const urlid = props.match.params.id
     const urlid2 = props.match.params.id2
@@ -24,6 +40,7 @@ function Internet(props) {
     const [errorMessage, setErrorMessage] = useState("")
 
     const [value, setValue] = useState([])
+    const [courseList, setCourseList] = useState([])
     const [commentlist, setCommentList] = useState([])
 
     window.onload = setTimeout(function () {
@@ -51,6 +68,13 @@ function Internet(props) {
         })
     }, [urlid3]);
 
+    useEffect(() => {
+        Axios.get("http://localhost:3001/course/courseByTopikId/" + urlid2).then((response) => {
+            setCourseList(response.data)
+            console.log(response.data)
+        })
+    }, [urlid2]);
+
     const commentInternet = () => {
         Axios.post("http://localhost:3001/comment/commentInternet", { id: urlid3, name: name, comment: comment, createAt: createAt }).then((response) => {
             setErrorMessage(response.data.message)
@@ -67,7 +91,24 @@ function Internet(props) {
             <NavbarMobile />
             <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <div className="hidden lg:block lg:w-1/5">
-                    <SidebarInternet />
+                <div className="hidden lg:block sticky self-start top-0 pt-6">
+                <p className="text-lg font-semibold">Course List</p>
+                   <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                                <div className="flex justify-between items-center">
+                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
+                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                                </div>
+                                {
+                                    courseList.map((v)=>{
+                                        return <div className="flex justify-between items-center">
+                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.number}.{v.judul}</Link>
+                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
+                                    </div>
+                                    })
+                                }
+                                </div>
+                        
+            </div>
                 </div>
                 <SidebarInternetMobile />
                 <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">

@@ -7,6 +7,7 @@ function AddProject() {
     const editorRef = useRef(null);
     const [file, setFile] = useState([])
     const [projectFile, setProjectFile] = useState([])
+    const [html, setHTML] = useState([])
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
     const [type, setType] = useState("")
@@ -31,21 +32,22 @@ function AddProject() {
     }, []);
 
     const submit = () => {
-        if (editorRef.current) {
-        const fd = new FormData();
-        fd.append('fileUpload', file)
-        fd.append('title', title)
-        fd.append('info', info)
-        fd.append('brief', editorRef.current.getContent())
-        fd.append('type', type)
-        fd.append('projectFile', projectFile)
-        fd.append('createAt', createAt)
-        Axios.post("http://localhost:3001/project/project", fd).then((response) => {
-            console.log(response)
-            setErrorMessage(response.data.message)
+        console.log(html)
+            if (editorRef.current) {
+            const fd = new FormData();
+            fd.append('fileUpload', file)
+            fd.append('title', title)
+            fd.append('info', info)
+            fd.append('brief', editorRef.current.getContent())
+            fd.append('type', type)
+            fd.append('projectFile', projectFile)
+            fd.append('createAt', createAt)
+            Axios.post("http://localhost:3001/project/project", fd).then((response) => {
+                console.log(response)
+                setErrorMessage(response.data.message)
 
-        })
-    }
+            })
+        }
     }
 
     return (
@@ -67,7 +69,7 @@ function AddProject() {
                                     {
                                         value.map(
                                             (val) => {
-                                            return <option value={val.typeId}>{val.type}</option>
+                                                return <option value={val.typeId}>{val.type}</option>
                                             }
                                         )
                                     }
@@ -87,8 +89,8 @@ function AddProject() {
                                 <div className="flex flex-col gap-2 w-1/2">
                                     <p className="text-sm font-semibold">Title</p>
                                     <input type="text" placeholder="Input Job title" onChange={(event) => {
-                                                setTitle(event.target.value)
-                                            }} />
+                                        setTitle(event.target.value)
+                                    }} />
                                 </div>
                             </div>
                             <div className="flex flex-col gap-2">
@@ -96,8 +98,8 @@ function AddProject() {
                                     <p>Project Info</p>
                                 </div>
                                 <textarea name="" id="" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
-                                            setInfo(event.target.value)
-                                        }} ></textarea>
+                                    setInfo(event.target.value)
+                                }} ></textarea>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="Time text-sm font-semibold">Project Brief</p>
@@ -122,16 +124,30 @@ function AddProject() {
                                 />
                             </div>
                             <div className="flex flex-col gap-2 w-1/2">
-                                    <p className="text-sm font-semibold">Project File</p>
-                                    <input className="w-full"
-                                        type="file"
-                                        accept=".zip,.rar"
-                                        name="fileUpload"
-                                        onChange={(event) => {
-                                            setProjectFile(event.target.files[0])
-                                        }} />
-                                </div>
-                            
+                                <p className="text-sm font-semibold">Project File</p>
+                                <input className="w-full"
+                                    type="file"
+                                    accept=".zip,.rar"
+                                    name="fileUpload"
+                                    onChange={(event) => {
+                                        setProjectFile(event.target.files[0])
+                                    }} />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Programming Language
+                                    <div>
+                                        <input type="checkbox" name="Weekdays[]" value="Sunday"  onChange={(event) => {
+                                            if(event.target.checked){
+                                                setHTML(event.target.value[0])
+                                            }else if(!event.target.checked){
+                                                setHTML([])
+                                            }
+                                    }} /> Sunday<br />
+                                    </div><br />
+                                </label>
+                            </div>
+
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                             <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                         </div>
