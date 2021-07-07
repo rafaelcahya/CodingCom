@@ -123,12 +123,21 @@ router.get("/courseByIdMentor/:id", (req, res) => {
     })
 })
 
-router.get("/courseByTopikId/:id", (req, res) => {
+router.get("/courseByTopikIdNumber/:id", (req, res) => {
     const id = req.params.id
     let status = "APPROVED"
     let number = "1"
     let isDeleted = "NO"
     db.query("SELECT * from course WHERE topik_id = ? AND status = ? AND number = ? AND isDeleted = ?", [id, status, number, isDeleted], (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/courseByTopikId/:id", (req, res) => {
+    const id = req.params.id
+    let status = "APPROVED"
+    let isDeleted = "NO"
+    db.query("SELECT * from course WHERE topik_id = ? AND status = ? AND isDeleted = ?", [id, status, isDeleted], (err, results) => {
         res.send(results)
     })
 })

@@ -50,7 +50,7 @@ function TopicDetail(props) {
     }, []);
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/course/courseByTopikId/" + urlid).then((response) => {
+        Axios.get("http://localhost:3001/course/courseByTopikIdNumber/" + urlid).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
