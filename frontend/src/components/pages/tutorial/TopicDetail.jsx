@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
+import Footer from '../../major/Footer'
+import ShowMoreText from 'react-show-more-text';
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
@@ -35,6 +38,7 @@ function TopicDetail(props) {
     const [Count3, setCount3] = useState([])
     const [Count4, setCount4] = useState([])
     const [Count5, setCount5] = useState([])
+    let image = require('../../../asset/upload/'+ localStorage.getItem("image"))
 
     useEffect(() => {
         Axios.get("http://localhost:3001/rating/ratingList/"+ urlid).then((response) => {
@@ -105,27 +109,32 @@ function TopicDetail(props) {
                                 </div>
                                 <div className="flex gap-10 my-10 w-full">
                                     <div className="content-course w-2/3">
-                                        <div dangerouslySetInnerHTML={{ __html: val.about }} />
-                                        <div className="my-10 border-b">
-                                            <p className="text-xl font-semibold mb-2">Reviews</p>
+                                        <div dangerouslySetInnerHTML={{ __html: val.about }} className="tinymce-topic-detail"/>
+                                        <div className="pt-10 border-b">
+                                            <p className="text-xl font-semibold">Reviews</p>
                                             </div>
                                             {
                                                 rating.map(
                                                     (val) => {
-                                                        return <div className="border-b border-gray-300">
-                                                            <div className="flex justify-between gap-2">
-                                                                <p className="text-lg font-semibold">{val.name}</p>
-                                                                <div className="text-right">
-                                                                    {val.rating == 1 ? (<p>😰 {val.rating}</p>) :
-                                                                        val.rating == 2 ? (<p>☹️ {val.rating}</p>) :
-                                                                            val.rating == 3 ? (<p>😑 {val.rating}</p>) :
-                                                                                val.rating == 4 ? (<p>🤩 {val.rating}</p>) :
-                                                                                    (<p>😍 {val.rating}</p>)
+                                                        return <div className="review py-5">
+                                                            <div className="flex justify-between items-center">
+                                                                <div className="flex gap-4">
+                                                                    <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile"/>
+                                                                    <div>
+                                                                        <p className="font-medium">{val.name}</p>
+                                                                        <p className="text-xs text-gray-400">{formatDate(val.ratingCreateAt)}</p>
+                                                                        <p className="py-2"> {val.description}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    {val.rating == 1 ? (<p className="text-2xl">😰</p>) :
+                                                                        val.rating == 2 ? (<p className="text-2xl">☹️</p>) :
+                                                                            val.rating == 3 ? (<p className="text-2xl">😑</p>) :
+                                                                                val.rating == 4 ? (<p className="text-2xl">🤩</p>) :
+                                                                                    (<p className="text-2xl">😍</p>)
                                                                     }
                                                                 </div>
                                                             </div>
-                                                            <p className="text-sm text-gray-600">{formatDate(val.ratingCreateAt)} {formatTime(val.ratingCreateAt)}</p>
-                                                            <p className="py-5"> {val.description}</p>
                                                         </div>
                                                     }
                                                 )
@@ -197,6 +206,7 @@ function TopicDetail(props) {
                     )
                 }
             </div>
+            <Footer/>
         </>
     )
 }
