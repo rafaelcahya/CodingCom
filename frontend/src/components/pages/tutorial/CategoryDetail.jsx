@@ -55,14 +55,21 @@ function CategoryDetail(props) {
         })
     }, []);
 
-    let total_min = 0; 
-    let tot = 0;
+    // let total_min = 0; 
+    // let tot = 0;
+    
+    // value.map((v)=>{
 
-    for (let i = 0; i < course.length; i++) {
-        if (course[i].topikTitle == "Basic Internet")
-        if (course[i].time) tot += parseInt(course[i].time);
-    }
-    total_min = tot;
+    //     for (let i = 0; i < course.length; i++) {
+    //         if (course[i].topikTitle == v.topikTitle)
+    //         if (course[i].time) tot += parseInt(course[i].time);
+    //     }
+    //    return total_min = tot;
+            
+    // })
+    
+
+    
 
     return (
         <>
@@ -108,7 +115,7 @@ function CategoryDetail(props) {
                                                     className="text-sm text-gray-500">
                                                     <p>{val.topikInfo}</p>
                                                 </ShowMoreText>
-                                                <p className="text-sm font-medium mt-6">{total_min} min</p>
+                                                <p className="text-sm font-medium mt-6">{val.time} min</p>
                                                 <div className="ribbon">
                                                     <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
                                                 </div>

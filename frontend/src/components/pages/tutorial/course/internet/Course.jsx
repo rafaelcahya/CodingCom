@@ -100,7 +100,7 @@ function Internet(props) {
                                 {
                                     courseList.map((v)=>{
                                         return <div className="flex justify-between items-center">
-                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.number}.{v.judul}</Link>
+                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.judul}</Link>
                                         <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
                                     </div>
                                     })

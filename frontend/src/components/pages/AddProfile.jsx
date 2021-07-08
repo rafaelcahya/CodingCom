@@ -61,6 +61,10 @@ export default function AddProfile(props) {
             if(name.length>0){
                 localStorage.setItem("name", response.data.name)
             }
+            // if(file.length>=0){
+            //     localStorage.setItem("image", response.data.image)
+            // }
+            localStorage.setItem("image", response.data.image)
         })
     }
 
@@ -127,7 +131,7 @@ export default function AddProfile(props) {
                                 <input className="edit-image-profile w-full"
                                     id="edit-image-profile"
                                     type="file"
-                                    accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
+                                    accept=".png,.jpg,.jpeg,.tiff,.bmp,.hdr,.webp"
                                     name="fileUpload"
                                     onChange={(event) => {
                                         setFile(event.target.files[0])

@@ -30,6 +30,11 @@ function TopicDetail(props) {
     const [valueList, setValueList] = useState([])
     const [rating, setRating] = useState([])
     const [valueAVG, setValueAVG] = useState([])
+    const [Count1, setCount1] = useState([])
+    const [Count2, setCount2] = useState([])
+    const [Count3, setCount3] = useState([])
+    const [Count4, setCount4] = useState([])
+    const [Count5, setCount5] = useState([])
 
     useEffect(() => {
         Axios.get("http://localhost:3001/rating/ratingList/"+ urlid).then((response) => {
@@ -41,6 +46,26 @@ function TopicDetail(props) {
     useEffect(() => {
         Axios.get("http://localhost:3001/rating/AvgratingList/" + urlid).then((response) => {
             setValueAVG(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count1/" + urlid).then((response) => {
+            setCount1(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count2/" + urlid).then((response) => {
+            setCount2(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count3/" + urlid).then((response) => {
+            setCount3(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count4/" + urlid).then((response) => {
+            setCount4(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count5/" + urlid).then((response) => {
+            setCount5(response.data)
             console.log(response.data)
         })
     }, []);
@@ -75,6 +100,7 @@ function TopicDetail(props) {
                                     <div>
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
                                         <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p>
+                                        <p className="max-w-3xl text-gray-400 text-sm mt-2">Create by mentor {val.fullname}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-10 my-10 w-full">
@@ -144,6 +170,22 @@ function TopicDetail(props) {
                                                                         val.AverageRating == 1 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😰</p><p className="font-semibold">Very bad</p></div>) :
                                                                             (<p className="text-lg font-semibold mb-2">not rated yet</p>)
                                                         }
+                                                        <p className="font-semibold">votes from {val.SumRating} users</p>
+                                                        {Count5.map((c5)=>{
+                                                            return <p className="font-semibold">😍 votes from {c5.Rating5} users</p>
+                                                        })}
+                                                        {Count4.map((c4)=>{
+                                                            return <p className="font-semibold">🤩 votes from {c4.Rating4} users</p>
+                                                        })}
+                                                        {Count3.map((c3)=>{
+                                                            return <p className="font-semibold">😑 votes from {c3.Rating3} users</p>
+                                                        })}
+                                                        {Count2.map((c2)=>{
+                                                            return <p className="font-semibold">☹️ votes from {c2.Rating2} users</p>
+                                                        })}
+                                                        {Count1.map((c1)=>{
+                                                            return <p className="font-semibold">😰 votes from {c1.Rating1} users</p>
+                                                        })}
                                                     </div>
                                                 }
                                             )

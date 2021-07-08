@@ -53,7 +53,57 @@ router.get("/ratingList/:id", (req, res) => {
 router.get("/AvgratingList/:id", (req, res) => {
     const id = req.params.id
     let isDeleted = "NO"
-    db.query("SELECT AVG(rating) AS AverageRating FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
+    db.query("SELECT AVG(rating) AS AverageRating, COUNT(ratingId) AS SumRating FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
+router.get("/Count5/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    let rating = 5
+    db.query("SELECT COUNT(ratingId) AS Rating5 FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ? AND rating.rating = ?",[id,isDeleted,rating], (err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
+router.get("/Count4/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    let rating = 4
+    db.query("SELECT COUNT(ratingId) AS Rating4 FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ? AND rating.rating = ?",[id,isDeleted,rating], (err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
+router.get("/Count3/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    let rating = 3
+    db.query("SELECT COUNT(ratingId) AS Rating3 FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ? AND rating.rating = ?",[id,isDeleted,rating], (err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
+router.get("/Count2/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    let rating = 2
+    db.query("SELECT COUNT(ratingId) AS Rating2 FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ? AND rating.rating = ?",[id,isDeleted,rating], (err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
+router.get("/Count1/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    let rating = 1
+    db.query("SELECT COUNT(ratingId) AS Rating1 FROM rating WHERE rating.topik_id = ? AND rating.isDeleted = ? AND rating.rating = ?",[id,isDeleted,rating], (err, results) => {
         res.send(results)
         console.log(results)
     })
