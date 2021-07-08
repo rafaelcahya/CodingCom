@@ -8,6 +8,16 @@ function ConsultationClass() {
     var hours = new Date().getHours()
     var dayOfWeek = new Date().getDay();
     const [value, setValue] = useState([])
+    const [updateAt, setUpdateAt] = useState("")
+
+    window.onload = setTimeout(function () {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setUpdateAt(dateTime)
+    }, 500)
+
     useEffect(() => {
         axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
             setValue(response.data)
@@ -15,6 +25,13 @@ function ConsultationClass() {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const reset = () => {
+        axios.post("http://localhost:3001/user/minUserKuotaConsultation", { name:localStorage.getItem("name"), updateAt:updateAt }).then((response) => {
+            console.log(response)
+        })
+    }
+
     return (
         <>
             <NavbarLogin/>
@@ -63,6 +80,7 @@ function ConsultationClass() {
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm text-gray-900">09:00 - 17:00</div>
                                             </td>
+                                            {/* buat data kuota yang sama sekali blm dibikin==> !value.length */}
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
                                                         <span className="px-4 py-2 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-100 text-red-800">
@@ -81,7 +99,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                     </td>
@@ -89,7 +107,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                         
@@ -129,7 +147,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                     </td>
@@ -137,7 +155,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                     </td>
@@ -176,7 +194,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                        
@@ -185,7 +203,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                         
@@ -256,7 +274,7 @@ function ConsultationClass() {
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                     {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                 </td>
@@ -264,7 +282,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                         
@@ -304,7 +322,7 @@ function ConsultationClass() {
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                     {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(<a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                     
@@ -313,7 +331,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                        
@@ -353,7 +371,7 @@ function ConsultationClass() {
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                     {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?( <a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-100 px-6 py-2 rounded-lg pointer-events-none cursor-default">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                    
@@ -362,7 +380,7 @@ function ConsultationClass() {
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                                                         {value.map((val)=>{
                                                             return <div>
-                                                                {val.classConsultation > 0 ?(  <a href="https://meet.google.com/bcm-gkid-hhx" className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
+                                                                {val.classConsultation > 0 ?(  <a href="https://meet.google.com/bcm-gkid-hhx" onClick={reset} className="bg-blue-1 px-6 py-2 rounded-lg">Join</a>):(<p>You don't have any quota left</p>)}
                                                             </div>
                                                         })}
                                                       

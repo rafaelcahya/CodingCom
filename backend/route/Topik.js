@@ -47,8 +47,9 @@ router.post("/addTopik", (req, res) => {
 
 router.get("/topikById/:id", (req, res) => {
     const id = req.params.id
-    db.query("SELECT * from topik WHERE topikId = ?", id, (err, results) => {
+    db.query("SELECT topik.topikId, topik.category_id, topik.progress, topik.time, topik.status, topik.topikTitle, topik.topikInfo, topik.about, topik.topikCreateAt, topik.topikUpdateAt, user.fullname from topik,user WHERE topik.user_id = user.id AND topikId = ?", id, (err, results) => {
         res.send(results)
+        console.log(results)
     })
     console.log(id)
 })
@@ -137,8 +138,9 @@ router.post("/editTopikMentor", (req, res) => {
 
 router.get("/topikByCatId/:id/:hash", (req, res) => {
     const id = req.params.id
+    let status = "Approve"
     let isDeleted = "NO"
-    db.query("SELECT * from topik WHERE category_id = ? AND isDeleted = ?", [id,isDeleted], (err, results) => {
+    db.query("SELECT * from topik WHERE category_id = ? AND isDeleted = ? AND status = ?", [id, isDeleted, status], (err, results) => {
         res.send(results)
     })
 })

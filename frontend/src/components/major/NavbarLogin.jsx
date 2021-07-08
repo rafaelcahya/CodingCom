@@ -193,7 +193,7 @@ export default function NavbarLogin() {
                                 {
                                     value.map((val) => {
                                         return <div className="dropdown-tutorial rounded-lg">
-                                                <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(15,10)}>
+                                                <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(1,10)}>
                                                 <div className="flex flex-col gap-1">
                                                     <p className="font-semibold">{val.category}</p>
                                                     <p className="truncate2 leading-6 text-sm">{val.categoryInfo}</p>

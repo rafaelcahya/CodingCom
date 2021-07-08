@@ -33,7 +33,11 @@ function TopicDetail(props) {
     const [valueList, setValueList] = useState([])
     const [rating, setRating] = useState([])
     const [valueAVG, setValueAVG] = useState([])
-
+    const [Count1, setCount1] = useState([])
+    const [Count2, setCount2] = useState([])
+    const [Count3, setCount3] = useState([])
+    const [Count4, setCount4] = useState([])
+    const [Count5, setCount5] = useState([])
     let image = require('../../../asset/upload/'+ localStorage.getItem("image"))
 
     useEffect(() => {
@@ -46,6 +50,26 @@ function TopicDetail(props) {
     useEffect(() => {
         Axios.get("http://localhost:3001/rating/AvgratingList/" + urlid).then((response) => {
             setValueAVG(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count1/" + urlid).then((response) => {
+            setCount1(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count2/" + urlid).then((response) => {
+            setCount2(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count3/" + urlid).then((response) => {
+            setCount3(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count4/" + urlid).then((response) => {
+            setCount4(response.data)
+            console.log(response.data)
+        })
+        Axios.get("http://localhost:3001/rating/Count5/" + urlid).then((response) => {
+            setCount5(response.data)
             console.log(response.data)
         })
     }, []);
@@ -79,6 +103,7 @@ function TopicDetail(props) {
                                     <div>
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
                                         <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p>
+                                        <p className="max-w-3xl text-gray-400 text-sm mt-2">Create by mentor {val.fullname}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-10 my-10 w-full">
@@ -114,59 +139,65 @@ function TopicDetail(props) {
                                                 )
                                             }
                                     </div>
-                                    <div className='sticky self-start top-10 w-1/3'>
-                                        <div className="p-5 rounded-lg shadow-lg">
-                                            <div>
-                                                <p className="text-2xl font-semibold mb-4">{val.topikTitle}</p>
-                                                <ShowMoreText
-                                                    more='Read more'
-                                                    less='Read less'
-                                                    anchorClass='anchor-showmore'
-                                                    className="text-sm text-gray-500">
-                                                    <p className="max-w-3xl text-gray-400 text-sm">{val.topikInfo}</p>
-                                                </ShowMoreText>
-                                            </div>
-                                            {
-                                                !value.length ? (<p>gkada</p>) : value.map((item)=>{
-                                                    return <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId}>
-                                                    <p className="bg-blue-1 text-white font-medium text-center rounded-lg p-2 my-5">Start learning</p>
-                                                    </Link>
-                                                })
-                                            }
-                                        </div>
-                                        <div className="p-5 flex flex-col items-center rounded-lg shadow-lg">
-                                            {
-                                                valueAVG.map(
-                                                    (val) => {
-                                                        return <div>
-                                                            {
-                                                                valueList.map(
-                                                                    (val) => {
-                                                                        return <p className="font-semibold">Average rating</p>
-                                                                    }
-                                                                )
-                                                            }
-                                                            {val.AverageRating == 5 ? (<div className="flex flex-col items-center gap-1"><p className="text-3xl pt-5">😍</p><p className="font-semibold">Very good</p></div>) :
-                                                                val.AverageRating == 4 ? (<div className="flex flex-col items-center gap-1"><p className="text-3xl pt-5">🤩</p><p className="font-semibold">Good</p></div>) :
-                                                                    val.AverageRating == 3 ? (<div className="flex flex-col items-center gap-1"><p className="text-3xl pt-5">😑</p><p className="font-semibold">Fair</p></div>) :
-                                                                        val.AverageRating == 2 ? (<div className="flex flex-col items-center gap-1"><p className="text-3xl pt-5">☹️</p><p className="font-semibold">Poor</p></div>) :
-                                                                            val.AverageRating == 1 ? (<div className="flex flex-col items-center gap-1"><p className="text-3xl pt-5">😰</p><p className="font-semibold">Very bad</p></div>) :
-                                                                                (<p className="text-lg font-semibold mb-2">not rated yet</p>)
-                                                            }
-                                                            <div>
-                                                                Total berapa orng yang ngerating
-                                                            </div>
-                                                            <div>
-                                                                Total berapa orng yang ngerating bad 
-                                                            </div>
-                                                            <div>
-                                                                Total berapa orng yang ngerating very bad
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                )
-                                            }
-                                        </div>
+                                    <div className="sticky self-start top-10 w-1/3">
+                                        {/* <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
+                                        <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p> */}
+                                        {
+                                            !value.length ? (<p>gkada</p>) : value.map((item)=>{
+                                                return <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId}>
+                                                <p>MASUK KE COURSE</p>
+                                                </Link>
+                                            })
+                                            
+                                        }
+                                        {/* {
+                                            value.map(
+                                                (item) => {
+                                                    return <div className="flex justify-between items-center">
+                                                        <Link to={"/"+ item.judul +"/" + item.id + "/" + val.topikId}>{item.number}.{item.judul}</Link>
+                                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{item.time} min</p>
+                                                    </div>
+                                                }
+                                            )
+					                    } */}
+                                        {
+                                            valueAVG.map(
+                                                (val) => {
+                                                    return <div className="my-10 text-center">
+                                                        {
+                                                            valueList.map(
+                                                                (val) => {
+                                                                    return <p className="text-sm">Your rating for {val.topikTitle}</p>
+                                                                }
+                                                            )
+                                                        }
+                                                        {val.AverageRating == 5 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😍</p><p className="font-semibold">Very good</p></div>) :
+                                                            val.AverageRating == 4 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">🤩</p><p className="font-semibold">Good</p></div>) :
+                                                                val.AverageRating == 3 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😑</p><p className="font-semibold">Fair</p></div>) :
+                                                                    val.AverageRating == 2 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">☹️</p><p className="font-semibold">Poor</p></div>) :
+                                                                        val.AverageRating == 1 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😰</p><p className="font-semibold">Very bad</p></div>) :
+                                                                            (<p className="text-lg font-semibold mb-2">not rated yet</p>)
+                                                        }
+                                                        <p className="font-semibold">votes from {val.SumRating} users</p>
+                                                        {Count5.map((c5)=>{
+                                                            return <p className="font-semibold">😍 votes from {c5.Rating5} users</p>
+                                                        })}
+                                                        {Count4.map((c4)=>{
+                                                            return <p className="font-semibold">🤩 votes from {c4.Rating4} users</p>
+                                                        })}
+                                                        {Count3.map((c3)=>{
+                                                            return <p className="font-semibold">😑 votes from {c3.Rating3} users</p>
+                                                        })}
+                                                        {Count2.map((c2)=>{
+                                                            return <p className="font-semibold">☹️ votes from {c2.Rating2} users</p>
+                                                        })}
+                                                        {Count1.map((c1)=>{
+                                                            return <p className="font-semibold">😰 votes from {c1.Rating1} users</p>
+                                                        })}
+                                                    </div>
+                                                }
+                                            )
+                                        }
                                     </div>
                                 </div>
                             </div>

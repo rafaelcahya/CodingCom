@@ -15,7 +15,7 @@ router.post("/project", (req, res) => {
     const createAt = req.body.createAt
     let updateAt = ""
     let isDeleted = "NO"
-    let format = /[^!@#$%^&*()_+\-={};':"|,.<>?*$]/
+    let format =/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
 
     if (title.length <= 0) {
         res.send({ message: "Project Title can not be empty" })
@@ -28,7 +28,7 @@ router.post("/project", (req, res) => {
     } else if(language.length<=0){
         res.send({message:"Programming language must be filled"})
     } else if(language.match(format)!=null){
-        res.send({message:"Can not have special character"})
+        res.send({message:"Programming Language must use space"})
     } else if (!req.files) {
         res.send({ message: "Image can not be empty" })
     } else {
@@ -36,7 +36,7 @@ router.post("/project", (req, res) => {
         const filename = file.name
         const projectFile = req.files.projectFile
         const projectFileName = projectFile.name
-        db.query("INSERT INTO project (projectTitle, type_id, projectInfo, image, projectBrief, projectFile, projectCreateAt, projectUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, info, filename, brief, projectFileName, createAt, updateAt, isDeleted], (err, results) => {
+        db.query("INSERT INTO project (projectTitle, type_id, projectInfo, image, projectBrief, projectFile, programmingLanguage, projectCreateAt, projectUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, type, info, filename, brief, projectFileName, language, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
             file.mv('../frontend/src/asset/upload/' + file.name)
@@ -97,12 +97,16 @@ router.post("/editProject", (req, res) => {
     let info = req.body.info
     let brief = req.body.brief
     let type = req.body.type
+    let language = req.body.language
     let updateAt = req.body.updateAt
     const file = req.files.fileUpload
     const filename = file.name
     const projectFile = req.files.projectFile
     const projectFileName = projectFile.name
 
+    if(language.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) != null){
+        res.send({message:"Programming Language must use space"})
+    }else{
     db.query("SELECT * From project WHERE projectId = ?", id, (err, results) => {
         if (err) {
             console.log(err)
@@ -120,6 +124,9 @@ router.post("/editProject", (req, res) => {
             } if (type.length <= 0) {
                 type = results[0].type_id
 
+            } if(language.length <= 0){
+                language = results[0].language
+                
             } if (!req.files) {
                 db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectId=?;", [title, info, brief, updateAt, id], (err, results) => {
                     console.log(err)
@@ -136,6 +143,7 @@ router.post("/editProject", (req, res) => {
             }
         }
     })
+}
     // db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE id=?;", [title, info, brief, updateAt, id], (err, results) => {
     //     console.log(err)
     //     res.send(results)

@@ -521,9 +521,7 @@ router.post("/profile", (req, res) => {
     let education = req.body.education
     const updateAt = req.body.updateAt
 
-    if(fullname.length<=0 && name.length<=0 && gender.length<=0 && BoD.length<=0 && phonenumber.length<=0 && cphonenumber.length<=0 && emergencynumber.length<=0 && cemergencynumber.length<=0 && address.length<=0 && city.length<=0 && postalCode <=0 && education.length<=0){
-        res.send({message:""})
-    }else if(name.length > 20){
+    if(name.length > 20){
         res.send({message:"Username must be less than 20 characters"})
     }else if(name.match(/[ ]/)!=null) {
         res.send({message:"Username cannot contain spaces"})
@@ -581,7 +579,7 @@ router.post("/profile", (req, res) => {
                     const file = req.files.fileUpload
                     const filename = file.name
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?, image = ? WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, filename, urlname], (err, results) => {
-                        res.json({ message:"Profile Updated", name: name})
+                        res.json({ message:"Profile Updated", name: name, image: file.name})
                         file.mv('../frontend/src/asset/upload/' + file.name)
                     })
                 }
@@ -687,6 +685,32 @@ router.post("/minUserKuotaSession", (req, res) => {
                 })
             }
         })
+})
+
+router.post("/minUserKuotaConsultation", (req, res) => {
+    const name = req.body.name
+    const updateAt = req.body.updateAt
+    let kuotaConsultation = 0
+    let user_id = 0
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT * From userkuota WHERE user_id = ?", user_id, (err, results) => {
+                if (err) {
+                    console.log(err)
+                }
+                if (results.length > 0) {
+                    kuotaConsultation = results[0].classConsultation - 1
+                    db.query("UPDATE userkuota SET classConsultation = ?, kuotaUpdateAt = ? WHERE user_id = ?;", [kuotaConsultation, updateAt, user_id], (err, results) => {
+                        res.send({message:"Kuota updated"})
+                    })
+                }
+            })
+        }
+    })
 })
 
 module.exports = router;

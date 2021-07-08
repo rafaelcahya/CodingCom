@@ -95,20 +95,21 @@ function Internet(props) {
                 <div className="hidden lg:block lg:w-1/5">
                 <div className="hidden lg:block sticky self-start top-0 pt-6">
                 <p className="text-lg font-semibold">Course List</p>
-                    <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                        <div className="flex justify-between items-center">
-                            <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
-                            <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
-                        </div>
-                        {
-                            courseList.map((v)=>{
-                                return <div className="flex justify-between items-center">
-                                <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.number}.{v.judul}</Link>
-                                <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
-                            </div>
-                            })
-                        }
-                    </div>
+                   <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                                <div className="flex justify-between items-center">
+                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
+                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                                </div>
+                                {
+                                    courseList.map((v)=>{
+                                        return <div className="flex justify-between items-center">
+                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.judul}</Link>
+                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
+                                    </div>
+                                    })
+                                }
+                                </div>
+                        
             </div>
                 </div>
                 <SidebarInternetMobile />
