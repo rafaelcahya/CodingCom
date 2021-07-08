@@ -74,7 +74,9 @@ export const GlobalStyle = createGlobalStyle`
     .purchase-card,
     .history-project-card,
     .challenge-card,
-    .detail-class-card {
+    .detail-class-card,
+    .career-card,
+    .filter-job {
         background: ${({theme}) => theme.foreground2};
     }
 
@@ -110,15 +112,10 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground3};
     }
     
-    .filter-job,
-    .career-card,
     .purchase-filter-btn,
-    .project-filter-btn{
+    .project-filter-btn,
+    .jobCategorybtn{
         background: ${({theme}) => theme.foreground5};
-    }
-    
-    .filter-job button{
-        background: ${({theme}) => theme.foreground4};
     }
     
     .sidebar,

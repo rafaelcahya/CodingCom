@@ -58,11 +58,13 @@ function CategoryDetail(props) {
     let total_min = 0; 
     let tot = 0;
 
-    for (let i = 0; i < course.length; i++) {
-        if (course[i].topikTitle == "Basic Internet")
-        if (course[i].time) tot += parseInt(course[i].time);
-    }
-    total_min = tot;
+    value.map((v)=>{
+        for (let i = 0; i < course.length; i++) {
+            if (course[i].topikTitle == v.topikTitle)
+            if (course[i].time) tot += parseInt(course[i].time);
+        }
+    return total_min = tot;
+    })
 
     return (
         <>
@@ -76,7 +78,6 @@ function CategoryDetail(props) {
                                 <p className="text-2xl lg:text-5xl font-semibold">{val.category}</p>
                                 <p className="text-center py-5 max-w-3xl">{val.categoryInfo}</p>
                             </div>
-                            
                             <div className="flex-1 flex flex-wrap gap-5 my-10">
                                 {
                                     value.map(

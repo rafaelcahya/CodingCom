@@ -70,10 +70,68 @@ function ClassDetail(props) {
                                     <div className="flex flex-col gap-5 w-full md:w-3/5">
                                         <img src={image.default}  className="rounded-lg" />
                                         <div className="flex flex-col gap-5">
-                                            <div className="py-8 border-b-2 border-gray-300">
+                                            <div className="pt-8">
                                                 <p className="text-2xl font-bold capitalize">{val.className}</p>
-                                                <p className="text-gray-500 text-sm font-medium capitalize">by {val.fullname}</p>
+                                                <p className="text-gray-500 text-sm font-medium capitalize">by {val.fullname}</p> 
                                             </div>
+                                            <div className="flex md:hidden flex-col gap-5">
+                                                <div className="flex gap-5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                                    <div className="mt-0.5">
+                                                        <p className="text-gray-500 text-xs uppercase font-semibold">Date</p>
+                                                        <p className="font-medium mt-1">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                                    <div className="mt-0.5">
+                                                        <p className="text-gray-500 text-xs uppercase font-semibold">Time</p>
+                                                        <p className="font-medium mt-1">{val.startTime} - {val.endTime}</p>
+                                                    </div>
+                                                </div> 
+                                                {!value.length ? (<div>
+                                                    <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                                    {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                        <p className="font-semibold">You don't have any quota for join class session, You can buy your quota in the link below</p>
+                                                        <div className="flex items-center gap-5 mt-4">
+                                                            <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                            <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                        </div>
+                                                    </div>}
+                                                </div>) : (value.map((items) => {
+                                                    return <div>
+                                                        {items.classSession <= 0 ? (<div>
+                                                            <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
+                                                            {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
+                                                                <p className="font-semibold">You don't have any quota left please buy quota to join this class</p>
+                                                                <div className="flex items-center gap-5 mt-4">
+                                                                    <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                                    <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                                </div>
+                                                            </div>}
+                                                        </div>) : (<div>
+                                                            <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md w-max">Join</p>
+                                                            {show && valueVal.map((v) => {
+                                                                return <div className="detail-class-card flex flex-col gap-4 text-sm shadow rounded-lg p-4 mt-4">
+                                                                <p className="font-semibold">Are you sure you want to take this class?</p>
+                                                                <div className="flex items-center gap-5">
+                                                                    <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
+                                                                    <a href={val.url} target="_blank" rel="noreferrer" onClick={reset} className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                                </div>
+                                                                <div className="flex items-center gap-1">
+                                                                    <p>Remaining class consultation quotas:</p> 
+                                                                    {
+                                                                        v.classSession <= 3 ? <p className="text-base font-semibold text-yellow-500">{v.classSession}</p> :<p className="text-base font-semibold text-green-500">{v.classSession}</p>
+                                                                    } 
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            })}
+                                                        </div>)}
+                                                    </div>
+                                                }))}
+                                            </div>
+                                            <div className="border-darkmode w-full h-0.5"></div>  
                                             <div className="flex flex-col gap-2 pt-3">
                                                 <p className="text-xl font-semibold capitalize">Class Information</p>
                                                 <p>{val.classInfo}</p>
@@ -84,7 +142,7 @@ function ClassDetail(props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="sticky self-start top-5 flex flex-col gap-5 w-full md:w-2/5">
+                                    <div className="sticky self-start top-5 hidden md:flex flex-col gap-5 p-0 md:p-5 w-full md:w-2/5 shadow-none md:shadow-lg rounded-lg">
                                         <p className="text-2xl font-bold capitalize">{val.className}</p>
                                         <div className="flex gap-5">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="transparent" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -92,7 +150,7 @@ function ClassDetail(props) {
                                                 <p className="text-gray-500 text-xs uppercase font-semibold">Date</p>
                                                 <p className="font-medium mt-1">{formatDate(val.startDate)} - {formatDate(val.endDate)}</p>
                                             </div>
-                                        </div>
+                                        </div>  
                                         <div className="flex gap-5">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(156, 163, 175)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                             <div className="mt-0.5">
@@ -108,16 +166,13 @@ function ClassDetail(props) {
                                                 <p>{val.classInfo}</p>
                                             </ShowMoreText>
                                         </div>
-                                        {/* {value.map((val)=>{
-                                            return 
-                                        })} */}
                                         {!value.length ? (<div>
                                             <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
                                             {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
-                                                <p className="font-semibold">You don't have any quota for join class session, You can buy your quota in the link below</p>
+                                                <p className="font-semibold text-red-500">You don't have any quota.</p>
                                                 <div className="flex items-center gap-5 mt-4">
                                                     <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                    <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                    <Link to={"/pricing/" + localStorage.getItem("name")} className="bg-blue-1 text-white text-sm text-center font-medium px-6 py-2 rounded-md">Buy quota</Link>
                                                 </div>
                                             </div>}
                                         </div>) : (value.map((items) => {
@@ -125,10 +180,10 @@ function ClassDetail(props) {
                                                 {items.classSession <= 0 ? (<div>
                                                     <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
                                                     {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
-                                                        <p className="font-semibold">You don't have any quota left please buy quota to join this class</p>
+                                                        <p className="font-semibold text-red-500">You don't have any quota</p>
                                                         <div className="flex items-center gap-5 mt-4">
                                                             <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                            <Link to={"/pricing/" + localStorage.getItem("name")}>Click Here to Buy Quota</Link>
+                                                            <Link to={"/pricing/" + localStorage.getItem("name")} className="bg-blue-1 text-white text-sm text-center font-medium px-6 py-2 rounded-md">Buy quota</Link>
                                                         </div>
                                                     </div>}
                                                 </div>) : (<div>
@@ -152,16 +207,6 @@ function ClassDetail(props) {
                                                 </div>)}
                                             </div>
                                         }))}
-                                        {/* <div>
-                                            <p onClick={() => toggleShow(!show)} className="bg-blue-1 text-white text-sm text-center font-semibold px-6 py-2 rounded-md">Join</p>
-                                            {show && <div className="bg-white text-sm shadow rounded-lg p-4 mt-4">
-                                                <p className="font-semibold">Are you sure you want to take this class?</p>
-                                                <div className="flex items-center gap-5 mt-4">
-                                                    <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                    <a href={val.url} target="_blank" rel="noreferrer" className="bg-blue-1 text-white text-center font-semibold px-10 py-2.5 w-max rounded-md cursor-pointer">Join</a>
-                                                </div>
-                                                </div>}
-                                        </div> */}
                                     </div>
                                 </div>
                             }
@@ -173,6 +218,5 @@ function ClassDetail(props) {
         </>
     )
 }
-
 
 export default ClassDetail

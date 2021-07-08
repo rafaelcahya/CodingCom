@@ -121,11 +121,11 @@ export default function Career() {
 function Button({button, filter}) {
     return (
         <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-100 shadow w-full md:w-2/12">
-            <p className="text-sm font-semibold">Type of employment :</p>
+            <p className="text-sm font-semibold">Type of employment:</p>
             <div className="flex flex-row md:flex-col gap-4">
                 {
                     button.map((cat, i)=>{
-                        return <button onClick={()=> filter(cat)}  id="jobCategorybtn" className="jobCategorybtn text-left text-sm font-medium bg-blue-50 px-2 py-2 rounded-lg">{cat}</button>
+                        return <button onClick={()=> filter(cat)}  id="jobCategorybtn" className="jobCategorybtn text-left text-sm font-medium px-2 py-2 rounded-lg">{cat}</button>
                     })
                 }
             </div>
@@ -147,7 +147,7 @@ function Menu({menuItem}) {
                             </div>
                             <div className="flex flex-col gap-2 py-2">
                                 <p className="text-sm">{item.companyName}</p>
-                                <p className="font-bold">{item.jobTitle}</p>
+                                <p className="font-semibold">{item.jobTitle}</p>
                                 <div className="text-sm truncate3">
                                     <div dangerouslySetInnerHTML={{ __html: item.overview }} />
                                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { AnimatePresence, motion } from "framer-motion"
 import Axios from 'axios'
@@ -42,6 +43,8 @@ function Internet(props) {
     const [courseList, setCourseList] = useState([])
     const [commentlist, setCommentList] = useState([])
 
+    let image = require('../../../../../asset/upload/'+ localStorage.getItem("image"))
+
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
         document.getElementById("name").innerHTML = x;
@@ -82,7 +85,7 @@ function Internet(props) {
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
-    const formatTime = s => new Date(s).toLocaleTimeString();
+    const formatTime = s => new Date(s).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
     return (
         <>
@@ -92,21 +95,20 @@ function Internet(props) {
                 <div className="hidden lg:block lg:w-1/5">
                 <div className="hidden lg:block sticky self-start top-0 pt-6">
                 <p className="text-lg font-semibold">Course List</p>
-                   <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                                <div className="flex justify-between items-center">
-                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
-                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
-                                </div>
-                                {
-                                    courseList.map((v)=>{
-                                        return <div className="flex justify-between items-center">
-                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.number}.{v.judul}</Link>
-                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
-                                    </div>
-                                    })
-                                }
-                                </div>
-                        
+                    <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                        <div className="flex justify-between items-center">
+                            <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
+                            <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                        </div>
+                        {
+                            courseList.map((v)=>{
+                                return <div className="flex justify-between items-center">
+                                <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.number}.{v.judul}</Link>
+                                <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
+                            </div>
+                            })
+                        }
+                    </div>
             </div>
                 </div>
                 <SidebarInternetMobile />
@@ -117,7 +119,7 @@ function Internet(props) {
                                 return <div>
                                     <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                         <div>
-                                            <p className="text-2xl lg:text-5xl font-semibold">{val.judul}</p>
+                                            <p className="text-2xl lg:text-3xl font-semibold">{val.judul}</p>
                                             <p className="text-gray-400 text-sm mt-2">{val.description}</p>
                                         </div>
                                         <p className="text-gray-400 text-sm mt-5 sm:mt-0">{val.time} min</p>
@@ -129,7 +131,6 @@ function Internet(props) {
                             }
                         )
                     }
-
 
                     <div className="comment-container mt-32">
                         <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
@@ -145,12 +146,15 @@ function Internet(props) {
                         {
                             commentlist.map(
                                 (val) => {
-                                    return <div className="comment-box p-4 my-5 rounded-lg">
-                                        <div className="flex justify-between mb-1">
-                                            <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
-                                            <p className="text-gray-400 text-sm">{formatDate(val.commentCreateAt)} {formatTime(val.commentCreateAt)}</p>
+                                    return <div className="comment-box flex gap-5 p-4 my-5 rounded-lg">
+                                        <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile"/>
+                                        <div className='flex flex-col gap-4'>
+                                            <div className="flex flex-col gap-1">
+                                                <p className="color-blue-1 font-semibold text-sm">{val.name}</p>
+                                                <p className="text-gray-400 text-xs">{formatDate(val.commentCreateAt)} {formatTime(val.commentCreateAt)}</p>
+                                            </div>
+                                            <p className="text-sm">{val.comment}</p>
                                         </div>
-                                        <p className="text-sm">{val.comment}</p>
                                     </div>
                                 }
                             )
@@ -181,8 +185,8 @@ function Internet(props) {
                 </div>
             </div>
             <Footer />
-         </>
-     )
+        </>
+    )
  }
 
 export default Internet

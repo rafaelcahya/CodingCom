@@ -41,7 +41,7 @@ export const SidebarInternet = () => {
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <Link to={"/"+ val.judul +"/" + val.number + "/" + val.topik_id}>{val.number}.{val.judul}</Link>
+                                    <Link to={"/"+ val.judul +"/" + val.number + "/" + val.topik_id}>{val.judul}</Link>
                                     <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{val.time} min</p>
                                 </div>
                                 </div>

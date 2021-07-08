@@ -285,7 +285,7 @@ function Button({ button, filter }) {
             <div className="flex gap-4">
                 {
                     button.map((cat, i) => {
-                        return <button onClick={() => filter(cat)} id="jobCategorybtn" className="project-filter-btn text-left text-sm font-medium bg-blue-50 px-2 py-2 rounded-lg">{cat}</button>
+                        return <button onClick={() => filter(cat)} id="jobCategorybtn" className="project-filter-btn text-left text-sm font-medium px-2 py-2 rounded-lg">{cat}</button>
                     })
                 }
             </div>

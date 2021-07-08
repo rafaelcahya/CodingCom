@@ -33,6 +33,7 @@ function TopicDetail(props) {
     const [valueList, setValueList] = useState([])
     const [rating, setRating] = useState([])
     const [valueAVG, setValueAVG] = useState([])
+
     let image = require('../../../asset/upload/'+ localStorage.getItem("image"))
 
     useEffect(() => {
@@ -64,7 +65,6 @@ function TopicDetail(props) {
     }, []);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
-    const formatTime = s => new Date(s).toLocaleTimeString(undefined, { timeStyle: 'short' });
 
     return (
         <>
