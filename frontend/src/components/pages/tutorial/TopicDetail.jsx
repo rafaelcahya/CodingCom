@@ -94,117 +94,193 @@ function TopicDetail(props) {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
+            <div className="mt-32 lg:mt-16 px-16 xl:px-32 leading-7">
                 {
                     valueList.map(
                         (val) => {
                             return <div>
                                 <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
-                                    <div>
+                                    <div className="flex flex-col gap-3">
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
-                                        <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p>
-                                        <p className="max-w-3xl text-gray-400 text-sm mt-2">Create by mentor {val.fullname}</p>
+                                        {/* <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p> */}
+                                        <div className="flex gap-1 max-w-3xl text-sm mt-2">
+                                            <p className="text-black font-semibold">Created by</p>
+                                            <p className="text-gray-500">{val.fullname}</p>
+                                        </div>
+                                        {
+                                            valueAVG.map((val) => {
+                                                return <div className='flex items-center gap-2'>
+                                                    {val.AverageRating == 5 ? (<div className="flex items-center gap-1"><p className="text-sm font-semibold text-green-500">Very good</p><p className="text-lg">😍</p></div>) 
+                                                        :
+                                                            val.AverageRating == 4 ? (<div className="flex items-center gap-1"><p className="text-sm font-semibold text-green-500">Good</p><p className="text-lg">🤩</p></div>)
+                                                        :
+                                                            val.AverageRating == 3 ? (<div className="flex items-center gap-1"><p className="text-sm font-semibold text-blue-500">Fair</p><p className="text-lg">😑</p></div>) 
+                                                        :
+                                                            val.AverageRating == 2 ? (<div className="flex items-center gap-1"><p className="text-sm font-semibold text-yellow-500">Poor</p><p className="text-lg">☹️</p></div>) 
+                                                        :
+                                                            val.AverageRating == 1 ? (<div className="flex  items-center gap-1"><p className="text-sm font-semibold text-red-500">Very bad</p><p className="text-lg">😰</p></div>) 
+                                                        :
+                                                            (<p className="text-sm font-semibold mb-2">not rated yet</p>)
+                                                    }
+                                                    <p className="text-sm">{val.SumRating} ratings</p>
+                                                </div>
+                                            })
+                                        }
                                     </div>
                                 </div>
-                                <div className="flex gap-10 my-10 w-full">
-                                    <div className="content-course w-2/3">
+                                <div className="flex flex-col md:flex-row gap-10 my-10">
+                                    <div className="content-course w-full md:w-2/3">
                                         <div dangerouslySetInnerHTML={{ __html: val.about }} className="tinymce-topic-detail"/>
-                                        <div className="pt-10 border-b">
-                                            <p className="text-xl font-semibold">Reviews</p>
-                                            </div>
-                                            {
-                                                rating.map(
-                                                    (val) => {
-                                                        return <div className="review py-5">
-                                                            <div className="flex justify-between items-center">
-                                                                <div className="flex gap-4">
-                                                                    <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile"/>
-                                                                    <div>
-                                                                        <p className="font-medium">{val.name}</p>
-                                                                        <p className="text-xs text-gray-400">{formatDate(val.ratingCreateAt)}</p>
-                                                                        <p className="py-2"> {val.description}</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    {val.rating == 1 ? (<p className="text-2xl">😰</p>) :
-                                                                        val.rating == 2 ? (<p className="text-2xl">☹️</p>) :
-                                                                            val.rating == 3 ? (<p className="text-2xl">😑</p>) :
-                                                                                val.rating == 4 ? (<p className="text-2xl">🤩</p>) :
-                                                                                    (<p className="text-2xl">😍</p>)
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    }
-                                                )
-                                            }
-                                    </div>
-                                    <div className="sticky self-start top-10 w-1/3">
-                                        {/* <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
-                                        <p className="text-gray-400 text-sm mt-2">{val.topikInfo}</p> */}
-                                        {
-                                            !value.length ? (<p>gkada</p>) : value.map((item)=>{
-                                                return <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId}>
-                                                <p>MASUK KE COURSE</p>
-                                                </Link>
-                                            })
-                                            
-                                        }
-                                        {/* {
-                                            value.map(
-                                                (item) => {
-                                                    return <div className="flex justify-between items-center">
-                                                        <Link to={"/"+ item.judul +"/" + item.id + "/" + val.topikId}>{item.number}.{item.judul}</Link>
-                                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{item.time} min</p>
-                                                    </div>
-                                                }
-                                            )
-					                    } */}
                                         {
                                             valueAVG.map(
                                                 (val) => {
-                                                    return <div className="my-10 text-center">
+                                                    return <div className="rating py-10">
                                                         {
-                                                            valueList.map(
-                                                                (val) => {
-                                                                    return <p className="text-sm">Your rating for {val.topikTitle}</p>
-                                                                }
-                                                            )
-                                                        }
-                                                        {val.AverageRating == 5 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😍</p><p className="font-semibold">Very good</p></div>) :
-                                                            val.AverageRating == 4 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">🤩</p><p className="font-semibold">Good</p></div>) :
-                                                                val.AverageRating == 3 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😑</p><p className="font-semibold">Fair</p></div>) :
-                                                                    val.AverageRating == 2 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">☹️</p><p className="font-semibold">Poor</p></div>) :
-                                                                        val.AverageRating == 1 ? (<div className="flex flex-col gap-1"><p className="text-3xl pt-5">😰</p><p className="font-semibold">Very bad</p></div>) :
-                                                                            (<p className="text-lg font-semibold mb-2">not rated yet</p>)
-                                                        }
-                                                        <p className="font-semibold">votes from {val.SumRating} users</p>
-                                                        {Count5.map((c5)=>{
-                                                            return <p className="font-semibold">😍 votes from {c5.Rating5} users</p>
-                                                        })}
-                                                        {Count4.map((c4)=>{
-                                                            return <p className="font-semibold">🤩 votes from {c4.Rating4} users</p>
-                                                        })}
-                                                        {Count3.map((c3)=>{
-                                                            return <p className="font-semibold">😑 votes from {c3.Rating3} users</p>
-                                                        })}
-                                                        {Count2.map((c2)=>{
-                                                            return <p className="font-semibold">☹️ votes from {c2.Rating2} users</p>
-                                                        })}
-                                                        {Count1.map((c1)=>{
-                                                            return <p className="font-semibold">😰 votes from {c1.Rating1} users</p>
-                                                        })}
+                                            valueAVG.map((val) => {
+                                                return <div className='flex items-center gap-2 pb-8'>
+                                                    {val.AverageRating == 5 ? (<div className="flex items-center gap-1"><p className="text-sm font-semibold">Very good</p><p className="text-5xl">😍</p></div>) 
+                                                        :
+                                                            val.AverageRating == 4 ? (<div className="flex items-center gap-1"><p className="text-5xl">🤩</p></div>)
+                                                        :
+                                                            val.AverageRating == 3 ? (<div className="flex items-center gap-1"><p className="text-5xl">😑</p></div>) 
+                                                        :
+                                                            val.AverageRating == 2 ? (<div className="flex items-center gap-1"><p className="text-5xl">☹️</p></div>) 
+                                                        :
+                                                            val.AverageRating == 1 ? (<div className="flex  items-center gap-1"><p className="text-5xl">😰</p></div>) 
+                                                        :
+                                                            (<p className="text-sm font-semibold mb-2">not rated yet</p>)
+                                                    }
+                                                    <div>
+                                                        <p>{val.SumRating} ratings</p>
+                                                        <p className="text-sm text-gray-400 font-medium">Average rating</p>
+                                                    </div>
+                                                </div>
+                                            })
+                                        }
+                                                        <table>
+                                                            {Count5.map((c5) => {
+                                                                return <tr>
+                                                                    <td><p className="text-sm font-semibold">Very Good</p></td>
+                                                                    <td><p className="text-lg">😍</p></td>
+                                                                    <td><p className="text-sm">{c5.Rating5} ratings</p></td>
+                                                                </tr>
+                                                            })}
+                                                            {Count4.map((c4) => {
+                                                                return <tr>
+                                                                    <td><p className="text-sm font-semibold">Good</p></td>
+                                                                    <td><p className="text-lg">🤩</p></td>
+                                                                    <td><p className="text-sm">{c4.Rating4} ratings</p></td>
+                                                                </tr>
+                                                            })}
+                                                            {Count3.map((c3) => {
+                                                                return <tr>
+                                                                    <td><p className="text-sm font-semibold">Fair</p></td>
+                                                                    <td><p className="text-lg">😑</p></td>
+                                                                    <td><p className="text-sm">{c3.Rating3} ratings</p></td>
+                                                                </tr>
+                                                            })}
+                                                            {Count2.map((c2) => {
+                                                                return <tr>
+                                                                    <td><p className="text-sm font-semibold">Poor</p></td>
+                                                                    <td><p className="text-lg">☹️</p></td>
+                                                                    <td><p className="text-sm">{c2.Rating2} ratings</p></td>
+                                                                </tr>
+                                                            })}
+                                                            {Count1.map((c1) => {
+                                                                return <tr>
+                                                                    <td><p className="text-sm font-semibold">Very Bad</p></td>
+                                                                    <td><p className="text-lg">😰</p></td>
+                                                                    <td><p className="text-sm">{c1.Rating1} ratings</p></td>
+                                                                </tr>
+                                                            })}
+                                                        </table>
                                                     </div>
                                                 }
                                             )
                                         }
+                                    </div>
+                                    <div className="flex flex-col gap-10 w-full md:w-1/3">
+                                        <div className="shadow-xl p-5 top-10 rounded-lg z-50">
+                                            {
+                                                !value.length ? (<p>gkada</p>) : value.map((item)=>{
+                                                    return <div className="flex flex-col gap-8">
+                                                        <div className="flex flex-col gap-2">
+                                                            <p className="text-2xl lg:text-3xl font-semibold">{val.topikTitle}</p>
+                                                            <ShowMoreText
+                                                                more='Read more'
+                                                                less='Read less'
+                                                                anchorClass='anchor-showmore'
+                                                                className="text-sm text-gray-400">
+                                                                <p className="max-w-3xl text-gray-400 text-sm">{val.topikInfo}</p>
+                                                            </ShowMoreText>
+                                                        </div>
+                                                        <Link to={"/"+ GenerateID(1,10) +"/" + item.number + "-" + item.id + "/" + val.topikId} className="bg-blue-500 hover:bg-blue-400 text-center text-sm font-medium text-white rounded-lg py-3">
+                                                            Start Learning
+                                                        </Link>
+                                                    </div>
+                                                })
+                                            }
+                                        </div>
+                                        <div className="flex flex-col gap-5 bg-gray-100 p-5 top-10 rounded-lg">
+                                            <div>
+                                                <p className="text-lg font-semibold">100% online courses</p>
+                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Start instantly and learn at your own schedule.</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-semibold">Flexible Schedule</p>
+                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Set and maintain flexible deadlines.</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-semibold">English</p>
+                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Subtitles: English</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-semibold">Start from scratch</p>
+                                                <p className="text-gray-500" style={{fontSize: "15px"}}>No coding or design experience required</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-semibold">High quality content</p>
+                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Knowledge from well-curated experts</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         }
                     )
                 }
+                <div className="w-full md:w-2/3">
+                    <p className="text-xl font-semibold">Reviews</p>
+                    <div className="border-darkmode h-0.5 w-full my-5"></div>
+                    {
+                        rating.map(
+                            (val) => {
+                                return <div className="review py-5">
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex gap-4">
+                                            <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile"/>
+                                            <div>
+                                                <p className="font-medium">{val.name}</p>
+                                                <p className="text-xs text-gray-400">{formatDate(val.ratingCreateAt)}</p>
+                                                <p className="py-2"> {val.description}</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            {val.rating == 1 ? (<p className="text-2xl">😰</p>) :
+                                                val.rating == 2 ? (<p className="text-2xl">☹️</p>) :
+                                                    val.rating == 3 ? (<p className="text-2xl">😑</p>) :
+                                                        val.rating == 4 ? (<p className="text-2xl">🤩</p>) :
+                                                            (<p className="text-2xl">😍</p>)
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        )
+                    }
+                </div>
             </div>
+            
             <Footer/>
         </>
     )

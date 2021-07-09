@@ -16,7 +16,7 @@ const formatTime = s => new Date(s).toLocaleTimeString();
 function NewsArticle({data}) {
     return (
         <a href={data.url} target="_blank" rel="noreferrer" className="flex justify-center w-80 md:w-96">
-            <News className="news-box p-3 flex-1 flex flex-col justify-between rounded-lg shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
+            <News className="news-box p-3 flex-1 flex flex-col justify-between rounded-lg border shadow transform hover:scale-105 hover:shadow-lg transition duration-200">
                 <div className="mb-5">
                         <img src={data.urlToImage || Imageeee} alt=""/>
                 </div>

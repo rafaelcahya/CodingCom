@@ -22,7 +22,6 @@ const GenerateID = (len, k)=>{
 
 export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
-    const [name, setName] = useState("")
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
     const [valueVal, setValueVal] = useState([])
@@ -84,6 +83,10 @@ export default function NavbarLogin() {
             boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0), 0 10px 10px -5px rgba(0, 0, 0, 0)"
         }
     }
+
+    function refreshPage(){
+        window.location.reload();
+    } 
 
     return (
         <>
@@ -192,7 +195,7 @@ export default function NavbarLogin() {
                                 </div>
                                 {
                                     value.map((val) => {
-                                        return <div className="dropdown-tutorial rounded-lg">
+                                        return <div className="dropdown-tutorial rounded-lg" onClick={refreshPage}>
                                                 <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(1,10)}>
                                                 <div className="flex flex-col gap-1">
                                                     <p className="font-semibold">{val.category}</p>
@@ -248,20 +251,26 @@ export default function NavbarLogin() {
                                 </div>
                                 <div className="dropdown-user-quota rounded-lg">
                                     {
-                                        v.classSession<=3 ? 
+                                        v.classSession <= 3 ? 
                                         <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Coding Class Quota</p>
                                                 <p className="font-semibold text-yellow-500">{v.classSession}</p>
                                             </div>
                                         </Link>
-                                        :
+                                        : v.classSession === 0 ? 
                                         <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Coding Class Quota</p>
                                                 <p className="font-semibold text-green-500">{v.classSession}</p>
                                             </div>
-                                        </Link>
+                                        </Link> : 
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                        <div className="flex justify-between gap-10">
+                                            <p className="text-gray-400">Coding Class Quota</p>
+                                            <p className="font-semibold text-red-500">{v.classSession}</p>
+                                        </div>
+                                    </Link>
                                     }
                                 </div>
                             </div>

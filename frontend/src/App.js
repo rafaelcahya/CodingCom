@@ -36,7 +36,6 @@ import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/R
 import RoadmapReact from "./components/pages/tutorial/course/roadmap/content/RoadmapReact.jsx"
 import RoadmapDevops from "./components/pages/tutorial/course/roadmap/content/RoadmapDevops.jsx"
 
-import AngularCerti from "./components/pages/challenge/certificate/AngularCerti.jsx"
 
 import Class from "./components/pages/class session/Class.jsx"
 import ClassDetail from "./components/pages/class session/ClassDetail.jsx"
@@ -118,7 +117,6 @@ function App() {
             <Route path="/submit-solution/:id" component={Submit} />
 
             <Route path="/challenge" component={Challenge} />
-            <Route path="/angular-exercise" component={AngularCerti} />
 
             <Route path="/CertificateAngular/:id" component={CertificateAngular} />
             

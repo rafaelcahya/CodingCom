@@ -1323,8 +1323,11 @@ Payment
 Course 
 
 */
+.rating table tr td:nth-child(2){
+    padding: 0 20px;
+}
 
-.content-course p:not(.review p), .content-course .tinymce-topic-detail {
+.content-course p:not(.review p, .rating p), .content-course .tinymce-topic-detail {
     margin-bottom: 20px;
 }
 
@@ -1708,6 +1711,13 @@ Challenge
     border: none;
 }
 
+.certificate{
+    background: url("../asset/certificate/Polygon Luminary.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .submit-box input,
 .submit-box textarea,
 .submit-box select,
@@ -1954,9 +1964,8 @@ Bootcamp
 .reg-bootcamp-box input,
 .reg-bootcamp-box textarea,
 .reg-bootcamp-box select {
-    padding: .375rem 1rem;
-    border: 1.5px solid var(--black-3);
-    border-radius: 10px;
+    padding: .5rem 1rem;
+    border-radius: 6px;
     outline: none;
 }
 
@@ -1975,7 +1984,7 @@ Bootcamp
     font-size: .875rem;
 }
 
-.reg-bootcamp-boxx input::-ms-input-placeholder,
+.reg-bootcamp-box input::-ms-input-placeholder,
 .reg-bootcamp-box textarea::-ms-input-placeholder {
     font-size: .875rem;
 }
@@ -1999,12 +2008,6 @@ Bootcamp
 .reg-bootcamp-box input::placeholder,
 .reg-bootcamp-box textarea::placeholder {
     font-size: .875rem;
-}
-
-.reg-bootcamp-box input:focus,
-.reg-bootcamp-box textarea:focus,
-.reg-bootcamp-box select:focus {
-    border: 1.5px solid var(--blue-1);
 }
 
 @media (min-width: 320px) {

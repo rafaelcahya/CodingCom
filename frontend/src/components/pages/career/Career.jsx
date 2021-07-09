@@ -83,7 +83,7 @@ export default function Career() {
                         })
                     }
                         <div className="flex py-4">
-                        {show ? <div className="flex flex-wrap items-center gap-5">
+                        {show ? <div className="flex flex-wrap justify-center md:justify-start gap-5">
                                 {
                                     value.map((item) =>{
                                         let image = require('../../../asset/upload/'+ item.companyLogo)
@@ -120,9 +120,9 @@ export default function Career() {
 
 function Button({button, filter}) {
     return (
-        <div className="filter-job sticky self-start top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-100 shadow w-full md:w-2/12">
+        <div className="filter-job sticky self-start top-20 md:top-5 flex flex-col gap-3 rounded-lg p-4 z-10 border border-gray-100 shadow w-full md:w-2/12">
             <p className="text-sm font-semibold">Type of employment:</p>
-            <div className="flex flex-row md:flex-col gap-4">
+            <div className="flex flex-row md:flex-col  gap-4">
                 {
                     button.map((cat, i)=>{
                         return <button onClick={()=> filter(cat)}  id="jobCategorybtn" className="jobCategorybtn text-left text-sm font-medium px-2 py-2 rounded-lg">{cat}</button>
@@ -135,7 +135,7 @@ function Button({button, filter}) {
 
 function Menu({menuItem}) {
     return (
-        <div className="flex flex-wrap items-center gap-5">
+        <div className="flex flex-wrap justify-center md:justify-start gap-5">
             {
                 menuItem.map((item) =>{
                     let image = require('../../../asset/upload/'+ item.companyLogo)

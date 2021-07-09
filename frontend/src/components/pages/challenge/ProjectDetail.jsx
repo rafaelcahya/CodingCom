@@ -8,8 +8,6 @@ import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 
-import File from "../../../asset/file/Challenge.docx"
-
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
 const formatTime = s => new Date(s).toLocaleTimeString();
 
@@ -48,7 +46,7 @@ function ProjectDetail(props) {
             {
                 value.map((val) => {
                     let image = require('../../../asset/upload/' + val.image)
-                    let file = require('../../../asset/upload/'+ val.projectFile)
+                    // let file = require('../../../asset/upload/'+ val.projectFile)
                     return <div className="flex flex-col md:flex-row gap-10 w-full px-16 xl:px-32 mt-32 lg:mt-20">
                         <div className="flex flex-col gap-20 w-full md:w-3/4">
                             <div className="projDetail flex flex-col">
@@ -74,19 +72,6 @@ function ProjectDetail(props) {
                                     <li>Start coding!</li>
                                 </ol>
                             </div>
-                            {/* <div>
-                                <p className="text-center text-lg font-semibold">FAQs</p>
-                                <div className="flex flex-col md:flex-row gap-10 my-10">
-                                    <div className="w-full md:w-1/2">
-                                        <p className="font-semibold text-xl my-2">Is there an official solution i can take a look at?</p>
-                                        <p>We don't provide "official" solutions for the challenges. This is because there is no single perfect way to complete a challenge. Instead, you're encouraged to review other people's code in the community. You can learn so much by seeing how other people have approached the same challenges.</p>
-                                    </div>
-                                    <div className="w-full md:w-1/2">
-                                        <p className="font-semibold text-xl my-2">Can i use my solution on my portofolio</p>
-                                        <p>Of course! Frontend Mentor was created to make professionally designed projects more accessible to the development community. Please feel free to use anything you build in your portfolio.</p>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                         <div className="sticky self-start top-5 flex flex-col gap-10 w-full md:w-2/5">
                             <p className="hidden md:block text-3xl font-semibold">{val.projectTitle}</p>
@@ -97,7 +82,6 @@ function ProjectDetail(props) {
                             <div className="flex flex-col gap-2">
                                 <p className="font-semibold text-lg">Download Starter File</p>
                                 <p>Includes a basic style guide. There's also a PDF File to help you get started.</p>
-                                <a href={file.default} className="text-white bg-blue-1 text-sm w-max my-5 px-4 py-2 rounded-lg" download>Download starter file</a>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <p className="font-semibold text-lg">Submit Solution</p>
@@ -115,24 +99,24 @@ function ProjectDetail(props) {
                                 !valueList.length ? (<div className="flex flex-col justify-between gap-2">
                                     <div className="flex flex-col gap-2">
                                         <p className="font-semibold text-lg">Download Certificate</p>
-                                        <p>If your project meets the conditions, you can download your certificate.</p>
+                                        <p>You can get a certificate if your score passes 95</p>
                                     </div>
                                 </div>) : (
                                     valueList.map((v) => {
                                         return <div className="flex flex-col justify-between gap-2">
                                             {v.score >= 95 ? (<div>
                                                 <div className="flex flex-col gap-2">
-                                                    <p className="font-semibold text-xl">Download Certificate</p>
-                                                    <p>You can download certificate, Click Button Below</p>
+                                                    <p className="font-semibold text-lg">Download Certificate</p>
+                                                    <p>Congrats, download your certificate now</p>
                                                 </div>
                                                 <div>
                                                     <Link to={"/CertificateAngular/" + urlid}>
-                                                        <p className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
+                                                        <p className="text-white text-sm bg-blue-1 w-max my-5 px-4 py-2 rounded-lg">Download certificate</p>
                                                     </Link>
                                                 </div>
                                             </div>) : (<div className="flex flex-col gap-2">
-                                                <p className="font-semibold text-xl">Download Certificate</p>
-                                                <p>Score is not high enough to download certificate</p>
+                                                <p className="font-semibold text-lg">Download Certificate</p>
+                                                <p>You can get a certificate if your score passes 95</p>
                                             </div>)}
                                         </div>
                                     })
@@ -167,24 +151,24 @@ function ProjectDetail(props) {
                                 valueList.map((v) => {
                                     return <div className="flex flex-col gap-5 mt-10">
                                         <div>
-                                            <p className="text-xs text-gray-500">Collection time</p>
+                                            <p className="text-xs font-medium text-gray-500">Collection time</p>
                                             <p className="font-medium">{formatDate(v.projectsubCreateAt)} {formatTime(v.projectsubCreateAt)}</p>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Times upload</p>
+                                            <p className="text-xs font-medium text-gray-500">Times upload</p>
                                             <p className="font-medium">{v.timesUpload}</p>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Score</p>
+                                            <p className="text-xs font-medium text-gray-500">Score</p>
                                             <p className="font-medium">{v.score}</p>
                                         </div>
-                                        <div className="border-popup-history-project w-full h-0.5 my-5"></div>
+                                        <div className="border-darkmode w-full h-0.5 my-5"></div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Description</p>
+                                            <p className="text-xs font-medium text-gray-500">Description</p>
                                             <p className="font-medium">{v.description}</p>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Revision note</p>
+                                            <p className="text-xs font-medium text-gray-500">Revision note</p>
                                             <p className="font-medium">{v.revisi}</p>
                                         </div>
                                     </div>
@@ -226,7 +210,7 @@ export default ProjectDetail
 function Popup(props) {
     return (props.trigger) ? (
         <div className="register-popup-container px-5 sm:px-20 md:px-32 lg:px-80 pt-10 z-50">
-            <div className="popup-box p-5 rounded-lg">
+            <div className="popup-box p-8 rounded-lg">
                 {props.children}
             </div>
         </div>
