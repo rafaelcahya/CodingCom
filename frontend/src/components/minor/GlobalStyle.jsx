@@ -20,7 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
     #sidebarmobile,
-    #tutorial-box
+    #tutorial-box,
+    .class-consultation-card,
+    .rating-card,
+    .rating-box
     {
         background: ${({theme}) => theme.foreground};
         color: ${({theme}) => theme.primarytext};

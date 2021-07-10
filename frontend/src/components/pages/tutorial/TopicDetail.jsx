@@ -200,7 +200,7 @@ function TopicDetail(props) {
                                         }
                                     </div>
                                     <div className="flex flex-col gap-10 w-full md:w-1/3">
-                                        <div className="shadow-xl p-5 top-10 rounded-lg z-50">
+                                        <div className="shadow-xl p-5 top-10 rounded-lg">
                                             {
                                                 !value.length ? (<p>gkada</p>) : value.map((item)=>{
                                                     return <div className="flex flex-col gap-8">
@@ -224,23 +224,23 @@ function TopicDetail(props) {
                                         <div className="flex flex-col gap-5 bg-gray-100 p-5 top-10 rounded-lg">
                                             <div>
                                                 <p className="text-lg font-semibold">100% online courses</p>
-                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Start instantly and learn at your own schedule.</p>
+                                                <p className="text-gray-500 text-sm">Start instantly and learn at your own schedule.</p>
                                             </div>
                                             <div>
                                                 <p className="text-lg font-semibold">Flexible Schedule</p>
-                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Set and maintain flexible deadlines.</p>
+                                                <p className="text-gray-500 text-sm">Set and maintain flexible deadlines.</p>
                                             </div>
                                             <div>
                                                 <p className="text-lg font-semibold">English</p>
-                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Subtitles: English</p>
+                                                <p className="text-gray-500 text-sm">Subtitles: English</p>
                                             </div>
                                             <div>
                                                 <p className="text-lg font-semibold">Start from scratch</p>
-                                                <p className="text-gray-500" style={{fontSize: "15px"}}>No coding or design experience required</p>
+                                                <p className="text-gray-500 text-sm">No coding or design experience required</p>
                                             </div>
                                             <div>
                                                 <p className="text-lg font-semibold">High quality content</p>
-                                                <p className="text-gray-500" style={{fontSize: "15px"}}>Knowledge from well-curated experts</p>
+                                                <p className="text-gray-500 text-sm">Knowledge from well-curated experts</p>
                                             </div>
                                         </div>
                                     </div>
