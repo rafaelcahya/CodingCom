@@ -43,7 +43,7 @@ function Internet(props) {
     const [courseList, setCourseList] = useState([])
     const [commentlist, setCommentList] = useState([])
 
-    let image = require('../../../../../asset/upload/'+ localStorage.getItem("image"))
+    let image = require('../../../../../asset/upload/' + localStorage.getItem("image"))
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
@@ -85,7 +85,7 @@ function Internet(props) {
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
-    const formatTime = s => new Date(s).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    const formatTime = s => new Date(s).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     return (
         <>
@@ -110,7 +110,32 @@ function Internet(props) {
                             }
                         </div>
                     </div>
-                    <SidebarInternetMobile />
+                    <nav className="sidebar-mobile block lg:hidden fixed top-16 right-2 z-10">
+                        <ul>
+                            <li>
+                                <div className="flex items-center px-8 py-4 gap-2 shadow rounded-lg">
+                                    <p className="uppercase font-semibold text-xs tracking-wider">Tutorial List</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                                <div className="sidebar-mobile-dropdown bg-red-100 absolute right-0 text-right shadow rounded-lg px-4">
+                                    <p>
+                                        <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)}>
+                                            <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Introduction</p>
+                                        </Link>
+                                    </p>
+                                    {
+                                courseList.map((v) => {
+                                    return <p>
+                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>
+                                            <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">{v.judul}</p>
+                                        </Link>
+                                    </p>
+                                     })
+                                    }
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
                     <div className="pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
                             {
@@ -171,7 +196,7 @@ function Internet(props) {
                         commentlist.map(
                             (val) => {
                                 return <div className="comment-box flex gap-5 p-4 my-5 rounded-lg shadow-md">
-                                    <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile"/>
+                                    <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile" />
                                     <div className='flex flex-col gap-4'>
                                         <div className="flex flex-col gap-1">
                                             <p className="font-semibold text-sm">{val.name}</p>
@@ -207,7 +232,7 @@ const Modal = forwardRef((props, ref) => {
         const [name, setName] = useState("")
         const [rating, setRating] = useState("")
         const [des, setDes] = useState("")
-        const [message,setMessage] = useState("")
+        const [message, setMessage] = useState("")
         const [createAt, setCreateAt] = useState("")
         let x
 
