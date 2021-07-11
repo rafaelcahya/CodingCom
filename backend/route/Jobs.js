@@ -136,4 +136,59 @@ router.put("/deleteJobs", (req, res) => {
     })
 })
 
+router.post("/updateJobs", (req, res) => {
+    const id = req.body.id
+    let companyName = req.body.companyName
+    let companyEmail = req.body.companyEmail
+    let job = req.body.job
+    let overview = req.body.overview
+    let location = req.body.location
+    let type = req.body.type
+    let url = req.body.url
+    let updateAt = req.body.updateAt
+
+        db.query("SELECT * From jobs WHERE jobsid = ?", id, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                if (companyName.length <= 0) {
+                    companyName = results[0].companyName
+
+                } if (companyEmail.length <= 0) {
+                    companyEmail = results[0].companyEmail
+
+                } if (job.length <= 0) {
+                    job = results[0].jobTitle
+
+                } if (overview.length <= 0) {
+                    overview = results[0].overview
+
+                } if (location.length <= 0) {
+                    location = results[0].jobLocation
+
+                } if (type.length <= 0) {
+                    type = results[0].JobType
+                } if (des.length <= 0) {
+                    des = results[0].jobDescription
+                } if (url.length <= 0) {
+                    url = results[0].companyUrl
+                }if (!req.files) {
+                    db.query("UPDATE jobs SET companyName = ?, companyEmail = ?, overview = ?, jobLocation=?, jobType = ?, companyUrl = ?, jobDescription = ?, jobUpdateAt = ?  WHERE id=?;", [companyName, companyEmail, overview, location, type, url, des, updateAt, id], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                    })
+                } else {
+                    const file = req.files.fileUpload
+                    const filename = file.name
+                    db.query("UPDATE jobs SET companyName = ?, companyLogo = ?, companyEmail = ?, overview = ?, jobLocation=?, jobType = ?, companyUrl = ?, jobDescription = ?, jobUpdateAt = ?  WHERE id=?;", [companyName, filename, companyEmail, overview, location, type, url, des, updateAt, id], (err, results) => {
+                        console.log(err)
+                        res.send(results)
+                        file.mv('../frontend/src/asset/upload/' + file.name)
+                    })
+                }
+            }
+        })
+})
+
 module.exports = router;

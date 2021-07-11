@@ -17,15 +17,19 @@ import ListBatch from "./ListBatch"
 import ListBootcampUser from "./ListBootcampUser"
 import ListCategory from "./ListCategory"
 import ListTopik from "./ListTopik"
+import ListJobs from "./ListJobs"
 import ListProject from "./ListProject.jsx"
 import InputJobs from "./InputJobs.jsx"
 import AddProject from "./AddProject.jsx"
 import EditProject from "./EditProject.jsx"
+import EditJobs from "./EditJob.jsx"
 import BootcampSchedule from "./BootcampSchedule.jsx"
 import AddFAQ from "./AddFQA"
 import ListFAQ from "./ListFAQ"
 import EditFAQ from "./EditFAQ"
 import EditProjectSub from "./EditProjectSubmission"
+import ListSchedule from "./ScheduleList.jsx"
+import EditSchedule from "./EditSchedule.jsx"
 
 function App_admin() {
     return (
@@ -58,6 +62,10 @@ function App_admin() {
               <Route path="/admin/edit-faq/:id" component={EditFAQ} />
               <Route path="/admin/list-bootcamp-user" component={ListBootcampUser} />
               <Route exact path="/admin/edit-project-submission-:id-:hash" component={EditProjectSub} />
+              <Route path="/admin/list-jobs" component={ListJobs} />
+              <Route path="/admin/edit-job/:id" component={EditJobs} />
+              <Route path="/admin/list-schedule" component={ListSchedule} />
+              <Route path="/admin/edit-schedule/:id" component={EditSchedule} />
             </Switch>
           </Router>
     );

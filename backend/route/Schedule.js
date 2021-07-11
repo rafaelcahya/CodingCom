@@ -46,6 +46,15 @@ router.get("/ScheduleList", (req, res) => {
     })
 })
 
+router.get("/ScheduleById/:id", (req, res) => {
+    const id = req.params.id
+    let isDeleted = "NO"
+    db.query("SELECT * from schedule WHERE scheduleId = ? AND isDeleted = ?",[id, isDeleted],(err, results) => {
+        res.send(results)
+        console.log(results)
+    })
+})
+
 router.put("/deleteSchedule", (req, res) => {
     const id = req.body.id
     const updateAt = req.body.updateAt

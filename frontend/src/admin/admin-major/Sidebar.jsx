@@ -45,6 +45,10 @@ export default function Sidebar() {
                             {
                                 title: "Schedule",
                                 itemId: "/admin/bootcamp-schedule"
+                            },
+                            {
+                                title:"Schedule List",
+                                itemId:"/admin/list-schedule"
                             }
                         ],
                     },
@@ -110,6 +114,30 @@ export default function Sidebar() {
                     {
                         title: 'Career Management',
                         itemId: '/admin/input-jobs',
+                        subNav: [
+                            {
+                                title: 'Add Jobs',
+                                itemId:'/admin/input-jobs',
+                            },
+                            {
+                                title:'Jobs List',
+                                itemId:'/admin/list-jobs',
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Frequently Asked Question',
+                        itemId: '/admin/add-faq',
+                        subNav: [
+                            {
+                                title: 'Add FAQ',
+                                itemId:'/admin/add-faq',
+                            },
+                            {
+                                title:'FAQ List',
+                                itemId:'/admin/list-faq',
+                            }
+                        ]
                     },
                 ]}
                 />
