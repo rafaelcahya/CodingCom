@@ -520,6 +520,7 @@ router.post("/profile", (req, res) => {
     let postalCode = req.body.postalCode
     let education = req.body.education
     const updateAt = req.body.updateAt
+    let image = ""
 
     if(name.length > 20){
         res.send({message:"Username must be less than 20 characters"})
@@ -572,8 +573,9 @@ router.post("/profile", (req, res) => {
                     education = results[0].education
 
                 } if (!req.files) {
+                    let image = results[0].image
                     db.query("UPDATE user SET fullname = ?, name = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?  WHERE name=?;", [fullname, name, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, urlname], (err, results) => {
-                    res.json({ message:"Profile Updated", name: name})
+                    res.json({ message:"Profile Updated", name: name, image: image})
                     })
                 } else {
                     const file = req.files.fileUpload
@@ -590,6 +592,60 @@ router.post("/profile", (req, res) => {
                 // })
             }
         })
+    }
+})
+
+router.post("/profileBootcamp", (req, res) => {
+    const urlname = req.body.urlname
+    let fullname = req.body.fullname
+    let gender = req.body.gender
+    let BoD = req.body.BoD
+    let phonenumber = req.body.phonenumber
+    let cphonenumber = req.body.cphonenumber
+    let emergencynumber = req.body.emergencynumber
+    let cemergencynumber = req.body.cemergencynumber
+    let address = req.body.address
+    let city = req.body.city
+    let postalCode = req.body.postalCode
+    let education = req.body.education
+    const updateAt = req.body.updateAt
+
+    if(fullname.length<=0){
+        res.send({message:"Fullname must be filled"})
+    }else if(gender.length <= 0){
+        res.send({message:"Gender not selected"})
+    }else if(BoD.length<=0){
+        res.send({message:"Your birth date is not filled"})
+    }else if(phonenumber.length<=0){
+        res.send({message:"Phone number must be filled"})
+    }else if(phonenumber.length>13){
+        res.send({message:"Phone number must be less than 13 digit"})
+    }else if(cphonenumber.length<=0){
+        res.send({message:"Confirm Phone number must be filled"})
+    }else if(cphonenumber!=phonenumber){
+        res.send({message:"Confirm Phone number must be same as Phone number"})
+    }else if(emergencynumber.length<=0){
+        res.send({message:"Emergency number must be filled"})
+    }else if(emergencynumber.length>13){
+        res.send({message:"Emergency number must be less than 13 digit"})
+    }else if(cemergencynumber.length<=0){
+        res.send({message:"Confirm emergency number must be filled"})
+    }else if(cemergencynumber!=emergencynumber){
+        res.send({message:"Confirm emergency number must be same as emergency number"})
+    }else if(address.length<=0){
+        res.send({message:"Address must be filled"})
+    }else if(city.length<=0){
+        res.send({message:"City must be filled"})
+    }else if(postalCode<=0 || postalCode.length<=0){
+        res.send({message:"Postal code must be filled"})
+    }else if(postalCode.length < 5 || postalCode.length > 5){
+        res.send({message:"Postal Code invalid"})
+    }else if(education.length<=0){
+        res.send({message:"Last Education not selected"})
+    }else{
+        db.query("UPDATE user SET fullname = ?, gender = ?, BoD=?, phoneNumber = ?, emergencyNumber = ?, address = ?, city = ?, postalCode = ?, education = ?, userUpdateAt=?  WHERE name=?;", [fullname, gender, BoD, phonenumber, emergencynumber, address, city, postalCode, education, updateAt, urlname], (err, results) => {
+            res.send({ message:"Profile Updated"})
+            })
     }
 })
 

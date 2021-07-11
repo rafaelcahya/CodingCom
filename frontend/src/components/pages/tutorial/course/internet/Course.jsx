@@ -54,11 +54,11 @@ function Internet(props) {
     }, 500)
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/course/courseById/" + urlid +"/" + urlid2).then((response) => {
+        Axios.get("http://localhost:3001/course/courseById/" + urlid + "/" + urlid2).then((response) => {
             setValue(response.data)
             console.log(response.data)
         })
-    }, [urlid,urlid2]);
+    }, [urlid, urlid2]);
 
     useEffect(() => {
         Axios.get("http://localhost:3001/comment/commentListById/" + urlid3).then((response) => {
@@ -90,26 +90,49 @@ function Internet(props) {
             <NavbarMobile />
             <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
                 <div className="hidden lg:block lg:w-1/5">
-                <div className="hidden lg:block sticky self-start top-0 pt-6">
-                <p className="text-lg font-semibold">Course List</p>
-                   <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                                <div className="flex justify-between items-center">
-                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1,10)}>Getting Started</Link>
-                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
-                                </div>
-                                {
-                                    courseList.map((v)=>{
-                                        return <div className="flex justify-between items-center">
-                                        <Link to={"/"+ GenerateID(1,10) +"/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.judul}</Link>
+                    <div className="hidden lg:block sticky self-start top-0 pt-6">
+                        <p className="text-lg font-semibold">Course List</p>
+                        <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                            <div className="flex justify-between items-center">
+                                <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)}>Getting Started</Link>
+                                <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                            </div>
+                            {
+                                courseList.map((v) => {
+                                    return <div className="flex justify-between items-center">
+                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.judul}</Link>
                                         <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
                                     </div>
-                                    })
-                                }
-                                </div>
-                        
-            </div>
+                                })
+                            }
+                        </div>
+
+                    </div>
                 </div>
-                <SidebarInternetMobile />
+                <nav className="sidebar-mobile block lg:hidden fixed top-16 right-2 z-10">
+                    <ul>
+                        <li>
+                            <div className="flex items-center px-8 py-4 gap-2 shadow rounded-lg">
+                                <p className="uppercase font-semibold text-xs tracking-wider">Tutorial</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                            <div className="sidebar-mobile-dropdown bg-red-100 absolute right-0 text-right shadow rounded-lg px-4">
+                                <p>
+                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)}>
+                                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Introduction</p>
+                                    </Link>
+                                </p>
+                                {courseList.map((v) => {
+                                    return <p>
+                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>
+                                            <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">{v.judul}</p>
+                                        </Link>
+                                    </p>
+                                })}
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
                 <div className="w-full lg:w-7/12 pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
                     {
                         value.map(
@@ -181,9 +204,9 @@ function Internet(props) {
                 </div>
             </div>
             <Footer />
-         </>
-     )
- }
+        </>
+    )
+}
 
 export default Internet
 
@@ -201,7 +224,8 @@ const Modal = forwardRef((props, ref) => {
         const [id, setId] = useState("")
         const [name, setName] = useState("")
         const [rating, setRating] = useState("")
-        const [des, setDes]  = useState("")
+        const [des, setDes] = useState("")
+        const [message,setMessage] = useState("")
         const [createAt, setCreateAt] = useState("")
         let x
 
@@ -222,18 +246,23 @@ const Modal = forwardRef((props, ref) => {
 
         const RateEmo1 = () => {
             setRating("1")
+            setMessage("Very Bad")
         }
         const RateEmo2 = () => {
             setRating("2")
+            setMessage("Poor")
         }
         const RateEmo3 = () => {
             setRating("3")
+            setMessage("Fair")
         }
         const RateEmo4 = () => {
             setRating("4")
+            setMessage("Good")
         }
         const RateEmo5 = () => {
             setRating("5")
+            setMessage("Very Good")
         }
         const Rate = () => {
             Axios.post("http://localhost:3001/rating/rating", { id: id, name: name, rating: rating, des: des, createAt: createAt }).then((response) => {
@@ -257,13 +286,13 @@ const Modal = forwardRef((props, ref) => {
                             <span onClick={RateEmo4} class="emoji emoji--happy"></span>
                             <span onClick={RateEmo5} class="emoji emoji--satisfy"></span>
                         </div>
+                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{message}</p>
                         <div>
-                        <textarea placeholder="add your rating here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
-                            setDes(event.target.value)
-                        }}></textarea>
-                        <p onClick={Rate} id="submitRating" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Rate Now</p>
-                            </div>
-                        <p>Thank you for rating</p>
+                            <textarea placeholder="add your rating here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
+                                setDes(event.target.value)
+                            }}></textarea>
+                            <p onClick={Rate} id="submitRating" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Rate Now</p>
+                        </div>
                     </div>
                 </div>
             </>

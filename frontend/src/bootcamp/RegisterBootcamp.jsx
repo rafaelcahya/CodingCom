@@ -5,27 +5,27 @@ import Axios from 'axios'
 function RegisterBootcamp(props) {
     const urlname = props.match.params.name
     const [name, setName] = useState("")
-    const [education, setEducation] = useState("")
-    const [fullname, setFullname] = useState("")
-    const [gender, setGender] = useState("")
-    const [BoD, setBoD] = useState("")
-    const [phonenumber, setPhoneNumber] = useState("")
-    const [cphonenumber, setCphoneNumber] = useState("")
-    const [emergencynumber, setEmergencyNumber] = useState("")
-    const [cemergencynumber, setCemergencyNumber] = useState("")
-    const [address, setAddress] = useState("")
-    const [city, setCity] = useState("")
-    const [postalCode, setPostalCode] = useState("")
-    const [program, setProgram] = useState("")
-    const [batch, setBatch] = useState("")
-    const [motivation, setMotivation] = useState("")
-    const [busy, setBusy] = useState("")
+    var [education, setEducation] = useState("")
+    var [fullname, setFullname] = useState("")
+    var [gender, setGender] = useState("")
+    var [BoD, setBoD] = useState("")
+    var [phonenumber, setPhoneNumber] = useState("")
+    var [cphonenumber, setCphoneNumber] = useState("")
+    var [emergencynumber, setEmergencyNumber] = useState("")
+    var [cemergencynumber, setCemergencyNumber] = useState("")
+    var [address, setAddress] = useState("")
+    var [city, setCity] = useState("")
+    var [postalCode, setPostalCode] = useState("")
+    var [program, setProgram] = useState("")
+    var [batch, setBatch] = useState("")
+    var [motivation, setMotivation] = useState("")
+    var [busy, setBusy] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [errorMessage2, setErrorMessage2] = useState("")
     const [createAt, setCreateAt] = useState("")
     const [value, setValue] = useState([])
     const [valueGet, setValueGet] = useState([])
-    let name1 = ""
+    var name1 = ""
     let x
 
     window.onload = setTimeout(function () {
@@ -53,13 +53,32 @@ function RegisterBootcamp(props) {
     }, []);
 
     const submit = () => {
+        if (fullname.length <= 0 && document.getElementById("fullname") != null) {
+            fullname = document.getElementById("fullname").value
+        } if (gender.length <= 0 && document.getElementById("gender") != null) {
+            gender = document.getElementById("gender").value
+        } if (BoD.length <= 0 && document.getElementById("bod") != null) {
+            BoD = document.getElementById("bod").value
+        } if (phonenumber.length <= 0 && cphonenumber.length <= 0 && document.getElementById("phonenumber") != null && document.getElementById("cphonenumber") != null) {
+            phonenumber = document.getElementById("phonenumber").value
+            cphonenumber = document.getElementById("cphonenumber").value
+        } if (emergencynumber.length <= 0 && cemergencynumber.length <= 0 && document.getElementById("emergencynumber") != null && document.getElementById("cemergencynumber") != null) {
+            emergencynumber = document.getElementById("emergencynumber").value
+            cemergencynumber = document.getElementById("cemergencynumber").value
+        } if (address.length <= 0 && document.getElementById("address") != null) {
+            address = document.getElementById("address").value
+        } if (city.length <= 0 && document.getElementById("city") != null) {
+            city = document.getElementById("city").value
+        } if (postalCode.length <= 0 && document.getElementById("postalcode") != null) {
+            postalCode = document.getElementById("postalcode").value
+        } if (education.length <= 0 && document.getElementById("education") != null) {
+            education = document.getElementById("education").value
+        }
         Axios.all([
-            Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { program: program, batch: batch, motivation: motivation, busy: busy, createAt: createAt, name: name }).then((response) => {
-                setErrorMessage2(response.data.message2)
-            }),
-            Axios.post("http://localhost:3001/user/profile", {urlname:urlname, name:name1, fullname:fullname, gender:gender, education:education, BoD:BoD, phonenumber:phonenumber, cphonenumber:cphonenumber, emergencynumber:emergencynumber, cemergencynumber:cemergencynumber, city:city, address:address, postalCode:postalCode, updateAt:createAt}).then((response) => {
-                console.log(response)
+            Axios.post("http://localhost:3001/bootcampuser/bootcampUserRegis", { fullname: fullname, gender: gender, education: education, BoD: BoD, phonenumber: phonenumber, cphonenumber: cphonenumber, emergencynumber: emergencynumber, cemergencynumber: cemergencynumber, city: city, address: address, postalCode: postalCode, program: program, batch: batch, motivation: motivation, busy: busy, createAt: createAt, name: name }).then((response) => {
                 setErrorMessage(response.data.message)
+            }),
+            Axios.post("http://localhost:3001/user/profileBootcamp", { urlname: urlname, fullname: fullname, gender: gender, education: education, BoD: BoD, phonenumber: phonenumber, cphonenumber: cphonenumber, emergencynumber: emergencynumber, cemergencynumber: cemergencynumber, city: city, address: address, postalCode: postalCode, updateAt: createAt }).then((response) => {
             })
         ])
     }
@@ -103,9 +122,7 @@ function RegisterBootcamp(props) {
                                         }} />
                                     </div>) : (<div className="flex flex-col gap-2 w-full">
                                         <p className="text-sm font-semibold">Fullname</p>
-                                        <input type="text" placeholder="Fullname" value={val.fullname} disabled onChange={(event) => {
-                                            setFullname(event.target.value)
-                                        }} />
+                                        <input type="text" id="fullname" placeholder="Fullname" value={val.fullname} disabled />
                                     </div>)}
                                 </div>
                                 <div className="flex flex-col lg:flex-row gap-5 w-full">
@@ -120,10 +137,10 @@ function RegisterBootcamp(props) {
                                         </select>
                                     </div>) : (<div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Gender</p>
-                                        <select name="" id="" disabled onChange={(event) => {
+                                        <select name="" id="gender" disabled onChange={(event) => {
                                             setGender(event.target.value)
                                         }}>
-                                            <option>{val.gender}</option>
+                                            <option value={val.gender}>{val.gender}</option>
                                         </select>
                                     </div>)}
                                     {val.BoD == "0000-00-00" ? (<div className="flex flex-col gap-2 w-full lg:w-1/2">
@@ -133,9 +150,8 @@ function RegisterBootcamp(props) {
                                         }} />
                                     </div>) : (<div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Birth date</p>
-                                        <input type="text" value={formatDate(val.BoD)} disabled onChange={(event) => {
-                                            setBoD(event.target.value)
-                                        }} />
+                                        <input type="text" value={formatDate(val.BoD)} disabled />
+                                        <input type="hidden" id="bod" value={val.BoD} disabled />
                                     </div>)}
                                 </div>
                                 {val.phoneNumber.length <= 0 ? (<div className="flex flex-col lg:flex-row gap-5 w-full">
@@ -154,13 +170,13 @@ function RegisterBootcamp(props) {
                                 </div>) : (<div className="flex flex-col lg:flex-row gap-5 w-full">
                                     <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Phone number</p>
-                                        <input type="number" value={val.phoneNumber} disabled placeholder="Phone number" onChange={(event) => {
+                                        <input type="number" id="phonenumber" value={val.phoneNumber} disabled placeholder="Phone number" onChange={(event) => {
                                             setPhoneNumber(event.target.value)
                                         }} />
                                     </div>
                                     <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Confirm phone number</p>
-                                        <input type="number" value={val.phoneNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
+                                        <input type="number" id="cphonenumber" value={val.phoneNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
                                             setCphoneNumber(event.target.value)
                                         }} />
                                     </div>
@@ -181,13 +197,13 @@ function RegisterBootcamp(props) {
                                 </div>) : (<div className="flex flex-col lg:flex-row gap-5 w-full">
                                     <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Emergency number</p>
-                                        <input type="number" value={val.emergencyNumber} disabled placeholder="Phone number" onChange={(event) => {
+                                        <input type="number" id="emergencynumber" value={val.emergencyNumber} disabled placeholder="Phone number" onChange={(event) => {
                                             setEmergencyNumber(event.target.value)
                                         }} />
                                     </div>
                                     <div className="flex flex-col gap-2 w-full lg:w-1/2">
                                         <p className="text-sm font-semibold">Confirm emergency</p>
-                                        <input type="number" value={val.emergencyNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
+                                        <input type="number" id="cemergencynumber" value={val.emergencyNumber} disabled placeholder="Confirm phone number" onChange={(event) => {
                                             setCemergencyNumber(event.target.value)
                                         }} />
                                     </div>
@@ -199,7 +215,7 @@ function RegisterBootcamp(props) {
                                     }} />
                                 </div>) : (<div className="flex flex-col gap-2 w-full">
                                     <p className="text-sm font-semibold">Home address</p>
-                                    <textarea placeholder="Home address" value={val.address} disabled className="resize-none" onChange={(event) => {
+                                    <textarea placeholder="Home address" id="address" value={val.address} disabled className="resize-none" onChange={(event) => {
                                         setAddress(event.target.value)
                                     }} />
                                 </div>)}
@@ -211,7 +227,7 @@ function RegisterBootcamp(props) {
                                         }} />
                                     </div>) : (<div className="w-1/2 flex flex-col gap-2">
                                         <p className="text-sm font-semibold">City</p>
-                                        <input type="text" value={val.city} disabled placeholder="City" onChange={(event) => {
+                                        <input type="text" id="city" value={val.city} disabled placeholder="City" onChange={(event) => {
                                             setCity(event.target.value)
                                         }} />
                                     </div>)}
@@ -222,12 +238,12 @@ function RegisterBootcamp(props) {
                                         }} />
                                     </div>) : (<div className="w-1/2 flex flex-col gap-2">
                                         <p className="text-sm font-semibold">Postal Code</p>
-                                        <input type="number" value={val.postalCode} disabled placeholder="Postal Code" onChange={(event) => {
+                                        <input type="number" id="postalcode" value={val.postalCode} disabled placeholder="Postal Code" onChange={(event) => {
                                             setPostalCode(event.target.value)
                                         }} />
                                     </div>)}
                                 </div>
-                                {val.education.length <=0 ? (<div className="flex flex-col gap-2">
+                                {val.education.length <= 0 ? (<div className="flex flex-col gap-2">
                                     <p className="text-sm font-semibold">Last education</p>
                                     <select name="" id="" onChange={(event) => {
                                         setEducation(event.target.value)
@@ -241,12 +257,12 @@ function RegisterBootcamp(props) {
                                         <option value="Master’s">Master’s Degrees</option>
                                         <option value="Doctoral">Doctoral Degrees</option>
                                     </select>
-                                </div>):(<div className="flex flex-col gap-2">
+                                </div>) : (<div className="flex flex-col gap-2">
                                     <p className="text-sm font-semibold">Last education</p>
-                                    <select name="" id="" disabled onChange={(event) => {
+                                    <select name="" id="education" disabled onChange={(event) => {
                                         setEducation(event.target.value)
                                     }} >
-                                        <option>{val.education}</option>
+                                        <option value={val.education}>{val.education}</option>
                                     </select>
                                 </div>)}
                                 <div className="flex flex-col gap-2">
@@ -300,9 +316,8 @@ function RegisterBootcamp(props) {
                                         <option value="I am Free">I am Free</option>
                                     </select>
                                 </div>
-                                <p className="color-red-1 text-center font-medium">{errorMessage2}</p>
                                 <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                                <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
+                                <p onClick={() => { submit(val.fullname, val.gender, val.education, val.BoD, val.phoneNumber, val.emergencyNumber, val.address, val.city, val.postalCode) }} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                             </form>
                         </div>
                     })

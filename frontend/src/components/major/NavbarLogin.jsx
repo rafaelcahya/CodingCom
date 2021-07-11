@@ -214,60 +214,101 @@ export default function NavbarLogin() {
                     variants={menuVariantsa}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 hidden lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
-                        {valueVal.map((v)=>{
+                        {valueList.map((v)=>{
                             return <div className="text-sm">
-                            {valueList.map((val)=>{
-                                return <div className="dropdown-user-quota rounded-lg">
+                            {v.status == "Actived" ? (<div>
+                                <div className="dropdown-user-quota rounded-lg">
                                 {
-                                    val.status==="Actived"?
+                                    v.status==="Actived"?
                                     <div className="flex justify-between gap-20">
                                         <p className="text-gray-400">Premium plan</p>
-                                        <p className="text-green-500 rounded-lg font-semibold tracking-wide">{val.status}</p>
+                                        <p className="text-green-500 rounded-lg font-semibold tracking-wide">{v.status}</p>
                                     </div>
                                     :
                                     <div className="flex justify-between gap-20">
                                         <p className="text-gray-400">Premium plan</p>
-                                        <p>{val.status}</p>
+                                        <p>{v.status}</p>
                                     </div>
                                 }
                             </div>
+                            {valueVal.map((val)=>{
+                                return <div>
+                                    <div className="dropdown-user-quota rounded-lg">
+                                    {
+                                        val.classConsultation<=3 ? 
+                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-yellow-500">{val.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-green-500">{val.classConsultation}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                </div>
+                                <div className="dropdown-user-quota rounded-lg">
+                                    {
+                                        val.classSession<=3 ? 
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-yellow-500">{val.classSession}</p>
+                                            </div>
+                                        </Link>
+                                        :
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                <p className="font-semibold text-green-500">{val.classSession}</p>
+                                            </div>
+                                        </Link>
+                                    }
+                                </div>
+                                </div>
                             })}
+                            </div>):(<div>
                                 <div className="dropdown-user-quota rounded-lg">
-                                    {
-                                        v.classConsultation<=3 ? 
-                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                {
+                                    v.status==="Actived"?
+                                    <div className="flex justify-between gap-20">
+                                        <p className="text-gray-400">Premium plan</p>
+                                        <p className="text-green-500 rounded-lg font-semibold tracking-wide">{v.status}</p>
+                                    </div>
+                                    :
+                                    <div className="flex justify-between gap-20">
+                                        <p className="text-gray-400">Premium plan</p>
+                                        <p>{v.status}</p>
+                                    </div>
+                                }
+                            </div>
+                            
+                                 <div>
+                                    <div className="dropdown-user-quota rounded-lg">
+                                  
+                                        <Link to="/payment-confirmation-premium-plan">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Class Consultation Quota</p>
-                                                <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
+                                                <p className="font-semibold text-yellow-500">0</p>
                                             </div>
                                         </Link>
-                                        :
-                                        <Link to="/payment-confirmation-class-consultation-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Class Consultation Quota</p>
-                                                <p className="font-semibold text-green-500">{v.classConsultation}</p>
-                                            </div>
-                                        </Link>
-                                    }
                                 </div>
                                 <div className="dropdown-user-quota rounded-lg">
-                                    {
-                                        v.classSession<=3 ? 
-                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                   
+                                        <Link to="/payment-confirmation-premium-plan" className="dropdown-user-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Coding Class Quota</p>
-                                                <p className="font-semibold text-yellow-500">{v.classSession}</p>
+                                                <p className="font-semibold text-yellow-500">0</p>
                                             </div>
                                         </Link>
-                                        :
-                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Coding Class Quota</p>
-                                                <p className="font-semibold text-green-500">{v.classSession}</p>
-                                            </div>
-                                        </Link>
-                                    }
                                 </div>
+                                </div>
+                            </div>)}
+                                
                             </div>
                         })}
                         <div className="border-darkmode w-0.5 my-5"></div>

@@ -33,36 +33,6 @@ function Submenu() {
                         <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">What is internet</p>
                     </Link>
                 </p>
-                <p>
-                    <Link to="/how-internet-work">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">How internet works</p>
-                    </Link>
-                </p>
-                <p>
-                    <Link to="/what-is-http">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">HTTP & HTTPS</p>
-                    </Link>
-                </p>
-                <p>
-                    <Link to="/browser">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Browser</p>
-                    </Link>
-                </p>
-                <p>
-                    <Link to="/dns">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">DNS Server</p>
-                    </Link>
-                </p>
-                <p>
-                    <Link to="/domain">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Domain</p>
-                    </Link>
-                </p>
-                <p>
-                    <Link to="/hosting">
-                        <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Hosting</p>
-                    </Link>
-                </p>
             </div>
         </>
     )

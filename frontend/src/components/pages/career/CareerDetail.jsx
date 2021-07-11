@@ -32,7 +32,7 @@ function CareerDetail(props) {
             console.log(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [urlname,urlid]);
+    }, [urlid]);
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
@@ -52,6 +52,7 @@ function CareerDetail(props) {
     const submit = () => {
         axios.post("http://localhost:3001/jobs/apply", { createAt: createAt, name: name, id:id, lockDate:lockDate}).then((response) => {
             console.log(response)
+            window.location.reload();
         })
     };
 
@@ -64,7 +65,8 @@ function CareerDetail(props) {
         //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         dateTime = date;
         if(formatDate(dateTime) === formatDate(val.applicationLocked)){
-            axios.post("http://localhost:3001/jobs/update", {id:urlid, name:urlname}).then((response) => {
+            axios.post("http://localhost:3001/jobs/update", {id:urlid, name:localStorage.getItem("name")}).then((response) => {
+                window.location.reload();
         })
         }
         return val

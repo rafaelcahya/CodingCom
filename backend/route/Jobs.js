@@ -84,6 +84,7 @@ router.get("/ListJobsCount", (req, res) => {
 router.get("/applicationById/:name/:id", (req, res) => {
     const id = req.params.id
     const name = req.params.name
+    let status = "Pending"
     let user_id = 0
 
     db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
@@ -93,7 +94,7 @@ router.get("/applicationById/:name/:id", (req, res) => {
 
         if (results.length > 0) {
             user_id = results[0].id
-            db.query("SELECT * from application WHERE job_id = ? AND user_id = ?", [id, user_id], (err, results) => {
+            db.query("SELECT * from application WHERE job_id = ? AND user_id = ? AND status = ?", [id, user_id, status], (err, results) => {
                 res.send(results)
                 console.log(results)
             })
