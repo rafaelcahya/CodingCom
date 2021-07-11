@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
@@ -68,9 +69,6 @@ function CategoryDetail(props) {
             
     // })
     
-
-    
-
     return (
         <>
             <NavbarLogin />
@@ -83,14 +81,14 @@ function CategoryDetail(props) {
                                 <p className="text-2xl lg:text-5xl font-semibold">{val.category}</p>
                                 <p className="text-center py-5 max-w-3xl">{val.categoryInfo}</p>
                             </div>
-                            
                             <div className="flex-1 flex flex-wrap gap-5 my-10">
                                 {
                                     value.map(
                                         (val) => {
                                             return <div className="flex">
                                                 {
-                                                    val.progress === "Coming Soon" ? <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
+                                                    val.progress != "Coming Soon" ? (<Link to={"/topic-detail/" + val.topikId + "-" + GenerateID(1, 10)}>
+                                                    <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
                                                         <p className="font-semibold" style={{width: "300px"}}>{val.topikTitle}</p>
                                                         <p className="w-10 h-0.5 bg-yellow-500 my-3"></p>
                                                         <ShowMoreText
@@ -100,27 +98,28 @@ function CategoryDetail(props) {
                                                             className="text-sm text-gray-500">
                                                             <p>{val.topikInfo}</p>
                                                         </ShowMoreText>
-                                                        <p className="text-sm font-medium mt-6">0 min</p>
+                                                        <p className="text-sm font-medium mt-6">{val.time} min</p>
                                                         <div className="ribbon">
                                                             <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
                                                         </div>
-                                                    </div> : <Link to={"/topic-detail/" + val.topikId + "-" + GenerateID(1, 10)}>
-                                            <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
-                                                <p className="font-semibold" style={{width: "300px"}}>{val.topikTitle}</p>
-                                                <p className="w-10 h-0.5 bg-yellow-500 my-3"></p>
-                                                <ShowMoreText
-                                                    more='Read more'
-                                                    less='Read less'
-                                                    anchorClass='anchor-showmore'
-                                                    className="text-sm text-gray-500">
-                                                    <p>{val.topikInfo}</p>
-                                                </ShowMoreText>
-                                                <p className="text-sm font-medium mt-6">{val.time} min</p>
-                                                <div className="ribbon">
-                                                    <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
-                                                </div>
-                                            </div>
-                                        </Link>
+                                                    </div>
+                                                </Link>) : (<Link to={"/category-detail-"+ val.category_id + "/" + GenerateID(1,10)}>
+                                                    <div data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="100" id="tutorial-box" className="flex-1 shadow-md" key={val.topikId}>
+                                                        <p className="font-semibold" style={{width: "300px"}}>{val.topikTitle}</p>
+                                                        <p className="w-10 h-0.5 bg-yellow-500 my-3"></p>
+                                                        <ShowMoreText
+                                                            more='Read more'
+                                                            less='Read less'
+                                                            anchorClass='anchor-showmore'
+                                                            className="text-sm text-gray-500">
+                                                            <p>{val.topikInfo}</p>
+                                                        </ShowMoreText>
+                                                        <p className="text-sm font-medium mt-6">{val.time} min</p>
+                                                        <div className="ribbon">
+                                                            <p className="bg-red-50 text-sm text-center font-semibold text-red-500 px-10 leading-10">{val.progress}</p>
+                                                        </div>
+                                                    </div>
+                                                </Link>)
                                                 }
                                             </div>
                                         }

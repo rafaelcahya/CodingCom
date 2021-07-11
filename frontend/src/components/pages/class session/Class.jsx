@@ -42,23 +42,23 @@ function Class() {
             <NavbarLogin />
             <NavbarMobile />
 
-            <div className="flex md:block flex-col items-center">
-                <div className="bg-custom darken-overlay">
-                    <div className="text-white flex flex-col items-center gap-2 px-5 xl:px-32 py-36">
-                        <p className="text-4xl font-bold">Coding class</p>
-                        <p className="text-xl font-medium">Find and choose your favorite class here!</p>
-                    </div>
+            <div className="bg-custom darken-overlay">
+                <div className="text-white flex flex-col items-center gap-2 px-5 xl:px-32 py-36">
+                    <p className="text-4xl font-bold">Coding class</p>
+                    <p className="text-xl font-medium">Find and choose your favorite class here!</p>
                 </div>
+            </div>
+            <div className="flex md:block flex-col items-center">
                 <div className="flex justify-center">
                     <p className="text-3xl font-semibold border-b-2 px-2 pb-2 border-black mb-20 mt-32 lg:mt-20 w-max">Latest Class</p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-5 gap-y-12 h-full px-5 xl:px-32">
+                <div className="flex flex-wrap justify-center gap-5 gap-y-12">
                     {
                         listClass.map(
                             (val)=> {
                                 let image = require('../../../asset/upload/'+ val.image)
-                                return <a href={"/detail-class/"+val.id +"-" + GenerateID(15,10)} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg w-max shadow hover:shadow-lg transform hover:scale-105 duration-200">
-                                    <img src={image.default} className="w-72 h-36 sm:w-96 sm:h-52 rounded-lg" />
+                                return <a href={"/detail-class/"+val.id +"-" + GenerateID(15,10)} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg shadow-lg hover:shadow-lg transform hover:scale-105 duration-200" style={{width: "425px"}}>
+                                    <img src={image.default} className="rounded-lg"/>
                                     <div className="flex gap-6 px-2 py-4">
                                         <div>
                                             <p className="color-blue-1 text-right font-semibold">{formatDateDay(val.startDate)}</p>

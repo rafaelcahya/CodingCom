@@ -132,7 +132,7 @@ export default function Purchase() {
                     {show ? <div>
                         {
                             value.map((val) =>{
-                                return <div className="purchase-card border-b mt-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg">
+                                return <div className="purchase-card border-b mt-5 shadow hover:shadow-lg duration-100 rounded-lg">
                                     <div className="flex justify-between items-center gap-5 p-5 w-full">
                                     <div className="flex flex-col gap-3 text-sm w-full md:w-4/12">
                                         <p className="font-semibold">{val.tipe_paket}</p>
@@ -197,7 +197,7 @@ function Menu({payList}) {
         <>
             {
                 payList.map((val) =>{
-                    return <div className="purchase-card border-b mt-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg ">
+                    return <div className="purchase-card border-b mt-5 shadow hover:shadow-lg duration-100 rounded-lg ">
                             <div className="flex justify-between items-center gap-5 p-5 w-full">
                             <div className="flex flex-col gap-3 text-sm w-full md:w-4/12">
                                 <p className="font-semibold">{val.tipe_paket}</p>

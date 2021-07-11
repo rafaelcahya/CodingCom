@@ -20,7 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     .navbar-mobile-container, .navbar-mobile,
     .course-box,
     #sidebarmobile,
-    #tutorial-box
+    #tutorial-box,
+    .class-consultation-card,
+    .rating-card,
+    .rating-box
     {
         background: ${({theme}) => theme.foreground};
         color: ${({theme}) => theme.primarytext};
@@ -74,7 +77,9 @@ export const GlobalStyle = createGlobalStyle`
     .purchase-card,
     .history-project-card,
     .challenge-card,
-    .detail-class-card {
+    .detail-class-card,
+    .career-card,
+    .filter-job {
         background: ${({theme}) => theme.foreground2};
     }
 
@@ -84,6 +89,9 @@ export const GlobalStyle = createGlobalStyle`
     .feedback-box input,
     .feedback-box select,
     .feedback-box textarea,
+    .reg-bootcamp-box input,
+    .reg-bootcamp-box select,
+    .reg-bootcamp-box textarea,
     .submit-box input,
     .submit-box select,
     .submit-box textarea,
@@ -102,6 +110,9 @@ export const GlobalStyle = createGlobalStyle`
     .feedback-box input:focus,
     .feedback-box select:focus,
     .feedback-box textarea:focus,
+    .reg-bootcamp-box input:focus,
+    .reg-bootcamp-box select:focus,
+    .reg-bootcamp-box textarea:focus,
     .submit-box input:focus,
     .submit-box select:focus,
     .submit-box textarea:focus,
@@ -110,15 +121,10 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground3};
     }
     
-    .filter-job,
-    .career-card,
     .purchase-filter-btn,
-    .project-filter-btn{
+    .project-filter-btn,
+    .jobCategorybtn{
         background: ${({theme}) => theme.foreground5};
-    }
-    
-    .filter-job button{
-        background: ${({theme}) => theme.foreground4};
     }
     
     .sidebar,
@@ -134,6 +140,7 @@ export const GlobalStyle = createGlobalStyle`
     .request-class-form,
     .filter-job,
     .career-card,
+    .news-box,
     .separator-purchase-card,
     .separator-project-card{
         border: ${({theme}) => theme.border};

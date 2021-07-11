@@ -153,7 +153,7 @@ export default function HistorySubmit(props) {
                             {
                                 value.map((item) => {
                                     return <div>
-                                        <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                                        <div className="history-project-card flex flex-col gap-3 mt-5 p-5 shadow hover:shadow-lg duration-100 rounded-lg w-full border-b">
                                             <div className="flex items-center justify-between gap-2">
                                                 <p className="text-sm font-semibold">{item.type}</p>
                                                 <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>
@@ -212,24 +212,24 @@ export default function HistorySubmit(props) {
                                                     <div className="flex justify-between mt-14">
                                                         <div className="flex flex-col gap-5">
                                                             <div>
-                                                                <p className="text-xs text-gray-500">Project name</p>
+                                                                <p className="text-xs font-medium text-gray-500">Project name</p>
                                                                 <p className="font-medium">{v.projectTitle}</p>
                                                             </div>
                                                             <div>
-                                                                <p className="text-xs text-gray-500">Project type</p>
+                                                                <p className="text-xs font-medium text-gray-500">Project type</p>
                                                                 <p className="font-medium">{v.type}</p>
                                                             </div>
                                                             <div>
-                                                                <p className="text-xs text-gray-500">Upload time</p>
+                                                                <p className="text-xs font-medium text-gray-500">Upload time</p>
                                                                 <p className="font-medium">{formatDate(v.projectsubCreateAt)} {formatTime(v.projectsubCreateAt)}</p>
                                                             </div>
                                                             <div className="flex justify-between">
                                                                 <div>
-                                                                    <p className="text-xs text-gray-500">Times upload</p>
+                                                                    <p className="text-xs font-medium text-gray-500">Times upload</p>
                                                                     <p className="font-medium">{v.timesUpload}</p>
                                                                 </div>
                                                                 <div>
-                                                                    <p className="text-xs text-gray-500">Score</p>
+                                                                    <p className="text-xs font-medium text-gray-500">Score</p>
                                                                     {
                                                                         item.score <= 59 ? (<p className="text-red-500 text-xl font-bold">{v.score}</p>) :
                                                                             item.score <= 75 ? <p className="text-yellow-500 text-xl font-bold">{v.score}</p> : <p className="text-green-500 text-xl font-bold">{item.score}</p>
@@ -254,11 +254,11 @@ export default function HistorySubmit(props) {
                                                     <div className="border-darkmode w-full h-0.5 my-5"></div>
                                                     <div className="flex flex-col gap-5">
                                                         <div>
-                                                            <p className="text-xs text-gray-500">Description</p>
+                                                            <p className="text-xs font-medium text-gray-500">Description</p>
                                                             <p>{v.description}</p>
                                                         </div>
                                                         <div>
-                                                            <p className="text-xs text-gray-500">Revision note</p>
+                                                            <p className="text-xs font-medium text-gray-500">Revision note</p>
                                                             <p>{v.revisi}</p>
                                                         </div>
                                                     </div>
@@ -285,7 +285,7 @@ function Button({ button, filter }) {
             <div className="flex gap-4">
                 {
                     button.map((cat, i) => {
-                        return <button onClick={() => filter(cat)} id="jobCategorybtn" className="project-filter-btn text-left text-sm font-medium bg-blue-50 px-2 py-2 rounded-lg">{cat}</button>
+                        return <button onClick={() => filter(cat)} id="jobCategorybtn" className="project-filter-btn text-left text-sm font-medium px-2 py-2 rounded-lg">{cat}</button>
                     })
                 }
             </div>
@@ -312,7 +312,7 @@ function Menu({ menuItem }) {
             {
                 menuItem.map((item) => {
                     return <div>
-                        <div className="history-project-card flex flex-col gap-3 mt-5 p-5 hover:shadow-lg transform hover:scale-105 duration-200 rounded-lg w-full border-b">
+                        <div className="history-project-card flex flex-col gap-3 mt-5 p-5 shadow hover:shadow-lg duration-100 rounded-lg w-full border-b">
                             <div className="flex items-center justify-between gap-2">
                                 <p className="text-sm font-semibold">{item.type}</p>
                                 <p className="text-xs">{formatDate(item.projectsubCreateAt)}</p>

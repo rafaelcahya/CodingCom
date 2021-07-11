@@ -22,15 +22,10 @@ const GenerateID = (len, k)=>{
 
 export default function NavbarLogin() {
     const [loggedIn, setLoggedIn] = useState(true)
-    const [name, setName] = useState("")
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
     const [valueVal, setValueVal] = useState([])
     let image = require('../../asset/upload/'+ localStorage.getItem("image"))
-    window.onload = setTimeout(function () {
-        let x = localStorage.getItem("name");
-        setName(x)
-    }, 10)
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem("loggedIn"));
@@ -89,6 +84,10 @@ export default function NavbarLogin() {
         }
     }
 
+    function refreshPage(){
+        window.location.reload();
+    } 
+
     return (
         <>
             <nav id="top">
@@ -113,7 +112,7 @@ export default function NavbarLogin() {
                                 </svg>
                             </NavLink>
                             <div className="navbar flex items-center ml-12 gap-6 xl:gap-12" id="navbar">
-                                <NavLink to={"/pricing/"+name}
+                                <NavLink to={"/pricing/"+ localStorage.getItem("name")}
                                     activeClassName="navbar_active"
                                     className="navbar__link underline_anim">
                                     <p>Pricing</p>
@@ -196,7 +195,7 @@ export default function NavbarLogin() {
                                 </div>
                                 {
                                     value.map((val) => {
-                                        return <div className="dropdown-tutorial rounded-lg">
+                                        return <div className="dropdown-tutorial rounded-lg" onClick={refreshPage}>
                                                 <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(1,10)}>
                                                 <div className="flex flex-col gap-1">
                                                     <p className="font-semibold">{val.category}</p>
@@ -242,7 +241,13 @@ export default function NavbarLogin() {
                                                 <p className="font-semibold text-yellow-500">{val.classConsultation}</p>
                                             </div>
                                         </Link>
-                                        :
+                                        : v.classConsultation <= 3 ?
+                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                            <div className="flex justify-between gap-10">
+                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
+                                            </div>
+                                        </Link> :
                                         <Link to="/payment-confirmation-class-consultation-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Class Consultation Quota</p>
@@ -260,13 +265,19 @@ export default function NavbarLogin() {
                                                 <p className="font-semibold text-yellow-500">{val.classSession}</p>
                                             </div>
                                         </Link>
-                                        :
+                                        : v.classSession <= 3 ? 
                                         <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
                                             <div className="flex justify-between gap-10">
                                                 <p className="text-gray-400">Coding Class Quota</p>
                                                 <p className="font-semibold text-green-500">{val.classSession}</p>
                                             </div>
-                                        </Link>
+                                        </Link> : 
+                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                        <div className="flex justify-between gap-10">
+                                            <p className="text-gray-400">Coding Class Quota</p>
+                                            <p className="font-semibold text-green-500">{v.classSession}</p>
+                                        </div>
+                                    </Link>
                                     }
                                 </div>
                                 </div>
@@ -313,7 +324,7 @@ export default function NavbarLogin() {
                         })}
                         <div className="border-darkmode w-0.5 my-5"></div>
                         <div className="dropdown-user-setting">
-                            <Link to={"/profile/" + name}>
+                            <Link to={"/profile/" + localStorage.getItem("name")}>
                                 <p className="text-sm rounded-lg">Profile</p>
                             </Link>
                             <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
@@ -325,7 +336,7 @@ export default function NavbarLogin() {
                             <Link to="/history-submit-project">
                                 <p className="text-sm rounded-lg">Project</p>
                             </Link>
-                            <Link to={"/feedback/" + name}>
+                            <Link to={"/feedback/" + localStorage.getItem("name")}>
                                 <p className="text-sm rounded-lg">Feedback</p>
                             </Link>
                             {loggedIn ? (
