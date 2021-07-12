@@ -373,9 +373,21 @@ Accessories
             box-shadow: 0 40px 75px -12px rgb(0 0 0 / 50%);
 }
 
+.code{
+    background-color: red;
+}
+
 .CodeMirror {
-    resize: vertical;
-    height: 400px;
+    height: 500px;
+    resize: none;
+    padding: 10px;
+    border-radius: 8px 0 0 8px;
+}
+
+@media (max-width: 1024px) {
+    .CodeMirror {
+        border-radius: 8px 8px 0 0;
+    }
 }
 
 .output {
@@ -1323,6 +1335,7 @@ Payment
 Course 
 
 */
+
 .rating table tr td:nth-child(2){
     padding: 0 20px;
 }
@@ -1350,6 +1363,11 @@ Course
 
 .content-course ul li span, .content-course ol li span{
     text-indent: 500px;
+}
+
+.content-course pre{
+    background-color: rgb(229, 231, 235);
+    padding: 20px;
 }
 
 .rating-box {

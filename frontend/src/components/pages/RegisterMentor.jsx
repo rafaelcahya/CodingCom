@@ -73,7 +73,7 @@ function RegisterMentor() {
                 </div>
                 <p className="text-sm color-red-1 text-center my-8 font-medium">{errorMessage}</p>
                 <div className="flex justify-between w-full gap-5 text-sm pt-5">
-                    <Link to="/login" className="border border-gray-200 hover:bg-gray-200 text-sm font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Back</Link>
+                    <Link to="/login" className="hover:bg-gray-200 text-sm font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Back</Link>
                     <p onClick={register} className="bg-blue-1 hover:bg-blue-400 text-sm text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer w-1/2">Register</p>
                 </div>
                 <Popup trigger={buttonPopup}>

@@ -292,11 +292,6 @@ router.post("/reset", (req, res) => {
                                 from: 'codingpaymentcom@gmail.com',
                                 to: email,
                                 subject: 'Forgot Password',
-                                attachments: [{
-                                    filename: 'logo_codingcom.png',
-                                    path: __dirname +'/views/logo_codingcom.png',
-                                    cid: 'logo@cid'
-                                }],
                                 html: "<p>Click the button below to change your old password.</p>" + 'http://localhost:3000/forgotPassword/' + hash
                             }
                             transporter.sendMail(mailOption, function (err, info) {

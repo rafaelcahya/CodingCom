@@ -40,7 +40,7 @@ export default function ForgotPassword() {
                     <p className="color-blue-1 text-xl font-semibold mb-2">Create new password</p>
                     <p className="text-sm">Your new password must be different from previous used password</p>
                     <div className="flex flex-col my-10">
-                        <div className="flex flex-col gap-5">
+                        <div className="forgot-password flex flex-col gap-5">
                             <div>
                                 <div className="flex justify-between">
                                     <p className="password text-sm font-semibold mb-1">Password</p>
@@ -99,7 +99,7 @@ export default function ForgotPassword() {
                     <div className="flex flex-col gap-5 text-sm">
                         <p onClick={submit} className="bg-blue-1 hover:bg-blue-400 text-white font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Reset password</p>
                         <Link to="/login">
-                            <p className="border border-blue-500 font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Cancel</p>
+                            <p className="font-medium text-center px-7 py-2 rounded-lg cursor-pointer">Cancel</p>
                         </Link>
                     </div>
                 </div>

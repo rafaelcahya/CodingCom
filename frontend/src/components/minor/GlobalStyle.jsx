@@ -83,6 +83,7 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground2};
     }
 
+    .forgot-password input,
     .login-form input,
     .reset-password-box input,
     .register-box input,
@@ -157,6 +158,11 @@ export const GlobalStyle = createGlobalStyle`
     .reset-password-box input{
         border: ${({theme}) => theme.border2};
     }
+
+    .about-company{
+        border: ${({theme}) => theme.border2};
+        background-color: ${({theme}) => theme.foreground2};
+    }
     
     .navbar .navbar-content{
         border-bottom: ${({theme}) => theme.border};
@@ -166,7 +172,8 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 8px;
     }
     
-    .purchase-card:hover{
+    .purchase-card:hover,
+    .table-consultation-class tbody{
         background: ${({theme}) => theme.foreground4};
     }
 
@@ -199,6 +206,16 @@ export const GlobalStyle = createGlobalStyle`
     .border-darkmode{
         background-color: ${({theme}) => theme.foreground5};
     }
+    
+    .topic-separator,
+    .table-consultation-class thead{
+        background-color: ${({theme}) => theme.foreground6};
+    }
+    
+    .table-consultation-class thead
+    {
+        border-bottom: ${({theme}) => theme.border};
+    }
 `;
 
 export const lightTheme={
@@ -211,6 +228,7 @@ export const lightTheme={
     foreground3: '#ecf3fc',
     foreground4: '#fff',
     foreground5: '#ecf3fc',
+    foreground6: '#ecf3fc',
     border: '1px solid #e1e3e7',
     border2: '1.5px solid #e1e8eb'
 }
@@ -225,6 +243,7 @@ export const darkTheme={
     foreground3: '#31343d',
     foreground4: '#272931',
     foreground5: '#272931',
+    foreground6: '#16171d',
     border: 'none',
     border2: 'none'
 }

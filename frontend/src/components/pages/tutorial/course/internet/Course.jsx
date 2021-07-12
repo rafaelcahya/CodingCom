@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom'
 import NavbarLogin from '../../../../major/NavbarLogin'
 import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
-import SidebarInternet from '../SidebarInternet'
-import SidebarInternetMobile from '../SidebarInternetMobile'
 
 import star from "../../../../../asset/icon/star.svg"
 
@@ -91,23 +89,25 @@ function Internet(props) {
         <>
             <NavbarLogin />
             <NavbarMobile />
-            <div className="flex gap-10 mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
-                <div className="hidden lg:block lg:w-1/5">
-                    <div className="hidden lg:block sticky self-start top-0 pt-6">
-                        <p className="text-lg font-semibold">Course List</p>
-                        <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                            <div className="flex justify-between items-center">
-                                <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)}>Getting Started</Link>
-                                <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+            <div className="mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
+                <div className="flex gap-10 w-full">
+                    <div className="hidden lg:block w-full lg:w-2/12">
+                        <div className="hidden lg:block sticky self-start top-0 pt-6">
+                            <p className="text-lg font-semibold">Course List</p>
+                            <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                                <div className="flex justify-between items-center">
+                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)} className="hover:text-blue-500">Getting Started</Link>
+                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
+                                </div>
+                                {
+                                    courseList.map((v) => {
+                                        return <div className="flex justify-between items-center">
+                                            <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id} className="hover:text-blue-500">{v.judul}</Link>
+                                            <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
+                                        </div>
+                                    })
+                                }
                             </div>
-                            {
-                                courseList.map((v) => {
-                                    return <div className="flex justify-between items-center">
-                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>{v.judul}</Link>
-                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
-                                    </div>
-                                })
-                            }
                         </div>
                     </div>
                     <nav className="sidebar-mobile block lg:hidden fixed top-16 right-2 z-10">
@@ -124,19 +124,19 @@ function Internet(props) {
                                         </Link>
                                     </p>
                                     {
-                                courseList.map((v) => {
-                                    return <p>
-                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>
-                                            <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">{v.judul}</p>
-                                        </Link>
-                                    </p>
-                                     })
+                                    courseList.map((v) => {
+                                        return <p>
+                                            <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id}>
+                                                <p className="px-6 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">{v.judul}</p>
+                                            </Link>
+                                        </p>
+                                        })
                                     }
                                 </div>
                             </li>
                         </ul>
                     </nav>
-                    <div className="pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300">
+                    <div className="pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300 w-full lg:w-7/12">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
                             {
                                 value.map(

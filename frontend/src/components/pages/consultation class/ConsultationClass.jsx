@@ -46,38 +46,41 @@ function ConsultationClass() {
                 <div className="flex flex-col my-10">
                     <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-gray-50">
+                            <div className="shadow overflow-hidden rounded-lg">
+                                <table className="table-consultation-class min-w-full">
+                                    <thead>
                                         <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Consultation Class
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Day
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Time
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Status
+                                            </th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
+                                                
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
+                                    <tbody>
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                         Day Consultation Class A
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                <div className="text-sm ">09:00 - 17:00</div>
                                             </td>
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
@@ -119,16 +122,16 @@ function ConsultationClass() {
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                         Day Consultation Class B
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                <div className="text-sm ">09:00 - 17:00</div>
                                             </td>
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
@@ -170,16 +173,16 @@ function ConsultationClass() {
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                         Day Consultation Class C
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">09:00 - 17:00</div>
+                                                <div className="text-sm ">09:00 - 17:00</div>
                                             </td>
                                             {hours <= 9 || hours >= 17 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
@@ -227,38 +230,41 @@ function ConsultationClass() {
                 <div className="flex flex-col my-10">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200 ">
-                                    <thead className="bg-gray-50">
+                            <div className="shadow overflow-hidden rounded-lg">
+                                <table className="table-consultation-class min-w-full">
+                                    <thead className="">
                                         <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Consultation Class
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 day
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Time
                                             </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                                                 Status
+                                            </th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
+                                                
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
+                                    <tbody>
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                     Night Consultation Class A
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                <div className="text-sm ">18:00 - 23:00</div>
                                             </td>
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
@@ -300,16 +306,16 @@ function ConsultationClass() {
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                     Night Consultation Class B
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                <div className="text-sm ">18:00 - 23:00</div>
                                             </td>
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">
@@ -351,16 +357,16 @@ function ConsultationClass() {
                                         <tr>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className="text-sm font-semibold text-gray-900">
+                                                    <div className="text-sm font-semibold ">
                                                         Night Consultation Class C
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">Monday - Friday</div>
+                                                <div className="text-sm ">Monday - Friday</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">18:00 - 23:00</div>
+                                                <div className="text-sm ">18:00 - 23:00</div>
                                             </td>
                                             {hours <= 18 || hours >= 23 || dayOfWeek === 6 || dayOfWeek === 0 ? ( 
                                                     <td className="px-6 py-4 whitespace-nowrap" id="status">

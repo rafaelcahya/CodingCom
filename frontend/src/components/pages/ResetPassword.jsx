@@ -33,7 +33,10 @@ export default function ResetPassword() {
                                     setEmail(event.target.value)
                                 }} />
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
+                        {
+                            errorMessage === "Link has been send by email" ? <p className="px-20 text-sm text-green-500 mt-8 font-medium">{errorMessage}</p> : <p className="px-20 text-sm color-red-1 mt-8 font-medium">{errorMessage}</p>
+                        }
+                        
                     </div>
                     <div className="flex flex-col gap-5 text-sm">
                         <p onClick={reset} className="bg-blue-1 hover:bg-blue-400 bg-blue-100 text-white font-medium text-center px-7 py-2.5 rounded-lg cursor-pointer">Send Link</p>

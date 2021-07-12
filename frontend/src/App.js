@@ -88,6 +88,7 @@ function App() {
             <Route path="/edit-profile/:name" component={AddProfile} />
             <Route path="/purchase" component={Purchase} />
             <Route path="/history-submit-project" component={HistorySubmit} />
+            <Route path="/text-editor" component={HTML} />
 
             <Route path="/pricing/:name" component={Pricing} />
             <Route path="/payment-confirmation-premium-plan" component={PremiumPlanPay} />
