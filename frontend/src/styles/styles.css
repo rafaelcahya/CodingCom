@@ -1293,6 +1293,7 @@ Payment
 
 .payment-confirm-box,
 .register-popup-box,
+.login-popup-container,
 .darkmode-box {
     width: 500px;
     margin: 15% auto;

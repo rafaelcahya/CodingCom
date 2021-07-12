@@ -25,7 +25,7 @@ function News(props) {
             <div className="flex justify-center">
                 <p className="text-3xl font-semibold border-b-2 px-2 pb-2 border-black mb-20 mt-32 lg:mt-20 w-max">Latest Newsfeed</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-10">
+            <div className="flex flex-wrap justify-center gap-5">
                 {data
                     ? data.articles.map((news) => (
                         <NewsArticle data={news} key={news.url} />

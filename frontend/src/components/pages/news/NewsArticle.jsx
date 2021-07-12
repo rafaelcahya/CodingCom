@@ -11,7 +11,7 @@ const News = styled.div`
 `;  
 
 const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
-const formatTime = s => new Date(s).toLocaleTimeString();
+const formatTime = s => new Date(s).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
 function NewsArticle({data}) {
     return (

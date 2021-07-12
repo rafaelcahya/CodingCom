@@ -5,12 +5,16 @@ import Axios from "axios"
 import { Link } from 'react-router-dom'
 import { useHistory } from "react-router-dom"
 
+import AOS from "aos"
+import "../../../node_modules/aos/dist/aos.css"
+
 import BlobAnim from '../minor/Blob animation/BlobAnim'
 
 import showPass from "../../asset/icon/eye.svg"
 import hidePass from "../../asset/icon/eye-off.svg"
 
 export default function Login() {
+    AOS.init();
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [revealPass, setRevealPass] = useState(false)

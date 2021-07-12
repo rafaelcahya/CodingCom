@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
@@ -218,8 +219,8 @@ export default function NavbarLogin() {
                                 initial={false}
                                 animate={openProfile ? "opened" : "closed"}>
                                 {login === "false" ? <div className="flex items-center gap-2">
-                                    <Link to="/login">
-                                    Login
+                                    <Link to="/login" className="bg-blue-1 text-white px-3 py-2 rounded-lg">
+                                        Login
                                     </Link>
                                 </div> : <div className="flex items-center gap-2">
                                     <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile" />
@@ -408,19 +409,17 @@ export default function NavbarLogin() {
                 ) : ("")}
             </nav>
             <Popup trigger={buttonPopup}>
-                    <p className="text-lg font-semibold py-5">You Must Login First</p>
-                    <p className="text-sm font-medium">You must login first</p>
+                <p className="pb-5 font-medium text-center">Already have an account?</p>
+                <div className="flex flex-col justify-center gap-5">
                     <Link to="/login">
-                    <div className="flex justify-end">
-                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Login Now
-                        </button>
-                    </div>
+                        <p className="bg-blue-1 text-white font-medium text-center rounded-md px-8 py-2 cursor-pointer outline-none">Login</p>
                     </Link>
-                    <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Cancel
-                        </button>
-                </Popup>
+                    <Link to="/register">
+                        <p className="bg-blue-1 text-white font-medium text-center rounded-md px-8 py-2 cursor-pointer outline-none">Register</p>
+                    </Link>
+                    <p onClick={cancel} className="text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Cancel</p>
+                </div>
+            </Popup>
         </>
     )
 }

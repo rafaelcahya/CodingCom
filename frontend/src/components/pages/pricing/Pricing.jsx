@@ -552,18 +552,16 @@ function Pricing(props) {
                     </div>
                 </section>
                 <Popup trigger={buttonPopup}>
-                    <p className="text-lg font-semibold py-5">You Must Login First</p>
-                    <p className="text-sm font-medium">You must login first</p>
-                    <Link to="/login">
-                    <div className="flex justify-end">
-                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Login Now
-                        </button>
+                    <p className="pb-5 font-medium text-center">Already have an account?</p>
+                    <div className="flex flex-col justify-center gap-5">
+                        <Link to="/login">
+                            <p className="bg-blue-1 text-white font-medium text-center rounded-md px-8 py-2 cursor-pointer outline-none">Login</p>
+                        </Link>
+                        <Link to="/register">
+                            <p className="bg-blue-1 text-white font-medium text-center rounded-md px-8 py-2 cursor-pointer outline-none">Register</p>
+                        </Link>
+                        <p onClick={cancel} className="text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">Cancel</p>
                     </div>
-                    </Link>
-                    <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Cancel
-                        </button>
                 </Popup>
                 <Footer/>
             </>
