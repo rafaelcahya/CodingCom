@@ -2,12 +2,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
+import AOS from "aos"
+import "../../../../node_modules/aos/dist/aos.css"
+
 import Footer from '../../major/Footer'
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
 import { Link } from 'react-router-dom';
 
 const GenerateID = (len, k) => {
+    AOS.init();
     const s = (k) => {
         var text = ""
         var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -61,7 +65,7 @@ function ChellengeList(props) {
                             {
                                 value.map((val) => {
                                     let image = require('../../../asset/upload/' + val.image)
-                                    return <Link to={"/project-"+v.type+"/" + val.projectId + "-" + GenerateID(15, 10)}>
+                                    return <Link to={"/project-"+v.type+"/" + val.projectId + "-" + GenerateID(15, 10)} data-aos="zoom-in" data-aos-duration="500" data-aos-easing="ease-in-out">
                                         <div className="challenge-card bg-white p-2 rounded-lg w-max shadow-md hover:shadow-xl transform hover:scale-105 duration-200">
                                             <img src={image.default} className="rounded-lg" />
                                             <div className="flex flex-col gap-4 px-2 pt-2">
