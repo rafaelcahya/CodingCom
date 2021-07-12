@@ -129,7 +129,7 @@ function EditJobs(props) {
                                     <select name="" id="" onChange={(event) => {
                                         setType(event.target.value)
                                     }} >
-                                        <option value="">Select employment type</option>
+                                        <option>Select employment type</option>
                                         <option value="Fulltime">Fulltime</option>
                                         <option value="Parttime">Parttime</option>
                                         <option value="Internship">Internship</option>

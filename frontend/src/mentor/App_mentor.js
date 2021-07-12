@@ -8,6 +8,8 @@ import ListTopik from "./ListTopik"
 import EditCourse from "./EditCourse"
 import ShowCourse from "./ShowCourse.jsx";
 import ListCourse from "./ListCourse"
+import ListClass from "./ListClass.jsx"
+import EditClass from "./EditClass.jsx"
 
 function App_mentor() {
     return (
@@ -21,6 +23,8 @@ function App_mentor() {
                 <Route exact path="/mentor/mentor-edit-course-:id-:hash" component={EditCourse} />
                 <Route exact path="/mentor/mentor-show-course-:id-:hash" component={ShowCourse} />
                 <Route exact path="/mentor/list-course" component={ListCourse} />
+                <Route exact path="/mentor/list-class" component={ListClass} />
+                <Route exact path="/mentor/edit-class-:id" component={EditClass} />
             </Switch>
         </Router>
     );

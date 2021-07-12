@@ -48,4 +48,30 @@ router.put("/deleteCategory", (req, res) => {
     })
 })
 
+router.post("/EditCategory", (req, res) => {
+    const id = req.body.id
+    let category = req.body.category
+    let categoryInfo = req.body.categoryInfo
+
+    db.query("SELECT * From category WHERE categoryId = ?", id, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            if (category.length <= 0) {
+                category = results[0].category
+
+            } if (categoryInfo.length <= 0) {
+                categoryInfo = results[0].categoryInfo
+
+            } 
+            db.query("UPDATE category SET category = ?, categoryInfo = ?, categoryUpdateAt = ?  WHERE categoryId=?;", [ category, categoryInfo, updateAt, id], (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+
+        }
+    })
+})
+
 module.exports = router;

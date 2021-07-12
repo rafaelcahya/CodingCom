@@ -60,7 +60,7 @@ export default function ListFAQ() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.helpCreateAt)} {formatTime(val.helpCreateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.helpUpdateAt)} {formatTime(val.helpUpdateAt)}</td>              
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/admin/edit-faq/"+val.helpId}>
+                                                            <Link to={"/admin/edit-faq-"+val.helpId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>
                                                             </Link>
                                                         </td>

@@ -44,12 +44,17 @@ export default function Sidebar() {
                         ],
                     },
                     {
-                        title: 'Project submission',
-                        itemId: '/mentor/project-submission',
-                    },
-                    {
-                        title: 'Class Request',
+                        title: 'Class',
                         itemId: '/mentor/class-request',
+                        subNav:[
+                            {
+                                title:'Class Request',
+                                itemId: '/mentor/class-request',
+                            },
+                            {   title:'Class List',
+                                itemId:'/mentor/list-class',
+                            }
+                        ]
                     },
                 ]}
                 />

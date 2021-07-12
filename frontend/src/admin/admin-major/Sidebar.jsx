@@ -61,13 +61,17 @@ export default function Sidebar() {
                                 itemId: '/admin/list-course',
                             },
                             {
-                                title: 'Sub tutorial list',
+                                title: 'Sub tutorial/topik list',
                                 itemId: '/admin/list-topik',
                             },
                             {
-                                title: 'Add tutorial',
+                                title: 'Add tutorial Category',
                                 itemId: '/admin/add-category',
                             },
+                            {
+                                title:'List Tutorial Category',
+                                itemId:'/admin/list-category',
+                            }
                         ],
                     },
                     
@@ -138,6 +142,10 @@ export default function Sidebar() {
                                 itemId:'/admin/list-faq',
                             }
                         ]
+                    },
+                    {
+                        title: 'Feedback',
+                        itemId: '/admin/list-feedback',
                     },
                 ]}
                 />

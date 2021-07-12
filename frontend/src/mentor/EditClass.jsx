@@ -1,12 +1,12 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable no-useless-concat */
 import React, { useEffect, useRef, useState } from 'react'
-import Sidebar from './admin-major/Sidebar'
+import Sidebar from './major/Sidebar'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Editor } from '@tinymce/tinymce-react';
 
-function EditRequestClass(props) {
+function EditClass(props) {
     const urlid = props.match.params.id
     const editorRef = useRef(null);
     const [id, setId] = useState("")
@@ -18,7 +18,6 @@ function EditRequestClass(props) {
     const [enddate, setEndDate] = useState("")
     const [url, setUrl] = useState("")
     const [updateAt, setUpdateAt] = useState("")
-    const [status, setStatus] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [valueList,setValueList] = useState([])
     window.onload = setTimeout(function () {
@@ -41,9 +40,10 @@ function EditRequestClass(props) {
     },[]);
 
     const updateClass = () => {
-        Axios.post("http://localhost:3001/class/updateClass", { id: urlid, className: className, info:info, starttime: starttime, endtime:endtime, startdate: startdate, enddate:enddate, des:editorRef.current.getContent(), url: url, updateAt: updateAt, status: status }).then((response) => {
+        Axios.post("http://localhost:3001/class/updateClassMentor", { id: urlid, className: className, info:info, starttime: starttime, endtime:endtime, startdate: startdate, enddate:enddate, des:editorRef.current.getContent(), url: url, updateAt: updateAt }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
+            console.log(updateAt)
 
         })
     }
@@ -154,16 +154,6 @@ function EditRequestClass(props) {
                                             setUrl(event.target.value)
                                         }} />
                                 </div>
-                                <div className="flex flex-col gap-2 w-56">
-                                    <p className="Waktu text-sm font-semibold">Change status*</p>
-                                    <select id="dropdown" onChange={(event) => {
-                                        setStatus(event.target.value)
-                                    }}>
-                                        <option value={val.status}>{val.status}</option>
-                                        <option value="Approve">Approve</option>
-                                        <option value="Reject">Reject</option>
-                                    </select>
-                                </div>
                                 <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                                 <div className="flex gap-10">
                                     <p className="bg-gray-200 hover:bg-gray-300 w-1/5 text-center px-7 py-2 rounded-lg cursor-pointer">
@@ -184,4 +174,4 @@ function EditRequestClass(props) {
     )
 }
 
-export default EditRequestClass
+export default EditClass
