@@ -194,7 +194,7 @@ function ClassDetail(props) {
                                                         <p className="font-semibold">Are you sure you want to take this class?</p>
                                                         <div className="flex items-center gap-5">
                                                             <p onClick={() => toggleShow(!show)} className="cursor-pointer">Cancel</p>
-                                                            <a href={val.url} target="_blank" rel="noreferrer" onClick={reset} className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
+                                                            <a href={val.classUrl} target="_blank" rel="noreferrer" onClick={reset} className="bg-blue-1 text-white text-center font-semibold px-6 py-2 rounded-md cursor-pointer">Join</a>
                                                         </div>
                                                         <div className="flex items-center gap-1">
                                                             <p>Remaining class consultation quotas:</p> 
