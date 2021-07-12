@@ -40,7 +40,7 @@ router.post("/commentInternet", (req, res) => {
 router.get("/commentListById/:id", (req, res) => {
     const id = req.params.id
     let isDeleted = "NO"
-    db.query("SELECT comment.comment, comment.commentCreateAt, user.name from comment,user WHERE comment.user_id=user.id AND courseId = ? AND comment.isDeleted = ?", [id,isDeleted], (err, results) => {
+    db.query("SELECT comment.comment, comment.commentCreateAt, user.name, user.image from comment,user WHERE comment.user_id=user.id AND courseId = ? AND comment.isDeleted = ?", [id,isDeleted], (err, results) => {
         res.send(results)
         console.log(results)
     })

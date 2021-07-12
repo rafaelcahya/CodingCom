@@ -4,18 +4,18 @@ import Axios from 'axios'
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 
-const GenerateID = (len, k)=>{
-    const s = (k) =>{
+const GenerateID = (len, k) => {
+    const s = (k) => {
         var text = ""
         var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        for(let i = 0 ; i<k ; i++){
-            text += chars.charAt(Math.floor(Math.random()*chars.length));
+        for (let i = 0; i < k; i++) {
+            text += chars.charAt(Math.floor(Math.random() * chars.length));
         }
         return text
     }
     var id = s(k);
-    for(let n = 0;n<len;n++){
-        id += '-'+s(k)
+    for (let n = 0; n < len; n++) {
+        id += '-' + s(k)
     }
     return id
 }
@@ -27,8 +27,10 @@ export default function NavbarMobile() {
     const [valueList, setValueList] = useState([])
     const [valueVal, setValueVal] = useState([])
     const [name, setName] = useState("")
-    let image = require('../../asset/upload/'+ localStorage.getItem("image"))
-
+    var image = ""
+    if (localStorage.getItem("image") != null) {
+        image = require('../../asset/upload/' + localStorage.getItem("image"))
+    }
     window.onload = setTimeout(function () {
         let x = localStorage.getItem("name");
         setName(x)
@@ -40,12 +42,12 @@ export default function NavbarMobile() {
     }, [localStorage.getItem("loggedIn")]);
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/user/userById/"+localStorage.getItem("name")).then((response) => {
+        Axios.get("http://localhost:3001/user/userById/" + localStorage.getItem("name")).then((response) => {
             setValueList(response.data)
             console.log(response.data)
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         Axios.get("http://localhost:3001/user/userkuotaById/" + localStorage.getItem("name")).then((response) => {
@@ -77,7 +79,7 @@ export default function NavbarMobile() {
         }
     }
 
-        return (
+    return (
         <>
             <nav className="navbar-mobile flex justify-between lg:hidden fixed top-0 px-10 shadow-md w-full z-20">
                 <motion.div
@@ -95,12 +97,18 @@ export default function NavbarMobile() {
                     onClick={() => setOpenProfile(state => !state)}
                     initial={false}
                     animate={openProfile ? "opened" : "closed"}>
-                    <div className="flex items-center gap-2">
-                        <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile"/>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    {localStorage.getItem("loggedIn") === "false" ? <div className="flex items-center gap-2">
+                        <Link to="/login">
+                            Login
+                        </Link>
+                    </div> : <div className="flex items-center gap-2">
+                        <img src={image.default} className="ring-1 rounded-full p-0.5" width="35" alt="Image Profile" />
+                    </div>}
+                    {localStorage.getItem("loggedIn") === "true" ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    ) : ("")}
                 </motion.div>
-            </nav> 
+            </nav>
             <div className="block lg:hidden fixed top-0 px-10 shadow-md w-full z-10">
                 <motion.div
                     initial={false}
@@ -116,7 +124,7 @@ export default function NavbarMobile() {
                         <Link to="/roadmap">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Roadmap</p>
                         </Link>
-                        <DropDownMenu/>
+                        <DropDownMenu />
                         <Link to="/challenge">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Challenge</p>
                         </Link>
@@ -128,68 +136,121 @@ export default function NavbarMobile() {
                         </Link>
                         <Link to="/career">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Career</p>
-                        </Link> 
+                        </Link>
                     </div>
                 </motion.div>
-                <motion.div
+                {localStorage.getItem("loggedIn") == "true" ? (<motion.div
                     initial={false}
                     variants={menuProfile}
                     animate={openProfile ? "opened" : "closed"} className="dropdown-user absolute top-0 right-0 mx-16 xl:mx-32 p-5 lg:flex flex-col gap-2 rounded-lg bg-white z-10">
                     <div className="flex gap-5">
-                    {valueVal.map((v)=>{
+                        {valueList.map((v) => {
                             return <div className="text-sm">
-                            {valueList.map((val)=>{
-                                return <div className="dropdown-user-quota rounded-lg">
-                                {
-                                    val.status==="Actived"?
-                                    <div className="flex justify-between gap-20">
-                                        <p className="text-gray-400">Premium plan</p>
-                                        <p className="text-green-500 rounded-lg font-semibold tracking-wide">{val.status}</p>
+                                {v.status == "Actived" ? (<div>
+                                    <div className="dropdown-user-quota rounded-lg">
+                                        {
+                                            v.status === "Actived" ?
+                                                <div className="flex justify-between gap-20">
+                                                    <p className="text-gray-400">Premium plan</p>
+                                                    <p className="text-green-500 rounded-lg font-semibold tracking-wide">{v.status}</p>
+                                                </div>
+                                                :
+                                                <div className="flex justify-between gap-20">
+                                                    <p className="text-gray-400">Premium plan</p>
+                                                    <p>{v.status}</p>
+                                                </div>
+                                        }
                                     </div>
-                                    :
-                                    <div className="flex justify-between gap-20">
-                                        <p className="text-gray-400">Premium plan</p>
-                                        <p>{val.status}</p>
+                                    {valueVal.map((val) => {
+                                        return <div>
+                                            <div className="dropdown-user-quota rounded-lg">
+                                                {
+                                                    val.classConsultation <= 3 ?
+                                                        <Link to="/payment-confirmation-class-consultation-quota">
+                                                            <div className="flex justify-between gap-10">
+                                                                <p className="text-gray-400">Class Consultation Quota</p>
+                                                                <p className="font-semibold text-yellow-500">{val.classConsultation}</p>
+                                                            </div>
+                                                        </Link>
+                                                        : v.classConsultation <= 3 ?
+                                                            <Link to="/payment-confirmation-class-consultation-quota">
+                                                                <div className="flex justify-between gap-10">
+                                                                    <p className="text-gray-400">Class Consultation Quota</p>
+                                                                    <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
+                                                                </div>
+                                                            </Link> :
+                                                            <Link to="/payment-confirmation-class-consultation-quota">
+                                                                <div className="flex justify-between gap-10">
+                                                                    <p className="text-gray-400">Class Consultation Quota</p>
+                                                                    <p className="font-semibold text-green-500">{val.classConsultation}</p>
+                                                                </div>
+                                                            </Link>
+                                                }
+                                            </div>
+                                            <div className="dropdown-user-quota rounded-lg">
+                                                {
+                                                    val.classSession <= 3 ?
+                                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                                            <div className="flex justify-between gap-10">
+                                                                <p className="text-gray-400">Coding Class Quota</p>
+                                                                <p className="font-semibold text-yellow-500">{val.classSession}</p>
+                                                            </div>
+                                                        </Link>
+                                                        : v.classSession <= 3 ?
+                                                            <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                                                <div className="flex justify-between gap-10">
+                                                                    <p className="text-gray-400">Coding Class Quota</p>
+                                                                    <p className="font-semibold text-green-500">{val.classSession}</p>
+                                                                </div>
+                                                            </Link> :
+                                                            <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
+                                                                <div className="flex justify-between gap-10">
+                                                                    <p className="text-gray-400">Coding Class Quota</p>
+                                                                    <p className="font-semibold text-green-500">{v.classSession}</p>
+                                                                </div>
+                                                            </Link>
+                                                }
+                                            </div>
+                                        </div>
+                                    })}
+                                </div>) : (<div>
+                                    <div className="dropdown-user-quota rounded-lg">
+                                        {
+                                            v.status === "Actived" ?
+                                                <div className="flex justify-between gap-20">
+                                                    <p className="text-gray-400">Premium plan</p>
+                                                    <p className="text-green-500 rounded-lg font-semibold tracking-wide">{v.status}</p>
+                                                </div>
+                                                :
+                                                <div className="flex justify-between gap-20">
+                                                    <p className="text-gray-400">Premium plan</p>
+                                                    <p>{v.status}</p>
+                                                </div>
+                                        }
                                     </div>
-                                }
-                            </div>
-                            })}
-                                <div className="dropdown-user-quota rounded-lg">
-                                    {
-                                        v.classConsultation<=3 ? 
-                                        <Link to="/payment-confirmation-class-consultation-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Class Consultation Quota</p>
-                                                <p className="font-semibold text-yellow-500">{v.classConsultation}</p>
-                                            </div>
-                                        </Link>
-                                        :
-                                        <Link to="/payment-confirmation-class-consultation-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Class Consultation Quota</p>
-                                                <p className="font-semibold text-green-500">{v.classConsultation}</p>
-                                            </div>
-                                        </Link>
-                                    }
-                                </div>
-                                <div className="dropdown-user-quota rounded-lg">
-                                    {
-                                        v.classSession<=3 ? 
-                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Coding Class Quota</p>
-                                                <p className="font-semibold text-yellow-500">{v.classSession}</p>
-                                            </div>
-                                        </Link>
-                                        :
-                                        <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
-                                            <div className="flex justify-between gap-10">
-                                                <p className="text-gray-400">Coding Class Quota</p>
-                                                <p className="font-semibold text-green-500">{v.classSession}</p>
-                                            </div>
-                                        </Link>
-                                    }
-                                </div>
+
+                                    <div>
+                                        <div className="dropdown-user-quota rounded-lg">
+
+                                            <Link to="/payment-confirmation-premium-plan">
+                                                <div className="flex justify-between gap-10">
+                                                    <p className="text-gray-400">Class Consultation Quota</p>
+                                                    <p className="font-semibold text-yellow-500">0</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                        <div className="dropdown-user-quota rounded-lg">
+
+                                            <Link to="/payment-confirmation-premium-plan" className="dropdown-user-quota">
+                                                <div className="flex justify-between gap-10">
+                                                    <p className="text-gray-400">Coding Class Quota</p>
+                                                    <p className="font-semibold text-yellow-500">0</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>)}
+
                             </div>
                         })}
                         <div className="border-darkmode w-0.5 my-5"></div>
@@ -197,7 +258,7 @@ export default function NavbarMobile() {
                             <Link to={"/profile/" + name}>
                                 <p className="text-sm rounded-lg">Profile</p>
                             </Link>
-                            <Link to={"/ChangePassword/"+ localStorage.getItem("name") + "-" + GenerateID(15,10)}>
+                            <Link to={"/ChangePassword/" + localStorage.getItem("name") + "-" + GenerateID(15, 10)}>
                                 <p className="text-sm rounded-lg">Change Password</p>
                             </Link>
                             <Link to="/purchase">
@@ -222,9 +283,9 @@ export default function NavbarMobile() {
                             )}
                         </div>
                     </div>
-                </motion.div>
+                </motion.div>) : ("")}
             </div>
-            
+
         </>
     )
 }
@@ -233,7 +294,7 @@ const DropDownMenu = () => {
     const [dropdownTutorial, setDropdownTutorial] = useState();
     const [open, setOpen] = useState(false);
     const container = useRef(null);
-    
+
     const handleClickOutside = event => {
         if (container.current && !container.current.contains(event.target)) {
             setOpen(false);
@@ -261,17 +322,17 @@ const DropDownMenu = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             {open && (
-            <div>
-                {
-                    dropdownTutorial.map((val) => {
-                        return <div className="dropdown-tutorial rounded-lg ml-14">
-                                <Link to={"/category-detail-"+ val.categoryId + "/" + GenerateID(15,10)} className="">
+                <div>
+                    {
+                        dropdownTutorial.map((val) => {
+                            return <div className="dropdown-tutorial rounded-lg ml-14">
+                                <Link to={"/category-detail-" + val.categoryId + "/" + GenerateID(15, 10)} className="">
                                     <p className="text-sm font-medium p-2">{val.category}</p>
-                            </Link>
-                        </div>
-                    })
-                }
-            </div>
+                                </Link>
+                            </div>
+                        })
+                    }
+                </div>
             )}
         </div>
     );

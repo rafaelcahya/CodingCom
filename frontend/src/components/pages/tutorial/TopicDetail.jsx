@@ -38,7 +38,6 @@ function TopicDetail(props) {
     const [Count3, setCount3] = useState([])
     const [Count4, setCount4] = useState([])
     const [Count5, setCount5] = useState([])
-    let image = require('../../../asset/upload/'+ localStorage.getItem("image"))
 
     useEffect(() => {
         Axios.get("http://localhost:3001/rating/ratingList/"+ urlid).then((response) => {
@@ -255,6 +254,7 @@ function TopicDetail(props) {
                     {
                         rating.map(
                             (val) => {
+                                let image = require('../../../asset/upload/'+ val.image)
                                 return <div className="review py-5">
                                     <div className="flex justify-between items-center">
                                         <div className="flex gap-4">

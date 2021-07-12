@@ -23,7 +23,7 @@ export default function ListJobs() {
     }, []);
 
     const deleteUser = (id) => {
-        axios.put("http://localhost:3001/job/deleteJobs", {
+        axios.put("http://localhost:3001/jobs/deleteJobs", {
             id: id,
             updateAt: updateAt
         })

@@ -45,7 +45,7 @@ router.post("/rating", (req, res) => {
 router.get("/ratingList/:id", (req, res) => {
     const id = req.params.id
     let isDeleted = "NO"
-    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name from rating,user WHERE rating.user_id=user.id AND rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
+    db.query("SELECT rating.rating, rating.description, rating.ratingCreateAt, user.name, user.image from rating,user WHERE rating.user_id=user.id AND rating.topik_id = ? AND rating.isDeleted = ?",[id,isDeleted], (err, results) => {
         res.send(results)
     })
 })
