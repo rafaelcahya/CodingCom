@@ -9,6 +9,7 @@ import NavbarMobile from '../../../../major/NavbarMobile'
 import Footer from '../../../../major/Footer'
 
 import star from "../../../../../asset/icon/star.svg"
+import Popup from "./CoursePopup"
 
 const GenerateID = (len, k) => {
     const s = (k) => {
@@ -40,12 +41,10 @@ function Internet(props) {
     const [value, setValue] = useState([])
     const [courseList, setCourseList] = useState([])
     const [commentlist, setCommentList] = useState([])
-
-    let image = require('../../../../../asset/upload/' + localStorage.getItem("image"))
+    const [buttonPopup, setButtonPopup] = useState(false)
 
     window.onload = setTimeout(function () {
         x = localStorage.getItem("name");
-        document.getElementById("name").innerHTML = x;
         setName(x)
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -80,6 +79,14 @@ function Internet(props) {
             setErrorMessage(response.data.message)
             window.location.reload()
         })
+    }
+
+    const cancel = () =>{
+        setButtonPopup(false)
+    }
+
+    const popup=()=>{
+        setButtonPopup(true)
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -156,13 +163,37 @@ function Internet(props) {
                                     }
                                 )
                             }
-                            <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5 w-2/7">
+                            {localStorage.getItem("loggedIn") == "true" ? (
+                                 <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5 w-2/7">
+                                 <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
+                                     <p className="text-lg font-semibold">Consultation class</p>
+                                     <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                                     <Link to="/consultation-class">
+                                         <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                                     </Link>
+                                 </div>
+ 
+                                 <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
+                                     <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
+                                     <div className="flex gap-3 items-center justify-center py-4">
+                                         <img src={star} alt="" width="10" class="animate1" />
+                                         <img src={star} alt="" width="15" class="animate2" />
+                                         <img src={star} alt="" width="20" class="animate3" />
+                                         <img src={star} alt="" width="15" class="animate4" />
+                                         <img src={star} alt="" width="10" class="animate5" />
+                                     </div>
+                                     <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={() => modal.current.open()}>Leave a rating</p>
+                                     <Modal ref={modal}> </Modal>
+                                 </div>
+                             </div>
+                            ):(
+                                <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5 w-2/7">
                                 <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
                                     <p className="text-lg font-semibold">Consultation class</p>
                                     <p className="text-sm pt-2">Consult with a professional mentor.</p>
-                                    <Link to="/consultation-class">
-                                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
-                                    </Link>
+                                    
+                                        <p onClick={popup} className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                                   
                                 </div>
 
                                 <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
@@ -174,27 +205,35 @@ function Internet(props) {
                                         <img src={star} alt="" width="15" class="animate4" />
                                         <img src={star} alt="" width="10" class="animate5" />
                                     </div>
-                                    <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={() => modal.current.open()}>Leave a rating</p>
+                                    <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={popup}>Leave a rating</p>
                                     <Modal ref={modal}> </Modal>
                                 </div>
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>
                 <div className="comment-container mt-32 w-full lg:w-7/12">
                     <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
-                    <span className="flex gap-2 my-2">Discussion as <p id="name" className="color-blue-1"></p></span>
+                    {localStorage.getItem("loggedIn")=="true"?(<span className="flex gap-2 my-2">Discussion as <p className="color-blue-1">{localStorage.getItem("name")}</p></span>):(
+                    <span className="flex gap-2 my-2">You must login first to post a comment</span>
+                    )}
                     <textarea placeholder="Add discussion" className="textarea resize-none cursor-text" onChange={(event) => {
                         setComment(event.target.value)
                     }} ></textarea>
                     <p className="text-sm color-red-1 text-center mt-8 font-medium">{errorMessage}</p>
-                    <div className="flex justify-end items-center gap-10 my-5 mb-20">
+                    {
+                        localStorage.getItem("loggedIn")=="true"?(
+                            <div className="flex justify-end items-center gap-10 my-5 mb-20">
                         <p className="bg-gray-200 color-black-1 px-4 py-1 rounded-lg cursor-pointer">Cancel</p>
                         <p onClick={commentInternet} id="submitComment" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Discussion</p>
                     </div>
+                        ):("")
+                    }
                     {
                         commentlist.map(
                             (val) => {
+                                let image = require('../../../../../asset/upload/' + val.image)
                                 return <div className="comment-box flex gap-5 p-4 my-5 rounded-lg shadow-md">
                                     <img src={image.default} className="ring-1 rounded-full p-0.5 w-10 h-10" alt="Image Profile" />
                                     <div className='flex flex-col gap-4'>
@@ -210,6 +249,20 @@ function Internet(props) {
                     }
                 </div>
             </div>
+            <Popup trigger={buttonPopup}>
+                    <p className="text-lg font-semibold py-5">You Must Login First</p>
+                    <p className="text-sm font-medium">You must login first</p>
+                    <Link to="/login">
+                    <div className="flex justify-end">
+                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                Login Now
+                        </button>
+                    </div>
+                    </Link>
+                    <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                Cancel
+                        </button>
+                </Popup>
             <Footer />
         </>
     )
@@ -241,7 +294,6 @@ const Modal = forwardRef((props, ref) => {
             var idurl = url1.substring(url1.lastIndexOf('/') + 1);
             setId(idurl)
             x = localStorage.getItem("name");
-            document.getElementById("name").innerHTML = x;
             setName(x)
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

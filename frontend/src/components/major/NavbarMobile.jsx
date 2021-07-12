@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Axios from 'axios'
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
+import Popup from "./PopUp"
 
 const GenerateID = (len, k) => {
     const s = (k) => {
@@ -26,6 +27,7 @@ export default function NavbarMobile() {
     const [openProfile, setOpenProfile] = useState(false)
     const [valueList, setValueList] = useState([])
     const [valueVal, setValueVal] = useState([])
+    const [buttonPopup, setButtonPopup] = useState(false)
     const [name, setName] = useState("")
     var image = ""
     if (localStorage.getItem("image") != null) {
@@ -56,6 +58,14 @@ export default function NavbarMobile() {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const popup = ()=>{
+        setButtonPopup(true)
+    }
+
+    const cancel = () =>{
+        setButtonPopup(false)
+    }
 
     const menuVariants = {
         opened: {
@@ -125,18 +135,36 @@ export default function NavbarMobile() {
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Roadmap</p>
                         </Link>
                         <DropDownMenu />
-                        <Link to="/challenge">
+                        {localStorage.getItem("loggedIn")=="true" ? (
+                            <Link to="/challenge">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Challenge</p>
                         </Link>
-                        <Link to="/class-session">
+                        ):(
+                            <div onClick={popup}>
+                            <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Challenge</p>
+                        </div>
+                        )}
+                        {localStorage.getItem("loggedIn")=="true" ? (
+                             <Link to="/class-session">
+                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Coding Class</p>
+                         </Link>
+                        ):(
+                            <div onClick={popup}>
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Coding Class</p>
-                        </Link>
+                        </div>
+                        )}
                         <Link to="/news">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Newsfeed</p>
                         </Link>
-                        <Link to="/career">
+                        {localStorage.getItem("loggedIn")== "true" ? (
+                            <Link to="/career">
                             <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Career</p>
                         </Link>
+                        ):(
+                            <div onClick={popup}>
+                            <p className="pl-6 pr-20 py-2 font-medium hover:bg-blue-500 hover:text-white rounded-lg">Career</p>
+                        </div>
+                        )}
                     </div>
                 </motion.div>
                 {localStorage.getItem("loggedIn") == "true" ? (<motion.div
@@ -285,7 +313,20 @@ export default function NavbarMobile() {
                     </div>
                 </motion.div>) : ("")}
             </div>
-
+            <Popup trigger={buttonPopup}>
+                    <p className="text-lg font-semibold py-5">You Must Login First</p>
+                    <p className="text-sm font-medium">You must login first</p>
+                    <Link to="/login">
+                    <div className="flex justify-end">
+                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                Login Now
+                        </button>
+                    </div>
+                    </Link>
+                    <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                                Cancel
+                        </button>
+                </Popup>
         </>
     )
 }
