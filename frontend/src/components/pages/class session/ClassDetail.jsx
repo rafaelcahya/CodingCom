@@ -162,8 +162,9 @@ function ClassDetail(props) {
                                             <ShowMoreText
                                                 more='Read more'
                                                 less='Read less'
-                                                anchorClass='anchor-showmore'>
-                                                <p>{val.classInfo}</p>
+                                                anchorClass='anchor-showmore'
+                                                className="text-sm">
+                                                <p className="text-sm">{val.classInfo}</p>
                                             </ShowMoreText>
                                         </div>
                                         {!value.length ? (<div>
@@ -199,8 +200,7 @@ function ClassDetail(props) {
                                                             <p>Remaining class consultation quotas:</p> 
                                                             {
                                                                 v.classSession <= 3 ? <p className="text-base font-semibold text-yellow-500">{v.classSession}</p> :<p className="text-base font-semibold text-green-500">{v.classSession}</p>
-                                                            } 
-                                                            
+                                                            }
                                                         </div>
                                                     </div>
                                                     })}

@@ -104,7 +104,7 @@ function TopicDetail(props) {
                                         <p className="text-2xl lg:text-5xl font-semibold">{val.topikTitle}</p>
                                         {/* <p className="max-w-3xl text-gray-400 text-sm mt-2">{val.topikInfo}</p> */}
                                         <div className="flex gap-1 max-w-3xl text-sm mt-2">
-                                            <p className="text-black font-semibold">Created by</p>
+                                            <p className="font-semibold">Created by</p>
                                             <p className="text-gray-500">{val.fullname}</p>
                                         </div>
                                         {
@@ -221,7 +221,7 @@ function TopicDetail(props) {
                                                 })
                                             }
                                         </div>
-                                        <div className="flex flex-col gap-5 bg-gray-100 p-5 top-10 rounded-lg">
+                                        <div className="topic-separator flex flex-col gap-5 p-5 top-10 rounded-lg">
                                             <div>
                                                 <p className="text-lg font-semibold">100% online courses</p>
                                                 <p className="text-gray-500 text-sm">Start instantly and learn at your own schedule.</p>

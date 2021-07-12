@@ -55,10 +55,12 @@ export default function NavbarLogin() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // window.onload = setTimeout(function () {
-    //     var x = localStorage.getItem("name");
-    //     document.getElementById("demo").innerHTML = x;
-    // }, 10)
+    // const logout = () => {
+    //     localStorage.setItem('loggedIn', false)
+    //     localStorage.removeItem('image')
+    //     localStorage.removeItem('name')
+    //     localStorage.removeItem('role')
+    // }
 
     const [openTutorial, setOpenTutorial] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)

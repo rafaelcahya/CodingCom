@@ -81,20 +81,6 @@ function ConsultationPay() {
 
 const Modal = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false)
-
-    // if(props.plan === "Class Session Quota"){
-    //     Axios.post("http://localhost:3001/transaction/updateStatusClassSession",{name:name}).then((response) => {
-    //         console.log(response)
-    //     }) 
-    // }else if(props.plan === "Class Consultation Quota"){
-    //     Axios.post("http://localhost:3001/transaction/updateStatusClassConsultation",{name:name}).then((response) => {
-    //         console.log(response)
-    //     }) 
-    // }else{
-    // Axios.post("http://localhost:3001/transaction/updateStatus",{name:name}).then((response) => {
-    //         console.log(response)
-    //     })
-    // }
     useImperativeHandle(ref, () => {
         return {
             open: () => setOpen(true),

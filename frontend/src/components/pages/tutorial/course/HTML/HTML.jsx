@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import EditorHTML from '../../../../major/editor/EditorHTML'
-import NavbarLogin from '../../../../major/NavbarLogin'
-import NavbarMobile from '../../../../major/NavbarMobile'
 
 function HTML() {
     const [html, sethtml] = useState('')
@@ -21,18 +19,21 @@ function HTML() {
     }, [html])
     return (
         <>
-            <NavbarLogin/>
-            <NavbarMobile/>
-            <div className="w-full flex items-start">
-                <div className="w-1/2">
+            <div className="text-center p-10">
+                <p className="text-3xl font-semibold">Text Editor</p>
+                <p>Real-time</p>
+            </div>
+            <div className="flex flex-col lg:flex-row p-5 lg:px-20 w-full">
+                <div className="w-full lg:w-1/2">
                     <EditorHTML language="xml" value={html} onChange={sethtml}/>
                 </div>
-                <div className=" bg-red-200">
+                <div className="bg-white border border-gray-300 rounded-b-lg lg:rounded-r-lg lg:rounded-b-none w-full lg:w-1/2">
                     <iframe title="output" 
                     srcDoc={srcDoc}
                     sandbox="allow-script" frameBorder="0" />
                 </div>
             </div>
+            <span className="flex justify-center gap-1 text-sm py-10">created by <a href="/" target="_blank" className="underline">Coding.com</a></span>
         </>
     )
 }

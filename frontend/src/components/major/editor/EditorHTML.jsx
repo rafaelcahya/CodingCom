@@ -23,9 +23,8 @@ function EditorHTML(props) {
 
     return (
         <>
-            <div>
+            <div className="rounded-lg">
                 {displayName}
-                <br/>
             </div>
             <ControlledEditor
                 onBeforeChange={handleChange}
@@ -39,6 +38,7 @@ function EditorHTML(props) {
                     lineNumbers: true,
                     spellcheck: true,
                     autocorrect: true,
+                    autoComplete: true,
                     autoCloseTags: true,
                     autoCloseBrackets: true,
                     styleActiveLine: true,
