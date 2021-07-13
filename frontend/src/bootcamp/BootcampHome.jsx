@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Axios from 'axios'
 
-import Accordion from "../components/minor/accordion/Accordion"
-
 import BenefitComp from './BenefitComp';
 import StageComp from './StageComp';
 
@@ -27,54 +25,6 @@ function BootcampHome() {
         })
     }, []);
 
-    const hiddenTexts = [{
-        label: 'What will I get from the program?',
-        value: 'Latest curriculum, Intensive Training, Networking, Carrer Opportunity, Certificate, and Prize'
-    },
-    {
-        label: 'How can I apply?',
-        value: 'You can directly apply through the registration form.'
-    },
-    {
-        label: 'Who is eligible to apply for this program?',
-        value: 'Everyone who have a minimum age of 15 years and over and has a high interest in technology.'
-    },
-    {
-        label: 'How long does the registration selection process take?',
-        value: 'Approximately 1 week. Our team will select registrations and invite tests for participants who meet the criteria.'
-    },
-    {
-        label: 'What can I expect after I apply?',
-        value: 'If you pass the Document screening, You will receive an email containing the syllabus, bootcamp schedule, and payment methods no later than one week after you register. Regularly check your email for further announcements and information.'
-    },
-    {
-        label: 'When will the final announcement be made?',
-        value: 'We will announce the final list of participants on 14 June 2021.'
-    },
-    {
-        label: 'When and where will the program be held?',
-        value: 'Tokopedia DevCamp will be held between 5 - 10 July 2021. Due to the pandemic, the program will be held remotely.'
-    },
-    {
-        label: 'What do I need to prepare?',
-        value: 'You have to at least spend approximately 6 hours per day for 5 days a week to follow the Fultime Coding Bootcamp and make sure you have your own laptop. Any supporting software and/or hardware needed will be informed to selected participants with the announcement email before the event.'
-    },
-    {
-        label: 'Can I miss one or two sessions?',
-        value: 'Participants are highly encouraged to participate in all of the activities, especially the hackathon. All of the participants’ attendance will be recorded.'
-    },
-    {
-        label: 'Is there a selection of materials that I should choose?',
-        value: 'No, Coding.com provides Full Stack web development materials covering common problems in the world of work'
-    },
-    {
-        label: 'Should I have Programming background',
-        value: 'No, we will provide training for all potential participants regardless of their educational background.'
-    },
-    {
-        label: 'Does Hacktiv8 provide certificates upon graduation?',
-        value: 'Hacktiv8 provides digital certificates for Hacktiv8 students who have successfully completed the Hacktiv8 learning program.'
-    }];
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
     return (
         <>
@@ -325,15 +275,6 @@ function BootcampHome() {
                         <Link to={"/register-bootcamp/" + name}>
                             <p className="bg-yellow-500 text-white font-medium mt-20 px-6 py-2 rounded-xl">Register Now</p>
                         </Link>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="faq">
-                <p className="text-center text-3xl font-semibold mb-10">Frequently Asked Questions</p>
-                <div className="flex justify-center">
-                    <div className="w-full sm:w-3/4">
-                        <Accordion hiddenTexts={hiddenTexts}/>
                     </div>
                 </div>
             </section>
