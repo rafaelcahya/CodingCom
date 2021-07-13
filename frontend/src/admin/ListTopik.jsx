@@ -69,7 +69,7 @@ export default function ListBatch() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.status}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <Link to={"/admin/edit-topik/"+val.topikId}>
+                                                            <Link to={"/admin/edit-topik-"+val.topikId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>
                                                             </Link>
                                                         </td>

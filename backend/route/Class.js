@@ -54,8 +54,27 @@ router.post("/createClass", (req, res) => {
 
 router.get("/classList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT class.id, class.className, class.classInfo, class.startDate, class.endDate, class.startTime, class.endTime, class.classDescription, class.classUrl, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.isDeleted = ?",isDeleted, (err, results) => {
+    db.query("SELECT class.id, class.className, class.classInfo, class.startDate, class.endDate, class.startTime, class.endTime, class.classDescription, class.classUrl, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
+    })
+})
+
+router.get("/classListByMentor/:name", (req, res) => {
+    const name = req.params.name
+    let isDeleted = "NO"
+    let user_id = 0
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+
+        if (results.length > 0) {
+            // buat ambil index
+            user_id = results[0].id
+            db.query("SELECT class.id, class.className, class.classInfo, class.startDate, class.endDate, class.startTime, class.endTime, class.classDescription, class.classUrl, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.isDeleted = ? AND class.user_id = ?", [isDeleted, user_id], (err, results) => {
+                res.send(results)
+            })
+        }
     })
 })
 
@@ -115,7 +134,7 @@ router.post("/updateClass", (req, res) => {
 router.get("/classListUser", (req, res) => {
     let isDeleted = "NO"
     let status = "Approve"
-    db.query("SELECT class.id, class.image, class.className, class.classInfo, class.startDate, class.endDate, class.startTime, class.endTime, class.classUrl, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ? AND class.isDeleted = ?", [status,isDeleted], (err, results) => {
+    db.query("SELECT class.id, class.image, class.className, class.classInfo, class.startDate, class.endDate, class.startTime, class.endTime, class.classUrl, class.status, class.classCreateAt, class.classUpdateAt, user.fullname, user.email from class,user WHERE class.user_id=user.Id AND class.status = ? AND class.isDeleted = ?", [status, isDeleted], (err, results) => {
         res.send(results)
     })
 })
@@ -135,6 +154,54 @@ router.put("/deleteClass", (req, res) => {
     db.query("UPDATE class SET isDeleted = ?, classUpdateAt = ? WHERE id = ?;", [isDeleted, updateAt, id], (err, results) => {
         console.log(err)
         res.send(results)
+    })
+})
+
+router.post("/updateClassMentor", (req, res) => {
+    const id = req.body.id
+    let className = req.body.className
+    let info = req.body.info
+    let startdate = req.body.startdate
+    let enddate = req.body.enddate
+    let starttime = req.body.starttime
+    let endtime = req.body.endtime
+    let des = req.body.des
+    let url = req.body.url
+    const updateAt = req.body.updateAt
+    let status = "Pending"
+    db.query("SELECT * From class WHERE id = ?", id, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            if (className.length <= 0) {
+                className = results[0].className
+
+            } if (startdate.length <= 0) {
+                startdate = results[0].startDate
+
+            } if (enddate.length <= 0) {
+                enddate = results[0].endDate
+
+            } if (starttime.length <= 0) {
+                starttime = results[0].startTime
+
+            } if (endtime.length <= 0) {
+                endtime = results[0].endTime
+
+            } if (info.length <= 0) {
+                info = results[0].classInfo
+            } if (des.length <= 0) {
+                des = results[0].classDescription
+            } if (url.length <= 0) {
+                url = results[0].classUrl
+            }
+            db.query("UPDATE class SET className = ?, classInfo = ?, startDate = ?, endDate=?, startTime = ?, endTime = ?, classDescription = ?, classUrl = ?, status =?, classUpdateAt=?  WHERE id=?;", [className, info, startdate, enddate, starttime, endtime, des, url, status, updateAt, id], (err, results) => {
+                console.log(err)
+                res.send(results)
+            })
+
+        }
     })
 })
 

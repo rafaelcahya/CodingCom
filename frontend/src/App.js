@@ -25,7 +25,8 @@ import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
 //Punya Kosasie
-// import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+//import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+//import CertificateAngular from "./components/pages/challenge/Certificate/Download Certificate/CertiAngular/CertificateAngular"
 
 //Punya Cahya
 import Submit from "./components/pages/challenge/certificate/Submit.jsx"
@@ -48,7 +49,7 @@ import ConsultationPay from "./components/pages/pricing/ConsultationPay.jsx"
 import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
-
+//cahya
 import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
 
 import Career from "./components/pages/career/Career.jsx"

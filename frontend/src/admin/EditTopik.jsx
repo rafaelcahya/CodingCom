@@ -35,7 +35,7 @@ function AddTopik(props) {
     const submit = () => {
         if (editorRef.current) {
             const fd = new FormData();
-            fd.append('id', id)
+            fd.append('id', urlid)
             fd.append('title', title)
             fd.append('info', info)
             fd.append('status', status)

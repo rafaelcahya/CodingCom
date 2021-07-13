@@ -1,7 +1,6 @@
 const { constants } = require('buffer')
 const { Router } = require('express')
 const express = require('express')
-const { fdatasync } = require('fs')
 const { type } = require('os')
 const router = express.Router()
 
@@ -47,11 +46,11 @@ router.post("/feedback", (req, res) => {
     }
 })
 
-router.get("/feedbackList", (req, res)=>{
+router.get("/feedbackList", (req, res) => {
     let isDeleted = "NO"
-    db.query("SELECT feedback.id, feedback.about, feedback.image, feedback.descrption, feedback.feedbackCreateAt, user.name from feedback,name WHERE feedback.user_id = user.id AND feedback.isDeleted = ?", isDeleted,(err, results)=>{
-        console.log(err)
+    db.query("SELECT feedback.about, feedback.id, feedback.image, feedback.description, feedback.feedbackCreateAt, user.name from feedback,user WHERE feedback.user_id= user.id AND feedback.isDeleted = ?", isDeleted, (err, results) => {
         res.send(results)
+        console.log(results)
     })
 })
 

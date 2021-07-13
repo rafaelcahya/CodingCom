@@ -318,7 +318,7 @@ export default function NavbarLogin() {
                                                                     <p className="font-semibold text-yellow-500">{val.classSession}</p>
                                                                 </div>
                                                             </Link>
-                                                            : v.classSession <= 3 ?
+                                                            : val.classSession <= 3 ?
                                                                 <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
                                                                     <div className="flex justify-between gap-10">
                                                                         <p className="text-gray-400">Coding Class Quota</p>
@@ -328,7 +328,7 @@ export default function NavbarLogin() {
                                                                 <Link to="/payment-confirmation-class-session-quota" className="dropdown-user-quota">
                                                                     <div className="flex justify-between gap-10">
                                                                         <p className="text-gray-400">Coding Class Quota</p>
-                                                                        <p className="font-semibold text-green-500">{v.classSession}</p>
+                                                                        <p className="font-semibold text-green-500">{val.classSession}</p>
                                                                     </div>
                                                                 </Link>
                                                     }

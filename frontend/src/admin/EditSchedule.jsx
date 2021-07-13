@@ -26,10 +26,10 @@ export default function EditSchedule(props) {
         Axios.get("http://localhost:3001/schedule/ScheduleById/"+ urlid).then((response) => {
             setValue(response.data)
         })
-    }, []);
+    }, [urlid]);
 
     const submit = () => {
-        Axios.post("http://localhost:3001/schedule/updateSchedule", { updateAt: updateAt, title: title, des: des, date:date, time:time, location:location, status:status }).then((response) => {
+        Axios.post("http://localhost:3001/schedule/updateSchedule", {id:urlid, updateAt: updateAt, title: title, des: des, date:date, time:time, location:location, status:status }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
         })

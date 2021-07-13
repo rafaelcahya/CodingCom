@@ -47,7 +47,7 @@ function EditProject(props) {
         if (editorRef.current) {
             const fd = new FormData();
             fd.append('fileUpload', file)
-            fd.append('id', id)
+            fd.append('id', urlid)
             fd.append('title', title)
             fd.append('info', info)
             fd.append('type', type)

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import Sidebar from './admin-major/Sidebar';
+import Sidebar from './major/Sidebar'
 
-export default function Class() {
+export default function ListClass() {
     const [reqList, setReqList] = useState([])
     const [updateAt, setUpdateAt] = useState("")
 
@@ -16,7 +16,7 @@ export default function Class() {
     }, 500)
 
     useEffect(() => {
-        axios.get("http://localhost:3001/class/classList").then((response) => {
+        axios.get("http://localhost:3001/class/classListByMentor/"+localStorage.getItem("name")).then((response) => {
             setReqList(response.data)
         })
     }, []);
@@ -36,7 +36,7 @@ export default function Class() {
             <Sidebar/>
             <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
             <p className="text-xl font-semibold">Class Requisition</p>
-            <p className="text-sm font-semibold">A list of class requests that the mentor has created</p>
+            <p className="text-sm font-semibold">A list of class requests that you have created</p>
             <div className="overflow-x-auto mt-8">
                 <div className="align-middle inline-block min-w-full">
                     <div className="overflow-hidden">
@@ -78,13 +78,11 @@ export default function Class() {
                                                             }
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            {val.status === "Pending" ?(
-                                                                <Link to={"/edit-request-class-" + val.id}>
+                                                          
+                                                                <Link to={"/mentor/edit-class-" + val.id}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
                                                                 </Link>
-                                                                ):(
-                                                                    <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
-                                                                )}
+                                                              
                                                             
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">

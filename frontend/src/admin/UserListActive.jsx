@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar';
 
+const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+const formatTime = s => new Date(s).toLocaleTimeString();
+
 export default function UserList() {
     const [userList, setUserList] = useState([])
     const [updateAt, setUpdateAt] = useState("")
@@ -39,7 +42,6 @@ export default function UserList() {
                                 <table className="relative min-w-full">
                                     <thead>
                                         <tr className="border-b-2">
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Id</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">FullName</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Username</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
@@ -54,7 +56,6 @@ export default function UserList() {
                                             userList.map(
                                                 (val) => {
                                                     return <tr className="border-b-2">
-                                                       <td className="px-6 py-3 whitespace-nowrap">{val.id}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.fullname}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
@@ -64,8 +65,8 @@ export default function UserList() {
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-100 text-blue-500">{val.role}</p>
                                                         </td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.userCreateAt}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.userUpdateAt}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.userCreateAt)} {formatTime(val.userCreateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.userUpdateAt)} {formatTime(val.userUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.id) }}>Delete</p>
                                                         </td>
