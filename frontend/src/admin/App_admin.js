@@ -27,11 +27,11 @@ import BootcampSchedule from "./BootcampSchedule.jsx"
 import AddFAQ from "./AddFQA"
 import ListFAQ from "./ListFAQ"
 import EditFAQ from "./EditFAQ"
-import EditProjectSub from "./EditProjectSubmission"
 import ListSchedule from "./ScheduleList.jsx"
 import ListFeedback from "./ListFeedback.jsx"
 import EditSchedule from "./EditSchedule.jsx"
 import EditCategory from "./EditCategory.jsx"
+import EditProjectSubmission from "./EditProjectSubmission"
 
 function App_admin() {
     return (
@@ -63,7 +63,7 @@ function App_admin() {
               <Route path="/admin/list-faq" component={ListFAQ} />
               <Route path="/admin/edit-faq-:id" component={EditFAQ} />
               <Route path="/admin/list-bootcamp-user" component={ListBootcampUser} />
-              <Route exact path="/admin/edit-project-submission-:id-:hash" component={EditProjectSub} />
+              <Route path="/admin/edit-score-:id" component={EditProjectSubmission} />
               <Route path="/admin/list-jobs" component={ListJobs} />
               <Route path="/admin/edit-job-:id" component={EditJobs} />
               <Route path="/admin/list-schedule" component={ListSchedule} />

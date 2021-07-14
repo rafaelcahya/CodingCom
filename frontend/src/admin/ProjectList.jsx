@@ -91,7 +91,7 @@ export default function ProjectList() {
                                                         </td>
                                                         <td className="flex items-center gap-2 px-6 py-3 whitespace-nowrap">
                                                             
-                                                            <a href={"/admin/edit-project-submission-"+val.id + "-" + GenerateID(15,10)} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
+                                                            <a href={"/admin/edit-score-"+val.id} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
                                                           
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">

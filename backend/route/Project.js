@@ -80,7 +80,6 @@ router.get("/projectById/:id", (req, res) => {
     db.query("SELECT project.projectTitle, project.projectInfo, project.projectBrief from project WHERE projectId = ?", id, (err, results) => {
         res.send(results)
     })
-    console.log(id)
 })
 
 router.get("/GetprojectById/:id", (req, res) => {
@@ -88,7 +87,6 @@ router.get("/GetprojectById/:id", (req, res) => {
     db.query("SELECT * from project WHERE projectId = ?", id, (err, results) => {
         res.send(results)
     })
-    console.log(id)
 })
 
 router.post("/editProject", (req, res) => {
