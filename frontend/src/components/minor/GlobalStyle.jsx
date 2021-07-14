@@ -148,7 +148,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .purchase-card,
-    .history-project-card{
+    .history-project-card,
+    .accordion-title{
         border-bottom: ${({theme}) => theme.border};
     }
 

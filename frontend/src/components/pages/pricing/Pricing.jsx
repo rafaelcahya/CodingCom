@@ -6,7 +6,6 @@ import Popup from "./PricingPopup"
 
 import NavbarLogin from '../../major/NavbarLogin'
 import NavbarMobile from '../../major/NavbarMobile'
-import Accordion from '../../minor/accordion/Accordion'
 import Axios from 'axios'
 
 function Pricing(props) {
@@ -27,35 +26,7 @@ function Pricing(props) {
     const cancel = () =>{
         setButtonPopup(false)
     }
-
-    const hiddenTexts = [{
-            label: 'How long will the plan be active?',
-            value: 'There is no time limit for the premium plan meaning you can access all the features included in the premium plan forever.'
-        },
-        {
-            label: 'What is Text Editor?',
-            value: 'Text Editor is a tool for reading and writing programming languages directly on each tutorial topic so that learners can try first hand how the programming language syntax works.'
-        },
-        {
-            label: 'What does get future updates mean?',
-            value: 'You will get additional features and other tutorials in the next update. features and tutorials are added in accordance with the provisions.'
-        },
-        {
-            label: 'What will you get from the premium course?',
-            value: 'You will get DevOps tutorials and other paid tutorials whenever possible.'
-        },
-        {
-            label: 'What is Quota?',
-            value: 'Quota is the unit for the number of times you get access to use Session Class or Consultation Class.'
-        },
-        {
-            label: 'Can the quota be purchased repeatedly?',
-            value: 'Of course, you can buy quotas over and over again'
-        },
-        {
-            label: 'Can I refund the premium plan?',
-            value: 'Currently, the premium plan is non-refundable.'
-        }];
+    
         return (
             <>
                 <NavbarLogin/>
@@ -543,14 +514,6 @@ function Pricing(props) {
                     </div>
                 </section>
 
-                <section className="mx-8 md:mx-16 lg:mx-40 py-20 md:py-28" id="faq">
-                    <p className="text-center text-3xl font-semibold mb-10">Frequently Asked Questions</p>
-                    <div className="flex justify-center">
-                        <div className="w-full sm:w-3/4">
-                            <Accordion hiddenTexts={hiddenTexts}/>
-                        </div>
-                    </div>
-                </section>
                 <Popup trigger={buttonPopup}>
                     <p className="pb-5 font-medium text-center">Already have an account?</p>
                     <div className="flex flex-col justify-center gap-5">

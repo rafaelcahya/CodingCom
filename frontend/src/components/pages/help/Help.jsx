@@ -1,9 +1,9 @@
-import React, { Component, Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import Axios from "axios"
+
 import NavbarLogin from '../../major/NavbarLogin'
-import HelpComp from './HelpComp'
 import Footer from '../../major/Footer'
 import NavbarMobile from '../../major/NavbarMobile'
-import Axios from "axios"
 
 function Help() {
     const [valueList, setValueList] = useState([])
@@ -15,48 +15,35 @@ function Help() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const Accordion = ({ title, children }) => {
+        const [isOpen, setOpen] = React.useState(false);
+        return (
+            <div className="accordion-wrapper">
+                <div
+                    className={`accordion-title ${isOpen ? "open" : ""} font-medium`}
+                    onClick={() => setOpen(!isOpen)}
+                    >
+                    {title}
+                </div>
+                <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
+                    <div className="accordion-content">{children}</div>
+                </div>
+            </div>
+        );
+    };
+
         return (
             <Fragment>
                 <NavbarLogin/>
                 <NavbarMobile/>
                 <p className="flex flex-col items-center text-3xl text-center mt-32 lg:mt-20 mb-10 gap-10">How we can help you ?</p>
-                <div className="help-container flex flex-col gap-20 mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72">
-                    <div >
-                        <p className="color-blue-1 text-2xl font-medium my-5">Basic</p>
-                        <div className="flex flex-col gap-5">
-                            <p className="text-lg font-semibold">How does this website work ?</p>
-                            {
-                                valueList.map((val)=>{
-                                    return <HelpComp
-                                    subtitle= {val.question}
-                                    desc= {val.answer}
-                                />
-                                })
-                            }
-                            
-                            {/* <HelpComp
-                                subtitle= "What do Coding.com Courses include ?"
-                                desc= "Each course is created and managed by a mentor in text form. At any time, the mentor can modify each existing course so you can get the latest learning."
-                            />
-                            <HelpComp
-                                subtitle= "What is Challenge ?"
-                                desc= "Challenge is a coding exercise to improve the ability of what you learn. Coding exercises created and managed by a mentor. The coding exercises will always add up to new ones whenever the mentor wants to be added. You can easily download these exercises to help your learning process."
-                            />
-                            <HelpComp
-                                subtitle= "What is Class Session ?"
-                                desc= "Class Session is a virtual class that is used for you to ask questions or discuss with mentors and other users via zoom. You can join the class anywhere and anytime. however, you have to buy a premium plan so you can use it."
-                            />
-                            <HelpComp
-                                subtitle= "What is News ?"
-                                desc= "News is a technology news portal from various trusted sources for those of you who want to update your technology knowledge. it contains general news, programming languages, software, blogs, gadgets and games."
-                            />
-                            <HelpComp
-                                subtitle= "What is Career ?"
-                                desc= "in Career, you can see job vacancies from various companies that are available and you can apply directly. We will be a bridge between you and the company you are applying for. We will continue to update job vacancies with new ones."
-                            /> */}
-                        </div>
-                    </div>
-                    <div id="plan">
+                <div className="grid grid-cols-2 gap-10 mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72">
+                    {valueList.map((val)=> {
+                        return <Accordion title={val.question}>
+                                <p>{val.answer}</p>
+                            </Accordion>
+                    })}
+                    {/* <div id="plan">
                         <p className="color-blue-1 text-2xl font-medium my-5">Premium Plan</p>
                         <p>Premium Bundle is a bundle that contains additional features so that users can get additional interesting features. The premium bundle has a period of 1 month. if you want to have access forever, you can buy the premium plus bundle. But don't worry, you don't have to buy the bundles offered to study. You can still access existing free courses and you will still get updates in the future</p>
                     </div>
@@ -95,7 +82,7 @@ function Help() {
                     <div>
                         <p className="color-blue-1 text-2xl font-medium my-5" id="certificate">Certificate</p>
                         <p>At Coding.com, you can get a certificate for free if you have done the 10 practice questions that we have provided. It is to show that you have really mastered what you are learning.</p>
-                    </div>
+                    </div> */}
                 </div>
                 <Footer />
             </Fragment>
@@ -103,3 +90,53 @@ function Help() {
 }
 
 export default Help
+
+
+// const hiddenTexts = [{
+//     label: 'What will I get from the program?',
+//     value: 'Latest curriculum, Intensive Training, Networking, Carrer Opportunity, Certificate, and Prize'
+// },
+// {
+//     label: 'How can I apply?',
+//     value: 'You can directly apply through the registration form.'
+// },
+// {
+//     label: 'Who is eligible to apply for this program?',
+//     value: 'Everyone who have a minimum age of 15 years and over and has a high interest in technology.'
+// },
+// {
+//     label: 'How long does the registration selection process take?',
+//     value: 'Approximately 1 week. Our team will select registrations and invite tests for participants who meet the criteria.'
+// },
+// {
+//     label: 'What can I expect after I apply?',
+//     value: 'If you pass the Document screening, You will receive an email containing the syllabus, bootcamp schedule, and payment methods no later than one week after you register. Regularly check your email for further announcements and information.'
+// },
+// {
+//     label: 'When will the final announcement be made?',
+//     value: 'We will announce the final list of participants on 14 June 2021.'
+// },
+// {
+//     label: 'When and where will the program be held?',
+//     value: 'Tokopedia DevCamp will be held between 5 - 10 July 2021. Due to the pandemic, the program will be held remotely.'
+// },
+// {
+//     label: 'What do I need to prepare?',
+//     value: 'You have to at least spend approximately 6 hours per day for 5 days a week to follow the Fultime Coding Bootcamp and make sure you have your own laptop. Any supporting software and/or hardware needed will be informed to selected participants with the announcement email before the event.'
+// },
+// {
+//     label: 'Can I miss one or two sessions?',
+//     value: 'Participants are highly encouraged to participate in all of the activities, especially the hackathon. All of the participants’ attendance will be recorded.'
+// },
+// {
+//     label: 'Is there a selection of materials that I should choose?',
+//     value: 'No, Coding.com provides Full Stack web development materials covering common problems in the world of work'
+// },
+// {
+//     label: 'Should I have Programming background',
+//     value: 'No, we will provide training for all potential participants regardless of their educational background.'
+// },
+// {
+//     label: 'Does Hacktiv8 provide certificates upon graduation?',
+//     value: 'Hacktiv8 provides digital certificates for Hacktiv8 students who have successfully completed the Hacktiv8 learning program.'
+// }];
