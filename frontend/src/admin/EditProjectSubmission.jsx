@@ -9,6 +9,8 @@ function EditProjectSubmission(props) {
     const [updateAt, setUpdateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
 
+    console.log("test")
+
     window.onload = setTimeout(function () {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

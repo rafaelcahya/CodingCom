@@ -84,7 +84,9 @@ export default function ProjectList() {
                                                             <a href={file.default} className="text-white bg-blue-1 w-max my-5 px-4 py-2 rounded-lg" download>Download</a>
                                                         </td>
                                                         <td className="flex items-center gap-2 px-6 py-3 whitespace-nowrap">
-                                                            <a href={"/admin/edit-project-submission-"+val.id} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
+                                                            
+                                                            <a href={"/admin/edit-score-"+val.id} className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Score</a>
+                                                          
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.id) }}>Delete</p>
