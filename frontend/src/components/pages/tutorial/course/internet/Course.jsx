@@ -250,19 +250,19 @@ function Internet(props) {
                 </div>
             </div>
             <Popup trigger={buttonPopup}>
-                    <p className="text-lg font-semibold py-5">You Must Login First</p>
-                    <p className="text-sm font-medium">You must login first</p>
-                    <Link to="/login">
-                    <div className="flex justify-end">
-                        <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Login Now
-                        </button>
-                    </div>
-                    </Link>
-                    <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
-                                Cancel
-                        </button>
-                </Popup>
+                <p className="text-lg font-semibold py-5">You Must Login First</p>
+                <p className="text-sm font-medium">You must login first</p>
+                <Link to="/login">
+                <div className="flex justify-end">
+                    <button className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                            Login Now
+                    </button>
+                </div>
+                </Link>
+                <button onClick={cancel} className="bg-blue-1 text-white text-sm text-center rounded-md px-8 py-2 cursor-pointer outline-none">
+                        Cancel
+                </button>
+            </Popup>
             <Footer />
         </>
     )
@@ -344,12 +344,12 @@ const Modal = forwardRef((props, ref) => {
                             <span onClick={RateEmo4} class="emoji emoji--happy"></span>
                             <span onClick={RateEmo5} class="emoji emoji--satisfy"></span>
                         </div>
-                        <p className="text-sm color-red-1 text-center mt-8 font-medium">{message}</p>
-                        <div>
-                            <textarea placeholder="add your rating here(255 char)" className="textarea resize-none cursor-text" onChange={(event) => {
+                        <p className="text-sm text-center font-semibold">{message}</p>
+                        <div className="flex flex-col gap-10">
+                            <textarea placeholder="add comment" cols={40} className="textarea resize-none cursor-text" onChange={(event) => {
                                 setDes(event.target.value)
                             }}></textarea>
-                            <p onClick={Rate} id="submitRating" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer">Rate Now</p>
+                            <p onClick={Rate} id="submitRating" className="bg-blue-1 text-white px-4 py-1 rounded-lg cursor-pointer text-center">Done</p>
                         </div>
                     </div>
                 </div>

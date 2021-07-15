@@ -78,7 +78,8 @@ export const GlobalStyle = createGlobalStyle`
     .submit-box input,
     .submit-box select,
     .submit-box textarea,
-    .change-password-box input{
+    .change-password-box input,
+    .textarea{
         background: ${({theme}) => theme.foreground4};
         border: ${({theme}) => theme.border2};
     }
@@ -154,7 +155,8 @@ export const GlobalStyle = createGlobalStyle`
     .register-popup-box,
     .popup-box,
     .course-box p,
-    .comment-container textarea{
+    .comment-container textarea,
+    .textarea{
         color: ${({theme}) => theme.primarytext} !important;
     }
 

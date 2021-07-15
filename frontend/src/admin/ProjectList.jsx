@@ -36,7 +36,7 @@ export default function ProjectList() {
         <div className="bg-white text-black flex h-screen overflow-hidden">
         <Sidebar/>
         <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
-            <p className="text-lg font-semibold pb-8">Project List</p>
+            <p className="text-lg font-semibold pb-8">Project Submission</p>
             <div className="overflow-x-auto">
                 <div className="align-middle inline-block min-w-full">
                     <div className="overflow-hidden">

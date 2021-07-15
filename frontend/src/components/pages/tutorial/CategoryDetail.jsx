@@ -37,7 +37,7 @@ function CategoryDetail(props) {
     const [course,setCourse] = useState([])
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/category/categoryById/" + urlid + "/" + urlhash).then((response) => {
+        Axios.get("http://localhost:3001/category/categoryById/" + urlid).then((response) => {
             setValueList(response.data)
             console.log(response.data)
         })

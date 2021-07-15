@@ -47,7 +47,7 @@ export default function ListBatch() {
                                     <thead>
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Mentor Name</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Sub Tutorial</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Category</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last Updated</th>
@@ -65,7 +65,7 @@ export default function ListBatch() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.category}</td>  
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.topikCreateAt)} {formatTime(val.topikCreateAt)}</td> 
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            {val.topikUpdateAt === "0000-00-00 00:00:00" ? <p></p> : <p>{formatDate(val.topikUpdateAt)} {formatDate(val.topikUpdateAt)}</p>}
+                                                            {val.topikUpdateAt === "0000-00-00 00:00:00" ? <p></p> : <p>{formatDate(val.topikUpdateAt)} {formatTime(val.topikUpdateAt)}</p>}
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {

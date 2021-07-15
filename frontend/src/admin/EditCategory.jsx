@@ -21,8 +21,8 @@ function EditCategory(props) {
     useEffect(() => {
         Axios.get("http://localhost:3001/category/categoryById/"+urlid).then((response) => {
             setValue(response.data)
-            console.log(response.data)
         })
+        console.log("ajsdhaldsha")
     }, [urlid]);
 
     const submit = () => {
@@ -37,10 +37,9 @@ function EditCategory(props) {
                 {value.map((val)=>{
                     return <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="pb-8">
-                        <p className="text-lg font-semibold">Add new tutorial</p>
-                        <p className="text-sm font-semibold">Be careful in filling out the tutorial. Examples of tutorials such as Roadmap, Frontend, Backend, etc. This will appear in the user page tutorial dropdown.</p>
+                        <p className="text-lg font-semibold">Edit tutorial / category</p>
                     </div>
-                    <div className="flex flex-col gap-5">
+                    <div className="batchForm flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
                             <p className="Batch text-sm font-semibold">Tutorial name</p>
                             <input
