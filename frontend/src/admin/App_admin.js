@@ -63,7 +63,7 @@ function App_admin() {
               <Route path="/admin/list-faq" component={ListFAQ} />
               <Route path="/admin/edit-faq-:id" component={EditFAQ} />
               <Route path="/admin/list-bootcamp-user" component={ListBootcampUser} />
-              <Route exact path="/admin/edit-project-submission-:id-:hash" component={EditProjectSub} />
+              <Route exact path="/admin/edit-project-submission-:id" component={EditProjectSub} />
               <Route path="/admin/list-jobs" component={ListJobs} />
               <Route path="/admin/edit-job-:id" component={EditJobs} />
               <Route path="/admin/list-schedule" component={ListSchedule} />

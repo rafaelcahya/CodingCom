@@ -32,10 +32,10 @@ export default function Class() {
 
     return (
         <>
-        <div className="flex h-screen overflow-hidden">
+        <div className="bg-white text-black flex h-screen overflow-hidden">
             <Sidebar/>
-            <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
-            <p className="text-xl font-semibold">Class Requisition</p>
+            <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
+            <p className="text-lg font-semibold">Class Requisition</p>
             <p className="text-sm font-semibold">A list of class requests that the mentor has created</p>
             <div className="overflow-x-auto mt-8">
                 <div className="align-middle inline-block min-w-full">
@@ -70,8 +70,20 @@ export default function Class() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.startTime}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.endTime}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.classUrl}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classUpdateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.classCreateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.classCreateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.classUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.classUpdateAt)}</p>
+                                                            }
+                                                        </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {
                                                                 val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>):(<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>)

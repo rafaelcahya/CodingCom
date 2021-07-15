@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react'
 import Axios from 'axios'
 import Sidebar from './admin-major/Sidebar'
@@ -5,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 function AddTopik(props) {
     const urlid = props.match.params.id
+    // eslint-disable-next-line no-unused-vars
     const [id, setId] = useState("")
     const [status, setStatus] = useState("")
     const [title, setTitle] = useState("")
@@ -51,15 +53,15 @@ function AddTopik(props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="bg-white text-black flex">
                 <Sidebar />
-                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         {
                             valueList.map((val) => {
                                return <div className="job-box flex flex-col gap-10">
                                     <div className="flex flex-col gap-3">
-                                        <p className="text-xl font-semibold">Edit a Topik</p>
+                                        <p className="text-lg font-semibold">Edit a Topik</p>
                                     </div>
                                     <div className="flex justify-between items-center gap-10 w-full">
                                         <div className="flex flex-col gap-2 w-1/2">

@@ -32,9 +32,9 @@ export default function UserList() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-xl font-semibold pb-8">List of Actived User</p>
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">
@@ -63,10 +63,26 @@ export default function UserList() {
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-100 text-blue-500">{val.role}</p>
+                                                            {
+                                                                val.role === "Admin" ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500">{val.role}</p>
+                                                                :
+                                                                <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-100 text-blue-500">{val.role}</p>
+                                                            }
                                                         </td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.userCreateAt)} {formatTime(val.userCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.userUpdateAt)} {formatTime(val.userUpdateAt)}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.userUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.userCreateAt)} {formatTime(val.userCreateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.userUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.userUpdateAt)} {formatTime(val.userUpdateAt)}</p>
+                                                            }
+                                                        </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500 cursor-pointer" onClick={() => { deleteUser(val.id) }}>Delete</p>
                                                         </td>

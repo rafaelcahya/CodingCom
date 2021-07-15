@@ -8,7 +8,7 @@ export default function Sidebar() {
     const location = useLocation();
     return (
         <>
-            <div className="sidebar fixed w-64 m-5 py-8 flex flex-col gap-2 bg-white rounded-lg border border-gray-300" style={{height: "750px"}}>
+            <div className="fixed w-64 m-5 py-8 flex flex-col gap-2 bg-white text-black rounded-lg border border-gray-300" style={{height: "750px"}}>
                 <p className="text-xs font-semibold uppercase tracking-wider px-4">Dashboard</p>
                 <Navigation
                 activeItemId={location.pathname}

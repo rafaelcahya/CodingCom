@@ -38,9 +38,9 @@ export default function UserList() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 border border-gray-300 rounded-lg w-full" >
                     <p className="text-xl font-semibold pb-8">List of Registered User</p>
                     <div className="overflow-x-auto">
                         <div className="align-middle inline-block min-w-full">

@@ -2,8 +2,7 @@ import {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     body:not(.certification),
-    .navbar,
-    .view-course-admin .approvebar{
+    .navbar{
         background-color: ${({theme}) => theme.background};
         color: ${({theme}) => theme.primarytext};
     }
@@ -46,26 +45,9 @@ export const GlobalStyle = createGlobalStyle`
     .news-box,
     .comment-container textarea,
     .comment-box,
-    .sidebar,
-    .table-request-class,
-    .table-request-class select,
-    .jobform,
-    .jobform input,
-    .jobform textarea,
-    .jobform select,
     .courseForm,
     .courseForm input,
     .courseForm select,
-    .projectsub-form,
-    .batchForm,
-    .batchForm input,
-    .bootcamp-schedule-form,
-    .bootcamp-schedule-form input,
-    .bootcamp-schedule-form select,
-    .view-course-admin,
-    .edit-projectdetail-form,
-    .edit-projectdetail-form input,
-    .edit-projectdetail-form textarea,
     .request-class-form,
     .request-class-form input,
     .request-class-form textarea,
@@ -128,16 +110,7 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({theme}) => theme.foreground5};
     }
     
-    .sidebar,
-    .table-request-class,
-    .jobform,
     .courseForm,
-    .projectsub-form,
-    .batchForm,
-    .bootcamp-schedule-form,
-    .view-course-admin,
-    .view-course-admin .approvebar,
-    .edit-projectdetail-form,
     .request-class-form,
     .filter-job,
     .career-card,
@@ -181,8 +154,6 @@ export const GlobalStyle = createGlobalStyle`
     .register-popup-box,
     .popup-box,
     .course-box p,
-    .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option,
-    .sidebar .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-inner .side-navigation-panel-select-inner-wrap .side-navigation-panel-select-inner-option,
     .comment-container textarea{
         color: ${({theme}) => theme.primarytext} !important;
     }
@@ -217,6 +188,10 @@ export const GlobalStyle = createGlobalStyle`
     {
         border-bottom: ${({theme}) => theme.border};
     }
+
+    .hover\:bg-gray-100:hover {
+        background-color: ${({theme}) => theme.foreground7} !important;
+    }
 `;
 
 export const lightTheme={
@@ -230,6 +205,7 @@ export const lightTheme={
     foreground4: '#fff',
     foreground5: '#ecf3fc',
     foreground6: '#ecf3fc',
+    foreground7: '#fed049',
     border: '1px solid #e1e3e7',
     border2: '1.5px solid #e1e8eb'
 }
@@ -245,6 +221,7 @@ export const darkTheme={
     foreground4: '#272931',
     foreground5: '#272931',
     foreground6: '#16171d',
+    foreground7: '#16171d',
     border: 'none',
     border2: 'none'
 }

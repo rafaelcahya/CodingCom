@@ -66,9 +66,9 @@ function EditProject(props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex bg-white text-black">
                 <Sidebar />
-                <div className="edit-projectdetail-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         {
                             valueList.map(

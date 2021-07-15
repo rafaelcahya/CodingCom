@@ -33,9 +33,9 @@ export default function ListSchedule() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-lg font-semibold">Schedule List</p>
                     <p className="text-sm font-semibold">List of Schedule of Bootcamp</p>
                     <div className="overflow-x-auto mt-8">
@@ -64,9 +64,27 @@ export default function ListSchedule() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.date)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.time}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.location}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.status}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.scheduleCreateAt)} {formatTime(val.scheduleCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.scheduleUpdateAt)} {formatTime(val.scheduleUpdateAt)}</td>              
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.status === "Online" ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-gray-100 text-gray-500">{val.status}</p>
+                                                                :
+                                                                <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.scheduleCreateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.scheduleCreateAt)} {formatTime(val.scheduleCreateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.scheduleUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.scheduleUpdateAt)} {formatTime(val.scheduleUpdateAt)}</p>
+                                                            }
+                                                        </td>              
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <Link to={"/admin/edit-schedule-"+val.scheduleId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>

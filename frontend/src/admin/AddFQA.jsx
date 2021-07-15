@@ -23,14 +23,14 @@ function AddFAQ() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="batchForm overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="pb-8">
                         <p className="text-lg font-semibold">Add new FAQ</p>
                         <p className="text-sm font-semibold">This will be help for user</p>
                     </div>
-                    <div className="flex flex-col gap-5">
+                    <div className="faq-form flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
                             <p className="Batch text-sm font-semibold">Question name</p>
                             <input
