@@ -34,7 +34,7 @@ function EditFAQ(props) {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="batchForm overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="pb-8">

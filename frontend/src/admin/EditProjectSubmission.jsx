@@ -17,6 +17,7 @@ function EditProjectSubmission(props) {
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dateTime = date + ' ' + time;
         setUpdateAt(dateTime)
+        console.log(urlid)
     }, 500)
 
     const submit = () => {

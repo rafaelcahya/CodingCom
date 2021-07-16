@@ -1577,7 +1577,7 @@ iframe {
     display: block;
     width: 100%;
     overflow: hidden;
-    min-height: 120px;
+    min-height: 100px;
     line-height: 20px;
 }
 
@@ -1685,7 +1685,8 @@ Challenge
 .courseForm select,
 .batchForm input,
 .batchForm textarea,
-.batchForm select {
+.batchForm select,
+.faq-form input {
     padding: .375rem 1rem;
     border: 1.5px solid var(--black-3);
     border-radius: 6px;

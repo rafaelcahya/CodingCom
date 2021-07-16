@@ -191,13 +191,13 @@ export default function NavbarLogin() {
                                 )}
                                 {
                                     login=="true" ? (
-                                        <NavLink to="/bootcamp"
+                                        <NavLink to="/bootcamp" target="_blank" rel="noopener noreferrer"
                                     activeClassName="navbar_active"
                                     className="navbar__link">
                                     <p className="navbar_btn underline_anim cursor-pointer">Bootcamp</p>
                                 </NavLink>
                                     ):(
-                                        <div onClick={popup}
+                                        <div onClick={popup} 
                                     activeClassName="navbar_active"
                                     className="navbar__link">
                                     <p className="navbar_btn underline_anim cursor-pointer">Bootcamp</p>

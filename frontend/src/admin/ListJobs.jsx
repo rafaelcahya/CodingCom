@@ -34,9 +34,9 @@ export default function ListJobs() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-lg font-semibold">Jobs List</p>
                     <p className="text-sm font-semibold">List of jobs from company</p>
                     <div className="overflow-x-auto mt-8">
@@ -66,8 +66,20 @@ export default function ListJobs() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.jobLocation}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.jobType}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.companyUrl}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.jobCreateAt)} {formatTime(val.jobCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.jobUpdateAt)} {formatTime(val.jobpUpdateAt)}</td>              
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.jobCreateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.jobCreateAt)} {formatTime(val.jobCreateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.jobUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.jobUpdateAt)} {formatTime(val.jobUpdateAt)}</p>
+                                                            }
+                                                        </td>             
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <Link to={"/admin/edit-job-"+val.jobsId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>

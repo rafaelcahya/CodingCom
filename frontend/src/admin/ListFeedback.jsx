@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import Sidebar from './admin-major/Sidebar';
 
 export default function ListFeedback() {
@@ -29,13 +28,12 @@ export default function ListFeedback() {
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
-    const formatTime = s => new Date(s).toLocaleTimeString();
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-lg font-semibold">Feedback List</p>
                     <p className="text-sm font-semibold">List of Feedback from User</p>
                     <div className="overflow-x-auto mt-8">

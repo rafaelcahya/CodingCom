@@ -57,7 +57,7 @@ function Class() {
                         listClass.map(
                             (val)=> {
                                 let image = require('../../../asset/upload/'+ val.image)
-                                return <a href={"/detail-class/"+val.id +"-" + GenerateID(15,10)} target="_blank" rel="noreferrer" className="class-card bg-white p-2 -my-2 rounded-lg shadow-lg hover:shadow-lg transform hover:scale-105 duration-200" style={{width: "425px"}}>
+                                return <a href={"/detail-class/"+val.id +"-" + GenerateID(15,10)} className="class-card bg-white p-2 -my-2 rounded-lg shadow-lg hover:shadow-lg transform hover:scale-105 duration-200" style={{width: "425px"}}>
                                     <img src={image.default} className="rounded-lg"/>
                                     <div className="flex gap-6 px-2 py-4">
                                         <div>

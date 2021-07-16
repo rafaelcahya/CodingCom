@@ -50,7 +50,7 @@ function EditRequestClass(props) {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
                 <div className="request-class-form ml-72 m-5 p-8 flex flex-col gap-1 border border-gray-300 rounded-lg w-full" >
                     <div className="flex flex-col gap-1 pb-8">

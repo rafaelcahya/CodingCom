@@ -29,6 +29,12 @@ function BootcampHome() {
     return (
         <>
             <BootcampNavbar/>
+            <div className="fixed bottom-10 left-10 self-start">
+                <Link to="" className="flex items-center gap-2 bg-blue-1 px-4 py-2 rounded-lg text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <p>Back to tutorial</p>
+                </Link>
+            </div>
 
             <header className="header-bootcamp text-white">
                 <div className=" flex flex-col items-center pt-56 pb-28">

@@ -55,7 +55,7 @@ const PDFAngular = (props) => {
                             </svg>
                             <p className="text-white text-3xl text-center font-bold py-5 border-b border-gray-300 w-1/2">{val.projectTitle}</p>
                             <p className="text-2xl text-gray-300 font-medium my-5">{props.title}</p>
-                            <p className="text-gray-400 text-center font-medium w-2/4 tracking-wide">This certification holder has passed the {val.projectTitle}. You are hereby deemed fully capable and skilled in Angular.</p>
+                            <p className="text-gray-400 text-center font-medium w-2/4 tracking-wide">This certification holder has passed the {val.projectTitle}. You are hereby deemed fully capable and experienced.</p>
                             <span className="text-gray-400 text-sm font-medium mt-10">{new Date().toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric' }) + ''}</span>
                             <div className="flex gap-10">
                                 <div className="text-center text-gray-400 font-semibold mt-10">

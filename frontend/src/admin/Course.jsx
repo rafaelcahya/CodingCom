@@ -39,7 +39,7 @@ function Course(props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="bg-white text-black flex h-screen">
                 <Sidebar />
                 <div className="view-course-admin ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="approvebar sticky self-start top-5 flex items-center justify-between text-sm font-semibold bg-white p-2 mb-8 rounded-md border border-gray-300 shadow-xl w-full">

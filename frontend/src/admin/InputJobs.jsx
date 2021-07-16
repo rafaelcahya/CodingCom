@@ -53,9 +53,9 @@ function InputJobs() {
 
     return (
         <>
-            <div className="flex">
+            <div className="bg-white text-black flex">
                 <Sidebar />
-                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         <div className="job-box flex flex-col gap-10">
                             <div className="flex flex-col gap-3">

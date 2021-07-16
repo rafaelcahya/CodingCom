@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Sidebar from './admin-major/Sidebar';
+import ShowMoreText from 'react-show-more-text';
 
 export default function ListFAQ() {
     const [value,setValue] = useState([])
@@ -33,9 +34,9 @@ export default function ListFAQ() {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="bg-white text-black flex h-screen overflow-hidden">
                 <Sidebar />
-                <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
+                <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-lg font-semibold">FAQ List</p>
                     <p className="text-sm font-semibold">List of Frequently Asked Question</p>
                     <div className="overflow-x-auto mt-8">
@@ -55,10 +56,29 @@ export default function ListFAQ() {
                                             value.map(
                                                 (val) => {
                                                     return <tr className="border-b-2">
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.question}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{val.answer}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.helpCreateAt)} {formatTime(val.helpCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.helpUpdateAt)} {formatTime(val.helpUpdateAt)}</td>              
+                                                        <td className="px-6 py-3">{val.question}</td>
+                                                        <td className="px-6 py-3">
+                                                            <ShowMoreText
+                                                                more='Read more'
+                                                                less='Read less'
+                                                                anchorClass='anchor-showmore'>
+                                                                <p>{val.answer}</p>
+                                                            </ShowMoreText>
+                                                        </td>
+                                                        <td className="px-6 py-3">
+                                                            {
+                                                                val.helpCreateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.helpCreateAt)} {formatTime(val.helpCreateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3">
+                                                            {
+                                                                val.helpUpdateAt === "0000-00-00 00:00:00" ? <p></p>
+                                                                :
+                                                                <p>{formatDate(val.helpUpdateAt)} {formatTime(val.helpUpdateAt)}</p>
+                                                            }
+                                                        </td>             
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <Link to={"/admin/edit-faq-"+val.helpId}>
                                                                 <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-blue-500 text-white">Edit</p>

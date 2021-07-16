@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react'
 import Axios from 'axios'
 import Sidebar from './admin-major/Sidebar'
@@ -5,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 function AddTopik(props) {
     const urlid = props.match.params.id
+    // eslint-disable-next-line no-unused-vars
     const [id, setId] = useState("")
     const [status, setStatus] = useState("")
     const [title, setTitle] = useState("")
@@ -51,27 +53,25 @@ function AddTopik(props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="bg-white text-black flex">
                 <Sidebar />
-                <div className="jobform ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
+                <div className="ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>
                         {
                             valueList.map((val) => {
-                               return <div className="job-box flex flex-col gap-10">
+                                return <div className="job-box flex flex-col gap-10">
                                     <div className="flex flex-col gap-3">
-                                        <p className="text-xl font-semibold">Edit a Topik</p>
+                                        <p className="text-lg font-semibold">Edit sub tutorial</p>
                                     </div>
-                                    <div className="flex justify-between items-center gap-10 w-full">
-                                        <div className="flex flex-col gap-2 w-1/2">
-                                            <p className="text-sm font-semibold">Title</p>
-                                            <input type="text" defaultValue={val.topikTitle} placeholder="Input Job title" onChange={(event) => {
-                                                setTitle(event.target.value)
-                                            }} />
-                                        </div>
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-sm font-semibold">Title</p>
+                                        <input type="text" defaultValue={val.topikTitle} placeholder="Input Job title" onChange={(event) => {
+                                            setTitle(event.target.value)
+                                        }} />
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <div className="flex items-center gap-1 text-sm font-semibold">
-                                            <p>Topik Info</p>
+                                            <p>Subtutorial Info</p>
                                         </div>
                                         <textarea name="" id="" defaultValue={val.topikInfo} maxLength="250" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
                                             setInfo(event.target.value)
@@ -79,7 +79,7 @@ function AddTopik(props) {
                                     </div>
 
                                     <div className="flex flex-col gap-2">
-                                        <p className="Time text-sm font-semibold">Topik content</p>
+                                        <p className="Time text-sm font-semibold">Subtutorial content</p>
                                         <Editor
                                             apiKey="t49ii0efod7e9c06izeuljkk12vhazn02qx773vac1yq51yt"
                                             onInit={(evt, editor) => editorRef.current = editor}
@@ -112,6 +112,7 @@ function AddTopik(props) {
                                 </div>
 
                                     <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                                    <p className="font-medium text-sm text-yellow-500">*Make sure all content is filled correctly</p>
                                     <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                                 </div>
                             })

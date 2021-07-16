@@ -8,7 +8,7 @@ export default function Sidebar() {
     const location = useLocation();
     return (
         <>
-            <div className="sidebar fixed w-64 m-5 py-8 flex flex-col gap-2 bg-white rounded-lg border border-gray-300" style={{height: "750px"}}>
+            <div className="fixed w-64 m-5 py-8 flex flex-col gap-2 bg-white text-black rounded-lg border border-gray-300" style={{height: "750px"}}>
                 <p className="text-xs font-semibold uppercase tracking-wider px-4">Dashboard</p>
                 <Navigation
                 activeItemId={location.pathname}
@@ -35,7 +35,7 @@ export default function Sidebar() {
                         itemId: "/admin/add-batch",
                         subNav: [
                             {
-                                title: "Batch form",
+                                title: "Add Batch",
                                 itemId: "/admin/add-batch"
                             },
                             {
@@ -43,7 +43,7 @@ export default function Sidebar() {
                                 itemId: "/admin/list-batch"
                             },
                             {
-                                title: "Schedule",
+                                title: "Add Schedule",
                                 itemId: "/admin/bootcamp-schedule"
                             },
                             {
@@ -57,20 +57,20 @@ export default function Sidebar() {
                         itemId: '/admin/list-course',
                         subNav: [
                             {
-                                title: 'Tutorial List',
-                                itemId: '/admin/list-course',
-                            },
-                            {
-                                title: 'Sub tutorial/topik list',
-                                itemId: '/admin/list-topik',
-                            },
-                            {
-                                title: 'Add tutorial Category',
+                                title: 'Add tutorial / category',
                                 itemId: '/admin/add-category',
                             },
                             {
-                                title:'List Tutorial Category',
+                                title:'Tutorial / category list',
                                 itemId:'/admin/list-category',
+                            },
+                            {
+                                title: 'Sub tutorial list',
+                                itemId: '/admin/list-topik',
+                            },
+                            {
+                                title: 'Sub tutorial content List',
+                                itemId: '/admin/list-course',
                             }
                         ],
                     },
