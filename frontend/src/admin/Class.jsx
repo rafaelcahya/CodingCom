@@ -53,8 +53,7 @@ export default function Class() {
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">URL</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last Created</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>``
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,17 +85,22 @@ export default function Class() {
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {
-                                                                val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>):(<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>)
+                                                                val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>)
+                                                                :
+                                                                val.status === "Pending" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>) : (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500">{val.status}</p>)
                                                             }
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
-                                                            {val.status === "Pending" ?(
-                                                                <Link to={"/edit-request-class-" + val.id}>
-                                                                <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
-                                                                </Link>
-                                                                ):(
-                                                                    <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
-                                                                )}
+                                                            {
+                                                                val.status === "Pending" ?(
+                                                                    <Link to={"/edit-request-class-" + val.id}>
+                                                                    <p className="px-4 py-2 inline-flex text-sm leading-5 font-medium rounded-lg bg-blue-1 text-white">Request</p>
+                                                                    </Link>)
+                                                                    :
+                                                                    val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>)
+                                                                    :
+                                                                    (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500">{val.status}</p>)
+                                                            }
                                                             
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">

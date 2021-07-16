@@ -75,10 +75,10 @@ function EditProject(props) {
                                 (val) => {
                                     return <div className="job-box flex flex-col gap-10">
                                         <div className="flex flex-col gap-3">
-                                            <p className="text-xl font-semibold">Post a Project</p>
+                                            <p className="text-xl font-semibold">Edit Project</p>
                                         </div>
                                         <div className="flex flex-col gap-2">
-                                            <p className="text-sm font-semibold">Select the Project Type</p>
+                                            <p className="text-sm font-semibold">Project Type</p>
                                             <select name="" id="" onChange={(event) => {
                                                 setType(event.target.value)
                                             }} >

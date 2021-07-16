@@ -27,24 +27,23 @@ function AddFAQ() {
                 <Sidebar />
                 <div className="overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full" >
                     <div className="pb-8">
-                        <p className="text-lg font-semibold">Add new FAQ</p>
-                        <p className="text-sm font-semibold">This will be help for user</p>
+                        <p className="text-lg font-semibold">Add FAQ</p>
                     </div>
                     <div className="faq-form flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
-                            <p className="Batch text-sm font-semibold">Question name</p>
+                            <p className="Batch text-sm font-semibold">Question</p>
                             <input
                                 type="text"
-                                placeholder="Input question name"
+                                placeholder="Add question"
                                 onChange={(event) => {
                                     setQuestion(event.target.value)
                                 }} />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <p className="Batch text-sm font-semibold">Answer name</p>
+                            <p className="Batch text-sm font-semibold">Answer</p>
                             <input
                                 type="text"
-                                placeholder="Input answer name"
+                                placeholder="Add answer"
                                 onChange={(event) => {
                                     setAnswer(event.target.value)
                                 }} />

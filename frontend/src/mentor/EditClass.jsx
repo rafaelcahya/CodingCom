@@ -155,12 +155,7 @@ function EditClass(props) {
                                         }} />
                                 </div>
                                 <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                                <div className="flex gap-10">
-                                    <p className="bg-gray-200 hover:bg-gray-300 w-1/5 text-center px-7 py-2 rounded-lg cursor-pointer">
-                                        <Link to="/admin/class-requisition">Back</Link>
-                                    </p>
-                                    <p onClick={updateClass} className="bg-blue-1 w-4/5  text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
-                                </div>
+                                <p onClick={updateClass} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
                             </div>
                         </div>
                     </div>
