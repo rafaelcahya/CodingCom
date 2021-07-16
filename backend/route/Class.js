@@ -21,14 +21,25 @@ router.post("/createClass", (req, res) => {
     let updateAt = ""
     let isDeleted = "NO"
 
-    if (className.length <= 0) {
-        res.send({ message: "Class name can not be empty" })
+    if(className.length<=0 && date.length<=0 && endDate.length<=0 && time.length<=0 && endTime.length<=0 && info.length<=0 && des.length<=0 && url.length<=0){
+        res.send({message:"All data is not filled in"})
+    } else if (className.length <= 0) {
+        res.send({ message: "Class name is not filled in" })
     } else if (date.length <= 0) {
-        res.send({ message: "Date can not be empty" })
+        res.send({ message: "Start date is not filled in" })
+    } else if(endDate.length<=0){
+        res.send({ message:"End date is not filled in"})
     } else if (time.length <= 0) {
-        res.send({ message: "Time can not be empty" })
+        res.send({ message: "Start time is not filled in" })
+    } else if(endTime.length<=0){
+        res.send({message:"End time is not filled in"})
+    } else if(info.length<=0){
+        res.send({message:"Class information is not filled in"})
+    } else if(des.length<=0){
+        res.send({message:"Class description is not filled in"})
+    } else if(url.length<=0){
+        res.send({message:"Meeting url is not filled in"})
     } else {
-        console.log(name)
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
                 console.log(err)
@@ -37,13 +48,13 @@ router.post("/createClass", (req, res) => {
             if (results.length > 0) {
                 user_id = results[0].id
                 if (!req.files) {
-                    res.send({ message: "Image can not be empty" })
+                    res.send({ message: "Image hasn't been added yet" })
                 } else {
                     const file = req.files.fileUpload
                     const filename = file.name
                     db.query("INSERT INTO class (className, image, classInfo, startDate, endDate, startTime, endTime, classDescription, classUrl, status, user_id, classCreateAt, classUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [className, filename, info, date, endDate, time, endTime, des, url, status, user_id, createAt, updateAt, isDeleted], (err, results) => {
                         console.log(err)
-                        res.send(results)
+                        res.send({message:"Data has been added successfully"})
                         file.mv('../frontend/src/asset/upload/' + file.name)
                     })
                 }
@@ -123,7 +134,7 @@ router.post("/updateClass", (req, res) => {
                 }
                 db.query("UPDATE class SET className = ?, classInfo = ?, startDate = ?, endDate=?, startTime = ?, endTime = ?, classDescription = ?, classUrl = ?, status =?, classUpdateAt=?  WHERE id=?;", [className, info, startdate, enddate, starttime, endtime, des, url, status, updateAt, id], (err, results) => {
                     console.log(err)
-                    res.send(results)
+                    res.send({message:"Data has been updated successfully"})
                 })
 
             }
@@ -198,7 +209,7 @@ router.post("/updateClassMentor", (req, res) => {
             }
             db.query("UPDATE class SET className = ?, classInfo = ?, startDate = ?, endDate=?, startTime = ?, endTime = ?, classDescription = ?, classUrl = ?, status =?, classUpdateAt=?  WHERE id=?;", [className, info, startdate, enddate, starttime, endtime, des, url, status, updateAt, id], (err, results) => {
                 console.log(err)
-                res.send(results)
+                res.send({message:"Data has been updated successfully"})
             })
 
         }

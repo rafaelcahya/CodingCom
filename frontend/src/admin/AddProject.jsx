@@ -7,7 +7,7 @@ function AddProject() {
     const editorRef = useRef(null);
     const [file, setFile] = useState([])
     const [projectFile, setProjectFile] = useState([])
-    const [language, setLanguage] = useState([])
+    const [language, setLanguage] = useState("")
     const [title, setTitle] = useState("")
     const [info, setInfo] = useState("")
     const [type, setType] = useState("")
@@ -42,11 +42,22 @@ function AddProject() {
             fd.append('projectFile', projectFile)
             fd.append('language', language)
             fd.append('createAt', createAt)
-            Axios.post("http://localhost:3001/project/project", fd).then((response) => {
+            if(type.length<=0){
+                setErrorMessage("Project Type can not be empty")
+            }else if(file.length<=0 || file == null||document.getElementById("image")==null){
+                setErrorMessage("Project Image can not be empty")
+            }else if(title.length<=0){
+                setErrorMessage("Project Title can not be empty")
+            }else if(info.length<=0){
+                setErrorMessage("Project Info can not be empty")
+            }else if(projectFile.length<=0 || projectFile == null||document.getElementById("projectFile")==null){
+                setErrorMessage("Project File can not be empty")
+            }else{
+                Axios.post("http://localhost:3001/project/project", fd).then((response) => {
                 console.log(response)
                 setErrorMessage(response.data.message)
-
             })
+            }
         }
     }
 
@@ -80,6 +91,7 @@ function AddProject() {
                                     <p className="text-sm font-semibold">Image Project</p>
                                     <input className="w-full"
                                         type="file"
+                                        id="image"
                                         accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                         name="fileUpload"
                                         onChange={(event) => {
@@ -88,7 +100,7 @@ function AddProject() {
                                 </div>
                                 <div className="flex flex-col gap-2 w-1/2">
                                     <p className="text-sm font-semibold">Title</p>
-                                    <input type="text" placeholder="Input Job title" onChange={(event) => {
+                                    <input type="text" placeholder="Input Project title" onChange={(event) => {
                                         setTitle(event.target.value)
                                     }} />
                                 </div>
@@ -97,7 +109,7 @@ function AddProject() {
                                 <div className="flex items-center gap-1 text-sm font-semibold">
                                     <p>Project Info</p>
                                 </div>
-                                <textarea name="" id="" cols="30" rows="10" className="resize-none" placeholder="Input overview" onChange={(event) => {
+                                <textarea name="" id="" cols="30" rows="10" className="resize-none" placeholder="Input Info" onChange={(event) => {
                                     setInfo(event.target.value)
                                 }} ></textarea>
                             </div>
@@ -127,6 +139,7 @@ function AddProject() {
                                 <p className="text-sm font-semibold">Project File</p>
                                 <input className="w-full"
                                     type="file"
+                                    id="projectFile"
                                     accept=".zip,.rar"
                                     name="fileUpload"
                                     onChange={(event) => {

@@ -19,15 +19,20 @@ router.post("/addTopik", (req, res) => {
     let isDeleted = "NO"
     let status = "Pending"
     let user_id = 0
-
-    if (title.length <= 0) {
-        res.send({ message: "Topik Title can not be empty" })
+    if(title.length<=0 && info.length<=0 && progress.length<=0 && about.length<=0 && time.length<=0 && category.length<=0){
+        res.send({message: "All data is not filled"})
+    } else if(category.length<=0){
+        res.send({message:"Tutorial is not selected"})
+    } else if (title.length <= 0) {
+        res.send({ message: "Sub tutorial title is not filled in" })
     } else if (info.length <= 0) {
-        res.send({ message: "Topik Info can not be empty" })
+        res.send({ message: "Sub tutorial info is not filled in" })
+    } else if(progress.length<=0){
+        res.send({message: "Progress not selected"})
     } else if (about.length <= 0) {
-        res.send({ message: "Topik About can not be empty" })
+        res.send({ message: "Sub tutorial description is not filled in" })
     } else if(progress.length <= 0 && time <= 0){
-        res.send({message:"Time cannot be empty"})
+        res.send({message: "Time is not filled in"})
     }else {
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {
@@ -38,7 +43,7 @@ router.post("/addTopik", (req, res) => {
                 user_id = results[0].id
                 db.query("INSERT INTO topik (topikTitle, category_id, topikInfo, about, status, time, progress, topikCreateAt, topikUpdateAt, isDeleted, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, category, info, about, status, time, progress, createAt, updateAt, isDeleted, user_id], (err, results) => {
                     console.log(err)
-                    res.send({message:"Topik successfully uploaded"})
+                    res.send({message:"Data has been added successfully"})
                 })
             }
         })

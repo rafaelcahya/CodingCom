@@ -6,6 +6,7 @@ function AddCategory() {
     const [category, setCategory] = useState("")
     const [categoryInfo, setCategoryInfo] = useState("")
     const [createAt, setCreateAt] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
 
 
     window.onload = setTimeout(function () {
@@ -19,6 +20,7 @@ function AddCategory() {
     const submit = () => {
         Axios.post("http://localhost:3001/category/addCategory", { createAt: createAt, category: category, categoryInfo:categoryInfo}).then((response) => {
             console.log(response)
+            setErrorMessage(response.data.message)
         })
     };
     return (
@@ -47,6 +49,7 @@ function AddCategory() {
                                 }} ></textarea>
                         </div>
                     </div>
+                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                     <button onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 my-10 rounded-lg cursor-pointer">Submit</button>
                 </div>
             </div>

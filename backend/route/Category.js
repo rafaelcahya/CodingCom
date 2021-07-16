@@ -13,12 +13,16 @@ router.post("/addCategory", (req, res) => {
     let updateAt = ""
     let isDeleted = "NO"
     
-    if(category.length <= 0){
-        res.send({message:"Category can not be empty"})
+    if(category.length<=0 && categoryInfo.length<=0){
+        res.send({message:"All form must be filled"})
+    }else if(category.length <= 0){
+        res.send({message:"Category must be filled"})
+    }else if(categoryInfo.length<=0){
+        res.send({message:"Category info must be filled"})
     }else{
-        db.query("INSERT INTO category (category, categoryInfo categoryCreateAt, categoryUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?);", [category, categoryInfo, createAt, updateAt, isDeleted], (err, results) => {
+        db.query("INSERT INTO category (category, categoryInfo, categoryCreateAt, categoryUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?);", [category, categoryInfo, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
-            res.send(results)
+            res.send({message:"Category successfully submited"})
         })
     }
 })

@@ -17,20 +17,20 @@ router.post("/project", (req, res) => {
     let isDeleted = "NO"
     let format =/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
 
-    if (title.length <= 0) {
-        res.send({ message: "Project Title can not be empty" })
+    if (type.length <= 0) {
+        res.send({ message: "Project Type can not be empty" })
+    } else if(title.length<=0){
+        res.send({message:"Project Title can not be empty"})
     } else if (info.length <= 0) {
         res.send({ message: "Project Info can not be empty" })
     } else if (brief.length <= 0) {
         res.send({ message: "Project Brief can not be empty" })
-    } else if (type.length <= 0) {
-        res.send({ message: "Project Type can not be empty" })
     } else if(language.length<=0){
         res.send({message:"Programming language must be filled"})
     } else if(language.match(format)!=null){
-        res.send({message:"Programming Language must use space"})
+        res.send({message:"Programming Language can not use special character"})
     } else if (!req.files) {
-        res.send({ message: "Image can not be empty" })
+        res.send({ message: "Project File and Image can not be empty" })
     } else {
         const file = req.files.fileUpload
         const filename = file.name
@@ -126,10 +126,11 @@ router.post("/editProject", (req, res) => {
                 language = results[0].language
                 
             } if (!req.files) {
-                db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectId=?;", [title, info, brief, updateAt, id], (err, results) => {
-                    console.log(err)
-                    res.send({message:"Project Updated"})
-                })
+                // db.query("UPDATE project SET projectTitle = ?, projectInfo = ?, projectBrief = ?, projectUpdateAt=?  WHERE projectId=?;", [title, info, brief, updateAt, id], (err, results) => {
+                //     console.log(err)
+                //     res.send({message:"Project Updated"})
+                // })
+                res.send({message:"Project Image and Project File can not be empty"})
             }else {
                 db.query("UPDATE project SET projectTitle = ?, image = ?, projectInfo = ?, projectBrief = ?, projectFile = ?, projectUpdateAt=?  WHERE projectid=?;", [title, filename, info, brief, projectFileName, updateAt, id], (err, results) => {
                     console.log(err)

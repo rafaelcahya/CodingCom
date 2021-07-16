@@ -64,7 +64,9 @@ router.post("/score", (req, res) => {
     const score = req.body.score
     const revisi = req.body.revisi
     const updateAt = req.body.updateAt
-    if (score <= 0) {
+    if(score.length<=0 && revisi.length<=0){
+        res.send({message:"Form must be filled"})
+    }else if (score.length <= 0 || score <= 0 ) {
         res.send({ message: "Score can not be empty" })
     } else {
         db.query("UPDATE projectsub SET score = ?, revisi = ?, projectsubUpdateAt = ? WHERE id = ?;", [score, revisi, updateAt, id], (err, results) => {

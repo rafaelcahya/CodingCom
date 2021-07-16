@@ -8,6 +8,7 @@ function AddBatch() {
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
     const [createAt, setCreateAt] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
 
     window.onload = setTimeout(function () {
         var today = new Date();
@@ -20,6 +21,7 @@ function AddBatch() {
     const Batch = () => {
         Axios.post("http://localhost:3001/batch/addBatch", { createAt: createAt, batch: batch, startDate:startDate, endDate:endDate }).then((response) => {
             console.log(response)
+            setErrorMessage(response.data.message)
         })
     };
     return (
@@ -59,6 +61,7 @@ function AddBatch() {
                             </div>
                         </div>
                     </div>
+                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                     <button onClick={Batch} className="text-white bg-blue-1 text-center px-4 py-2 my-10 rounded-lg cursor-pointer">Submit batch</button>
                 </div>
             </div>

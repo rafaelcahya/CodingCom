@@ -20,14 +20,36 @@ router.post("/jobs", (req, res) => {
     let updateAt = ""
     let isDeleted = "NO"
 
-    if (!req.files) {
+    if(companyName.length<=0 && companyEmail.length<=0 && overview.length<=0 && job.length<=0 && type.length<=0 && location.length<=0 && des.length<=0 && url.length<=0){
+        res.send({message:"All data is not filled"})
+    }else if (!req.files) {
         res.send({ message: "Logo can not be empty" })
-    } else {
+    }else if(companyName.length<=0){
+        res.send({message:"Company name is not filled in"})
+    }else if(companyEmail.length<=0){
+        res.send({message:"Comapany email is not filled in"})
+    }else if (companyEmail.match(/[@]/) == null) {
+        res.send({ message: "Company Email is invalid" })
+    }else if (companyEmail.match(/[.]/) == null) {
+        res.send({ message: "Company Email is invalid" })
+    }else if(overview.length<=0){
+        res.send({message:"Overview is not filled in"})
+    }else if(job.length<=0){
+        res.send({message:"Job title is not filled in"})
+    }else if(type.length<=0){
+        res.send({message:"Employment Type not selected"})
+    }else if(location.length<=0){
+        res.send({message:"Job location is not filled in"})
+    }else if(des.length<=0){
+        res.send({message:"Job description is not filled in"})
+    }else if(url.length<=0){
+        res.send({message:"URL is not filled in"})
+    }else {
         const file = req.files.fileUpload
         const filename = file.name
         db.query("INSERT INTO jobs (companyName, companyEmail, companyLogo, overview, jobTitle, jobDescription, jobLocation, jobType, companyUrl, jobCreateAt, jobUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [companyName, companyEmail, filename, overview, job, des, location, type, url, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
-            res.send(results)
+            res.send({message:"Data has been added successfully"})
             file.mv('../frontend/src/asset/upload/' + file.name)
         })
     }

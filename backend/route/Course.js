@@ -17,30 +17,46 @@ router.post("/addCourse", (req, res) => {
     let user_id = 0
     let status = "Pending"
     let isDeleted = "NO"
-
-    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
-        if (err) {
-            console.log(err)
-        }
-
-        if (results.length > 0) {
-            user_id = results[0].id
-            db.query("SELECT * From course WHERE topik_id = ? AND number = ?",[topik, number], (err, results) => {
-                if (err) {
-                    console.log(err)
-                }
-        
-                if (!results.length) {
-                    db.query("INSERT INTO course (judul, topik_id, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
+    
+    if(judul.length<=0 && topik.length<=0 && number.length<=0 && des.length<=0 && time.length<=0 && content.length<=0){
+        res.send({message:"All form is not filled"})
+    }else if(judul.length<=0){
+        res.send({message:"Title is not filled in"})
+    }else if(topik.length<=0){
+        res.send({message:"Tutorial is not selected"})
+    }else if(number.length<=0){
+        res.send({message:"Tutorial number is not filled in"})
+    }else if(des.length<=0){
+        res.send({message:"Description is not filled in"})
+    }else if(time.length<=0){
+        res.send({message:"Estimated time is not filled in"})
+    }else if(content.length<=0){
+        res.send({message:"Tutorial content is not filled in"})
+    }else {
+        db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+    
+            if (results.length > 0) {
+                user_id = results[0].id
+                db.query("SELECT * From course WHERE topik_id = ? AND number = ?",[topik, number], (err, results) => {
+                    if (err) {
                         console.log(err)
-                        res.send(results)
-                    })
-                }else{
-                    res.send({message:"Tutorial Number can not be same at the same Topic"})
-                }
-            })
-        }
-    })
+                    }
+            
+                    if (!results.length) {
+                        db.query("INSERT INTO course (judul, topik_id, number, description, time, content, user_Id, status, courseCreateAt, courseUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [judul, topik, number, des, time, content, user_id, status, createAt, updateAt, isDeleted], (err, results) => {
+                            console.log(err)
+                            res.send({message:"Data has been added successfully"})
+                        })
+                    }else{
+                        res.send({message:"Tutorial Number can not be same at the same Topic"})
+                    }
+                })
+            }
+        })
+    }
 })
 
 router.put("/updateCourse", (req, res) => {

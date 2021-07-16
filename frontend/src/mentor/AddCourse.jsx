@@ -99,6 +99,7 @@ function AddCourse() {
                         <p className="Time text-sm font-semibold">Estimated Time</p>
                         <input
                             type="number"
+                            min="0"
                             placeholder="Example : 10 min"
                             onChange={(event) => {
                                 setTime(event.target.value)
@@ -126,7 +127,7 @@ function AddCourse() {
                             }}
                         />
                     </div>
-                    <p>{errorMessage}</p>
+                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
                     <div className="flex justify-between gap-10 w-full">
                         <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
                         <p onClick={log} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>

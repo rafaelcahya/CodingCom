@@ -103,7 +103,7 @@ function AddTopik() {
                                     <select name="" id=""  onChange={(event) => {
                                             setProgress(event.target.value)
                                         }} >
-                                        <option value="">Complete</option>
+                                        <option value="Complete">Complete</option>
                                         <option value="Coming Soon">Coming Soon</option>
                                     </select>
                                 </div>

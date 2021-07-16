@@ -21,12 +21,12 @@ router.post("/addSchedule", (req, res) => {
         res.send({message: "All form must be filled"})
     }else if (title.length <= 0) {
         res.send({ message: "You must fill this title" })
+    } else if (des.length <= 0) {
+        res.send({ message: "You must fill this description" })
     } else if (date.length <= 0) {
         res.send({ message: "You must fill this date" })
     } else if (time.length <= 0) {
         res.send({ message: "You must fill this time" })
-    } else if (des.length <= 0) {
-        res.send({ message: "You must fill this description" })
     } else if (location.length <= 0) {
         res.send({ message: "You must fill this location" })
     } else if (status.length <= 0) {

@@ -14,6 +14,7 @@ function EditProject(props) {
     const [updateAt, setUpdateAt] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [type, setType] = useState("")
+    const [language, setLanguage] = useState("")
     const [valueList, setValueList] = useState([])
     const [value, setValue] = useState([])
 
@@ -54,13 +55,18 @@ function EditProject(props) {
             fd.append('projectFile', projectFile)
             fd.append('brief', editorRef.current.getContent())
             fd.append('updateAt', updateAt)
-            Axios.post("http://localhost:3001/project/editProject", fd).then((response) => {
-                console.log(response)
-                setErrorMessage(response.data.message)
+            fd.append('language', language)
+            if(file.length<=0 || file == null||document.getElementById("image")==null){
+                setErrorMessage("Project Image can not be empty")
+            }else if(projectFile.length<=0 || projectFile == null||document.getElementById("projectFile")==null){
+                setErrorMessage("Project File can not be empty")
+            }else{
+                Axios.post("http://localhost:3001/project/editProject", fd).then((response) => {
+                    console.log(response)
+                    setErrorMessage(response.data.message)
 
-            })
-
-            console.log(file)
+                })
+            }
         }
     }
 
@@ -97,6 +103,7 @@ function EditProject(props) {
                                                 <p className="text-sm font-semibold">Image Project</p>
                                                 <input className="w-full"
                                                     type="file"
+                                                    id="image"
                                                     accept=".svg,.png,.jpg,.jpeg,.psd,.tiff,.bmp,.hdr,.webp"
                                                     required
                                                     onChange={(event) => {
@@ -145,10 +152,22 @@ function EditProject(props) {
                                             <p className="text-sm font-semibold">Project File</p>
                                             <input className="w-full"
                                                 type="file"
+                                                id="ProjectFile"
                                                 accept=".zip,.rar"
                                                 required
                                                 onChange={(event) => {
                                                     setProjectFile(event.target.files[0])
+                                                }} />
+                                        </div>
+
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-sm font-semibold">Programming Language</p>
+                                            <input className="w-full"
+                                                type="text"
+                                                maxLength="50"
+                                                defaultValue={val.programmingLanguage}
+                                                onChange={(event) => {
+                                                    setLanguage(event.target.value)
                                                 }} />
                                         </div>
 

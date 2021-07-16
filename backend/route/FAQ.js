@@ -11,15 +11,16 @@ router.post("/addFaq", (req, res) => {
     const answer = req.body.answer
     const createAt = req.body.createAt
     let isDeleted = "NO"
-
-    if(question.length <= 0){
+    if(question.length<=0 && answer.length<=0){
+        res.send({message:"All data is not filled"})
+    }else if(question.length <= 0){
         res.send({message:"Question can not be empty"})
     }else if(answer.length <=0 ){
         res.send({message:"Answer can not be empty"})
     }else{
         db.query("INSERT INTO help (question, answer, helpCreateAt, isDeleted) VALUES (?, ?, ?, ?);", [question, answer, createAt, isDeleted], (err, results) => {
             console.log(err)
-            res.send(results)
+            res.send({message:"Data has been added successfully"})
         })
     }
 })
