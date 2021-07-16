@@ -17,7 +17,9 @@ router.post("/addSchedule", (req, res) => {
     let updateAt = ""
     let isDeleted = "NO"
 
-    if (title.length <= 0) {
+    if(title.length<=0 && date.length<=0 && time.length<=0 && des.length<=0 && location.length<=0 && status.length<=0){
+        res.send({message: "All form must be filled"})
+    }else if (title.length <= 0) {
         res.send({ message: "You must fill this title" })
     } else if (date.length <= 0) {
         res.send({ message: "You must fill this date" })
@@ -32,7 +34,7 @@ router.post("/addSchedule", (req, res) => {
     } else {
         db.query("INSERT INTO schedule (title, description, date, time, location, status , scheduleCreateAt, scheduleUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, des, date, time, location, status, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
-            res.send(results)
+            res.send({message: "Schedule have been successfully submited"})
         })
     }
 
@@ -101,7 +103,7 @@ router.post("/updateSchedule", (req, res) => {
             }
             db.query("UPDATE schedule SET title = ?, description = ?, date = ?, time = ?, location = ?, status = ?, scheduleUpdateAt = ?  WHERE scheduleId=?;", [ title, des, date, time, location, status, updateAt, id], (err, results) => {
                 console.log(err)
-                res.send(results)
+                res.send({message: "Schedule Updated"})
             })
 
         }
