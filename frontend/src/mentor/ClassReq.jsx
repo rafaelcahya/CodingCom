@@ -64,7 +64,7 @@ function ClassReq() {
             <div className="flex">
                 <Sidebar />
                 <div className="request-class-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full">
-                    <p className="text-lg font-semibold pb-8">Request Class for Mentor</p>
+                    <p className="text-lg font-semibold pb-8">Request Class Session for Mentor</p>
                     <form className="flex flex-col gap-10" id="reset-form">
                         <div className="flex justify-between items-center gap-10">
                             <div className="flex flex-col gap-2 w-1/2">

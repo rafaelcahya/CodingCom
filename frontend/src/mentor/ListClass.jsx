@@ -54,7 +54,6 @@ export default function ListClass() {
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last Created</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
                                     <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,10 +70,15 @@ export default function ListClass() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.endTime}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.classUrl}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classCreateAt)}</td>
-                                                        <td className="px-6 py-3 whitespace-nowrap">{formatDate(val.classUpdateAt)}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {
-                                                                val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>):(<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>)
+                                                                val.classUpdateAt === "0000-00-00" ? <p></p> : <p>{formatDate(val.classUpdateAt)}</p>
+                                                            }
+                                                        </td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">
+                                                            {
+                                                                val.status === "Approve" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>):
+                                                                val.status === "Pending" ? (<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>):(<p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500">{val.status}</p>)
                                                             }
                                                         </td>
                                                         <td className="px-6 py-3 whitespace-nowrap">

@@ -26,32 +26,32 @@ export default function Sidebar() {
                         title: "Tutorial Management",
                         subNav: [
                             {
-                                title: "Add Tutorial Course",
-                                itemId: "/mentor/add-course"
-                            },
-                            {
-                                title: "Tutorial List",
-                                itemId: "/mentor/list-course"
-                            },
-                            {
-                                title: "Add Topik Tutorial",
+                                title: "Add sub tutorial content",
                                 itemId: "/mentor/add-topik"
                             },
                             {
-                                title: "List Topik Tutorial",
+                                title: "List sub tutorial content",
                                 itemId:"/mentor/list-topik"
                             },
+                            {
+                                title: "Add Sub Tutorial",
+                                itemId: "/mentor/add-course"
+                            },
+                            {
+                                title: "Sub Tutorial List",
+                                itemId: "/mentor/list-course"
+                            }
                         ],
                     },
                     {
-                        title: 'Class',
+                        title: 'Class session',
                         itemId: '/mentor/class-request',
                         subNav:[
                             {
-                                title:'Class Request',
+                                title:'Class session request',
                                 itemId: '/mentor/class-request',
                             },
-                            {   title:'Class List',
+                            {   title:'Class session list',
                                 itemId:'/mentor/list-class',
                             }
                         ]

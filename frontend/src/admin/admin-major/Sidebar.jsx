@@ -106,12 +106,12 @@ export default function Sidebar() {
                                 itemId: "/admin/add-project"
                             },
                             {
-                                title: 'Project Submission',
-                                itemId: '/admin/project-list',
-                            },
-                            {
                                 title: 'Project Detail',
                                 itemId: '/admin/list-project',
+                            },
+                            {
+                                title: 'Project Submission',
+                                itemId: '/admin/project-list',
                             },
                         ],
                     },

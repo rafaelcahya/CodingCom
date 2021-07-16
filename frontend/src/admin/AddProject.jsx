@@ -72,7 +72,7 @@ function AddProject() {
                                 <p className="text-lg font-semibold">Post a Project</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <p className="text-sm font-semibold">Select the Project Type</p>
+                                <p className="text-sm font-semibold">Project Type</p>
                                 <select name="" id="" onChange={(event) => {
                                     setType(event.target.value)
                                 }} >

@@ -75,7 +75,7 @@ function EditRequestClass(props) {
                                 </div>
                                 <div className="flex justify-between items-center gap-10">
                                     <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="Date text-sm font-semibold">Date</p>
+                                        <p className="Date text-sm font-semibold">Start date</p>
                                         <input
                                             type="date"
                                             placeholder="Input Date"
@@ -85,7 +85,7 @@ function EditRequestClass(props) {
                                             }} />
                                     </div>
                                     <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="Date text-sm font-semibold">Date</p>
+                                        <p className="Date text-sm font-semibold">End date</p>
                                         <input
                                             type="date"
                                             placeholder="Input Date"
@@ -97,7 +97,7 @@ function EditRequestClass(props) {
                                 </div>
                                 <div className="flex justify-between items-center gap-10">
                                 <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="Waktu text-sm font-semibold">Time</p>
+                                        <p className="Waktu text-sm font-semibold">Start time</p>
                                         <input
                                             type="time"
                                             defaultValue = {val.startTime}
@@ -106,7 +106,7 @@ function EditRequestClass(props) {
                                             }} />
                                     </div>
                                     <div className="flex flex-col gap-2 w-1/2">
-                                        <p className="Waktu text-sm font-semibold">Time</p>
+                                        <p className="Waktu text-sm font-semibold">End time</p>
                                         <input
                                             type="time"
                                             defaultValue = {val.endTime}

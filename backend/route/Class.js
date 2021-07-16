@@ -103,7 +103,7 @@ router.post("/updateClass", (req, res) => {
     let updateAt = req.body.updateAt
 
     if (status.length <= 0) {
-        res.send({ message: "You must choose status" })
+        res.send({ message: "Status must be selected" })
     } else {
         db.query("SELECT * From class WHERE id = ?", id, (err, results) => {
             if (err) {

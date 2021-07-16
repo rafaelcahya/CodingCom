@@ -171,10 +171,7 @@ function EditJobs(props) {
                                 }} />
                             </div>
                             <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                            <div className="flex justify-between gap-10 w-full">
-                                <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
-                                <p onClick={submit} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>
-                            </div>
+                            <p onClick={submit} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
                         </div>
                         })}
                     </section>

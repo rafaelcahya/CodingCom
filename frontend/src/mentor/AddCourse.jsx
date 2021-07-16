@@ -52,23 +52,23 @@ function AddCourse() {
             <div className="flex">
                 <Sidebar />
                 <div className="courseForm ml-72 m-5 p-8 flex flex-col gap-10 bg-white rounded-lg border border-gray-300 w-full" >
-                    <p className="text-xl font-semibold">Tutorial form</p>
+                    <p className="text-xl font-semibold">Sub Tutorial form</p>
                     <div className="flex items-center justify-between gap-10 w-full">
                         <div className="flex flex-col gap-2 w-1/2">
-                            <p className="Judul text-sm font-semibold">Judul</p>
+                            <p className="Judul text-sm font-semibold">Title</p>
                             <input
                                 type="text"
-                                placeholder="Input judul"
+                                placeholder="Input title"
                                 onChange={(event) => {
                                     setJudul(event.target.value)
                                 }} />
                         </div>
                         <div className="flex flex-col gap-2 w-1/2">
-                            <p className="gender text-sm font-semibold">Topic</p>
+                            <p className="gender text-sm font-semibold">Tutorial</p>
                             <select name="" id=""  onChange={(event) => {
                                 setTopik(event.target.value)
                             }} >
-                                <option value="">Choose topik</option>
+                                <option value="">Choose tutorial</option>
                                 {
                                     value.map((val)=>{
                                         return <option value={val.topikId}>{val.topikTitle}</option>
@@ -78,13 +78,13 @@ function AddCourse() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="Number text-sm font-semibold">Tutorial number</p>
+                        <p className="Number text-sm font-semibold">SubTutorial number</p>
                         <input
                             type="number" min="0"
-                            placeholder="Input tutorial number"
+                            placeholder="Input SubTutozrial number"
                             onChange={(event) => {
                                 setNumber(event.target.value)
-                            }} />
+                            }} />z
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="Description text-sm font-semibold">Descripton</p>
@@ -128,10 +128,7 @@ function AddCourse() {
                         />
                     </div>
                     <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                    <div className="flex justify-between gap-10 w-full">
-                        <p onClick={resetForm} className="bg-gray-100 hover:bg-gray-200 px-7 py-2 text-center rounded-lg cursor-pointer w-1/2">Clear</p>
-                        <p onClick={log} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer w-1/2">Submit</p>
-                    </div>
+                    <p onClick={log} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
                 </div>
             </div>
         </>
