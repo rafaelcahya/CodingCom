@@ -47,6 +47,7 @@ export default function Payment() {
         
     ])
         setNewStatus("")
+        window.location.reload()
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });

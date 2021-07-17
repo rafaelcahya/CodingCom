@@ -34,6 +34,7 @@ export default function UserList() {
             id: id,
             updateAt: updateAt
         })
+        window.location.reload()
     }
 
     return (

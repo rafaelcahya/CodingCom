@@ -49,8 +49,11 @@ function AddCategory() {
                                 }} ></textarea>
                         </div>
                     </div>
-                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
-                    <button onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 my-10 rounded-lg cursor-pointer">Submit</button>
+                    {
+                        errorMessage === "Category successfully submited" ? <p className="text-green-500 text-center font-medium my-10">{errorMessage}</p> : <p className="color-red-1 text-center font-medium my-10">{errorMessage}</p>
+                    }
+                    
+                    <button onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</button>
                 </div>
             </div>
         </>

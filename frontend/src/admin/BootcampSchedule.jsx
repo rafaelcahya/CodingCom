@@ -78,7 +78,10 @@ export default function BootcampSchedule() {
                                 <option value="Online">Online</option>
                             </select>
                         </div>
-                        <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                        {
+                            errorMessage === "Schedule have been successfully submited" ? <p className="text-green-500 text-center font-medium">{errorMessage}</p> : <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                        }
+                        
                         <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit schedule</p>
                     </div>
                 </section>

@@ -27,6 +27,7 @@ export default function ListFAQ() {
             id: id,
             updateAt: updateAt
         })
+        window.location.reload()
     }
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
