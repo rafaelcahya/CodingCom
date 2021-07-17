@@ -9,16 +9,22 @@ const db = require('../config/db')
 router.post("/addFaq", (req, res) => {
     const question = req.body.question
     const answer = req.body.answer
+    const category = req.body.category
+    const description = req.body.description
     const createAt = req.body.createAt
     let isDeleted = "NO"
-    if(question.length<=0 && answer.length<=0){
+    if(question.length<=0 && answer.length<=0 && category.length<=0 && description.length<=0){
         res.send({message:"All data is not filled"})
     }else if(question.length <= 0){
-        res.send({message:"Question can not be empty"})
+        res.send({message:"Question is not filled"})
     }else if(answer.length <=0 ){
-        res.send({message:"Answer can not be empty"})
+        res.send({message:"Answer is not filled"})
+    }else if(category.length<=0){
+        res.send({message:"Category is not selected"})
+    }else if(description.length<=0){
+        res.send({message:"Description is not filled"})
     }else{
-        db.query("INSERT INTO help (question, answer, helpCreateAt, isDeleted) VALUES (?, ?, ?, ?);", [question, answer, createAt, isDeleted], (err, results) => {
+        db.query("INSERT INTO help (question, answer, category, description, helpCreateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [question, answer, category, description, createAt, isDeleted], (err, results) => {
             console.log(err)
             res.send({message:"Data has been added successfully"})
         })
@@ -43,6 +49,8 @@ router.post("/editFaq", (req, res) => {
     const id = req.body.id
     let question = req.body.question
     let answer = req.body.answer
+    let category = req.body.category
+    let description = req.body.description
     let updateAt = req.body.updateAt
 
     db.query("SELECT * From help WHERE helpId = ?", id, (err, results) => {
@@ -56,9 +64,13 @@ router.post("/editFaq", (req, res) => {
             }
             if(answer.length<=0){
                 answer = results[0].answer
+            }if(category.length<=0){
+                category = results[0].category
+            }if(description.length<=0){
+                description=results[0].description
             }
-            db.query("UPDATE help SET question = ?, answer = ?, helpUpdateAt = ? WHERE helpId=?;", [question, answer, updateAt, id], (err, results) => {
-                res.send(results)
+            db.query("UPDATE help SET question = ?, answer = ?, category = ?, description = ?, helpUpdateAt = ? WHERE helpId=?;", [question, answer, category, description, updateAt, id], (err, results) => {
+                res.send({message:"Data has been updated successfully"})
             }) 
         }
     })
