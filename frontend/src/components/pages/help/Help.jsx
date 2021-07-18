@@ -40,7 +40,10 @@ function Help() {
                 <div className="grid grid-cols-2 gap-10 mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72">
                     {valueList.map((val)=> {
                         return <Accordion title={val.question}>
-                                <p>{val.answer}</p>
+                                <p>Answer : {val.answer}</p>
+                                <p>Category : {val.category}</p>
+                                <p>Description :</p>
+                                <div dangerouslySetInnerHTML={{ __html: val.description }} />
                             </Accordion>
                     })}
                     {/* <div id="plan">
