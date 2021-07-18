@@ -21,16 +21,15 @@ import Pricing from "./components/pages/pricing/Pricing.jsx"
 import CategoryDetail from "./components/pages/tutorial/CategoryDetail.jsx"
 import TopicDetail from "./components/pages/tutorial/TopicDetail.jsx"
 import Course from "./components/pages/tutorial/course/internet/Course"
-import Challenge from "./components/pages/challenge/Challenge.jsx"
 import MenuChallenges from "./components/pages/challenge/MenuChallenges.jsx"
 import ProjectDetail from "./components/pages/challenge/ProjectDetail.jsx"
 //Punya Kosasie
-import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
-import CertificateAngular from "./components/pages/challenge/Certificate/Download Certificate/CertiAngular/CertificateAngular"
+// import Submit from "./components/pages/challenge/Certificate/Submit.jsx"
+// import CertificateAngular from "./components/pages/challenge/Certificate/Download Certificate/CertiAngular/CertificateAngular"
 
 //Punya Cahya
-//import Submit from "./components/pages/challenge/certificate/Submit.jsx"
-// import Challenge from "./components/pages/challenge/Challenge.jsx"
+import Submit from "./components/pages/challenge/certificate/Submit.jsx"
+import Challenge from "./components/pages/challenge/Challenge.jsx"
 
 import RoadmapFrontend from "./components/pages/tutorial/course/roadmap/content/RoadmapFrontend.jsx"
 import RoadmapBackend from "./components/pages/tutorial/course/roadmap/content/RoadmapBackend.jsx"
@@ -50,7 +49,7 @@ import SessionPay from "./components/pages/pricing/SessionPay.jsx"
 import FeedbackForm from "./components/major/Feedback/FeedbackForm.jsx"
 import HTML from "./components/pages/tutorial/course/HTML/HTML.jsx"
 //cahya
-//import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
+import CertificateAngular from "./components/pages/challenge/certificate/Download Certificate/CertiAngular/CertificateAngular.jsx"
 
 import Career from "./components/pages/career/Career.jsx"
 import CareerDetail from "./components/pages/career/CareerDetail.jsx"

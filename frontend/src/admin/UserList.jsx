@@ -23,19 +23,12 @@ export default function UserList() {
         })
     }, []);
 
-    // const updateUser = (id) => {
-    //     axios.put("http://localhost:3001/user/updateUser", {
-    //         id: id,
-    //         role: newRole,
-    //         updateAt : updateAt
-    //     })
-    //     setNewRole("")
-    // }
     const deleteUser = (id) => {
         axios.put("http://localhost:3001/user/deleteUser", {
             id: id,
             updateAt: updateAt
         })
+        window.location.reload();
     }
 
     return (
