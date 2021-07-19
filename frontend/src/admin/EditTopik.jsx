@@ -105,13 +105,15 @@ function AddTopik(props) {
                                     <select id="dropdown" onChange={(event) => {
                                         setStatus(event.target.value)
                                     }}>
-                                        <option>{val.status}</option>
+                                        <option>Choose status</option>
                                         <option value="Approve">Approve</option>
                                         <option value="Reject">Reject</option>
                                     </select>
                                 </div>
-
-                                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                                    {
+                                        errorMessage === "Data has been updated successfully" ? <p className="text-green-500 text-center font-medium">{errorMessage}</p> : <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                                    }
+                                    
                                     <p className="font-medium text-sm text-yellow-500">*Make sure all content is filled correctly</p>
                                     <p onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</p>
                                 </div>

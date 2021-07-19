@@ -13,7 +13,7 @@ function ShowCourse(props) {
 
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="flex h-screen overflow-hidden text-black bg-white">
                 <Sidebar />
                 <div className="overflow-hidden ml-80 m-5 p-8 flex flex-col gap-1 bg-white rounded-2xl border border-gray-300 w-full" >
                     {

@@ -1276,6 +1276,16 @@ Course
     padding: 0 20px;
 }
 
+.content-course h2{
+    font-size: 20px;
+}
+
+.content-course h1,
+.content-course h2,
+.content-course h3{
+    font-weight: 600;
+}
+
 .content-course p:not(.review p, .rating p), .content-course .tinymce-topic-detail {
     margin-bottom: 20px;
 }
@@ -1302,8 +1312,9 @@ Course
 }
 
 .content-course pre{
-    background-color: rgb(229, 231, 235);
+    background-color: rgb(239, 241, 245);
     padding: 20px;
+    border-radius: 10px;
 }
 
 .rating-box {
@@ -1686,7 +1697,8 @@ Challenge
 .batchForm input,
 .batchForm textarea,
 .batchForm select,
-.faq-form input {
+.faq-form input,
+.faq-form select {
     padding: .375rem 1rem;
     border: 1.5px solid var(--black-3);
     border-radius: 6px;

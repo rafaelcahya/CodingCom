@@ -56,18 +56,18 @@ function AddFAQ() {
                                 }} />
                         </div>
                         <div className="w-full">
-                                <div className="flex flex-col gap-2">
-                                    <p className="text-sm font-semibold">FAQ Category</p>
-                                    <select name="" id=""  onChange={(event) => {
-                                            setCategory(event.target.value)
-                                        }} >
-                                        <option value="" className="p-3">Choose Category</option>
-                                        <option value="Pricing">Pricing</option>
-                                        <option value="Bootcamp">Bootcamp</option>
-                                        <option value="Challange">Challange</option>
-                                    </select>
-                                </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold">FAQ Category</p>
+                                <select name="" id=""  onChange={(event) => {
+                                        setCategory(event.target.value)
+                                    }} >
+                                    <option value="" className="p-3">Choose Category</option>
+                                    <option value="Pricing">Pricing</option>
+                                    <option value="Bootcamp">Bootcamp</option>
+                                    <option value="Challange">Challange</option>
+                                </select>
                             </div>
+                        </div>
                         <div className="flex flex-col gap-2">
                                 <p className="Time text-sm font-semibold">FAQ Description</p>
                                 <Editor
@@ -94,7 +94,6 @@ function AddFAQ() {
                     {
                         errorMessage === "Data has been added successfully" ? <p className="text-green-500 text-center font-medium my-10">{errorMessage}</p> : <p className="color-red-1 text-center font-medium my-10">{errorMessage}</p>
                     }
-                    
                     <button onClick={submit} className="text-white bg-blue-1 text-center px-4 py-2 rounded-lg cursor-pointer">Submit</button>
                 </div>
             </div>

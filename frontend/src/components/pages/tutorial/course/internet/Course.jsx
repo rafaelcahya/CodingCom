@@ -97,31 +97,29 @@ function Internet(props) {
             <NavbarLogin />
             <NavbarMobile />
             <div className="mt-32 lg:mt-16 mx-10 md:mx-20 lg:mx-32 leading-7">
-                <div className="flex gap-10 w-full">
-                    <div className="hidden lg:block w-full lg:w-2/12">
-                        <div className="hidden lg:block sticky self-start top-0 pt-6">
-                            <p className="text-lg font-semibold">Course List</p>
-                            <div className="sidebar-tutorial flex flex-col gap-2 my-5">
-                                <div className="flex justify-between items-center">
-                                    <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)} className="hover:text-blue-500">Getting Started</Link>
-                                    <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
-                                </div>
-                                {
-                                    courseList.map((v) => {
-                                        return <div className="flex justify-between items-center">
-                                            <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id} className="hover:text-blue-500">{v.judul}</Link>
-                                            <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
-                                        </div>
-                                    })
-                                }
+                <div className="flex justify-between w-full">
+                    <div className="hidden lg:block sticky self-start top-6 pt-6 w-2/12">
+                        <p className="text-lg font-semibold">Course List</p>
+                        <div className="sidebar-tutorial flex flex-col gap-2 my-5">
+                            <div className="flex justify-between">
+                                <Link to={"/topic-detail/" + urlid2 + "-" + GenerateID(1, 10)} className="hover:text-blue-500">Getting Started</Link>
+                                <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">1 min</p>
                             </div>
+                            {
+                                courseList.map((v) => {
+                                    return <div className="flex justify-between items-center">
+                                        <Link to={"/" + GenerateID(1, 10) + "/" + v.number + "-" + v.id + "/" + v.topik_id} className="hover:text-blue-500">{v.judul}</Link>
+                                        <p className="hidden text-xs bg-gray-200 text-gray-500 py-1 px-2 rounded-md">{v.time} min</p>
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
                     <nav className="sidebar-mobile block lg:hidden fixed top-16 right-2 z-10">
                         <ul>
                             <li>
                                 <div className="flex items-center px-8 py-4 gap-2 shadow rounded-lg">
-                                    <p className="uppercase font-semibold text-xs tracking-wider">Tutorial List</p>
+                                    <p className="uppercase font-semibold text-xs tracking-wider">Course List</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                                 </div>
                                 <div className="sidebar-mobile-dropdown bg-red-100 absolute right-0 text-right shadow rounded-lg px-4">
@@ -143,13 +141,13 @@ function Internet(props) {
                             </li>
                         </ul>
                     </nav>
-                    <div className="pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300 w-full lg:w-7/12">
+                    <div className="pl-0 lg:pl-10 pr-0 pt-5 border-0 lg:border-l border-gray-300 w-full lg:w-10/12">
                         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
                             {
                                 value.map(
                                     (val) => {
-                                        return <div>
-                                            <div className="block sm:flex justify-between border-b border-gray-300 w-5/7 pb-10">
+                                        return <div className="w-full lg:w-8/12">
+                                            <div className="block sm:flex justify-between border-b border-gray-300 pb-10">
                                                 <div>
                                                     <p className="text-2xl lg:text-3xl font-semibold">{val.judul}</p>
                                                     <p className="text-gray-400 text-sm mt-2">{val.description}</p>
@@ -163,57 +161,67 @@ function Internet(props) {
                                     }
                                 )
                             }
+                            <div className="w-full lg:w-3/12">
                             {localStorage.getItem("loggedIn") == "true" ? (
-                                 <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5 w-2/7">
-                                 <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
-                                     <p className="text-lg font-semibold">Consultation class</p>
-                                     <p className="text-sm pt-2">Consult with a professional mentor.</p>
-                                     <Link to="/consultation-class">
-                                         <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
-                                     </Link>
-                                 </div>
- 
-                                 <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
-                                     <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
-                                     <div className="flex gap-3 items-center justify-center py-4">
-                                         <img src={star} alt="" width="10" class="animate1" />
-                                         <img src={star} alt="" width="15" class="animate2" />
-                                         <img src={star} alt="" width="20" class="animate3" />
-                                         <img src={star} alt="" width="15" class="animate4" />
-                                         <img src={star} alt="" width="10" class="animate5" />
-                                     </div>
-                                     <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={() => modal.current.open()}>Leave a rating</p>
-                                     <Modal ref={modal}> </Modal>
-                                 </div>
-                             </div>
-                            ):(
-                                <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5 w-2/7">
-                                <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
-                                    <p className="text-lg font-semibold">Consultation class</p>
-                                    <p className="text-sm pt-2">Consult with a professional mentor.</p>
-                                    
-                                        <p onClick={popup} className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
-                                   
-                                </div>
-
-                                <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
-                                    <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
-                                    <div className="flex gap-3 items-center justify-center py-4">
-                                        <img src={star} alt="" width="10" class="animate1" />
-                                        <img src={star} alt="" width="15" class="animate2" />
-                                        <img src={star} alt="" width="20" class="animate3" />
-                                        <img src={star} alt="" width="15" class="animate4" />
-                                        <img src={star} alt="" width="10" class="animate5" />
+                                <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5">
+                                    <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
+                                        <p className="text-lg font-semibold">Consultation class</p>
+                                        <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                                        <Link to="/consultation-class">
+                                            <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                                        </Link>
                                     </div>
-                                    <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={popup}>Leave a rating</p>
-                                    <Modal ref={modal}> </Modal>
+
+                                    <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
+                                        <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
+                                        <div className="flex gap-3 items-center justify-center py-4">
+                                            <img src={star} alt="" width="10" class="animate1" />
+                                            <img src={star} alt="" width="15" class="animate2" />
+                                            <img src={star} alt="" width="20" class="animate3" />
+                                            <img src={star} alt="" width="15" class="animate4" />
+                                            <img src={star} alt="" width="10" class="animate5" />
+                                        </div>
+                                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={() => modal.current.open()}>Leave a rating</p>
+                                        <Modal ref={modal}> </Modal>
+                                    </div>
+                                    <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
+                                        <p className="text-lg font-semibold">Real-time Text Editor</p>
+                                        <p className="text-sm pt-2">Try the text editor for learning and practice</p>
+                                        <Link to="/text-editor">
+                                            <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Text editor</p>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
+                            ):(
+                                <div className="flex flex-col items-center sticky self-start top-6 mt-6 gap-5">
+                                    <div className="class-consultation-card p-6 bg-white rounded-lg shadow-lg">
+                                        <p className="text-lg font-semibold">Consultation class</p>
+                                        <p className="text-sm pt-2">Consult with a professional mentor.</p>
+                                        <p onClick={popup} className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg">Consult</p>
+                                    </div>
+
+                                    <div className="rating-card p-6 bg-white rounded-lg shadow-lg">
+                                        <p className="text-lg font-semibold">Satisfied with this tutorial ?</p>
+                                        <div className="flex gap-3 items-center justify-center py-4">
+                                            <img src={star} alt="" width="10" class="animate1" />
+                                            <img src={star} alt="" width="15" class="animate2" />
+                                            <img src={star} alt="" width="20" class="animate3" />
+                                            <img src={star} alt="" width="15" class="animate4" />
+                                            <img src={star} alt="" width="10" class="animate5" />
+                                        </div>
+                                        <p className="bg-blue-1 text-white text-sm px-6 py-2 mt-4 w-max rounded-lg" onClick={popup}>Leave a rating</p>
+                                        <Modal ref={modal}> </Modal>
+                                    </div>
+                                    <div>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum itaque, commodi voluptatibus ut ipsam culpa exercitationem fugit molestias autem laborum dignissimos, veniam ratione dicta, tenetur molestiae consequatur possimus corrupti eveniet?
+                                    </div>
+                                </div>
                             )}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="comment-container mt-32 w-full lg:w-7/12">
+                <div className="comment-container mt-32 course-center w-full lg:w-7/12">
                     <p className="font-semibold text-2xl my-10 text">Discussion Section</p>
                     {localStorage.getItem("loggedIn")=="true"?(<span className="flex gap-2 my-2">Discussion as <p className="color-blue-1">{localStorage.getItem("name")}</p></span>):(
                     <span className="flex gap-2 my-2">You must login first to post a comment</span>

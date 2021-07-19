@@ -130,15 +130,15 @@ export default function Sidebar() {
                         ]
                     },
                     {
-                        title: 'Frequently Asked Question',
+                        title: 'Help',
                         itemId: '/admin/add-faq',
                         subNav: [
                             {
-                                title: 'Add FAQ',
+                                title: 'Add Help',
                                 itemId:'/admin/add-faq',
                             },
                             {
-                                title:'FAQ List',
+                                title:'Help List',
                                 itemId:'/admin/list-faq',
                             }
                         ]

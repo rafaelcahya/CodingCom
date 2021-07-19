@@ -49,7 +49,7 @@ function AddCourse() {
     }
     return (
         <>
-            <div className="flex">
+            <div className="flex text-black bg-white">
                 <Sidebar />
                 <div className="courseForm ml-72 m-5 p-8 flex flex-col gap-10 bg-white rounded-lg border border-gray-300 w-full" >
                     <p className="text-xl font-semibold">Sub Tutorial form</p>
@@ -78,13 +78,13 @@ function AddCourse() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="Number text-sm font-semibold">SubTutorial number</p>
+                        <p className="Number text-sm font-semibold">Sub Tutorial number</p>
                         <input
                             type="number" min="0"
-                            placeholder="Input SubTutozrial number"
+                            placeholder="Input Sub Tutorial number"
                             onChange={(event) => {
                                 setNumber(event.target.value)
-                            }} />z
+                            }} />
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="Description text-sm font-semibold">Descripton</p>
@@ -127,7 +127,10 @@ function AddCourse() {
                             }}
                         />
                     </div>
-                    <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                    {
+                        errorMessage === "Data has been added successfully" ? <p className="text-green-500 text-center font-medium">{errorMessage}</p> : <p className="color-red-1 text-center font-medium">{errorMessage}</p>
+                    }
+                    
                     <p onClick={log} className="bg-blue-1 text-white text-center px-7 py-2 rounded-lg cursor-pointer">Submit</p>
                 </div>
             </div>
