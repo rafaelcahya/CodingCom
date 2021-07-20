@@ -304,14 +304,13 @@ function BootcampHome() {
                 </div>
             </section>
 
-            {help.map((val)=> {
-                        return <Accordion title={val.question}>
-                                <p>Answer : {val.answer}</p>
-                                <p>Category : {val.category}</p>
-                                <p>Description :</p>
-                                <div dangerouslySetInnerHTML={{ __html: val.description }} />
-                            </Accordion>
-                    })}
+            <div className="px-10 lg:px-64 grid grid-cols-1 gap-5">
+                {help.map((val)=> {
+                    return <Accordion title={val.question}>
+                            <p>{val.answer}</p>
+                        </Accordion>
+                })}
+            </div>
             
             <footer className="bg-black text-white flex flex-col items-center mt-10 py-20 md:py-28">
                 <div>
