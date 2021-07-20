@@ -32,7 +32,7 @@ export default function ListClass() {
 
     return (
         <>
-        <div className="flex h-screen overflow-hidden">
+        <div className="flex h-screen overflow-hidden text-black bg-white">
             <Sidebar/>
             <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg" >
             <p className="text-xl font-semibold">Class Requisition</p>

@@ -61,7 +61,7 @@ function EditTopik(props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex text-black bg-white">
                 <Sidebar />
                 <div className="topik-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white rounded-lg border border-gray-300 w-full">
                     <section>

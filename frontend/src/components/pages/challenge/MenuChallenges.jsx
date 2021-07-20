@@ -70,6 +70,7 @@ function ChellengeList(props) {
                                             <img src={image.default} className="rounded-lg" />
                                             <div className="flex flex-col gap-4 px-2 pt-2">
                                                 <p className="text-xl font-semibold capitalize mt-4">{val.projectTitle}</p>
+                                                <p className="text-green-500 bg-green-100 font-semibold text-xs px-2 py-1 rounded-md w-max">{val.programmingLanguage}</p>
                                                 <div className="max-w-sm truncate3">
                                                     <p className="classInfo text-sm">{val.projectInfo}</p>
                                                 </div>

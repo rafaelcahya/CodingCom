@@ -61,7 +61,7 @@ function ClassReq() {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex text-black bg-white">
                 <Sidebar />
                 <div className="request-class-form ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full">
                     <p className="text-lg font-semibold pb-8">Request Class Session for Mentor</p>

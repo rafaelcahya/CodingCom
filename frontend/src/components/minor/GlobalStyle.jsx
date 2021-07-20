@@ -45,12 +45,6 @@ export const GlobalStyle = createGlobalStyle`
     .news-box,
     .comment-container textarea,
     .comment-box,
-    .courseForm,
-    .courseForm input,
-    .courseForm select,
-    .request-class-form,
-    .request-class-form input,
-    .request-class-form textarea,
     .profile-form input,
     .profile-form select,
     .profile-form textarea,
@@ -112,7 +106,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     .courseForm,
-    .request-class-form,
     .filter-job,
     .career-card,
     .news-box,
@@ -191,8 +184,9 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: ${({theme}) => theme.border};
     }
 
-    .hover\:bg-gray-100:hover {
+    .content-course pre{
         background-color: ${({theme}) => theme.foreground7} !important;
+
     }
 `;
 
@@ -207,7 +201,7 @@ export const lightTheme={
     foreground4: '#fff',
     foreground5: '#ecf3fc',
     foreground6: '#ecf3fc',
-    foreground7: '#fed049',
+    foreground7: 'rgb(239, 241, 245)',
     border: '1px solid #e1e3e7',
     border2: '1.5px solid #e1e8eb'
 }

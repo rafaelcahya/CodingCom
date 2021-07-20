@@ -34,7 +34,7 @@ export default function ListCourse() {
     
     return (
         <>
-            <div className="flex h-screen overflow-hidden">
+            <div className="flex h-screen overflow-hidden text-black bg-white">
                 <Sidebar />
                 <div className="table-request-class overflow-hidden ml-72 m-5 p-8 flex flex-col gap-1 bg-white border border-gray-300 rounded-lg w-full" >
                     <p className="text-lg font-semibold pb-8">Course List</p>
@@ -62,7 +62,7 @@ export default function ListCourse() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.time} min</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {
-                                                                val.status === "Approved" ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
+                                                                val.status === "APPROVED" ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                                 :
                                                                 val.status === "Rejected" ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-red-100 text-red-500">{val.status}</p>
                                                                 :

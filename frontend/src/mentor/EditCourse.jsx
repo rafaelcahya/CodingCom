@@ -44,10 +44,11 @@ function AddCourse(props) {
                 console.log(response)
             })
         }
+        window.location.reload()
     };
     return (
         <>
-            <div className="flex">
+            <div className="flex text-black bg-white">
                 <Sidebar />
                 {
                     value.map(
@@ -100,7 +101,7 @@ function AddCourse(props) {
                                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                                     }}
                                 />
-                                <p className="bg-blue-1 py-2 text-center text-white rounded-lg font-medium" onClick={log}>Submit</p>
+                                <p className="bg-blue-1 py-2 text-center text-white rounded-lg font-medium cursor-pointer" onClick={log}>Submit</p>
                             </div>
                         }
                     )

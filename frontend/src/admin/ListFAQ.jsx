@@ -48,6 +48,7 @@ export default function ListFAQ() {
                                         <tr className="border-b-2">
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Question</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Answer</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Category</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
                                         </tr>
@@ -66,6 +67,7 @@ export default function ListFAQ() {
                                                                 <p>{val.answer}</p>
                                                             </ShowMoreText>
                                                         </td>
+                                                        <td className="px-6 py-3">{val.category}</td>
                                                         <td className="px-6 py-3">
                                                             {
                                                                 val.helpCreateAt === "0000-00-00 00:00:00" ? <p></p>

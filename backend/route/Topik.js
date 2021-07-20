@@ -102,7 +102,7 @@ router.post("/editTopik", (req, res) => {
                 }
                 db.query("UPDATE topik SET topikTitle = ?, topikInfo = ?, about = ?, status = ?, topikUpdateAt =? WHERE topikId=?;", [title, info, about, status, updateAt, id], (err, results) => {
                     console.log(err)
-                    res.send(results)
+                    res.send({message:"Data has been updated successfully"})
                 })
             }
         })
@@ -135,7 +135,7 @@ router.post("/editTopikMentor", (req, res) => {
             }
             db.query("UPDATE topik SET topikTitle = ?, topikInfo = ?, about = ?, category_id = ?, topikUpdateAt =? WHERE topikId=?;", [title, info, about, category, updateAt, id], (err, results) => {
                 console.log(err)
-                res.send(results)
+                res.send({message:"Data has been updated successfully"})
             })
         }
     })
