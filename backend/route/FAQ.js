@@ -38,6 +38,30 @@ router.get("/listFaq", (req, res) => {
     })
 })
 
+router.get("/listFaqPricing", (req, res) => {
+    let isDeleted = "NO"
+    let category = "Pricing"
+    db.query("SELECT * from help WHERE isDeleted = ? AND category = ?",[isDeleted, category], (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/listFaqBootcamp", (req, res) => {
+    let isDeleted = "NO"
+    let category = "Bootcamp"
+    db.query("SELECT * from help WHERE isDeleted = ? AND category = ?",[isDeleted, category], (err, results) => {
+        res.send(results)
+    })
+})
+
+router.get("/listFaqChallange", (req, res) => {
+    let isDeleted = "NO"
+    let category = "Challange"
+    db.query("SELECT * from help WHERE isDeleted = ? AND category = ?",[isDeleted, category], (err, results) => {
+        res.send(results)
+    })
+})
+
 router.get("/faqById/:id", (req, res) => {
     const id = req.params.id
     db.query("SELECT * from help WHERE helpId = ?",id, (err, results) => {
