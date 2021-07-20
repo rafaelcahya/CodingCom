@@ -8,9 +8,27 @@ import StageComp from './StageComp';
 import Syllabus from '../asset/file/Silabus-Update2021.pdf'
 import BootcampNavbar from './BootcampNavbar';
 
+const Accordion = ({ title, children }) => {
+    const [isOpen, setOpen] = React.useState(false);
+    return (
+        <div className="accordion-wrapper">
+            <div
+                className={`accordion-title ${isOpen ? "open" : ""} font-medium`}
+                onClick={() => setOpen(!isOpen)}
+                >
+                {title}
+            </div>
+            <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
+                <div className="accordion-content">{children}</div>
+            </div>
+        </div>
+    );
+};
+
 function BootcampHome() {
     const [value, setValue] = useState([])
     const [name, setName] = useState("")
+    const [help, setHelp] = useState([])
 
     window.onload = setTimeout( function () {
         var x = localStorage.getItem("name");
@@ -23,6 +41,13 @@ function BootcampHome() {
             setValue(response.data)
             console.log(response.data)
         })
+    }, []);
+    
+    useEffect(() => {
+        Axios.get("http://localhost:3001/faq/listFaqBootcamp").then((response) => {
+            setHelp(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
@@ -284,6 +309,15 @@ function BootcampHome() {
                     </div>
                 </div>
             </section>
+
+            {help.map((val)=> {
+                        return <Accordion title={val.question}>
+                                <p>Answer : {val.answer}</p>
+                                <p>Category : {val.category}</p>
+                                <p>Description :</p>
+                                <div dangerouslySetInnerHTML={{ __html: val.description }} />
+                            </Accordion>
+                    })}
             
             <footer className="bg-black text-white flex flex-col items-center mt-10 py-20 md:py-28">
                 <div>
