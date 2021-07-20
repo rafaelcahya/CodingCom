@@ -12,6 +12,14 @@ function Pricing(props) {
     const urlname = props.match.params.name
     const [valueList, setValueList] = useState([])
     const [buttonPopup, setButtonPopup] = useState(false)
+    const [value, setValue] = useState([])
+    
+    useEffect(() => {
+        Axios.get("http://localhost:3001/faq/listFaqPricing").then((response) => {
+            setValue(response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         Axios.get("http://localhost:3001/user/userById/" + urlname).then((response) => {
@@ -26,6 +34,23 @@ function Pricing(props) {
     const cancel = () =>{
         setButtonPopup(false)
     }
+
+    const Accordion = ({ title, children }) => {
+        const [isOpen, setOpen] = React.useState(false);
+        return (
+            <div className="accordion-wrapper">
+                <div
+                    className={`accordion-title ${isOpen ? "open" : ""} font-medium`}
+                    onClick={() => setOpen(!isOpen)}
+                    >
+                    {title}
+                </div>
+                <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
+                    <div className="accordion-content">{children}</div>
+                </div>
+            </div>
+        );
+    };
     
         return (
             <>
@@ -493,7 +518,14 @@ function Pricing(props) {
                         </section>
                     </div>
                 )}
-
+                  {value.map((val)=> {
+                        return <Accordion title={val.question}>
+                                <p>Answer : {val.answer}</p>
+                                <p>Category : {val.category}</p>
+                                <p>Description :</p>
+                                <div dangerouslySetInnerHTML={{ __html: val.description }} />
+                            </Accordion>
+                    })}
                 <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
                     <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">Steps to make the payment</p>
                     <div className="my-10">
