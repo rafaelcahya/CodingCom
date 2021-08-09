@@ -518,14 +518,13 @@ function Pricing(props) {
                         </section>
                     </div>
                 )}
-                  {value.map((val)=> {
+                <div className="px-10 lg:px-64 grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    {value.map((val)=> {
                         return <Accordion title={val.question}>
-                                <p>Answer : {val.answer}</p>
-                                <p>Category : {val.category}</p>
-                                <p>Description :</p>
-                                <div dangerouslySetInnerHTML={{ __html: val.description }} />
+                                <p>{val.answer}</p>
                             </Accordion>
                     })}
+                </div>
                 <section className="mx-10 lg:mx-20 xl:mx-56 my-20 md:my-32">
                     <p className="text-center text-xl md:text-2xl lg:text-4xl font-semibold">Steps to make the payment</p>
                     <div className="my-10">

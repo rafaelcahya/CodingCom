@@ -26,7 +26,7 @@ export default function Schedule() {
         <>
             <BootcampNavbar/>
             <div className="flex justify-center py-32">
-                <div className="flex flex-col justify-center bg-white border p-5 rounded-lg px-16 lg:px-32">
+                <div className="schedule flex flex-col justify-center border p-5 rounded-lg px-16 lg:px-32">
                     <div className="pt-5 pb-10">
                         <span className="flex gap-1 text-xl font-semibold">Hi <p id="name"></p></span>
                         <p className="text-sm font-medium text-gray-400">Here all your planned classes and events. You will find information for each day.</p>
@@ -37,7 +37,7 @@ export default function Schedule() {
                             {
                                 !value.length ? (<p>You must register bootcamp first to see your schedule</p>):(value.map((val) => {
                                     return <div className="schedule-card flex items-center border-b py-5 hover:bg-blue-50 transition duration-100">
-                                            <div className="w-full md:w-1/5 border-r-0 md:border-r-2 pl-5">
+                                            <div className="w-3/5 md:w-1/5 border-r-0 md:border-r-2 pl-5">
                                                 <p className="color-blue-1 tracking-wide font-semibold">{formatDate(val.date)}</p>
                                                 <p className="text-sm font-medium">{val.time}</p>
                                             </div>

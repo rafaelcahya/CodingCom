@@ -36,20 +36,18 @@ function Help() {
             <Fragment>
                 <NavbarLogin/>
                 <NavbarMobile/>
-                <p className="flex flex-col items-center text-3xl text-center mt-32 lg:mt-20 mb-10 gap-10">How we can help you ?</p>
-                <div className="grid grid-cols-2 gap-10 mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72">
-                    {valueList.map((val)=> {
-                        return <Accordion title={val.question}>
-                                <p>{val.answer}</p>
-                            </Accordion>
-                    })}
-                    {/* <div id="plan">
-                        <p className="color-blue-1 text-2xl font-medium my-5">Premium Plan</p>
+                <p className="text-3xl font-semibold text-center mt-32 lg:mt-20 mb-10 gap-10">How we can help you ?</p>
+                <div className="flex flex-col items-center my-10">
+                    <p className="text-2xl text-center font-medium w-4/5 lg:w-1/2">Coding.com is a platform where you can learn about websites and how to build them. Here you can learn how to create a website according to your learning style.</p>
+                </div>
+                <div className="flex flex-col gap-10 mx-8 sm:mx-24 md:mx-40 lg:mx-52 xl:mx-72">
+                    <div id="plan">
+                        <p className="text-2xl font-medium my-5">Premium Plan</p>
                         <p>Premium Bundle is a bundle that contains additional features so that users can get additional interesting features. The premium bundle has a period of 1 month. if you want to have access forever, you can buy the premium plus bundle. But don't worry, you don't have to buy the bundles offered to study. You can still access existing free courses and you will still get updates in the future</p>
                     </div>
                     <div>
-                        <p className="color-blue-1 text-2xl font-medium my-5" id="purchase">Purchase</p>
-                        <div className="bg-blue-3 p-5 rounded-3xl">
+                        <p className=" text-2xl font-medium my-5" id="purchase">Purchase</p>
+                        <div className="bg-blue-100 p-5 rounded-lg">
                             <p>Here are some steps for how to make a payment:</p>
                             <ol className="list-decimal m-5 leading-8">
                                 <li>You go to the homepage and scroll down until you see the plans section.</li>
@@ -76,13 +74,20 @@ function Help() {
                         </div>
                     </div>
                     <div>
-                        <p className="color-blue-1 text-2xl font-medium my-5" id="refund">Refund</p>
+                        <p className=" text-2xl font-medium my-5" id="refund">Refund</p>
                         <p>For the time being, you cannot refund what you have bought in any form, so you have to make sure whether you intend to buy or not.</p>
                     </div>
                     <div>
-                        <p className="color-blue-1 text-2xl font-medium my-5" id="certificate">Certificate</p>
+                        <p className=" text-2xl font-medium my-5" id="certificate">Certificate</p>
                         <p>At Coding.com, you can get a certificate for free if you have done the 10 practice questions that we have provided. It is to show that you have really mastered what you are learning.</p>
-                    </div> */}
+                    </div>
+                    <div className="grid grid-cols-1 gap-10 my-20">
+                        {valueList.map((val)=> {
+                            return <Accordion title={val.question}>
+                                    <p>{val.answer}</p>
+                                </Accordion>
+                        })}
+                    </div>
                 </div>
                 <Footer />
             </Fragment>
@@ -90,53 +95,3 @@ function Help() {
 }
 
 export default Help
-
-
-// const hiddenTexts = [{
-//     label: 'What will I get from the program?',
-//     value: 'Latest curriculum, Intensive Training, Networking, Carrer Opportunity, Certificate, and Prize'
-// },
-// {
-//     label: 'How can I apply?',
-//     value: 'You can directly apply through the registration form.'
-// },
-// {
-//     label: 'Who is eligible to apply for this program?',
-//     value: 'Everyone who have a minimum age of 15 years and over and has a high interest in technology.'
-// },
-// {
-//     label: 'How long does the registration selection process take?',
-//     value: 'Approximately 1 week. Our team will select registrations and invite tests for participants who meet the criteria.'
-// },
-// {
-//     label: 'What can I expect after I apply?',
-//     value: 'If you pass the Document screening, You will receive an email containing the syllabus, bootcamp schedule, and payment methods no later than one week after you register. Regularly check your email for further announcements and information.'
-// },
-// {
-//     label: 'When will the final announcement be made?',
-//     value: 'We will announce the final list of participants on 14 June 2021.'
-// },
-// {
-//     label: 'When and where will the program be held?',
-//     value: 'Tokopedia DevCamp will be held between 5 - 10 July 2021. Due to the pandemic, the program will be held remotely.'
-// },
-// {
-//     label: 'What do I need to prepare?',
-//     value: 'You have to at least spend approximately 6 hours per day for 5 days a week to follow the Fultime Coding Bootcamp and make sure you have your own laptop. Any supporting software and/or hardware needed will be informed to selected participants with the announcement email before the event.'
-// },
-// {
-//     label: 'Can I miss one or two sessions?',
-//     value: 'Participants are highly encouraged to participate in all of the activities, especially the hackathon. All of the participants’ attendance will be recorded.'
-// },
-// {
-//     label: 'Is there a selection of materials that I should choose?',
-//     value: 'No, Coding.com provides Full Stack web development materials covering common problems in the world of work'
-// },
-// {
-//     label: 'Should I have Programming background',
-//     value: 'No, we will provide training for all potential participants regardless of their educational background.'
-// },
-// {
-//     label: 'Does Hacktiv8 provide certificates upon graduation?',
-//     value: 'Hacktiv8 provides digital certificates for Hacktiv8 students who have successfully completed the Hacktiv8 learning program.'
-// }];

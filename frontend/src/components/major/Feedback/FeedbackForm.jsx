@@ -88,7 +88,6 @@ function FeedbackForm() {
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-1 text-sm font-semibold">
                             <p>Image</p>
-                            <p className="text-xs color-black-2 font-medium">(Optional)</p>
                         </div>
                         <input className="w-full mb-5"
                             type="file"

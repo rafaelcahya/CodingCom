@@ -110,7 +110,8 @@ export const GlobalStyle = createGlobalStyle`
     .career-card,
     .news-box,
     .separator-purchase-card,
-    .separator-project-card{
+    .separator-project-card,
+    .schedule{
         border: ${({theme}) => theme.border};
     }
 
@@ -166,11 +167,13 @@ export const GlobalStyle = createGlobalStyle`
     .bootcamp-navbar,
     .dropdown-tutorial,
     .dropdown-user,
-    .dropdown{
+    .dropdown,
+    .schedule{
         background-color: ${({theme}) => theme.foreground2};
     }
 
-    .border-darkmode{
+    .border-darkmode,
+    .schedule-card:hover{
         background-color: ${({theme}) => theme.foreground5};
     }
     
