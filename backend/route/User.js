@@ -24,13 +24,13 @@ router.post("/register", (req, res) => {
     if(fullname.length<=0 && name.length<=0 && email.length<=0 && password.length<=0 && confirmpassword.length<=0){
         res.send({message:"All forms have not been filled"})
     }else if (fullname.length <= 0) {
-        res.send({ message: "Please add your fullname" })
+        res.send({ message: "Your fullname is not filled in" })
     } else if (name.length <= 0) {
         res.send({ message: "Your username is not filled in" })
     } else if (name.length >= 20) {
         res.send({ message: "Username must be less than 20 characters" })
     } else if (name.match(/[ ]/) != null) {
-        res.send({ message: "Username cannot contain spaces" })
+        res.send({ message: "Your username cannot contain spaces" })
     } else if (email.length <= 0) {
         res.send({ message: "Your email is not filled in" })
     } else if (email.match(/[@]/) == null) {
@@ -250,7 +250,7 @@ router.post("/reset", (req, res) => {
     let hash = ""
 
     if (email.length <= 0) {
-        res.send({ message: "Email can not be empty" })
+        res.send({ message: "Your email is not filled in" })
     } else if (email.match(/[@]/) == null) {
         res.send({ message: "Email is invalid" })
     } else if (email.match(/[.]/) == null) {
@@ -323,9 +323,9 @@ router.post("/resetPassword", (req, res) => {
     if(password.length<=0 && confirmpassword.length<=0){
         res.send({message:"All form must be filled"})
     }else if(password.length<=0){
-        res.send({message:"Password can not be empty"})
+        res.send({message:"Your password is not filled in"})
     }else if(confirmpassword.length<=0){
-        res.send({message:"Yor confirm password is not filled in"})
+        res.send({message:"Your confirm password is not filled in"})
     }else if(confirmpassword != password){
         res.send({message:"Confirm Password must be same as password"})
     } else if (password.length < 8) {
@@ -349,7 +349,7 @@ router.post("/resetPassword", (req, res) => {
     
                 } else {
                     db.query("UPDATE user SET password = MD5(?), confirmpassword = MD5(?), userUpdateAt = ? WHERE password = ?;", [password, confirmpassword, updateAt, id], (err, results) => {
-                        res.redirect('/')
+                        res.send({ message: "Password changed successfully" })
                     })
                 }
                 

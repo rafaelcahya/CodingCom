@@ -32,21 +32,21 @@ router.post("/bootcampUserRegis", (req, res) => {
     if(fullname.length <=0 && gender.length<=0 && BoD == "0000-00-00" && phonenumber.length<=0 && cphonenumber.length<=0 && emergencynumber <=0 && cemergencynumber.length<=0 && address.length<=0 && city.length<=0 && postalCode <=0 && education.length<=0 && program.length<=0 && batch <=0 && motivation.length<=0 && busy.length<=0){
         res.send({message:"Please fill out all forms"})
     }else if(fullname.length<=0){
-        res.send({message:"Fullname must be filled"})
+        res.send({message:"Your fullname is not filled in"})
     }else if(gender.length <= 0){
         res.send({message:"Gender not selected"})
     }else if(BoD.length<=0){
         res.send({message:"Your birth date is not filled"})
     }else if(phonenumber.length<=0){
-        res.send({message:"Phone number must be filled"})
+        res.send({message:"Your phone number is not filled in"})
     }else if(phonenumber.length>13){
         res.send({message:"Phone number must be less than 13 digit"})
     }else if(cphonenumber.length<=0){
-        res.send({message:"Confirm Phone number must be filled"})
+        res.send({message:"Your confirm phone number is not filled in"})
     }else if(cphonenumber!=phonenumber){
         res.send({message:"Confirm Phone number must be same as Phone number"})
     }else if(emergencynumber.length<=0){
-        res.send({message:"Emergency number must be filled"})
+        res.send({message:"Your emergency number is not filled in"})
     }else if(emergencynumber.length>13){
         res.send({message:"Emergency number must be less than 13 digit"})
     }else if(cemergencynumber.length<=0){
@@ -54,11 +54,11 @@ router.post("/bootcampUserRegis", (req, res) => {
     }else if(cemergencynumber!=emergencynumber){
         res.send({message:"Confirm emergency number must be same as emergency number"})
     }else if(address.length<=0){
-        res.send({message:"Address must be filled"})
+        res.send({message:"Your address is not filled in"})
     }else if(city.length<=0){
-        res.send({message:"City must be filled"})
+        res.send({message:"Your city is not filled"})
     }else if(postalCode<=0 || postalCode.length<=0){
-        res.send({message:"Postal code must be filled"})
+        res.send({message:"Your postal code is not filled"})
     }else if(postalCode.length < 5 || postalCode.length > 5){
         res.send({message:"Postal Code invalid"})
     }else if(education.length<=0){
@@ -66,11 +66,11 @@ router.post("/bootcampUserRegis", (req, res) => {
     }else if(program.length <=0 ){
         res.send({ message: "Please add your how you know this program" })
     }else if(batch.length <= 0){
-        res.send({ message: "Please add your batch" })
+        res.send({ message: "Batch not selected" })
     }else if(motivation.length <=0){
-        res.send({ message: "Please add your motivation" })
+        res.send({ message: "Your motivation is not filled in" })
     }else if(busy.length <=0){
-        res.send({ message: "Please add what you are busy with" })
+        res.send({ message: "Your busy is not filled in" })
     }else{
         db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
             if (err) {

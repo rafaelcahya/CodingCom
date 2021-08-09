@@ -37,7 +37,7 @@ function BootcampNavbar() {
                 </g>
                 </svg>
                 <div className="flex gap-14">
-                    <Link to="/schedule">
+                    <Link to={"/schedule/" + localStorage.getItem("name")}>
                         <p className="hover:text-yellow-500">Schedule</p>
                     </Link>
                     <a href="#about" className="hover:text-yellow-500">About</a>

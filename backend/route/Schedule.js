@@ -13,6 +13,7 @@ router.post("/addSchedule", (req, res) => {
     const des = req.body.des
     const location = req.body.location
     const status = req.body.status
+    const batch = req.body.batch
     const createAt = req.body.createAt
     let updateAt = ""
     let isDeleted = "NO"
@@ -31,8 +32,10 @@ router.post("/addSchedule", (req, res) => {
         res.send({ message: "You must fill this location" })
     } else if (status.length <= 0) {
         res.send({ message: "You must choose this status" })
-    } else {
-        db.query("INSERT INTO schedule (title, description, date, time, location, status , scheduleCreateAt, scheduleUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, des, date, time, location, status, createAt, updateAt, isDeleted], (err, results) => {
+    } else if (batch.length<=0){
+        res.send({message:"You must choose batch"})
+    }else {
+        db.query("INSERT INTO schedule (title, description, date, time, location, status, batch_id, scheduleCreateAt, scheduleUpdateAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [title, des, date, time, location, status, batch, createAt, updateAt, isDeleted], (err, results) => {
             console.log(err)
             res.send({message: "Schedule have been successfully submited"})
         })
@@ -40,11 +43,30 @@ router.post("/addSchedule", (req, res) => {
 
 })
 
-router.get("/ScheduleList", (req, res) => {
+router.get("/ScheduleList/:name", (req, res) => {
+    const name = req.params.name
     let isDeleted = "NO"
-    db.query("SELECT * from schedule WHERE isDeleted = ? ORDER BY date", isDeleted, (err, results) => {
-        res.send(results)
-        console.log(results)
+    var user_id = 0
+    var batch = 0
+    db.query("SELECT * from user WHERE name = ? AND isDeleted = ?", [name, isDeleted], (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+          user_id = results[0].id
+          db.query("SELECT * from bootcampuser WHERE user_id = ? AND isDeleted = ?", [user_id, isDeleted], (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+              batch = results[0].batch
+              db.query("SELECT * from schedule WHERE isDeleted = ? AND batch_id = ? ORDER BY date", [isDeleted, batch], (err, results) => {
+                res.send(results)
+                console.log(results)
+            })
+            }
+        })
+        }
     })
 })
 

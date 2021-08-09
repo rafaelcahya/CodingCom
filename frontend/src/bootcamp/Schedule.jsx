@@ -13,8 +13,9 @@ export default function Schedule() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/schedule/ScheduleList").then((response) => {
+        axios.get("http://localhost:3001/schedule/ScheduleList/"+localStorage.getItem("name")).then((response) => {
             setValue(response.data)
+            console.log(response.data)
         })
     }, []);
     
@@ -34,7 +35,7 @@ export default function Schedule() {
                         <p className="bg-blue-500 w-0.5 h-auto mr-5"></p>
                         <div className="flex flex-col">
                             {
-                                value.map((val) => {
+                                !value.length ? (<p>You must register bootcamp first to see your schedule</p>):(value.map((val) => {
                                     return <div className="schedule-card flex items-center border-b py-5 hover:bg-blue-50 transition duration-100">
                                             <div className="w-full md:w-1/5 border-r-0 md:border-r-2 pl-5">
                                                 <p className="color-blue-1 tracking-wide font-semibold">{formatDate(val.date)}</p>
@@ -66,7 +67,7 @@ export default function Schedule() {
                                                 </div>
                                             </div>
                                     </div>
-                                })
+                                }))
                             }
                         </div>
                     </div>

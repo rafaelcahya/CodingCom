@@ -16,11 +16,11 @@ router.post("/feedback", (req, res) => {
     let isDeleted = "NO"
 
     if(about.length <= 0 && des.length<=0){
-        res.send({message:"All form must be filled"})
+        res.send({message:"All form have not been filled"})
     } else if (about.length <= 0) {
         res.send({ message: "About not selected" })
     } else if (des.length <= 0) {
-        res.send({ message: "Description can not be empty" })
+        res.send({ message: "Description is not filled in" })
     } else if(des.length > 500){
         res.send({message:"Description must be less than 500 character"})
     } else {

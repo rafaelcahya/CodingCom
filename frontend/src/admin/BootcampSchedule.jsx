@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './admin-major/Sidebar'
 import Axios from 'axios'
+
+const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
 
 export default function BootcampSchedule() {
     const [title, setTitle] = useState("")
@@ -10,6 +12,8 @@ export default function BootcampSchedule() {
     const [location, setLocation] = useState("")
     const [status, setStatus] = useState("")
     const [createAt, setCreateAt] = useState("")
+    const [batch, setBatch] = useState("")
+    const [value, setValue] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
 
     window.onload = setTimeout(function () {
@@ -20,8 +24,15 @@ export default function BootcampSchedule() {
         setCreateAt(dateTime)
     }, 500)
 
+    useEffect(() => {
+        Axios.get("http://localhost:3001/batch/listBatch").then((response) => {
+            setValue(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
     const submit = () => {
-        Axios.post("http://localhost:3001/schedule/addschedule", { createAt: createAt, title: title, des: des, date:date, time:time, location:location, status:status }).then((response) => {
+        Axios.post("http://localhost:3001/schedule/addschedule", { createAt: createAt, batch: batch, title: title, des: des, date:date, time:time, location:location, status:status }).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
         })
@@ -36,6 +47,21 @@ export default function BootcampSchedule() {
                         <div className="flex flex-col gap-3">
                             <p className="text-lg font-semibold">Add a bootcamp schedule</p>
                         </div>
+                        <div className="flex flex-col gap-2">
+                                    <p className="text-sm font-semibold">Select the Batch You Want to Join</p>
+                                    <select name="" id="" onChange={(event) => {
+                                        setBatch(event.target.value)
+                                    }} >
+                                        <option>Choose Batch</option>
+                                        {
+                                            value.map(
+                                                (val) => {
+                                                    return <option value={val.batchId}>{val.batch} : {formatDate(val.startDate)} - {formatDate(val.endDate)}</option>
+                                                }
+                                            )
+                                        }
+                                    </select>
+                                </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm font-semibold">Title</p>
                             <input type="text" placeholder="Input title" onChange={(event) => {
@@ -70,7 +96,7 @@ export default function BootcampSchedule() {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="gender text-sm font-semibold">Status</p>
-                            <select name="" id="" value={status} onChange={(event) => {
+                            <select name="" id="" onChange={(event) => {
                                     setStatus(event.target.value)
                                 }}>
                                 <option value="">Choose status</option>
