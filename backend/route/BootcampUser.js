@@ -128,6 +128,24 @@ router.get("/BootcampList", (req, res) => {
     })
 })
 
+router.get("/BootcampListUser/:name", (req, res) => {
+    const name = req.params.name
+    let isDeleted = "NO"
+    var user_id = 0
+    db.query("SELECT * from user WHERE name = ? AND isDeleted = ?", [name, isDeleted], (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+          user_id = results[0].id
+          db.query("SELECT * from bootcampuser WHERE user_id = ? AND isDeleted = ?", [user_id, isDeleted], (err, results) => {
+            res.send(results)
+                console.log(results)
+        })
+        }
+    })
+})
+
 router.put("/deleteBootcamp", (req, res) => {
     const id = req.body.id
     const updateAt = req.body.updateAt

@@ -204,13 +204,13 @@ router.post("/registerMentor", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-
+    let isDeleted = "NO"
     const name = req.body.name
     const password = req.body.password
     var crypto = require('crypto')
     var hash = crypto.createHash('md5').update(password).digest('hex')
 
-    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+    db.query("SELECT * From user WHERE name = ? AND isDeleted = ?", [name, isDeleted], (err, results) => {
         if (err) {
             console.log(err)
         }
