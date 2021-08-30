@@ -456,6 +456,14 @@ router.get("/userList", (req, res) => {
     })
 })
 
+router.get("/mentorList", (req, res) => {
+    let role = 2
+    let isDeleted = "NO"
+    db.query("SELECT user.id, user.fullname, user.name, user.email, user.status, user.userCreateAt, user.userUpdateAt, user.isDeleted, role.role FROM user,role WHERE user.roleId=role.id AND user.isDeleted = ? AND user.roleId = ?", [isDeleted, role], (err, results) => {
+        res.send(results)
+    })
+})
+
 router.get("/userListActive", (req, res) => {
     let status = "Actived"
     let isDeleted = "NO"

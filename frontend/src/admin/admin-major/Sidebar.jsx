@@ -144,6 +144,20 @@ export default function Sidebar() {
                         ]
                     },
                     {
+                        title: 'Receipt',
+                        itemId: '/admin/add-receipt',
+                        subNav: [
+                            {
+                                title: 'Add Receipt',
+                                itemId:'/admin/add-receipt',
+                            },
+                            {
+                                title:'Receipt List',
+                                itemId:'/admin/list-receipt',
+                            }
+                        ]
+                    },
+                    {
                         title: 'Feedback',
                         itemId: '/admin/list-feedback',
                     },

@@ -16,6 +16,7 @@ export default function Purchase() {
     const [value, setValue] = useState([])
     const [valueList, setValueList] = useState([])
     const [valueVal, setValueVal] = useState([])
+    const [sum, setSum] = useState([])
     const [payList, setPayList] = useState(value)
 
     let image = require('../../../asset/upload/'+ localStorage.getItem("image"))
@@ -43,6 +44,14 @@ export default function Purchase() {
     useEffect(() => {
         axios.get("http://localhost:3001/transaction/TransactionListUser/"+localStorage.getItem("name")).then((response) => {
             setValue(response.data)
+            console.log(response.data)
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/transaction/TransactionListUserSUM/"+localStorage.getItem("name")).then((response) => {
+            setSum(response.data)
             console.log(response.data)
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -121,6 +130,12 @@ export default function Purchase() {
                                             </div>
                                         </Link>
                                     }
+                                    {sum.map((sum)=>{
+                                        return <div className="flex justify-between gap-10 p-2">
+                                        <p className="text-gray-400">Total Payment</p>
+                                        <p className="font-semibold text-green-500">{sum.totalPrice}</p>
+                                    </div>
+                                    })}
                                 </div>
                             </div>
                         })}
@@ -148,19 +163,13 @@ export default function Purchase() {
                                     <div className="flex flex-col gap-1 w-full md:w-3/12">
                                         <p className="text-xs font-medium text-gray-400">Bundle price</p>
                                         <div>
-                                            {
-                                                val.paket_id == 1 ? (<p className="font-semibold">IDR 286.000</p>) :
-                                                val.paket_id == 2 ? (<p className="font-semibold">IDR 250.000</p>): (<p className="font-semibold">IDR 75.000</p>)
-                                            }
+                                          <p className="font-semibold">{val.price}</p>
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-1 w-full md:w-3/12">
                                         <p className="text-xs font-medium text-gray-400">Total price</p>
                                         <div>
-                                            {
-                                                val.paket_id == 1 ? (<p className="font-semibold">IDR 286.000</p>) :
-                                                val.paket_id == 2 ? (<p className="font-semibold">IDR 250.000</p>): (<p className="font-semibold">IDR 75.000</p>)
-                                            }
+                                        <p className="font-semibold">{val.price}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -213,19 +222,13 @@ function Menu({payList}) {
                             <div className="flex flex-col gap-1 w-full md:w-3/12">
                                 <p className="text-xs font-medium text-gray-400">Bundle price</p>
                                 <div>
-                                    {
-                                        val.paket_id == 1 ? (<p className="font-semibold">IDR 286.000</p>) :
-                                        val.paket_id == 2 ? (<p className="font-semibold">IDR 250.000</p>): (<p className="font-semibold">IDR 75.000</p>)
-                                    }
+                                <p className="font-semibold">{val.price}</p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1 w-full md:w-3/12">
                                 <p className="text-xs font-medium text-gray-400">Total price</p>
                                 <div>
-                                    {
-                                        val.paket_id == 1 ? (<p className="font-semibold">IDR 286.000</p>) :
-                                        val.paket_id == 2 ? (<p className="font-semibold">IDR 250.000</p>): (<p className="font-semibold">IDR 75.000</p>)
-                                    }
+                                <p className="font-semibold">{val.price}</p>
                                 </div>
                             </div>
                         </div>

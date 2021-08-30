@@ -4,6 +4,7 @@ import Sidebar from './admin-major/Sidebar';
 
 export default function PaymentAPPROVED() {
     const [payList, setPayList] = useState([])
+    const [sum, setSum] = useState([])
     const [updateAt, setUpdateAt] = useState("")
 
     window.onload = setTimeout(function () {
@@ -17,6 +18,13 @@ export default function PaymentAPPROVED() {
     useEffect(() => {
         axios.get("http://localhost:3001/transaction/TransactionListAPPROVED").then((response) => {
             setPayList(response.data)
+            console.log(response.data)
+        })
+    }, []);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/transaction/TransactionSUM").then((response) => {
+            setSum(response.data)
             console.log(response.data)
         })
     }, []);
@@ -49,6 +57,7 @@ export default function PaymentAPPROVED() {
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Username</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Package Type</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Price</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">last updated</th>
@@ -63,6 +72,7 @@ export default function PaymentAPPROVED() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.tipe_paket}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">IDR {val.price}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p>
                                                         </td>
@@ -92,6 +102,11 @@ export default function PaymentAPPROVED() {
                             </div>
                         </div>
                     </div>
+                    {sum.map((total) => {
+                        return <div>
+                            Total : {total.Total}
+                        </div>
+                    })}
                 </div>
             </div>
         </>

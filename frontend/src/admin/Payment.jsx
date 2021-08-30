@@ -70,6 +70,7 @@ export default function Payment() {
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Username</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Package Type</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Price</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last created</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Last updated</th>
@@ -84,6 +85,7 @@ export default function Payment() {
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.name}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.email}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">{val.tipe_paket}</td>
+                                                        <td className="px-6 py-3 whitespace-nowrap">IDR {val.price}</td>
                                                         <td className="px-6 py-3 whitespace-nowrap">
                                                             {
                                                                 (val.status === "Approved") ? <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-green-100 text-green-500">{val.status}</p> : <p className="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-lg bg-yellow-100 text-yellow-500">{val.status}</p>

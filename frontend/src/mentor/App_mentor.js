@@ -10,6 +10,8 @@ import ShowCourse from "./ShowCourse.jsx";
 import ListCourse from "./ListCourse"
 import ListClass from "./ListClass.jsx"
 import EditClass from "./EditClass.jsx"
+import ListReceipt from "./ListReceipt.jsx"
+import ReceiptDetail from "./ReceiptDetail"
 
 function App_mentor() {
     return (
@@ -24,6 +26,8 @@ function App_mentor() {
                 <Route exact path="/mentor/mentor-show-course-:id-:hash" component={ShowCourse} />
                 <Route exact path="/mentor/list-course" component={ListCourse} />
                 <Route exact path="/mentor/list-class" component={ListClass} />
+                <Route exact path="/mentor/list-receipt" component={ListReceipt} />
+                <Route exact path="/mentor/receipt-detail-:id" component={ReceiptDetail} />
                 <Route exact path="/mentor/edit-class-:id" component={EditClass} />
             </Switch>
         </Router>
