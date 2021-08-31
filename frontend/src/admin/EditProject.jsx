@@ -44,7 +44,6 @@ function EditProject(props) {
     }, []);
 
     const submit = () => {
-
         if (editorRef.current) {
             const fd = new FormData();
             fd.append('fileUpload', file)
@@ -56,17 +55,10 @@ function EditProject(props) {
             fd.append('brief', editorRef.current.getContent())
             fd.append('updateAt', updateAt)
             fd.append('language', language)
-            if(file.length<=0 || file == null||document.getElementById("image")==null){
-                setErrorMessage("Project Image can not be empty")
-            }else if(projectFile.length<=0 || projectFile == null||document.getElementById("projectFile")==null){
-                setErrorMessage("Project File can not be empty")
-            }else{
                 Axios.post("http://localhost:3001/project/editProject", fd).then((response) => {
                     console.log(response)
                     setErrorMessage(response.data.message)
-
                 })
-            }
         }
     }
 

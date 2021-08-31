@@ -43,7 +43,7 @@ export default function Schedule() {
                         <p className="bg-blue-500 w-0.5 h-auto mr-5"></p>
                         <div className="flex flex-col">
                             {
-                                !list.length ? (<p>You must register bootcamp first to see your schedule</p>) : !value.length ? (<p>Your schedule is not created, please wait for a few days</p>):(value.map((val) => {
+                                !list.length ? (<p className="text-red-500 font-semibold">You are not registered in any bootcamp</p>) : !value.length ? (<p>Your schedule is not created, please wait for a few days</p>):(value.map((val) => {
                                     return <div className="schedule-card flex items-center border-b py-5 hover:bg-blue-50 transition duration-100">
                                             <div className="w-3/5 md:w-1/5 border-r-0 md:border-r-2 pl-5">
                                                 <p className="color-blue-1 tracking-wide font-semibold">{formatDate(val.date)}</p>
