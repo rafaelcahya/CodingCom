@@ -60,6 +60,9 @@ app.use("/category", categoryRoute)
 const FAQRoute = require('./route/FAQ')
 app.use("/faq", FAQRoute)
 
+const receiptRoute = require('./route/Receipt')
+app.use("/receipt", receiptRoute)
+
 app.listen(3001, (req, res) => {
     console.log("Server running...")
 });

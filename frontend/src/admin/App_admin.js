@@ -32,6 +32,9 @@ import ListFeedback from "./ListFeedback.jsx"
 import EditSchedule from "./EditSchedule.jsx"
 import EditCategory from "./EditCategory.jsx"
 import EditProjectSubmission from "./EditProjectSubmission"
+import AddReceipt from "./AddReceipt.jsx"
+import ListReceipt from "./ListReceipt.jsx"
+import ReceiptDetail from "./ReceiptDetail"
 
 function App_admin() {
     return (
@@ -70,6 +73,9 @@ function App_admin() {
               <Route path="/admin/list-feedback" component={ListFeedback} />
               <Route path="/admin/edit-schedule-:id" component={EditSchedule} />
               <Route path="/admin/edit-category-:id" component={EditCategory} />
+              <Route path="/admin/add-receipt" component={AddReceipt} />
+              <Route path="/admin/list-receipt" component={ListReceipt} />
+              <Route exact path="/admin/receipt-detail-:id" component={ReceiptDetail} />
             </Switch>
           </Router>
     );
