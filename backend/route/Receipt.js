@@ -1,10 +1,12 @@
-const { constants } = require('buffer')
-const { Router } = require('express')
 const express = require('express')
 const { type } = require('os')
 const router = express.Router()
 
 const db = require('../config/db')
+
+const nodemailer = require('nodemailer')
+const fs = require('fs')
+const handlebars = require('handlebars')
 
 router.post("/addReceipt", (req, res) => {
     const nominal = req.body.nominal
@@ -30,9 +32,58 @@ router.post("/addReceipt", (req, res) => {
         var	format = nominal.toString().split('').reverse().join(''),
 	    rupiah 	= format.match(/\d{1,3}/g);
 	    rupiah	= rupiah.join('.').split('').reverse().join('');
-        db.query("INSERT INTO receipt (pembayaran, nominal, jumlah, mentor_id, createAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [pembayaran, rupiah, jumlah, mentor, createAt, isDeleted], (err, results) => {
-            console.log(err)
-            res.send({message: "Receipt have been successfully send to mentor"})
+        db.query("SELECT * From user WHERE id = ?", mentor, (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            if (results.length > 0) {
+                const readHTMLFile = function(path, callback) {
+                    fs.readFile(path, { encoding: "utf-8" }, function(err, html) {
+                        if (err) {
+                            throw err;
+                        callback(err);
+                        } else {
+                            callback(null, html);
+                        }
+                    });
+                };
+                var email = results[0].email
+                if(email.match(results[0].email)!=null){
+                    var transporter = nodemailer.createTransport({
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            type: 'login',
+                            user: 'codingpaymentcom@gmail.com',
+                            pass: 'Codingcom01'
+                        }
+                    })
+                    readHTMLFile(
+                        __dirname + "/views/forgotpass.html",
+                        function(err, html){
+                            var template = handlebars.compile(html);
+    
+                            var htmlToSend = template();
+                            var mailOption = {
+                                from: 'codingpaymentcom@gmail.com',
+                                to: email,
+                                subject: 'Receipt Payment',
+                                html: "<p>Thank you for being a mentor at Coding com </p>" + '</br>' + "Your payment has been send by admin, you can check it at codingcom website"
+                            }
+                            transporter.sendMail(mailOption, function (err, info) {
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('Email sent:' + info.response)
+                                }
+                            })
+                        }
+                    )
+                }
+                db.query("INSERT INTO receipt (pembayaran, nominal, jumlah, mentor_id, createAt, isDeleted) VALUES (?, ?, ?, ?, ?, ?);", [pembayaran, rupiah, jumlah, mentor, createAt, isDeleted], (err, results) => {
+                    console.log(err)
+                    res.send({message: "Receipt have been successfully send to mentor"})
+                })
+            } 
         })
     }
 })

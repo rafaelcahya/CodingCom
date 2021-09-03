@@ -5,19 +5,23 @@ import logo from "../../asset/logo/logo_codingcom_footer.svg"
 
 function Footer() {
     const [des, setDes] = useState("")
-    const [email, setEmail] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [name, setName] = useState("")
+    const [createAt, setCreateAt] = useState("")
     window.onload = setTimeout(function () {
         let x = localStorage.getItem("name");
         setName(x)
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
+        setCreateAt(dateTime)
     }, 10)
 
     const subscribe = () => {
-        Axios.post("http://localhost:3001/subscribe/subscribe", {email:email, des:des}).then((response) => {
+        Axios.post("http://localhost:3001/subscribe/subscribe", {name:localStorage.getItem("name"), des:des, createAt:createAt}).then((response) => {
             console.log(response)
             setErrorMessage(response.data.message)
-
         })
     }
     return (
@@ -27,9 +31,6 @@ function Footer() {
                     <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-x-10 gap-y-10 lg:gap-y-0">
                         <p className="font-semibold text-xl text-white w-80">Want Us to Email you About Special Offers & Updates?</p>
                         <div className="flex flex-col md:flex-row items-center">
-                            <input type="text" placeholder="Enter your email" className="color-black-1 font-size-base px-5 py-4 w-64 rounded-xl md:rounded-none md:rounded-tl-xl md:rounded-bl-xl outline-none" onChange={(event) => {
-                            setEmail(event.target.value)
-                        }}/>
                             <input onClick={subscribe} type="submit" value="Subscribe" className="bg-blue-1 font-size-base text-white px-5 py-4 w-full md:w-auto rounded-xl md:rounded-none md:rounded-tr-xl md:rounded-br-xl outline-none" onChange={(event) => {
                             setDes(event.target.value)
                         }}/>
