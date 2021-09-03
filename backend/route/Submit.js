@@ -76,6 +76,33 @@ router.post("/score", (req, res) => {
     }
 })
 
+router.post("/certificateDownloaded", (req, res) => {
+    const id = req.body.id
+    const name = req.body.name
+    var user_id = 0
+    var isDeleted = "NO"
+    var total
+    db.query("SELECT * From user WHERE name = ?", name, (err, results) => {
+        if (err) {
+            console.log(err)
+        }
+        if (results.length > 0) {
+            user_id = results[0].id
+            db.query("SELECT * from projectsub WHERE project_id = ? AND user_id = ? AND isDeleted = ?", [id, user_id, isDeleted], (err, results) => {
+                if(err){
+                    console.log(err)
+                }
+                if(results.length > 0){
+                    total = results[0].certificateDownloaded + 1
+                    db.query("UPDATE projectsub SET certificateDownloaded = ? WHERE project_id = ? AND user_id = ? AND isDeleted = ?;", [total, id, user_id, isDeleted], (err, results) => {
+                        console.log(err)
+                    })
+                }
+            })
+        }
+    })
+})
+
 router.get("/submitList", (req, res) => {
     let isDeleted = "NO"
     db.query("SELECT projectsub.id, projectsub.url, projectsub.fileName, projectsub.live_site_url, projectsub.description, projectsub.timesUpload, projectsub.projectsubCreateAt, projectsub.projectsubUpdateAt, project.projectTitle, project.type_id, typeproject.type, user.name from projectsub,project,typeproject,user WHERE projectsub.user_id = user.id AND projectsub.project_id = project.projectId AND project.type_id = typeproject.typeId AND projectsub.isDeleted = ?", isDeleted, (err, results) => {

@@ -19,6 +19,14 @@ const PDFAngular = (props) => {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const submit = () =>{
+        axios.post("http://localhost:3001/submit/certificateDownloaded",{id:props.projectId, name:localStorage.getItem("name")}).then((response) => {
+            console.log(response)
+
+        })
+    }
+
     return (
         <>
             <div>
@@ -30,7 +38,7 @@ const PDFAngular = (props) => {
                                     return <p className="text-white py-5">{val.projectTitle}</p>
                                 })
                             }
-                            <div className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-6 py-2 rounded-lg w-max cursor-pointer" onClick={toPdf}>Download as PDF</div>
+                            <div className="bg-blue-1 hover:bg-blue-400 text-white text-sm font-medium px-6 py-2 rounded-lg w-max cursor-pointer" onClick={toPdf}><p onClick={submit}>Download as PDF</p></div>
                         </div>
                     }
                 </Pdf>

@@ -56,6 +56,10 @@ export default function Sidebar() {
                             }
                         ]
                     },
+                    {
+                        title: 'Receipt',
+                        itemId: '/mentor/list-receipt',
+                    },
                 ]}
                 />
             </div>
