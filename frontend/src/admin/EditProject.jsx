@@ -44,7 +44,6 @@ function EditProject(props) {
     }, []);
 
     const submit = () => {
-
         if (editorRef.current) {
             const fd = new FormData();
             fd.append('fileUpload', file)
@@ -56,13 +55,10 @@ function EditProject(props) {
             fd.append('brief', editorRef.current.getContent())
             fd.append('updateAt', updateAt)
             fd.append('language', language)
-          
                 Axios.post("http://localhost:3001/project/editProject", fd).then((response) => {
                     console.log(response)
                     setErrorMessage(response.data.message)
-
                 })
-            
         }
     }
 

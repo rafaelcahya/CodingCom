@@ -41,7 +41,7 @@ router.post("/project", (req, res) => {
             // file.mv('../frontend/src/asset/fileUpload/' + file.name)
             file.mv('../frontend/src/asset/upload/' + file.name)
             projectFile.mv('../frontend/src/asset/upload/' + projectFile.name)
-            res.send({message:"Data has been added successfully"})
+            res.send({message : "Data has been added successfully"})
         })
     }
 })

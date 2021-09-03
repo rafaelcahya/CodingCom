@@ -183,7 +183,7 @@ export default function Homepage() {
                         <p className=" text-xl font-semibold">Join us in our community.</p>
                         <p>We talk about challenge and project, help each other with code, chat about all things web development.</p>
                     </div>
-                    <a href="https://discord.gg/rvdAvXYt" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
+                    <a href="https://discord.gg/D9dDhG3tWX" className="font-medium px-8 py-3 rounded-xl" style={{backgroundColor: "#2c2f33"}}>Join us</a>
                 </div>
 
                 <div className="flex flex-col items-center gap-5 mt-32 mx-10">
